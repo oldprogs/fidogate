@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftn2rfc.c,v 4.35 1998/05/03 12:46:38 mj Exp $
+ * $Id: ftn2rfc.c,v 4.36 1998/05/03 12:56:07 mj Exp $
  *
  * Convert FTN mail packets to RFC mail and news batches
  *
@@ -40,7 +40,7 @@
 
 
 #define PROGRAM 	"ftn2rfc"
-#define VERSION 	"$Revision: 4.35 $"
+#define VERSION 	"$Revision: 4.36 $"
 #define CONFIG		DEFAULT_CONFIG_GATE
 
 
@@ -333,7 +333,6 @@ int unpack(FILE *pkt_file, Packet *pkt)
 	x_orig_to[0] = 0;
 	tl_clear(&theader);
 	tl_clear(&tbody);
-	charset_reset();			/* Reset ^ACHRS char set */
 
 	/*
 	 * Read message header
@@ -490,15 +489,14 @@ int unpack(FILE *pkt_file, Packet *pkt)
 		cvt8 = AREA_QP;
 	}
 	
-	/*
-	 * Convert message body
-	 */
+	/* Convert message body */
 	lines = 0;
-
+	cs_in = NULL;
 	if( (p = kludge_get(&body.kludge, "CHRS", NULL)) )
-	    charset_set(p);
+	    cs_in = charset_chrs_name(p);
 	else if( (p = kludge_get(&body.kludge, "CHARSET", NULL)) )
-	    charset_set(p);
+	    cs_in = charset_chrs_name(p);
+	/**FIXME: set in/out charset**/
 
 	rfc_lvl   = 0;
 	rfc_lines = FALSE;
@@ -514,16 +512,16 @@ int unpack(FILE *pkt_file, Packet *pkt)
 		rfc_lines = TRUE;
 	}
 	    
-	/**FIXME: set in/out charset**/
 	for(pl=body.body.first; pl; pl=pl->next)
 	{
 	    p = pl->line;
 	    if(*p == '\001')			/* Kludge in message body */
 	    {
-		if(strnieq(p+1, "CHRS: ", 6))
-		    cs_in = charset_chrs_name(buf + 6);
-		if(strnieq(p+1, "CHARSET: ", 9))
-		    cs_in = charset_chrs_name(buf + 9);
+		if(strnieq(p + 1, "CHRS: ", 6))
+		    cs_in = charset_chrs_name(p + 6);
+		if(strnieq(p + 1, "CHARSET: ", 9))
+		    cs_in = charset_chrs_name(p + 9);
+		/**FIXME: change in/out charset if needed**/
 	    }
 	    else				/* Normal line */
 	    {
@@ -1463,6 +1461,7 @@ int main(int argc, char **argv)
     areas_init();
     hosts_init();
     alias_init();
+    charset_init();
 
     /*
      * If called with -l lock option, try to create lock FILE

@@ -1,6 +1,10 @@
 Sun May  3 10:27:29 1998  Martin Junius  <mj@fido.de>
 
+	* src/gate/ftn2rfc.c (main): added charset_init().
+
 	------- CVS ci -------------------------------------------------------
+
+	* src/gate/ftn2rfc.c (unpack): some more fixes to get it compiled.
 
 	* src/gate/ftn2rfc.c (check_chrs): removed.
 	  (unpack): started using new charset code.
