@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: prototypes.h,v 4.27 1997/07/01 19:34:51 mj Exp $
+ * $Id: prototypes.h,v 4.28 1997/07/25 21:01:42 mj Exp $
  *
  * Prototypes for functions in libfidogate.a
  *
@@ -336,14 +336,15 @@ void	strip_crlf		(char *);
 void	strip_space		(char *);
 int	is_space		(int);
 int	is_blank		(int);
+int     is_digit		(int);
 char   *str_expand_name		(char *, size_t, char *);
 
 #define BUF_EXPAND(d,s)			str_expand_name(d,sizeof(d),s)
 
 char   *str_dosify		(char *);
-#if defined(OS2) || defined(MSDOS)
+#ifdef DO_DOSIFY /* MSDOS, OS2 */
 # define DOSIFY_IF_NEEDED(s)	str_dosify(s);
-#else /**UNIX**/
+#else            /* UNIX */
 # define DOSIFY_IF_NEEDED(s)
 #endif
 int    run_system		(char *);

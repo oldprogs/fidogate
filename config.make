@@ -1,6 +1,6 @@
 # -*- Makefile -*-
 #
-# $Id: config.make,v 4.8 1997/06/01 16:21:53 mj Exp $
+# $Id: config.make,v 4.9 1997/07/25 21:01:28 mj Exp $
 #
 # FIDOGATE Makefile configuration
 #
@@ -95,10 +95,14 @@ PERL		= /usr/bin/perl
 
 # installation program
 # ISC 3.x: use bsdinst
- INSTALL_PROG	= install -c -g $(GROUP) -o $(OWNER) -m $(PERM_PROG)
- INSTALL_DATA	= install -c -g $(GROUP) -o $(OWNER) -m $(PERM_DATA)
- INSTALL_SETUID	= install -c -g $(GROUP) -o $(OWNER) -m $(PERM_SETUID)
- INSTALL_DIR	= install -g $(GROUP) -o $(OWNER) -m $(PERM_DIR) -d
+ INSTALL	= install
+# MSDOS, OS2, WIN32
+# EXE		= .exe
+ EXE		=
+ INSTALL_PROG	= $(INSTALL) -c -g $(GROUP) -o $(OWNER) -m $(PERM_PROG)
+ INSTALL_DATA	= $(INSTALL) -c -g $(GROUP) -o $(OWNER) -m $(PERM_DATA)
+ INSTALL_SETUID	= $(INSTALL) -c -g $(GROUP) -o $(OWNER) -m $(PERM_SETUID)
+ INSTALL_DIR	= $(INSTALL) -g $(GROUP) -o $(OWNER) -m $(PERM_DIR) -d
 
 # library name
 # LIB		= fidogate.a			# OS2

@@ -1,6 +1,22 @@
--*- Indented-Text -*-
+ -*- Indented-Text -*-
 
 X = for next release
+
+	* lock.c:lock_lockfile_id(): implement safer variant, see man 2
+	  open, NFS related bug with O_EXCL.
+
+	* ftn2rfc: ^ARFC-<mime> import.
+
+	* ftn2rfc: gateway check, log area.
+
+	* ftn2rfc/rfc2ftn: MAIL-log messages configurable.
+
+	* ftn2rfc: create single news message (not a new batch),
+	  suitable for e.g. innxmit.
+
+	* config: move config files to /etc/fidogate, %C for config dir.
+
+	* ftntick: junk file area for unknown file echo areas.
 
 	* ftnaf: option to sort areas.bbs, including zone/keys.
 
@@ -107,8 +123,6 @@ STARTED.* Replace calls to strncpy0/strncat0 with str_copy/str_append.
 	* ftn2rfc: restrict gateway to certain *Internet* addresses.
 
 	* X-Gateway / ^AGATEWAY processing.
-
-	* ftn2rfc: Newsgroups header?
 
 MOSTLY	* ftnpack: better file attach processing, -F DIR option. Don't
 DONE.	  copy netmail packets (do_noarc()), use rename(). If archiver

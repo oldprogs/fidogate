@@ -1,3 +1,51 @@
+Fri Jul 25 22:01:56 1997  Martin Junius  <mj@fido.de>
+
+	------- CVS ci -------------------------------------------------------
+
+	* doc/info2txt.pl: changed name to .pl.
+
+	* doc/Makefile (fidogate.txt): use $(PERL) to run info2txt.pl
+	  script, #! path name may be wrong while compiling.
+
+	* config.make.WIN32: updated. Please note that path names do not
+	  contain a drive. If a drive must be specified, use the //D/PATH
+	  notation, because D:/PATH will fail for executing programs and
+	  scripts.
+
+	* src/*/Makefile (install): updated install targets to include
+	  $(EXE) macro for program files.
+
+	* config.make: INSTALL defines install program, EXE defines
+	  program file name extension (.exe for MSDOS, OS2, WIN32).
+
+	* src/common/misc.c (is_digit): new signed char-safe version of
+	  isdigit() to prevent possible problems with <ctype.h>
+	  implementations. 
+
+	* src/*/*.c: replaced all calls to isdigit() with is_digit().
+
+	* src/include/prototypes.h: use #ifdef DO_DOSIFY to enable
+	  str_dosify() in DOSIFY_IF_NEEDED() macro.
+
+	* config.h (DO_DOSIFY): new #define for enabling
+ 	  DOSIFY_IF_NEEDED() macro.
+
+	* src/common/lock.c (lock_fd): replace old #ifdef with #ifndef
+	  DO_HAVE_FCNTL_LOCK.
+	  (unlock_fd): same.
+
+	* config.h (DO_HAVE_FCNTL_LOCK): new #define for file locking with
+	  fcntl(), see lock.c.
+	  Standard #define for POSIX UNIX before system specific #define. 
+
+Sun Jul 20 16:56:51 1997  Martin Junius  <mj@fido.de>
+
+	* scripts/nodelist/latest.pl: several changes to be used with
+	  nl-autoupd. 
+
+	* scripts/nodelist/nl-autoupd.pl: new script for automatically
+ 	  searching and applying nodediffs (not yet complete).
+
 Tue Jul  8 20:14:14 1997  Martin Junius  <mj@fido.de>
 
 	======= Release 4.2.5 ================================================

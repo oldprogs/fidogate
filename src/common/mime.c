@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: mime.c,v 4.4 1996/12/17 17:19:43 mj Exp $
+ * $Id: mime.c,v 4.5 1997/07/25 21:01:39 mj Exp $
  *
  * MIME stuff
  *
@@ -39,7 +39,7 @@ static int x2toi		(char *);
 
 static int is_qpx(int c)
 {
-    return isxdigit(c) /**isdigit(c) || (c>='A' && c<='F')**/ ;
+    return isxdigit(c) /**is_digit(c) || (c>='A' && c<='F')**/ ;
 }
 
 

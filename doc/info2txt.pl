@@ -1,6 +1,6 @@
-#!/usr/local/bin/perl
+#!/usr/bin/perl
 #
-# $Id: info2txt,v 4.0 1996/04/17 18:17:34 mj Exp $
+# $Id: info2txt.pl,v 4.1 1997/07/25 21:01:30 mj Exp $
 #
 # Stripping control stuff from .info file, yielding plain text
 #

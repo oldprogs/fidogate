@@ -1,6 +1,6 @@
 #:ts=8
 #
-#    $Id: Makefile,v 4.1 1996/05/03 19:18:44 mj Exp $
+#    $Id: Makefile,v 4.2 1997/07/25 21:01:40 mj Exp $
 #
 #    Makefile for FIDOGATE src/ffx/
 #
@@ -27,13 +27,13 @@ ffxbatch:	$(TOPDIR)/src/common/$(LIB)
 
 
 install:
-	$(INSTALL_SETUID)  ffx         $(LIBDIR)
-	$(INSTALL_PROG)   ffxqt       $(LIBDIR)
-	$(INSTALL_PROG)   ffxbatch    $(LIBDIR)
-	$(INSTALL_PROG)   ffxmail     $(LIBDIR)
-	$(INSTALL_PROG)   ffxrmail    $(LIBDIR)
-	$(INSTALL_PROG)   ffxrun      $(LIBDIR)
-	
+	$(INSTALL_SETUID) ffx$(EXE) $(LIBDIR)
+	$(INSTALL_PROG) ffxqt$(EXE) $(LIBDIR)
+	$(INSTALL_PROG) ffxbatch$(EXE) $(LIBDIR)
+	$(INSTALL_PROG) ffxmail $(LIBDIR)
+	$(INSTALL_PROG) ffxrmail $(LIBDIR)
+	$(INSTALL_PROG) ffxrun $(LIBDIR)
+
 
 clean:
 	rm -f $(PROGS)
@@ -50,7 +50,7 @@ depend:
 
 depend-all:
 	$(CC) $(CFLAGS) -M *.c >.depend
-		
+
 ifeq (.depend,$(wildcard .depend))
 include .depend
 endif

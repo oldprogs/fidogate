@@ -1,6 +1,6 @@
 #:ts=8
 #
-#    $Id: Makefile,v 4.6 1996/11/09 18:02:16 mj Exp $
+#    $Id: Makefile,v 4.7 1997/07/25 21:01:43 mj Exp $
 #
 #    Makefile for FIDOGATE src/toss/
 #
@@ -42,19 +42,19 @@ ftnexpire:	$(TOPDIR)/src/common/$(LIB) $(OBJS_EXPIRE)
 
 
 install:
-	$(INSTALL_PROG)   ftn2ftn     $(LIBDIR)
-	$(INSTALL_PROG)   ftntoss     $(LIBDIR)
-	$(INSTALL_PROG)   ftnexpire   $(LIBDIR)
-	$(INSTALL_PROG)   ftnroute    $(LIBDIR)
-	$(INSTALL_PROG)   ftnpack     $(LIBDIR)
-	$(INSTALL_PROG)   runtoss     $(LIBDIR)
-	$(INSTALL_PROG)   rununpack   $(LIBDIR)
-	$(INSTALL_PROG)   magic       $(LIBDIR)
-	$(INSTALL_PROG)   runin       $(LIBDIR)
-	$(INSTALL_PROG)   runout      $(LIBDIR)
-	$(INSTALL_PROG)   rundf       $(LIBDIR)
-	$(INSTALL_PROG)   ftnaf       $(LIBDIR)
-	$(INSTALL_SETUID)  ftnafmail   $(LIBDIR)
+	$(INSTALL_PROG) ftn2ftn$(EXE) $(LIBDIR)
+	$(INSTALL_PROG) ftntoss$(EXE) $(LIBDIR)
+	$(INSTALL_PROG) ftnexpire$(EXE) $(LIBDIR)
+	$(INSTALL_PROG) ftnroute$(EXE) $(LIBDIR)
+	$(INSTALL_PROG) ftnpack$(EXE) $(LIBDIR)
+	$(INSTALL_PROG) runtoss $(LIBDIR)
+	$(INSTALL_PROG) rununpack $(LIBDIR)
+	$(INSTALL_PROG) magic $(LIBDIR)
+	$(INSTALL_PROG) runin $(LIBDIR)
+	$(INSTALL_PROG) runout $(LIBDIR)
+	$(INSTALL_PROG) rundf $(LIBDIR)
+	$(INSTALL_PROG) ftnaf$(EXE) $(LIBDIR)
+	$(INSTALL_SETUID) ftnafmail$(EXE) $(LIBDIR)
 
 
 

@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: parsenode.c,v 4.3 1996/12/17 17:19:46 mj Exp $
+ * $Id: parsenode.c,v 4.4 1997/07/25 21:01:40 mj Exp $
  *
  * Parse FTN address strings (Z:N/F.P)
  *
@@ -53,10 +53,10 @@ int znfp_get_number(char **ps)
 	s += 3;
 	val = WILDCARD;
     }
-    else if(!isdigit(*s))
+    else if(!is_digit(*s))
 	return ERROR;
     else
-	while(isdigit(*s))
+	while(is_digit(*s))
 	    val = val*10 + *s++ - '0';
 
     *ps = s;

@@ -1,5 +1,5 @@
 #
-# $Id: Makefile,v 4.6 1996/12/22 10:39:27 mj Exp $
+# $Id: Makefile,v 4.7 1997/07/25 21:01:29 mj Exp $
 #
 # Makefile FIDOGATE doc/
 #
@@ -27,7 +27,7 @@ fidogate.info:	fidogate.texi
 	-makeinfo fidogate.texi
 
 fidogate.txt:	fidogate.info
-	./info2txt fidogate.info-* >fidogate.txt
+	$(PERL) info2txt.pl fidogate.info-* >fidogate.txt
 
 fidogate.dvi:	fidogate.texi
 	texi2dvi fidogate.texi

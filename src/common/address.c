@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway software UNIX <-> FIDO
  *
- * $Id: address.c,v 4.5 1996/12/17 17:19:37 mj Exp $
+ * $Id: address.c,v 4.6 1997/07/25 21:01:38 mj Exp $
  *
  * Parsing and conversion for FIDO and RFC addresses
  *
@@ -152,7 +152,7 @@ Node *inet_to_ftn(char *addr)
     if(*p=='p' || *p=='P') {
 	p++;
 	pn = p;
-	while(*p && isdigit(*p))
+	while(*p && is_digit(*p))
 	    p++;
 	if(*p == '.') {				/* Must end with '.' */
 	    p++;

@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: msgid.c,v 4.5 1997/05/10 20:40:36 mj Exp $
+ * $Id: msgid.c,v 4.6 1997/07/25 21:01:40 mj Exp $
  *
  * MSGID <-> Message-ID conversion handling. See also ../doc/msgid.doc
  *
@@ -193,8 +193,8 @@ char *msgid_fido_to_rfc(char *msgid, int *pzone)
     /*
      * Search for parsable FTN address in origaddr
      */
-    for(p=origaddr; *p && !isdigit(*p); p++) ;
-    for(s=p; *s && (isdigit(*s) || *s==':' || *s=='/' || *s=='.'); s++) ;
+    for(p=origaddr; *p && !is_digit(*p); p++) ;
+    for(s=p; *s && (is_digit(*s) || *s==':' || *s=='/' || *s=='.'); s++) ;
     *s = 0;
     if(asc_to_node(p, &idnode, TRUE) != ERROR)	/* Address found */
     {

@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: lock.c,v 4.4 1996/12/17 17:19:43 mj Exp $
+ * $Id: lock.c,v 4.5 1997/07/25 21:01:39 mj Exp $
  *
  * File locking
  *
@@ -41,7 +41,7 @@
  */
 int lock_fd(int fd)
 {
-#if defined(OS2) || defined(MSDOS)
+#ifndef DO_HAVE_FCNTL_LOCK
     return OK;
 #else
     struct flock fl;
@@ -69,7 +69,7 @@ int lock_fd(int fd)
  */
 int unlock_fd(int fd)
 {
-#if defined(OS2) || defined(MSDOS)
+#ifndef DO_HAVE_FCNTL_LOCK
     return OK;
 #else
     struct flock fl;

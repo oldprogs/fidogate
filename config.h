@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway software UNIX <-> FIDO
  *
- * $Id: config.h,v 4.22 1997/06/28 16:26:21 mj Exp $
+ * $Id: config.h,v 4.23 1997/07/25 21:01:28 mj Exp $
  *
  * Configuration header file
  *
@@ -114,6 +114,8 @@
 
 /***** System dependend configuration ***************************************
  *
+ *   DO_HAVE_FCNTL_LOCK		Do you have file locking with fcntl()
+ *
  *   DO_HAVE_GETTIMEOFDAY	Do you have gettimeofday()?
  *
  *   DO_HAVE_TM_GMTOFF		Does your (struct tm) have a tm_gmtoff field?
@@ -139,6 +141,8 @@
  *
  *   DO_BINARY			Open files in binary mode
  *
+ *   DO_DOSIFY			DOSify program names for execution
+ *
  *
  *   RECEIVED_BY_MAILER "Received: by NeXT.Mailer"
  *				Define this if your mail system allways
@@ -146,7 +150,22 @@
  *				"Received: by NeXT.Mailer"
  */
 
+/* Standard config: POSIX UNIX */
+# define DO_HAVE_FCNTL_LOCK
+# undef  DO_HAVE_GETTIMEOFDAY
+# undef  DO_HAVE_TM_GMTOFF
+# undef  DO_HAVE_SYSEXITS_H
+# undef  DO_HAVE_TM_ZONE
+# define DO_HAVE_STRFTIME
+# undef  DO_HAVE_TZNAME
+# undef  DO_HAVE_STRCASECMP
+# undef  DO_HAVE_STRICMP
+# undef  DO_BINARY
+# undef  DO_DOSIFY
+
+
 #ifdef __sun__				/* SUNOS 4.1.x, GNU gcc */
+# define DO_HAVE_FCNTL_LOCK
 # define DO_HAVE_GETTIMEOFDAY
 # define DO_HAVE_TM_GMTOFF
 # define DO_HAVE_SYSEXITS_H
@@ -156,9 +175,11 @@
 # define DO_HAVE_STRCASECMP
 # undef  DO_HAVE_STRICMP
 # undef  DO_BINARY
+# undef  DO_DOSIFY
 #endif
 
 #ifdef __linux__			/* LINUX LIBC 5.x.x, GNU gcc */
+# define DO_HAVE_FCNTL_LOCK
 # define DO_HAVE_GETTIMEOFDAY
 # undef  DO_HAVE_TM_GMTOFF
 # define DO_HAVE_SYSEXITS_H
@@ -168,9 +189,11 @@
 # define DO_HAVE_STRCASECMP
 # undef  DO_HAVE_STRICMP
 # undef  DO_BINARY
+# undef  DO_DOSIFY
 #endif
 
 #ifdef __FreeBSD__			/* FreeBSD 2.1.6., GNU gcc */
+# define DO_HAVE_FCNTL_LOCK
 # define DO_HAVE_GETTIMEOFDAY
 # define DO_HAVE_TM_GMTOFF
 # define DO_HAVE_SYSEXITS_H
@@ -180,9 +203,11 @@
 # define DO_HAVE_STRCASECMP
 # undef  DO_HAVE_STRICMP
 # undef  DO_BINARY
+# undef  DO_DOSIFY
 #endif
 
 #ifdef ISC				/* ISC 3.x, GNU gcc, -DISC necessary */
+# define DO_HAVE_FCNTL_LOCK
 # define DO_HAVE_GETTIMEOFDAY
 # undef  DO_HAVE_TM_GMTOFF
 # undef  DO_HAVE_SYSEXITS_H		/* ? */
@@ -192,9 +217,11 @@
 # undef  DO_HAVE_STRCASECMP		/* ? */
 # undef  DO_HAVE_STRICMP
 # undef  DO_BINARY
+# undef  DO_DOSIFY
 #endif
 
 #ifdef MSDOS				/* MSDOS, DJGPP GNU gcc */
+# undef  DO_HAVE_FCNTL_LOCK
 # define DO_HAVE_TM_GMTOFF
 # undef  DO_HAVE_SYSEXITS_H		/* ? */
 # undef  DO_HAVE_TM_ZONE
@@ -203,6 +230,7 @@
 # undef  DO_HAVE_STRCASECMP
 # define DO_HAVE_STRICMP
 # define DO_BINARY
+# define DO_DOSIFY
 #endif
 
 #ifdef __EMX__				/* OS/2, EMX GNU gcc */
@@ -211,12 +239,14 @@
 # endif
 #endif
 #ifdef OS2
+# undef  DO_HAVE_FCNTL_LOCK
 # undef  DO_HAVE_SYSEXITS_H		/* ? */
 # define DO_HAVE_GETTIMEOFDAY
 # define DO_HAVE_STRFTIME
 # undef  DO_HAVE_STRCASECMP
 # define DO_HAVE_STRICMP
 # define DO_BINARY
+# define DO_DOSIFY
 #endif
 
 #ifdef __NeXT__                         /* NEXTSTEP 3.3 (Intel only?) */
@@ -230,9 +260,11 @@
 # undef  DO_HAVE_STRICMP
 # undef  DO_BINARY
 # define RECEIVED_BY_MAILER "Received: by NeXT.Mailer"
+# undef  DO_DOSIFY
 #endif /* __NeXT__ */
 
 #ifdef __CYGWIN32__			/* GNU-Win32 Beta 18 */
+# undef  DO_HAVE_FCNTL_LOCK
 # undef  DO_HAVE_GETTIMEOFDAY
 # undef  DO_HAVE_TM_GMTOFF
 # undef  DO_HAVE_SYSEXITS_H
@@ -242,6 +274,7 @@
 # define DO_HAVE_STRCASECMP
 # undef  DO_HAVE_STRICMP
 # define DO_BINARY
+# undef  DO_DOSIFY
 #endif
 
 /***** End of configuration *************************************************/

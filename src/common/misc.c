@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: misc.c,v 4.5 1997/04/18 15:37:42 mj Exp $
+ * $Id: misc.c,v 4.6 1997/07/25 21:01:39 mj Exp $
  *
  * Miscellaneous functions
  *
@@ -284,6 +284,19 @@ int is_space(int c)
 int is_blank(int c)
 {
     return c==' ' || c=='\t';
+}
+
+
+/*
+ * signed char-safe version of isdigit()
+ */
+int is_digit(int c)
+{
+    /* Some <ctype.h> implementation only accept a parameter value range
+     * of [-1,255]. This may lead to problems, because we're quite often
+     * passing *p's to is_digit() with a char *p variable. The default
+     * char type is signed in most C implementation. */
+    return isdigit((c & 0xff));
 }
 
 

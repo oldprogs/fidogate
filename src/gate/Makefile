@@ -1,6 +1,6 @@
 #:ts=8
 #
-#    $Id: Makefile,v 4.2 1996/09/22 12:27:13 mj Exp $
+#    $Id: Makefile,v 4.3 1997/07/25 21:01:41 mj Exp $
 #
 #    Makefile for FIDOGATE src/gate/
 #
@@ -27,11 +27,11 @@ rfc2ftn:	$(TOPDIR)/src/common/$(LIB)
 
 
 install:
-	$(INSTALL_SETUID)  rfc2ftn     $(LIBDIR)
-	$(INSTALL_PROG)   ftn2rfc     $(LIBDIR)
-	$(INSTALL_PROG)   ftnin       $(LIBDIR)
-	$(INSTALL_PROG)   ftninpost   $(LIBDIR)
-	$(INSTALL_PROG)   ftninrecomb $(LIBDIR)
+	$(INSTALL_SETUID) rfc2ftn$(EXE) $(LIBDIR)
+	$(INSTALL_PROG) ftn2rfc$(EXE) $(LIBDIR)
+	$(INSTALL_PROG) ftnin$(EXE) $(LIBDIR)
+	$(INSTALL_PROG) ftninpost $(LIBDIR)
+	$(INSTALL_PROG) ftninrecomb $(LIBDIR)
 
 
 clean:

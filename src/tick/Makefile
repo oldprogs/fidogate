@@ -1,6 +1,6 @@
 #:ts=8
 #
-#    $Id: Makefile,v 4.1 1996/05/03 19:18:45 mj Exp $
+#    $Id: Makefile,v 4.2 1997/07/25 21:01:43 mj Exp $
 #
 #    Makefile for FIDOGATE src/tick/
 #
@@ -26,8 +26,8 @@ ftntick:	$(TOPDIR)/src/common/$(LIB)
 
 
 install:
-	$(INSTALL_PROG)   ftntick     $(LIBDIR)
-	$(INSTALL_PROG)   ftnhatch    $(LIBDIR)
+	$(INSTALL_PROG) ftntick$(EXE) $(LIBDIR)
+	$(INSTALL_PROG) ftnhatch$(EXE) $(LIBDIR)
 
 
 clean:
@@ -45,7 +45,7 @@ depend:
 
 depend-all:
 	$(CC) $(CFLAGS) -M *.c >.depend
-		
+
 ifeq (.depend,$(wildcard .depend))
 include .depend
 endif

@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: message.c,v 4.7 1997/02/23 18:20:41 mj Exp $
+ * $Id: message.c,v 4.8 1997/07/25 21:01:39 mj Exp $
  *
  * Reading and processing FTN text body
  *
@@ -795,7 +795,7 @@ int msg_parse_origin(char *buffer, Node *node)
     /*
      * Parse node info
      */
-    while(*left && !isdigit(*left))
+    while(*left && !is_digit(*left))
 	left++;
     if(asc_to_node(left, node, FALSE) != OK)
 	/* Not a valid FIDO address */
