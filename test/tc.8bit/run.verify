@@ -25,7 +25,7 @@ Writing FTN packet header:
     To  : 2:2452/110.2
     Baud: 0
     Prod: 00 fe
-    Rev : 4.3
+    Rev : x.x
     Pass: ""
     Capw: 0001
 RFC To:       Martin_Junius@f110.n2452.z2.fidonet.org
@@ -51,7 +51,7 @@ Writing FTN packet header:
     To  : 2:2452/110.2
     Baud: 0
     Prod: 00 fe
-    Rev : 4.3
+    Rev : x.x
     Pass: ""
     Capw: 0001
 ------------------------------------------------------------------------
@@ -61,7 +61,7 @@ FTN packet header:
     To  : 2:2452/110.2
     Baud: 0
     Prod: 00 fe
-    Rev : 4.3
+    Rev : x.x
     Pass: ""
     Capw: 0001
 ==============================================================================
@@ -125,7 +125,7 @@ FTN packet header:
     To  : 2:2452/110.2
     Baud: 0
     Prod: 00 fe
-    Rev : 4.3
+    Rev : x.x
     Pass: ""
     Capw: 0001
 ==============================================================================
@@ -175,7 +175,7 @@ Reading FTN packet header:
     To  : 2:2452/110.2
     Baud: 0
     Prod: 00 fe
-    Rev : 4.2
+    Rev : x.x
     Pass: ""
     Capw: 0001
 ftn2rfc packet ./pin/1a.pkt (1208b) from 2:2452/110.2 to 2:2452/110.2
@@ -192,7 +192,7 @@ Reading FTN packet header:
     To  : 2:2452/110.2
     Baud: 0
     Prod: 00 fe
-    Rev : 4.2
+    Rev : x.x
     Pass: ""
     Capw: 0001
 ftn2rfc packet ./pin/1b.pkt (1241b) from 2:2452/110.2 to 2:2452/110.2
@@ -209,7 +209,7 @@ Reading FTN packet header:
     To  : 2:2452/110.2
     Baud: 0
     Prod: 00 fe
-    Rev : 4.2
+    Rev : x.x
     Pass: ""
     Capw: 0001
 ftn2rfc packet ./pin/1c.pkt (1241b) from 2:2452/110.2 to 2:2452/110.2
@@ -226,7 +226,7 @@ Reading FTN packet header:
     To  : 2:2452/110.2
     Baud: 0
     Prod: 00 fe
-    Rev : 4.2
+    Rev : x.x
     Pass: ""
     Capw: 0001
 ftn2rfc packet ./pin/1d.pkt (1253b) from 2:2452/110.2 to 2:2452/110.2
@@ -243,7 +243,7 @@ Reading FTN packet header:
     To  : 2:2452/110.2
     Baud: 0
     Prod: 00 fe
-    Rev : 4.2
+    Rev : x.x
     Pass: ""
     Capw: 0001
 ftn2rfc packet ./pin/2a.pkt (901b) from 2:2452/110.2 to 2:2452/110.2
@@ -260,7 +260,7 @@ Reading FTN packet header:
     To  : 2:2452/110.2
     Baud: 0
     Prod: 00 fe
-    Rev : 4.2
+    Rev : x.x
     Pass: ""
     Capw: 0001
 ftn2rfc packet ./pin/2b.pkt (961b) from 2:2452/110.2 to 2:2452/110.2
@@ -277,7 +277,7 @@ Reading FTN packet header:
     To  : 2:2452/110.2
     Baud: 0
     Prod: 00 fe
-    Rev : 4.2
+    Rev : x.x
     Pass: ""
     Capw: 0001
 ftn2rfc packet ./pin/1a.pkt (1208b) from 2:2452/110.2 to 2:2452/110.2
@@ -294,7 +294,7 @@ Reading FTN packet header:
     To  : 2:2452/110.2
     Baud: 0
     Prod: 00 fe
-    Rev : 4.2
+    Rev : x.x
     Pass: ""
     Capw: 0001
 ftn2rfc packet ./pin/1b.pkt (1241b) from 2:2452/110.2 to 2:2452/110.2
@@ -311,7 +311,7 @@ Reading FTN packet header:
     To  : 2:2452/110.2
     Baud: 0
     Prod: 00 fe
-    Rev : 4.2
+    Rev : x.x
     Pass: ""
     Capw: 0001
 ftn2rfc packet ./pin/1c.pkt (1241b) from 2:2452/110.2 to 2:2452/110.2
@@ -328,7 +328,7 @@ Reading FTN packet header:
     To  : 2:2452/110.2
     Baud: 0
     Prod: 00 fe
-    Rev : 4.2
+    Rev : x.x
     Pass: ""
     Capw: 0001
 ftn2rfc packet ./pin/1d.pkt (1253b) from 2:2452/110.2 to 2:2452/110.2
@@ -345,7 +345,7 @@ Reading FTN packet header:
     To  : 2:2452/110.2
     Baud: 0
     Prod: 00 fe
-    Rev : 4.2
+    Rev : x.x
     Pass: ""
     Capw: 0001
 ftn2rfc packet ./pin/2a.pkt (901b) from 2:2452/110.2 to 2:2452/110.2
@@ -362,7 +362,7 @@ Reading FTN packet header:
     To  : 2:2452/110.2
     Baud: 0
     Prod: 00 fe
-    Rev : 4.2
+    Rev : x.x
     Pass: ""
     Capw: 0001
 ftn2rfc packet ./pin/2b.pkt (961b) from 2:2452/110.2 to 2:2452/110.2
@@ -379,7 +379,7 @@ Reading FTN packet header:
     To  : 2:2452/110.2
     Baud: 0
     Prod: 00 fe
-    Rev : 4.2
+    Rev : x.x
     Pass: ""
     Capw: 0001
 ftn2rfc packet ./pin/1a.pkt (1208b) from 2:2452/110.2 to 2:2452/110.2
@@ -396,7 +396,7 @@ Reading FTN packet header:
     To  : 2:2452/110.2
     Baud: 0
     Prod: 00 fe
-    Rev : 4.2
+    Rev : x.x
     Pass: ""
     Capw: 0001
 ftn2rfc packet ./pin/1b.pkt (1241b) from 2:2452/110.2 to 2:2452/110.2
@@ -413,7 +413,7 @@ Reading FTN packet header:
     To  : 2:2452/110.2
     Baud: 0
     Prod: 00 fe
-    Rev : 4.2
+    Rev : x.x
     Pass: ""
     Capw: 0001
 ftn2rfc packet ./pin/1c.pkt (1241b) from 2:2452/110.2 to 2:2452/110.2
@@ -430,7 +430,7 @@ Reading FTN packet header:
     To  : 2:2452/110.2
     Baud: 0
     Prod: 00 fe
-    Rev : 4.2
+    Rev : x.x
     Pass: ""
     Capw: 0001
 ftn2rfc packet ./pin/1d.pkt (1253b) from 2:2452/110.2 to 2:2452/110.2
@@ -447,7 +447,7 @@ Reading FTN packet header:
     To  : 2:2452/110.2
     Baud: 0
     Prod: 00 fe
-    Rev : 4.2
+    Rev : x.x
     Pass: ""
     Capw: 0001
 ftn2rfc packet ./pin/2a.pkt (901b) from 2:2452/110.2 to 2:2452/110.2
@@ -464,7 +464,7 @@ Reading FTN packet header:
     To  : 2:2452/110.2
     Baud: 0
     Prod: 00 fe
-    Rev : 4.2
+    Rev : x.x
     Pass: ""
     Capw: 0001
 ftn2rfc packet ./pin/2b.pkt (961b) from 2:2452/110.2 to 2:2452/110.2

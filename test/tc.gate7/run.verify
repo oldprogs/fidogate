@@ -31,7 +31,7 @@ Writing FTN packet header:
     To  : 2:2452/110.2
     Baud: 0
     Prod: 00 fe
-    Rev : 4.3
+    Rev : x.x
     Pass: ""
     Capw: 0001
 Writing FTN message header:
@@ -70,7 +70,7 @@ Writing FTN packet header:
     To  : 2:2452/110.2
     Baud: 0
     Prod: 00 fe
-    Rev : 4.3
+    Rev : x.x
     Pass: ""
     Capw: 0001
 Writing FTN message header:
@@ -109,7 +109,7 @@ Writing FTN packet header:
     To  : 2:2452/110.2
     Baud: 0
     Prod: 00 fe
-    Rev : 4.3
+    Rev : x.x
     Pass: ""
     Capw: 0001
 Writing FTN message header:
@@ -159,7 +159,7 @@ Writing FTN packet header:
     To  : 2:2452/110.2
     Baud: 0
     Prod: 00 fe
-    Rev : 4.3
+    Rev : x.x
     Pass: ""
     Capw: 0001
 Writing FTN message header:
@@ -198,7 +198,7 @@ Writing FTN packet header:
     To  : 2:2452/110.2
     Baud: 0
     Prod: 00 fe
-    Rev : 4.3
+    Rev : x.x
     Pass: ""
     Capw: 0001
 Writing FTN message header:
@@ -237,7 +237,7 @@ Writing FTN packet header:
     To  : 2:2452/110.2
     Baud: 0
     Prod: 00 fe
-    Rev : 4.3
+    Rev : x.x
     Pass: ""
     Capw: 0001
 Writing FTN message header:
@@ -277,7 +277,7 @@ Writing FTN packet header:
     To  : 2:2452/110.2
     Baud: 0
     Prod: 00 fe
-    Rev : 4.3
+    Rev : x.x
     Pass: ""
     Capw: 0001
 Writing FTN message header:
@@ -317,7 +317,7 @@ Writing FTN packet header:
     To  : 2:2452/110.2
     Baud: 0
     Prod: 00 fe
-    Rev : 4.3
+    Rev : x.x
     Pass: ""
     Capw: 0001
 Writing FTN message header:
@@ -357,7 +357,7 @@ Writing FTN packet header:
     To  : 2:2452/110.2
     Baud: 0
     Prod: 00 fe
-    Rev : 4.3
+    Rev : x.x
     Pass: ""
     Capw: 0001
 Writing FTN message header:
@@ -397,7 +397,7 @@ Writing FTN packet header:
     To  : 2:2452/110.2
     Baud: 0
     Prod: 00 fe
-    Rev : 4.3
+    Rev : x.x
     Pass: ""
     Capw: 0001
 Writing FTN message header:
@@ -438,7 +438,7 @@ Writing FTN packet header:
     To  : 2:2452/110.2
     Baud: 0
     Prod: 00 fe
-    Rev : 4.3
+    Rev : x.x
     Pass: ""
     Capw: 0001
 Writing FTN message header:
@@ -477,7 +477,7 @@ Writing FTN packet header:
     To  : 2:2452/110.2
     Baud: 0
     Prod: 00 fe
-    Rev : 4.3
+    Rev : x.x
     Pass: ""
     Capw: 0001
 Writing FTN message header:
@@ -516,7 +516,7 @@ Writing FTN packet header:
     To  : 2:2452/110.2
     Baud: 0
     Prod: 00 fe
-    Rev : 4.3
+    Rev : x.x
     Pass: ""
     Capw: 0001
 Writing FTN message header:
@@ -556,7 +556,7 @@ Writing FTN packet header:
     To  : 2:2452/110.2
     Baud: 0
     Prod: 00 fe
-    Rev : 4.3
+    Rev : x.x
     Pass: ""
     Capw: 0001
 Writing FTN message header:
@@ -596,7 +596,7 @@ Writing FTN packet header:
     To  : 2:2452/110.2
     Baud: 0
     Prod: 00 fe
-    Rev : 4.3
+    Rev : x.x
     Pass: ""
     Capw: 0001
 Writing FTN message header:
@@ -635,7 +635,7 @@ Writing FTN packet header:
     To  : 2:2452/110.2
     Baud: 0
     Prod: 00 fe
-    Rev : 4.3
+    Rev : x.x
     Pass: ""
     Capw: 0001
 Writing FTN message header:
@@ -674,7 +674,7 @@ Writing FTN packet header:
     To  : 2:2452/110.2
     Baud: 0
     Prod: 00 fe
-    Rev : 4.3
+    Rev : x.x
     Pass: ""
     Capw: 0001
 Writing FTN message header:
@@ -713,7 +713,7 @@ Writing FTN packet header:
     To  : 2:2452/110.2
     Baud: 0
     Prod: 00 fe
-    Rev : 4.3
+    Rev : x.x
     Pass: ""
     Capw: 0001
 Writing FTN message header:
@@ -754,7 +754,7 @@ Writing FTN packet header:
     To  : 2:2452/110.2
     Baud: 0
     Prod: 00 fe
-    Rev : 4.3
+    Rev : x.x
     Pass: ""
     Capw: 0001
 Writing FTN message header:
@@ -792,7 +792,7 @@ Writing FTN packet header:
     To  : 2:2452/110.2
     Baud: 0
     Prod: 00 fe
-    Rev : 4.3
+    Rev : x.x
     Pass: ""
     Capw: 0001
 Writing FTN message header:
@@ -831,7 +831,7 @@ Writing FTN packet header:
     To  : 2:2452/110.2
     Baud: 0
     Prod: 00 fe
-    Rev : 4.3
+    Rev : x.x
     Pass: ""
     Capw: 0001
 Writing FTN message header:
@@ -871,7 +871,7 @@ Writing FTN packet header:
     To  : 2:2452/110.2
     Baud: 0
     Prod: 00 fe
-    Rev : 4.3
+    Rev : x.x
     Pass: ""
     Capw: 0001
 Writing FTN message header:
@@ -911,7 +911,7 @@ Writing FTN packet header:
     To  : 2:2452/110.2
     Baud: 0
     Prod: 00 fe
-    Rev : 4.3
+    Rev : x.x
     Pass: ""
     Capw: 0001
 Writing FTN message header:
@@ -950,7 +950,7 @@ Writing FTN packet header:
     To  : 2:2452/110.2
     Baud: 0
     Prod: 00 fe
-    Rev : 4.3
+    Rev : x.x
     Pass: ""
     Capw: 0001
 Writing FTN message header:

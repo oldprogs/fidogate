@@ -22,7 +22,7 @@ Writing FTN packet header:
     To  : 242:1000/5.0
     Baud: 0
     Prod: 00 fe
-    Rev : 4.3
+    Rev : x.x
     Pass: ""
     Capw: 0001
 Must split message: size=96184 max=32000 parts=4
@@ -53,7 +53,7 @@ Writing FTN packet header:
     To  : 242:1000/5.0
     Baud: 0
     Prod: 00 fe
-    Rev : 4.3
+    Rev : x.x
     Pass: ""
     Capw: 0001
 Must split message: size=96184 max=32000 parts=4
@@ -103,7 +103,7 @@ Writing FTN packet header:
     To  : 242:1000/5.0
     Baud: 0
     Prod: 00 fe
-    Rev : 4.3
+    Rev : x.x
     Pass: ""
     Capw: 0001
 Look up newsgroup comp.os.linux.hardware
@@ -156,7 +156,7 @@ Writing FTN packet header:
     To  : 242:1000/5.0
     Baud: 0
     Prod: 00 fe
-    Rev : 4.3
+    Rev : x.x
     Pass: ""
     Capw: 0001
 Look up newsgroup comp.os.linux.hardware
@@ -209,7 +209,7 @@ Writing FTN packet header:
     To  : 242:1000/5.0
     Baud: 0
     Prod: 00 fe
-    Rev : 4.3
+    Rev : x.x
     Pass: ""
     Capw: 0001
 Look up newsgroup comp.os.linux.hardware
@@ -265,7 +265,7 @@ Writing FTN packet header:
     To  : 242:1000/5.0
     Baud: 0
     Prod: 00 fe
-    Rev : 4.3
+    Rev : x.x
     Pass: ""
     Capw: 0001
 Must split message: size=690202 max=32000 parts=22
@@ -291,7 +291,7 @@ Writing FTN packet header:
     To  : 242:1000/5.0
     Baud: 0
     Prod: 00 fe
-    Rev : 4.3
+    Rev : x.x
     Pass: ""
     Capw: 0001
 Must split message: size=690202 max=32000 parts=22

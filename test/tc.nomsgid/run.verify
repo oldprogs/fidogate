@@ -7,7 +7,7 @@ Reading FTN packet header:
     To  : 2:2452/110.2
     Baud: 0
     Prod: 00 fe
-    Rev : 3.9
+    Rev : x.x
     Pass: ""
     Capw: 0001
 ftn2rfc packet ./pin/t-gw-nomsgid.pkt (12381b) from 2:2452/110.0 to 2:2452/110.2
@@ -24,7 +24,7 @@ Reading FTN packet header:
     To  : 2:2452/110.2
     Baud: 0
     Prod: 00 fe
-    Rev : 3.9
+    Rev : x.x
     Pass: ""
     Capw: 0001
 ftn2rfc packet ./pin/t-nomsgid.pkt (47066b) from 2:2452/110.0 to 2:2452/110.2
@@ -41,7 +41,7 @@ Writing FTN packet header:
     To  : 2:2452/110.2
     Baud: 0
     Prod: 00 fe
-    Rev : 4.3
+    Rev : x.x
     Pass: ""
     Capw: 0001
 Batch: message #2 size 1834
@@ -91,7 +91,7 @@ Batch: message #8 size 1418
     Address:  p5.f7805.n2448.z2.fidonet.org
     FTN node: 2:2448/7805.5
 RFC Newsgroups: fido.ger.linux
-Batch: message #9 size 1032
+Batch: message #9 size 1033
     Name:     
     Address:  
     Name:     Maurice_Kemmann
@@ -125,7 +125,7 @@ Batch: message #14 size 1404
     Address:  p27.f6002.n2468.z2.fidonet.org
     FTN node: 2:2468/6002.27
 RFC Newsgroups: fido.ger.tolkien
-Batch: message #15 size 1048
+Batch: message #15 size 1050
     Name:     
     Address:  
     Name:     Christian_Riege

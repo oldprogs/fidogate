@@ -106,7 +106,7 @@ FLO file:
 ----- packet toss 1 -----
 ftntoss creating MSGID history ./history.dir
 ftntoss creating MSGID history ./history.pag
-ftntoss packet ./pin/00000001.pkt (375b) from 2:2/0.0 to 2:2/1.0
+ftntoss packet ./pin/00000001.pkt (374b) from 2:2/0.0 to 2:2/1.0
 ftntoss MAIL: Test @ 2:2/0.0 -> Test @ 2:2/1.0
 ftntoss msgs processed: 1 in, 1 out (1 mail, 0 echo)
 ftnroute packet for 2:2/1.0 via 2:2452/110.0 (Normal)
@@ -115,23 +115,23 @@ Reading FTN packet header:
     To  : 2:2452/110.0
     Baud: 0
     Prod: 00 fe
-    Rev : 4.3
+    Rev : x.x
     Pass: ""
     Capw: 0001
 Packet: from=2:2452/110.2 to=2:2452/110.0 grade=n type=n flav=n
 packing: pack=n dir= arc=zip
 node=2:2452/110.0 bsy file=./bt/out/0994006e.bsy
-ftnpack archiving packet (445b) for 2:2452/110.0 (zip)
+ftnpack archiving packet (443b) for 2:2452/110.0 (zip)
 Archiving ./toss/route/nnn00003.pkt for 2:2452/110.0 arc
     Packet  name: ./toss/pack/nnn00003.pkt
-    Archive name: ./bt/out/00000000.su0
+    Archive name: ./bt/out/00000000.xx0
 New packet file ./toss/pack/nnn00003.pkt (tmp ./toss/pack/nnn00003.pkt)
 Writing FTN packet header:
     From: 2:2452/110.2
     To  : 2:2452/110.0
     Baud: 0
     Prod: 00 fe
-    Rev : 4.3
+    Rev : x.x
     Pass: ""
     Capw: 0001
 Reading FTN message header:
@@ -144,10 +144,10 @@ Writing FTN message header:
     To  : Test                                 @ 0:2/1.0
     Subj: (no subject)
     Attr: 0000
-Command: /usr/bin/zip -gkjq ./bt/out/00000000.su0 ./toss/pack/nnn00003.pkt
+Command: /usr/bin/zip -gkjq ./bt/out/00000000.xx0 ./toss/pack/nnn00003.pkt
 Exit code=0
 attach mode=# (^=delete, #=trunc)
-attach name=./bt/out/00000000.su0
+attach name=./bt/out/00000000.xx0
 new FLO file ./bt/out/0994006e.flo
 Opening FLO file, mode=a+
 Locking FLO file
@@ -155,11 +155,11 @@ FLO file ./bt/out/0994006e.flo open and locking succeeded
 FLO file open and locking succeeded, attaching file
 node=2:2452/110.0 bsy file=./bt/out/0994006e.bsy
 Deleting BSY file ./bt/out/0994006e.bsy succeeded.
-00000000.su0
+00000000.xx0
 0994006e.flo
-#./bt/out/00000000.su0
+#./bt/out/00000000.xx0
 ----- packet toss 2 -----
-ftntoss packet ./pin/00000001.pkt (375b) from 2:2/0.0 to 2:2/1.0
+ftntoss packet ./pin/00000001.pkt (374b) from 2:2/0.0 to 2:2/1.0
 ftntoss MAIL: Test @ 2:2/0.0 -> Test @ 2:2/1.0
 ftntoss msgs processed: 1 in, 1 out (1 mail, 0 echo)
 ftnroute packet for 2:2/1.0 via 2:2452/110.0 (Normal)
@@ -168,23 +168,23 @@ Reading FTN packet header:
     To  : 2:2452/110.0
     Baud: 0
     Prod: 00 fe
-    Rev : 4.3
+    Rev : x.x
     Pass: ""
     Capw: 0001
 Packet: from=2:2452/110.2 to=2:2452/110.0 grade=n type=n flav=n
 packing: pack=n dir= arc=zip
 node=2:2452/110.0 bsy file=./bt/out/0994006e.bsy
-ftnpack archiving packet (445b) for 2:2452/110.0 (zip)
+ftnpack archiving packet (443b) for 2:2452/110.0 (zip)
 Archiving ./toss/route/nnn00005.pkt for 2:2452/110.0 arc
     Packet  name: ./toss/pack/nnn00005.pkt
-    Archive name: ./bt/out/00000000.su0
+    Archive name: ./bt/out/00000000.xx0
 New packet file ./toss/pack/nnn00005.pkt (tmp ./toss/pack/nnn00005.pkt)
 Writing FTN packet header:
     From: 2:2452/110.2
     To  : 2:2452/110.0
     Baud: 0
     Prod: 00 fe
-    Rev : 4.3
+    Rev : x.x
     Pass: ""
     Capw: 0001
 Reading FTN message header:
@@ -197,24 +197,24 @@ Writing FTN message header:
     To  : Test                                 @ 0:2/1.0
     Subj: (no subject)
     Attr: 0000
-Command: /usr/bin/zip -gkjq ./bt/out/00000000.su0 ./toss/pack/nnn00005.pkt
+Command: /usr/bin/zip -gkjq ./bt/out/00000000.xx0 ./toss/pack/nnn00005.pkt
 Exit code=0
 attach mode=# (^=delete, #=trunc)
-attach name=./bt/out/00000000.su0
+attach name=./bt/out/00000000.xx0
 found FLO file ./bt/out/0994006e.flo
 Opening FLO file, mode=a+
 Locking FLO file
 FLO file ./bt/out/0994006e.flo open and locking succeeded
-FLO entry: # ./bt/out/00000000.su0
+FLO entry: # ./bt/out/00000000.xx0
            found entry
 FLO file already contains an entry, not attaching file
 node=2:2452/110.0 bsy file=./bt/out/0994006e.bsy
 Deleting BSY file ./bt/out/0994006e.bsy succeeded.
-00000000.su0
+00000000.xx0
 0994006e.flo
-#./bt/out/00000000.su0
+#./bt/out/00000000.xx0
 ----- packet toss 3 (flo removed) -----
-ftntoss packet ./pin/00000001.pkt (375b) from 2:2/0.0 to 2:2/1.0
+ftntoss packet ./pin/00000001.pkt (374b) from 2:2/0.0 to 2:2/1.0
 ftntoss MAIL: Test @ 2:2/0.0 -> Test @ 2:2/1.0
 ftntoss msgs processed: 1 in, 1 out (1 mail, 0 echo)
 ftnroute packet for 2:2/1.0 via 2:2452/110.0 (Normal)
@@ -223,23 +223,23 @@ Reading FTN packet header:
     To  : 2:2452/110.0
     Baud: 0
     Prod: 00 fe
-    Rev : 4.3
+    Rev : x.x
     Pass: ""
     Capw: 0001
 Packet: from=2:2452/110.2 to=2:2452/110.0 grade=n type=n flav=n
 packing: pack=n dir= arc=zip
 node=2:2452/110.0 bsy file=./bt/out/0994006e.bsy
-ftnpack archiving packet (445b) for 2:2452/110.0 (zip)
+ftnpack archiving packet (443b) for 2:2452/110.0 (zip)
 Archiving ./toss/route/nnn00007.pkt for 2:2452/110.0 arc
     Packet  name: ./toss/pack/nnn00007.pkt
-    Archive name: ./bt/out/00000000.su0
+    Archive name: ./bt/out/00000000.xx0
 New packet file ./toss/pack/nnn00007.pkt (tmp ./toss/pack/nnn00007.pkt)
 Writing FTN packet header:
     From: 2:2452/110.2
     To  : 2:2452/110.0
     Baud: 0
     Prod: 00 fe
-    Rev : 4.3
+    Rev : x.x
     Pass: ""
     Capw: 0001
 Reading FTN message header:
@@ -252,10 +252,10 @@ Writing FTN message header:
     To  : Test                                 @ 0:2/1.0
     Subj: (no subject)
     Attr: 0000
-Command: /usr/bin/zip -gkjq ./bt/out/00000000.su0 ./toss/pack/nnn00007.pkt
+Command: /usr/bin/zip -gkjq ./bt/out/00000000.xx0 ./toss/pack/nnn00007.pkt
 Exit code=0
 attach mode=# (^=delete, #=trunc)
-attach name=./bt/out/00000000.su0
+attach name=./bt/out/00000000.xx0
 new FLO file ./bt/out/0994006e.flo
 Opening FLO file, mode=a+
 Locking FLO file
@@ -263,9 +263,9 @@ FLO file ./bt/out/0994006e.flo open and locking succeeded
 FLO file open and locking succeeded, attaching file
 node=2:2452/110.0 bsy file=./bt/out/0994006e.bsy
 Deleting BSY file ./bt/out/0994006e.bsy succeeded.
-00000000.su0
+00000000.xx0
 0994006e.flo
-#./bt/out/00000000.su0
+#./bt/out/00000000.xx0
 ----- DOS config -------------------------------------------------------
 ----- file1 -----
 attach name=/home/mj/src/fidogate/test/tc.bink/tmp_file1.txt
@@ -280,7 +280,7 @@ node=2:2/2.0 bsy file=./bt/out/00020002.bsy
 Deleting BSY file ./bt/out/00020002.bsy succeeded.
 FLO file:
 X:\tmp_file1.txt^M
-#./bt/out/00000000.su0
+#./bt/out/00000000.xx0
 ----- file2 -----
 attach mode=# (^=delete, #=trunc)
 attach name=/home/mj/src/fidogate/test/tc.bink/tmp_file2.txt
@@ -297,7 +297,7 @@ Deleting BSY file ./bt/out/00020002.bsy succeeded.
 FLO file:
 X:\tmp_file1.txt^M
 #X:\tmp_file2.txt^M
-#./bt/out/00000000.su0
+#./bt/out/00000000.xx0
 ----- file3 -----
 attach mode=^ (^=delete, #=trunc)
 attach name=/home/mj/src/fidogate/test/tc.bink/tmp_file3.txt
@@ -316,7 +316,7 @@ FLO file:
 X:\tmp_file1.txt^M
 #X:\tmp_file2.txt^M
 ^X:\tmp_file3.txt^M
-#./bt/out/00000000.su0
+#./bt/out/00000000.xx0
 ----- file1 again -----
 attach mode=# (^=delete, #=trunc)
 attach name=/home/mj/src/fidogate/test/tc.bink/tmp_file1.txt
@@ -337,7 +337,7 @@ FLO file:
 X:\tmp_file1.txt^M
 #X:\tmp_file2.txt^M
 ^X:\tmp_file3.txt^M
-#./bt/out/00000000.su0
+#./bt/out/00000000.xx0
 ----- file2 again -----
 attach mode=^ (^=delete, #=trunc)
 attach name=/home/mj/src/fidogate/test/tc.bink/tmp_file2.txt
@@ -358,7 +358,7 @@ FLO file:
 X:\tmp_file1.txt^M
 #X:\tmp_file2.txt^M
 ^X:\tmp_file3.txt^M
-#./bt/out/00000000.su0
+#./bt/out/00000000.xx0
 ----- file3 again -----
 attach name=/home/mj/src/fidogate/test/tc.bink/tmp_file3.txt
 attach MSDOS name=X:\tmp_file3.txt
@@ -378,4 +378,4 @@ FLO file:
 X:\tmp_file1.txt^M
 #X:\tmp_file2.txt^M
 ^X:\tmp_file3.txt^M
-#./bt/out/00000000.su0
+#./bt/out/00000000.xx0

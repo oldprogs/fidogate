@@ -20,7 +20,7 @@ tc: init
   adding: 01182740.PKT (deflated 59%)
   adding: 01184390.PKT (deflated 68%)
   adding: 01186013.PKT (deflated 65%)
-Creating new archive: abcd1234.tu1
+Creating new archive: abcd1234.xx0
 Adding file:   01165017.PKT   analyzing, crunched, done. (38%)
 Adding file:   01168917.PKT   analyzing, crunched, done. (46%)
 Adding file:   01168920.PKT   analyzing, crunched, done. (44%)
@@ -62,30 +62,30 @@ Adding file:   01186013.PKT   analyzing, crunched, done. (44%)
 ../ti.pkt-z2/01184390.PKT	- Frozen
 ../ti.pkt-z2/01186013.PKT	- Frozen
 New archive file is "abcd1234.lzh"
-rununpack archive /home/mj/src/fidogate/test/tc.rununpack/pin/abcd1234.fr9 (ZIP)
-Run arc: /usr/bin/unzip -l /home/mj/src/fidogate/test/tc.rununpack/pin/abcd1234.fr9
+rununpack archive /home/mj/src/fidogate/test/tc.rununpack/pin/abcd1234.xx0 (ZIP)
+Run arc: /usr/bin/unzip -l /home/mj/src/fidogate/test/tc.rununpack/pin/abcd1234.xx0
 Status 9
-rununpack WARNING: skipping archive /home/mj/src/fidogate/test/tc.rununpack/pin/abcd1234.fr9
-rununpack archive /home/mj/src/fidogate/test/tc.rununpack/pin/abcd1234.mo0 (ZIP)
-Run arc: /usr/bin/unzip -l /home/mj/src/fidogate/test/tc.rununpack/pin/abcd1234.mo0
+rununpack WARNING: skipping archive /home/mj/src/fidogate/test/tc.rununpack/pin/abcd1234.xx0
+rununpack archive /home/mj/src/fidogate/test/tc.rununpack/pin/abcd1234.xx0 (ZIP)
+Run arc: /usr/bin/unzip -l /home/mj/src/fidogate/test/tc.rununpack/pin/abcd1234.xx0
 Status 0
 List arc returned OK
-Run arc: /usr/bin/unzip -ojL /home/mj/src/fidogate/test/tc.rununpack/pin/abcd1234.mo0
+Run arc: /usr/bin/unzip -ojL /home/mj/src/fidogate/test/tc.rununpack/pin/abcd1234.xx0
 Status 0
 Extract arc returned OK
-rununpack unknown archive /home/mj/src/fidogate/test/tc.rununpack/pin/abcd1234.th9, moving archive to /home/mj/src/fidogate/test/tc.rununpack/pin/bad
-rununpack archive /home/mj/src/fidogate/test/tc.rununpack/pin/abcd1234.tu1 (ARC)
-Run arc: /usr/local/bin/arc l /home/mj/src/fidogate/test/tc.rununpack/pin/abcd1234.tu1
+rununpack unknown archive /home/mj/src/fidogate/test/tc.rununpack/pin/abcd1234.xx0, moving archive to /home/mj/src/fidogate/test/tc.rununpack/pin/bad
+rununpack archive /home/mj/src/fidogate/test/tc.rununpack/pin/abcd1234.xx0 (ARC)
+Run arc: /usr/local/bin/arc l /home/mj/src/fidogate/test/tc.rununpack/pin/abcd1234.xx0
 Status 0
 List arc returned OK
-Run arc: /usr/local/bin/arc eo /home/mj/src/fidogate/test/tc.rununpack/pin/abcd1234.tu1
+Run arc: /usr/local/bin/arc eo /home/mj/src/fidogate/test/tc.rununpack/pin/abcd1234.xx0
 Status 0
 Extract arc returned OK
-rununpack archive /home/mj/src/fidogate/test/tc.rununpack/pin/abcd1234.we2 (LHA)
-Run arc: /usr/bin/lha l /home/mj/src/fidogate/test/tc.rununpack/pin/abcd1234.we2
+rununpack archive /home/mj/src/fidogate/test/tc.rununpack/pin/abcd1234.xx0 (LHA)
+Run arc: /usr/bin/lha l /home/mj/src/fidogate/test/tc.rununpack/pin/abcd1234.xx0
 Status 0
 List arc returned OK
-Run arc: /usr/bin/lha eif /home/mj/src/fidogate/test/tc.rununpack/pin/abcd1234.we2
+Run arc: /usr/bin/lha eif /home/mj/src/fidogate/test/tc.rununpack/pin/abcd1234.xx0
 Status 0
 Extract arc returned OK
 rununpack packet 01165017.PKT renamed to 1.01165017.PKT

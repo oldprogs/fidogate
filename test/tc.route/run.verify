@@ -12,13 +12,13 @@ rfc2ftn X-Flags: mnh, From: test_user@f110.n2452.z2.fidonet.org
 rfc2ftn MAIL: test_user@f110.n2452.z2.fidonet.org -> test@2:2499/1.2
 ftntoss creating MSGID history ./history.dir
 ftntoss creating MSGID history ./history.pag
-ftntoss packet ./pin/00000001.pkt (308b) from 2:2452/110.0 to 2:2499/1.2
+ftntoss packet ./pin/00000001.pkt (307b) from 2:2452/110.0 to 2:2499/1.2
 ftntoss MAIL: Test User @ 2:2452/110.0 -> Test @ 2:2499/1.2
 New packet ./toss/toss/nnc00001.pkt (./toss/toss/nnc00001.tmp): 2:2452/110.2 -> 2:2499/1.2
-ftntoss packet ./pin/00000002.pkt (310b) from 2:2452/110.0 to 2:2499/1.2
+ftntoss packet ./pin/00000002.pkt (309b) from 2:2452/110.0 to 2:2499/1.2
 ftntoss MAIL: Test User @ 2:2452/110.0 -> Test @ 2:2499/1.2
 New packet ./toss/toss/nnn00002.pkt (./toss/toss/nnn00002.tmp): 2:2452/110.2 -> 2:2499/1.2
-ftntoss packet ./pin/00000003.pkt (306b) from 2:2452/110.0 to 2:2499/1.2
+ftntoss packet ./pin/00000003.pkt (305b) from 2:2452/110.0 to 2:2499/1.2
 ftntoss MAIL: Test User @ 2:2452/110.0 -> Test @ 2:2499/1.2
 New packet ./toss/toss/nnh00003.pkt (./toss/toss/nnh00003.tmp): 2:2452/110.2 -> 2:2499/1.2
 ftntoss msgs processed: 3 in, 3 out (3 mail, 0 echo)
@@ -34,13 +34,13 @@ Source packet: from=2:2452/110.2 to=2:2499/1.2 grade=n type=n flav=n
 Target packet: from=2:2452/110.2 to=2:2452/0.0 grade=n type=n flav=n
 ftnroute packet for 2:2499/1.2 via 2:2452/0.0 (Normal)
 New packet ./toss/route/nnn00006.pkt (./toss/route/nnn00006.tmp): 2:2452/110.2 -> 2:2452/0.0
-ftnpack packet (378b) for 2:2499/1.0 (noarc)
-ftnpack archiving packet (376b) for 2:2499/1.2 (zip)
-ftnpack archiving packet (380b) for 2:2452/0.0 (zip)
+ftnpack packet (376b) for 2:2499/1.0 (noarc)
+ftnpack archiving packet (374b) for 2:2499/1.2 (zip)
+ftnpack archiving packet (378b) for 2:2452/0.0 (zip)
 Test mail -> 2:2471/241 NORMAL
 rfc2ftn X-Flags: mn, From: test_user@f110.n2452.z2.fidonet.org
 rfc2ftn MAIL: test_user@f110.n2452.z2.fidonet.org -> test2471@2:2471/2415
-ftntoss packet ./pin/00000004.pkt (312b) from 2:2452/110.0 to 2:2471/2415.0
+ftntoss packet ./pin/00000004.pkt (311b) from 2:2452/110.0 to 2:2471/2415.0
 ftntoss MAIL: Test User @ 2:2452/110.0 -> Test2471 @ 2:2471/2415.0
 ftntoss remapto: Test2471 @ 2:2471/2415.0 -> 2:2471/2415.1
 New packet ./toss/toss/nnn00007.pkt (./toss/toss/nnn00007.tmp): 2:2452/110.2 -> 2:2471/2415.1
@@ -49,4 +49,4 @@ Source packet: from=2:2452/110.2 to=2:2471/2415.1 grade=n type=n flav=n
 Target packet: from=2:2452/110.2 to=2:2471/2415.1 grade=n type=n flav=h
 ftnroute packet for 2:2471/2415.1 (Hold)
 New packet ./toss/route/nnh00008.pkt (./toss/route/nnh00008.tmp): 2:2452/110.2 -> 2:2471/2415.1
-ftnpack archiving packet (391b) for 2:2471/2415.1 (zip)
+ftnpack archiving packet (389b) for 2:2471/2415.1 (zip)

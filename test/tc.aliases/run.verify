@@ -32,7 +32,7 @@ Writing FTN packet header:
     To  : 2:2452/110.2
     Baud: 0
     Prod: 00 fe
-    Rev : 4.3
+    Rev : x.x
     Pass: ""
     Capw: 0001
 Writing FTN message header:
@@ -72,7 +72,7 @@ Writing FTN packet header:
     To  : 2:2452/110.2
     Baud: 0
     Prod: 00 fe
-    Rev : 4.3
+    Rev : x.x
     Pass: ""
     Capw: 0001
 Writing FTN message header:
@@ -88,10 +88,10 @@ Reading FTN packet header:
     To  : 2:2452/110.2
     Baud: 0
     Prod: 00 fe
-    Rev : 4.3
+    Rev : x.x
     Pass: ""
     Capw: 0001
-ftn2rfc packet ./pin/00000001.pkt (509b) from 2:2452/110.2 to 2:2452/110.2
+ftn2rfc packet ./pin/00000001.pkt (508b) from 2:2452/110.2 to 2:2452/110.2
 Reading FTN message header:
     From: Test User                            @ 2:2452/110.2
     To  : Test 1                               @ 2:2/0.2
@@ -113,10 +113,10 @@ Reading FTN packet header:
     To  : 2:2452/110.2
     Baud: 0
     Prod: 00 fe
-    Rev : 4.3
+    Rev : x.x
     Pass: ""
     Capw: 0001
-ftn2rfc packet ./pin/00000002.pkt (509b) from 2:2452/110.2 to 2:2452/110.2
+ftn2rfc packet ./pin/00000002.pkt (508b) from 2:2452/110.2 to 2:2452/110.2
 Reading FTN message header:
     From: Test User                            @ 2:2452/110.2
     To  : Test 2                               @ 2:2/0.2

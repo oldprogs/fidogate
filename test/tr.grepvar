@@ -15,7 +15,9 @@ while(<>) {
     next if( /^From [^ ]/ );
     next if( /^\s*id / );
 
+    s/\.(mo|tu|we|th|fr|sa|su)\d/.xx0/g;
     s/FIDOGATE \d+\.\d+\.\d+/FIDOGATE x.x.x/g;
+    s/Rev *: *\d+\.\d+/Rev : x.x/;
     s/\d+$/123456789/ if( /^history:/ );
 
     print;

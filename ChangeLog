@@ -1,3 +1,18 @@
+2000-01-29  Martin Junius  <mj@fido.de>
+
+	------- CVS ci -------------------------------------------------------
+
+	* test/tc.*/run.verify: updated.
+
+	* src/common/message.c (NOBREAK_LINE_LENGTH): new #define set to 79.
+	  (msg_format_buffer): don't break lines with length <=
+	  NOBREAK_LINE_LENGTH, this avoids problems with, eg quoted,
+	  messages where lines are hard formatted to more than FIDOGATE's
+	  MessageLineLength chars per line.
+
+	* test/tr.grepvar: replace version numbers in packet header output 
+	  with x.x, bink arcmail extension with .xx0. 
+
 2000-01-28  Martin Junius  <mj@fido.de>
 
 	------- CVS ci -------------------------------------------------------
