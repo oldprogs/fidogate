@@ -1,6 +1,6 @@
 #!/usr/local/bin/perl
 #
-# $Id: out-ls.pl,v 4.0 1996/04/17 18:17:38 mj Exp $
+# $Id: out-ls.pl,v 4.1 1996/06/10 19:36:07 mj Exp $
 #
 # This script lists the outbound of BinkleyTerm. It is currently tailored
 # to a UNIX system serving a DOS NFS client. DOS filenames are translated
@@ -103,7 +103,7 @@ sub print_flo_entry {
     local($type, $drive, $file, $short, $t, $s);
 
     $type  = substr($line, 0, 1);
-    if(! ($type =~ /[a-zA-Z]/) ) {
+    if($type =~ /[#~^]/ ) {
 	$line = substr($line, 1, length($line)-1);
     }
     else {

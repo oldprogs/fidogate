@@ -1,6 +1,6 @@
 #:ts=8
 #
-#    $Id: Makefile,v 4.1 1996/05/03 19:18:46 mj Exp $
+#    $Id: Makefile,v 4.2 1996/06/10 19:36:09 mj Exp $
 #
 #    Makefile for FIDOGATE src/util/
 #
@@ -16,13 +16,14 @@ include $(TOPDIR)/config.make
 include $(TOPDIR)/rules.make
 
 
-PROGS		= ftnfattach ftnbsy ftnlock ftnlog ftnseq\
+PROGS		= ftnfattach ftnbsy ftnlock ftnlog ftnseq ftnflo\
 		  pktdebug pktmore sumcrc
 
 
 all:		$(PROGS)
 
 ftnfattach:	$(TOPDIR)/src/common/$(LIB)
+ftnflo:		$(TOPDIR)/src/common/$(LIB)
 ftnbsy:		$(TOPDIR)/src/common/$(LIB)
 ftnlock:	$(TOPDIR)/src/common/$(LIB)
 ftnlog:		$(TOPDIR)/src/common/$(LIB)
@@ -34,6 +35,7 @@ sumcrc:		$(TOPDIR)/src/common/$(LIB)
 install:
 	$(INSTALL_PROG)   ftnseq      $(LIBDIR)
 	$(INSTALL_PROG)   ftnfattach  $(BINDIR)
+	$(INSTALL_PROG)   ftnflo      $(BINDIR)
 	$(INSTALL_PROG)   sumcrc      $(BINDIR)
 	$(INSTALL_PROG)   ftnlock     $(LIBDIR)
 	$(INSTALL_PROG)   ftnlog      $(LIBDIR)

@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# $Id: runpoll.sh,v 4.2 1996/05/07 19:50:42 mj Exp $
+# $Id: runpoll.sh,v 4.3 1996/06/10 19:36:08 mj Exp $
 #
 # Poll uplink
 #
@@ -34,11 +34,8 @@ $NEWS/send-fidogate
 # Tosser
 $FIDOGATE/runtoss out
 
-
 # Poll
 $IFMAIL/ifcico $UPLINK
-#$IFMAIL/ifcico -I$IFMAIL/config-i4 $UPLINK
-
 
 # Unbatch and process ffx files
 $FIDOGATE/ffxrun
@@ -46,15 +43,15 @@ $FIDOGATE/ffxrun
 # Process tic files
 $FIDOGATE/ftntick
 
-# Process mail queue
-/usr/sbin/sendmail -q
-
 # Tosser
 $FIDOGATE/rununpack pin
 $FIDOGATE/runtoss   pin
 
-# Tosser expire
-$FIDOGATE/ftnexpire
-
 # Gateway
 $FIDOGATE/ftnin -x %L/ftninpost
+
+# Process mail queue
+/usr/sbin/sendmail -q
+
+# Tosser expire
+$FIDOGATE/ftnexpire
