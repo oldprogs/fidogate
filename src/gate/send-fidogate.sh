@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# $Id: send-fidogate.sh,v 4.3 2003/06/08 21:01:26 n0ll Exp $
+# $Id: send-fidogate.sh,v 4.4 2003/06/09 12:10:57 n0ll Exp $
 #
 # SH script to send batches to FIDOGATE
 #
@@ -62,8 +62,8 @@ for SITE in ${LIST}; do
 
     echo "${PROGNAME}: [$$] begin ${SITE}"
 
-    case $VERSION in
-    INN 2.2*)
+    case "$VERSION" in
+    "INN 2.2"*)
 	# optimized version for INN 2.2, no longer works with INN 2.3
 	time $RFC2FTN -f $BATCHFILE -m 500
 	;;

@@ -1,10 +1,10 @@
 X-Emacs-Mode: -*- indented-text -*-
-Subject: FIDOGATE 4.4.8 - Fido-Internet Gateway and Tosser
+Subject: FIDOGATE 4.4.9 - Fido-Internet Gateway and Tosser
 Keywords: fido ftn netmail echomail tosser areafix mail news gateway
 Followup-To: comp.os.linux.misc
 
   =================================================================
-    FIDOGATE 4.4.8, a stable version of the new FIDOGATE release
+    FIDOGATE 4.4.9, a stable version of the new FIDOGATE release
   =================================================================
 
 			   FIDOGATE Version 4
@@ -33,14 +33,22 @@ Followup-To: comp.os.linux.misc
     http://metalab.unc.edu/pub/Linux/system/fido/
     (maybe still in .../pub/Linux/Incoming)
 
-    fidogate-4.4.8.lsm			   1 Kbyte
-    fidogate-4.4.8.tar.gz		1164 Kbyte
-    fidogate-4.4.8-1.rh9x.src.rpm	1164 Kbyte
-    fidogate-4.4.8-1.rh9x.i386.rpm	1088 Kbyte
+    fidogate-4.4.9.lsm			   1 Kbyte
+    fidogate-4.4.9.tar.gz		1164 Kbyte
+    fidogate-4.4.9-1.rh9x.src.rpm	1164 Kbyte
+    fidogate-4.4.9-1.rh9x.i386.rpm	1088 Kbyte
 
 
 
 ======================================================================
+
+Changes in 4.4.9:
+
+* send-fidogate: fixed INN interface (using batcher) for INN 2.3.
+
+* RPMs build for RedHat 9 (release rh9x).
+
+
 
 Changes in 4.4.8:
 
@@ -169,6 +177,6 @@ Needed:
 
 ======================================================================
 
-$Date: 2003/06/08 21:01:24 $
+$Date: 2003/06/09 12:10:56 $
 Martin Junius
 mailto:mj@fido.de

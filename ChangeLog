@@ -1,3 +1,19 @@
+2003-06-09  Martin Junius  <mj@m-j-s.net>
+
+	======= Release 4.4.9 ================================================
+	------- CVS tag R449 -------------------------------------------------
+	------- CVS ci -------------------------------------------------------
+
+	* version.h (PATCHLEVEL): set to 9, version 4.4.9.
+
+	* fidogate.spec: updated.
+
+	* fidogate.lsm: updated.
+
+	* ANNOUNCE: updated.
+
+	* src/gate/send-fidogate.sh: fixed case statement.
+
 2003-06-08  Martin Junius  <mj@m-j-s.net>
 
 	------- CVS ci -------------------------------------------------------
