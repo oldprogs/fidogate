@@ -3,6 +3,7 @@
 ../tr.init
 
 T="../../src/gate/rfc2ftn -c../cf/fidogate.conf -vvvvv"
+D="../../src/util/pktdebug"
 
 echo "tc: running"
 
@@ -16,4 +17,4 @@ echo "---------- mail4 ---------"
 $T Test_user@hippo.fido.de <mail4
 
 echo ""
-pktdebug -t outpkt/mail/*.pkt
+$D -t outpkt/mail/*.pkt

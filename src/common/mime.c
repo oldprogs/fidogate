@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: mime.c,v 4.11 1999/05/22 12:05:00 mj Exp $
+ * $Id: mime.c,v 4.12 1999/06/01 20:59:08 mj Exp $
  *
  * MIME stuff
  *
@@ -127,12 +127,13 @@ char *mime_deheader(char *d, size_t n, char *s, int flags)
     int i;
     int mime_flag = FALSE;
 
-    for(i=0; i<n-1 && *s; i++, s++)
+    for(i=0; i<n-1 && *s; )
     {
 	if(strnieq(s, MIME_HEADER_CODE_START, strlen(MIME_HEADER_CODE_START)))
 	{
 	    mime_flag = TRUE;
 	    s += strlen(MIME_HEADER_CODE_START);
+	    continue;
 	}
 
 	if(mime_flag)
@@ -140,6 +141,7 @@ char *mime_deheader(char *d, size_t n, char *s, int flags)
 	    if(strneq(s, MIME_HEADER_CODE_END, strlen(MIME_HEADER_CODE_END)))
 	    {
 		mime_flag = FALSE;
+		s += strlen(MIME_HEADER_CODE_END);
 		continue;
 	    }
 	    
@@ -147,21 +149,22 @@ char *mime_deheader(char *d, size_t n, char *s, int flags)
 	    {
 		if(is_qpx(s[1]) && is_qpx(s[2]))	/* =XX */
 		{
-		    d[i] = x2toi(s+1);
-		    s += 2;
+		    d[i++] = x2toi(s+1);
+		    s += 3;
 		    continue;
 		}
 	    }
 
 	    if(s[0] == '_')
 	    {
-		d[i] = ' ';
+		d[i++] = ' ';
+		s++;
 		continue;
 	    }
 	}
 	
 	/* Nothing special to do */
-	d[i] = *s;
+	d[i++] = *s++;
     }
     d[i] = 0;
 

@@ -2,7 +2,7 @@ This is fidogate.info, produced by Makeinfo version 3.12f from
 fidogate.texi.
 
    This file documents the installation and usage of FIDOGATE version
-4.3
+4.3.
 
    Copyright (C) 1994-1999, Martin Junius
 
@@ -18,6 +18,204 @@ permission notice identical to this one.
    Permission is granted to copy and distribute translations of this
 manual into other languages, under the above conditions for modified
 versions.
+
+
+File: fidogate.info,  Node: ftnflo,  Next: ftnlock,  Prev: ftnfattach,  Up: Programs
+
+ftnflo -- Process Binkley Outbound FLO Files and Attachments
+============================================================
+
+Usage:
+
+     ftnflo  [-options]  Z:N/F.P  ...
+
+Options:
+
+`-B --binkley name'
+     Set Binkley outbound directory.
+
+`-l --list'
+     List entries in FLO file.
+
+`-n --no-delete'
+     Don't delete FLO entries after processing.
+
+`-x --exec command'
+     Execute command for every FLO entry, delete entry after successful
+     processing. `%s' in command is replaced with the filename of the
+     FLO entry.
+
+   The file name may start with `^' or `#', indicating that the file
+should be deleted or truncated, respectively, after sending.
+
+
+File: fidogate.info,  Node: ftnlock,  Next: ftnlog,  Prev: ftnflo,  Up: Programs
+
+ftnlock -- Create/Remove Lock Files
+===================================
+
+Usage:
+
+     ftnlock  [-options]  [NAME]  [ID]
+
+Options:
+
+`-l --lock'
+     Create lock file NAME, fail if it already exists (exit code=2). If
+     NAME is not specified, the default `ftnlock' is used. The optional
+     parameter ID specifies the contents of the lock file, the default
+     is `-none-'.
+
+`-u --unlock'
+     Remove lock file NAME.
+
+`-w --wait'
+     Wait while creating lock file. Default: immediately return, if the
+     lock file can't be created because it already exists.
+
+   Lock files are created as %K/NAME.
+
+
+File: fidogate.info,  Node: ftnlog,  Next: ftnoutpkt,  Prev: ftnlock,  Up: Programs
+
+ftnlog -- Write Message to Log File
+===================================
+
+Usage:
+
+     ftnlog  [-options]  message text
+
+Options:
+
+`-p --program NAME'
+     Set program name for logging.
+
+   This program is used to write a log message from a shell script. The
+log file name may be specified with the `FIDOGATE_LOGFILE' environment
+variable.
+
+
+File: fidogate.info,  Node: ftnoutpkt,  Next: ftnseq,  Prev: ftnlog,  Up: Programs
+
+ftnoutpkt -- Create Fido Message Packets
+========================================
+
+Usage:
+
+     ftnoutpkt  [-options]  "user name @ z:n/f.p"  "..."
+
+Options:
+
+`-f --from "user name @ z:n/f.p"'
+     Set sender Fido address.
+
+`-s --subject "subject"'
+     Set message subject.
+
+`-O --out-dir dir'
+     Set output directory. Default: %S/outpkt
+
+   This utility can be used to create native Fido messages. The message
+body text is read from stdin.
+
+
+File: fidogate.info,  Node: ftnseq,  Next: pktdebug,  Prev: ftnoutpkt,  Up: Programs
+
+ftnseq -- Command Line Interface to Sequencer Files
+===================================================
+
+Usage:
+
+     ftnseq  [-options]  sequencer
+
+   This utilitity increments the named sequencer file and prints the
+resulting value to stdout. Useful for accessing FIDOGATE sequencer files
+from perl and shell scripts.
+
+
+File: fidogate.info,  Node: pktdebug,  Next: pktmore,  Prev: ftnseq,  Up: Programs
+
+pktdebug -- FTN mail packet debugger
+====================================
+
+Usage:
+
+     pktdebug  [-options]  file ...
+
+Options (standard options not supported):
+
+`-m --msg-header'
+     Print message header.
+
+`-t --msg-text'
+     Print message text. Implies `-m'.
+
+`-s --short'
+     Print contents in short format: packet from/to address and number
+     of NetMail and EchoMail messages.
+
+`-v --verbose'
+     Increase verbose/debug level.
+
+`-h --help'
+     Help on `pktdebug' usage.
+
+   This utility displays the packet header and optionally the message
+header and message body contents.
+
+   See also the `util/pktmore' utitility, which pipes the output of
+`pktdebug' to `$PAGER'.
+
+
+File: fidogate.info,  Node: pktmore,  Next: sumcrc,  Prev: pktdebug,  Up: Programs
+
+pktmore -- Pager frontend for `pktdebug'
+========================================
+
+Usage:
+
+     pktmore  file ...
+
+   `pktmore' uses the environment variable `PAGER' for the pager
+program. Default: `more'
+
+
+File: fidogate.info,  Node: sumcrc,  Next: Config files,  Prev: pktmore,  Up: Programs
+
+sumcrc -- CRC Checksum Utility
+==============================
+
+Usage:
+
+     sumcrc  [-options]  file ...
+
+Options (standard options not supported):
+
+`-1 --skip-first-line'
+     Skip first line in file. Useful for computing nodelist CRC.
+
+`-3 --crc32'
+     Compute 32 bit CRC checksum, using the standard 32 bit polynomial
+     (same as in ZModem, ZIP). Default: 16 bit CRC CCITT polynomial.
+
+`-6 --crc16'
+     Use alternate 16 bit CRC16 polynomial.
+
+`-x --hex'
+     Output CRC value in hex. Default: decimal
+
+`-z --eof-at-ctrl-z'
+     The Ctrl-Z character (`^Z') indicates end-of-file (MSDOS kludge).
+
+`-v --verbose'
+     Increase verbose/debug level.
+
+`-h --help'
+     Help on `sumcrc' usage.
+
+   Use `sumcrc -1z' to compute the checksum for a standard Fido
+nodelist. See also the nodelist processing scripts in
+`scripts/nodelist/nl-*'.
 
 
 File: fidogate.info,  Node: Config files,  Next: Config,  Prev: sumcrc,  Up: Top
@@ -1019,9 +1217,9 @@ Commands:
 
 `remapx'
      Remaps NetMail addressed to name at src-node to special processing
-     with prog (actually writing it to a packet in `%S/toss/'prog. Most
-     useful for processing areafix messages. name supports shell-style
-     wildcard patterns.  NOT YET IMPLEMENTED.
+     with prog (actually writing it to a packet in `%S/remapx/'prog.
+     Most useful for processing areafix messages. name supports
+     shell-style wildcard patterns.  NOT YET IMPLEMENTED.
 
 `remapfrom'
      Remaps NetMail from name at src-node to the new address dest-node.
@@ -1531,89 +1729,4 @@ FIDOGATE Usage
 
 * RFC Headers:: RFC Headers in FTN Messages
 * X Headers::   X Headers in RFC Messages
-
-
-File: fidogate.info,  Node: RFC Headers,  Next: X Headers,  Prev: Usage,  Up: Usage
-
-RFC Headers in FTN Messages
-===========================
-
-FIDOGATE's `ftn2rfc' supports the following RFC headers at the start of
-an FTN message. RFC headers must be the first text lines, max. 3 empty
-lines before the RFC headers are allowed. Only one header line of each
-type is allowed.
-
-`From: address'
-     Sets From header line. If set and the `areas' flag `-g' is on,
-     messages will not be gated, because they are considered comming
-     from another FTN-RFC gateway.
-
-`Reply-To: address'
-     Sets Reply-To header line.
-
-`To: address'
-     Sets To header line.
-
-`Cc: address'
-     Sets Cc header line.
-
-`Bcc: address'
-     Sets Bcc header line.
-
-`Newsgroups: groups'
-     Sets Newsgroups header line. NOT YET IMPLEMENTED.
-
-`Sender: address'
-     Sets Sender header line. NOT YET IMPLEMENTED.
-
-`Content-Transfer-Encoding: 7bit | 8bit | quoted-printable'
-     Sets content encoding type, overriding the default configured in
-     `fidogate.conf' (`NetMail8bit', `NetMailQuotedPrintable') or
-     `areas' (`-8', `-Q').
-
-   `ftn2rfc' sends mail to all addresses listed in To, Cc, and Bcc. It
-support the RFC1036 standard address formats:
-
-     user@do.main
-     user@do.main (Real Name)
-     Real Name <user@do.main>
-
-   Multiple addresses can be separated by a `,'.
-
-
-File: fidogate.info,  Node: X Headers,  Next: Index,  Prev: RFC Headers,  Up: Usage
-
-X Headers in RFC Messages
-=========================
-
-FIDOGATE's `rfc2ftn' supports the following X headers in RFC messages:
-
-`X-Comment-To: name'
-     Use for the recipient's name in news articles.
-
-`X-Flags: flags'
-
-    `c'
-          Message is crash.
-
-    `p'
-          Message is private (default for mail).
-
-    `h'
-          Message is hold.
-
-    `f'
-          Subject contains file attachment name.
-
-    `r'
-          Sets return receipt request.
-
-    `m'
-          Generates a FTN style `^MSGID', i.e. `^AMSGID: 'Z:N/F.P
-          1234abcd. In addition, no `^AREPLY' kludge is generated. THIS
-          FLAG IS NOT RECOMMENDED FOR NORMAL OPERATION!!!
-
-    `n'
-          Do not generate a From line, and the `^AREPLYADDR', `REPLYTO'
-          kludges.
 

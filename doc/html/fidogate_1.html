@@ -1,6 +1,6 @@
 <HTML>
 <HEAD>
-<!-- Created by texi2html 1.56k from ../fidogate.texi on 24 May 1999 -->
+<!-- Created by texi2html 1.56k from ../fidogate.texi on 1 June 1999 -->
 
 <TITLE>FIDOGATE  - Introduction to FIDOGATE</TITLE>
 </HEAD>
@@ -29,8 +29,8 @@ messages and vice versa.
 
 <P>
 FIDOGATE also includes a complete FIDO mail processor (NetMail/EchoMail
-scanner and tosser), an FTN-FTN gateway (NetMail only), a file processor
-(TIC file areas) and an Areafix/Filefix.
+tosser), an FTN-FTN gateway (NetMail only), a file processor (TIC file
+areas) and an Areafix/Filefix.
 
 
 
@@ -72,24 +72,24 @@ Magic name FIDOGATE
 
 <LI>
 
-Something that gets you FIDONET mail. If you want a UNIX-based FIDO
-mailer, I recommend using ifcico.
+Something that gets you FIDONET mail. If you want a Unix-based Fido
+mailer, I recommend using ifcico or BinkD.
 
 <LI>
 
-Installed news system. (e.g. INN)
+Installed news system (INN prefered)
 
 <LI>
 
-A mail transport agent. (e.g. sendmail)
+Mail transport agent (sendmail prefered)
 
 <LI>
 
-Perl. (version 5)
+Perl (version 5 strictly required)
 
 <LI>
 
-M4 for compiling the sendmail config files.
+M4 for compiling the sendmail config files
 
 </UL>
 
@@ -145,50 +145,17 @@ unsubscribe fidogate
 
 <H2><A NAME="SEC5" HREF="fidogate_toc.html#TOC5">Credits</A></H2>
 <P>
-This stuff is a derived version of a posting called <CODE>rfmail</CODE> to
-Usenet's alt.sources some time ago. I rewrote the entire code by now.
+Most C code has been solely hacked by me, but there are also some source
+files taken from other free software packages (GNU, INN). See the
+various source files for details. In addition, many FIDOGATE users
+provided bug fixes and patches, which found their way into the
+distribution.
 
 
 <P>
-The original <CODE>rfmail</CODE> authors were: Teemu Torma, who wrote the first
-version, and Heikki Suonsivu, who did some changes and improvements and
-posted version 0.3.3 to the net.
-
-
-<P>
-Also used:
-
-
-<P>
-The parsedate.y date/time parser, from INN 1.4:
-
-<PRE>
-Originally written by Steven M. Bellovin &#60;smb@research.att.com&#62; while
-at the University of North Carolina at Chapel Hill.  Later tweaked by
-a couple of people on Usenet.  Completely overhauled by Rich $alz
-&#60;rsalz@osf.org&#62; and Jim Berets &#60;jberets@bbn.com&#62; in August, 1990.
-Further revised (removed obsolete constructs and cleaned up timezone
-names) in August, 1991, by Rich.  Paul Eggert &#60;eggert@twinsun.com&#62;
-helped in September, 1992.
-</PRE>
-
-<P>
-(Changed slightly and adopted for FIDOGATE)
-
-
-<P>
-The xstrtok() function:
-
-<PRE>
-16/10/1991      Wolfram Roesler         wr@bara.oche.de
-</PRE>
-
-<P>
-GNU <CODE>getopt</CODE>.
-
-
-<P>
-The wildmat() function from GNU tar, modified and adopted for FIDOGATE.
+The ancestor of both FIDOGATE and ifmail was a Usenet posting to
+alt.sources called <CODE>rfmail</CODE> ages ago. None of this original code
+survived the massive rewrite and new code which makes FIDOGATE.
 
 
 <P><HR><P>

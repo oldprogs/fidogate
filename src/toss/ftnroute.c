@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftnroute.c,v 4.24 1999/05/15 20:54:43 mj Exp $
+ * $Id: ftnroute.c,v 4.25 1999/06/01 20:59:09 mj Exp $
  *
  * Route FTN NetMail/EchoMail
  *
@@ -40,7 +40,7 @@
 
 
 #define PROGRAM 	"ftnroute"
-#define VERSION 	"$Revision: 4.24 $"
+#define VERSION 	"$Revision: 4.25 $"
 #define CONFIG		DEFAULT_CONFIG_MAIN
 
 
@@ -156,7 +156,9 @@ int do_move(char *name, FILE *fp, PktDesc *desc)
     /* Set a/mtime to current time after renaming */
     if(utime(buffer, NULL) == ERROR)
     {
+#ifndef __CYGWIN32__		/* Some problems with utime() here */
 	log("$WARNING: can't set time of %s", buffer);
+#endif
 #if 0
 	return ERROR;
 #endif

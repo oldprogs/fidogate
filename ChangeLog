@@ -1,3 +1,26 @@
+1999-06-01  Martin Junius  <mj@fido.de>
+
+	------- CVS ci -------------------------------------------------------
+
+	* src/tick/ftntick.c (move): dito.
+
+	* src/toss/ftnroute.c (do_move): #ifndef CYGWIN32 WARNING message.
+
+	* src/common/Makefile: add strtok_r module, teststrtok test program.
+
+	* src/common/strtok_r.c: new module for reentrant strtok()
+	  variants based on NetBSD strtok_r.c
+
+	* src/common/mime.c (mime_deheader): bugfix for processing
+	  MIME_HEADER_CODE_START/END.
+
+	* doc/fidogate.texi: major update, all program descriptions are
+	  now up-to-date.
+
+	* examples/namib.north.de/: completely removed.
+
+	* examples/abis.abra.de/: completely removed.
+
 1999-05-29  Martin Junius  <mj@fido.de>
 
 	======= Release 4.3.3 ================================================
