@@ -1,4 +1,4 @@
-#!/usr/bin/perl -Tw
+#!/usr/bin/perl -T
 
 use strict;
 
@@ -110,7 +110,7 @@ print
 print
   "<b>News Processes</b>\n",
   "<font $size>\n",
-  "<pre>",
+  "<pre>\n",
   @out,
   "</pre>\n",
   "</font>\n";
@@ -137,7 +137,7 @@ for (@DIRS) {
 print
   $q->hr, "\n",
   $q->p, "\n",
-  '<font size=-2>FIDOGATE $Id: gate.cgi.pl,v 1.2 1999/01/02 16:34:53 mj Exp $ <br>',
+  '<font size=-2>FIDOGATE $Id: gate.cgi.pl,v 1.3 1999/10/17 11:49:29 mj Exp $ <br>',
   '&copy; Copyright 1996-1999 ',
   '<a href="mailto:mj@fido.de">Martin Junius</a></font>',
   $q->end_html, "\n";
@@ -181,14 +181,19 @@ sub my_ps_news {
     open(F, $tmp) || return ("ERROR");
     while(<F>) {
 	if( /^USER/ ) {
-	    push(@lines, "  PID %CPU %MEM  SIZE   RSS STAT START    TIME COMMAND\n");
+#	    push(@lines, "  PID %CPU %MEM  SIZE   RSS STAT START    TIME COMMAND\n");
+	    push(@lines, "  PID %CPU %MEM   VSZ  RSS  STAT START    TIME COMMAND\n");
 	    next;
 	}
 	next if(! /^news/ );
 
 #	push(@lines, ">>>$_");
 
-	next if(! /^.........(...........................).....([A-Z].*\d )( *\d+:\d\d).(.+)$/ );
+#  USER     (  PID %CPU %MEM   VSZ  RSS )TTY      STAT START   TIME COMMAND
+#  news     (  580  0.0  0.2  5604  136 )?        S    10:18   0:01 /usr/bin/innd -p5
+#  news     (  584  0.0  0.1  2536  100 )?        S    10:18   0:00 /usr/bin/actived
+#/^.........(...........................)......*?([A-Z].*\d )( *\d+:\d\d).(.+)$/ );
+	next if(! /^.........(...........................)......*?([A-Z].*\d )( *\d+:\d\d).(.+)$/ );
 	$x  = "$1 $2";
 	$x1 = $3;
 	$x2 = $4;
@@ -220,6 +225,8 @@ sub my_ls_l {
 
     my($tmp,@lines);
     local(*F);
+
+    @lines = ();
 
     $tmp = "/tmp/gate.cgi.out.$$";
     system "ls -lL $opts $dir >$tmp 2>/dev/null";

@@ -1,5 +1,5 @@
 #
-# $Id: Makefile,v 4.15 1999/05/15 21:50:57 mj Exp $
+# $Id: Makefile,v 4.16 1999/10/17 11:49:26 mj Exp $
 #
 # Makefile FIDOGATE TOPDIR
 #
@@ -31,6 +31,8 @@ INSTALLDIRS	= $(DEFAULT_V_CONFIGDIR) \
 		  $(DEFAULT_V_SPOOLDIR)/toss/pack \
 		  $(DEFAULT_V_SPOOLDIR)/toss/bad \
 		  $(DEFAULT_V_BTBASEDIR) \
+		  $(DEFAULT_V_BTBASEDIR)/tick \
+		  $(DEFAULT_V_BTBASEDIR)/ffx \
 		  $(DEFAULT_V_INBOUND) \
 		  $(DEFAULT_V_PINBOUND) \
 		  $(DEFAULT_V_UUINBOUND) \
@@ -51,6 +53,13 @@ install-dirs:
 	for d in $(INSTALLDIRS); do if [ ! -d $$d ]; then \
 	    echo "Creating $$d ..."; $(INSTALL_DIR) $(PREFIX)$$d; \
 	fi; done
+
+install-uuin:
+	if [ ! -d $$d ]; then \
+	    $(INSTALL_DIR) $(PREFIX)$(DEFAULT_V_UUINBOUND); \
+	fi
+	chgrp mail $(PREFIX)$(DEFAULT_V_UUINBOUND)
+	chmod g+w  $(PREFIX)$(DEFAULT_V_UUINBOUND)
 
 install::
 	cp ANNOUNCE $(PREFIX)$(HTMLDIR)

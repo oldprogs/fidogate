@@ -1,6 +1,6 @@
 #!/usr/local/bin/perl
 #
-# $Id: logcheck.pl,v 4.6 1998/05/03 12:46:28 mj Exp $
+# $Id: logcheck.pl,v 4.7 1999/10/17 11:49:29 mj Exp $
 #
 # Create report for sendmail check_mail rules
 #
@@ -42,36 +42,41 @@ print "\n" if($opt_m || $opt_n);
 
 # Read sendmail log
 while(<>) {
+    chop;
+
     if( /^(... .\d \d\d:\d\d:\d\d) / ) {
 	$first_date = $1 if(!$first_date);
 	$last_date  = $1;
     }
 
-    if(/check_mail \(([^\)]*)\) rejection: 551.*/ ||
-       /check_mail, arg1=(.*), relay=(.*), reject=551.*/ ) {
+    if( /check_mail \(([^\)]*)\) rejection: 551/ ||
+        /check_mail, arg1=(.*), relay=(.*), reject=55\d/ ) {
 	$a = $1;
 	$a = "<$a>" if(! $a =~ /^<.*>$/);
 	$r = $opt_r ? $2 : "";
 	$reject{"$a /// $r"}++;
 	print "reject: $a\n" if($opt_v);
     }
-
-    if(/check_mail \(([^\)]*)\) rejection: 451.*/ ||
-       /check_mail, arg1=(.*), relay=(.*), reject=451.*/ ) {
+    elsif( /check_mail \(([^\)]*)\) rejection: 451/ ||
+	   /check_mail, arg1=(.*), relay=(.*), reject=(451|501)/ ) {
 	$a = $1;
 	$a = "<$a>" if(! $a =~ /^<.*>$/);
 	$r = $opt_r ? $2 : "";
 	$nodns{"$a /// $r"}++;
 	print "no DNS: $a\n" if($opt_v);
     }
-
-    if(/check_rcpt \(([^\)]*)\) rejection: 551.*we do not relay/ ||
-       /check_mail, arg1=(.*), relay=(.*), reject=551.*we do not relay/ ) {
+    elsif( /check_rcpt \(([^\)]*)\)()() rejection: 551/                ||
+	   /check_mail, arg1=(.*),() relay=(.*), reject=551/           ||
+	   /check_relay, arg1=(.*), arg2=(.*), relay=(.*), reject=550/ ||
+	   /check_rcpt, arg1=(.*),() relay=(.*), reject=5\d\d/            ) {
 	$a = $1;
 	$a = "<$a>" if(! $a =~ /^<.*>$/);
-	$r = $opt_r ? $2 : "";
+	$r = $opt_r ? $3 : "";
 	$relay{"$a /// $r"}++;
 	print "relay : $a\n" if($opt_v);
+    }
+    elsif(/check_/) {
+	print "NOT MATCHED: $_\n";
     }
 }
 

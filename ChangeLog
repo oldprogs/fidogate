@@ -1,3 +1,35 @@
+1999-10-17  Martin Junius  <mj@fido.de>
+
+	------- CVS ci -------------------------------------------------------
+
+	* scripts/www/gate.cgi.pl (my_ps_news): adapted to new ps output
+	  of procps-2.0 package.
+
+	* scripts/maintenance/logsendmail.p: fixed orphan printf.
+
+	* scripts/misc/Makefile (install): install senduumail in BINDIR.
+
+	* scripts/maintenance/logcheck.pl: re patterns adapted for
+	  sendmail 8.9.x
+
+1999-10-10  Martin Junius  <mj@fido.de>
+
+	* Makefile (INSTALLDIRS): added BTBASEDIR/tick,ffx directories.
+	  (install-uuin): added new target to set correct permissions for
+	  uuin. 
+
+1999-10-09  Martin Junius  <mj@fido.de>
+
+	* sendmail/cf/redhat6-morannon.mc: add confDOMAIN_NAME to avoid
+	  problems with reverse mapping pointing to faho.rwth-aachen.de.
+
+1999-10-07  Martin Junius  <mj@fido.de>
+
+	* scripts/maintenance/runchklock.sh: new script removing stale
+	  FIDOGATE lock files.
+
+	* sendmail/cf/redhat6-morannon.mc: use /etc/majordomo.aliases.
+
 1999-10-04  Martin Junius  <mj@fido.de>
 
 	------- CVS ci -------------------------------------------------------

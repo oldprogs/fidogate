@@ -1,6 +1,6 @@
 #:ts=8
 #
-#    $Id: Makefile,v 4.4 1999/05/15 20:54:36 mj Exp $
+#    $Id: Makefile,v 4.5 1999/10/17 11:49:29 mj Exp $
 #
 #    Makefile for FIDOGATE scripts/filebase/
 #
@@ -35,7 +35,7 @@ install:
 	$(INSTALL_PROG) areasbbssync $(PREFIX)$(BINDIR)
 	$(INSTALL_PROG) recvuu $(PREFIX)$(BINDIR)
 	$(INSTALL_PROG) senduu $(PREFIX)$(BINDIR)
-	$(INSTALL_PROG) senduumail $(PREFIX)$(LIBDIR)
+	$(INSTALL_PROG) senduumail $(PREFIX)$(BINDIR)
 
 
 clean:

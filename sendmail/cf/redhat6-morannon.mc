@@ -1,23 +1,24 @@
 #
-# $Id: redhat6-morannon.mc,v 4.2 1999/10/07 18:56:31 mj Exp $
+# $Id: redhat6-morannon.mc,v 4.3 1999/10/17 11:49:29 mj Exp $
 #
 # orodruin.Fido.DE
 #
 
 include(`../m4/cf.m4')
 
-VERSIONID(`$Id: redhat6-morannon.mc,v 4.2 1999/10/07 18:56:31 mj Exp $')
+VERSIONID(`$Id: redhat6-morannon.mc,v 4.3 1999/10/17 11:49:29 mj Exp $')
 
 dnl #
 dnl # Configuration
 dnl #
-define(`confCF_VERSION', `redhat6-morannon-4.2')
+define(`confCF_VERSION', `redhat6-morannon-4.3')
 define(`confMIME_FORMAT_ERRORS', `False')
 define(`confUSE_ERRORS_TO', `True')
 define(`confMAX_HOP', `30')
 define(`confMESSAGE_TIMEOUT', `5d/2d')
 define(`confAUTO_REBUILD',true)
 define(`confTO_CONNECT', `1m')
+define(`confDOMAIN_NAME', `morannon.fido.de')
 
 dnl # RedHat specific
 define(`confDEF_USER_ID',``8:12'')
@@ -26,7 +27,7 @@ OSTYPE(`linux')
 
 define(`PROCMAIL_MAILER_PATH',`/usr/bin/procmail')
 dnl # extra aliases file for majordomo
-define(`ALIAS_FILE',`/etc/aliases,/opt/majordomo/majordomo.aliases')
+define(`ALIAS_FILE',`/etc/aliases,/etc/majordomo.aliases')
 
 FEATURE(`smrsh',`/usr/sbin/smrsh')
 FEATURE(`virtusertable',`hash -o /etc/mail/virtusertable')

@@ -1,13 +1,13 @@
 #!/usr/bin/perl
 #
-# $Id: logsendmail.pl,v 4.3 1999/04/03 13:29:00 mj Exp $
+# $Id: logsendmail.pl,v 4.4 1999/10/17 11:49:29 mj Exp $
 #
 # Gather statistics from sendmail V8 syslog output
 #
 
 require 5.000;
 
-my $VERSION    = '$Revision: 4.3 $ ';
+my $VERSION    = '$Revision: 4.4 $ ';
 my $PROGRAM    = "logsendmail";
 
 use strict;
@@ -363,7 +363,7 @@ print
 printf
   "     %4d bounce messages sent by sendmail\n", $bouncemsgs
   if($bouncemsgs);
-printf
+#printf
 #  "     %4d messages not included (due to log file cycling)\n", $unaccounted
 #  if($unaccounted);
 
