@@ -1,7 +1,7 @@
 Summary: Fido-Internet Gateway and Fido Tosser
 Name: fidogate
 Version: 4.4.2
-Release: 1
+Release: 2
 Copyright: GPL
 Group: System Environment/Daemons
 Source: ftp://ftp.fidogate.org/pub/fidogate/fidogate-%{version}.tar.gz
@@ -56,6 +56,9 @@ rm -rf $RPM_BUILD_ROOT
 %config /var/lib/fidogate/fareas.bbs
 
 %changelog
+* Sat Nov 25 2000 Martin Junius <mj@m-j-s.net>
+- Changed release number to 2.6.2, reflecting package for RedHat 6.2
+
 * Sat Nov 18 2000 Martin Junius <mj@m-j-s.net>
 - Updated to version 4.4.2
 
