@@ -7,9 +7,9 @@ X = for next release
 	* ftn2rfc: improve processing of RFC address user%do.main and
 	  user@do.main in FTN to field.
 
-	* ftn2rfc: if 7bit text, do not use MIME quoted-printable.
+DONE.	* ftn2rfc: if 7bit text, do not use MIME quoted-printable.
 
-	* ftn2rfc: process MIME Content-Transfer-Encoding header in
+DONE.	* ftn2rfc: process MIME Content-Transfer-Encoding header in
 	  FTN message.
 
 	* rfc2ftn: configuration option for mail RFC level *per*

@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftn2rfc.c,v 4.17 1997/03/26 20:46:45 mj Exp $
+ * $Id: ftn2rfc.c,v 4.18 1997/03/26 22:04:21 mj Exp $
  *
  * Convert FTN mail packets to RFC mail and news batches
  *
@@ -40,7 +40,7 @@
 
 
 #define PROGRAM 	"ftn2rfc"
-#define VERSION 	"$Revision: 4.17 $"
+#define VERSION 	"$Revision: 4.18 $"
 #define CONFIG		CONFIG_GATE
 
 
@@ -239,6 +239,24 @@ Area *news_msg(char *line)
 
     /* Message is FIDO NetMail */
     return NULL;
+}
+
+
+
+/*
+ * Check for 8bit characters in message body
+ */
+int check_8bit(Textlist *tl)
+{
+    Textline *pl;
+    char *p;
+    
+    for(pl=tl->first; pl; pl=pl->next)
+	for(p=pl->line; *p && *p!='\r'; p++)
+	    if(*p & 0x80)
+		return TRUE;
+
+    return FALSE;
 }
 
 
@@ -460,6 +478,13 @@ int unpack(FILE *pkt_file, Packet *pkt)
 			: msg.node_from.zone  );
 	}
 
+	/*
+	 * Check for 8bit characters in message body. If none are
+	 * found, don't use the quoted-printable encoding.
+	 */
+	if(!check_8bit(&body.body))
+	    cvt8 &= ~AREA_QP;
+	
 	/*
 	 * Check for Content-Transfer-Encoding in RFC headers or ^ARFC kludges
 	 */
@@ -789,8 +814,8 @@ int unpack(FILE *pkt_file, Packet *pkt)
 	/*
 	 * Construct Cc/Bcc header lines
 	 */
-	cc_line  = msgbody_rfc_cc;
-	bcc_line = msgbody_rfc_bcc;
+	cc_line  = msgbody_rfc_to ? msgbody_rfc_cc  : NULL;
+	bcc_line = msgbody_rfc_to ? msgbody_rfc_bcc : NULL;
 	
 	/*
 	 * Construct Message-ID and References header lines

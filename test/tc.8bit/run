@@ -10,9 +10,9 @@ echo "tc: running"
 $T1 Martin_Junius@f110.n2452.z2.fidonet.org <body1
 $T1 Martin_Junius@f110.n2452.z2.fidonet.org <body2
 
-cp out/*.pkt in
+cp ../ti.8bit/*.pkt in
 $T2 -c config1
-cp out/*.pkt in
+cp ../ti.8bit/*.pkt in
 $T2 -c config2
-cp out/*.pkt in
+cp ../ti.8bit/*.pkt in
 $T2 -c config3

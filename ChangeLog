@@ -2,6 +2,15 @@ Wed Mar 26 21:26:18 1997  Martin Junius  <mj@fido.de>
 
 	------- CVS ci -------------------------------------------------------
 
+	* src/gate/ftn2rfc.c (unpack): only set cc_line, bcc_line, if
+	  there is a To: line in the message body. Avoids problems with
+	  Fido type CC: lines.
+	  (check_8bit): new function checking for 8bit characters in Textlist.
+	  (unpack): check for 8bit characters in message body. If none are
+	  found, don't use the quoted-printable encoding.
+
+	------- CVS ci -------------------------------------------------------
+
 	* src/gate/ftn2rfc.c (unpack): check for Content-Transfer-Encoding
 	  in RFC headers or ^ARFC kludges and set cvt8 flag accordingly.
 
