@@ -2,6 +2,14 @@ Sun Jan 18 09:31:56 1998  Martin Junius  <mj@fido.de>
 
 	------- CVS ci -------------------------------------------------------
 
+	* test/cf/*.conf: adapted to new config.
+
+	* config.make (DEFAULT_CONFIG_*): changed config file names
+	  gate.conf, toss.conf, ffx.conf, the common configuration will be
+	  in common.conf.
+
+	------- CVS ci -------------------------------------------------------
+
 	* test/tc.8bit/run: adapted to new config.
 
 	* src/common/config.c (cf_initialize): #include "cf_env.c" for

@@ -1,6 +1,6 @@
 # -*- Makefile -*-
 #
-# $Id: config.make,v 4.13 1998/01/18 10:57:55 mj Exp $
+# $Id: config.make,v 4.14 1998/01/18 12:30:20 mj Exp $
 #
 # FIDOGATE main configuration
 #
@@ -75,9 +75,9 @@ ABBREV_PINBOUND		= %P
 ABBREV_UUINBOUND	= %U
 
 # files
-DEFAULT_CONFIG_GATE	= %C/config.gate
-DEFAULT_CONFIG_MAIN	= %C/config.main
-DEFAULT_CONFIG_FFX	= %C/config.ffx
+DEFAULT_CONFIG_GATE	= %C/gate.conf
+DEFAULT_CONFIG_MAIN	= %C/toss.conf
+DEFAULT_CONFIG_FFX	= %C/ffx.conf
 
 DEFAULT_ALIASES		= %C/aliases
 DEFAULT_AREAS		= %C/areas
