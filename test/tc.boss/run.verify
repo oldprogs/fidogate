@@ -1,0 +1,663 @@
+tc: clean-up
+tc: init
+config: fqdn=orodruin.fido.de
+config: address Z2   : addr=2:2452/123.0 uplink=0:0/0.0 gateaddr=2:2452/110.2
+config: zone 0   : .Fido.DE  FidoDE  -
+config: zone 1   : .fidonet.org  FidoNet  out.001
+config: zone 2   : .fidonet.org  FidoNet  out
+config: zone 3   : .fidonet.org  FidoNet  out.003
+config: zone 4   : .fidonet.org  FidoNet  out.004
+config: zone 5   : .fidonet.org  FidoNet  out.005
+config: zone 6   : .fidonet.org  FidoNet  out.006
+config: zone 21  : .gernet.heise.de  GerNet  out.015
+config: zone 242 : .Fido.DE  FidoDE  out.0f2
+config: gateway=0:0/0.0
+config: killempty
+config: lognetmail
+config: checkpath
+config: DupeCheck
+config: MaxMsg 400
+config: MaxOpenFiles 40
+config: MaxHistory 28
+config: PINBOUND ./pin
+config: SPOOLDIR .
+config: ROUTING %C/routing
+config: CONFIGDIR ../cf
+config: PASSWD %C/passwd
+config: LOCKDIR ./locks
+config: HISTORY %V/history
+config: VARDIR .
+config: LOGFILE %G/log
+config: LOGDIR .
+ftntoss creating MSGID history ./history.dir
+ftntoss creating MSGID history ./history.pag
+Packet: type 2+
+Reading FTN packet header:
+    From: 2:2452/123.1
+    To  : 2:2452/123.0
+    Baud: 0
+    Prod: 00 fe
+    Rev : x.x
+    Pass: ""
+    Capw: 0001
+ftntoss packet ./pin/00000001.pkt (524b) from 2:2452/123.1 to 2:2452/123.0
+Reading FTN message header:
+    From: Martin Junius                        @ 2:2452/123.1
+    To  : All                                  @ 2:2452/123.0
+    Subj: Test EchoMail from 2:2452/123.1
+    Attr: 0000
+EchoMail: 2:2452/123.1 -> 2:2452/123.0
+EchoMail AREA: LINUX.GER
+Select Z2 AKA: 2:2452/123.0  Uplink: 0:0/0.0
+history: offset=0: LINUX.GER MSGID: 2:2452/123.1 00000001 123456789
+SEEN-BY: 2:2452/123.1
+Path   : 2:2452/123.1
+SEEN-BY: 2:2452/123.1 2:2452/123 2:2452/999 2:2452/123.2 2:2452/123.3 2:2452/123.4 2:2452/123.5
+Path   : 2:2452/123.1 2:2452/123
+New    : 2:2452/999 2:2452/123.2 2:2452/123.3 2:2452/123.4 2:2452/123.5 2:2452/123
+toss_echomail(): message for 2:2452/999.0
+Open ./toss/toss/nen00001.tmp, mode w
+New packet ./toss/toss/nen00001.pkt (./toss/toss/nen00001.tmp): 2:2452/123.0 -> 2:2452/999.0
+Writing FTN packet header:
+    From: 2:2452/123.0
+    To  : 2:2452/999.0
+    Baud: 0
+    Prod: 00 fe
+    Rev : x.x
+    Pass: ""
+    Capw: 0001
+Writing FTN message header:
+    From: Martin Junius                        @ 2:2452/123.0
+    To  : All                                  @ 2:2452/999.0
+    Subj: Test EchoMail from 2:2452/123.1
+    Attr: 0000
+toss_echomail(): message for 2:2452/123.2
+Open ./toss/toss/nen00002.tmp, mode w
+New packet ./toss/toss/nen00002.pkt (./toss/toss/nen00002.tmp): 2:2452/123.0 -> 2:2452/123.2
+Writing FTN packet header:
+    From: 2:2452/123.0
+    To  : 2:2452/123.2
+    Baud: 0
+    Prod: 00 fe
+    Rev : x.x
+    Pass: ""
+    Capw: 0001
+Writing FTN message header:
+    From: Martin Junius                        @ 2:2452/123.0
+    To  : All                                  @ 2:2452/123.2
+    Subj: Test EchoMail from 2:2452/123.1
+    Attr: 0000
+toss_echomail(): message for 2:2452/123.3
+Open ./toss/toss/nen00003.tmp, mode w
+New packet ./toss/toss/nen00003.pkt (./toss/toss/nen00003.tmp): 2:2452/123.0 -> 2:2452/123.3
+Writing FTN packet header:
+    From: 2:2452/123.0
+    To  : 2:2452/123.3
+    Baud: 0
+    Prod: 00 fe
+    Rev : x.x
+    Pass: ""
+    Capw: 0001
+Writing FTN message header:
+    From: Martin Junius                        @ 2:2452/123.0
+    To  : All                                  @ 2:2452/123.3
+    Subj: Test EchoMail from 2:2452/123.1
+    Attr: 0000
+toss_echomail(): message for 2:2452/123.4
+Open ./toss/toss/nen00004.tmp, mode w
+New packet ./toss/toss/nen00004.pkt (./toss/toss/nen00004.tmp): 2:2452/123.0 -> 2:2452/123.4
+Writing FTN packet header:
+    From: 2:2452/123.0
+    To  : 2:2452/123.4
+    Baud: 0
+    Prod: 00 fe
+    Rev : x.x
+    Pass: ""
+    Capw: 0001
+Writing FTN message header:
+    From: Martin Junius                        @ 2:2452/123.0
+    To  : All                                  @ 2:2452/123.4
+    Subj: Test EchoMail from 2:2452/123.1
+    Attr: 0000
+toss_echomail(): message for 2:2452/123.5
+Open ./toss/toss/nen00005.tmp, mode w
+New packet ./toss/toss/nen00005.pkt (./toss/toss/nen00005.tmp): 2:2452/123.0 -> 2:2452/123.5
+Writing FTN packet header:
+    From: 2:2452/123.0
+    To  : 2:2452/123.5
+    Baud: 0
+    Prod: 00 fe
+    Rev : x.x
+    Pass: ""
+    Capw: 0001
+Writing FTN message header:
+    From: Martin Junius                        @ 2:2452/123.0
+    To  : All                                  @ 2:2452/123.5
+    Subj: Test EchoMail from 2:2452/123.1
+    Attr: 0000
+toss_echomail(): message for 2:2452/123.0
+Open ./toss/toss/nen00006.tmp, mode w
+New packet ./toss/toss/nen00006.pkt (./toss/toss/nen00006.tmp): 2:2452/123.0 -> 2:2452/123.0
+Writing FTN packet header:
+    From: 2:2452/123.0
+    To  : 2:2452/123.0
+    Baud: 0
+    Prod: 00 fe
+    Rev : x.x
+    Pass: ""
+    Capw: 0001
+Writing FTN message header:
+    From: Martin Junius                        @ 2:2452/123.0
+    To  : All                                  @ 2:2452/123.0
+    Subj: Test EchoMail from 2:2452/123.1
+    Attr: 0000
+Packet: type 2+
+Reading FTN packet header:
+    From: 2:2452/123.2
+    To  : 2:2452/123.0
+    Baud: 0
+    Prod: 00 fe
+    Rev : x.x
+    Pass: ""
+    Capw: 0001
+ftntoss packet ./pin/00000002.pkt (524b) from 2:2452/123.2 to 2:2452/123.0
+Reading FTN message header:
+    From: Martin Junius                        @ 2:2452/123.2
+    To  : All                                  @ 2:2452/123.0
+    Subj: Test EchoMail from 2:2452/123.2
+    Attr: 0000
+EchoMail: 2:2452/123.2 -> 2:2452/123.0
+EchoMail AREA: LINUX.GER
+Select Z2 AKA: 2:2452/123.0  Uplink: 0:0/0.0
+history: offset=49: LINUX.GER MSGID: 2:2452/123.2 00000002 123456789
+SEEN-BY: 2:2452/123.2
+Path   : 2:2452/123.2
+SEEN-BY: 2:2452/123.2 2:2452/123 2:2452/999 2:2452/123.1 2:2452/123.3 2:2452/123.4 2:2452/123.5
+Path   : 2:2452/123.2 2:2452/123
+New    : 2:2452/999 2:2452/123.1 2:2452/123.3 2:2452/123.4 2:2452/123.5 2:2452/123
+toss_echomail(): message for 2:2452/999.0
+Writing FTN message header:
+    From: Martin Junius                        @ 2:2452/123.0
+    To  : All                                  @ 2:2452/999.0
+    Subj: Test EchoMail from 2:2452/123.2
+    Attr: 0000
+toss_echomail(): message for 2:2452/123.1
+Open ./toss/toss/nen00007.tmp, mode w
+New packet ./toss/toss/nen00007.pkt (./toss/toss/nen00007.tmp): 2:2452/123.0 -> 2:2452/123.1
+Writing FTN packet header:
+    From: 2:2452/123.0
+    To  : 2:2452/123.1
+    Baud: 0
+    Prod: 00 fe
+    Rev : x.x
+    Pass: ""
+    Capw: 0001
+Writing FTN message header:
+    From: Martin Junius                        @ 2:2452/123.0
+    To  : All                                  @ 2:2452/123.1
+    Subj: Test EchoMail from 2:2452/123.2
+    Attr: 0000
+toss_echomail(): message for 2:2452/123.3
+Writing FTN message header:
+    From: Martin Junius                        @ 2:2452/123.0
+    To  : All                                  @ 2:2452/123.3
+    Subj: Test EchoMail from 2:2452/123.2
+    Attr: 0000
+toss_echomail(): message for 2:2452/123.4
+Writing FTN message header:
+    From: Martin Junius                        @ 2:2452/123.0
+    To  : All                                  @ 2:2452/123.4
+    Subj: Test EchoMail from 2:2452/123.2
+    Attr: 0000
+toss_echomail(): message for 2:2452/123.5
+Writing FTN message header:
+    From: Martin Junius                        @ 2:2452/123.0
+    To  : All                                  @ 2:2452/123.5
+    Subj: Test EchoMail from 2:2452/123.2
+    Attr: 0000
+toss_echomail(): message for 2:2452/123.0
+Writing FTN message header:
+    From: Martin Junius                        @ 2:2452/123.0
+    To  : All                                  @ 2:2452/123.0
+    Subj: Test EchoMail from 2:2452/123.2
+    Attr: 0000
+Packet: type 2+
+Reading FTN packet header:
+    From: 2:2452/123.3
+    To  : 2:2452/123.0
+    Baud: 0
+    Prod: 00 fe
+    Rev : x.x
+    Pass: ""
+    Capw: 0001
+ftntoss packet ./pin/00000003.pkt (524b) from 2:2452/123.3 to 2:2452/123.0
+Reading FTN message header:
+    From: Martin Junius                        @ 2:2452/123.3
+    To  : All                                  @ 2:2452/123.0
+    Subj: Test EchoMail from 2:2452/123.3
+    Attr: 0000
+EchoMail: 2:2452/123.3 -> 2:2452/123.0
+EchoMail AREA: LINUX.GER
+Select Z2 AKA: 2:2452/123.0  Uplink: 0:0/0.0
+history: offset=98: LINUX.GER MSGID: 2:2452/123.3 00000003 123456789
+SEEN-BY: 2:2452/123.3
+Path   : 2:2452/123.3
+SEEN-BY: 2:2452/123.3 2:2452/123 2:2452/999 2:2452/123.1 2:2452/123.2 2:2452/123.4 2:2452/123.5
+Path   : 2:2452/123.3 2:2452/123
+New    : 2:2452/999 2:2452/123.1 2:2452/123.2 2:2452/123.4 2:2452/123.5 2:2452/123
+toss_echomail(): message for 2:2452/999.0
+Writing FTN message header:
+    From: Martin Junius                        @ 2:2452/123.0
+    To  : All                                  @ 2:2452/999.0
+    Subj: Test EchoMail from 2:2452/123.3
+    Attr: 0000
+toss_echomail(): message for 2:2452/123.1
+Writing FTN message header:
+    From: Martin Junius                        @ 2:2452/123.0
+    To  : All                                  @ 2:2452/123.1
+    Subj: Test EchoMail from 2:2452/123.3
+    Attr: 0000
+toss_echomail(): message for 2:2452/123.2
+Writing FTN message header:
+    From: Martin Junius                        @ 2:2452/123.0
+    To  : All                                  @ 2:2452/123.2
+    Subj: Test EchoMail from 2:2452/123.3
+    Attr: 0000
+toss_echomail(): message for 2:2452/123.4
+Writing FTN message header:
+    From: Martin Junius                        @ 2:2452/123.0
+    To  : All                                  @ 2:2452/123.4
+    Subj: Test EchoMail from 2:2452/123.3
+    Attr: 0000
+toss_echomail(): message for 2:2452/123.5
+Writing FTN message header:
+    From: Martin Junius                        @ 2:2452/123.0
+    To  : All                                  @ 2:2452/123.5
+    Subj: Test EchoMail from 2:2452/123.3
+    Attr: 0000
+toss_echomail(): message for 2:2452/123.0
+Writing FTN message header:
+    From: Martin Junius                        @ 2:2452/123.0
+    To  : All                                  @ 2:2452/123.0
+    Subj: Test EchoMail from 2:2452/123.3
+    Attr: 0000
+Packet: type 2+
+Reading FTN packet header:
+    From: 2:2452/123.4
+    To  : 2:2452/123.0
+    Baud: 0
+    Prod: 00 fe
+    Rev : x.x
+    Pass: ""
+    Capw: 0001
+ftntoss packet ./pin/00000004.pkt (524b) from 2:2452/123.4 to 2:2452/123.0
+Reading FTN message header:
+    From: Martin Junius                        @ 2:2452/123.4
+    To  : All                                  @ 2:2452/123.0
+    Subj: Test EchoMail from 2:2452/123.4
+    Attr: 0000
+EchoMail: 2:2452/123.4 -> 2:2452/123.0
+EchoMail AREA: LINUX.GER
+Select Z2 AKA: 2:2452/123.0  Uplink: 0:0/0.0
+history: offset=147: LINUX.GER MSGID: 2:2452/123.4 00000004 123456789
+SEEN-BY: 2:2452/123.4
+Path   : 2:2452/123.4
+SEEN-BY: 2:2452/123.4 2:2452/123 2:2452/999 2:2452/123.1 2:2452/123.2 2:2452/123.3 2:2452/123.5
+Path   : 2:2452/123.4 2:2452/123
+New    : 2:2452/999 2:2452/123.1 2:2452/123.2 2:2452/123.3 2:2452/123.5 2:2452/123
+toss_echomail(): message for 2:2452/999.0
+Writing FTN message header:
+    From: Martin Junius                        @ 2:2452/123.0
+    To  : All                                  @ 2:2452/999.0
+    Subj: Test EchoMail from 2:2452/123.4
+    Attr: 0000
+toss_echomail(): message for 2:2452/123.1
+Writing FTN message header:
+    From: Martin Junius                        @ 2:2452/123.0
+    To  : All                                  @ 2:2452/123.1
+    Subj: Test EchoMail from 2:2452/123.4
+    Attr: 0000
+toss_echomail(): message for 2:2452/123.2
+Writing FTN message header:
+    From: Martin Junius                        @ 2:2452/123.0
+    To  : All                                  @ 2:2452/123.2
+    Subj: Test EchoMail from 2:2452/123.4
+    Attr: 0000
+toss_echomail(): message for 2:2452/123.3
+Writing FTN message header:
+    From: Martin Junius                        @ 2:2452/123.0
+    To  : All                                  @ 2:2452/123.3
+    Subj: Test EchoMail from 2:2452/123.4
+    Attr: 0000
+toss_echomail(): message for 2:2452/123.5
+Writing FTN message header:
+    From: Martin Junius                        @ 2:2452/123.0
+    To  : All                                  @ 2:2452/123.5
+    Subj: Test EchoMail from 2:2452/123.4
+    Attr: 0000
+toss_echomail(): message for 2:2452/123.0
+Writing FTN message header:
+    From: Martin Junius                        @ 2:2452/123.0
+    To  : All                                  @ 2:2452/123.0
+    Subj: Test EchoMail from 2:2452/123.4
+    Attr: 0000
+Packet: type 2+
+Reading FTN packet header:
+    From: 2:2452/123.5
+    To  : 2:2452/123.0
+    Baud: 0
+    Prod: 00 fe
+    Rev : x.x
+    Pass: ""
+    Capw: 0001
+ftntoss packet ./pin/00000005.pkt (524b) from 2:2452/123.5 to 2:2452/123.0
+Reading FTN message header:
+    From: Martin Junius                        @ 2:2452/123.5
+    To  : All                                  @ 2:2452/123.0
+    Subj: Test EchoMail from 2:2452/123.5
+    Attr: 0000
+EchoMail: 2:2452/123.5 -> 2:2452/123.0
+EchoMail AREA: LINUX.GER
+Select Z2 AKA: 2:2452/123.0  Uplink: 0:0/0.0
+history: offset=196: LINUX.GER MSGID: 2:2452/123.5 00000005 123456789
+SEEN-BY: 2:2452/123.5
+Path   : 2:2452/123.5
+SEEN-BY: 2:2452/123.5 2:2452/123 2:2452/999 2:2452/123.1 2:2452/123.2 2:2452/123.3 2:2452/123.4
+Path   : 2:2452/123.5 2:2452/123
+New    : 2:2452/999 2:2452/123.1 2:2452/123.2 2:2452/123.3 2:2452/123.4 2:2452/123
+toss_echomail(): message for 2:2452/999.0
+Writing FTN message header:
+    From: Martin Junius                        @ 2:2452/123.0
+    To  : All                                  @ 2:2452/999.0
+    Subj: Test EchoMail from 2:2452/123.5
+    Attr: 0000
+toss_echomail(): message for 2:2452/123.1
+Writing FTN message header:
+    From: Martin Junius                        @ 2:2452/123.0
+    To  : All                                  @ 2:2452/123.1
+    Subj: Test EchoMail from 2:2452/123.5
+    Attr: 0000
+toss_echomail(): message for 2:2452/123.2
+Writing FTN message header:
+    From: Martin Junius                        @ 2:2452/123.0
+    To  : All                                  @ 2:2452/123.2
+    Subj: Test EchoMail from 2:2452/123.5
+    Attr: 0000
+toss_echomail(): message for 2:2452/123.3
+Writing FTN message header:
+    From: Martin Junius                        @ 2:2452/123.0
+    To  : All                                  @ 2:2452/123.3
+    Subj: Test EchoMail from 2:2452/123.5
+    Attr: 0000
+toss_echomail(): message for 2:2452/123.4
+Writing FTN message header:
+    From: Martin Junius                        @ 2:2452/123.0
+    To  : All                                  @ 2:2452/123.4
+    Subj: Test EchoMail from 2:2452/123.5
+    Attr: 0000
+toss_echomail(): message for 2:2452/123.0
+Writing FTN message header:
+    From: Martin Junius                        @ 2:2452/123.0
+    To  : All                                  @ 2:2452/123.0
+    Subj: Test EchoMail from 2:2452/123.5
+    Attr: 0000
+Packet: type 2+
+Reading FTN packet header:
+    From: 2:2452/999.0
+    To  : 2:2452/123.0
+    Baud: 0
+    Prod: 00 fe
+    Rev : x.x
+    Pass: ""
+    Capw: 0001
+ftntoss packet ./pin/00000006.pkt (520b) from 2:2452/999.0 to 2:2452/123.0
+Reading FTN message header:
+    From: Martin Junius                        @ 2:2452/999.0
+    To  : All                                  @ 2:2452/123.0
+    Subj: Test EchoMail from 2:2452/999.0
+    Attr: 0000
+EchoMail: 2:2452/999.0 -> 2:2452/123.0
+EchoMail AREA: LINUX.GER
+Select Z2 AKA: 2:2452/123.0  Uplink: 0:0/0.0
+history: offset=245: LINUX.GER MSGID: 2:2452/999 00000006 123456789
+SEEN-BY: 2:2452/999 2:2452/123
+Path   : 2:2452/999
+SEEN-BY: 2:2452/999 2:2452/123 2:2452/123.1 2:2452/123.2 2:2452/123.3 2:2452/123.4 2:2452/123.5
+Path   : 2:2452/999 2:2452/123
+New    : 2:2452/123.1 2:2452/123.2 2:2452/123.3 2:2452/123.4 2:2452/123.5 2:2452/123
+toss_echomail(): message for 2:2452/123.1
+Writing FTN message header:
+    From: Martin Junius                        @ 2:2452/123.0
+    To  : All                                  @ 2:2452/123.1
+    Subj: Test EchoMail from 2:2452/999.0
+    Attr: 0000
+toss_echomail(): message for 2:2452/123.2
+Writing FTN message header:
+    From: Martin Junius                        @ 2:2452/123.0
+    To  : All                                  @ 2:2452/123.2
+    Subj: Test EchoMail from 2:2452/999.0
+    Attr: 0000
+toss_echomail(): message for 2:2452/123.3
+Writing FTN message header:
+    From: Martin Junius                        @ 2:2452/123.0
+    To  : All                                  @ 2:2452/123.3
+    Subj: Test EchoMail from 2:2452/999.0
+    Attr: 0000
+toss_echomail(): message for 2:2452/123.4
+Writing FTN message header:
+    From: Martin Junius                        @ 2:2452/123.0
+    To  : All                                  @ 2:2452/123.4
+    Subj: Test EchoMail from 2:2452/999.0
+    Attr: 0000
+toss_echomail(): message for 2:2452/123.5
+Writing FTN message header:
+    From: Martin Junius                        @ 2:2452/123.0
+    To  : All                                  @ 2:2452/123.5
+    Subj: Test EchoMail from 2:2452/999.0
+    Attr: 0000
+toss_echomail(): message for 2:2452/123.0
+Writing FTN message header:
+    From: Martin Junius                        @ 2:2452/123.0
+    To  : All                                  @ 2:2452/123.0
+    Subj: Test EchoMail from 2:2452/999.0
+    Attr: 0000
+Packet: type 2+
+Reading FTN packet header:
+    From: 2:2452/123.0
+    To  : 2:2452/123.0
+    Baud: 0
+    Prod: 00 fe
+    Rev : x.x
+    Pass: ""
+    Capw: 0001
+ftntoss packet ./pin/00000007.pkt (516b) from 2:2452/123.0 to 2:2452/123.0
+Reading FTN message header:
+    From: Martin Junius                        @ 2:2452/123.0
+    To  : All                                  @ 2:2452/123.0
+    Subj: Test EchoMail from 2:2452/123.0
+    Attr: 0000
+EchoMail: 2:2452/123.0 -> 2:2452/123.0
+EchoMail AREA: LINUX.GER
+Select Z2 AKA: 2:2452/123.0  Uplink: 0:0/0.0
+history: offset=292: LINUX.GER MSGID: 2:2452/123 00000007 123456789
+SEEN-BY: 2:2452/123
+Path   : 2:2452/123
+SEEN-BY: 2:2452/123 2:2452/999 2:2452/123.1 2:2452/123.2 2:2452/123.3 2:2452/123.4 2:2452/123.5
+Path   : 2:2452/123
+New    : 2:2452/999 2:2452/123.1 2:2452/123.2 2:2452/123.3 2:2452/123.4 2:2452/123.5
+toss_echomail(): message for 2:2452/999.0
+Writing FTN message header:
+    From: Martin Junius                        @ 2:2452/123.0
+    To  : All                                  @ 2:2452/999.0
+    Subj: Test EchoMail from 2:2452/123.0
+    Attr: 0000
+toss_echomail(): message for 2:2452/123.1
+Writing FTN message header:
+    From: Martin Junius                        @ 2:2452/123.0
+    To  : All                                  @ 2:2452/123.1
+    Subj: Test EchoMail from 2:2452/123.0
+    Attr: 0000
+toss_echomail(): message for 2:2452/123.2
+Writing FTN message header:
+    From: Martin Junius                        @ 2:2452/123.0
+    To  : All                                  @ 2:2452/123.2
+    Subj: Test EchoMail from 2:2452/123.0
+    Attr: 0000
+toss_echomail(): message for 2:2452/123.3
+Writing FTN message header:
+    From: Martin Junius                        @ 2:2452/123.0
+    To  : All                                  @ 2:2452/123.3
+    Subj: Test EchoMail from 2:2452/123.0
+    Attr: 0000
+toss_echomail(): message for 2:2452/123.4
+Writing FTN message header:
+    From: Martin Junius                        @ 2:2452/123.0
+    To  : All                                  @ 2:2452/123.4
+    Subj: Test EchoMail from 2:2452/123.0
+    Attr: 0000
+toss_echomail(): message for 2:2452/123.5
+Writing FTN message header:
+    From: Martin Junius                        @ 2:2452/123.0
+    To  : All                                  @ 2:2452/123.5
+    Subj: Test EchoMail from 2:2452/123.0
+    Attr: 0000
+Close ./toss/toss/nen00001.tmp
+Rename ./toss/toss/nen00001.tmp -> ./toss/toss/nen00001.pkt
+Close ./toss/toss/nen00002.tmp
+Rename ./toss/toss/nen00002.tmp -> ./toss/toss/nen00002.pkt
+Close ./toss/toss/nen00003.tmp
+Rename ./toss/toss/nen00003.tmp -> ./toss/toss/nen00003.pkt
+Close ./toss/toss/nen00004.tmp
+Rename ./toss/toss/nen00004.tmp -> ./toss/toss/nen00004.pkt
+Close ./toss/toss/nen00005.tmp
+Rename ./toss/toss/nen00005.tmp -> ./toss/toss/nen00005.pkt
+Close ./toss/toss/nen00006.tmp
+Rename ./toss/toss/nen00006.tmp -> ./toss/toss/nen00006.pkt
+Close ./toss/toss/nen00007.tmp
+Rename ./toss/toss/nen00007.tmp -> ./toss/toss/nen00007.pkt
+ftntoss msgs processed: 7 in, 42 out (0 mail, 42 echo)
+config: fqdn=orodruin.fido.de
+config: address Z2   : addr=2:2452/123.0 uplink=0:0/0.0 gateaddr=2:2452/110.2
+config: zone 0   : .Fido.DE  FidoDE  -
+config: zone 1   : .fidonet.org  FidoNet  out.001
+config: zone 2   : .fidonet.org  FidoNet  out
+config: zone 3   : .fidonet.org  FidoNet  out.003
+config: zone 4   : .fidonet.org  FidoNet  out.004
+config: zone 5   : .fidonet.org  FidoNet  out.005
+config: zone 6   : .fidonet.org  FidoNet  out.006
+config: zone 21  : .gernet.heise.de  GerNet  out.015
+config: zone 242 : .Fido.DE  FidoDE  out.0f2
+config: gateway=0:0/0.0
+config: MaxOpenFiles 40
+config: SPOOLDIR .
+config: ROUTING %C/routing
+config: CONFIGDIR ../cf
+config: PASSWD %C/passwd
+Packet: type 2+
+Reading FTN packet header:
+    From: 2:2452/123.0
+    To  : 2:2452/999.0
+    Baud: 0
+    Prod: 00 fe
+    Rev : x.x
+    Pass: ""
+    Capw: 0001
+Source packet: from=2:2452/123.0 to=2:2452/999.0 grade=n type=e flav=n
+routing: type=e cmd=v flav=n flav_new=- match=*
+sendmove n 2:2452/999.0
+Target packet: from=2:2452/123.0 to=2:2452/999.0 grade=n type=e flav=n
+config: LOGFILE %G/log
+config: LOGDIR .
+ftnroute packet for 2:2452/999.0 (Normal)
+config: VARDIR .
+Rename ./toss/toss/nen00001.pkt -> ./toss/route/nen00008.pkt
+Packet: type 2+
+Reading FTN packet header:
+    From: 2:2452/123.0
+    To  : 2:2452/123.2
+    Baud: 0
+    Prod: 00 fe
+    Rev : x.x
+    Pass: ""
+    Capw: 0001
+Source packet: from=2:2452/123.0 to=2:2452/123.2 grade=n type=e flav=n
+routing: type=e cmd=v flav=n flav_new=- match=*
+sendmove n 2:2452/123.2
+Target packet: from=2:2452/123.0 to=2:2452/123.2 grade=n type=e flav=n
+ftnroute packet for 2:2452/123.2 (Normal)
+Rename ./toss/toss/nen00002.pkt -> ./toss/route/nen00009.pkt
+Packet: type 2+
+Reading FTN packet header:
+    From: 2:2452/123.0
+    To  : 2:2452/123.3
+    Baud: 0
+    Prod: 00 fe
+    Rev : x.x
+    Pass: ""
+    Capw: 0001
+Source packet: from=2:2452/123.0 to=2:2452/123.3 grade=n type=e flav=n
+routing: type=e cmd=v flav=n flav_new=- match=*
+sendmove n 2:2452/123.3
+Target packet: from=2:2452/123.0 to=2:2452/123.3 grade=n type=e flav=n
+ftnroute packet for 2:2452/123.3 (Normal)
+Rename ./toss/toss/nen00003.pkt -> ./toss/route/nen0000a.pkt
+Packet: type 2+
+Reading FTN packet header:
+    From: 2:2452/123.0
+    To  : 2:2452/123.4
+    Baud: 0
+    Prod: 00 fe
+    Rev : x.x
+    Pass: ""
+    Capw: 0001
+Source packet: from=2:2452/123.0 to=2:2452/123.4 grade=n type=e flav=n
+routing: type=e cmd=v flav=n flav_new=- match=*
+sendmove n 2:2452/123.4
+Target packet: from=2:2452/123.0 to=2:2452/123.4 grade=n type=e flav=n
+ftnroute packet for 2:2452/123.4 (Normal)
+Rename ./toss/toss/nen00004.pkt -> ./toss/route/nen0000b.pkt
+Packet: type 2+
+Reading FTN packet header:
+    From: 2:2452/123.0
+    To  : 2:2452/123.5
+    Baud: 0
+    Prod: 00 fe
+    Rev : x.x
+    Pass: ""
+    Capw: 0001
+Source packet: from=2:2452/123.0 to=2:2452/123.5 grade=n type=e flav=n
+routing: type=e cmd=v flav=n flav_new=- match=*
+sendmove n 2:2452/123.5
+Target packet: from=2:2452/123.0 to=2:2452/123.5 grade=n type=e flav=n
+ftnroute packet for 2:2452/123.5 (Normal)
+Rename ./toss/toss/nen00005.pkt -> ./toss/route/nen0000c.pkt
+Packet: type 2+
+Reading FTN packet header:
+    From: 2:2452/123.0
+    To  : 2:2452/123.0
+    Baud: 0
+    Prod: 00 fe
+    Rev : x.x
+    Pass: ""
+    Capw: 0001
+Source packet: from=2:2452/123.0 to=2:2452/123.0 grade=n type=e flav=n
+routing: type=e cmd=v flav=n flav_new=- match=*
+sendmove n 2:2452/123.0
+Target packet: from=2:2452/123.0 to=2:2452/123.0 grade=n type=e flav=n
+ftnroute packet for 2:2452/123.0 (Normal)
+Rename ./toss/toss/nen00006.pkt -> ./toss/route/nen0000d.pkt
+Packet: type 2+
+Reading FTN packet header:
+    From: 2:2452/123.0
+    To  : 2:2452/123.1
+    Baud: 0
+    Prod: 00 fe
+    Rev : x.x
+    Pass: ""
+    Capw: 0001
+Source packet: from=2:2452/123.0 to=2:2452/123.1 grade=n type=e flav=n
+routing: type=e cmd=v flav=n flav_new=- match=*
+sendmove n 2:2452/123.1
+Target packet: from=2:2452/123.0 to=2:2452/123.1 grade=n type=e flav=n
+ftnroute packet for 2:2452/123.1 (Normal)
+Rename ./toss/toss/nen00007.pkt -> ./toss/route/nen0000e.pkt

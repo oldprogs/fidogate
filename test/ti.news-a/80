@@ -1,0 +1,56 @@
+Path: orodruin.fido.de!fido.de!comnets.rwth-aachen.de!news.rwth-aachen.de!news.dfn.de!ilex.fernuni-hagen.de!news
+From: funked@bonsai.fernuni-hagen.de (Daniel Funke)
+Newsgroups: de.comm.misc
+Subject: Re: Modem / Telefon - Wer schmeisst wen aus der Leitung ?
+Date: Mon, 15 Apr 1996 15:39:24 GMT
+Organization: FernUni Hagen
+Lines: 44
+Message-ID: <4ktn2v$eif@ilex.FernUni-Hagen.de>
+References: <4kri85$sep@news1.osn.de>
+NNTP-Posting-Host: access_avz1_p10.fernuni-hagen.de
+X-Newsreader: Forte Free Agent 1.0.82
+
+ben@osn.de (Ben) wrote:
+
+>Mein Modem, ein Zoom V.34IE (intern), ist als Zusatzgeraet neben dem
+>normalen Telefon (in der F-Buchse) an die N-Buchse einer
+>NFN-Telefondose angeschlossen. 
+
+Eine NFN Dose ist normalerweise in der Reihenfolge
+1. N-links
+2. N-rechts
+3. F-mitte
+belegt. Durch das Stecken eines Steckers werden die nachfolgenden
+Buchsen (und weitere Dosen an Klemmen 5/6) abgetrennt.
+
+>In dem Buch 'DFUE & BTX' aus dem Markt&Technik Verlag ist nachzulesen,
+>dass bei eben beschriebenem Anschluss des Modems man 'durch Abheben
+>des Telefonhoerers auf jeden Fall die Leitung bekommt, weil das als
+>Zusatzgeraet gekennzeichnete Modem dem Hauptapparat untergeordnet
+>ist'. 
+
+Das ist so nicht ganz richtig.
+
+>jemandem, der sich wohl mit dem Thema auskennt. Dieser sagte mir, dass
+>_immer_ das Modem dem Telefon uebergeordnet sei, bestaetigte also
+>meinen Fall als 'normal'. Ich selbst tendiere eher zur gegenteiligen
+
+Rein dosentechnisch hat er da recht. Wenn das Modem "aufgelegt" ist,
+schaltet es die Leitung zum Telefon durch. Dein Problem scheint in der
+Modemlogik zu liegen. Mein Modem (USR Sportster 28.8) "merkt", ob das
+dosenmaessig untergeordnete Telefon abgehoben ist und nimmt dann
+selbst nicht ab. Wenn es abhebt, wird das Telefon abgeschaltet. Wenn
+Du Dein Modem nicht dazu bringen kannst, von der Leitung zu bleiben,
+wenn sie schon belegt ist, gaebe es da zum Beispiel folgende
+Moeglichkeiten:
+1. Manuell pruefen, ob Leitung frei (evt. durch LED) bevor mit Modem
+waehlen.
+2. Einsatz von vermittlungstechnischer Hardware: z. B. Automatischer
+Wechselschalter
+
+Ciao, Viel Glueck,
+Daniel.
+
+
+
+

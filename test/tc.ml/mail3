@@ -1,0 +1,54 @@
+From tetex-owner@antares.informatik.uni-hannover.de  Fri May  9 21:30:42 1997
+Return-Path: <tetex-owner@antares.informatik.uni-hannover.de>
+Received: (from news@localhost)
+          by orodruin.fido.de (8.8.5/8.8.4/orodruin-4.4) with FFX
+	  id VAA01954 for mj@orodruin.fido.de; Fri, 9 May 1997 21:29:40 +0200
+Received: from antares.informatik.uni-hannover.de (antares.informatik.uni-hannover.de [130.75.26.56]) by morannon.fido.de (8.8.5/8.7.3/morannon-4.0) with ESMTP id QAA01142 for <mj@orodruin.fido.de>; Fri, 9 May 1997 16:52:20 +0200
+Received: (from majordom@localhost)
+	by antares.informatik.uni-hannover.de (8.8.5/8.8.5) id PAA02505
+	for tetex-outgoing; Fri, 9 May 1997 15:43:19 +0200
+Received: from zeus.informatik.uni-hannover.de (zeus.informatik.uni-hannover.de [130.75.24.3])
+	by antares.informatik.uni-hannover.de (8.8.5/8.8.5) with ESMTP id PAA02501
+	for <tetex@antares.informatik.uni-hannover.de>; Fri, 9 May 1997 15:43:18 +0200
+Received: from wonko.kammer.uni-hannover.de (reinhard@wonko.kammer.uni-hannover.de [130.75.57.115]) by zeus.informatik.uni-hannover.de (8.7.6/8.7.3) with ESMTP id PAA16512 for <tetex@informatik.uni-hannover.de>; Fri, 9 May 1997 15:41:36 +0200 (MET DST)
+Received: (from reinhard@localhost) by wonko.kammer.uni-hannover.de (8.8.4/8.8.0) id PAA24234; Fri, 9 May 1997 15:41:20 +0200
+Date: Fri, 9 May 1997 15:41:20 +0200
+Message-Id: <199705091341.PAA24234@wonko.kammer.uni-hannover.de>
+From: Reinhard Kotucha <reinhard@kammer.uni-hannover.de>
+To: rollo@artvark.com
+CC: tetex@informatik.uni-hannover.de
+In-reply-to: <v03102800af9825e758a5@[206.183.203.4]> (message from Roland
+	Silver on Thu, 8 May 1997 18:54:17 -0600)
+Subject: Re: [TETEX 1771] \relax?
+Sender: owner-tetex@informatik.uni-hannover.de
+Precedence: bulk
+Status: RO
+X-Status: 
+
+>>>>> "Roland" == Roland Silver <rollo@artvark.com> writes:
+
+    > In what file of the TeX distribution would I find the \relax
+    > command defined? 
+
+\relax is not a macro but a TeX primitive. You'll find it in tex.web.
+
+Look at $TETEXDIR/texmf/doc/help/csname.txt
+
+\relax does nothing. It can be used to remove a macro definition 
+(\let\mymacro\relax). Or you can use it to prevent TeX from expanding
+macros after a number. If you say \count0=1\mymacro TeX will expand
+\mymacro before assigning the value to see whether it expands to a
+number.  To prevent this, you can write \count0=1\relax\mymacro.
+
+Hope that helps,
+  Reinhard
+
+-- 
+----------------------------------------------------------------------------
+Reinhard Kotucha			               Phone: +49-511-751355
+Berggartenstr. 9                      mailto:reinhard@kammer.uni-hannover.de
+D-30419 Hannover                                reinhard@fet.uni-hannover.de
+----------------------------------------------------------------------------
+Microsoft isn't the answer. Microsoft is the question, and the answer is NO.
+----------------------------------------------------------------------------
+

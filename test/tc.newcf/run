@@ -1,0 +1,26 @@
+#!/bin/sh
+
+../tr.init
+
+SRC="../../src"
+A=$SRC/areafix
+G=$SRC/gate
+T=$SRC/tick
+S=$SRC/toss
+U=$SRC/utils
+OPTS="-c../cf/fidogate.conf -vvvvvvvvvvvvvvv"
+
+echo "---------- ftnaf -------------------------------------------------------"
+$A/ftnaf $OPTS 1:1/1.1 comment
+$G/ftn2rfc  $OPTS
+echo "---------- rfc2ftn -----------------------------------------------------"
+$G/rfc2ftn  $OPTS </dev/null
+echo "---------- ftntick -----------------------------------------------------"
+$T/ftntick  $OPTS
+echo "---------- ftntoss -----------------------------------------------------"
+$S/ftntoss  $OPTS
+echo "---------- ftnroute ----------------------------------------------------"
+$S/ftnroute $OPTS
+echo "---------- ftnpack -----------------------------------------------------"
+$S/ftnpack  $OPTS
+echo "------------------------------------------------------------------------"

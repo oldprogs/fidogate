@@ -1,0 +1,47 @@
+#!/bin/sh
+
+../tr.init
+
+T="../../src/gate/rfc2ftn -c../cf/fidogate.conf -v"
+
+echo "tc: running"
+
+##### Test rfc2ftn bounce #####
+
+# Down
+$T test@spam.fido.de <<EOF
+Subject: Test --------
+From: abc@blubber.fasel.org
+Message-ID: <Test--------@x.y.z>
+
+TEST ;-)
+EOF
+
+# Unknown
+$T test@unknown.fido.de <<EOF
+Subject: Test --------
+From: abc@blubber.fasel.org
+Message-ID: <Test--------@x.y.z>
+
+TEST ;-)
+EOF
+
+# Not registered
+$T test@p2.f2.n2.z2.fido.de <<EOF
+Subject: Test --------
+From: abc@blubber.fasel.org
+Message-ID: <Test--------@x.y.z>
+
+TEST ;-)
+EOF
+
+# Zone not supported
+$T test@p999.f999.n999.z999.fido.de <<EOF
+Subject: Test --------
+From: abc@blubber.fasel.org
+Message-ID: <Test--------@x.y.z>
+
+TEST ;-)
+EOF
+
+exit 0

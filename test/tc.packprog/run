@@ -1,0 +1,38 @@
+#!/bin/sh
+
+../tr.init
+
+mkdir tmp_dir1 tmp_dir2
+
+O="../../src/util/ftnoutpkt -c../cf/fidogate.conf -v"
+
+T="../../src/toss/ftntoss   -c../cf/fidogate.conf -v -r./routing"
+R="../../src/toss/ftnroute  -c../cf/fidogate.conf -v -r./routing"
+P="../../src/toss/ftnpack   -c../cf/fidogate.conf -v -p./packing"
+
+echo "tc: running"
+
+# Generate mail
+$O -a2:2452/99 -s "Test incoming mail" -f "Test User@2:2452/99" test@2:2452/110.2 <<EOF
+TEST incoming mail
+EOF
+
+$O -a2:2452/99 -s "Test mail" -f "Test User@2:2452/99" "User A@2:2452/110.2" <<EOF
+TEST mail -> User A
+EOF
+
+$O -a2:2452/99 -s "Test mail" -f "Test User@2:2452/99" "User B@2:2452/110.2" <<EOF
+TEST mail -> User B
+EOF
+
+$O -a2:2452/99 -s "Test mail" -f "Test User@2:2452/99" "Areafix@2:2452/110.2" <<EOF
+%help
+%list
+EOF
+
+
+# Move to pin and run ftntoss/route/pack
+mv outpkt/*.pkt pin
+$T
+$R
+$P

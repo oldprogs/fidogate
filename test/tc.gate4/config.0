@@ -1,0 +1,14 @@
+#
+# $Id: config.0,v 1.5 2002/08/04 03:12:20 dyff Exp $
+#
+# Test config.gate with RFCLevel 0, NoFromLine, NoFSC0035, NoFSC0047
+#
+
+# *first* match is used!
+RFCLevel 0
+NoFromLine
+NoFSC0035
+NoFSC0047
+
+include ../cf/fidogate.conf
+

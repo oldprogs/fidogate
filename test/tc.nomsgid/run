@@ -1,0 +1,13 @@
+#!/bin/sh
+
+../tr.init
+
+F="../../src/gate/ftn2rfc -c../cf/fidogate.conf -vvv"
+R="../../src/gate/rfc2ftn -c../cf/fidogate.conf -vvv"
+
+echo "tc: copying input packets"
+cp ../ti.pkt-misc/t-*nomsgid.pkt pin
+
+echo "tc: running"
+$F -v
+$R -v -b -n < outrfc/news/00000001.rfc

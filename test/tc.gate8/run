@@ -1,0 +1,99 @@
+#!/bin/sh
+
+../tr.init
+
+T="../../src/gate/rfc2ftn -c../cf/fidogate.conf -v"
+
+echo "tc: running"
+
+##### Test down/rfc_is_domain() ##############################################
+#
+# spam is marked as down
+#
+
+$T test@spam.fido.de <<EOF
+Subject: Test --------
+From: abc@blubber.fasel.org
+Message-ID: <Test--------@x.y.z>
+
+TEST ;-)
+EOF
+
+echo " "
+
+$T test@spam.fido.de <<EOF
+Subject: Test 00000001
+From: abc@fido.de
+Message-ID: <Test00000001@x.y.z>
+
+TEST ;-)
+EOF
+
+echo " "
+
+$T test@spam.fido.de <<EOF
+Subject: Test 00000002
+From: abc@xyz.fido.de
+Message-ID: <Test00000002@x.y.z>
+
+TEST ;-)
+EOF
+
+echo " "
+
+##### Test X-Flags/rfc_is_local() ############################################
+
+$T test@hippo.fido.de <<EOF
+Subject: Test 00000003
+From: abc@blubber.fasel.org
+X-Flags: MNC
+Message-ID: <Test00000003@x.y.z>
+
+TEST ;-)
+EOF
+
+echo " "
+
+$T test@hippo.fido.de <<EOF
+Subject: Test 00000004
+From: abc@fido.de
+Reply-To: xyz@wusel.wuehl.org
+X-Flags: MNC
+Message-ID: <Test00000004@x.y.z>
+
+TEST ;-)
+EOF
+
+echo " "
+
+$T test@hippo.fido.de <<EOF
+Subject: Test 00000005
+From: abc@orodruin.fido.de
+Reply-To: xyz@wusel.wuehl.org
+X-Flags: MNC
+Message-ID: <Test00000005@x.y.z>
+
+TEST ;-)
+EOF
+
+echo " "
+
+$T test@hippo.fido.de <<EOF
+Subject: Test 00000006
+From: abc@orodruin.fido.de
+X-Flags: MNC
+Message-ID: <Test00000006@x.y.z>
+
+TEST ;-)
+EOF
+
+echo " "
+
+$T test@hippo.fido.de <<EOF
+Subject: Test 00000007
+From: abc (ABC User)
+X-Flags: MNC
+Message-ID: <Test00000007@x.y.z>
+
+TEST ;-)
+EOF

@@ -1,0 +1,38 @@
+#!/bin/sh
+
+L="../../src/util/ftnlock -c../cf/toss.conf -v"
+
+echo "$$" > locks/test.R$$
+
+T=`expr $$ % 10`
+T=`expr $T + 1`
+
+echo "tc.lock $$: loop $T s"
+
+while true; do
+    # lock
+    echo "tc.lock $$: locking"
+    $L -w -l test $$
+    if [ $? -ne 0 ]; then
+	echo "tc.lock $$: lock failed, exiting"
+	exit 1
+    fi
+    echo "tc.lock $$: locked"
+    # read lock file, must contain own PID
+    read pid <locks/test
+    if [ $pid -ne $$ ]; then
+	echo "tc.lock $$: strange lock file, found $pid, expected $$, exiting"
+	exit 1
+    fi
+
+    sleep $T
+
+    # unlock
+    $L -u test $$
+    echo "tc.lock $$: unlocked"
+
+    sleep $T
+done
+
+exit 0
+

@@ -1,0 +1,10 @@
+#
+# $Id: config,v 1.5 2002/08/04 03:12:19 dyff Exp $
+#
+# Test config with UseOrganizationForOrigin
+#
+
+# *first* match is used!
+UseFTNToAddress
+
+include ../cf/fidogate.conf

@@ -1,0 +1,32 @@
+#!/bin/sh
+
+../tr.init
+
+#V="-v"
+V="-vvvvvvvvv"
+
+T="../../src/toss/ftntoss  -c../cf/fidogate.conf -a2:2452/123 -bareas.bbs"
+R="../../src/toss/ftnroute -c../cf/fidogate.conf -a2:2452/123"
+D="../../src/util/pktdebug"
+G="../../src/gate/rfc2ftn  -c../cf/fidogate.conf"
+
+
+# Generate some EchoMail messages
+for a in \
+ 2:2452/123.1 2:2452/123.2 2:2452/123.3 2:2452/123.4 2:2452/123.5\
+ 2:2452/999.0 2:2452/123.0
+do
+  $G -v -n -a$a -u2:2452/123 <<EOF
+Subject: Test EchoMail from $a
+Newsgroups: fido.ger.linux
+
+Test $a
+EOF
+done
+
+# Toss'em up
+#$D -t outpkt/news/*.pkt
+
+cp outpkt/news/*.pkt pin
+$T $V
+$R $V

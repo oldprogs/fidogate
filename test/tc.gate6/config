@@ -1,0 +1,9 @@
+#
+# Don't generate From: line at beginning of text body.
+#
+NoFromLine
+
+#
+# Local test config
+#
+include ../cf/fidogate.conf

@@ -1,0 +1,34 @@
+Path: orodruin.fido.de!fido.de!comnets.rwth-aachen.de!news.rwth-aachen.de!news.ruhr-uni-bochum.de!news.uni-stuttgart.de!rz.uni-karlsruhe.de!blackbush.xlink.net!tank.news.pipex.net!pipex!swrinde!newsfeed.internetmci.com!in1.uu.net!fu-berlin.de!zrz.TU-Berlin.DE!news.dfn.de!ilex.fernuni-hagen.de!news
+From: funked@bonsai.fernuni-hagen.de (Daniel Funke)
+Newsgroups: de.comm.misc
+Subject: Re: Direkte Steuerung der Windows 95-FAX-Software
+Date: Sun, 14 Apr 1996 15:05:50 GMT
+Organization: FernUni Hagen
+Lines: 22
+Message-ID: <4kr0o1$90c@ilex.FernUni-Hagen.de>
+References: <4kn10e$u2@arl-news-svc-4.compuserve.com>
+NNTP-Posting-Host: access_avz1_p12.fernuni-hagen.de
+X-Newsreader: Forte Free Agent 1.0.82
+
+100657.202@compuserve.com (Michael Stein) wrote:
+
+>Hallo,
+
+>ich möchte aus einem Ami Pro 3.1-Makro heraus ein Dokument per Telefax
+>verschicken.
+
+>Gibt es eine Möglichkeit (z.B. über DLL-Calls), der in Windows 95
+>integrierten FAX-Software von MS Exchange die Empfänger-FAX-Nummer zu
+>übermitteln, so daß der FAX-Versand ggf. vollautomatisch erfolgen
+>kann?
+
+Entweder gibt es eine recht einfache Lösung oder ich verstehe Dein
+Problem nicht.
+Ich waehle das Fax einfach als Drucker aus (funktioniert in jeder
+Anwendung, die den Windows-Drucker benutzt). Alles was  Du damit
+sendest, erscheint dann auch in Exchange als Postausgang.
+Falls dies das ist, was Du willst, kann ich es Dir genauer erklaeren.
+
+Daniel.
+
+

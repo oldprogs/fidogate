@@ -1,0 +1,42 @@
+Newsgroups: de.comm.misc
+Path: orodruin.fido.de!fido.de!comnets.rwth-aachen.de!news.rwth-aachen.de!news.rhrz.uni-bonn.de!news.uni-stuttgart.de!rz.uni-karlsruhe.de!blackbush.xlink.net!tank.news.pipex.net!pipex!usenet.eel.ufl.edu!gatech!newsfeed.internetmci.com!in2.uu.net!EU.net!Germany.EU.net!Hanover.Germany.EU.net!Hamburg.Germany.EU.net!nuki.NetUSE.de!white.schulung.netuse.de!kris
+From: kris@schulung.netuse.de (=?ISO-8859-1?Q?Kristian_K=F6hntopp?=)
+Subject: Re: Telefonieren im Internet
+Sender: kris@white.schulung.netuse.de (Kristian Koehntopp)
+Organization: =?ISO-8859-1?Q?entf=E4llt?=
+Message-ID: <DpqnC5.H3y@white.schulung.netuse.de>
+References: <4kg9j2$k92@newsbf02.news.aol.com> <ghost.00ep@dawn.mayn.de>
+Mime-Version: 1.0
+Date: Fri, 12 Apr 1996 07:26:28 GMT
+X-Copyright: (C) Copyright 1996 Kristian Koehntopp -- All rights reserved.
+Lines: 29
+
+ghost@dawn.mayn.de (Armin Wies) writes:
+>: Und: macht das bei unseren Bandbreiten ueberhaupt Sinn?
+
+>Nein, es ist geradezu sinnlos. Es gehoehrt geradezu verboten. Aber verbiete
+>mal was in diesem Netz...
+
+Ein GSM-Handy uebertraegt Sprache komprimiert auf einer
+Verbindung mit 9.600 bps Nutzgeschwindigkeit auf einem
+"full rate channel" oder mit 4800 bps Nutzgeschwindigkeit auf
+einem "half rate channel". 
+
+Komprimierungstechniken aehnlicher Wirksamkeit (aber mit anderer
+Funktionsweise) werden auch von den gaengigen
+Internet-Telefonieprogrammen eingesetzt. Sie erzeugen damit eine
+Netzlast von 0.5-1 KB sec, das liegt in derselben
+Groessenordnung wie ein normales Onlinespiel wie z.B. Paradise
+Netrek oder wie eine IRC-Session auf einem halbwegs aktiven
+Channel.
+
+Sprache ist ausgezeichnet komprimierbar und Sprachuebertragung
+belastet das Netz nicht mehr als andere Dienste auch.
+
+Kristian
+
+-- 
+Kristian Koehntopp, Wassilystrasse 30, 24113 Kiel, +49 431 688897
+Fachbegriffe der Informatik einfach erklaert, Teil 16:
+"SYSOP" == "Vollidiot"
+	(Courtesy of Christian Weisgerber)

@@ -1,0 +1,11 @@
+#
+# $Id: config1,v 4.5 2002/08/04 03:12:23 dyff Exp $
+#
+# Test config with KillOld
+#
+
+EchoMail4D
+NoEmptyPath
+
+include ../cf/fidogate.conf
+

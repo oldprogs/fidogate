@@ -1,0 +1,43 @@
+Path: orodruin.fido.de!fido.de!comnets.rwth-aachen.de!news.rwth-aachen.de!news.rhrz.uni-bonn.de!news.uni-stuttgart.de!rz.uni-karlsruhe.de!news.uni-ulm.de!happy.informatik.uni-ulm.de!donau.in-ulm.de!charly.in-ulm.de!T.Kammerer
+Date: 11 Apr 1996 21:55:00 +0100
+From: T.Kammerer@charly.in-ulm.de (Thomas Kammerer)
+Newsgroups: de.comm.internet.software,de.comm.misc,de.newusers.questions
+Message-ID: <66d6V-z1k6B@charly.in-ulm.de>
+Subject: ftp Probleme
+X-Newsreader: CrossPoint v3.11
+Followup-To: t.kammerer
+Lines: 32
+Xref: orodruin.fido.de de.comm.internet.software:60 de.comm.misc:56
+
+
+Hallo Netzgemeinde ,
+
+kann mir mal einer sagen warum ich immer folgende Fehlermeldung bekomme ?
+
+
+connecting to 198.105.232.1 ...
+can't connect to ftp.microsoft.com - connection timed out
+Connection to ftp.microsoft.com failed
+- -
+connecting to 198.105.232.1 ...
+can't connect to ftp.microsoft.com - connection timed out
+Connection to ftp.microsoft.com failed
+- -
+connecting to 198.105.232.1 ...
+can't connect to ftp.microsoft.com - connection timed out
+Connection to ftp.microsoft.com failed
+
+
+Programm: Wsftp unter WIN 95
+
+Provider: http://www.*look*.de
+
+hat einen Firewall , was immer das sein mag ?
+
+
+Gruss
+ Thomas
+--
+Thomas Kammerer                                 PGP auf Anfrage
+Tel/Fax 0731-268153                             Betreff: SEND PGP-KEY
+

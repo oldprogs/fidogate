@@ -1,0 +1,22 @@
+#!/bin/sh
+#
+# test rnews/sendmail dummy replacement
+#
+
+if [ ! -f tmpn ]; then
+    echo "1" >tmpn
+fi
+n=`cat tmpn`
+n1=`expr $n + 1`
+echo $n1 >tmpn
+xx=`expr $n % 10`
+
+echo "--------- rdummy #$n ----------"  >>tmpdummy
+if [ $xx -ge 7 ]; then
+    echo "FAILED"                       >>tmpdummy
+    exit 1
+fi
+
+cat                                     >>tmpdummy
+
+exit 0

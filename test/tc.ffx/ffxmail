@@ -1,0 +1,33 @@
+#!/bin/sh
+#
+# $Id: ffxmail,v 1.6 2002/08/04 03:12:19 dyff Exp $
+#
+# Test ffxmail
+#
+
+if [ $# -lt 2 ] ;then
+	echo "usage: ffxmail Z:N/F.P|HOST user@domain ..."
+	exit 1
+fi
+
+node="$1"
+shift
+addr="$*"
+
+case $node in
+
+    test)
+	batch="-b test"
+	faddr="242:1/1"
+	;;
+
+    # Unknown node
+    *)
+	echo "ffxmail: unknown node $node"
+	# EX_NOHOST
+	exit 68
+	;;
+
+esac
+
+exec ../../src/ffx/ffx -c../cf/fidogate.conf -vvv $batch -- $faddr rmail $addr

@@ -1,0 +1,415 @@
+tc: clean-up
+tc: init
+tc: copying input packets
+cp: ../ti.pkt-z2/CVS: Verzeichnis ausgelassen
+tc: running
+ftntoss creating MSGID history ./history.dir
+ftntoss creating MSGID history ./history.pag
+ftntoss packet ./pin/01165017.PKT (7930b) from 2:2452/110.0 to 2:2452/110.2
+New packet ./toss/toss/nen00001.pkt (./toss/toss/nen00001.tmp): 2:2452/110.2 -> 2:2452/110.2
+ftntoss packet ./pin/01168917.PKT (55625b) from 2:2452/110.0 to 2:2452/110.2
+ftntoss packet ./pin/01168920.PKT (34949b) from 2:2452/110.0 to 2:2452/110.2
+ftntoss packet ./pin/01172288.PKT (48806b) from 2:2452/110.0 to 2:2452/110.2
+ftntoss packet ./pin/01172292.PKT (11198b) from 2:2452/110.0 to 2:2452/110.2
+ftntoss packet ./pin/01172299.PKT (44435b) from 2:2452/110.0 to 2:2452/110.2
+ftntoss packet ./pin/01173105.PKT (3080b) from 2:2452/110.0 to 2:2452/110.2
+ftntoss packet ./pin/01173858.PKT (75317b) from 2:2452/110.0 to 2:2452/110.2
+ftntoss packet ./pin/01173886.PKT (1482b) from 2:2452/110.0 to 2:2452/110.2
+ftntoss packet ./pin/01175557.PKT (1287b) from 2:2452/110.0 to 2:2452/110.2
+ftntoss packet ./pin/01176267.PKT (48136b) from 2:2452/110.0 to 2:2452/110.2
+ftntoss packet ./pin/01178414.PKT (53798b) from 2:2452/110.0 to 2:2452/110.2
+ftntoss packet ./pin/01179147.PKT (1962b) from 2:2452/110.0 to 2:2452/110.2
+ftntoss packet ./pin/01179662.PKT (5032b) from 2:2452/110.0 to 2:2452/110.2
+ftntoss packet ./pin/01179667.PKT (30950b) from 2:2452/110.0 to 2:2452/110.2
+ftntoss packet ./pin/01181937.PKT (44354b) from 2:2452/110.0 to 2:2452/110.2
+ftntoss packet ./pin/01182344.PKT (8917b) from 2:2452/110.0 to 2:2452/110.2
+ftntoss packet ./pin/01182740.PKT (5844b) from 2:2452/110.0 to 2:2452/110.2
+ftntoss packet ./pin/01184390.PKT (71064b) from 2:2452/110.0 to 2:2452/110.2
+ftntoss packet ./pin/01186013.PKT (33334b) from 2:2452/110.0 to 2:2452/110.2
+ftntoss msgs processed: 316 in, 316 out (0 mail, 316 echo)
+tc: copying input packets
+cp: ../ti.pkt-z2/CVS: Verzeichnis ausgelassen
+tc: running
+ftntoss packet ./pin/01165017.PKT (7930b) from 2:2452/110.0 to 2:2452/110.2
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: <4i9vav$6mf@spinnaker.rhein.de> da5ed49f
+New packet ./toss/bad/bad00002.pkt (./toss/bad/bad00002.tmp): 2:2452/110.0 -> 2:2452/110.2
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: <4iaeig$89f@spinnaker.rhein.de> 09369426
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: <4iaetp$8af@spinnaker.rhein.de> 87ed6879
+ftntoss packet ./pin/01168917.PKT (55625b) from 2:2452/110.0 to 2:2452/110.2
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: <4i4su9$c87@suncom.rz.hu-berlin.de> dbd5b35b
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2474/140.6 1477e121
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2474/140.6 1476d0c5
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2474/140.6 1477e120
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:245/6666.17@fidonet.org c268fa0f
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:245/6666.17@fidonet.org c268fa17
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:310/50 31484ac8
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2476/905.17 c271c3af
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2449/166.8 3146f9d4
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2449/166.8 3146fa9d
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2448/413.11 31471620
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2448/413.11 31471a85
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2448/413.11 31471b04
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: <3147296E.6FFC66E9@p15.f816.n2480.z2.fidonet.org> a2df3960
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: <31472AE1.6A6B706C@p15.f816.n2480.z2.fidonet.org> aba3549e
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:241/575.11 c2667721
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2426/3110.28@fidonet c2692e84
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2426/3110.28@fidonet c2692e8b
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2480/13.145@fidonet 25122758
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2480/13.145@fidonet 25122759
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2410/201.20@fidonet 8a4d8e24
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2410/201.20@fidonet 6a40ec8b
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:310/102.264 31491d9e
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2444/2001.65@fidonet.org c2726b4c
+ftntoss dupe from 2:2452/110.0: TOLKIEN.GER MSGID: 2:2457/100.22@fidonet c27506a8
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2444/8001.14 c260e4ae
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2444/8001.14 c260e4b6
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2454/500.0 14820be0
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2454/500.0 14820be1
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: <4i9e9u$80@loveshack.paradise.de> bb68308d
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2444/8001.14 c270e4bf
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:246/1808 378fa5cf
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:248/1100.12@fidonet.org c27170c1
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:246/3001@fidonet.org 2595fc96
+ftntoss packet ./pin/01168920.PKT (34949b) from 2:2452/110.0 to 2:2452/110.2
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:240/5010.45 c26a21e5
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:240/5010.45 c26a21ed
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:240/5010.45 c26a21f0
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:245/6666.66 3148b350
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:244/6110.2 148a6800
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:240/5010.45 c2722269
+ftntoss dupe from 2:2452/110.0: TOLKIEN.GER MSGID: 2:2453/400@FidoNet 3144c5d3
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2410/212.0 149b6873
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2410/212.0 149b6874
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2410/407.20 314a3288
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2437/130.34 c24506c4
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:246/1401.7 14a70b96
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: <m0hgvpqnvn.fsf@cygnus.stuttgart.netsurf.de> 874ff623
+ftntoss packet ./pin/01172288.PKT (48806b) from 2:2452/110.0 to 2:2452/110.2
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:301/138 000d9872
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: <64tNgFC11tB@hit43.hit.handshake.de> 55128ad7
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:316/777.77@FidoNet 3149e66f
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2461/111 3144b488
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2410/301.20 965fce9a
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2454/500.0 148dc4e0
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2453/690.12@fidonet.org c27370a2
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2448/7805.5@fidonet c271e3be
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2448/7805.5@fidonet c271e3c3
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2448/7805.5@fidonet c271e413
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2476/819.2 c27c3c93
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:310/39.64@fidonet c2796267
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:310/39.64@fidonet c2796271
+ftntoss dupe from 2:2452/110.0: TOLKIEN.GER MSGID: 2:2468/6002.27@fidonet c27d594b
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:245/6666.66 31494563
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2448/2010.5@Fidonet 31473d90
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2433/605.35@fidonet c276e77b
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2455/308 3149a0dc
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:244/2340.104 3149eddc
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2448/413.11 3149dbb7
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2448/300.117@fidonet c274985d
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2433/606 56e8ac0e
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2433/606 56e8ad1e
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:240/5010.45 c27a3549
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:240/5010.45 c27a3550
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:240/5010.45 c27a355d
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:240/5010.45 c27a3562
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:240/5010.45 c27a356c
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2444/1280.128 14b3e472
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2444/1280.128 14b3e47a
+ftntoss packet ./pin/01172292.PKT (11198b) from 2:2452/110.0 to 2:2452/110.2
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: <4ie63g$25f@spinnaker.rhein.de> 633859b6
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: <4if29j$4ta@spinnaker.rhein.de> 3b7b429e
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:245/6666.66 314a5fe5
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: <DoD737.368@ghostr.rz.fh-augsburg.de> 051087e2
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: <DoD8A8.3Gs@ghostr.rz.fh-augsburg.de> 5be013b0
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: <DoDD73.46q@ghostr.rz.fh-augsburg.de> 42fa0227
+ftntoss packet ./pin/01172299.PKT (44435b) from 2:2452/110.0 to 2:2452/110.2
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:240/4141@fidonet.org 2000c825
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:246/1401.0 314c3ca2
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:240/4141@fidonet.org 2383b04a
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2490/4080.1@fidonet.org a494c06c
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2426/3175.45 c26f7ff5
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2454/130.69@Fido 1060c06e
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2437/901.65 c270bb81
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2437/901.65 c270bb8d
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:301/818.19 31497e83
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2426/3110.28@fidonet c2795143
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2426/3110.28@fidonet c279514e
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:310/102.264 314a9d3c
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:310/102.264 314a9d97
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:310/102.264 314a9f0e
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2480/700.1 314b455f
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2471/6017 14af1080
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:310/81.81 14afd8e2
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:310/81.81 14afd8e3
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:310/81.81 14afd8e4
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:310/81.81 14afd8e6
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:310/81.81 14afd8e8
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: <DoDIE8.4z9@ghostr.rz.fh-augsburg.de> a528a8d0
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: <DoDItv.52M@ghostr.rz.fh-augsburg.de> 19f3ca25
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2426/2030.8 314b7693
+ftntoss packet ./pin/01173105.PKT (3080b) from 2:2452/110.0 to 2:2452/110.2
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: <4iffdp$6tk@spinnaker.rhein.de> 1c0daad4
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: <4iffqt$6u8@spinnaker.rhein.de> a491e9af
+ftntoss packet ./pin/01173858.PKT (75317b) from 2:2452/110.0 to 2:2452/110.2
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2433/920.947 149eec10
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2480/13.145@fidonet 25930fd3
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2480/13.102@fidonet c2774162
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: <PEEWEE.96Mar16005404@picklock.fido.de> 4cdef207
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: <PEEWEE.96Mar16010728@picklock.fido.de> 01aa37f4
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: <PEEWEE.96Mar16011331@picklock.fido.de> 91d39fd4
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: <PEEWEE.96Mar16011907@picklock.fido.de> 71d022e7
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: <PEEWEE.96Mar16012201@picklock.fido.de> 1b932ec3
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: <PEEWEE.96Mar16014739@picklock.fido.de> 5887b089
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: <PEEWEE.96Mar16015053@picklock.fido.de> 7ce7332b
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:315/3.29 314bc10d
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:244/1351.36@fidonet c2843d6e
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2444/4528.14@fidonet c268ed73
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: <4idv2d$pnp@druid.mbis.de> 0dedf7ee
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: <4idv9u$pnp@druid.mbis.de> 94f598d6
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: <4idvdn$pnp@druid.mbis.de> 8451007f
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2468/6002.2 c27f30c9
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: <4igl6o$ej2@druid.mbis.de> ea4d37ae
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: <4igm0v$eru@druid.mbis.de> acfd1559
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: <4ign4k$eru@druid.mbis.de> 522b5358
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2410/520.93@fidonet.org c2817475
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2410/520.93@fidonet.org c2817482
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:244/1153.10@fidonet c285a5d9
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2448/7805.5@fidonet c281fd6b
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2444/8001.14 c270eb2b
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2455/240.25 ff88fe83
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2433/1860.11 314b14d6
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2455/240.25 6b899e5f
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2448/1414.10 c27c0682
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:248/1100.8@fidonet c27f4904
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:248/1100.8@fidonet c27f490c
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2480/13.145@fidonet 261690ee
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2433/920.947 14c60bb1
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2433/920.947 14c60bb2
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2433/920.947 14c99330
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:310/81.81 14cba861
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:310/81.81 14cba862
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:310/81.81 14cba864
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:310/81.81 14cba865
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:310/81.81 14cba866
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:310/81.81 14cba867
+ftntoss packet ./pin/01173886.PKT (1482b) from 2:2452/110.0 to 2:2452/110.2
+ftntoss dupe from 2:2452/110.0: TOLKIEN.GER MSGID: 2:2432/223.17@fidonet c249659d
+ftntoss packet ./pin/01175557.PKT (1287b) from 2:2452/110.0 to 2:2452/110.2
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: <4ii0fr$7on@spinnaker.rhein.de> 54e66df3
+ftntoss packet ./pin/01176267.PKT (48136b) from 2:2452/110.0 to 2:2452/110.2
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:240/5033.32@FidoNet a2b7c06f
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2444/4517.5@fidonet c276583d
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: <1996Mar16.195850.8084@lionel.rhoen.de> 1f5b0c18
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: <1996Mar16.200244.8156@lionel.rhoen.de> a223bbca
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:314/13.18 314bf27b
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: <PEEWEE.96Mar17150058@picklock.fido.de> 25144c9e
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: <PEEWEE.96Mar17150755@picklock.fido.de> 9afb0427
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: <PEEWEE.96Mar17151019@picklock.fido.de> 7d283b83
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: <PEEWEE.96Mar17151646@picklock.fido.de> c9a5d1fd
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: <PEEWEE.96Mar17152611@picklock.fido.de> eaeda028
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:244/6301.18@fidonet c28aeb15
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: <4i9e0k$9qj@server2.rz.uni-leipzig.de> 7535b9e5
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: <4i9tm7$gs9@suncom.rz.hu-berlin.de> 4dd7b9c1
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: <4ib9b4$51n@hoshi.in-berlin.de> a010bf2f
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:240/5068.5@fidonet c270f39d
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: <4ic9i0$n7e@gate.fzi.de> 13d487e9
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: <3149E360.167EB0E7@fmi.uni-passau.de> 80a203d2
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: <4icucg$lhb@acp66.slip.uni-koeln.de> 1821dd03
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2449/166.8 314af7a4
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2449/166.8 314af97b
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2480/133.31 314b806f
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:240/5068.5@fidonet c28107ea
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:241/250.7 00082efe
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:240/5068.5@fidonet c28907f9
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2453/30.191 c289805c
+ftntoss packet ./pin/01178414.PKT (53798b) from 2:2452/110.0 to 2:2452/110.2
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2452/117.66 c2927d69
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: <651OZWPZazB@sysop.tramp.domino.de> 10b55f74
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: <651OZ-DZazB@sysop.tramp.domino.de> d52586e4
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2452/307.46 c2844ac0
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2490/1906.3 314d5053
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:240/5010.45 c28a487c
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:240/5010.45 c28a4880
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:240/5010.45 c28a488b
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:240/5010.45 c28a4896
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2453/123.49@fidonet c28feff2
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:240/5490.91 313b7acb
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: <4iciv8$20u@manowar.ka.sub.org> 7990a200
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: <4ievjp$3u0@manowar.ka.sub.org> 7a059cd6
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2444/4528.14@fidonet c2897402
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2468/1010 314d934c
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:240/5490.91 314dcaa5
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:240/5490.91 314dcc40
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:240/5490.91 314dcd6e
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2433/1401.6@fidonet c27f4870
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2433/1401.6@fidonet c27f4888
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2433/1401.6@fidonet c27f4898
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2433/1401.6@fidonet c27f48a3
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2433/1401.6@fidonet c27f48ad
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: <4iffl3$9po@news.rrz.uni-koeln.de> c2d90577
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2433/1401.6@fidonet c28f4932
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:244/1121.14@fidonet c28dd34c
+ftntoss dupe from 2:2452/110.0: TOLKIEN.GER MSGID: 2:2450/502.45 c29530b6
+ftntoss packet ./pin/01179147.PKT (1962b) from 2:2452/110.0 to 2:2452/110.2
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: <4ikkfl$7t9@spinnaker.rhein.de> 1e2f898c
+ftntoss packet ./pin/01179662.PKT (5032b) from 2:2452/110.0 to 2:2452/110.2
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2452/112.14 314c5720
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2452/112.14 314c57f3
+ftntoss packet ./pin/01179667.PKT (30950b) from 2:2452/110.0 to 2:2452/110.2
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:318/5.1 14e1fee3
+ftntoss dupe from 2:2452/110.0: TOLKIEN.GER MSGID: 2:2444/4508.7 314c342a
+ftntoss dupe from 2:2452/110.0: TOLKIEN.GER MSGID: 2:2444/4508.7 314c349c
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2490/1062.6 3149a2d4
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:310/102.264 314c08ca
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:310/102.264 314c0a97
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2448/413.11 314c0b0f
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: <4ii51m$t6i@druid.mbis.de> 7094ba60
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:246/1807 390f970f
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: <PEEWEE.96Mar18162840@picklock.fido.de> a7f6823d
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:310/1.0 314da618
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:244/1120.19 314dc482
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2410/520.176 c28e1984
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2487/3001.5 c29049d2
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2461/336.23@fidonet c293189b
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2461/336.23@fidonet c29318a3
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2461/336.23@fidonet c29318aa
+ftntoss dupe from 2:2452/110.0: TOLKIEN.GER MSGID: 2:2452/401.20@fidonet c295c0be
+ftntoss packet ./pin/01181937.PKT (44354b) from 2:2452/110.0 to 2:2452/110.2
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2468/6002.2 c2874683
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2468/6002.2 c2874694
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2437/901.65 c280dab5
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2453/690.12@fidonet.org c28b82c2
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:246/1401.0 314f7609
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2448/7805.5@fidonet c28a01f2
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2453/690.12@fidonet.org c28b83ed
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: <4ik654$3u@funny.informatik.tu-cottbus.de> adb7da41
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:240/5555.14@fidonet c2961b33
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:240/5555.14@fidonet c2961b47
+ftntoss dupe from 2:2452/110.0: TOLKIEN.GER MSGID: 2:2453/400@FidoNet 314c96b0
+ftntoss dupe from 2:2452/110.0: TOLKIEN.GER MSGID: 2:2453/400@FidoNet 314c9883
+ftntoss dupe from 2:2452/110.0: TOLKIEN.GER MSGID: 2:2453/400@FidoNet 314c99ed
+ftntoss dupe from 2:2452/110.0: TOLKIEN.GER MSGID: 2:2453/400@FidoNet 314c9b2e
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2449/166.8 314c6498
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2480/129 314c641d
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2480/129 314c6470
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: <DoFqJu.4E7@genyosha.in-chemnitz.de> 24138f3d
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2480/813.20 60a52876
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:249/5080.27@fidonet c28a4331
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:249/5080.27@fidonet c28a4339
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:249/5080.27@fidonet c28a4340
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2480/89.3 3b949cee
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2448/330.5@fidonet c2919044
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2410/301.9@fidonet c291413a
+ftntoss packet ./pin/01182344.PKT (8917b) from 2:2452/110.0 to 2:2452/110.2
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:245/6849.5 c28a6e99
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:240/6111.25@FidoNet c293cc0d
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:245/6849.5 c2926ea7
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:241/575.11 c296ad56
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: <4ind4p$638@spinnaker.rhein.de> 917ab641
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: <4ini6j$77k@spinnaker.rhein.de> 7dafdf3f
+ftntoss packet ./pin/01182740.PKT (5844b) from 2:2452/110.0 to 2:2452/110.2
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:244/6301.18@fidonet c29303d1
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2461/336.23@fidonet c29b2982
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2448/448.7@fidonet c2064eff
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2444/4528.14@fidonet c291d721
+ftntoss packet ./pin/01184390.PKT (71064b) from 2:2452/110.0 to 2:2452/110.2
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2471/6017.2@fidonet 238b1c57
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2471/6017.2@fidonet 238b1c59
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2471/6017.2@fidonet 238b1c5a
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2471/6017.2@fidonet 238b1c5b
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2435/100.12@fidonet c28e7723
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2480/300.37 c297bc23
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2471/6017.2@fidonet 2794922e
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2471/6017.2@fidonet 27949234
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2471/6017.2@fidonet 2794923c
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2471/6017.2@fidonet 2794923d
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:245/6666.17@fidonet.org c29109ec
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2471/6017 314fd006
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2426/2240.43 c298f2ed
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2426/5025.12@fidonet.org c29cec2e
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: pibbs.nbg.sub.org bbaa44cd
+ftntoss dupe from 2:2452/110.0: TOLKIEN.GER MSGID: 2:2448/602.2 c2892192
+ftntoss dupe from 2:2452/110.0: TOLKIEN.GER MSGID: 2:2453/123.4@fidonet c2996003
+ftntoss dupe from 2:2452/110.0: TOLKIEN.GER MSGID: 2:2468/6002.27@fidonet c29dcdb2
+ftntoss dupe from 2:2452/110.0: TOLKIEN.GER MSGID: 2:2468/6002.27@fidonet c29dce2f
+ftntoss dupe from 2:2452/110.0: TOLKIEN.GER MSGID: 2:2468/6002.27@fidonet c29dcf0b
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2437/401.9 314c84e5
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2437/401.9 314c8596
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2437/401.9 314c85ed
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2474/140.6 148959a5
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2474/140.6 148959a6
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2474/140.6 148959a7
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: rsun.lfn.unterland.de 4adc7fd9
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: rsun.lfn.unterland.de 96c42e9d
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: rsun.lfn.unterland.de 3bf86c8e
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: rsun.lfn.unterland.de 2c287f17
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: <65AnGBH8w0B@p-hackman.newswire.de> 8183fdcb
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:246/1405.12@fidonet.org c2964f28
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: <1996Mar20.152111.11096@lionel.rhoen.de> 3389bb03
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: <DoKopt.2G3@ghostr.rz.fh-augsburg.de> f8a05716
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: <DoKp5r.2JK@ghostr.rz.fh-augsburg.de> a1d4b9f6
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2453/690.12@fidonet.org c29b8ecf
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:246/8722.38@fidonet c298faa2
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2410/212.0 15088800
+ftntoss packet ./pin/01186013.PKT (33334b) from 2:2452/110.0 to 2:2452/110.2
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:310/102.264 314f23c8
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2444/2010@FIDONet 315097f6
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2480/13.102@fidonet c28f5522
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:240/5010.45 c28a4fbd
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:301/138 00157e82
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: <4in5ck$1b3@McFly.hb9kat.ampr.org> ccdfded9
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:241/1135.43 c2983817
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:241/1135.43 c298381e
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:241/1135.43 c2983826
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: <4io9uj$f7c@druid.mbis.de> b643b5ed
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2448/413.11 31506420
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2480/13.145@fidonet 2880e493
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2480/13.129 3ba0a41d
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2480/13.129 3ba0a41e
+ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2480/13.145@fidonet 2890da49
+ftntoss msgs processed: 316 in, 0 out (0 mail, 0 echo)
+ftntoss msgs killed:    316 dupe
+tc: sleeping for 20 s
+tc: copying input packets
+tc: running
+ftntoss packet ./pin/t-nomsgid.pkt (47066b) from 2:2452/110.0 to 2:2452/110.2
+New packet ./toss/toss/nen00003.pkt (./toss/toss/nen00003.tmp): 2:2452/110.2 -> 2:2452/110.2
+ftntoss msgs processed: 30 in, 30 out (0 mail, 30 echo)
+tc: running expire
+ftnexpire ids processed: 346 total, 316 expired in 1 s, 346.00 ids/s
+tc: copying input packets
+tc: running
+ftntoss packet ./pin/t-nomsgid.pkt (47066b) from 2:2452/110.0 to 2:2452/110.2
+ftntoss dupe from 2:2452/110.0: LINUX.GER NOMSGID: 2:301/138.0 960314 100200 9be5c6fc
+New packet ./toss/bad/bad00004.pkt (./toss/bad/bad00004.tmp): 2:2452/110.0 -> 2:2452/110.2
+ftntoss dupe from 2:2452/110.0: LINUX.GER NOMSGID: 2:2476/2.24 960315 165100 3af916ff
+ftntoss dupe from 2:2452/110.0: LINUX.GER NOMSGID: 2:316/777.77 960315 215114 d42e93ac
+ftntoss dupe from 2:2452/110.0: LINUX.GER NOMSGID: 2:2461/111.0 960311 231612 9103fc35
+ftntoss dupe from 2:2452/110.0: LINUX.GER NOMSGID: 2:2410/301.20 960314 203655 7d2ba9bd
+ftntoss dupe from 2:2452/110.0: LINUX.GER NOMSGID: 2:2454/500.0 960314 215339 d0a6b544
+ftntoss dupe from 2:2452/110.0: LINUX.GER NOMSGID: 2:2453/690.12 960315 135100 07578ca9
+ftntoss dupe from 2:2452/110.0: LINUX.GER NOMSGID: 2:2448/7805.5 960315 160800 396bf045
+ftntoss dupe from 2:2452/110.0: LINUX.GER NOMSGID: 2:2448/7805.5 960315 161000 b2b507cc
+ftntoss dupe from 2:2452/110.0: LINUX.GER NOMSGID: 2:2448/7805.5 960315 165000 6686727e
+ftntoss dupe from 2:2452/110.0: LINUX.GER NOMSGID: 2:2476/819.2 960316 023300 c6ea8707
+ftntoss dupe from 2:2452/110.0: LINUX.GER NOMSGID: 2:310/39.64 960316 200200 6ed84eb9
+ftntoss dupe from 2:2452/110.0: LINUX.GER NOMSGID: 2:310/39.64 960316 201000 70e0b8c9
+ftntoss dupe from 2:2452/110.0: TOLKIEN.GER NOMSGID: 2:2468/6002.27 960316 193600 d67621f1
+ftntoss dupe from 2:2452/110.0: LINUX.GER NOMSGID: 2:245/6666.66 960315 102329 91dcf4a8
+ftntoss dupe from 2:2452/110.0: LINUX.GER NOMSGID: 2:2448/2010.5 960313 212516 b43ab5d8
+ftntoss dupe from 2:2452/110.0: LINUX.GER NOMSGID: 2:2433/605.35 960315 000000 6bf4334c
+ftntoss dupe from 2:2452/110.0: LINUX.GER NOMSGID: 2:2455/308.0 960315 165300 ec06a129
+ftntoss dupe from 2:2452/110.0: LINUX.GER NOMSGID: 2:244/2340.104 960315 172325 de0f56c9
+ftntoss dupe from 2:2452/110.0: LINUX.GER NOMSGID: 2:2448/413.11 960315 210400 704fd7ca
+ftntoss dupe from 2:2452/110.0: LINUX.GER NOMSGID: 2:2448/300.117 960315 211800 13bd7411
+ftntoss dupe from 2:2452/110.0: LINUX.GER NOMSGID: 2:2433/606.0 960316 004200 797cabc3
+ftntoss dupe from 2:2452/110.0: LINUX.GER NOMSGID: 2:2433/606.0 960316 004700 7bf9fa48
+ftntoss dupe from 2:2452/110.0: LINUX.GER NOMSGID: 2:240/5010.45 960316 142100 26c4a884
+ftntoss dupe from 2:2452/110.0: LINUX.GER NOMSGID: 2:240/5010.45 960316 142200 5689f507
+ftntoss dupe from 2:2452/110.0: LINUX.GER NOMSGID: 2:240/5010.45 960316 142400 87f4af41
+ftntoss dupe from 2:2452/110.0: LINUX.GER NOMSGID: 2:240/5010.45 960316 142700 ddf39dc8
+ftntoss dupe from 2:2452/110.0: LINUX.GER NOMSGID: 2:240/5010.45 960316 143100 44e44759
+ftntoss dupe from 2:2452/110.0: LINUX.GER NOMSGID: 2:2444/1280.128 960316 173314 d3bdb7a0
+ftntoss dupe from 2:2452/110.0: LINUX.GER NOMSGID: 2:2444/1280.128 960316 205422 4035e8da
+ftntoss msgs processed: 30 in, 0 out (0 mail, 0 echo)
+ftntoss msgs killed:    30 dupe

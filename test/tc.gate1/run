@@ -1,0 +1,29 @@
+#!/bin/sh
+
+../tr.init
+F1="../../src/gate/ftn2rfc -v"
+F2="../../src/gate/ftninpost -v"
+
+
+echo "tc: copying input packets"
+cp ../ti.pkt-z2/*.[pP][kK][tT] pin
+
+echo "tc: running (1)"
+$F1 -c../cf/fidogate.conf -v
+
+echo "tc: running ftninpost"
+$F2 -cconfig2
+
+echo "tc: copying input packets"
+cp ../ti.pkt-z2/*.[pP][kK][tT] pin
+
+echo "tc: running (2)"
+$F1 -c./config -v
+
+echo "tc: copying input packets"
+cp ../ti.pkt-z2/*.[pP][kK][tT] pin
+
+echo "tc: running (3)"
+$F1 -c../cf/fidogate.conf -1 -v
+
+ls -R outrfc

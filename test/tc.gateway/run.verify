@@ -1,0 +1,43 @@
+tc: clean-up
+tc: init
+tc: running
+    Name:     test
+    Address:  blah.org
+RFC Newsgroups: test
+Writing FTN packet header:
+    From: 2:2452/110.2
+    To  : 2:2452/110.2
+    Baud: 0
+    Prod: 00 fe
+    Rev : x.x
+    Pass: ""
+    Capw: 0001
+Reading FTN packet header:
+    From: 2:2452/110.2
+    To  : 2:2452/110.2
+    Baud: 0
+    Prod: 00 fe
+    Rev : x.x
+    Pass: ""
+    Capw: 0001
+ftn2rfc packet ./pin/00000001.pkt (534b) from 2:2452/110.2 to 2:2452/110.2
+    Name:     test
+    Address:  blah.org
+RFC Newsgroups: test
+Writing FTN packet header:
+    From: 2:2452/110.2
+    To  : 2:2452/110.2
+    Baud: 0
+    Prod: 00 fe
+    Rev : x.x
+    Pass: ""
+    Capw: 0001
+Reading FTN packet header:
+    From: 2:2452/110.2
+    To  : 2:2452/110.2
+    Baud: 0
+    Prod: 00 fe
+    Rev : x.x
+    Pass: ""
+    Capw: 0001
+ftn2rfc packet ./pin/00000002.pkt (774b) from 2:2452/110.2 to 2:2452/110.2

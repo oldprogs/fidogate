@@ -1,0 +1,44 @@
+#!/bin/sh
+
+../tr.init
+
+T="../../src/toss/ftntoss -c../cf/fidogate.conf"
+R="../../src/gate/rfc2ftn -c../cf/fidogate.conf"
+
+# Create input message
+$R -i -v Test_User_1@2:2452/110 -a 2:2499/123 -u 2:2452/110 <<EOF
+Subject: Test 00000001
+From: Test_User@2:2499/123
+To: Test_User_1@2:2452/110
+
+Test
+EOF
+
+$R -i -v Test_User_2@2:2452/110 -a 2:2499/123 -u 2:2452/110 <<EOF
+Subject: Test 00000002
+From: Test_User@2:2499/123
+To: Test_User_2@2:2452/110
+
+Test
+EOF
+
+$R -i -v Test_User@2:2452/110 -a 2:2476/2 -u 2:2452/110 <<EOF
+Subject: Test 00000003
+From: IMAIL Arealink@2:2476/2
+To: Test_User@2:2452/110
+
+Test
+EOF
+
+$R -i -v Test_User@2:2452/110 -a 2:2476/2 -u 2:2452/110 <<EOF
+Subject: Test 00000004
+From: IMAIL Arealink@2:2476/2
+To: Areafix@2:2452/110
+
+Test
+EOF
+
+# Run tosser
+cp outpkt/mail/*.pkt pin
+
+$T -v -r routing

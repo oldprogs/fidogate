@@ -1,0 +1,9 @@
+#
+# $Id: config.dos,v 1.5 2002/08/04 03:12:19 dyff Exp $
+#
+# Test with DosDrive configuration
+#
+
+include ../cf/fidogate.conf
+
+# DosDrive X: <cwd> append here

@@ -1,0 +1,13 @@
+tc: clean-up
+tc: init
+ftntoss creating MSGID history ./history.dir
+ftntoss creating MSGID history ./history.pag
+ftntoss packet outpkt/news/00000001.pkt (609b) from 2:2499/99.0 to 2:2499/99.0
+ftntoss msgs processed: 1 in, 7 out (0 mail, 7 echo)
+ftnroute packet for 2:2499/1.0 (Normal)
+ftnroute packet for 2:2499/2.0 (Normal)
+ftnroute packet for 2:2499/3.0 (Normal)
+ftnroute packet for 2:2499/99.10 (Normal)
+ftnroute packet for 2:2499/99.11 (Normal)
+ftnroute packet for 2:2452/110.0 (Normal)
+ftnroute packet for 2:2452/111.0 (Normal)

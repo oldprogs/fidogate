@@ -1,0 +1,13 @@
+#
+# $Id: config2,v 4.4 2002/08/04 03:12:19 dyff Exp $
+#
+# Test config for ftninpost
+#
+
+# *first* match is used!
+FTNInSendmail	./rdummy
+FTNInRnews	./rdummy
+FTNInRecombine	../../src/gate/ftninrecomb
+
+
+include ../cf/fidogate.conf

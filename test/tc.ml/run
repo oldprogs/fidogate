@@ -1,0 +1,20 @@
+#!/bin/sh
+
+../tr.init
+
+T="../../src/gate/rfc2ftn -c../cf/fidogate.conf -vvvvv"
+D="../../src/util/pktdebug"
+
+echo "tc: running"
+
+echo "---------- mail1 ---------"
+$T Test_user@hippo.fido.de <mail1
+echo "---------- mail2 ---------"
+$T Test_user@hippo.fido.de <mail2
+echo "---------- mail3 ---------"
+$T Test_user@hippo.fido.de <mail3
+echo "---------- mail4 ---------"
+$T Test_user@hippo.fido.de <mail4
+
+echo ""
+$D -t outpkt/mail/*.pkt

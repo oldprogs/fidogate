@@ -1,0 +1,15 @@
+#:ts=8
+#
+# $Id: config,v 1.5 2002/08/04 03:12:19 dyff Exp $
+#
+
+#
+# X-Flags policy
+#
+#    n, N, 0    -    No X-Flags processing at all
+#    s, S, 1    -    X-Flags processing for local sender
+#    a, A, 2    -    X-Flags processing for all
+#
+XFlagsPolicy a
+
+include ../cf/fidogate.conf

@@ -1,0 +1,36 @@
+#!/bin/sh
+
+../tr.init
+
+echo "tc: copying input packets"
+cp ../ti.pkt-z2/* pin
+
+echo "tc: running"
+../../src/toss/ftntoss  -c../cf/fidogate.conf -vv
+
+echo "tc: copying input packets"
+cp ../ti.pkt-z2/* pin
+
+echo "tc: running"
+../../src/toss/ftntoss  -c../cf/fidogate.conf -vv
+
+echo "tc: sleeping for 20 s"
+sleep 20
+
+echo "tc: copying input packets"
+cp ../ti.pkt-misc/t-nomsgid.pkt pin
+
+echo "tc: running"
+../../src/toss/ftntoss  -c../cf/fidogate.conf -vv
+
+echo "tc: running expire"
+# 0.0002 days ~ 17 sec
+cp history history.save
+../../src/toss/ftnexpire -c../cf/fidogate.conf -vvv -m 0.0002
+
+echo "tc: copying input packets"
+cp ../ti.pkt-misc/t-nomsgid.pkt pin
+
+echo "tc: running"
+../../src/toss/ftntoss  -c../cf/fidogate.conf -vv
+

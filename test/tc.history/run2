@@ -1,0 +1,25 @@
+#!/bin/sh
+
+../tr.init
+
+T="../../src/toss/testhistory -c../cf/fidogate.conf"
+# 10 min = -m 0.007
+X="../../src/toss/ftnexpire   -c../cf/fidogate.conf -v -m 0.007"
+
+
+echo "Start         150000"
+./rndmsgid -n 150000 | time -p $T
+echo "     + 25000  175000"
+./rndmsgid -n  25000 | time -p $T
+echo "     + 25000  200000"
+./rndmsgid -n  25000 | time -p $T
+echo "     + 25000  225000"
+./rndmsgid -n  25000 | time -p $T
+echo "     + 25000  250000"
+./rndmsgid -n  25000 | time -p $T
+echo "     + 25000  275000"
+./rndmsgid -n  25000 | time -p $T
+echo "     + 25000  300000"
+./rndmsgid -n  25000 | time -p $T
+
+

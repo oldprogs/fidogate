@@ -1,0 +1,30 @@
+#!/bin/sh
+
+../tr.init
+
+echo "tc: copying input packets"
+cp ../ti.pkt-z2/*.[pP][kK][tT] pin
+
+echo "tc: running"
+../../src/toss/ftntoss  -c../cf/fidogate.conf -bareas.bbs -v
+../../src/toss/ftnroute -c../cf/fidogate.conf -v
+../../src/toss/ftnpack  -c../cf/fidogate.conf -v
+
+echo "tc: removing history"
+rm -f history*
+
+echo "tc: copying input packets"
+cp ../ti.pkt-z2/*.[pP][kK][tT] pin
+
+echo "tc: running with EchoMail4D"
+../../src/toss/ftntoss  -cconfig1 -bareas.bbs -v
+../../src/toss/ftnroute -cconfig1 -v
+../../src/toss/ftnpack  -cconfig1 -B./bt -v
+
+echo "tc: copying input packets"
+cp ../ti.pkt-z2/*.[pP][kK][tT] pin
+
+echo "tc: running with KillOld"
+../../src/toss/ftntoss  -cconfig2 -bareas.bbs -v
+../../src/toss/ftnroute -cconfig2 -v
+../../src/toss/ftnpack  -cconfig2 -B./bt -v

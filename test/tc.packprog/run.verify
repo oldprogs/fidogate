@@ -1,0 +1,30 @@
+tc: clean-up
+tc: init
+tc: running
+ftntoss creating MSGID history ./history.dir
+ftntoss creating MSGID history ./history.pag
+ftntoss packet ./pin/00000001.pkt (307b) from 2:2452/99.0 to 2:2452/110.2
+ftntoss MAIL: Test User @ 2:2452/99.0 -> test @ 2:2452/110.2
+ftntoss packet ./pin/00000002.pkt (301b) from 2:2452/99.0 to 2:2452/110.2
+ftntoss MAIL: Test User @ 2:2452/99.0 -> User A @ 2:2452/110.2
+ftntoss remapto: User A @ 2:2452/110.2 -> 242:99/1.0
+ftntoss packet ./pin/00000003.pkt (301b) from 2:2452/99.0 to 2:2452/110.2
+ftntoss MAIL: Test User @ 2:2452/99.0 -> User B @ 2:2452/110.2
+ftntoss remapto: User B @ 2:2452/110.2 -> 242:99/2.0
+ftntoss packet ./pin/00000004.pkt (295b) from 2:2452/99.0 to 2:2452/110.2
+ftntoss MAIL: Test User @ 2:2452/99.0 -> Areafix @ 2:2452/110.2
+ftntoss remapto: Areafix @ 2:2452/110.2 -> 242:99/9.0
+ftntoss msgs processed: 4 in, 4 out (4 mail, 0 echo)
+ftnroute packet for 2:2452/110.2 (Hold)
+ftnroute packet for 242:99/1.0 (Normal)
+ftnroute packet for 242:99/2.0 (Normal)
+ftnroute packet for 242:99/9.0 (Normal)
+ftnpack packet (377b) for 2:2452/110.2 (gate)
+ftn2rfc packet ./toss/route/nnh00009.pkt (377b) from 2:2452/110.2 to 2:2452/110.2
+ftn2rfc MAIL: Test User <Test_User@f99.n2452.z2.fidonet.org> -> test@orodruin.fido.de
+ftnpack moving packet (360b) for 242:99/1.0 to ./tmp_dir1
+ftnpack archiving packet (360b) for 242:99/2.0 (zip) in ./tmp_dir2
+ftnpack packet (354b) for 242:99/9.0 (areafix)
+ftnafpkt packet ./toss/route/nnn0000c.pkt (354b) from 242:1000/5.0 to 242:99/9.0
+ftnafpkt 2:2452/99.0: help
+ftnafpkt 2:2452/99.0: list

@@ -1,0 +1,19 @@
+#!/bin/sh
+#
+# $Id: tr.init,v 4.9 2002/08/04 03:12:18 dyff Exp $
+#
+# FIDOGATE test initialization
+#
+
+echo "tc: clean-up"
+
+../tr.clean
+
+echo "tc: init"
+
+mkdir toss   toss/toss toss/route toss/pack toss/bad
+mkdir outpkt outpkt/mail outpkt/news
+mkdir outrfc outrfc/mail outrfc/news
+mkdir bt
+mkdir in pin uuin ftpin
+mkdir seq locks

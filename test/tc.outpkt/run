@@ -1,0 +1,28 @@
+#!/bin/sh
+
+../tr.init
+
+T="../../src/util/ftnoutpkt -c../cf/fidogate.conf -vvv"
+D="../../src/util/pktdebug"
+
+echo "tc: running"
+
+$T 'Test User @ 2:2452/123.99' 'Test 2 @ 242:9999/1' <<EOF
+>>> --------------
+>>> Test ftnoutpkt
+>>> --------------
+EOF
+
+$T -f 'Test Sender @ 99:9/9' 'Test 99 @ 99:1/1' <<EOF
+>>> --------------
+>>> Test ftnoutpkt
+>>> --------------
+EOF
+
+$T -f 'Test User' 'Test A @ 2:2499/1' 'Test B @ 242:4999/1' <<EOF
+>>> --------------
+>>> Test ftnoutpkt
+>>> --------------
+EOF
+
+$D -t outpkt/*.pkt

@@ -1,0 +1,72 @@
+Path: orodruin.fido.de!fido.de!comnets.rwth-aachen.de!news.rwth-aachen.de!news.ruhr-uni-bochum.de!news.uni-stuttgart.de!uniol!uni-erlangen.de!rz.uni-passau.de!moni.fmi.uni-passau.de!dorfner
+From: dorfner@susi.fmi.uni-passau.de (Clemens Dorfner)
+Newsgroups: de.comm.misc
+Subject: Re: Modem / Telefon - Wer schmeisst wen aus der Leitung ?
+Date: 15 Apr 96 09:20:41 GMT
+Organization: University of Passau, Germany
+Lines: 60
+Message-ID: <dorfner.829560041@moni.fmi.uni-passau.de>
+References: <4kri85$sep@news1.osn.de> <31716217.39898665@news.allcon.net>
+NNTP-Posting-Host: 132.231.144.30
+X-Newsreader: NN version 6.5.0 #2 (NOV)
+
+
+mark@umd.allcon.com (Mark Deskowski) writes:
+>ben@osn.de (Ben) wrote:
+>
+>>WER HAT NUN RECHT, bzw. WIE SOLLTE ES SEIN ???
+>
+>Bei mir ist es so, da_ ein N-Gerdt das Amt verliert, wenn das F-Gerdt
+>das Amt haben will, also ganau umgekehrt, wie Du das hast.
+>In der Gebrauchsanleitung zu meinem Anrufbeantworter steht, da_ man
+>durch Abnehmen des Telefonhvrers das Gesprdch entgegennehmen kann, und
+>das funktioniert auch - sobald ich den Hvrer abnehme, stoppt der AB.
+
+Mir scheint, hier ist mal wieder ein bischen technisch Aufklaerungsarbeit
+von Noeten:
+ALSO: Typischerweise werden Geraete fuers Telefonnetz in Reihe geschaltet.
+Das heisst, es fuehrt eine lange Leitung von der Dose zum Geraet, zurueck zur
+Dose, zum naechsten Geraet usw.
+Dazu haben diese Geraete ein Leitungspaar fuer die Hin-Richtung (nein sie 
+werden nicht gekoepft;-) und ein Paar fuer die Rueck-Richtung.
+Wenn das Geraet in Ruhe ist (kein Anruf) sind die beiden Paare einfach
+durchgeschaltet, d.h. die Leitung liegt bei allen Geraeten an. Ein ankommender
+Ruf kann auch alle erreichen.
+Ein Sonderfall hierbei sind aber Telefone: die haben normalerweise nur ein
+Leitungspaar (gibts aber auch anders...). Alle Geraete, die dahinter an 
+der Leitung haengen, sind also tot!
+Das Telefon muss also normalerweise immer das Letzte an der langen Leitung sein.
+
+Wenn nun ein Ruf kommt und ein Geraet abnimmt, oder ein Geraet rauswaehlen will 
+geschieht im einfachsten Fall folgendes:
+es trennt die beiden Paare auf und belegt die Leitung. Alle hinteren Geraete 
+sind nun tot. Wenn also vorher telefoniert wird und das Modem will rauswaehlen
+bekommt der Gespraechspartner die Modemtoene ins Ohr geblasen, oder die 
+Vermittlung trennt das Gespraech, wenn das Modem fuer die Trennung und 
+darauffolgende Ankopplung seiner Modemtechnik zu lange braucht.
+Komplizierter wird es, wenn das Modem oder der AB etwas intelligenter sind.
+Die gehen dann davon aus, dass am Ende der Leitung ein Telefon haengen 
+koennte und beobachten auch dieses Ende der Leitung. Wenn also ein Gepsraech
+aktiv ist verweigern sie das Waehlen; wenn der Hoerer abgenommen wird,
+wird die Leitung durchgeschaltet. Besonders sinnvoll bei ABs und Voice-Modems.
+
+Normalerweise kann man ein solches Feature nicht einstellen; das Geraet hat's 
+oder hat's nicht. ABs sollten es immer haben, Modems, wenn sie Post-zugelassen
+sind.
+
+Dann gibt es noch den Sonderfall mit der einfachen Parallelschaltung:
+Modem und Telefon haengen parallel an der Strippe; das ist manchmal
+ganz praktisch, im allgemeinen aber nicht zulaessig und kann auch
+Probleme bereiten (klingelt nicht immer sauber, waehlen manchmal
+problematisch...).
+
+Vielleicht bringt das ja ein bisschen Klarheit in die Sache.
+
+Weitere Infos sind den einschlaegigen FAQs zu entnehmen...
+
+        Clemens
+
+--
+dorfner@or.fmi.uni-passau.de                        Tel: (+49) 851/509 3085
+PGP-Key available                                   Raum FMI 214
+	In der Zukunft verbringen wir den Rest unseres Lebens

@@ -1,0 +1,11 @@
+#
+# $Id: config,v 1.4 2002/08/04 03:12:18 dyff Exp $
+#
+# Test config tc.af
+#
+
+AreafixMailer	/bin/cat
+AreafixCC	AreafixTest@blah.wusel.org
+
+include		../cf/fidogate.conf
+

@@ -1,0 +1,29 @@
+#!/bin/sh
+
+../tr.init
+
+G="../../src/gate/rfc2ftn  -v -i -c../cf/fidogate.conf -a2:2499/99 -u2:2499/99"
+T="../../src/toss/ftntoss  -v  	 -c../cf/fidogate.conf -a2:2499/99"
+R="../../src/toss/ftnroute -v  	 -c../cf/fidogate.conf -a2:2499/99"
+P="../../src/toss/ftnpack  -v  	 -c../cf/fidogate.conf -a2:2499/99"
+
+# create messages
+
+$G -n <<EOF
+Newsgroups: test
+Subject: Test Gateway 2:2499/99
+From: Test User <test@fido.de>
+X-Comment-To: Whole Universe
+Message-ID: <test123@fido.de>
+
+Test \
+Test - Gateway 2:2499/99
+Test /
+
+MfG ... The Test User ;-)
+EOF
+
+# toss messages
+$T -Ioutpkt/news -b./areas.bbs
+$R 
+#$P
