@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: pktdebug.c,v 4.3 1996/12/17 17:20:03 mj Exp $
+ * $Id: pktdebug.c,v 4.4 1997/03/30 16:25:21 mj Exp $
  *
  * Debug contents of FTN packet
  *
@@ -37,7 +37,7 @@
 
 
 #define PROGRAM		"pktdebug"
-#define VERSION		"$Revision: 4.3 $"
+#define VERSION		"$Revision: 4.4 $"
 
 
 
@@ -61,6 +61,7 @@ void usage(void)
     fprintf(stderr, "\
 options:  -m --msg-header              print message header\n\
           -t --msg-text                print message text\n\
+          -s --short                   short format\n\
 \n\
           -v --verbose                 more verbose\n\
 	  -h --help                    this help\n");
@@ -80,15 +81,17 @@ int main(int argc, char **argv)
     Textlist tl;
     int c, type;
     char *name;
-    int m_flag=FALSE, t_flag=0;
+    int m_flag=FALSE, t_flag=0, s_flag=FALSE;
     MsgBody body;
     int err;
+    long n_mail, n_echo;
     
     int option_index;
     static struct option long_options[] =
     {
 	{ "msg-header",   0, 0, 'm'},
 	{ "msg-text",     0, 0, 't'},	    
+	{ "short",        0, 0, 's'},	    
 	{ "verbose",      0, 0, 'v'},	/* More verbose */
 	{ "help",         0, 0, 'h'},	/* Help */
 	{ 0,              0, 0, 0  }
@@ -100,7 +103,7 @@ int main(int argc, char **argv)
     tl_init(&tl);
     msg_body_init(&body);
     
-    while ((c = getopt_long(argc, argv, "mtvh",
+    while ((c = getopt_long(argc, argv, "mtsvh",
 			    long_options, &option_index     )) != EOF)
 	switch (c) {
 	case 'm':
@@ -109,6 +112,9 @@ int main(int argc, char **argv)
 	case 't':
 	    m_flag = TRUE;
 	    t_flag++;
+	    break;
+	case 's':
+	    s_flag = TRUE;
 	    break;
 	    
 	/***** Common options *****/
@@ -139,23 +145,33 @@ int main(int argc, char **argv)
 	else
 	    fp = xfopen(name, R_MODE);
 
+	n_mail = n_echo = 0;
+	
 	do
 	{
 	    if( pkt_get_hdr(fp, &pkt) == ERROR )
 	    {
 		printf("ERROR: %s: reading packet header\n", name);
-		printf("Partially read ");
-		pkt_debug_hdr(stdout, &pkt, "");
+		if(!s_flag) 
+		{
+		    printf("Partially read ");
+		    pkt_debug_hdr(stdout, &pkt, "");
+		}
 		break;
 	    }
 
-	    if(t_flag)
-		fprintf(stdout, "========================================"
-			"======================================\n");
-	    pkt_debug_hdr(stdout, &pkt, "");
-	    if(t_flag)
-		fprintf(stdout, "========================================"
-			"======================================\n");
+	    if(!s_flag)
+	    {
+		if(t_flag)
+		    fprintf(stdout,
+			    "========================================"
+			    "======================================\n");
+		pkt_debug_hdr(stdout, &pkt, "");
+		if(t_flag)
+		    fprintf(stdout,
+			    "========================================"
+			    "======================================\n");
+	    }
 	    
 	    type = pkt_get_int16(fp);
 	    if(type == ERROR)
@@ -198,9 +214,18 @@ int main(int argc, char **argv)
 		    fprintf(stdout, "ERROR: %s: parsing message "
 			    "body failed (%d)\n", name, err);
 		if(body.area == NULL)
+		{
+		    /* NetMail */
+		    n_mail++;
 		    /* Retrieve complete address from kludges */
 		    kludge_pt_intl(&body, &msg, FALSE);
-
+		}
+		else
+		{
+		    /* EchoMail */
+		    n_echo++;
+		}
+		
 		if(m_flag)
 		    pkt_debug_msg_hdr(stdout, &msg, "");
 		if(t_flag)
@@ -211,6 +236,11 @@ int main(int argc, char **argv)
 	    
 	if(fp != stdin)
 	    fclose(fp);
+
+	/* Short format output */
+	if(s_flag)
+	    printf("%s: %s -> %s, %ld mail, %ld echo\n",
+		   name, znfp(&pkt.from), znfp(&pkt.to), n_mail, n_echo);
     }
     
     exit(0);

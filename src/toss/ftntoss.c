@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftntoss.c,v 4.15 1997/02/23 18:20:42 mj Exp $
+ * $Id: ftntoss.c,v 4.16 1997/03/30 16:25:20 mj Exp $
  *
  * Toss FTN NetMail/EchoMail
  *
@@ -39,7 +39,7 @@
 
 
 #define PROGRAM 	"ftntoss"
-#define VERSION 	"$Revision: 4.15 $"
+#define VERSION 	"$Revision: 4.16 $"
 #define CONFIG		CONFIG_MAIN
 
 
@@ -1420,7 +1420,7 @@ int main(int argc, char **argv)
     char *a_flag=NULL, *u_flag=NULL;
     char *pkt_name;
     char *areas_bbs = NULL;
-    time_t toss_start, toss_stop;
+    time_t toss_start, toss_delta;
     
     int option_index;
     static struct option long_options[] =
@@ -1796,20 +1796,21 @@ int main(int argc, char **argv)
     outpkt_close();
 
     /* Stop time */
-    toss_stop = time(NULL);
-
+    toss_delta = time(NULL) - toss_start;
+    if(toss_delta <= 0)
+	toss_delta = 1;
+    
     if(pkts_in)
 	log("pkts processed: %ld, %ld Kbyte in %ld s, %.2lf Kbyte/s",
-	    pkts_in, pkts_bytes/1024, (toss_stop - toss_start),
-	    (double)pkts_bytes/1024./(toss_stop - toss_start)          );
+	    pkts_in, pkts_bytes/1024, toss_delta,
+	    (double)pkts_bytes/1024./toss_delta                      );
     
     if(msgs_in)
     {
 	log("msgs processed: %ld in, %ld out (%ld mail, %ld echo)",
 	    msgs_in, msgs_netmail+msgs_echomail, msgs_netmail, msgs_echomail);
 	log("msgs processed: %ld in %ld s, %.2lf msgs/s",
-	    msgs_in, (toss_stop - toss_start),
-	    (double)msgs_in/(toss_stop - toss_start)           );
+	    msgs_in, toss_delta, (double)msgs_in/toss_delta);
     }
     
     if(msgs_unknown || msgs_routed || msgs_insecure || msgs_empty)

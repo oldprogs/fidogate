@@ -1,0 +1,27 @@
+#!/bin/sh
+
+../tr.init
+
+T="../../src/toss/ftntoss  -L../cf -S. -cconfig.main"
+R="../../src/toss/ftnroute -L../cf -S. -cconfig.main"
+
+G="../../src/gate/rfc2ftn -L../cf -S. -cconfig.gate"
+
+
+# Generate some EchoMail messages
+for a in \
+ 2:2452/123.1 2:2452/123.2 2:2452/123.3 2:2452/123.4 2:2452/123.5\
+ 2:2452/999
+do
+  $G -v -n -a$a -u2:2452/123 <<EOF
+Subject: Test EchoMail from $a
+Newsgroups: fido.ger.linux
+
+Test $a
+EOF
+done
+
+# Toss'em up
+cp out/*.pkt toss/in
+$T -v
+$R -v
