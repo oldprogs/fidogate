@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway software UNIX <-> FIDO
  *
- * $Id: rfc2ftn.c,v 4.29 1997/10/12 18:17:02 mj Exp $
+ * $Id: rfc2ftn.c,v 4.30 1997/10/14 17:59:32 mj Exp $
  *
  * Read mail or news from standard input and convert it to a FIDO packet.
  *
@@ -39,7 +39,7 @@
 
 
 #define PROGRAM 	"rfc2ftn"
-#define VERSION 	"$Revision: 4.29 $"
+#define VERSION 	"$Revision: 4.30 $"
 #define CONFIG		CONFIG_GATE
 
 
@@ -1851,6 +1851,22 @@ int main(int argc, char **argv)
     {
 	debug(8, "config: DontUseReplyTo");
 	dont_use_reply_to = TRUE;
+    }
+    if( (p = cf_get_string("RFCAddrMode", TRUE)) )
+    {
+	int m = 0;
+
+	switch(*p) 
+	{
+	case '(': case 'p': case '0':
+	    m = 0;				/* user@do.main (Real Name) */
+	    break;
+	case '<': case 'a': case '1':
+	    m = 1;				/* Real Name <user@do.main> */
+	    break;
+	}
+	rfcaddr_mode(m);
+	debug(8, "config: RFCAddrMode %d", m);
     }
     
 

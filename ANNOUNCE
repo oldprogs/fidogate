@@ -61,6 +61,8 @@ Changes in 4.2.7:
 * ftntick: new UnkownTickArea for incoming TICs with unknown file
   areas.
 
+* ftn2rfc, rfc2ftn: new RFCAddrMode option.
+
 
 
 Changes in 4.2.6:
@@ -189,6 +191,6 @@ End
 
 ======================================================================
 
-$Date: 1997/10/13 19:29:44 $
+$Date: 1997/10/14 17:59:15 $
 Martin Junius
 mailto:mj@fido.de

@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftn2rfc.c,v 4.26 1997/08/17 13:13:19 mj Exp $
+ * $Id: ftn2rfc.c,v 4.27 1997/10/14 17:59:31 mj Exp $
  *
  * Convert FTN mail packets to RFC mail and news batches
  *
@@ -40,7 +40,7 @@
 
 
 #define PROGRAM 	"ftn2rfc"
-#define VERSION 	"$Revision: 4.26 $"
+#define VERSION 	"$Revision: 4.27 $"
 #define CONFIG		CONFIG_GATE
 
 
@@ -1439,6 +1439,22 @@ int main(int argc, char **argv)
     {
 	debug(8, "config: SingleArticles");
 	single_articles = TRUE;
+    }
+    if( (p = cf_get_string("RFCAddrMode", TRUE)) )
+    {
+	int m = 0;
+
+	switch(*p) 
+	{
+	case '(': case 'p': case '0':
+	    m = 0;				/* user@do.main (Real Name) */
+	    break;
+	case '<': case 'a': case '1':
+	    m = 1;				/* Real Name <user@do.main> */
+	    break;
+	}
+	rfcaddr_mode(m);
+	debug(8, "config: RFCAddrMode %d", m);
     }
     
     /*

@@ -1,3 +1,23 @@
+Tue Oct 14 19:28:20 1997  Martin Junius  <mj@fido.de>
+
+	------- CVS ci -------------------------------------------------------
+
+	* doc/fidogate.texi (Config): documented RFCAddrMode.
+
+	* src/gate/ftn2rfc.c (main): dito.
+
+	* src/gate/rfc2ftn.c (main): new config.gate option RFCAddrMode,
+	  setting mode for rfcaddr_to_asc(), see below.
+
+	* src/common/rfcaddr.c (rfcaddr_mode): new function setting
+	  rfcaddr_to_asc() mode:
+	      0 = user@do.main (Real Name)
+	      1 = Real Name <user@do.main>
+	      2 = user@do.main
+	  (rfcaddr_to_asc): if addr_mode==1, then use the format
+	      Real Name <user@do.main>
+	  for RFC addresses with real name.
+
 Mon Oct 13 20:32:58 1997  Martin Junius  <mj@fido.de>
 
 	------- CVS ci -------------------------------------------------------

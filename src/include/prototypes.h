@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: prototypes.h,v 4.31 1997/08/17 13:13:20 mj Exp $
+ * $Id: prototypes.h,v 4.32 1997/10/14 17:59:32 mj Exp $
  *
  * Prototypes for functions in libfidogate.a
  *
@@ -433,6 +433,7 @@ long  read_rnews_size		(FILE *);
 
 /* rfcaddr.c */
 void	rfcaddr_dot_names	(int);
+void	rfcaddr_mode		(int);
 RFCAddr	rfcaddr_from_ftn	(char *, Node *);
 RFCAddr	rfcaddr_from_rfc	(char *);
 char   *rfcaddr_to_asc		(RFCAddr *, int);
