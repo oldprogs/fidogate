@@ -2,6 +2,15 @@
 
 X = for next release
 
+	* doc: add include command for areas file.
+
+	* doc: add hints for setting up packing config files, in
+	  particular for 2 points configuration.
+
+4.3.x	* config: different lib and sbin directory?
+
+	* Makefiles: prefix for make install.
+
 	* doc: config.gate SingleArticles.
 
 	* scripts: check that process which created lock file still
@@ -18,10 +27,10 @@ DONE.	* ftn2rfc: gateway check, log area.
 
 	* ftn2rfc/rfc2ftn: MAIL-log messages configurable.
 
-	* ftn2rfc: create single news message (not a news batch),
+DONE.	* ftn2rfc: create single news message (not a news batch),
 	  suitable for e.g. innxmit.
 
-	* config: move config files to /etc/fidogate, %C for config dir.
+4.3.x	* config: move config files to /etc/fidogate, %C for config dir.
 
 	* ftntick: junk file area for unknown file echo areas.
 
@@ -32,7 +41,7 @@ DONE.	* ftn2rfc: gateway check, log area.
 	* ftntoss: remove duplicate addresses from SEEN-BY
 	  (postprocessing for PASSTHRU_ECHOMAIL).
 
-	* rfc2ftn: mime_deheader() for all header lines.
+	* rfc2ftn: mime_deheader() for all header lines?
 
 	* ftn2rfc: allow Newsgroups, Followup-To: header.
 

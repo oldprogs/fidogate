@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: node.h,v 4.1 1996/12/17 17:19:53 mj Exp $
+ * $Id: node.h,v 4.2 1997/08/13 17:51:46 mj Exp $
  *
  * Node structure (zone, net, node, point, domain)
  *
@@ -43,8 +43,16 @@ typedef struct st_node
     int node;
     int point;
     char domain[MAX_DOMAIN];
+    int flags;
 }
 Node;
+
+/* Node flags */
+#define NODE_RO		1	/* r - read-only */
+#define NODE_WO		2	/* w - write-only */
+#define NODE_VACATION	4	/* v - vacation */
+#define NODE_UPLINK	8	/* u - is uplink */
+#define NODE_DOWNLINK	16	/* d - is downlink */
 
 
 

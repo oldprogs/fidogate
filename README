@@ -1,6 +1,6 @@
 -*- Indented-Text -*-
 
-$Id: README,v 4.20 1997/06/28 16:26:21 mj Exp $
+$Id: README,v 4.21 1997/08/13 17:51:42 mj Exp $
 
 ======================================================================
 				   
@@ -303,6 +303,23 @@ Perl for WIN32 information can be found at
 
 ======================================================================
 
-$Date: 1997/06/28 16:26:21 $
+Contributing patches:
+
+PLEASE NOTE THE FOLLOWING RULES FOR CONTRIBUTING PATCHES:
+
+* No changes to the indentation, white space etc. No beautifying,
+  please.
+
+* Supply only context diffs (command diff -u), not complete changed
+  files.
+
+* Supply patches against the latest version of FIDOGATE.
+
+If you do not follow these simple rules, it is quite likely that I'll
+not integrate your patches.
+
+======================================================================
+
+$Date: 1997/08/13 17:51:42 $
 Martin Junius
 mailto:mj@fido.de

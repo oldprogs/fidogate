@@ -1,3 +1,21 @@
+Wed Aug 13 19:23:47 1997  Martin Junius  <mj@fido.de>
+
+	------- CVS ci -------------------------------------------------------
+
+	* src/common/areas.c (areas_parse_line): new function doing the
+	  line parsing part of the old areas_init() function, additionally
+	  implementing an "include" command.
+	  (areas_do_file): new function doing the file processing part of
+	  the old areas_init() function.
+	  (areas_init): changed to call new areas_do_file().
+
+	* src/include/node.h (st_node): added flags field to Node struct.
+	  (NODE_*): #define's for node flags.
+
+Mon Aug 11 21:23:06 1997  Martin Junius  <mj@fido.de>
+
+	* README: added some rules for supplying patches.
+
 Sun Aug 10 18:18:41 1997  Martin Junius  <mj@fido.de>
 
 	------- CVS ci -------------------------------------------------------
