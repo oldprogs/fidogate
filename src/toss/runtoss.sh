@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# $Id: runtoss.sh,v 4.3 1996/11/01 16:37:58 mj Exp $
+# $Id: runtoss.sh,v 4.4 1996/11/25 19:52:01 mj Exp $
 #
 # Wrapper for ftntoss, ftnroute, ftnpack doing the toss process
 #
@@ -8,11 +8,32 @@
 #
 
 PRG=<LIBDIR>
-SPOOL=<SPOOLDIR>
-OUTBOUND=<OUTBOUND>
-INBOUND=<INBOUND>
-PINBOUND=<PINBOUND>
-UUINBOUND=<UUINBOUND>
+SPOOL=`$PRG/ftnconfig =spooldir`
+OUTBOUND=`$PRG/ftnconfig =outbound`
+INBOUND=`$PRG/ftnconfig =inbound`
+PINBOUND=`$PRG/ftnconfig =pinbound`
+UUINBOUND=`$PRG/ftnconfig =uuinbound`
+
+if [ -z "$SPOOL" ]; then
+  echo "runtoss: parameter spooldir missing"
+  exit 1
+fi
+if [ -z "$OUTBOUND" ]; then
+  echo "runtoss: parameter outbound missing"
+  exit 1
+fi
+if [ -z "$INBOUND" ]; then
+  echo "runtoss: parameter inbound missing"
+  exit 1
+fi
+if [ -z "$PINBOUND" ]; then
+  echo "runtoss: parameter pinbound missing"
+  exit 1
+fi
+if [ -z "$UUINBOUND" ]; then
+  echo "runtoss: parameter uuinbound missing"
+  exit 1
+fi
 
 
 # Get MinDiskFree from config.main

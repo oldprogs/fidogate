@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: config.c,v 4.5 1996/11/09 18:02:12 mj Exp $
+ * $Id: config.c,v 4.6 1996/11/25 19:51:58 mj Exp $
  *
  * Configuration data and functions
  *
@@ -47,8 +47,6 @@ static int scf_line;
 static char scf_libdir[MAXPATH];
 static char scf_spooldir[MAXPATH];
 static char scf_logdir[MAXPATH];
-static char scf_outbound[MAXPATH];
-static char scf_inbound[MAXPATH];
 
 /*
  * Hostname / domainname
@@ -57,17 +55,6 @@ static char scf_hostname[MAXPATH];
 static char scf_domainname[MAXPATH];
 static char scf_hostsdomain[MAXPATH];
 static char scf_fqdn[MAXPATH];
-
-/*
- * EchoMail origin line
- */
-static char scf_origin[MAXPATH];
-
-/*
- * News organization
- */
-static char scf_organization[MAXPATH];
-
 
 
 /*
@@ -173,10 +160,7 @@ void cf_debug(void)
 
     debug(8, "config: libdir=%s  spooldir=%s  logdir=%s",
 	  scf_libdir, scf_spooldir, scf_logdir);
-    debug(8, "config: inbound=%s outbound=%s", scf_inbound, scf_outbound);
     debug(8, "config: fqdn=%s", scf_fqdn);
-    debug(8, "config: origin=%s", scf_origin);
-    debug(8, "config: organization=%s", scf_organization);
     
     for(i=0; i<scf_naddr; i++)
 	debug(8, "config: address Z%-4d: %s  Uplink: %s",
@@ -389,28 +373,6 @@ void cf_do_line(char *line)
 	else
 	    strncpy0(scf_hostsdomain, p  , sizeof(scf_hostsdomain));
     }
-    /***** origin *******************************************************/
-    else if (!stricmp(keyword, "origin"  ))
-    {
-	p = xstrtok(NULL, " \t");
-	if(!p) 
-	{
-	    log("config: missing origin");
-	    return;
-	}
-	strncpy0(scf_origin, p, MAXPATH);
-    }
-    /***** organization *************************************************/
-    else if (!stricmp(keyword, "organization"))
-    {
-	p = xstrtok(NULL, " \t");
-	if(!p) 
-	{
-	    log("config: missing organization");
-	    return;
-	}
-	strncpy0(scf_organization, p, MAXPATH);
-    }
     /***** libdir *******************************************************/
     else if (!stricmp(keyword, "libdir"))
     {
@@ -443,28 +405,6 @@ void cf_do_line(char *line)
 	    return;
 	}
 	strncpy0(scf_logdir, p, MAXPATH);
-    }
-    /***** outbound *****************************************************/
-    else if (!stricmp(keyword, "outbound"))
-    {
-	p = xstrtok(NULL, " \t");
-	if(!p) 
-	{
-	    log("config: missing outbound");
-	    return;
-	}
-	strncpy0(scf_outbound, p, MAXPATH);
-    }
-    /***** inbound ******************************************************/
-    else if (!stricmp(keyword, "inbound"))
-    {
-	p = xstrtok(NULL, " \t");
-	if(!p) 
-	{
-	    log("config: missing inbound");
-	    return;
-	}
-	strncpy0(scf_inbound, p, MAXPATH);
     }
     /***** address ******************************************************/
     else if (!stricmp(keyword, "address" ))
@@ -807,48 +747,6 @@ char *cf_fqdn(void)
 }
 
 
-/*
- * Return origin
- */
-char *cf_origin(void)
-{
-    return scf_origin;
-}
-
-
-/*
- * Return organization
- */
-char *cf_organization(void)
-{
-    return scf_organization;
-}
-
-
-/*
- * Set/get outbound/inbound
- */
-void cf_set_outbound(char *dir)
-{
-    strncpy0(scf_outbound, dir, MAXPATH);
-}
-
-char *cf_outbound(void)
-{
-    return scf_outbound;
-}
-
-void cf_set_inbound(char *dir)
-{
-    strncpy0(scf_inbound, dir, MAXPATH);
-}
-
-char *cf_inbound(void)
-{
-    return scf_inbound;
-}
-
-
 
 /***** Stuff for processing zone info ****************************************/
 
@@ -1173,7 +1071,7 @@ char *cf_p_routing(void)
 
 
 /*
- * Get config values for Inbound, PInbound, UUInbound
+ * Get config values for Inbound, PInbound, UUInbound, Outbound
  */
 char *cf_p_inbound(void)
 {
@@ -1189,10 +1087,13 @@ char *cf_p_inbound(void)
     return pval;
 }
 
-char *cf_p_pinbound(void)
+static char *cf_p_s_pinbound(char *s)
 {
     static char *pval;
 
+    if(s)
+	pval = strsave(s);
+    
     if(! pval)
     {
 	if( ! (pval = cf_get_string("PInbound", TRUE)) )
@@ -1202,6 +1103,16 @@ char *cf_p_pinbound(void)
     }
 
     return pval;
+}
+    
+char *cf_p_pinbound(void)
+{
+    return cf_p_s_pinbound(NULL);
+}
+
+char *cf_s_pinbound(char *s)
+{
+    return cf_p_s_pinbound(s);
 }
 
 char *cf_p_uuinbound(void)
@@ -1214,6 +1125,66 @@ char *cf_p_uuinbound(void)
 	    if( ! (pval = cf_get_string("Inbound", TRUE)) )
 		pval = INBOUND;
 	debug(8, "config: UUInbound %s", pval);
+    }
+
+    return pval;
+}
+
+static char *cf_p_s_outbound(char *s)
+{
+    static char *pval;
+
+    if(s)
+	pval = strsave(s);
+    
+    if(! pval)
+    {
+	if( ! (pval = cf_get_string("Outbound", TRUE)) )
+	    pval = OUTBOUND;
+	debug(8, "config: Outbound %s", pval);
+    }
+
+    return pval;
+}
+    
+char *cf_p_outbound(void)
+{
+    return cf_p_s_outbound(NULL);
+}
+
+char *cf_s_outbound(char *s)
+{
+    return cf_p_s_outbound(s);
+}
+
+
+
+/*
+ * Get config values for Organization, Origin
+ */
+char *cf_p_organization(void)
+{
+    static char *pval;
+
+    if(! pval)
+    {
+	if( ! (pval = cf_get_string("Organization", TRUE)) )
+	    pval = "FIDOGATE";
+	debug(8, "config: Organization %s", pval);
+    }
+
+    return pval;
+}
+
+char *cf_p_origin(void)
+{
+    static char *pval;
+
+    if(! pval)
+    {
+	if( ! (pval = cf_get_string("Origin", TRUE)) )
+	    pval = "FIDOGATE";
+	debug(8, "config: Origin %s", pval);
     }
 
     return pval;

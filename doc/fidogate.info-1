@@ -561,21 +561,18 @@ The following definitions must start in the first column.
      Directory for installing HTML documentation files.
 
 `OUTBOUND'
-     BinkleyTerm-style outbound base directory. Used by the perl and
-     shell scripts. This is the base directory, not the actual zone
-     outbound directory.
+     Default BinkleyTerm-style outbound base directory. This is the base
+     directory, not the actual zone outbound directory.
 
 `INBOUND'
-     BinkleyTerm-style inbound directory. Used by the perl and shell
-     scripts.
+     Default BinkleyTerm-style inbound directory.
 
 `PINBOUND'
-     BinkleyTerm-style protected inbound directory. Used by the perl and
-     shell scripts.
+     Default BinkleyTerm-style protected inbound directory.
 
 `UUINBOUND'
-     BinkleyTerm-style inbound directory for the `recvuu' script. Used
-     by the perl and shell scripts.
+     Default BinkleyTerm-style inbound directory for the `recvuu'
+     script.
 
 `NEWSETCDIR'
      INN directory: config files

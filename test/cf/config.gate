@@ -1,6 +1,6 @@
 #:ts=8
 #
-# $Id: config.gate,v 4.7 1996/10/22 19:58:26 mj Exp $
+# $Id: config.gate,v 4.8 1996/11/25 19:52:04 mj Exp $
 #
 # FIDOGATE config file gateway programs
 #
@@ -32,13 +32,13 @@ Uplink		242:1000/5
 #
 # Default origin line for EchoMail messages
 #
-Origin		"Martin Junius' orodruin.fido.de"
+Origin		Martin Junius' orodruin.fido.de
 
 
 #
 # Organization header for News
 #
-Organization	"Martin Junius' orodruin.fido.de"
+Organization	Martin Junius' orodruin.fido.de
 
 
 #

@@ -2,22 +2,25 @@
 
 X = for next release
 
+	* rfc2ftn: get Envelope-From address, add Envelope-From like
+	  From line?
+
 	* rfc2ftn: improve parser for 1st line. Use regexp library?
 
 	* rfc2ftn: option to use node address, not gateway point
 	  address for local users.
 
-	* run*: Use ftnconfig.
+DONE.	* run*: Use ftnconfig.
 
-	* config.c: replace cf_inbound() with cf_p_pinbound()?
+DONE.	* config.c: replace cf_inbound() with cf_p_pinbound()?
 
-	* ffxqt/ftntick: replace cf_set_inbound()?
+DONE.	* ffxqt/ftntick: replace cf_set_inbound()?
 
 	* "BestMatchAKA" parameter for all programs. Similar to
 	  setting AKA based on current zone, using the AKA with best
 	  fits the sender/receiver. For multi-point operation.
 
-	* config.c: make Origin/Organization normal cf_get_string()
+DONE.	* config.c: make Origin/Organization normal cf_get_string()
 	  parameters.
 
 	* ftn2rfc: check ^AREPLYADDR for valid Internet address. At

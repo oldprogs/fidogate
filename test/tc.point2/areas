@@ -1,0 +1,40 @@
+#:ts=8
+#
+# Echomail area <-> News newsgroup conversion
+#
+# Options:
+#     -a Z:N/F.P         Alternate address for this area
+#     -z ZONE            Alternate zone AKA for this area
+#     -d DISTRIBUTION    Distribution header for this newsgroups
+#     -o ORIGIN          * Origin line for this area
+#     -g                 No gated messages
+#     -l                 Only local crosspostings
+#     -x                 No crosspostings
+#     -8                 Messages with 8bit ISO-8859-1 charset
+#     -H                 Names match entire hierarchy, names are translated
+#     -!                 Don't gate area/newsgroup [hierarchy]
+#     -R LVL             ^ARFC header level
+#     -m MAXSIZE         MaxMsgSize for this area (0 = infinity)
+#     -X "Xtra: xyz"     Add extra RFC headers (multiple -X allowed)
+#
+# All fields may be quoted in "...", order is import, first area/newsgroup
+# found matches!
+#
+# Format:
+#
+# area                        newsgroup                     [-option]
+# ------------------------    --------------------------    ---------
+TEST                          test                          -z 2 -Q
+ABC                           abc                           -z 2 -Q -a 2:2449/417.2
+DEF                           def                           -z 2 -Q -a 2:2449/450.1
+
+# Fidonet *.GER
+LINUX.GER                     fido.ger.linux                -x -z 2 -Q
+TOLKIEN.GER                   fido.ger.tolkien              -x -z 2 -Q
+
+# Usenet
+ALT.                          alt.                          -H -z 242 -8
+COMP.                         comp.                         -H -z 242 -8
+DE.                           de.                           -H -z 242 -8
+REC.                          rec.                          -H -z 242 -8
+SOC.                          soc.                          -H -z 242 -8

@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: prototypes.h,v 4.16 1996/11/17 12:03:24 mj Exp $
+ * $Id: prototypes.h,v 4.17 1996/11/25 19:51:59 mj Exp $
  *
  * Prototypes for functions in libfidogate.a
  *
@@ -127,10 +127,6 @@ char   *cf_hostname		(void);
 char   *cf_domainname		(void);
 char   *cf_hostsdomain		(void);
 char   *cf_fqdn			(void);
-char   *cf_origin		(void);
-char   *cf_organization		(void);
-void	cf_set_outbound		(char *);
-char   *cf_outbound		(void);
 char   *cf_zones_inet_domain	(int);
 int	cf_zones_check		(int);
 char   *cf_zones_trav		(int);
@@ -140,8 +136,6 @@ Node   *cf_addr_trav		(int);
 int	cf_dos			(void);
 char   *cf_dos_xlate		(char *);
 char   *cf_unix_xlate		(char *);
-void	cf_set_inbound		(char *);
-char   *cf_inbound		(void);
 Node    cf_gateway		(void);
 char   *cf_get_string		(char *, int);
 char   *cf_p_aliases		(void);
@@ -152,7 +146,19 @@ char   *cf_p_packing		(void);
 char   *cf_p_routing		(void);
 char   *cf_p_inbound		(void);
 char   *cf_p_pinbound		(void);
+char   *cf_s_pinbound		(char *);
 char   *cf_p_uuinbound		(void);
+char   *cf_p_outbound		(void);
+char   *cf_s_outbound		(char *);
+char   *cf_p_organization	(void);
+char   *cf_p_origin		(void);
+
+#define cf_set_outbound(s)	(void)cf_s_outbound(s)		
+#define cf_outbound()		cf_p_outbound()
+#define cf_set_inbound(s)	(void)cf_s_pinbound(s)
+#define cf_inbound()		cf_p_pinbound()
+#define cf_origin()		cf_p_origin()
+#define cf_organization()	cf_p_organization()
 
 /* crc16.c */
 void	crc16_init		(void);

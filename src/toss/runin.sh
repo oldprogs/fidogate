@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# $Id: runin.sh,v 4.0 1996/04/17 18:17:42 mj Exp $
+# $Id: runin.sh,v 4.1 1996/11/25 19:52:00 mj Exp $
 #
 # Run protected and normal inbound tossing (rununpack, runtoss)
 #
@@ -8,12 +8,18 @@
 #
 
 PRG=<LIBDIR>
-LIB=<LIBDIR>
+LOGDIR=`$PRG/ftnconfig =logdir`
+
+if [ -z "$LOGDIR" ]; then
+  echo "runtoss: parameter logdir missing"
+  exit 1
+fi
+
 
 #
 # Output to "log-in" log file
 #
-LOGFILE="<LOGDIR>/log-in"
+LOGFILE="$LOGDIR/log-in"
 export LOGFILE
 
 #

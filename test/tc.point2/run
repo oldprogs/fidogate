@@ -2,10 +2,10 @@
 
 ../tr.init
 
-G="../../src/gate/rfc2ftn -L../cf -v -i -cconfig.gate"
-T="../../src/toss/ftntoss -L../cf -v -cconfig.main"
+G="../../src/gate/rfc2ftn  -L../cf -v -i -cconfig.gate"
+T="../../src/toss/ftntoss  -L../cf -v -cconfig.main"
 R="../../src/toss/ftnroute -L../cf -v -cconfig.main"
-P="../../src/toss/ftnpack -L../cf -v -cconfig.main"
+P="../../src/toss/ftnpack  -L../cf -v -cconfig.main"
 
 # create messages
 

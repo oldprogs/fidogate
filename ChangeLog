@@ -1,3 +1,46 @@
+Mon Nov 25 19:34:09 1996  Martin Junius  <mj@fido.de>
+
+	------- CVS ci -------------------------------------------------------
+
+	* src/toss/runout.sh (LOGDIR): use ftnconfig.
+
+	* src/toss/runin.sh (LOGDIR): use ftnconfig.
+
+	* src/util/ftnconfig.c (do_para): added =inbound, =pinbound,
+	  =uuinbound, =outbound to fixed parameters.
+
+	* src/toss/rununpack.sh: same.
+
+	* src/toss/runtoss.sh (SPOOL, OUTBOUND, INBOUND, PINBOUND,
+	  UUINBOUND): use ftnconfig to get values.
+
+	* src/util/ftnconfig.c (do_para): added =libdir, =spooldir,
+	  =logdir to list of fixed parameters.
+
+	* src/common/config.c (cf_origin, cf_organzation, cf_set_outbound,
+	  cf_outbound, cf_set_inbound, cf_inbound)): removed.
+	  (cf_do_line): removed special treatment for Origin,
+	  Organization, Inbound, Outbound parameters (are now normal
+	  string parameters).
+
+	* src/include/prototypes.h
+	  (cf_set_outbound): #define'd to cf_s_outbound(). 
+	  (cf_outbound): #define'd to cf_p_outbound().
+	  (cf_set_inbound): #define'd to cf_s_pinbound().
+	  (cf_inbound): #define'd to cf_p_pinbound().
+	  (cf_origin): #define'd to cf_p_origin().
+	  (cf_organization): #define'd to cf_p_organization().
+
+	* src/common/config.c (cf_p_s_pinbound): new version of old
+	  cf_p_inbound(), allowing to set pval.
+	  (cf_p_pinbound): use new cf_p_s_pinbound().
+	  (cf_s_pinbound): new function setting PInbound value.
+	  (cf_p_s_outbound): new function get/set Outbound value.
+	  (cf_p_outbound): get Outbound parameter value.
+	  (cf_s_outbound): set Outbound parameter value.
+	  (cf_p_organization): new function get Organization parameter value.
+	  (cf_p_origin): new function get Origin parameter value.
+
 Sun Nov 17 12:47:41 1996  Martin Junius  <mj@fido.de>
 
 	======= Release 4.1.2 ================================================

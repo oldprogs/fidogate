@@ -2,7 +2,7 @@
 @c
 @c FIDOGATE documentation
 @c
-@c $Id: fidogate.texi,v 4.14 1996/11/13 21:45:49 mj Exp $
+@c $Id: fidogate.texi,v 4.15 1996/11/25 19:51:47 mj Exp $
 @c
 
 @setfilename fidogate.info
@@ -712,20 +712,17 @@ Directory for installing info documentation files.
 Directory for installing HTML documentation files.
 
 @item OUTBOUND
-BinkleyTerm-style outbound base directory. Used by the perl and shell
-scripts. This is the base directory, not the actual zone outbound directory.
+Default BinkleyTerm-style outbound base directory. This is the base
+directory, not the actual zone outbound directory.
 
 @item INBOUND
-BinkleyTerm-style inbound directory. Used by the perl and shell
-scripts.
+Default BinkleyTerm-style inbound directory.
 
 @item PINBOUND
-BinkleyTerm-style protected inbound directory. Used by the perl and
-shell scripts.
+Default BinkleyTerm-style protected inbound directory.
 
 @item UUINBOUND
-BinkleyTerm-style inbound directory for the @code{recvuu} script. Used
-by the perl and shell scripts.
+Default BinkleyTerm-style inbound directory for the @code{recvuu} script.
 
 @item NEWSETCDIR
 INN directory: config files

@@ -1,6 +1,6 @@
 #:ts=8
 #
-# $Id: config.gate,v 4.11 1996/10/22 19:58:21 mj Exp $
+# $Id: config.gate,v 4.12 1996/11/25 19:51:53 mj Exp $
 #
 # FIDOGATE config file gateway programs
 #
@@ -213,7 +213,7 @@ NoFromLine
 #
 #    %s is replaced with the envelope sender
 #
-FTNInSendmail	/usr/lib/sendmail -odb -oee -oi -f%s -oMrFTN -t
+FTNInSendmail	/usr/sbin/sendmail -odb -oee -oi -f%s -oMrFTN -t
 
 #
 # rnews program path

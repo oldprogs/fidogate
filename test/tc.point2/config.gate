@@ -1,6 +1,6 @@
 #:ts=8
 #
-# $Id: config.gate,v 1.1 1996/11/01 13:08:02 mj Exp $
+# $Id: config.gate,v 1.2 1996/11/25 19:52:06 mj Exp $
 #
 # FIDOGATE config file gateway programs
 #
@@ -9,6 +9,9 @@
 # Format:  keyword arg ...
 #          keyword and args may be put in double quotes "..."
 #
+
+# Special: areas file
+Areas		./areas
 
 #
 # Include common stuff (%L = LIBDIR)

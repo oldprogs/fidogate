@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# $Id: rununpack.sh,v 4.4 1996/10/27 13:44:25 mj Exp $
+# $Id: rununpack.sh,v 4.5 1996/11/25 19:52:01 mj Exp $
 #
 # Unpack ArcMail archives
 #
@@ -20,10 +20,32 @@
 # Programs are searched in: /bin, /usr/bin, /usr/local/bin
 
 PRG=<LIBDIR>
-SPOOLDIR=<SPOOLDIR>
-INBOUND=<INBOUND>
-PINBOUND=<PINBOUND>
-UUINBOUND=<UUINBOUND>
+SPOOLDIR=`$PRG/ftnconfig =spooldir`
+OUTBOUND=`$PRG/ftnconfig =outbound`
+INBOUND=`$PRG/ftnconfig =inbound`
+PINBOUND=`$PRG/ftnconfig =pinbound`
+UUINBOUND=`$PRG/ftnconfig =uuinbound`
+
+if [ -z "$SPOOL" ]; then
+  echo "runtoss: parameter spooldir missing"
+  exit 1
+fi
+if [ -z "$OUTBOUND" ]; then
+  echo "runtoss: parameter outbound missing"
+  exit 1
+fi
+if [ -z "$INBOUND" ]; then
+  echo "runtoss: parameter inbound missing"
+  exit 1
+fi
+if [ -z "$PINBOUND" ]; then
+  echo "runtoss: parameter pinbound missing"
+  exit 1
+fi
+if [ -z "$UUINBOUND" ]; then
+  echo "runtoss: parameter uuinbound missing"
+  exit 1
+fi
 
 
 if [ $# -ne 1 ]; then

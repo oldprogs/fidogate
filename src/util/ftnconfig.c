@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftnconfig.c,v 4.2 1996/10/18 16:58:06 mj Exp $
+ * $Id: ftnconfig.c,v 4.3 1996/11/25 19:52:03 mj Exp $
  *
  * Fetch FIDOGATE config.* parameters
  *
@@ -36,7 +36,7 @@
 
 
 #define PROGRAM 	"ftnconfig"
-#define VERSION 	"$Revision: 4.2 $"
+#define VERSION 	"$Revision: 4.3 $"
 #define CONFIG		CONFIG_MAIN
 
 
@@ -79,6 +79,13 @@ int do_para(char *name)
         { "=hostname",    cf_hostname    },
         { "=domainname",  cf_domainname  },
         { "=hostsdomain", cf_hostsdomain },
+        { "=libdir",      cf_libdir      },
+        { "=spooldir",    cf_spooldir    },
+        { "=logdir",      cf_logdir      },
+        { "=inbound",     cf_p_inbound   },
+        { "=pinbound",    cf_p_pinbound  },
+        { "=uuinbound",   cf_p_uuinbound },
+        { "=outbound",    cf_p_outbound  },
 	{ NULL   , NULL     }
     };
 
