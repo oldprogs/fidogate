@@ -1,13 +1,16 @@
 							 -*- Indented-Text -*-
 ===== TODO list for FIDOGATE development =====================================
 
+        * rfc2ftn: log WARNINGs if article not found, disable option
+	  in config.
+
 	* rfc2ftn: mime_deheader() für alle RFC-Header ->
 	  Fido-Something
 
 	* get rid of the fidogate_exit(), exit.c stuff. Is/will this
 	  be used anyway???
 
-	* ffx/ffxqt: removed compression/decompression (handled by
+	* ffx/ffxqt: remove compression/decompression (handled by
 	  ftnpack).
 
 
