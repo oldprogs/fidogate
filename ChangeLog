@@ -1,5 +1,14 @@
 Sun Feb  9 10:40:31 1997  Martin Junius  <mj@fido.de>
 
+	======= Release 4.1.6 ================================================
+	------- CVS ci, tag R416 ---------------------------------------------
+
+	* fidogate.lsm: update.
+
+	* README: update.
+
+	* ANNOUNCE: update.
+
 	------- CVS ci -------------------------------------------------------
 
 	* src/gate/ftnin.c (main): use '\' for OS2 and MSDOS when creating

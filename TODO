@@ -8,6 +8,7 @@ X = for next release
 
 STARTED.* DOS/OS2: use \ for path names when running commands via system()
 (ftnin)
+
 	* ftntick: call script for incoming TICs, passing file area,
 	  name, ...
 

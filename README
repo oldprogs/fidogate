@@ -1,6 +1,6 @@
 -*- Indented-Text -*-
 
-$Id: README,v 4.16 1997/02/09 10:04:13 mj Exp $
+$Id: README,v 4.17 1997/02/09 21:16:52 mj Exp $
 
 ======================================================================
 				   
@@ -37,6 +37,8 @@ Major changes in FIDOGATE 4:
 * Tons of new config options! See examples/orodruin/... and
   examples/morannon/...
 
+======================================================================
+
 Warning: configuration changed a lot since release 3.9.7, so using an
 old configuration without any changes for release 4 will cause
 problems.
@@ -59,15 +61,15 @@ Compiling:
 
 1.  Edit config.h
 2.  Edit config.make
-3.  Type "make depend"
-4.  Type "make"
+3.  Run "make depend"
+4.  Run "make"
 
 Installing:
 
-1.  Type "make install-dirs" to create the installation directories
+5.  Run "make install-dirs" to create the installation directories
     (only if needed)
-2.  Type "make install" to install the programs
-3.  Create the various config files and put them into LIBDIR
+6.  Run "make install" to install the programs
+7.  Create the various config files and put them into LIBDIR
     (see examples/... to get started)
 
 See also doc/fidogate.txt (PostScript documentation can be compiled by
@@ -122,6 +124,6 @@ but is no longer maintaining it.]
 
 ======================================================================
 
-$Date: 1997/02/09 10:04:13 $
+$Date: 1997/02/09 21:16:52 $
 Martin Junius
 mailto:mj@fido.de

@@ -1,7 +1,7 @@
-Subject: FIDOGATE 4.1.5 --- Fido-Internet Gateway and Tosser
+Subject: FIDOGATE 4.1.6 --- Fido-Internet Gateway and Tosser
 Keywords: fido ftn netmail echomail tosser areafix mail news gateway
 
-FIDOGATE 4.1.5, an update to version 4 of the FIDOGATE package is
+FIDOGATE 4.1.6, an update to version 4 of the FIDOGATE package is
 available.
 
 			   FIDOGATE Version 4
@@ -26,17 +26,25 @@ Internet:
     http://sunsite.unc.edu/pub/Linux/system/Fido/
     (maybe still in /pub/Linux/Incoming)
 
-    fidogate-4.1.5.tar.gz	657 Kbyte
+    fidogate-4.1.6.tar.gz	658 Kbyte
 
 Fido File Request:
 ==================
     2:2452/110, 111  +49-241-876604  (V.34, ISDN V.110/X.75)
     
-    fgate415.tgz		657 Kbyte
+    fgate416.tgz		658 Kbyte
 
 
 
 ======================================================================
+
+Changes in 4.1.6:
+
+* Bugfix for rfc2ftn in parsing References / In-Reply-To continuation
+  headers.
+
+* New "UseFTNToAddress" config option for ftn2rfc.
+
 
 Changes in 4.1.5:
 
@@ -113,8 +121,8 @@ fgate-users-request@gondor.gun.de
 
 Begin3
 Title:          FIDOGATE
-Version:        4.1.5
-Entered-date:   26DEC96
+Version:        4.1.6
+Entered-date:   09FEB97
 Description:    FIDOGATE Version 4:
                  * Fido-Internet Gateway
 		 * Fido FTN-FTN Gateway
@@ -125,9 +133,9 @@ Keywords:       fido ftn netmail echomail tosser areafix mail news gateway
 Author:         mj@fido.de (Martin Junius)
 Maintained-by:  mj@fido.de (Martin Junius)
 Primary-site:   ftp.fido.de /pub/fidogate
-		657kB fidogate-4.1.5.tar.gz
+		658kB fidogate-4.1.6.tar.gz
 Alternate-site: sunsite.unc.edu /pub/Linux/system/Fido
-		657kB fidogate-4.1.5.tar.gz
+		658kB fidogate-4.1.6.tar.gz
 Platforms:      Linux, SunOS, but should be easily portable to most
 		UNIX systems. Supports OS/2 (EMX gcc port) and MSDOS
 		(DJGPP gcc port), too. perl is required.
@@ -136,6 +144,6 @@ End
 
 ======================================================================
 
-$Date: 1997/02/09 10:04:11 $
+$Date: 1997/02/09 21:16:51 $
 Martin Junius
 mailto:mj@fido.de
