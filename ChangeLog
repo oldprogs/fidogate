@@ -1,3 +1,61 @@
+1999-06-17  Martin Junius  <mj@fido.de>
+
+	------- CVS ci -------------------------------------------------------
+
+	* test/tc.1stline/run: new test case for 1st line pattern matching.
+
+	* src/gate/rfc2ftn.c (get_name_from_body): concatenate 1st and 2nd 
+	  non-empty line from message body for pattern matching.
+
+	* src/common/message.c (is_blank_line): no longer static.
+
+	* examples/point/fidogate.conf: dito.
+
+	* examples/win32/fidogate.conf: dito.
+
+	* examples/morannon/fidogate.conf: dito.
+
+	* examples/orodruin/fidogate.conf: added config example.
+
+	* src/gate/rfc2ftn.c (main): added regex_init().
+	  (get_name_from_body): uses regex_match() for finding address in
+	  1st line, #if 0'ed old wildmatch() code.
+
+	* src/common/rematch.c (regex_init): new function, initializes
+	  regex list and processes Regex1stLine entries from fidogate.conf
+	  (str_regex_match_sub): new function, copies i'th sub-expression
+	  from regex match to string buffer.
+
+1999-06-14  Martin Junius  <mj@fido.de>
+
+	* src/common/rematch.c (regex_new): new function, alloc/init Regex
+	  struct. 
+	  (regex_parse_line): new function, compiling regex pattern string.
+	  (regex_do_entry): new function, putting regex into linked list.
+	  (regex_match): new function, matching string against list of
+	  regex patterns.
+	  (regex_match_sub): new function returns regmatch_t entry for
+	  last matching regex.
+	  (main): test main.
+
+	* src/common/Makefile (OBJS): added rematch.o module.
+	  (testrematch): added test target.
+
+	* src/common/rematch.c: new modules, regular expression handling
+	  for FIDOGATE, using POSIX regex functions, see HAVE_POSIX_REGEX in 
+	  config.h
+
+1999-06-08  Martin Junius  <mj@fido.de>
+
+	* src/common/strtok_r.c (strtok_r_ext): changed logic
+ 	  somewhat. After returning from the function, *lasts will point to
+ 	  the beginning of the next token, 1st non-delim character, fixing 
+	  problems for the typical strtok(s,DELIM_WS), then
+	  strtok(NULL,DELIM_EOL) scan.
+	  (strtok_r_ext): more changes, now mostly relying on strchr() to
+	  do the job.
+	  Thus no longer "based" on NetBSD ... ;-)
+
 1999-06-07  Martin Junius  <mj@fido.de>
 
 	------- CVS ci -------------------------------------------------------

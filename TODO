@@ -67,7 +67,7 @@ STARTED	* areas.bbs: read-only/vacation flag for downlinks,
 
     Code rewrite
 
-	* new implementation of strtok(), xstrtok() function, using
+DONE	* new implementation of strtok(), xstrtok() function, using
 	  reentrant common routine.
 
 	* rfcheader.c: rewrite all *header_get* functions using the

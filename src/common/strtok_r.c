@@ -2,10 +2,9 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: strtok_r.c,v 4.2 1999/06/07 21:24:26 mj Exp $
+ * $Id: strtok_r.c,v 4.3 1999/06/17 21:42:50 mj Exp $
  *
- * Specialized strtok() variants for FIDOGATE, based on NetBSD strtok_r.c,
- * see below for original copyright.
+ * Specialized strtok() variants for FIDOGATE
  *
  *****************************************************************************
  * Copyright (C) 1990-1999
@@ -30,41 +29,6 @@
  * along with FIDOGATE; see the file COPYING.  If not, write to the Free
  * Software Foundation, 675 Mass Ave, Cambridge, MA 02139, USA.
  *****************************************************************************/
-
-/*	$NetBSD: strtok_r.c,v 1.3 1998/02/03 18:49:25 perry Exp $	*/
-
-/*
- * Copyright (c) 1988 Regents of the University of California.
- * All rights reserved.
- *
- * Redistribution and use in source and binary forms, with or without
- * modification, are permitted provided that the following conditions
- * are met:
- * 1. Redistributions of source code must retain the above copyright
- *    notice, this list of conditions and the following disclaimer.
- * 2. Redistributions in binary form must reproduce the above copyright
- *    notice, this list of conditions and the following disclaimer in the
- *    documentation and/or other materials provided with the distribution.
- * 3. All advertising materials mentioning features or use of this software
- *    must display the following acknowledgement:
- *	This product includes software developed by the University of
- *	California, Berkeley and its contributors.
- * 4. Neither the name of the University nor the names of its contributors
- *    may be used to endorse or promote products derived from this software
- *    without specific prior written permission.
- *
- * THIS SOFTWARE IS PROVIDED BY THE REGENTS AND CONTRIBUTORS ``AS IS'' AND
- * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
- * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
- * ARE DISCLAIMED.  IN NO EVENT SHALL THE REGENTS OR CONTRIBUTORS BE LIABLE
- * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
- * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS
- * OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
- * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
- * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY
- * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
- * SUCH DAMAGE.
- */
 
 #include "fidogate.h"
 
@@ -97,8 +61,6 @@ char *strtok_r(char *s, const char *delim, char **lasts)
 
 char *strtok_r_ext(char *s, const char *delim, char **lasts, int quote)
 {
-    char *spanp;
-    int c, sc;
     char *tok, *p;
 
     if(quote == TRUE)
@@ -106,20 +68,15 @@ char *strtok_r_ext(char *s, const char *delim, char **lasts, int quote)
     if(s == NULL && (s = *lasts) == NULL)
         return NULL;
 
-    /* Skip (span) leading delimiters (s += strspn(s, delim), sort
-     * of).  */
-cont:
-    c = *s++;
-    for (spanp = (char *)delim; (sc = *spanp++) != 0;) {
-        if (c == sc)
-	    goto cont;
-    }
-
-    if (c == 0) {		/* no non-delimiter characters */
-        *lasts = NULL;
+    /* Skip leading delimiters */
+    while(*s && strchr(delim, *s))
+	s++;
+    if(! *s)
+    {
+	*lasts = NULL;
 	return NULL;
     }
-    tok = s - 1;
+    tok = s++;
 
     /* In quote mode, check for string enclosed in "..." */
     if(quote && *tok==quote)
@@ -147,26 +104,18 @@ cont:
 	return tok;
     }
 
-    /* Scan token (scan for delimiters: s += strcspn(s, delim), sort
-     * of).  Note that delim must have one NUL; we stop if we see
-     * that, too.  */
-    for (;;) {
-        c = *s++;
-	spanp = (char *)delim;
-	do {
-	    if ((sc = *spanp++) == c) {
-	        if (c == 0)
-		    s = NULL;
-		else
-		    s[-1] = 0;
-		*lasts = s;
-		return tok;
-	    }
-	} while (sc != 0);
-    }
-    
-    /* NOTREACHED */
-    return NULL;
+    /* Scan token */
+    while(*s && !strchr(delim, *s))
+	s++;
+    if(*s)
+	*s++ = 0;
+    else
+	s = NULL;
+    /* Skip trailing delimiters */
+    while(s && *s && strchr(delim, *s))
+	s++;
+    *lasts = s;
+    return tok;
 }
 
 
@@ -254,6 +203,40 @@ int main(int argc, char *argv[])
     for(i = 0, p = strtok_r_ext(buffer, d, &last, QUOTE);
 	p;
 	i++,   p = strtok_r_ext(NULL, d, &last, QUOTE))
+        printf("    %02d = [%s]\n", i, p);
+
+
+    BUF_COPY(buffer, "Dies ist \"ein Test\" \"fuer die\" strtok()-Funktion\n");
+    d = DELIM_WS;
+    printf("String = %s", buffer);
+    for(i = 0, p = strtok(buffer, d);
+	p;
+	i++,   p = strtok(NULL, d))
+        printf("    %02d = [%s]\n", i, p);
+
+
+    BUF_COPY(buffer, "Dies ist \"ein Test\" \"fuer die\" xstrtok()-Funktion\n");
+    d = DELIM_WS;
+    printf("String = %s", buffer);
+    for(i = 0, p = xstrtok(buffer, d);
+	p;
+	i++,   p = xstrtok(NULL, d))
+        printf("    %02d = [%s]\n", i, p);
+
+
+    BUF_COPY(buffer, "Origin\t\tDies ist ein Test\n");
+    printf("String = %s", buffer);
+    for(i = 0, p = xstrtok(buffer, DELIM_WS);
+	p;
+	i++,   p = xstrtok(NULL, DELIM_EOL))
+        printf("    %02d = [%s]\n", i, p);
+
+
+    BUF_COPY(buffer, "Origin\t\t\"Dies ist ein Test\"\n");
+    printf("String = %s", buffer);
+    for(i = 0, p = xstrtok(buffer, DELIM_WS);
+	p;
+	i++,   p = xstrtok(NULL, DELIM_EOL))
         printf("    %02d = [%s]\n", i, p);
 
 

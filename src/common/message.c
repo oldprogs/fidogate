@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: message.c,v 4.14 1999/03/07 17:37:08 mj Exp $
+ * $Id: message.c,v 4.15 1999/06/17 21:42:50 mj Exp $
  *
  * Reading and processing FTN text body
  *
@@ -426,7 +426,7 @@ static int msg_body_parse_netmail(MsgBody *body)
 }
 
 
-static int is_blank_line(char *s)
+int is_blank_line(char *s)
 {
     if(!s)
 	return TRUE;

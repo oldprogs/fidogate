@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway software UNIX <-> FIDO
  *
- * $Id: rfc2ftn.c,v 4.53 1999/05/22 12:05:01 mj Exp $
+ * $Id: rfc2ftn.c,v 4.54 1999/06/17 21:42:50 mj Exp $
  *
  * Read mail or news from standard input and convert it to a FIDO packet.
  *
@@ -39,7 +39,7 @@
 
 
 #define PROGRAM 	"rfc2ftn"
-#define VERSION 	"$Revision: 4.53 $"
+#define VERSION 	"$Revision: 4.54 $"
 #define CONFIG		DEFAULT_CONFIG_GATE
 
 
@@ -151,20 +151,33 @@ Textlist body = { NULL, NULL };
  */
 char *get_name_from_body(void)
 {
+    static char line1[2*MAXINETADDR];
     static char buf[MAXINETADDR];
-    char *p, *line1;
+    Textline *tl;
+#if 0
+    char *p;
     int found = FALSE;
     int i;
+#endif
     
-    /* First line of message body */
-    if(body.first == NULL)
+    /* First non-empty line of message body */
+    for(tl=body.first; tl && tl->line && is_blank_line(tl->line); tl=tl->next);
+    if(!tl || !tl->line)
 	return NULL;
-    line1 = body.first->line;
-    if(line1 == NULL)
-	return NULL;
-
+    
+    BUF_COPY(line1, tl->line);
+    strip_space(line1);
+    tl = tl->next;
+    /* Concatenate next line */
+    if(tl && tl->line)
+    {
+	BUF_APPEND(line1, " ");
+	BUF_APPEND(line1, tl->line);
+	strip_space(line1);
+    }
     debug(9, "body 1st line: %s", line1);
-    
+
+#if 0    
     /*
      * nn-style quote:
      *   user@do.main (User Name) writes:
@@ -234,6 +247,16 @@ char *get_name_from_body(void)
 	debug(9, "body name    : %s", buf);
 	return buf;
     }
+#endif
+
+#ifdef HAS_POSIX_REGEX
+    if(regex_match(line1))
+    {
+	str_regex_match_sub(buf, sizeof(buf), 1, line1);
+	debug(9, "body name    : %s", buf);
+	return buf;
+    }
+#endif
     
     return NULL;
 }
@@ -2100,6 +2123,9 @@ int main(int argc, char **argv)
     acl_init();
 #endif
     charset_init();
+#ifdef HAS_POSIX_REGEX
+    regex_init();
+#endif
 
     /* Switch stdin to binary for reading news batches */
 #ifdef OS2

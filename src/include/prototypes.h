@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: prototypes.h,v 4.57 1999/06/07 21:24:26 mj Exp $
+ * $Id: prototypes.h,v 4.58 1999/06/17 21:42:50 mj Exp $
  *
  * Prototypes for functions in libfidogate.a
  *
@@ -291,6 +291,7 @@ int	pkt_get_line		(FILE *, char *, int);
 int	pkt_get_body		(FILE *, Textlist *);
 void	msg_body_init		(MsgBody *);
 void	msg_body_clear		(MsgBody *);
+int	is_blank_line		(char *);
 int	msg_body_parse		(Textlist *, MsgBody *);
 void	msg_body_debug		(FILE *, MsgBody *, int);
 int	msg_put_msgbody		(FILE *, MsgBody *, int);
@@ -455,6 +456,13 @@ Passwd *passwd_lookup		(char *, Node *);
 /* read.c */
 char *read_line			(char *, int, FILE *);
 long  read_rnews_size		(FILE *);
+
+/* rematch.c */
+#ifdef HAS_POSIX_REGEX
+int	regex_match		(const char *);
+char   *str_regex_match_sub	(char *, size_t, int, const char *);
+void	regex_init		(void);
+#endif
 
 /* rfcaddr.c */
 void	rfcaddr_dot_names	(int);
