@@ -3,42 +3,44 @@ ftn2ftn.o: ftn2ftn.c ../../src/include/fidogate.h ../../config.h \
  ../../src/include/paths.h ../../src/include/declare.h \
  ../../src/include/node.h ../../src/include/packet.h \
  ../../src/include/structs.h ../../src/include/prototypes.h \
- ../../src/include/getopt.h
+ ../../src/include/cf_funcs.h ../../src/include/getopt.h
 ftnaf.o: ftnaf.c ../../src/include/fidogate.h ../../config.h \
  ../../src/include/paths.h ../../src/include/declare.h \
  ../../src/include/node.h ../../src/include/packet.h \
  ../../src/include/structs.h ../../src/include/prototypes.h \
- ../../src/include/getopt.h
+ ../../src/include/cf_funcs.h ../../src/include/getopt.h
 ftnafmail.o: ftnafmail.c ../../src/include/fidogate.h ../../config.h \
  ../../src/include/paths.h ../../src/include/declare.h \
  ../../src/include/node.h ../../src/include/packet.h \
  ../../src/include/structs.h ../../src/include/prototypes.h \
- ../../src/include/getopt.h
+ ../../src/include/cf_funcs.h ../../src/include/getopt.h
 ftnexpire.o: ftnexpire.c ../../src/include/fidogate.h ../../config.h \
  ../../src/include/paths.h ../../src/include/declare.h \
  ../../src/include/node.h ../../src/include/packet.h \
  ../../src/include/structs.h ../../src/include/prototypes.h \
- ../../src/include/getopt.h dbz.h
+ ../../src/include/cf_funcs.h ../../src/include/getopt.h dbz.h
 ftnpack.o: ftnpack.c ../../src/include/fidogate.h ../../config.h \
  ../../src/include/paths.h ../../src/include/declare.h \
  ../../src/include/node.h ../../src/include/packet.h \
  ../../src/include/structs.h ../../src/include/prototypes.h \
- ../../src/include/getopt.h
+ ../../src/include/cf_funcs.h ../../src/include/getopt.h
 ftnroute.o: ftnroute.c ../../src/include/fidogate.h ../../config.h \
  ../../src/include/paths.h ../../src/include/declare.h \
  ../../src/include/node.h ../../src/include/packet.h \
  ../../src/include/structs.h ../../src/include/prototypes.h \
- ../../src/include/getopt.h
+ ../../src/include/cf_funcs.h ../../src/include/getopt.h
 ftntoss.o: ftntoss.c ../../src/include/fidogate.h ../../config.h \
  ../../src/include/paths.h ../../src/include/declare.h \
  ../../src/include/node.h ../../src/include/packet.h \
  ../../src/include/structs.h ../../src/include/prototypes.h \
- ../../src/include/getopt.h
+ ../../src/include/cf_funcs.h ../../src/include/getopt.h
 history.o: history.c ../../src/include/fidogate.h ../../config.h \
  ../../src/include/paths.h ../../src/include/declare.h \
  ../../src/include/node.h ../../src/include/packet.h \
- ../../src/include/structs.h ../../src/include/prototypes.h dbz.h
+ ../../src/include/structs.h ../../src/include/prototypes.h \
+ ../../src/include/cf_funcs.h dbz.h
 packing.o: packing.c ../../src/include/fidogate.h ../../config.h \
  ../../src/include/paths.h ../../src/include/declare.h \
  ../../src/include/node.h ../../src/include/packet.h \
- ../../src/include/structs.h ../../src/include/prototypes.h
+ ../../src/include/structs.h ../../src/include/prototypes.h \
+ ../../src/include/cf_funcs.h

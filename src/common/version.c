@@ -2,12 +2,12 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway software UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: version.c,v 4.3 1996/12/17 17:19:48 mj Exp $
+ * $Id: version.c,v 4.4 1998/01/18 09:47:55 mj Exp $
  *
  * FIDOGATE version number handling stuff
  *
  *****************************************************************************
- * Copyright (C) 1990-1997
+ * Copyright (C) 1990-1998
  *  _____ _____
  * |     |___  |   Martin Junius             FIDO:      2:2452/110
  * | | | |   | |   Radiumstr. 18             Internet:  mj@fido.de

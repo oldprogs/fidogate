@@ -2,12 +2,12 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: rfcheader.c,v 4.5 1997/06/08 10:25:35 mj Exp $
+ * $Id: rfcheader.c,v 4.6 1998/01/18 09:47:54 mj Exp $
  *
  * Functions to process RFC822 header lines from messages
  *
  *****************************************************************************
- * Copyright (C) 1990-1997
+ * Copyright (C) 1990-1998
  *  _____ _____
  * |     |___  |   Martin Junius             FIDO:      2:2452/110
  * | | | |   | |   Radiumstr. 18             Internet:  mj@fido.de

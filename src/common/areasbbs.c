@@ -2,12 +2,12 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: areasbbs.c,v 4.10 1997/11/16 17:26:43 mj Exp $
+ * $Id: areasbbs.c,v 4.11 1998/01/18 09:47:40 mj Exp $
  *
  * Function for processing AREAS.BBS EchoMail distribution file.
  *
  *****************************************************************************
- * Copyright (C) 1990-1997
+ * Copyright (C) 1990-1998
  *  _____ _____
  * |     |___  |   Martin Junius             FIDO:      2:2452/110
  * | | | |   | |   Radiumstr. 18             Internet:  mj@fido.de
@@ -184,7 +184,7 @@ int areasbbs_init(char *name)
     
     debug(14, "Reading %s file" , name);
     
-    fp = fopen_expand_name(name, R_MODE);
+    fp = fopen_expand_name(name, R_MODE, FALSE);
     if(!fp)
 	return ERROR;
     

@@ -2,12 +2,12 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: parsenode.c,v 4.4 1997/07/25 21:01:40 mj Exp $
+ * $Id: parsenode.c,v 4.5 1998/01/18 09:47:53 mj Exp $
  *
  * Parse FTN address strings (Z:N/F.P)
  *
  *****************************************************************************
- * Copyright (C) 1990-1997
+ * Copyright (C) 1990-1998
  *  _____ _____
  * |     |___  |   Martin Junius             FIDO:      2:2452/110
  * | | | |   | |   Radiumstr. 18             Internet:  mj@fido.de

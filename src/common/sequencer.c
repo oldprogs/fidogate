@@ -2,12 +2,12 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: sequencer.c,v 4.1 1996/12/17 17:19:48 mj Exp $
+ * $Id: sequencer.c,v 4.2 1998/01/18 09:47:54 mj Exp $
  *
  * Number sequencer using sequence file in LIBDIR
  *
  *****************************************************************************
- * Copyright (C) 1990-1997
+ * Copyright (C) 1990-1998
  *  _____ _____
  * |     |___  |   Martin Junius             FIDO:      2:2452/110
  * | | | |   | |   Radiumstr. 18             Internet:  mj@fido.de
@@ -44,7 +44,7 @@ long sequencer(char *filename)
     if(seqn == -1L)
     {
 	log("$can't access sequencer file %s/%s/%s",
-	    cf_spooldir(), SEQ, filename);
+	    cf_p_spooldir(), SEQ, filename);
 	exit(EX_OSFILE);
     }
     
@@ -58,7 +58,7 @@ long sequencer_nx(char *filename)
     FILE *fp;
     long seqn;
 
-    BUF_COPY5(buffer, cf_spooldir(), "/", SEQ, "/", filename);
+    BUF_COPY5(buffer, cf_p_spooldir(), "/", SEQ, "/", filename);
 
     /*
      * Open file, create if necessary

@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftnin.c,v 4.4 1997/04/18 15:37:45 mj Exp $
+ * $Id: ftnin.c,v 4.5 1998/01/18 09:47:59 mj Exp $
  *
  * Search for mail packets destined to gateway's FTN addresses and feed
  * them to ftn2rfc.
@@ -10,7 +10,7 @@
  * With full supporting cast of busy files and locking. ;-)
  *
  *****************************************************************************
- * Copyright (C) 1990-1997
+ * Copyright (C) 1990-1998
  *  _____ _____
  * |     |___  |   Martin Junius             FIDO:      2:2452/110
  * | | | |   | |   Radiumstr. 18             Internet:  mj@fido.de
@@ -39,8 +39,8 @@
 
 
 #define PROGRAM		"ftnin"
-#define VERSION		"$Revision: 4.4 $"
-#define CONFIG		CONFIG_GATE
+#define VERSION		"$Revision: 4.5 $"
+#define CONFIG		DEFAULT_CONFIG_GATE
 
 
 
@@ -288,16 +288,16 @@ int main(int argc, char **argv)
      * Read config file
      */
     if(L_flag)				/* Must set libdir beforehand */
-	cf_set_libdir(L_flag);
+	cf_s_libdir(L_flag);
     cf_read_config_file(c_flag ? c_flag : CONFIG);
 
     /*
      * Process config options
      */
     if(L_flag)
-	cf_set_libdir(L_flag);
+	cf_s_libdir(L_flag);
     if(S_flag)
-	cf_set_spooldir(S_flag);
+	cf_s_spooldir(S_flag);
     if(a_flag)
 	cf_set_addr(a_flag);
     if(u_flag)
@@ -305,7 +305,7 @@ int main(int argc, char **argv)
 
     cf_debug();
 
-    BUF_COPY3(cmd, cf_libdir(), "/", FTN2RFC);
+    BUF_COPY3(cmd, cf_p_libdir(), "/", FTN2RFC);
     if(exec)
 	str_expand_name(script, sizeof(script), exec);
     

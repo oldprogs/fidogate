@@ -2,12 +2,12 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: history.c,v 4.4 1997/10/12 18:17:03 mj Exp $
+ * $Id: history.c,v 4.5 1998/01/18 09:48:14 mj Exp $
  *
  * MSGID history functions and dupe checking
  *
  *****************************************************************************
- * Copyright (C) 1990-1997
+ * Copyright (C) 1990-1998
  *  _____ _____
  * |     |___  |   Martin Junius             FIDO:      2:2452/110
  * | | | |   | |   Radiumstr. 18             Internet:  mj@fido.de
@@ -251,16 +251,16 @@ int main(int argc, char *argv[])
      * Read config file
      */
     if(L_flag)				/* Must set libdir beforehand */
-	cf_set_libdir(L_flag);
-    cf_read_config_file(c_flag ? c_flag : CONFIG_MAIN);
+	cf_s_libdir(L_flag);
+    cf_read_config_file(c_flag ? c_flag : DEFAULT_CONFIG_MAIN);
 
     /*
      * Process config options
      */
     if(L_flag)
-	cf_set_libdir(L_flag);
+	cf_s_libdir(L_flag);
     if(S_flag)
-	cf_set_spooldir(S_flag);
+	cf_s_spooldir(S_flag);
 
     cf_debug();
 

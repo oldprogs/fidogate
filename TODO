@@ -2,14 +2,20 @@
 
 	************** TODO list for FIDOGATE development **************
 
-	* config.c:
-	  - replace cf_set_* with cf_s_*
-	  - replace cf_* with cf_p_*
+DONE	* bounce.c: read from CONFIGDIR.
+
+	* ftntick/ffxqt: default inbound cf_p_pinbound().
+
+DONE	* config.c:
+DONE	  - replace cf_set_* with cf_s_*
+DONE	  - replace cf_* with cf_p_*
+DONE	  - replace cf_outbound with cf_p_btbasedir
+DONE	  - remove OUTBOUND config parameter
 
 	* rfc2ftn.c (+other?): header_getcomplete() may return NULL,
 	  log() messages in snd_mail().
 
-	* log.c: switch on syslog logging from config file, new config
+DONE	* log.c: switch on syslog logging from config file, new config
 	  LogFile syslog.
 
 	* ftnaf:
@@ -41,12 +47,12 @@
 
 4.3.x	* rfc2ftn: different output dirs for mail and news.
 
-4.3.x	* log.c: add alternate logging via openlog(), syslog().
+DONE	* log.c: add alternate logging via openlog(), syslog().
 
 	* Direct mailing list support, gateway EchoMail <-> mailing
 	  list.
 
-4.3.x	* config: different lib and sbin directory?
+DONE	* config: different lib and sbin directory?
 
 	* scripts: check that process which created lock file still
 	  exists.

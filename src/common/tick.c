@@ -2,12 +2,12 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: tick.c,v 4.8 1997/10/13 19:29:57 mj Exp $
+ * $Id: tick.c,v 4.9 1998/01/18 09:47:55 mj Exp $
  *
  * TIC file processing
  *
  *****************************************************************************
- * Copyright (C) 1990-1997
+ * Copyright (C) 1990-1998
  *  _____ _____
  * |     |___  |   Martin Junius             FIDO:      2:2452/110
  * | | | |   | |   Radiumstr. 18             Internet:  mj@fido.de
@@ -325,7 +325,7 @@ int tick_send(Tick *tic, Node *node, char *name)
     /*
      * Make sure tick dir exists
      */
-    sprintf(buffer, "%s/%s", cf_outbound(), TICK_HOLD);
+    sprintf(buffer, "%s/%s", cf_p_btbasedir(), TICK_HOLD);
     if(check_access(buffer, CHECK_DIR) == ERROR)
     {
 	if(mkdir(buffer, DIR_MODE) == -1)
@@ -337,7 +337,7 @@ int tick_send(Tick *tic, Node *node, char *name)
      * Create TIC
      */
     sprintf(buffer, "%s/%s/tk%06ld.tic",
-	    cf_outbound(), TICK_HOLD, sequencer(SEQ_TICK) % 1000000);
+	    cf_p_btbasedir(), TICK_HOLD, sequencer(SEQ_TICK) % 1000000);
     debug(4, "creating %s", buffer);
     if(tick_put(tic, buffer) == ERROR)
 	return ERROR;

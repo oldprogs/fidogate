@@ -2,12 +2,12 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: mail.c,v 4.3 1997/08/10 18:01:57 mj Exp $
+ * $Id: mail.c,v 4.4 1998/01/18 09:47:50 mj Exp $
  *
  * Create RFC messages in mail/news dir
  *
  *****************************************************************************
- * Copyright (C) 1990-1997
+ * Copyright (C) 1990-1998
  *  _____ _____
  * |     |___  |   Martin Junius             FIDO:      2:2452/110
  * | | | |   | |   Radiumstr. 18             Internet:  mj@fido.de

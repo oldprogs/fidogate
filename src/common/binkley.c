@@ -2,12 +2,12 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: binkley.c,v 4.4 1997/04/12 07:55:42 mj Exp $
+ * $Id: binkley.c,v 4.5 1998/01/18 09:47:40 mj Exp $
  *
  * BinkleyTerm-style outbound directory functions
  *
  *****************************************************************************
- * Copyright (C) 1990-1997
+ * Copyright (C) 1990-1998
  *  _____ _____
  * |     |___  |   Martin Junius             FIDO:      2:2452/110
  * | | | |   | |   Radiumstr. 18             Internet:  mj@fido.de
@@ -166,7 +166,7 @@ char *bink_out_name(Node *node)
     out = cf_zones_out(node->zone);
     if(!out)
 	return NULL;
-    outbound = cf_outbound();
+    outbound = cf_p_btbasedir();
     if(!outbound)
 	return NULL;
 
@@ -539,7 +539,7 @@ int bink_mkdir(Node *node)
     /*
      * Outbound dir + zone dir
      */
-    strncpy0(buf, cf_outbound(), sizeof(buf));
+    strncpy0(buf, cf_p_btbasedir(), sizeof(buf));
     strncat0(buf, "/"          , sizeof(buf));
     if((base = cf_zones_out(node->zone)) == NULL)
 	return ERROR;

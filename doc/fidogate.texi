@@ -2,7 +2,7 @@
 @c
 @c FIDOGATE documentation
 @c
-@c $Id: fidogate.texi,v 4.37 1998/01/02 14:37:01 mj Exp $
+@c $Id: fidogate.texi,v 4.38 1998/01/18 09:47:28 mj Exp $
 @c
 
 @setfilename fidogate.info
@@ -472,36 +472,36 @@ The gory details:
 
 @table @code
 
-@item DO_HAVE_FCNTL_LOCK
+@item HAS_FCNTL_LOCK
 Define, if the system support fcntl() file locking.
 
-@item DO_HAVE_GETTIMEOFDAY
+@item HAS_GETTIMEOFDAY
 Define, if the system has the gettimeofday() function.
 
-@item DO_HAVE_TM_GMTOFF
+@item HAS_TM_GMTOFF
 Define, if the system has a tm_gmtoff field in struct tm.
 
-@item DO_HAVE_SYSEXITS_H
+@item HAS_SYSEXITS_H
 Define, if the system support the @code{sysexits.h} header file.
 
-@item DO_HAVE_TM_ZONE
+@item HAS_TM_ZONE
 Define, if the system has a tm_zone field in struct tm.
 
-@item DO_HAVE_STRFTIME
+@item HAS_STRFTIME
 Define, if the system has the Standard-C strftime() function.
 
-@item DO_HAVE_TZNAME    
+@item HAS_TZNAME    
 Define, if the system has @code{extern char *tzname[2]}.
 
-@item DO_HAVE_STRCASECMP
+@item HAS_STRCASECMP
 Define, if the system has the @code{strcasecmp()} and
 @code{strncasecmp()} functions.
 
-@item DO_HAVE_STRICMP
+@item HAS_STRICMP
 Define, if the system has the @code{stricmp()} and
 @code{strnicmp()} functions.
 
-@item DO_HAVE_STERROR
+@item HAS_STERROR
 Define, if the system has the @code{strerror()} function.
 
 @item DO_BINARY
@@ -512,9 +512,9 @@ Define, if filenames must be converted to DOS, OS2-style @code{\}.
 
 @end table
 
-Define only one of @code{DO_HAVE_TM_ZONE}, @code{DO_HAVE_STRFTIME},
-@code{DO_HAVE_TZNAME}, and also only one of @code{DO_HAVE_STRCASECMP},
-@code{DO_HAVE_STRICMP}.
+Define only one of @code{HAS_TM_ZONE}, @code{HAS_STRFTIME},
+@code{HAS_TZNAME}, and also only one of @code{HAS_STRCASECMP},
+@code{HAS_STRICMP}.
 
 
 
@@ -543,9 +543,9 @@ Files and directories used by FIDOGATE:
 
 @table @code
 
-@item CONFIG_GATE
-@item CONFIG_MAIN
-@item CONFIG_FFX
+@item DEFAULT_CONFIG_GATE
+@item DEFAULT_CONFIG_MAIN
+@item DEFAULT_CONFIG_FFX
 Names of FIDOGATE config files.
 
 @item DEF_ALIASES

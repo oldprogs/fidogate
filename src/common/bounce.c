@@ -2,12 +2,12 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: bounce.c,v 4.3 1997/10/26 10:42:31 mj Exp $
+ * $Id: bounce.c,v 4.4 1998/01/18 09:47:41 mj Exp $
  *
  * Bounce mails for various reasons, using LIBDIR/bounce.XXX messages
  *
  *****************************************************************************
- * Copyright (C) 1990-1997
+ * Copyright (C) 1990-1998
  *  _____ _____
  * |     |___  |   Martin Junius             FIDO:      2:2452/110
  * | | | |   | |   Radiumstr. 18             Internet:  mj@fido.de
@@ -133,9 +133,9 @@ int bounce_mail(char *reason, RFCAddr *addr_from, Message *msg, char *rfc_to, Te
     if(bounce_header(to) == ERROR)
 	return ERROR;
 
-    BUF_COPY2(buffer, "bounce.", reason);
+    BUF_COPY3(buffer, cf_p_configdir(), "/bounce.", reason);
     
-    in = libfopen(buffer, R_MODE);
+    in = xfopen(buffer, R_MODE);
     print_file_subst(in, mail_file('m'), msg, rfc_to, body);
     fclose(in);
     

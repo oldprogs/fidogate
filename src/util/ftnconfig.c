@@ -2,12 +2,12 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftnconfig.c,v 4.4 1996/12/17 17:20:00 mj Exp $
+ * $Id: ftnconfig.c,v 4.5 1998/01/18 09:48:16 mj Exp $
  *
  * Fetch FIDOGATE config.* parameters
  *
  *****************************************************************************
- * Copyright (C) 1990-1997
+ * Copyright (C) 1990-1998
  *  _____ _____
  * |     |___  |   Martin Junius             FIDO:      2:2452/110
  * | | | |   | |   Radiumstr. 18             Internet:  mj@fido.de
@@ -36,8 +36,8 @@
 
 
 #define PROGRAM 	"ftnconfig"
-#define VERSION 	"$Revision: 4.4 $"
-#define CONFIG		CONFIG_MAIN
+#define VERSION 	"$Revision: 4.5 $"
+#define CONFIG		DEFAULT_CONFIG_MAIN
 
 
 
@@ -79,13 +79,13 @@ int do_para(char *name)
         { "=hostname",    cf_hostname    },
         { "=domainname",  cf_domainname  },
         { "=hostsdomain", cf_hostsdomain },
-        { "=libdir",      cf_libdir      },
-        { "=spooldir",    cf_spooldir    },
-        { "=logdir",      cf_logdir      },
+        { "=libdir",      cf_p_libdir    },
+        { "=spooldir",    cf_p_spooldir  },
+        { "=logdir",      cf_p_logdir    },
         { "=inbound",     cf_p_inbound   },
         { "=pinbound",    cf_p_pinbound  },
         { "=uuinbound",   cf_p_uuinbound },
-        { "=outbound",    cf_p_outbound  },
+        { "=outbound",    cf_p_btbasedir },
 	{ NULL   , NULL     }
     };
 
@@ -222,16 +222,16 @@ int main(int argc, char **argv)
      * Read config file
      */
     if(L_flag)				/* Must set libdir beforehand */
-	cf_set_libdir(L_flag);
+	cf_s_libdir(L_flag);
     cf_read_config_file(c_flag ? c_flag : CONFIG);
 
     /*
      * Process config options
      */
     if(L_flag)
-	cf_set_libdir(L_flag);
+	cf_s_libdir(L_flag);
     if(S_flag)
-	cf_set_spooldir(S_flag);
+	cf_s_spooldir(S_flag);
 
     cf_debug();
 

@@ -2,12 +2,12 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: passwd.c,v 4.3 1997/08/13 19:11:35 mj Exp $
+ * $Id: passwd.c,v 4.4 1998/01/18 09:47:53 mj Exp $
  *
  * Read PASSWD file for ffx, ffxqt, ftnaf and other programs
  *
  *****************************************************************************
- * Copyright (C) 1990-1997
+ * Copyright (C) 1990-1998
  *  _____ _____
  * |     |___  |   Martin Junius             FIDO:      2:2452/110
  * | | | |   | |   Radiumstr. 18             Internet:  mj@fido.de
@@ -95,7 +95,7 @@ static int passwd_do_file(char *name)
     
     debug(14, "Reading passwd file %s", name);
     
-    fp = fopen_expand_name(PASSWD, R_MODE_T);
+    fp = fopen_expand_name(PASSWD, R_MODE_T, FALSE);
     if(!fp)
 	return ERROR;
 

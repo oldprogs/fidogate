@@ -2,13 +2,13 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: ftnafmail.c,v 4.3 1996/12/17 17:19:58 mj Exp $
+ * $Id: ftnafmail.c,v 4.4 1998/01/18 09:48:11 mj Exp $
  *
  * Areafix-like AREAS.BBS EchoMail distribution manager. Commands somewhat
  * conforming to FSC-0057.
  *
  *****************************************************************************
- * Copyright (C) 1990-1997
+ * Copyright (C) 1990-1998
  *  _____ _____
  * |     |___  |   Martin Junius             FIDO:      2:2452/110
  * | | | |   | |   Radiumstr. 18             Internet:  mj@fido.de
@@ -39,15 +39,15 @@
 
 
 #define PROGRAM		"ftnafmail"
-#define VERSION		"$Revision: 4.3 $"
-#define CONFIG		CONFIG_MAIN
+#define VERSION		"$Revision: 4.4 $"
+#define CONFIG		DEFAULT_CONFIG_MAIN
 
 
 
 /*
  * ftnaf program
  */
-char *cmd = LIBDIR "/ftnaf";
+char cmd[MAXPATH] = "";
 
 /*
  * Args for running Areafix
@@ -132,6 +132,8 @@ int main(int argc, char **argv)
 	}
 
     /* Run ftnaf */
+    BUF_COPY(cmd, cf_p_libdir());
+    BUF_APPEND(cmd, "/ftnaf");
     if( execv(cmd, filefix ? args_filefix : args_areafix) == ERROR )
 	log("$can't exec %s", cmd);
 	

@@ -2,12 +2,12 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftntick.c,v 4.12 1997/10/13 19:29:57 mj Exp $
+ * $Id: ftntick.c,v 4.13 1998/01/18 09:48:08 mj Exp $
  *
  * Process incoming TIC files
  *
  *****************************************************************************
- * Copyright (C) 1990-1997
+ * Copyright (C) 1990-1998
  *  _____ _____
  * |     |___  |   Martin Junius             FIDO:      2:2452/110
  * | | | |   | |   Radiumstr. 18             Internet:  mj@fido.de
@@ -37,8 +37,8 @@
 
 
 #define PROGRAM		"ftntick"
-#define VERSION		"$Revision: 4.12 $"
-#define CONFIG		CONFIG_MAIN
+#define VERSION		"$Revision: 4.13 $"
+#define CONFIG		DEFAULT_CONFIG_MAIN
 
 
 
@@ -86,9 +86,9 @@ int do_tic(int t_flag)
     BUF_COPY(pattern, "*.tic");
 
     dir_sortmode(DIR_SORTMTIME);
-    if(dir_open(cf_inbound(), pattern, TRUE) == ERROR)
+    if(dir_open(cf_p_inbound(), pattern, TRUE) == ERROR)
     {
-	log("$ERROR: can't open directory %s", cf_inbound());
+	log("$ERROR: can't open directory %s", cf_p_inbound());
 	return ERROR;
     }
     
@@ -272,7 +272,7 @@ int process_tic(Tick *tic)
     /*
      * Move file from inbound to file area, add description to FILES.BBS
      */
-    BUF_COPY3(old_name, cf_inbound(), "/", tic->file);
+    BUF_COPY3(old_name, cf_p_inbound(), "/", tic->file);
     BUF_COPY3(new_name, bbs->dir    , "/", tic->file);
     debug(1, "%s -> %s", old_name, new_name);
     if(move(tic, old_name, new_name) == ERROR)
@@ -483,14 +483,14 @@ int check_file(Tick *tic)
     }
 
     /* Search file */
-    if(dir_search(cf_inbound(), tic->file) == NULL)
+    if(dir_search(cf_p_inbound(), tic->file) == NULL)
     {
 	log("ERROR: can't find file %s", tic->file);
 	return ERROR;
     }
 
     /* Full path name */
-    BUF_COPY3(name, cf_inbound(), "/", tic->file);
+    BUF_COPY3(name, cf_p_inbound(), "/", tic->file);
     if(stat(name, &st) == ERROR)
     {
 	log("$ERROR: can't stat() file %s", name);
@@ -656,16 +656,16 @@ int main(int argc, char **argv)
      * Read config file
      */
     if(L_flag)				/* Must set libdir beforehand */
-	cf_set_libdir(L_flag);
+	cf_s_libdir(L_flag);
     cf_read_config_file(c_flag ? c_flag : CONFIG);
 
     /*
      * Process config options
      */
     if(L_flag)
-	cf_set_libdir(L_flag);
+	cf_s_libdir(L_flag);
     if(S_flag)
-	cf_set_spooldir(S_flag);
+	cf_s_spooldir(S_flag);
     if(a_flag)
 	cf_set_addr(a_flag);
     if(u_flag)
@@ -674,7 +674,7 @@ int main(int argc, char **argv)
     cf_debug();
 
     if(I_flag)
-	cf_set_inbound(I_flag);
+	cf_s_inbound(I_flag);
 
     /*
      * Process optional config statements

@@ -2,12 +2,12 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: lock.c,v 4.5 1997/07/25 21:01:39 mj Exp $
+ * $Id: lock.c,v 4.6 1998/01/18 09:47:49 mj Exp $
  *
  * File locking
  *
  *****************************************************************************
- * Copyright (C) 1990-1997
+ * Copyright (C) 1990-1998
  *  _____ _____
  * |     |___  |   Martin Junius             FIDO:      2:2452/110
  * | | | |   | |   Radiumstr. 18             Internet:  mj@fido.de
@@ -41,7 +41,7 @@
  */
 int lock_fd(int fd)
 {
-#ifndef DO_HAVE_FCNTL_LOCK
+#ifndef HAS_FCNTL_LOCK
     return OK;
 #else
     struct flock fl;
@@ -69,7 +69,7 @@ int lock_fd(int fd)
  */
 int unlock_fd(int fd)
 {
-#ifndef DO_HAVE_FCNTL_LOCK
+#ifndef HAS_FCNTL_LOCK
     return OK;
 #else
     struct flock fl;
@@ -186,7 +186,7 @@ int lock_program_id(char *name, int wait, char *id)
 {
     char buf[MAXPATH];
 
-    BUF_COPY5(buf, cf_spooldir(), "/", LOCKS, "/", name);
+    BUF_COPY5(buf, cf_p_spooldir(), "/", LOCKS, "/", name);
 
     return lock_lockfile_id(buf, wait, id);
 }
@@ -196,7 +196,7 @@ int lock_program(char *name, int wait)
 {
     char buf[MAXPATH];
 
-    BUF_COPY5(buf, cf_spooldir(), "/", LOCKS, "/", name);
+    BUF_COPY5(buf, cf_p_spooldir(), "/", LOCKS, "/", name);
 
     return lock_lockfile_id(buf, wait, NULL);
 }
@@ -210,7 +210,7 @@ int unlock_program(char *name)
 {
     char buf[MAXPATH];
     
-    BUF_COPY5(buf, cf_spooldir(), "/", LOCKS, "/", name);
+    BUF_COPY5(buf, cf_p_spooldir(), "/", LOCKS, "/", name);
 
     return unlock_lockfile(buf);
 }

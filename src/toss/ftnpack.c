@@ -2,12 +2,12 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftnpack.c,v 4.16 1997/11/09 16:37:46 mj Exp $
+ * $Id: ftnpack.c,v 4.17 1998/01/18 09:48:12 mj Exp $
  *
  * Pack output packets of ftnroute for Binkley outbound (ArcMail)
  *
  *****************************************************************************
- * Copyright (C) 1990-1997
+ * Copyright (C) 1990-1998
  *  _____ _____
  * |     |___  |   Martin Junius             FIDO:      2:2452/110
  * | | | |   | |   Radiumstr. 18             Internet:  mj@fido.de
@@ -40,8 +40,8 @@
 
 
 #define PROGRAM 	"ftnpack"
-#define VERSION 	"$Revision: 4.16 $"
-#define CONFIG		CONFIG_MAIN
+#define VERSION 	"$Revision: 4.17 $"
+#define CONFIG		DEFAULT_CONFIG_MAIN
 
 
 
@@ -356,7 +356,7 @@ char *arcmail_name(Node *node, char *dir)
     else
     {
 	/* Outbound dir + zone dir */
-	BUF_COPY2(buf, cf_outbound(), "/");
+	BUF_COPY2(buf, cf_p_btbasedir(), "/");
 	if((base = cf_zones_out(node->zone)) == NULL)
 	    return NULL;
 	BUF_APPEND(buf, base);
@@ -1166,18 +1166,18 @@ int main(int argc, char **argv)
      * Read config file
      */
     if(L_flag)				/* Must set libdir beforehand */
-	cf_set_libdir(L_flag);
+	cf_s_libdir(L_flag);
     cf_read_config_file(c_flag ? c_flag : CONFIG);
 
     /*
      * Process config options
      */
     if(B_flag)
-	cf_set_outbound(B_flag);
+	cf_s_btbasedir(B_flag);
     if(L_flag)
-	cf_set_libdir(L_flag);
+	cf_s_libdir(L_flag);
     if(S_flag)
-	cf_set_spooldir(S_flag);
+	cf_s_spooldir(S_flag);
     if(a_flag)
 	cf_set_addr(a_flag);
     if(u_flag)
@@ -1200,11 +1200,11 @@ int main(int argc, char **argv)
     if(I_flag)
 	BUF_EXPAND(in_dir, I_flag);
     else 
-	BUF_COPY3(in_dir, cf_spooldir(), "/", TOSS_OUT);
+	BUF_COPY3(in_dir, cf_p_spooldir(), "/", TOSS_OUT);
     if(O_flag)
 	BUF_EXPAND(out_dir, O_flag);
     else
-	BUF_COPY3(out_dir, cf_spooldir(), "/", TOSS_PACK);
+	BUF_COPY3(out_dir, cf_p_spooldir(), "/", TOSS_PACK);
 
     packing_init(p_flag ? p_flag : PACKING);
     passwd_init();

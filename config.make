@@ -1,14 +1,15 @@
 # -*- Makefile -*-
 #
-# $Id: config.make,v 4.11 1998/01/13 20:33:45 mj Exp $
+# $Id: config.make,v 4.12 1998/01/18 09:47:24 mj Exp $
 #
 # FIDOGATE Makefile configuration
 #
 
 ##############################################################################
+##############################################################################
 #
 # Settings used by subst.pl, default values for directories
-# (subst.pl will use DEFAULT_XXX macros for substition of <XXX>)
+# (subst.pl will use DEFAULT_XXX and ABBREV_XXX macros)
 #
 # Directory		Compile-time		Run-time	Abbrev
 # ---------		------------		--------	------
@@ -26,14 +27,18 @@
 # Uuencode inbound	DEFAULT_UUINBOUND	UUInbound	%U
 # FTP inbound		DEFAULT_FTPINBOUND	FTPInbound
 #
-# INN config		DEFAULT_NEWSETCDIR
-# INN var lib		DEFAULT_NEWSVARDIR
-# INN main lib		DEFAULT_NEWSLIBDIR
-# INN spool		DEFAULT_NEWSSPOOL
+# INN config		DEFAULT_NEWSETCDIR	NewsEtcDir
+# INN var lib		DEFAULT_NEWSVARDIR	NewsVarDir
+# INN main lib		DEFAULT_NEWSLIBDIR	NewsLibDir
+# INN spool		DEFAULT_NEWSSPOOL	NewsSpoolDir
 #
-# Ifmail main lib	DEFAULT_IFMAILDIR
+# Ifmail main lib	DEFAULT_IFMAILDIR	IfmailDir
+#
+# DON'T REMOVE ANY OF THE DEFINITIONS BELOW!!! C CODE IS GENERATED FOR
+# ALL THE CONFIG OPTIONS DEFINED HERE!!!
 #
 
+# directories
 DEFAULT_CONFIGDIR	= /etc/fidogate
 DEFAULT_LIBDIR		= /usr/lib/fidogate
 DEFAULT_BINDIR		= $(DEFAULT_LIBDIR)/bin
@@ -55,6 +60,34 @@ DEFAULT_NEWSSPOOLDIR	= /var/spool/news
 
 DEFAULT_IFMAILDIR       = /usr/local/lib/ifmail
 
+# directory abbreviations
+ABBREV_CONFIGDIR	= %C
+ABBREV_LIBDIR		= %L
+ABBREV_BINDIR		= %N
+ABBREV_LOGDIR		= %G
+ABBREV_VARDIR		= %V
+ABBREV_LOCKDIR		= %K
+ABBREV_SPOOLDIR		= %S
+ABBREV_BTBASEDIR	= %B
+
+ABBREV_INBOUND		= %I
+ABBREV_PINBOUND		= %P
+ABBREV_UUINBOUND	= %U
+
+# files
+DEFAULT_CONFIG_GATE	= %C/config.gate
+DEFAULT_CONFIG_MAIN	= %C/config.main
+DEFAULT_CONFIG_FFX	= %C/config.ffx
+
+DEFAULT_ALIASES		= %C/aliases
+DEFAULT_AREAS		= %C/areas
+DEFAULT_HOSTS		= %C/hosts
+DEFAULT_PASSWD		= %C/passwd
+DEFAULT_PACKING		= %C/packing
+DEFAULT_ROUTING		= %C/routing
+DEFAULT_HISTORY		= %V/history
+DEFAULT_LOGFILE		= %G/log
+
 #
 # In addition, the perl interpreter used by subst.pl
 #
@@ -62,65 +95,57 @@ DEFAULT_IFMAILDIR       = /usr/local/lib/ifmail
 PERL		= /usr/bin/perl
 
 ##############################################################################
+##############################################################################
+
+# The old names back again ... (to be out-phased)
+BINDIR		= $(DEFAULT_BINDIR)
+LIBDIR		= $(DEFAULT_LIBDIR)
+SPOOLDIR	= $(DEFAULT_SPOOLDIR)
+LOGDIR		= $(DEFAULT_LOGDIR)
+OUTBOUND	= $(DEFAULT_BTBASEDIR)
+INBOUND		= $(DEFAULT_INBOUND)
+PINBOUND	= $(DEFAULT_PINBOUND)
+UUINBOUND	= $(DEFAULT_UUINBOUND)
+NEWSETCDIR	= $(DEFAULT_NEWSETCDIR)
+NEWSVARDIR	= $(DEFAULT_NEWSVARDIR)
+NEWSLIBDIR	= $(DEFAULT_NEWSLIBDIR)
+NEWSSPOOLDIR	= $(DEFAULT_NEWSSPOOLDIR)
+IFMAILDIR       = $(DEFAULT_IFMAILDIR)
 
 
-# FIDOGATE Directories
-BINDIR		= /usr/local/bin
-LIBDIR		= /usr/local/lib/fidogate
-SPOOLDIR	= /var/spool/fido
-LOGDIR		= /var/log/fido
-
-# Doc directories
+# Directories for installing documentation
 INFODIR		= /usr/local/info
 HTMLDIR		= /home/mj/public_html/fidogate
 
-# Outbound *base* directory, i.e. the actual outbound is OUTBOUND/out.xxx
-OUTBOUND	= /var/spool/bt
-# Normal (i.e. insecure) inbound
-INBOUND		= /var/spool/bt/in
-# Protected inbound
-PINBOUND	= /var/spool/bt/pin
-# Inbound for uuencoded mails (used by recvuu)
-UUINBOUND	= /var/spool/bt/uuin
-
-# INN directories
-NEWSETCDIR	= /etc/news
-NEWSVARDIR	= /var/lib/news
-NEWSLIBDIR	= /usr/lib/news
-NEWSSPOOLDIR	= /var/spool/news
-
-# Ifmail directory
-IFMAILDIR       = /usr/local/lib/ifmail
-
 # OS2: comment out
- SHELL		= /bin/sh
+SHELL		= /bin/sh
 
 # m4
- M4		= m4
+M4		= m4
 
 # owner / group
- OWNER		= news
- GROUP		= news
+OWNER		= news
+GROUP		= news
 
 # install permissions
- PERM_PROG	= 755
- PERM_DATA	= 644
- PERM_SETUID	= 4755
- PERM_DIR	= 755
+PERM_PROG	= 755
+PERM_DATA	= 644
+PERM_SETUID	= 4755
+PERM_DIR	= 755
 
 # C compiler / flags
- CC		= gcc
+CC		= gcc
 # YACC		= yacc					# Use yacc, not bison
- YACC		= bison -y
- AR		= ar
+YACC		= bison -y
+AR		= ar
 # RANLIB	= @echo >/dev/null			# No ranlib
- RANLIB		= ranlib
+RANLIB		= ranlib
 # RANLIB	= ar s					# OS2
 
 # DEBUG		= -O2
- DEBUG		= -g
+DEBUG		= -g
 
- INCLUDE	= -I$(TOPDIR) -I$(TOPDIR)/src/include
+INCLUDE		= -I$(TOPDIR) -I$(TOPDIR)/src/include
 
 # NEXTSTEP 3.3
 # CFLAGS	= $(DEBUG) $(INCLUDE) -Wall -posix
@@ -129,31 +154,31 @@ IFMAILDIR       = /usr/local/lib/ifmail
 # OS2			   
 # CFLAGS	= $(DEBUG) $(INCLUDE) -Wall -DOS2
 # Linux, SunOS
- CFLAGS		= $(DEBUG) $(INCLUDE) -Wall
+CFLAGS		= $(DEBUG) $(INCLUDE) -Wall
 
 # NEXTSTEP 3.3
 # LFLAGS	= $(DEBUG) -L$(TOPDIR)/src/common -posix
 # OS2
 # LFLAGS	= -Zexe $(DEBUG) -L$(TOPDIR)/src/common
- LFLAGS		= $(DEBUG) -L$(TOPDIR)/src/common
+LFLAGS		= $(DEBUG) -L$(TOPDIR)/src/common
 
 # ISC 3.x
 # LIBS		= -lfidogate -linet -lPW -lcposix
- LIBS		= -lfidogate
+LIBS		= -lfidogate
 
 # installation program
 # ISC 3.x: use bsdinst
- INSTALL	= install
+INSTALL		= install
 # MSDOS, OS2, WIN32
 # EXE		= .exe
- EXE		=
- INSTALL_PROG	= $(INSTALL) -c -g $(GROUP) -o $(OWNER) -m $(PERM_PROG)
- INSTALL_DATA	= $(INSTALL) -c -g $(GROUP) -o $(OWNER) -m $(PERM_DATA)
- INSTALL_SETUID	= $(INSTALL) -c -g $(GROUP) -o $(OWNER) -m $(PERM_SETUID)
- INSTALL_DIR	= $(INSTALL) -g $(GROUP) -o $(OWNER) -m $(PERM_DIR) -d
+EXE		=
+INSTALL_PROG	= $(INSTALL) -c -g $(GROUP) -o $(OWNER) -m $(PERM_PROG)
+INSTALL_DATA	= $(INSTALL) -c -g $(GROUP) -o $(OWNER) -m $(PERM_DATA)
+INSTALL_SETUID	= $(INSTALL) -c -g $(GROUP) -o $(OWNER) -m $(PERM_SETUID)
+INSTALL_DIR	= $(INSTALL) -g $(GROUP) -o $(OWNER) -m $(PERM_DIR) -d
 # extra prefix for installation
- PREFIX         =
+PREFIX         =
 
 # library name
 # LIB		= fidogate.a			# OS2
- LIB		= libfidogate.a
+LIB		= libfidogate.a

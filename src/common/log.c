@@ -2,12 +2,12 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: log.c,v 4.7 1998/01/03 17:25:22 mj Exp $
+ * $Id: log.c,v 4.8 1998/01/18 09:47:49 mj Exp $
  *
  * Log and debug functions
  *
  *****************************************************************************
- * Copyright (C) 1990-1997
+ * Copyright (C) 1990-1998
  *  _____ _____
  * |     |___  |   Martin Junius             FIDO:      2:2452/110
  * | | | |   | |   Radiumstr. 18             Internet:  mj@fido.de
@@ -53,11 +53,7 @@ static char logprog[MAXPATH] = "FIDOGATE";
 static FILE *debugfile = NULL;
 
 /* Syslog support */
-#ifndef HAS_SYSLOG
-#undef USE_SYSLOG
-#endif
-
-#ifdef USE_SYSLOG
+#ifdef HAS_SYSLOG
 static int use_syslog   = FALSE;
 static int must_openlog = TRUE;
 
@@ -67,7 +63,7 @@ static int must_openlog = TRUE;
 
 
 
-#ifndef DO_HAVE_STRERROR
+#ifndef HAS_STRERROR
 /*
  * strerror()  ---  get string from sys_errlist[]
  */
@@ -84,7 +80,7 @@ char *strerror(int errnum)
 	return sys_errlist[errnum];
     return "unknown error";
 }
-#endif /**DO_HAVE_STRERROR**/
+#endif /**HAS_STRERROR**/
 
 
 
@@ -102,7 +98,13 @@ void log(const char *fmt, ...)
     
     va_start(args, fmt);
 
-#ifdef USE_SYSLOG
+    /* Set logfile name if called 1st time */
+    if(!logname[0])
+    {
+	log_file(cf_p_logfile());
+    }
+    
+#ifdef HAS_SYSLOG
     if(use_syslog) {
 	if(must_openlog) {
 	    openlog(logprog, LOG_PID, FACILITY);
@@ -121,10 +123,6 @@ void log(const char *fmt, ...)
 	else
 	{
 	    /* Open logname[] or default */
-	    if(!logname[0])
-	    {
-		BUF_COPY3(logname, cf_logdir(), "/", LOG);
-	    }
 	    if((fp = fopen(logname, A_MODE)) == NULL)
 	    {
 		fprintf(stderr, "log(): can't open log file %s\n", logname);
@@ -157,7 +155,7 @@ void log(const char *fmt, ...)
 	    fprintf(debugfile, "\n");
 	    fflush(debugfile);
 	}
-#ifdef USE_SYSLOG
+#ifdef HAS_SYSLOG
     }
 #endif	
 
@@ -175,7 +173,7 @@ void debug(int lvl, const char *fmt, ...)
 
     va_start(args, fmt);
 
-#ifdef USE_SYSLOG
+#ifdef HAS_SYSLOG
     if(use_syslog) {
 	if(verbose >= lvl)
 	{
@@ -216,7 +214,7 @@ void debug(int lvl, const char *fmt, ...)
 		fflush(debugfile);
 	    }
 	}
-#ifdef USE_SYSLOG
+#ifdef HAS_SYSLOG
     }
 #endif	
 
@@ -243,7 +241,7 @@ void log_file(char *name)
 	logfile = debugfile = stderr;
 	logname[0] = 0;
     }
-#ifdef USE_SYSLOG
+#ifdef HAS_SYSLOG
     else if(streq(name, "syslog"))
     {
 	use_syslog = TRUE;

@@ -2,12 +2,12 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftnroute.c,v 4.13 1997/11/01 16:54:05 mj Exp $
+ * $Id: ftnroute.c,v 4.14 1998/01/18 09:48:12 mj Exp $
  *
  * Route FTN NetMail/EchoMail
  *
  *****************************************************************************
- * Copyright (C) 1990-1997
+ * Copyright (C) 1990-1998
  *  _____ _____
  * |     |___  |   Martin Junius             FIDO:      2:2452/110
  * | | | |   | |   Radiumstr. 18             Internet:  mj@fido.de
@@ -40,8 +40,8 @@
 
 
 #define PROGRAM 	"ftnroute"
-#define VERSION 	"$Revision: 4.13 $"
-#define CONFIG		CONFIG_MAIN
+#define VERSION 	"$Revision: 4.14 $"
+#define CONFIG		DEFAULT_CONFIG_MAIN
 
 
 
@@ -618,16 +618,16 @@ int main(int argc, char **argv)
      * Read config file
      */
     if(L_flag)				/* Must set libdir beforehand */
-	cf_set_libdir(L_flag);
+	cf_s_libdir(L_flag);
     cf_read_config_file(c_flag ? c_flag : CONFIG);
 
     /*
      * Process config options
      */
     if(L_flag)
-	cf_set_libdir(L_flag);
+	cf_s_libdir(L_flag);
     if(S_flag)
-	cf_set_spooldir(S_flag);
+	cf_s_spooldir(S_flag);
     if(a_flag)
 	cf_set_addr(a_flag);
     if(u_flag)
@@ -652,11 +652,11 @@ int main(int argc, char **argv)
     if(I_flag)
 	str_expand_name(in_dir, sizeof(in_dir), I_flag);
     else 
-	BUF_COPY3(in_dir, cf_spooldir(), "/", TOSS_TMP);
+	BUF_COPY3(in_dir, cf_p_spooldir(), "/", TOSS_TMP);
     if(O_flag)
 	pkt_outdir(O_flag, NULL);
     else
-	pkt_outdir(cf_spooldir(), TOSS_OUT);
+	pkt_outdir(cf_p_spooldir(), TOSS_OUT);
 
     routing_init(r_flag ? r_flag : ROUTING);
     passwd_init();

@@ -3,42 +3,62 @@
 /*
  * FIDOGATE
  *
- * $Id: cf_funcs.h,v 4.1 1998/01/13 20:33:52 mj Exp $
+ * $Id: cf_funcs.h,v 4.2 1998/01/18 09:48:01 mj Exp $
  */
 
-char *cf_p_outbound(void);
-char *cf_s_outbound(char *);
-char *cf_p_btbasedir(void);
-char *cf_s_btbasedir(char *);
-char *cf_p_ifmaildir(void);
-char *cf_s_ifmaildir(char *);
 char *cf_p_logdir(void);
 char *cf_s_logdir(char *);
-char *cf_p_newslibdir(void);
-char *cf_s_newslibdir(char *);
+char *cf_p_logfile(void);
+char *cf_s_logfile(char *);
+char *cf_p_aliases(void);
+char *cf_s_aliases(char *);
 char *cf_p_newsvardir(void);
 char *cf_s_newsvardir(char *);
-char *cf_p_configdir(void);
-char *cf_s_configdir(char *);
-char *cf_p_libdir(void);
-char *cf_s_libdir(char *);
-char *cf_p_newsetcdir(void);
-char *cf_s_newsetcdir(char *);
-char *cf_p_bindir(void);
-char *cf_s_bindir(char *);
+char *cf_p_routing(void);
+char *cf_s_routing(char *);
 char *cf_p_vardir(void);
 char *cf_s_vardir(char *);
 char *cf_p_lockdir(void);
 char *cf_s_lockdir(char *);
 char *cf_p_newsspooldir(void);
 char *cf_s_newsspooldir(char *);
-char *cf_p_ftpinbound(void);
-char *cf_s_ftpinbound(char *);
-char *cf_p_uuinbound(void);
-char *cf_s_uuinbound(char *);
+char *cf_p_areas(void);
+char *cf_s_areas(char *);
 char *cf_p_spooldir(void);
 char *cf_s_spooldir(char *);
-char *cf_p_pinbound(void);
-char *cf_s_pinbound(char *);
 char *cf_p_inbound(void);
 char *cf_s_inbound(char *);
+char *cf_p_btbasedir(void);
+char *cf_s_btbasedir(char *);
+char *cf_p_hosts(void);
+char *cf_s_hosts(char *);
+char *cf_p_ifmaildir(void);
+char *cf_s_ifmaildir(char *);
+char *cf_p_history(void);
+char *cf_s_history(char *);
+char *cf_p_passwd(void);
+char *cf_s_passwd(char *);
+char *cf_p_newslibdir(void);
+char *cf_s_newslibdir(char *);
+char *cf_p_configdir(void);
+char *cf_s_configdir(char *);
+char *cf_p_libdir(void);
+char *cf_s_libdir(char *);
+char *cf_p_config_gate(void);
+char *cf_s_config_gate(char *);
+char *cf_p_bindir(void);
+char *cf_s_bindir(char *);
+char *cf_p_newsetcdir(void);
+char *cf_s_newsetcdir(char *);
+char *cf_p_config_ffx(void);
+char *cf_s_config_ffx(char *);
+char *cf_p_uuinbound(void);
+char *cf_s_uuinbound(char *);
+char *cf_p_ftpinbound(void);
+char *cf_s_ftpinbound(char *);
+char *cf_p_config_main(void);
+char *cf_s_config_main(char *);
+char *cf_p_packing(void);
+char *cf_s_packing(char *);
+char *cf_p_pinbound(void);
+char *cf_s_pinbound(char *);

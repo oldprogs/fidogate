@@ -2,12 +2,12 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ffxbatch.c,v 4.7 1997/04/18 15:37:43 mj Exp $
+ * $Id: ffxbatch.c,v 4.8 1998/01/18 09:47:56 mj Exp $
  *
  * ffx FIDO-FIDO execution batcher, packs batched (-b) ffx jobs.
  *
  *****************************************************************************
- * Copyright (C) 1990-1997
+ * Copyright (C) 1990-1998
  *  _____ _____
  * |     |___  |   Martin Junius             FIDO:      2:2452/110
  * | | | |   | |   Radiumstr. 18             Internet:  mj@fido.de
@@ -38,8 +38,8 @@
 
 
 #define PROGRAM		"ffxbatch"
-#define VERSION		"$Revision: 4.7 $"
-#define CONFIG		CONFIG_FFX
+#define VERSION		"$Revision: 4.8 $"
+#define CONFIG		DEFAULT_CONFIG_FFX
 
 
 
@@ -158,9 +158,9 @@ int ffx(Node *node, char *cmprprog, char *cmprext, char *cmprdecmpr,
 	return(EX_DATAERR);
     }
     
-    sprintf(ctrlname, "%s/%s/%s.ffx", cf_outbound(), out, seq);
-    sprintf(dataname, "%s/%s/%s%s"  , cf_outbound(), out, seq, cmprext);
-    sprintf(batchdir, "%s/%s/%s"    , cf_outbound(), out, batch);
+    sprintf(ctrlname, "%s/%s/%s.ffx", cf_p_btbasedir(), out, seq);
+    sprintf(dataname, "%s/%s/%s%s"  , cf_p_btbasedir(), out, seq, cmprext);
+    sprintf(batchdir, "%s/%s/%s"    , cf_p_btbasedir(), out, batch);
 
     debug(2, "ffx: job=%s", seq);
     debug(2, "ffx: ctrl=%s", ctrlname);
@@ -365,18 +365,18 @@ int main(int argc, char **argv)
      * Read config file
      */
     if(L_flag)				/* Must set libdir beforehand */
-	cf_set_libdir(L_flag);
+	cf_s_libdir(L_flag);
     cf_read_config_file(c_flag ? c_flag : CONFIG);
 
     /*
      * Process config options
      */
     if(B_flag)
-	cf_set_outbound(B_flag);
+	cf_s_btbasedir(B_flag);
     if(L_flag)
-	cf_set_libdir(L_flag);
+	cf_s_libdir(L_flag);
     if(S_flag)
-	cf_set_spooldir(S_flag);
+	cf_s_spooldir(S_flag);
     if(a_flag)
 	cf_set_addr(a_flag);
     if(u_flag)

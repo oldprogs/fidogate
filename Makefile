@@ -1,5 +1,5 @@
 #
-# $Id: Makefile,v 4.9 1997/11/16 15:53:21 mj Exp $
+# $Id: Makefile,v 4.10 1998/01/18 09:47:22 mj Exp $
 #
 # Makefile FIDOGATE TOPDIR
 #
@@ -41,3 +41,7 @@ install-dirs:
 
 install::
 	cp ANNOUNCE $(PREFIX)$(HTMLDIR)
+
+tags:
+	etags *.[hcy] *.pl *.make Makefile */Makefile doc/*.texi doc/*.html \
+	  */*/*.[hcy] */*/*.pl */*/*.sh */*/Makefile

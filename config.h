@@ -2,12 +2,12 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway software UNIX <-> FIDO
  *
- * $Id: config.h,v 4.27 1998/01/03 17:25:16 mj Exp $
+ * $Id: config.h,v 4.28 1998/01/18 09:47:24 mj Exp $
  *
  * Configuration header file
  *
  *****************************************************************************
- * Copyright (C) 1990-1997
+ * Copyright (C) 1990-1998
  *  _____ _____
  * |     |___  |   Martin Junius             FIDO:      2:2452/110
  * | | | |   | |   Radiumstr. 18             Internet:  mj@fido.de
@@ -31,12 +31,6 @@
  *****************************************************************************/
 
 /***** General configuration *************************************************/
-
-/*
- * Use syslog if log file name is "syslog" for log() and debug() messages
- * (Requires support from OS, see HAS_SYSLOG below)
- */
-#define USE_SYSLOG
 
 /*
  * Generate local FTN addresses, e.g.
@@ -66,7 +60,7 @@
  * Default max. message size for FIDO. Due to some more brain damage
  * in FIDONET programs we have to split larger messages into several
  * smaller ones. May be set with the -M option in AREAS or MaxMsgSize
- * in CONFIG_GATE.
+ * in DEFAULT_CONFIG_GATE.
  */
 /* < 16 K */
 #define MAXMSGSIZE	14000
@@ -120,32 +114,32 @@
 
 /***** System dependend configuration ***************************************
  *
- *   DO_HAVE_FCNTL_LOCK		Do you have file locking with fcntl()
+ *   HAS_FCNTL_LOCK		Do you have file locking with fcntl()
  *
- *   DO_HAVE_GETTIMEOFDAY	Do you have gettimeofday()?
+ *   HAS_GETTIMEOFDAY	        Do you have gettimeofday()?
  *
- *   DO_HAVE_TM_GMTOFF		Does your (struct tm) have a tm_gmtoff field?
+ *   HAS_TM_GMTOFF		Does your (struct tm) have a tm_gmtoff field?
  *
- *   DO_HAVE_SYSEXITS_H         Do you have sysexits.h?
- *
- *
- * Define only one of DO_HAVE_TM_ZONE, DO_HAVE_STRFTIME, DO_HAVE_TZNAME!!!
- *
- *   DO_HAVE_TM_ZONE		Does your (struct tm) have a tm_zone field?
- *
- *   DO_HAVE_STRFTIME		Do you have strftime()?
- *
- *   DO_HAVE_TZNAME		Do you have extern char *tzname[2]?
+ *   HAS_SYSEXITS_H             Do you have sysexits.h?
  *
  *
- * Define only one of DO_HAVE_STRCASECMP, DO_HAVE_STRICMP!!!
+ * Define only one of HAS_TM_ZONE, HAS_STRFTIME, HAS_TZNAME!!!
  *
- *   DO_HAVE_STRCASECMP		Do you have strcasecmp(), strncasecmp()?
+ *   HAS_TM_ZONE		Does your (struct tm) have a tm_zone field?
  *
- *   DO_HAVE_STRICMP		Do you have stricmp(), strnicmp()?
+ *   HAS_STRFTIME		Do you have strftime()?
+ *
+ *   HAS_TZNAME			Do you have extern char *tzname[2]?
  *
  *
- *   DO_HAVE_STRERROR           Do you have strerror()?
+ * Define only one of HAS_STRCASECMP, HAS_STRICMP!!!
+ *
+ *   HAS_STRCASECMP		Do you have strcasecmp(), strncasecmp()?
+ *
+ *   HAS_STRICMP		Do you have stricmp(), strnicmp()?
+ *
+ *
+ *   HAS_STRERROR               Do you have strerror()?
  *
  *
  *   DO_BINARY			Open files in binary mode
@@ -157,151 +151,153 @@
  *				Define this if your mail system always
  *				generates something like
  *				"Received: by NeXT.Mailer"
+ *
+ *   HAS_SYSLOG		        syslogd, syslog(), vsyslog() supported
  */
 
 /* Standard config: POSIX UNIX */
-# define DO_HAVE_FCNTL_LOCK
-# undef  DO_HAVE_GETTIMEOFDAY
-# undef  DO_HAVE_TM_GMTOFF
-# undef  DO_HAVE_SYSEXITS_H
-# undef  DO_HAVE_TM_ZONE
-# define DO_HAVE_STRFTIME
-# undef  DO_HAVE_TZNAME
-# undef  DO_HAVE_STRCASECMP
-# undef  DO_HAVE_STRICMP
-# define DO_HAVE_STRERROR
+# define HAS_FCNTL_LOCK
+# undef  HAS_GETTIMEOFDAY
+# undef  HAS_TM_GMTOFF
+# undef  HAS_SYSEXITS_H
+# undef  HAS_TM_ZONE
+# define HAS_STRFTIME
+# undef  HAS_TZNAME
+# undef  HAS_STRCASECMP
+# undef  HAS_STRICMP
+# define HAS_STRERROR
 # undef  DO_BINARY
 # undef  DO_DOSIFY
-# undef  HAS_SYSLOG			/* syslog(), vsyslog() not supported */
+# undef  HAS_SYSLOG		/* syslog(), vsyslog() not supported */
 
 
-#ifdef __sun__				/* SUNOS 4.1.x, GNU gcc */
-# define DO_HAVE_FCNTL_LOCK
-# define DO_HAVE_GETTIMEOFDAY
-# define DO_HAVE_TM_GMTOFF
-# define DO_HAVE_SYSEXITS_H
-# undef  DO_HAVE_TM_ZONE
-# define DO_HAVE_STRFTIME
-# undef  DO_HAVE_TZNAME
-# define DO_HAVE_STRCASECMP
-# undef  DO_HAVE_STRICMP
-# undef  DO_HAVE_STRERROR
-# undef  DO_BINARY
-# undef  DO_DOSIFY
-# define HAS_SYSLOG
-#endif
-
-#ifdef __linux__			/* LINUX LIBC 5.x.x, GNU gcc */
-# define DO_HAVE_FCNTL_LOCK
-# define DO_HAVE_GETTIMEOFDAY
-# undef  DO_HAVE_TM_GMTOFF
-# define DO_HAVE_SYSEXITS_H
-# undef  DO_HAVE_TM_ZONE
-# define DO_HAVE_STRFTIME
-# undef  DO_HAVE_TZNAME
-# define DO_HAVE_STRCASECMP
-# undef  DO_HAVE_STRICMP
-# define DO_HAVE_STRERROR
+#ifdef __sun__			/* SUNOS 4.1.x, GNU gcc */
+# define HAS_FCNTL_LOCK
+# define HAS_GETTIMEOFDAY
+# define HAS_TM_GMTOFF
+# define HAS_SYSEXITS_H
+# undef  HAS_TM_ZONE
+# define HAS_STRFTIME
+# undef  HAS_TZNAME
+# define HAS_STRCASECMP
+# undef  HAS_STRICMP
+# undef  HAS_STRERROR
 # undef  DO_BINARY
 # undef  DO_DOSIFY
 # define HAS_SYSLOG
 #endif
 
-#ifdef __FreeBSD__			/* FreeBSD 2.1.6., GNU gcc */
-# define DO_HAVE_FCNTL_LOCK
-# define DO_HAVE_GETTIMEOFDAY
-# define DO_HAVE_TM_GMTOFF
-# define DO_HAVE_SYSEXITS_H
-# define DO_HAVE_TM_ZONE
-# define DO_HAVE_STRFTIME
-# undef  DO_HAVE_TZNAME
-# define DO_HAVE_STRCASECMP
-# undef  DO_HAVE_STRICMP
-# undef  DO_HAVE_STRERROR		/* ? */
+#ifdef __linux__		/* LINUX LIBC 5.x.x, GNU gcc */
+# define HAS_FCNTL_LOCK
+# define HAS_GETTIMEOFDAY
+# undef  HAS_TM_GMTOFF
+# define HAS_SYSEXITS_H
+# undef  HAS_TM_ZONE
+# define HAS_STRFTIME
+# undef  HAS_TZNAME
+# define HAS_STRCASECMP
+# undef  HAS_STRICMP
+# define HAS_STRERROR
 # undef  DO_BINARY
 # undef  DO_DOSIFY
 # define HAS_SYSLOG
 #endif
 
-#ifdef ISC				/* ISC 3.x, GNU gcc, -DISC necessary */
-# define DO_HAVE_FCNTL_LOCK
-# define DO_HAVE_GETTIMEOFDAY
-# undef  DO_HAVE_TM_GMTOFF
-# undef  DO_HAVE_SYSEXITS_H		/* ? */
-# undef  DO_HAVE_TM_ZONE
-# undef  DO_HAVE_STRFTIME
-# define DO_HAVE_TZNAME
-# undef  DO_HAVE_STRCASECMP		/* ? */
-# undef  DO_HAVE_STRICMP
-# undef  DO_HAVE_STRERROR		/* ? */
+#ifdef __FreeBSD__		/* FreeBSD 2.1.6., GNU gcc */
+# define HAS_FCNTL_LOCK
+# define HAS_GETTIMEOFDAY
+# define HAS_TM_GMTOFF
+# define HAS_SYSEXITS_H
+# define HAS_TM_ZONE
+# define HAS_STRFTIME
+# undef  HAS_TZNAME
+# define HAS_STRCASECMP
+# undef  HAS_STRICMP
+# undef  HAS_STRERROR		/* ? */
 # undef  DO_BINARY
 # undef  DO_DOSIFY
 # define HAS_SYSLOG
 #endif
 
-#ifdef MSDOS				/* MSDOS, DJGPP GNU gcc */
-# undef  DO_HAVE_FCNTL_LOCK
-# define DO_HAVE_TM_GMTOFF
-# undef  DO_HAVE_SYSEXITS_H		/* ? */
-# undef  DO_HAVE_TM_ZONE
-# define DO_HAVE_GETTIMEOFDAY
-# define DO_HAVE_STRFTIME
-# undef  DO_HAVE_STRCASECMP
-# define DO_HAVE_STRICMP
-# undef  DO_HAVE_STRERROR		/* ? */
+#ifdef ISC			/* ISC 3.x, GNU gcc, -DISC necessary */
+# define HAS_FCNTL_LOCK
+# define HAS_GETTIMEOFDAY
+# undef  HAS_TM_GMTOFF
+# undef  HAS_SYSEXITS_H		/* ? */
+# undef  HAS_TM_ZONE
+# undef  HAS_STRFTIME
+# define HAS_TZNAME
+# undef  HAS_STRCASECMP		/* ? */
+# undef  HAS_STRICMP
+# undef  HAS_STRERROR		/* ? */
+# undef  DO_BINARY
+# undef  DO_DOSIFY
+# define HAS_SYSLOG
+#endif
+
+#ifdef MSDOS			/* MSDOS, DJGPP GNU gcc */
+# undef  HAS_FCNTL_LOCK
+# define HAS_TM_GMTOFF
+# undef  HAS_SYSEXITS_H		/* ? */
+# undef  HAS_TM_ZONE
+# define HAS_GETTIMEOFDAY
+# define HAS_STRFTIME
+# undef  HAS_STRCASECMP
+# define HAS_STRICMP
+# undef  HAS_STRERROR		/* ? */
 # define DO_BINARY
 # define DO_DOSIFY
-# undef  HAS_SYSLOG	/* syslog(), vsyslog() not supported */
+# undef  HAS_SYSLOG		/* syslog(), vsyslog() not supported */
 #endif
 
-#ifdef __EMX__				/* OS/2, EMX GNU gcc */
+#ifdef __EMX__			/* OS/2, EMX GNU gcc */
 # ifndef OS2
 #  define OS2
 # endif
 #endif
 #ifdef OS2
-# undef  DO_HAVE_FCNTL_LOCK
-# undef  DO_HAVE_SYSEXITS_H		/* ? */
-# define DO_HAVE_GETTIMEOFDAY
-# define DO_HAVE_STRFTIME
-# undef  DO_HAVE_STRCASECMP
-# define DO_HAVE_STRICMP
-# undef  DO_HAVE_STRERROR		/* ? */
+# undef  HAS_FCNTL_LOCK
+# undef  HAS_SYSEXITS_H		/* ? */
+# define HAS_GETTIMEOFDAY
+# define HAS_STRFTIME
+# undef  HAS_STRCASECMP
+# define HAS_STRICMP
+# undef  HAS_STRERROR		/* ? */
 # define DO_BINARY
 # define DO_DOSIFY
-# undef  HAS_SYSLOG	/* syslog(), vsyslog() not supported */
+# undef  HAS_SYSLOG		/* syslog(), vsyslog() not supported */
 #endif
 
-#ifdef __NeXT__                         /* NEXTSTEP 3.3 (Intel only?) */
-# define DO_HAVE_GETTIMEOFDAY
-# define DO_HAVE_TM_GMTOFF
-# define DO_HAVE_SYSEXITS_H
-# define DO_HAVE_TM_ZONE
-# define DO_HAVE_STRFTIME
-# define DO_HAVE_TZNAME
-# undef  DO_HAVE_STRCASECMP
-# undef  DO_HAVE_STRICMP
-# undef  DO_HAVE_STRERROR
+#ifdef __NeXT__                 /* NEXTSTEP 3.3 (Intel only?) */
+# define HAS_GETTIMEOFDAY
+# define HAS_TM_GMTOFF
+# define HAS_SYSEXITS_H
+# define HAS_TM_ZONE
+# define HAS_STRFTIME
+# define HAS_TZNAME
+# undef  HAS_STRCASECMP
+# undef  HAS_STRICMP
+# undef  HAS_STRERROR
 # undef  DO_BINARY
 # define RECEIVED_BY_MAILER "Received: by NeXT.Mailer"
 # undef  DO_DOSIFY
 # define HAS_SYSLOG
 #endif /* __NeXT__ */
 
-#ifdef __CYGWIN32__			/* GNU-Win32 Beta 18 */
-# undef  DO_HAVE_FCNTL_LOCK
-# undef  DO_HAVE_GETTIMEOFDAY
-# undef  DO_HAVE_TM_GMTOFF
-# undef  DO_HAVE_SYSEXITS_H
-# undef  DO_HAVE_TM_ZONE
-# define DO_HAVE_STRFTIME
-# undef  DO_HAVE_TZNAME
-# define DO_HAVE_STRCASECMP
-# undef  DO_HAVE_STRICMP
-# define DO_HAVE_STRERROR
+#ifdef __CYGWIN32__		/* GNU-Win32 Beta 18 */
+# undef  HAS_FCNTL_LOCK
+# undef  HAS_GETTIMEOFDAY
+# undef  HAS_TM_GMTOFF
+# undef  HAS_SYSEXITS_H
+# undef  HAS_TM_ZONE
+# define HAS_STRFTIME
+# undef  HAS_TZNAME
+# define HAS_STRCASECMP
+# undef  HAS_STRICMP
+# define HAS_STRERROR
 # define DO_BINARY
 # undef  DO_DOSIFY
-# undef  HAS_SYSLOG	/* syslog(), vsyslog() not supported */
+# undef  HAS_SYSLOG		/* syslog(), vsyslog() not supported */
 #endif
 
 /***** End of configuration *************************************************/
@@ -333,21 +329,10 @@
  *                                                                          *
  ****************************************************************************/
 
-/*
- * Config files
- */
-#define CONFIG_GATE	"%L/config.gate"/* FIDOGATE gateway config file */
-#define CONFIG_MAIN	"%L/config.main"/* FIDOGATE main AKA config file */
-#define CONFIG_FFX	"%L/config.ffx"	/* FIDOGATE ffx progs config file */
-
-/* Default values, if not set in config */
-#define DEF_ALIASES	"%L/aliases"	/* Gateway user aliases config file */
-#define DEF_AREAS	"%L/areas"	/* Gateway Areas <-> Newsgroups */
-#define DEF_HOSTS	"%L/hosts"	/* Gateway registered host file */
-#define DEF_PASSWD	"%L/passwd"	/* Password config file */
-#define DEF_PACKING	"%L/packing"	/* Tosser packing config file */
-#define DEF_ROUTING	"%L/routing"	/* Tosser routing config file */
-#define DEF_HISTORY	"%S/history"	/* MSGID history */
+/* Config files */
+#define CONFIG_GATE	DEFAULT_CONFIG_GATE
+#define CONFIG_MAIN	DEFAULT_CONFIG_MAIN
+#define CONFIG_FFX	DEFAULT_CONFIG_FFX
 
 /* Values retrieved from config */
 #define ALIASES		cf_p_aliases()
@@ -356,8 +341,6 @@
 #define PASSWD		cf_p_passwd()
 #define PACKING		cf_p_packing()
 #define ROUTING		cf_p_routing()
-
-#define LOG		"log"		/* Default log file */
 
 /* Sequencer files */
 #define SEQ_MAIL	"seq.mail"	/* ftn2rfc: temp mail files */

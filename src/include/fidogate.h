@@ -2,12 +2,12 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway software UNIX <-> FIDO
  *
- * $Id: fidogate.h,v 4.5 1998/01/13 20:33:52 mj Exp $
+ * $Id: fidogate.h,v 4.6 1998/01/18 09:48:03 mj Exp $
  *
  * Common header file
  *
  *****************************************************************************
- * Copyright (C) 1990-1997
+ * Copyright (C) 1990-1998
  *  _____ _____
  * |     |___  |   Martin Junius             FIDO:      2:2452/110
  * | | | |   | |   Radiumstr. 18             Internet:  mj@fido.de
@@ -58,11 +58,11 @@
 #include <errno.h>
 #include <dirent.h>
 
-#ifdef DO_HAVE_SYSEXITS_H
+#ifdef HAS_SYSEXITS_H
 
 # include <sysexits.h>			/* EX_* defines */
 
-#else /**!DO_HAVE_SYSEXITS_H**/
+#else /**!HAS_SYSEXITS_H**/
 
 /* BSD error codes (used by sendmail */
 # define EX_OK		 0		/* successful termination */
@@ -78,7 +78,7 @@
 # define EX_CANTCREAT	73		/* can't create (user) output file */
 # define EX_IOERR	74		/* input/output error */
 
-#endif /**DO_HAVE_SYSEXITS_H**/
+#endif /**HAS_SYSEXITS_H**/
 
 
 

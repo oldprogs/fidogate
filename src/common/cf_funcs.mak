@@ -3,79 +3,10 @@
 /*
  * FIDOGATE
  *
- * $Id: cf_funcs.mak,v 4.1 1998/01/13 20:34:43 mj Exp $
+ * $Id: cf_funcs.mak,v 4.2 1998/01/18 09:47:44 mj Exp $
  */
 
 #include "fidogate.h"
-
-/***** OUTBOUND *****/
-static char *cf_p_s_outbound(char *s)
-{
-    static char *pval = NULL;
-    if(s)
-        pval = strsave(s);
-    if(! pval)
-    {
-	if( ! (pval = cf_get_string("OUTBOUND", TRUE)) )
-	    pval = DEFAULT_OUTBOUND;
-	debug(8, "config: OUTBOUND %s", pval);
-    }
-    return pval;
-}
-char *cf_p_outbound(void)
-{
-    return cf_p_s_outbound(NULL);
-}
-char *cf_s_outbound(char *s)
-{
-    return cf_p_s_outbound(s);
-}
-
-/***** BTBASEDIR *****/
-static char *cf_p_s_btbasedir(char *s)
-{
-    static char *pval = NULL;
-    if(s)
-        pval = strsave(s);
-    if(! pval)
-    {
-	if( ! (pval = cf_get_string("BTBASEDIR", TRUE)) )
-	    pval = DEFAULT_BTBASEDIR;
-	debug(8, "config: BTBASEDIR %s", pval);
-    }
-    return pval;
-}
-char *cf_p_btbasedir(void)
-{
-    return cf_p_s_btbasedir(NULL);
-}
-char *cf_s_btbasedir(char *s)
-{
-    return cf_p_s_btbasedir(s);
-}
-
-/***** IFMAILDIR *****/
-static char *cf_p_s_ifmaildir(char *s)
-{
-    static char *pval = NULL;
-    if(s)
-        pval = strsave(s);
-    if(! pval)
-    {
-	if( ! (pval = cf_get_string("IFMAILDIR", TRUE)) )
-	    pval = DEFAULT_IFMAILDIR;
-	debug(8, "config: IFMAILDIR %s", pval);
-    }
-    return pval;
-}
-char *cf_p_ifmaildir(void)
-{
-    return cf_p_s_ifmaildir(NULL);
-}
-char *cf_s_ifmaildir(char *s)
-{
-    return cf_p_s_ifmaildir(s);
-}
 
 /***** LOGDIR *****/
 static char *cf_p_s_logdir(char *s)
@@ -100,27 +31,50 @@ char *cf_s_logdir(char *s)
     return cf_p_s_logdir(s);
 }
 
-/***** NEWSLIBDIR *****/
-static char *cf_p_s_newslibdir(char *s)
+/***** LOGFILE *****/
+static char *cf_p_s_logfile(char *s)
 {
     static char *pval = NULL;
     if(s)
         pval = strsave(s);
     if(! pval)
     {
-	if( ! (pval = cf_get_string("NEWSLIBDIR", TRUE)) )
-	    pval = DEFAULT_NEWSLIBDIR;
-	debug(8, "config: NEWSLIBDIR %s", pval);
+	if( ! (pval = cf_get_string("LOGFILE", TRUE)) )
+	    pval = DEFAULT_LOGFILE;
+	debug(8, "config: LOGFILE %s", pval);
     }
     return pval;
 }
-char *cf_p_newslibdir(void)
+char *cf_p_logfile(void)
 {
-    return cf_p_s_newslibdir(NULL);
+    return cf_p_s_logfile(NULL);
 }
-char *cf_s_newslibdir(char *s)
+char *cf_s_logfile(char *s)
 {
-    return cf_p_s_newslibdir(s);
+    return cf_p_s_logfile(s);
+}
+
+/***** ALIASES *****/
+static char *cf_p_s_aliases(char *s)
+{
+    static char *pval = NULL;
+    if(s)
+        pval = strsave(s);
+    if(! pval)
+    {
+	if( ! (pval = cf_get_string("ALIASES", TRUE)) )
+	    pval = DEFAULT_ALIASES;
+	debug(8, "config: ALIASES %s", pval);
+    }
+    return pval;
+}
+char *cf_p_aliases(void)
+{
+    return cf_p_s_aliases(NULL);
+}
+char *cf_s_aliases(char *s)
+{
+    return cf_p_s_aliases(s);
 }
 
 /***** NEWSVARDIR *****/
@@ -146,96 +100,27 @@ char *cf_s_newsvardir(char *s)
     return cf_p_s_newsvardir(s);
 }
 
-/***** CONFIGDIR *****/
-static char *cf_p_s_configdir(char *s)
+/***** ROUTING *****/
+static char *cf_p_s_routing(char *s)
 {
     static char *pval = NULL;
     if(s)
         pval = strsave(s);
     if(! pval)
     {
-	if( ! (pval = cf_get_string("CONFIGDIR", TRUE)) )
-	    pval = DEFAULT_CONFIGDIR;
-	debug(8, "config: CONFIGDIR %s", pval);
+	if( ! (pval = cf_get_string("ROUTING", TRUE)) )
+	    pval = DEFAULT_ROUTING;
+	debug(8, "config: ROUTING %s", pval);
     }
     return pval;
 }
-char *cf_p_configdir(void)
+char *cf_p_routing(void)
 {
-    return cf_p_s_configdir(NULL);
+    return cf_p_s_routing(NULL);
 }
-char *cf_s_configdir(char *s)
+char *cf_s_routing(char *s)
 {
-    return cf_p_s_configdir(s);
-}
-
-/***** LIBDIR *****/
-static char *cf_p_s_libdir(char *s)
-{
-    static char *pval = NULL;
-    if(s)
-        pval = strsave(s);
-    if(! pval)
-    {
-	if( ! (pval = cf_get_string("LIBDIR", TRUE)) )
-	    pval = DEFAULT_LIBDIR;
-	debug(8, "config: LIBDIR %s", pval);
-    }
-    return pval;
-}
-char *cf_p_libdir(void)
-{
-    return cf_p_s_libdir(NULL);
-}
-char *cf_s_libdir(char *s)
-{
-    return cf_p_s_libdir(s);
-}
-
-/***** NEWSETCDIR *****/
-static char *cf_p_s_newsetcdir(char *s)
-{
-    static char *pval = NULL;
-    if(s)
-        pval = strsave(s);
-    if(! pval)
-    {
-	if( ! (pval = cf_get_string("NEWSETCDIR", TRUE)) )
-	    pval = DEFAULT_NEWSETCDIR;
-	debug(8, "config: NEWSETCDIR %s", pval);
-    }
-    return pval;
-}
-char *cf_p_newsetcdir(void)
-{
-    return cf_p_s_newsetcdir(NULL);
-}
-char *cf_s_newsetcdir(char *s)
-{
-    return cf_p_s_newsetcdir(s);
-}
-
-/***** BINDIR *****/
-static char *cf_p_s_bindir(char *s)
-{
-    static char *pval = NULL;
-    if(s)
-        pval = strsave(s);
-    if(! pval)
-    {
-	if( ! (pval = cf_get_string("BINDIR", TRUE)) )
-	    pval = DEFAULT_BINDIR;
-	debug(8, "config: BINDIR %s", pval);
-    }
-    return pval;
-}
-char *cf_p_bindir(void)
-{
-    return cf_p_s_bindir(NULL);
-}
-char *cf_s_bindir(char *s)
-{
-    return cf_p_s_bindir(s);
+    return cf_p_s_routing(s);
 }
 
 /***** VARDIR *****/
@@ -307,50 +192,27 @@ char *cf_s_newsspooldir(char *s)
     return cf_p_s_newsspooldir(s);
 }
 
-/***** FTPINBOUND *****/
-static char *cf_p_s_ftpinbound(char *s)
+/***** AREAS *****/
+static char *cf_p_s_areas(char *s)
 {
     static char *pval = NULL;
     if(s)
         pval = strsave(s);
     if(! pval)
     {
-	if( ! (pval = cf_get_string("FTPINBOUND", TRUE)) )
-	    pval = DEFAULT_FTPINBOUND;
-	debug(8, "config: FTPINBOUND %s", pval);
+	if( ! (pval = cf_get_string("AREAS", TRUE)) )
+	    pval = DEFAULT_AREAS;
+	debug(8, "config: AREAS %s", pval);
     }
     return pval;
 }
-char *cf_p_ftpinbound(void)
+char *cf_p_areas(void)
 {
-    return cf_p_s_ftpinbound(NULL);
+    return cf_p_s_areas(NULL);
 }
-char *cf_s_ftpinbound(char *s)
+char *cf_s_areas(char *s)
 {
-    return cf_p_s_ftpinbound(s);
-}
-
-/***** UUINBOUND *****/
-static char *cf_p_s_uuinbound(char *s)
-{
-    static char *pval = NULL;
-    if(s)
-        pval = strsave(s);
-    if(! pval)
-    {
-	if( ! (pval = cf_get_string("UUINBOUND", TRUE)) )
-	    pval = DEFAULT_UUINBOUND;
-	debug(8, "config: UUINBOUND %s", pval);
-    }
-    return pval;
-}
-char *cf_p_uuinbound(void)
-{
-    return cf_p_s_uuinbound(NULL);
-}
-char *cf_s_uuinbound(char *s)
-{
-    return cf_p_s_uuinbound(s);
+    return cf_p_s_areas(s);
 }
 
 /***** SPOOLDIR *****/
@@ -376,29 +238,6 @@ char *cf_s_spooldir(char *s)
     return cf_p_s_spooldir(s);
 }
 
-/***** PINBOUND *****/
-static char *cf_p_s_pinbound(char *s)
-{
-    static char *pval = NULL;
-    if(s)
-        pval = strsave(s);
-    if(! pval)
-    {
-	if( ! (pval = cf_get_string("PINBOUND", TRUE)) )
-	    pval = DEFAULT_PINBOUND;
-	debug(8, "config: PINBOUND %s", pval);
-    }
-    return pval;
-}
-char *cf_p_pinbound(void)
-{
-    return cf_p_s_pinbound(NULL);
-}
-char *cf_s_pinbound(char *s)
-{
-    return cf_p_s_pinbound(s);
-}
-
 /***** INBOUND *****/
 static char *cf_p_s_inbound(char *s)
 {
@@ -420,5 +259,396 @@ char *cf_p_inbound(void)
 char *cf_s_inbound(char *s)
 {
     return cf_p_s_inbound(s);
+}
+
+/***** BTBASEDIR *****/
+static char *cf_p_s_btbasedir(char *s)
+{
+    static char *pval = NULL;
+    if(s)
+        pval = strsave(s);
+    if(! pval)
+    {
+	if( ! (pval = cf_get_string("BTBASEDIR", TRUE)) )
+	    pval = DEFAULT_BTBASEDIR;
+	debug(8, "config: BTBASEDIR %s", pval);
+    }
+    return pval;
+}
+char *cf_p_btbasedir(void)
+{
+    return cf_p_s_btbasedir(NULL);
+}
+char *cf_s_btbasedir(char *s)
+{
+    return cf_p_s_btbasedir(s);
+}
+
+/***** HOSTS *****/
+static char *cf_p_s_hosts(char *s)
+{
+    static char *pval = NULL;
+    if(s)
+        pval = strsave(s);
+    if(! pval)
+    {
+	if( ! (pval = cf_get_string("HOSTS", TRUE)) )
+	    pval = DEFAULT_HOSTS;
+	debug(8, "config: HOSTS %s", pval);
+    }
+    return pval;
+}
+char *cf_p_hosts(void)
+{
+    return cf_p_s_hosts(NULL);
+}
+char *cf_s_hosts(char *s)
+{
+    return cf_p_s_hosts(s);
+}
+
+/***** IFMAILDIR *****/
+static char *cf_p_s_ifmaildir(char *s)
+{
+    static char *pval = NULL;
+    if(s)
+        pval = strsave(s);
+    if(! pval)
+    {
+	if( ! (pval = cf_get_string("IFMAILDIR", TRUE)) )
+	    pval = DEFAULT_IFMAILDIR;
+	debug(8, "config: IFMAILDIR %s", pval);
+    }
+    return pval;
+}
+char *cf_p_ifmaildir(void)
+{
+    return cf_p_s_ifmaildir(NULL);
+}
+char *cf_s_ifmaildir(char *s)
+{
+    return cf_p_s_ifmaildir(s);
+}
+
+/***** HISTORY *****/
+static char *cf_p_s_history(char *s)
+{
+    static char *pval = NULL;
+    if(s)
+        pval = strsave(s);
+    if(! pval)
+    {
+	if( ! (pval = cf_get_string("HISTORY", TRUE)) )
+	    pval = DEFAULT_HISTORY;
+	debug(8, "config: HISTORY %s", pval);
+    }
+    return pval;
+}
+char *cf_p_history(void)
+{
+    return cf_p_s_history(NULL);
+}
+char *cf_s_history(char *s)
+{
+    return cf_p_s_history(s);
+}
+
+/***** PASSWD *****/
+static char *cf_p_s_passwd(char *s)
+{
+    static char *pval = NULL;
+    if(s)
+        pval = strsave(s);
+    if(! pval)
+    {
+	if( ! (pval = cf_get_string("PASSWD", TRUE)) )
+	    pval = DEFAULT_PASSWD;
+	debug(8, "config: PASSWD %s", pval);
+    }
+    return pval;
+}
+char *cf_p_passwd(void)
+{
+    return cf_p_s_passwd(NULL);
+}
+char *cf_s_passwd(char *s)
+{
+    return cf_p_s_passwd(s);
+}
+
+/***** NEWSLIBDIR *****/
+static char *cf_p_s_newslibdir(char *s)
+{
+    static char *pval = NULL;
+    if(s)
+        pval = strsave(s);
+    if(! pval)
+    {
+	if( ! (pval = cf_get_string("NEWSLIBDIR", TRUE)) )
+	    pval = DEFAULT_NEWSLIBDIR;
+	debug(8, "config: NEWSLIBDIR %s", pval);
+    }
+    return pval;
+}
+char *cf_p_newslibdir(void)
+{
+    return cf_p_s_newslibdir(NULL);
+}
+char *cf_s_newslibdir(char *s)
+{
+    return cf_p_s_newslibdir(s);
+}
+
+/***** CONFIGDIR *****/
+static char *cf_p_s_configdir(char *s)
+{
+    static char *pval = NULL;
+    if(s)
+        pval = strsave(s);
+    if(! pval)
+    {
+	if( ! (pval = cf_get_string("CONFIGDIR", TRUE)) )
+	    pval = DEFAULT_CONFIGDIR;
+	debug(8, "config: CONFIGDIR %s", pval);
+    }
+    return pval;
+}
+char *cf_p_configdir(void)
+{
+    return cf_p_s_configdir(NULL);
+}
+char *cf_s_configdir(char *s)
+{
+    return cf_p_s_configdir(s);
+}
+
+/***** LIBDIR *****/
+static char *cf_p_s_libdir(char *s)
+{
+    static char *pval = NULL;
+    if(s)
+        pval = strsave(s);
+    if(! pval)
+    {
+	if( ! (pval = cf_get_string("LIBDIR", TRUE)) )
+	    pval = DEFAULT_LIBDIR;
+	debug(8, "config: LIBDIR %s", pval);
+    }
+    return pval;
+}
+char *cf_p_libdir(void)
+{
+    return cf_p_s_libdir(NULL);
+}
+char *cf_s_libdir(char *s)
+{
+    return cf_p_s_libdir(s);
+}
+
+/***** CONFIG_GATE *****/
+static char *cf_p_s_config_gate(char *s)
+{
+    static char *pval = NULL;
+    if(s)
+        pval = strsave(s);
+    if(! pval)
+    {
+	if( ! (pval = cf_get_string("CONFIG_GATE", TRUE)) )
+	    pval = DEFAULT_CONFIG_GATE;
+	debug(8, "config: CONFIG_GATE %s", pval);
+    }
+    return pval;
+}
+char *cf_p_config_gate(void)
+{
+    return cf_p_s_config_gate(NULL);
+}
+char *cf_s_config_gate(char *s)
+{
+    return cf_p_s_config_gate(s);
+}
+
+/***** BINDIR *****/
+static char *cf_p_s_bindir(char *s)
+{
+    static char *pval = NULL;
+    if(s)
+        pval = strsave(s);
+    if(! pval)
+    {
+	if( ! (pval = cf_get_string("BINDIR", TRUE)) )
+	    pval = DEFAULT_BINDIR;
+	debug(8, "config: BINDIR %s", pval);
+    }
+    return pval;
+}
+char *cf_p_bindir(void)
+{
+    return cf_p_s_bindir(NULL);
+}
+char *cf_s_bindir(char *s)
+{
+    return cf_p_s_bindir(s);
+}
+
+/***** NEWSETCDIR *****/
+static char *cf_p_s_newsetcdir(char *s)
+{
+    static char *pval = NULL;
+    if(s)
+        pval = strsave(s);
+    if(! pval)
+    {
+	if( ! (pval = cf_get_string("NEWSETCDIR", TRUE)) )
+	    pval = DEFAULT_NEWSETCDIR;
+	debug(8, "config: NEWSETCDIR %s", pval);
+    }
+    return pval;
+}
+char *cf_p_newsetcdir(void)
+{
+    return cf_p_s_newsetcdir(NULL);
+}
+char *cf_s_newsetcdir(char *s)
+{
+    return cf_p_s_newsetcdir(s);
+}
+
+/***** CONFIG_FFX *****/
+static char *cf_p_s_config_ffx(char *s)
+{
+    static char *pval = NULL;
+    if(s)
+        pval = strsave(s);
+    if(! pval)
+    {
+	if( ! (pval = cf_get_string("CONFIG_FFX", TRUE)) )
+	    pval = DEFAULT_CONFIG_FFX;
+	debug(8, "config: CONFIG_FFX %s", pval);
+    }
+    return pval;
+}
+char *cf_p_config_ffx(void)
+{
+    return cf_p_s_config_ffx(NULL);
+}
+char *cf_s_config_ffx(char *s)
+{
+    return cf_p_s_config_ffx(s);
+}
+
+/***** UUINBOUND *****/
+static char *cf_p_s_uuinbound(char *s)
+{
+    static char *pval = NULL;
+    if(s)
+        pval = strsave(s);
+    if(! pval)
+    {
+	if( ! (pval = cf_get_string("UUINBOUND", TRUE)) )
+	    pval = DEFAULT_UUINBOUND;
+	debug(8, "config: UUINBOUND %s", pval);
+    }
+    return pval;
+}
+char *cf_p_uuinbound(void)
+{
+    return cf_p_s_uuinbound(NULL);
+}
+char *cf_s_uuinbound(char *s)
+{
+    return cf_p_s_uuinbound(s);
+}
+
+/***** FTPINBOUND *****/
+static char *cf_p_s_ftpinbound(char *s)
+{
+    static char *pval = NULL;
+    if(s)
+        pval = strsave(s);
+    if(! pval)
+    {
+	if( ! (pval = cf_get_string("FTPINBOUND", TRUE)) )
+	    pval = DEFAULT_FTPINBOUND;
+	debug(8, "config: FTPINBOUND %s", pval);
+    }
+    return pval;
+}
+char *cf_p_ftpinbound(void)
+{
+    return cf_p_s_ftpinbound(NULL);
+}
+char *cf_s_ftpinbound(char *s)
+{
+    return cf_p_s_ftpinbound(s);
+}
+
+/***** CONFIG_MAIN *****/
+static char *cf_p_s_config_main(char *s)
+{
+    static char *pval = NULL;
+    if(s)
+        pval = strsave(s);
+    if(! pval)
+    {
+	if( ! (pval = cf_get_string("CONFIG_MAIN", TRUE)) )
+	    pval = DEFAULT_CONFIG_MAIN;
+	debug(8, "config: CONFIG_MAIN %s", pval);
+    }
+    return pval;
+}
+char *cf_p_config_main(void)
+{
+    return cf_p_s_config_main(NULL);
+}
+char *cf_s_config_main(char *s)
+{
+    return cf_p_s_config_main(s);
+}
+
+/***** PACKING *****/
+static char *cf_p_s_packing(char *s)
+{
+    static char *pval = NULL;
+    if(s)
+        pval = strsave(s);
+    if(! pval)
+    {
+	if( ! (pval = cf_get_string("PACKING", TRUE)) )
+	    pval = DEFAULT_PACKING;
+	debug(8, "config: PACKING %s", pval);
+    }
+    return pval;
+}
+char *cf_p_packing(void)
+{
+    return cf_p_s_packing(NULL);
+}
+char *cf_s_packing(char *s)
+{
+    return cf_p_s_packing(s);
+}
+
+/***** PINBOUND *****/
+static char *cf_p_s_pinbound(char *s)
+{
+    static char *pval = NULL;
+    if(s)
+        pval = strsave(s);
+    if(! pval)
+    {
+	if( ! (pval = cf_get_string("PINBOUND", TRUE)) )
+	    pval = DEFAULT_PINBOUND;
+	debug(8, "config: PINBOUND %s", pval);
+    }
+    return pval;
+}
+char *cf_p_pinbound(void)
+{
+    return cf_p_s_pinbound(NULL);
+}
+char *cf_s_pinbound(char *s)
+{
+    return cf_p_s_pinbound(s);
 }
 

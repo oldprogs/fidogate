@@ -2,12 +2,12 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: date.c,v 4.2 1997/02/16 13:57:26 mj Exp $
+ * $Id: date.c,v 4.3 1998/01/18 09:47:46 mj Exp $
  *
  * date() date/time print function
  *
  *****************************************************************************
- * Copyright (C) 1990-1997
+ * Copyright (C) 1990-1998
  *  _____ _____
  * |     |___  |   Martin Junius             FIDO:      2:2452/110
  * | | | |   | |   Radiumstr. 18             Internet:  mj@fido.de
@@ -45,18 +45,18 @@ static char *get_tz_name (struct tm *);
  */
 static char *get_tz_name(struct tm *tm)
 {
-#ifdef DO_HAVE_STRFTIME
+#ifdef HAS_STRFTIME
     static char buf[32];
     
     strftime(buf, sizeof(buf), "%Z", tm);
     return buf;
 #endif
 
-#ifdef DO_HAVE_TM_ZONE
+#ifdef HAS_TM_ZONE
     return tm->tm_zone;
 #endif
 
-#ifdef DO_HAVE_TZNAME
+#ifdef HAS_TZNAME
     return tm->tm_isdst > 0 ? tzname[1] : tzname[0];
 #endif
 }

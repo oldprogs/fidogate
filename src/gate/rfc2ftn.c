@@ -2,12 +2,12 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway software UNIX <-> FIDO
  *
- * $Id: rfc2ftn.c,v 4.32 1997/10/26 10:42:32 mj Exp $
+ * $Id: rfc2ftn.c,v 4.33 1998/01/18 09:48:00 mj Exp $
  *
  * Read mail or news from standard input and convert it to a FIDO packet.
  *
  *****************************************************************************
- * Copyright (C) 1990-1997
+ * Copyright (C) 1990-1998
  *  _____ _____
  * |     |___  |   Martin Junius             FIDO:      2:2452/110
  * | | | |   | |   Radiumstr. 18             Internet:  mj@fido.de
@@ -39,8 +39,8 @@
 
 
 #define PROGRAM 	"rfc2ftn"
-#define VERSION 	"$Revision: 4.32 $"
-#define CONFIG		CONFIG_GATE
+#define VERSION 	"$Revision: 4.33 $"
+#define CONFIG		DEFAULT_CONFIG_GATE
 
 
 
@@ -1356,7 +1356,7 @@ int snd_message(Message *msg, Area *parea,
 		else if(use_organization_for_origin && organization)
 		    origin = organization;
 		else
-		    origin = cf_origin();
+		    origin = cf_p_origin();
 		print_origin(sf, origin);
 	    }
 	    /* End of message */
@@ -1383,7 +1383,7 @@ int snd_message(Message *msg, Area *parea,
 	else if(use_organization_for_origin && organization)
 	    origin = organization;
 	else
-	    origin = cf_origin();
+	    origin = cf_p_origin();
 	print_origin(sf, origin);
     }
     else
@@ -1752,7 +1752,7 @@ int main(int argc, char **argv)
      * Read config file
      */
     if(L_flag)				/* Must set libdir beforehand */
-	cf_set_libdir(L_flag);
+	cf_s_libdir(L_flag);
     cf_read_config_file(c_flag ? c_flag : CONFIG);
     cf_check_gate();
     
@@ -1760,11 +1760,11 @@ int main(int argc, char **argv)
      * Process config options
      */
     if(B_flag)
-	cf_set_outbound(B_flag);
+	cf_s_btbasedir(B_flag);
     if(L_flag)
-	cf_set_libdir(L_flag);
+	cf_s_libdir(L_flag);
     if(S_flag)
-	cf_set_spooldir(S_flag);
+	cf_s_spooldir(S_flag);
     if(a_flag)
 	cf_set_addr(a_flag);
     if(u_flag)
@@ -1892,7 +1892,7 @@ int main(int argc, char **argv)
     if(O_flag)
 	pkt_outdir(O_flag, NULL);
     else
-	pkt_outdir(cf_spooldir(), OUTDIR);
+	pkt_outdir(cf_p_spooldir(), OUTDIR);
 
     /*
      * Init various modules

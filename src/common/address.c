@@ -2,12 +2,12 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway software UNIX <-> FIDO
  *
- * $Id: address.c,v 4.6 1997/07/25 21:01:38 mj Exp $
+ * $Id: address.c,v 4.7 1998/01/18 09:47:37 mj Exp $
  *
  * Parsing and conversion for FIDO and RFC addresses
  *
  *****************************************************************************
- * Copyright (C) 1990-1997
+ * Copyright (C) 1990-1998
  *  _____ _____
  * |	 |___  |   Martin Junius	     FIDO:	2:2452/110
  * | | | |   | |   Radiumstr. 18  	     Internet:	mj@fido.de

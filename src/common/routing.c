@@ -2,12 +2,12 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: routing.c,v 4.8 1997/11/01 16:54:03 mj Exp $
+ * $Id: routing.c,v 4.9 1998/01/18 09:47:54 mj Exp $
  *
  * Routing config file reading for ftntoss and ftnroute.
  *
  *****************************************************************************
- * Copyright (C) 1990-1997
+ * Copyright (C) 1990-1998
  *  _____ _____
  * |     |___  |   Martin Junius             FIDO:      2:2452/110
  * | | | |   | |   Radiumstr. 18             Internet:  mj@fido.de

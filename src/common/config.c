@@ -2,12 +2,12 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: config.c,v 4.11 1998/01/13 20:33:50 mj Exp $
+ * $Id: config.c,v 4.12 1998/01/18 09:47:45 mj Exp $
  *
  * Configuration data and functions
  *
  *****************************************************************************
- * Copyright (C) 1990-1997
+ * Copyright (C) 1990-1998
  *  _____ _____
  * |     |___  |   Martin Junius             FIDO:      2:2452/110
  * | | | |   | |   Radiumstr. 18             Internet:  mj@fido.de
@@ -658,41 +658,6 @@ void cf_set_uplink(char *addr)
 
 
 /*
- * Set/get lib/spool/log directory
- */
-void cf_set_libdir(char *dir)
-{
-    cf_s_libdir(dir);
-}
-
-void cf_set_spooldir(char *dir)
-{
-    cf_s_spooldir(dir);
-}
-
-void cf_set_logdir(char *dir)
-{
-    cf_s_logdir(dir);
-}
-
-char *cf_libdir(void)
-{
-    return cf_p_libdir();
-}
-
-char *cf_spooldir(void)
-{
-    return cf_p_spooldir();
-}
-
-char *cf_logdir(void)
-{
-    return cf_p_logdir();
-}
-
-
-
-/*
  * Return hostname / domain name / fully qualified domain name
  */
 char *cf_hostname(void)
@@ -945,110 +910,6 @@ char *cf_get_string(char *name, int first)
     }
 
     return NULL;
-}
-
-
-
-/*
- * Get config values for Aliases, Areas, Hosts, Passwd, Packing, Routing
- * config files.
- */
-char *cf_p_aliases(void)
-{
-    static char *pval;
-
-    if(! pval)
-    {
-	if( ! (pval = cf_get_string("Aliases", TRUE)) )
-	    pval = DEF_ALIASES;
-	debug(8, "config: Aliases %s", pval);
-    }
-
-    return pval;
-}
-
-char *cf_p_areas(void)
-{
-    static char *pval;
-
-    if(! pval)
-    {
-	if( ! (pval = cf_get_string("Areas", TRUE)) )
-	    pval = DEF_AREAS;
-	debug(8, "config: Areas %s", pval);
-    }
-
-    return pval;
-}
-
-char *cf_p_hosts(void)
-{
-    static char *pval;
-
-    if(! pval)
-    {
-	if( ! (pval = cf_get_string("Hosts", TRUE)) )
-	    pval = DEF_HOSTS;
-	debug(8, "config: Hosts %s", pval);
-    }
-
-    return pval;
-}
-
-char *cf_p_passwd(void)
-{
-    static char *pval;
-
-    if(! pval)
-    {
-	if( ! (pval = cf_get_string("Passwd", TRUE)) )
-	    pval = DEF_PASSWD;
-	debug(8, "config: Passwd %s", pval);
-    }
-
-    return pval;
-}
-
-char *cf_p_packing(void)
-{
-    static char *pval;
-
-    if(! pval)
-    {
-	if( ! (pval = cf_get_string("Packing", TRUE)) )
-	    pval = DEF_PACKING;
-	debug(8, "config: Packing %s", pval);
-    }
-
-    return pval;
-}
-
-char *cf_p_routing(void)
-{
-    static char *pval;
-
-    if(! pval)
-    {
-	if( ! (pval = cf_get_string("Routing", TRUE)) )
-	    pval = DEF_ROUTING;
-	debug(8, "config: Routing %s", pval);
-    }
-
-    return pval;
-}
-
-char *cf_p_history(void)
-{
-    static char *pval;
-
-    if(! pval)
-    {
-	if( ! (pval = cf_get_string("History", TRUE)) )
-	    pval = DEF_HISTORY;
-	debug(8, "config: History %s", pval);
-    }
-
-    return pval;
 }
 
 

@@ -2,13 +2,13 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: aliases.c,v 4.3 1997/08/13 19:11:33 mj Exp $
+ * $Id: aliases.c,v 4.4 1998/01/18 09:47:38 mj Exp $
  *
  * Read user name aliases from file. The alias.users format is as follows:
  *	username    Z:N/F.P    Full Name
  *
  *****************************************************************************
- * Copyright (C) 1990-1997
+ * Copyright (C) 1990-1998
  *  _____ _____
  * |	 |___  |   Martin Junius	     FIDO:	2:2452/110
  * | | | |   | |   Radiumstr. 18  	     Internet:	mj@fido.de
@@ -102,7 +102,7 @@ static int alias_do_file(char *name)
 
     debug(14, "Reading aliases file %s", name);
     
-    fp = fopen_expand_name(name, R_MODE_T);
+    fp = fopen_expand_name(name, R_MODE_T, FALSE);
     if(!fp)
 	return ERROR;
     

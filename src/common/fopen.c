@@ -2,12 +2,12 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: fopen.c,v 4.2 1996/12/17 17:19:42 mj Exp $
+ * $Id: fopen.c,v 4.3 1998/01/18 09:47:48 mj Exp $
  *
  * Specialized fopen()-like functions
  *
  *****************************************************************************
- * Copyright (C) 1990-1997
+ * Copyright (C) 1990-1998
  *  _____ _____
  * |     |___  |   Martin Junius             FIDO:      2:2452/110
  * | | | |   | |   Radiumstr. 18             Internet:  mj@fido.de
@@ -37,16 +37,31 @@
 /*
  * fopen_expand_name() --- expand file name and open file
  */
-FILE *fopen_expand_name(char *name, char *mode)
+FILE *fopen_expand_name(char *name, char *mode, int err_abort)
 {
     char xname[MAXPATH];
+    FILE *fp;
 
     if(!name)
 	return NULL;
     
     str_expand_name(xname, sizeof(xname), name);
     
-    return fopen(xname, mode);
+    fp = fopen(xname, mode);
+    if(fp == NULL)
+    {
+	if(err_abort)
+	{
+	    log("$ERROR: can't open %s", name);
+	    exit(EX_OSFILE);
+	}
+	else
+	{
+	    log("$WARNING: can't open %s", name);
+	}
+    }
+
+    return fp;
 }
 
 
@@ -56,42 +71,5 @@ FILE *fopen_expand_name(char *name, char *mode)
  */
 FILE *xfopen(char *name, char *mode)
 {
-    FILE *fp;
-    
-    if(!name)
-	return NULL;
-    
-    if((fp = fopen_expand_name(name, mode)) == NULL) {
-	log("$ERROR: can't open %s", name);
-	exit(EX_OSFILE);
-    }
-    return fp;
-}
-
-
-
-/*
- * libfopen() --- open file in LIBDIR, check for error
- */
-FILE *libfopen(char *name, char *mode)
-{
-    char filename[MAXPATH];
-
-    BUF_COPY3(filename, cf_libdir(), "/", name);
-
-    return xfopen(filename, mode);
-}
-
-
-
-/*
- * spoolfopen() --- open file in SPOOLDIR, check for error
- */
-FILE *spoolfopen(char *name, char *mode)
-{
-    char filename[MAXPATH];
-
-    BUF_COPY3(filename, cf_spooldir(), "/", name);
-
-    return xfopen(filename, mode);
+    return fopen_expand_name(name, mode, TRUE);
 }

@@ -2,12 +2,12 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftnflo.c,v 4.6 1997/11/09 17:46:26 mj Exp $
+ * $Id: ftnflo.c,v 4.7 1998/01/18 09:48:16 mj Exp $
  *
  * Run script for every entry in FLO file for node
  *
  *****************************************************************************
- * Copyright (C) 1990-1997
+ * Copyright (C) 1990-1998
  *  _____ _____
  * |     |___  |   Martin Junius             FIDO:      2:2452/110
  * | | | |   | |   Radiumstr. 18             Internet:  mj@fido.de
@@ -38,8 +38,8 @@
 
 
 #define PROGRAM		"ftnflo"
-#define VERSION		"$Revision: 4.6 $"
-#define CONFIG		CONFIG_MAIN
+#define VERSION		"$Revision: 4.7 $"
+#define CONFIG		DEFAULT_CONFIG_MAIN
 
 
 
@@ -261,18 +261,18 @@ int main(int argc, char **argv)
      * Read config file
      */
     if(L_flag)				/* Must set libdir beforehand */
-	cf_set_libdir(L_flag);
+	cf_s_libdir(L_flag);
     cf_read_config_file(c_flag ? c_flag : CONFIG);
 
     /*
      * Process config options
      */
     if(B_flag)
-	cf_set_outbound(B_flag);
+	cf_s_btbasedir(B_flag);
     if(L_flag)
-	cf_set_libdir(L_flag);
+	cf_s_libdir(L_flag);
     if(S_flag)
-	cf_set_spooldir(S_flag);
+	cf_s_spooldir(S_flag);
 
     cf_debug();
 

@@ -2,12 +2,12 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: prototypes.h,v 4.32 1997/10/14 17:59:32 mj Exp $
+ * $Id: prototypes.h,v 4.33 1998/01/18 09:48:06 mj Exp $
  *
  * Prototypes for functions in libfidogate.a
  *
  *****************************************************************************
- * Copyright (C) 1990-1997
+ * Copyright (C) 1990-1998
  *  _____ _____
  * |     |___  |   Martin Junius             FIDO:      2:2452/110
  * | | | |   | |   Radiumstr. 18             Internet:  mj@fido.de
@@ -120,12 +120,6 @@ void	cf_read_config_file	(char *);
 void	cf_initialize		(void);
 void	cf_set_addr		(char *);
 void	cf_set_uplink		(char *);
-void	cf_set_libdir		(char *);
-void	cf_set_spooldir		(char *);
-void	cf_set_logdir		(char *);
-char   *cf_libdir		(void);
-char   *cf_spooldir		(void);
-char   *cf_logdir		(void);
 char   *cf_hostname		(void);
 char   *cf_domainname		(void);
 char   *cf_hostsdomain		(void);
@@ -141,28 +135,8 @@ char   *cf_dos_xlate		(char *);
 char   *cf_unix_xlate		(char *);
 Node    cf_gateway		(void);
 char   *cf_get_string		(char *, int);
-char   *cf_p_aliases		(void);
-char   *cf_p_areas		(void);
-char   *cf_p_hosts		(void);
-char   *cf_p_passwd		(void);
-char   *cf_p_packing		(void);
-char   *cf_p_routing		(void);
-char   *cf_p_history		(void);
-char   *cf_p_inbound		(void);
-char   *cf_p_pinbound		(void);
-char   *cf_s_pinbound		(char *);
-char   *cf_p_uuinbound		(void);
-char   *cf_p_outbound		(void);
-char   *cf_s_outbound		(char *);
 char   *cf_p_organization	(void);
 char   *cf_p_origin		(void);
-
-#define cf_set_outbound(s)	(void)cf_s_outbound(s)		
-#define cf_outbound()		cf_p_outbound()
-#define cf_set_inbound(s)	(void)cf_s_pinbound(s)
-#define cf_inbound()		cf_p_pinbound()
-#define cf_origin()		cf_p_origin()
-#define cf_organization()	cf_p_organization()
 
 /* crc16.c */
 void	crc16_init		(void);
@@ -209,10 +183,8 @@ int	flo_close		(Node *, int, int);
 int	flo_mark		(void);
 
 /* fopen.c */
-FILE   *fopen_expand_name	(char *, char *);
+FILE   *fopen_expand_name	(char *, char *, int);
 FILE   *xfopen			(char *, char *);
-FILE   *libfopen		(char *, char *);
-FILE   *spoolfopen		(char *, char *);
 
 /* getdate.y */
 time_t	get_date		(char *, void *);
@@ -318,11 +290,11 @@ char   *str_copy5		(char *, size_t, char *, char *, char *,
 
 char   *strncpy0		(char *, char *, int);
 char   *strncat0		(char *, char *, int);
-#ifdef DO_HAVE_STRCASECMP
+#ifdef HAS_STRCASECMP
 # define stricmp  strcasecmp
 # define strnicmp strncasecmp
 #endif
-#if !defined(DO_HAVE_STRCASECMP) && !defined(DO_HAVE_STRICMP)
+#if !defined(HAS_STRCASECMP) && !defined(HAS_STRICMP)
 int	strnicmp		(char *, char *, int);
 int	stricmp			(char *, char *);
 #endif
