@@ -1,21 +1,21 @@
-Subject: FIDOGATE 4.1.2 --- Fido-Internet Gateway and more
+Subject: FIDOGATE 4.1.3 --- Fido-Internet Gateway and Tosser
 Keywords: fido ftn netmail echomail tosser areafix mail news gateway
 
-FIDOGATE 4.1.2, an update to version 4 of the FIDOGATE package is
+FIDOGATE 4.1.3, an update to version 4 of the FIDOGATE package is
 available.
 
 			   FIDOGATE Version 4
-		        -----------------------
+		      ===========================
 		        * Fido-Internet Gateway
 			* Fido FTN-FTN Gateway
 			* Fido Mail Processor
 			* Fido File Processor
 			* Fido Areafix/Filefix
-		        -----------------------
+		      ===========================
 
 
 Internet:
----------
+=========
     http://www.fido.de/fidogate/
     ftp://ftp.fido.de/pub/fidogate/
 
@@ -23,24 +23,39 @@ Internet:
     ftp://sunsite.unc.edu/pub/Linux/system/Fido/
     (maybe still in /pub/Linux/Incoming)
 
-    fidogate-4.1.2.tar.gz	657 Kbyte
+    fidogate-4.1.3.tar.gz	660 Kbyte
 
 Fido File Request:
-------------------
+==================
     2:2452/110, 111  +49-241-876604  (V.34, ISDN V.110/X.75)
     
-    fgate412.tgz		657 Kbyte
+    fgate413.tgz		660 Kbyte
 
 
 
-----------------------------------------------------------------------
+======================================================================
 
-Changes from 4.1.1 to 4.1.2:
+Changes in 4.1.3:
+
+* Dupe check performance problems fixed.
+
+* Improved ^AREPLYADDR parsing.
+
+* File attachments interwork rfc2ftn / ftnpack fixed.
+
+* Sender text line added to FTN messages for mailing lists etc.
+
+* Improved runtime configuration of Inbound, PInbound, UUInbound.
+
+* Several minor bug fixes.
+
+
+Changes in 4.1.2:
 
 * Bugfix for QUOTED-PRINTABLE encoding.
 
 
-Changes from 4.1.0 to 4.1.1:
+Changes in 4.1.1:
 
 * Support for ISO-8859-1 8BIT and QUOTED-PRINTABLE character set when
   gating Fido -> Internet.
@@ -50,17 +65,17 @@ Changes from 4.1.0 to 4.1.1:
 
 * Several bug fixes.
 
-----------------------------------------------------------------------
+======================================================================
 
 Needed:
 
--   GNU CC or ANSI C compiler
--   GNU make
--   GNU flex/bison or lex/yacc
--   Perl 4.036+
--   GNU m4 for the sendmail m4 configuration
+* GNU CC or ANSI C compiler
+* GNU make
+* GNU flex/bison or lex/yacc
+* Perl 4.036+
+* GNU m4 for the sendmail m4 configuration
 
-----------------------------------------------------------------------
+======================================================================
 
 There is a mailing list for FIDOGATE discussions and announcements:
 
@@ -72,33 +87,33 @@ Send mail to
 
 for subscription requests.
 
------ fidogate.lsm -------------------------------------------------
+===== fidogate.lsm ===================================================
 
 Begin3
 Title:          FIDOGATE
-Version:        4.1.2
-Entered-date:   17NOV96
+Version:        4.1.3
+Entered-date:   03DEC96
 Description:    FIDOGATE Version 4:
-                * Fido-Internet Gateway
-		* Fido FTN-FTN Gateway
-		* Fido Mail Processor
-		* Fido File Processor
-		* Fido Areafix/Filefix
+                 * Fido-Internet Gateway
+		 * Fido FTN-FTN Gateway
+		 * Fido Mail Processor
+		 * Fido File Processor
+		 * Fido Areafix/Filefix
 Keywords:       fido ftn netmail echomail tosser areafix mail news gateway
 Author:         mj@fido.de (Martin Junius)
 Maintained-by:  mj@fido.de (Martin Junius)
 Primary-site:   ftp.fido.de /pub/fidogate
-		657kB fidogate-4.1.2.tar.gz
+		660kB fidogate-4.1.3.tar.gz
 Alternate-site: sunsite.unc.edu /pub/Linux/system/Fido
-		657kB fidogate-4.1.2.tar.gz
+		660kB fidogate-4.1.3.tar.gz
 Platforms:      Linux, SunOS, but should be easily portable to most
 		UNIX systems. Supports OS/2 (EMX gcc port) and MSDOS
 		(DJGPP gcc port), too. perl is required.
 Copying-policy: GPL
 End
 
-----------------------------------------------------------------------
+======================================================================
 
-$Date: 1996/11/17 12:33:08 $
+$Date: 1996/12/05 11:27:38 $
 Martin Junius
 mailto:mj@fido.de

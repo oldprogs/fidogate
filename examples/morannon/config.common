@@ -20,7 +20,9 @@ LibDir		/usr/local/lib/fidogate
 SpoolDir	/var/spool/fido
 LogDir          /var/log/fido
 Outbound	/var/spool/bt
-Inbound		/var/spool/bt/pin
+Inbound		/var/spool/bt/in
+PInbound	/var/spool/bt/pin
+UUInbound	/var/spool/bt/uuin
 
 #
 # Configuration files

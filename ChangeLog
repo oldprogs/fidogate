@@ -1,3 +1,18 @@
+Tue Dec  3 21:22:34 1996  Martin Junius  <mj@fido.de>
+
+	======= Release 4.1.3 ================================================
+	------- CVS ci, tag R413 ---------------------------------------------
+
+	* examples/morannon/config.common: same.
+
+	* examples/orodruin/config.common: added PInbound, UUInbound.
+
+	* fidogate.lsm: updated.
+
+	* README: updated.
+
+	* ANNOUNCE (Subject): updated for new release.
+
 Mon Dec  2 20:04:10 1996  Martin Junius  <mj@fido.de>
 
 	------- CVS ci -------------------------------------------------------

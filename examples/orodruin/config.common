@@ -1,6 +1,6 @@
 #:ts=8
 #
-# $Id: config.common,v 4.5 1996/12/02 19:51:24 mj Exp $
+# $Id: config.common,v 4.6 1996/12/05 11:27:40 mj Exp $
 #
 # FIDOGATE config file common stuff,
 # included by config.gate, config.main, config.ffx
@@ -22,7 +22,10 @@ LibDir		/usr/local/lib/fidogate
 SpoolDir	/var/spool/fido
 LogDir          /var/log/fido
 Outbound	/var/spool/bt
-Inbound		/var/spool/bt/pin
+Inbound		/var/spool/bt/in
+PInbound	/var/spool/bt/pin
+UUInbound	/var/spool/bt/uuin
+
 
 #
 # Configuration files

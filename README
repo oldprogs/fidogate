@@ -1,22 +1,22 @@
 -*- Indented-Text -*-
 
-$Id: README,v 4.13 1996/11/10 10:49:39 mj Exp $
+$Id: README,v 4.14 1996/12/05 11:27:39 mj Exp $
 
-----------------------------------------------------------------------
+======================================================================
 				   
 			F  I  D  O  G  A  T  E
 
 			      Version 4
 
-		       ------------------------
+		     ============================
 		        * Fido-Internet Gateway
 		        * Fido FTN-FTN Gateway
 		        * Fido Mail Processor
 		        * Fido File Processor
 		        * Fido Areafix/Filefix
-		       ------------------------
+		     ============================
 
-----------------------------------------------------------------------
+======================================================================
 
 Major changes in FIDOGATE 4:
 
@@ -38,26 +38,16 @@ Major changes in FIDOGATE 4:
   examples/morannon/...
 
 
-Changes in FIDOGATE 4.1.1:
-
-* Support for ISO-8859-1 8BIT and QUOTED-PRINTABLE character set when
-  gating Fido -> Internet.
-
-* Important security fixes for setuid installed programs.
-  (New ftnafmail frontend for ftnaf)
-
-* Several bug fixes.
-
-----------------------------------------------------------------------
+======================================================================
 
 [ For detailed instructions see doc/fidogate.txt ]
 
 Needed:
 
--   GNU CC or ANSI C compiler
--   GNU make
--   GNU flex/bison or lex/yacc
--   Perl 4.036+
+* GNU CC or ANSI C compiler
+* GNU make
+* GNU flex/bison or lex/yacc
+* Perl 4.036+
 
 Compiling:
 
@@ -78,7 +68,7 @@ See also doc/fidogate.txt (PostScript documentation can be compiled by
 running "make doc" in the doc/ subdirectory) for a detailed
 description of the FIDOGATE installation.
 
-----------------------------------------------------------------------
+======================================================================
 
 There is a mailing list for FIDOGATE discussions and announcements:
 
@@ -90,7 +80,7 @@ Send mail to
 
 for subscription requests.
 
-----------------------------------------------------------------------
+======================================================================
 
 Latest version:
 
@@ -107,7 +97,7 @@ See also the FIDOGATE home page at:
 
     http://www.fido.de/fidogate/
 
-----------------------------------------------------------------------
+======================================================================
 
 OS/2 version:
 
@@ -116,6 +106,6 @@ For an OS/2 version of FIDOGATE contact:
     Florian Petri <flop@flop.swb.de>
     Oliver Schwank <oli@flinx.nbg.sub.org>
 
-----------------------------------------------------------------------
+======================================================================
 
-Martin Junius <mj@fido.de>, $Date: 1996/11/10 10:49:39 $
+Martin Junius <mj@fido.de>, $Date: 1996/12/05 11:27:39 $
