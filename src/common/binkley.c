@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: binkley.c,v 4.14 2000/01/28 22:01:09 mj Exp $
+ * $Id: binkley.c,v 4.15 2000/01/30 20:39:25 mj Exp $
  *
  * BinkleyTerm-style outbound directory functions
  *
@@ -331,7 +331,6 @@ char *bink_find_out(Node *node, char *flav)
 int bink_attach(Node *node, int mode, char *name, char *flav, int bsy)
 {
     FILE *fp;
-    char *flo;
     char *n;
     char *line;
     int lmode, found;
@@ -354,69 +353,6 @@ int bink_attach(Node *node, int mode, char *name, char *flav, int bsy)
     else
 	n = name;
 
-#if 0 /**********************************************************************/
-    /**PART OF OLD CODE**/
-    flo = bink_find_flo(node, flav);
-    if(!flo)
-	return ERROR;
-
-    /* Create directory if necessary */
-    if(bink_mkdir(node) == ERROR)
-	return ERROR;
-    
-    /* Create BSY file */
-    if(bsy)
-	if(bink_bsy_create(node, WAIT) == ERROR)
-	    return ERROR;
-    
-    /* Open and lock FLO file */
-    do
-    {
-	/* Open FLO file for append */
-	debug(4, "Open FLO file in append mode");
-	fp = fopen(flo, A_MODE);
-	if(fp == NULL)
-	{
-	    /* If this failed we're out of luck ... */
-	    log("$append to FLO file %s failed", flo);
-	    if(bsy)
-		bink_bsy_delete(node);
-	    return ERROR;
-	}
-	chmod(flo, FLO_MODE);
-
-	/* Lock it, waiting for lock to be granted */
-	debug(4, "Locking FLO file");
-	if(lock_file(fp))
-	{
-	    /* Lock error ... */
-	    log("$locking FLO file %s failed", flo);
-	    if(bsy)
-		bink_bsy_delete(node);
-	    return ERROR;
-	}
-
-	/* Lock succeeded, but the FLO file may have been deleted */
-	if(access(flo, F_OK) == -1)
-	{
-	    debug(4, "FLO file deleted, retrying");
-	    fclose(fp);
-	    fp = NULL;
-	}
-	/* Seek to EOF again, in case someone else has appended */
-	else if(fseek(fp, 0L, SEEK_END) == -1)
-	{
-	    /* fseek() error ... */
-	    log("$fseek EOF FLO file %s failed", flo);
-	    if(bsy)
-		bink_bsy_delete(node);
-	    return ERROR;
-	}
-    }
-    while(fp == NULL);
-#endif/**********************************************************************/
-
-
     if(flo_openx(node, bsy, flav, TRUE) == ERROR)
 	return ERROR;
     fp = flo_file();
@@ -424,7 +360,7 @@ int bink_attach(Node *node, int mode, char *name, char *flav, int bsy)
     /* seek to start of flo file */
     if(fseek(fp, 0L, SEEK_SET) == ERROR)
     {
-	log("$fseek EOF FLO file %s failed", flo);
+	log("$fseek EOF FLO file node %s failed", znfp1(node));
 	flo_close(node, TRUE, FALSE);
 	return ERROR;
     }

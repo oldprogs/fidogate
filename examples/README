@@ -1,6 +1,6 @@
 -*- Indented-Text -*-
 
-$Id: README,v 1.6 1999/11/21 17:25:29 mj Exp $
+$Id: README,v 1.7 2000/01/30 20:39:21 mj Exp $
 
 
 This directory contains example configurations for using the FIDOGATE
@@ -18,6 +18,8 @@ win32/		Configuration examples for GNU-WIN32 environment.
 point/		examples for "standard" Fido point configuration.
 
 node/		examples for "standard" Fido node configuration.
+
+rpm/		example config files for creating binary rpm.
 
 
 See also the sendmail configuration files in ../sendmail/cf/.

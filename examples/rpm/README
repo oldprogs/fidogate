@@ -1,8 +1,6 @@
 -*- Indented-Text -*-
 
-This directory contains configuration files from the actual
-configuration of FIDOGATE at orodruin.fido.de (expect the real passwd
-file of course ... ;-).
+This directory contains configuration files the binary rpm:
 
 /etc/fidogate:
     fidogate.conf

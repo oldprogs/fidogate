@@ -1,5 +1,34 @@
 2000-01-30  Martin Junius  <mj@fido.de>
 
+	------- CVS tag R440test3 for rpm building test ----------------------
+	------- CVS ci -------------------------------------------------------
+
+	* fidogate.spec: added dir /etc/news to %files, %config.
+
+	* examples/rpm/*: rpm config using Fido address 2:2499/999.1 with
+	  a point configuration.
+
+	* examples/rpm/: new dir for rpm example config files.
+
+	* scripts/inn/: removed entirely.
+
+	* fidogate.spec: added make install-config to %install.
+
+	* Makefile (install-config): new target for installing example
+	  config file for rpm.
+
+	* fidogate.spec: include mainly the FIDOGATE dirs in %files,
+	  config files are still missing.
+
+	* src/gate/rfc2ftn.c (main): initialize fp=NULL.
+
+	* src/common/mime.c (mime_dequote): initialize c=0.
+
+	* src/common/binkley.c (bink_attach): removed #if 0 old code.
+	  (bink_attach): changed log() message, removed unused char *flo.
+
+	* fidogate.spec: removed ffx stuff from %files.
+
 	------- CVS tag R440test2 for rpm building test ----------------------
 	------- CVS ci -------------------------------------------------------
 

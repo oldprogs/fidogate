@@ -1,5 +1,5 @@
 #
-# $Id: Makefile,v 4.18 2000/01/30 19:24:55 mj Exp $
+# $Id: Makefile,v 4.19 2000/01/30 20:39:20 mj Exp $
 #
 # Makefile FIDOGATE TOPDIR
 #
@@ -70,6 +70,12 @@ install-spec-src:
 	  cp fidogate.spec $(RPMSPECSDIR); \
 	  cp /var/tmp/fidogate-[0-9].*.tar.gz $(RPMSOURCESDIR); \
 	fi
+
+install-config:
+	if [ -f examples/rpm/Makefile ]; then \
+	  $(MAKE) -C examples/rpm $@ || exit 1; \
+	fi
+
 
 tags:
 	etags *.[hcy] *.pl *.make Makefile */Makefile doc/*.texi doc/*.html \
