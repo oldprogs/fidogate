@@ -1,23 +1,66 @@
 -*- Indented-Text -*-
--:ts=8----------------------------------------------------------------
-$Id: README,v 4.0 1996/04/17 18:17:32 mj Exp $
+
+$Id: README,v 4.1 1996/04/24 12:15:27 mj Exp $
+
 ----------------------------------------------------------------------
 				   
 			F  I  D  O  G  A  T  E
 				 ----
-		    Gateway Software UNIX <-> FIDO
+	     Fidonet-Internet Gateway and Fidonet Tosser
 				   
-			    Version 3.9.x
+			  Version 4.0 alpha
 
 ----------------------------------------------------------------------
 
-This is FIDOGATE, a gateway software between the worlds of FIDO (and
-FTNs, Fido Technology Networks in general) NetMail/EchoMail and the
-UNIX mail/news system. FIDOGATE will convert FIDO mail packets to
-RFC-style messages and vice versa.
+This is an experimental ALPHA release of the new FIDOGATE version
+4.0. It is intended to be used by people already familiar with
+FIDOGATE 3.9.7.
 
-See file doc/fidogate.txt or doc/fidogate.ps for detailed (well, sort
-of ... ;-) instructions on how to compile and install FIDOGATE.
+The documentation in doc/ is currently NOT up-to-date!!!
+
+----------------------------------------------------------------------
+
+Major changes in FIDOGATE 4.0:
+
+* Areas in AREAS.BBS must now explicitly marked as passthru (dir entry
+  must start with `#'), otherwise ftntoss will create packets for the
+  own address as well.
+
+* Gateway can now work under the same main address as the tosser
+  (config.gate: Address == Uplink).
+
+* A lot of new config options (see examples/...).
+
+* If the KillXXXX options are not specified, ftntoss will put bad
+  messages into packets in SPOOLDIR/toss/bad.
+
+* File attach processing: option -F must be used with ftnpack.
+
+* Dupe check: ftntoss now uses a MSGID history database if enabled.
+
+----------------------------------------------------------------------
+
+Needed:
+
+-   GNU CC or ANSI C compiler
+-   GNU make
+-   GNU flex/bison or lex/yacc
+-   Perl 4.036+
+
+Compiling:
+
+1.  Edit config.h
+2.  Edit config.make
+3.  Type "make depend"
+4.  Type "make"
+
+Installing:
+
+1.  Type "make install-dirs" to create the necessary directories if
+    needed
+2.  Type "make install"
+
+----------------------------------------------------------------------
 
 There is a mailing list for FIDOGATE discussions and announcements:
 
@@ -29,6 +72,6 @@ Send mail to
 
 for subscription.
 
+----------------------------------------------------------------------
 
-
-Martin Junius, $Date: 1996/04/17 18:17:32 $
+Martin Junius <mj@fido.de>, $Date: 1996/04/24 12:15:27 $

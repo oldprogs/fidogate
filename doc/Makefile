@@ -1,5 +1,5 @@
 #
-# $Id: Makefile,v 4.0 1996/04/17 18:17:34 mj Exp $
+# $Id: Makefile,v 4.1 1996/04/24 12:15:28 mj Exp $
 #
 # Makefile FIDOGATE doc/
 #
@@ -36,3 +36,5 @@ veryclean:	clean
 
 install:
 	$(INSTALL_DATA) fidogate.info* $(INFODIR)
+
+depend:

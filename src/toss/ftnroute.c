@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftnroute.c,v 4.3 1996/04/23 10:24:59 mj Exp $
+ * $Id: ftnroute.c,v 4.4 1996/04/24 12:15:30 mj Exp $
  *
  * Route FTN NetMail/EchoMail
  *
@@ -39,7 +39,7 @@
 
 
 #define PROGRAM 	"ftnroute"
-#define VERSION 	"$Revision: 4.3 $"
+#define VERSION 	"$Revision: 4.4 $"
 #define CONFIG		CONFIG_MAIN
 
 
@@ -466,8 +466,9 @@ options: -g --grade G                 processing grade\n\
 int main(int argc, char **argv)
 {
     int c, ret;
+    char *p;
     int l_flag = FALSE;
-    char *I_flag=NULL, *O_flag=NULL, *r_flag=NULL;
+    char *I_flag=NULL, *O_flag=NULL, *r_flag=NULL, *M_flag;
     char *c_flag=NULL;
     char *S_flag=NULL, *L_flag=NULL;
     char *a_flag=NULL, *u_flag=NULL;
@@ -520,7 +521,7 @@ int main(int argc, char **argv)
 	    r_flag = optarg;
 	    break;
 	case 'M':
-	    outpkt_set_maxopen(atoi(optarg));
+	    M_flag = optarg;
 	    break;
 	    
 	/***** Common options *****/
@@ -573,6 +574,17 @@ int main(int argc, char **argv)
 
     cf_debug();
     
+    /*
+     * Process optional config statements
+     */
+    if(!M_flag && (p = cf_get_string("MaxOpenFiles", TRUE)))
+    {
+	debug(8, "config: MaxOpenFiles %s", p);
+	M_flag = p;
+    }
+    if(M_flag)
+	outpkt_set_maxopen(atoi(M_flag));
+
     /*
      * Process local options
      */

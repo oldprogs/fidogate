@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftnpack.c,v 4.2 1996/04/23 10:24:59 mj Exp $
+ * $Id: ftnpack.c,v 4.3 1996/04/24 12:15:29 mj Exp $
  *
  * Pack output packets of ftnroute for Binkley outbound (ArcMail)
  *
@@ -39,7 +39,7 @@
 
 
 #define PROGRAM 	"ftnpack"
-#define VERSION 	"$Revision: 4.2 $"
+#define VERSION 	"$Revision: 4.3 $"
 #define CONFIG		CONFIG_MAIN
 
 
@@ -911,6 +911,7 @@ options: -B --binkley NAME            set Binkley outbound directory\n\
 int main(int argc, char **argv)
 {
     int c, ret;
+    char *p;
     int l_flag = FALSE;
     char *I_flag=NULL, *O_flag=NULL, *B_flag=NULL, *p_flag=NULL;
     char *c_flag=NULL;
@@ -1032,6 +1033,15 @@ int main(int argc, char **argv)
 
     cf_debug();
     
+    /*
+     * Process optional config statements
+     */
+    if(!maxarc && (p = cf_get_string("MaxArc", TRUE)))
+    {
+	debug(8, "config: MaxArc %s", p);
+	maxarc = atol(p) * 1024L;
+    }
+
     /*
      * Process local options
      */

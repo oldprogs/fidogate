@@ -2,6 +2,29 @@ Wed Apr 24 10:55:23 1996  Martin Junius  <mj@fido.de>
 
 	------- CVS commit ---------------------------------------------------
 
+	* README: updated for 4.0alpha.
+
+	* src/toss/runtoss.sh (MAXFILES, MAXMSG, MAXARC): removed, now
+	  controlled by config options. -m, -M options to tosser programs
+	  removed, check for ftntoss busy added, formatting changes,
+	  additional command line parameters passed to tosser programs,
+	  added "test" runtoss type.
+
+	* src/toss/ftnroute.c (main): new config option "MaxOpenFiles",
+	  same as -M command line option.
+
+	* src/toss/ftnpack.c (main): new config option "MaxArc", same as
+	  -m command line option.
+
+	* src/toss/ftntoss.c (main): remove PROGRAM lock file, if
+	  LOCK_HISTORY is busy.
+	  (main): -x option now without argument, must specify both -m N
+	  and -x.
+	  (main): new config options "MaxMsg" and "MaxOpenFiles", same as
+	  the -m and -M command line options.
+
+	------- CVS commit ---------------------------------------------------
+
 	* src/toss/ftnexpire.c (main): same.
 
 	* src/toss/ftntoss.c (main): use LOCK_HISTORY lock file to lock

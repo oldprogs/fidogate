@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftntoss.c,v 4.3 1996/04/24 09:54:47 mj Exp $
+ * $Id: ftntoss.c,v 4.4 1996/04/24 12:15:30 mj Exp $
  *
  * Toss FTN NetMail/EchoMail
  *
@@ -38,7 +38,7 @@
 
 
 #define PROGRAM 	"ftntoss"
-#define VERSION 	"$Revision: 4.3 $"
+#define VERSION 	"$Revision: 4.4 $"
 #define CONFIG		CONFIG_MAIN
 
 
@@ -1202,7 +1202,7 @@ options: -g --grade G                 processing grade\n\
          -r --routing-file NAME       read routing file\n\
          -s --strip-attribute         strip crash, hold message attribute\n\
          -m --maxmsg N                close output after N msgs\n\
-         -x --maxmsg-exit N           close output and exit after N msgs\n\
+         -x --maxmsg-exit             close output and exit after -m msgs\n\
          -M --maxopen N               set max # of open packet files\n\
          -b --areas-bbs NAME          use alternate AREAS.BBS\n\
 \n\
@@ -1224,8 +1224,9 @@ options: -g --grade G                 processing grade\n\
 int main(int argc, char **argv)
 {
     int c, ret;
+    char *p;
     int l_flag = FALSE;
-    char *I_flag=NULL, *O_flag=NULL, *r_flag=NULL;
+    char *I_flag=NULL, *O_flag=NULL, *r_flag=NULL, *M_flag=NULL;
     char *c_flag=NULL;
     char *S_flag=NULL, *L_flag=NULL;
     char *a_flag=NULL, *u_flag=NULL;
@@ -1244,7 +1245,7 @@ int main(int argc, char **argv)
 	{ "routing-file", 1, 0, 'r'},	/* Set routing file */
 	{ "strip-attribute",0,0,'s'},	/* Strip attribute */
 	{ "maxmsg",       1, 0, 'm'},	/* Close after N messages */
-	{ "maxmsg-exit",  1, 0, 'x'},	/* Exit after N messages */
+	{ "maxmsg-exit",  0, 0, 'x'},	/* Exit after maxmsg messages */
 	{ "maxopen",      1, 0, 'M'},	/* Set max # open packet files */
         { "areas-bbs",	  1, 0, 'b'},
 
@@ -1264,7 +1265,7 @@ int main(int argc, char **argv)
     cf_initialize();
 
 
-    while ((c = getopt_long(argc, argv, "g:O:I:ltnr:sm:x:M:b:vhc:S:L:a:u:",
+    while ((c = getopt_long(argc, argv, "g:O:I:ltnr:sm:xM:b:vhc:S:L:a:u:",
 			    long_options, &option_index     )) != EOF)
 	switch (c) {
 	/***** ftntoss options *****/
@@ -1296,11 +1297,10 @@ int main(int argc, char **argv)
 	    maxmsg = atoi(optarg);
 	    break;
 	case 'x':
-	    maxmsg = atoi(optarg);
 	    x_flag = TRUE;
 	    break;
 	case 'M':
-	    outpkt_set_maxopen(atoi(optarg));
+	    M_flag = optarg;
 	    break;
 	case 'b':
 	    areas_bbs = optarg;
@@ -1409,6 +1409,19 @@ int main(int argc, char **argv)
 	debug(8, "config: KillDupe");
 	kill_dupe = TRUE;
     }
+    if(!maxmsg && (p = cf_get_string("MaxMsg", TRUE)))
+    {
+	debug(8, "config: MaxMsg %s", p);
+	maxmsg = atoi(p);
+    }
+    if(!M_flag && (p = cf_get_string("MaxOpenFiles", TRUE)))
+    {
+	debug(8, "config: MaxOpenFiles %s", p);
+	M_flag = p;
+    }
+    if(M_flag)
+	outpkt_set_maxopen(atoi(M_flag));
+
     zonegate_init();
     addtoseenby_init();
 
@@ -1471,8 +1484,12 @@ int main(int argc, char **argv)
 	if(dupe_check)
 	{
 	    if(lock_program(LOCK_HISTORY, FALSE) == ERROR)
-		/* Already busy */
+	    {
+		/* Already busy, exit */
+		if(l_flag)
+		    unlock_program(PROGRAM);
 		exit(EXIT_BUSY);
+	    }
 	    hi_init();
 	}
 	
@@ -1513,7 +1530,16 @@ int main(int argc, char **argv)
 	
 	/* Open history */
 	if(dupe_check)
+	{
+	    if(lock_program(LOCK_HISTORY, FALSE) == ERROR)
+	    {
+		/* Already busy, exit */
+		if(l_flag)
+		    unlock_program(PROGRAM);
+		exit(EXIT_BUSY);
+	    }
 	    hi_init();
+	}
 	
 	/* Process packet files on command line */
 	for(; optind<argc; optind++)
@@ -1532,7 +1558,10 @@ int main(int argc, char **argv)
 	
 	/* Close history */
 	if(dupe_check)
+	{
+	    unlock_program(LOCK_HISTORY);
 	    hi_close();
+	}
 	
 	/* Lock file */
 	if(l_flag)

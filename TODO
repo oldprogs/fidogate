@@ -39,7 +39,7 @@ DONE.	* config.h: move most compile-time options to config files.
 	* ArcMail extensions: mo[0-9], plus mo[a-f], maybe mo[a-z]?
 	  runtime configuration of arcmail extensions usage.
 
-X	* toss: MAXMSG, MAXFILES, MAXARC should be specified in
+DONE.	* toss: MAXMSG, MAXFILES, MAXARC should be specified in
 	  config.main.
 
 DONE.	* ftnaf: don't show error messages for wildcard add/del area.
