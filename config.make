@@ -1,6 +1,6 @@
 # -*- Makefile -*-
 #
-# $Id: config.make,v 4.20 1998/07/11 21:04:21 mj Exp $
+# $Id: config.make,v 4.21 1998/11/15 10:59:00 mj Exp $
 #
 # FIDOGATE main configuration
 #
@@ -139,6 +139,7 @@ PERL			= /usr/bin/perl
 # Directories for installing documentation, not used by subst.pl
 INFODIR			= /usr/info
 HTMLDIR			= /home/mj/public_html/fidogate
+HTMLLOGDIR		= /html/log
 
 ##############################################################################
 

@@ -1,6 +1,6 @@
-#!/usr/local/bin/perl
+#!/usr/bin/perl
 #
-# $Id: recvuu.pl,v 4.0 1996/04/17 18:17:38 mj Exp $
+# $Id: recvuu.pl,v 4.1 1998/11/15 10:59:04 mj Exp $
 #
 # Process UUENCODEd arcmail packet mails in stdin
 #

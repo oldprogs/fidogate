@@ -1,3 +1,22 @@
+1998-11-15  Martin Junius  <mj@fido.de>
+
+	------- CVS ci -------------------------------------------------------
+
+	* scripts/www/gate.cgi.pl: new CGI script displaying gateway
+	  status, who, last, processes, news and FIDOATE directories.
+
+	* scripts/www/: new directory for CGI scripts to be used with FIDOGATE.
+
+	* rules.make (%.cgi): added rule for .cgi.pl -> .cgi
+
+	* subst.pl: Perl5'ified, added -o OPTS options to #!PERL line.
+
+	* config.make (HTMLLOGDIR): directory for installing CGI scripts.
+
+1998-11-14  Martin Junius  <mj@fido.de>
+
+	* scripts/misc/afmail.pl, areamgr.pl: removed.
+
 1998-11-08  Martin Junius  <mj@fido.de>
 
 	------- CVS ci -------------------------------------------------------

@@ -1,6 +1,6 @@
 # -*- Makefile -*-
 #
-# $Id: rules.make,v 4.5 1998/02/25 09:15:19 mj Exp $
+# $Id: rules.make,v 4.6 1998/11/15 10:59:01 mj Exp $
 #
 # Common rules for all FIDOGATE Makefiles
 #
@@ -16,6 +16,10 @@
 %:		%.pl
 	$(PERL) $(TOPDIR)/subst.pl -t$(TOPDIR) -p $< >$*
 	chmod +x $*
+
+%.cgi:		%.cgi.pl
+	$(PERL) $(TOPDIR)/subst.pl -t$(TOPDIR) -p -o '-Tw' $< >$*.cgi
+	chmod +x $*.cgi
 
 %:		%.sh
 	$(PERL) $(TOPDIR)/subst.pl -t$(TOPDIR) $< >$*
