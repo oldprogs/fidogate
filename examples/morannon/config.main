@@ -141,6 +141,11 @@ TickFlav	"Hold"
 #
 FAttachFlav	"Hold"
 
+#
+# Directory for old files replaced by ftntick with new versions
+#
+#TickReplacedDir	"/pub/fido/oldfiles"
+
 
 #
 # Maximum number of messages to toss before closing output packets/

@@ -54,3 +54,13 @@ FFXBatchArc	"/usr/bin/zip -j9q %s %s/* 2>/dev/null"
 FFXBatchArcV	"/usr/bin/zip -j9 %s %s/*"
 FFXBatchArcExt	".zip"
 FFXBatchArcCmd	"unbatchzip"
+
+#
+# FFX commands (replacing old LIBDIR/ffxqt-dir/command)
+#
+FFXCommand	rmail		%L/ffxrmail
+FFXCommand	rnews		/usr/bin/rnews
+FFXCommand	unbatchzip	/usr/bin/unzip -ojqq
+
+FFXUncompress	unzip		/usr/bin/unzip -pqq
+FFXUncompress	gunzip		/bin/gunzip -cq

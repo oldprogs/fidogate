@@ -16,9 +16,9 @@
 #
 # lib, spool defaults are defined in config.h
 #
-LibDir		/usr/local/lib/fidonet
-SpoolDir	/var/spool/fidonet
-LogDir          /var/adm/fidonet
+LibDir		/usr/local/lib/fidogate
+SpoolDir	/var/spool/fido
+LogDir          /var/log/fido
 Outbound	/var/spool/bt
 Inbound		/var/spool/bt/pin
 
@@ -33,6 +33,7 @@ Hosts		%L/hosts
 Packing		%L/packing
 Passwd		%L/passwd
 Routing		%L/routing
+
 
 
 #
@@ -84,5 +85,3 @@ DosDrive	H:	/home
 DosDrive	I:	/var/spool
 DosDrive	I:	/usr/spool
 DosDrive	P:	/u1
-
-

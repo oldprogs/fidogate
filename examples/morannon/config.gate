@@ -47,11 +47,6 @@ Organization	"Fido.DE domain gateway (IN e.V.)"
 #
 #UseOriginForOrganization
 
-#
-# Use text from Organization header for * Origin line
-#
-#UseOrganizationForOrigin
-
 
 #
 # Type of 4D EchoMail control lines.
@@ -124,12 +119,6 @@ MaxMsgSize		15000
 #
 MAUSDomain		.maus.de
 MAUSGate		2:2452/101.6
-
-
-#
-# Do not allow RFC addresses (chars !, %, @) in FTN to field
-#
-#NoAddressInToField
 
 
 #
@@ -213,7 +202,7 @@ RFCLevel		1
 #
 #    %s is replaced with the envelope sender
 #
-FTNInSendmail	/usr/lib/sendmail -odq -oee -oi -f%s -oMrFTN -t
+FTNInSendmail	/usr/sbin/sendmail -odq -oee -oi -f%s -oMrFTN -t
 
 #
 # rnews program path
@@ -224,3 +213,14 @@ FTNInRnews	/usr/bin/rnews
 # run ftninrecomb
 #
 #FTNInRecombine
+
+
+#
+# Use 8bit ISO-8859-1 characters when gating from FTN to RFC
+#
+#NetMail8bit
+
+#
+# Use MIME quoted-printable ISO-8859-1 characters when gating from FTN to RFC
+#
+NetMailQuotedPrintable

@@ -135,8 +135,6 @@
 242:1000/510    highlands      
 242:1000/511    highlands      
 2:2452/351      highlands      
-242:4000/4      thing          
-2:2433/211      thing          
 242:3001/63     aero           
 242:3001/62     aero           
 242:3001/64     aero           
@@ -185,8 +183,6 @@
 2:2452/112      futureworld    
 2:2452/118      futureworld    
 2:2452/132      futureworld    
-242:1000/515    infinite-zone  
-2:245/5412      infinite-zone  
 242:1001/1      granny         
 242:1001/2      granny         
 242:1001/3      granny         
@@ -263,8 +259,6 @@
 242:1000/519    mazimoi        
 2:2452/325      mazimoi        
 2:2452/326      mazimoi        
-242:6000/304    libori          -d
-2:2449/894      libori          -d
 242:1002/1      martec         
 242:1002/110    martec         
 242:1002/111    martec         
@@ -309,13 +303,13 @@
 242:7000/1      wad.berlin      -p
 242:7000/0      wad.berlin      -p
 2:2410/704      wad.berlin      -p
-242:5900/1      pmns            -p -d
-242:5900/2      pmns            -p -d
-242:5900/3      pmns            -p -d
-242:5900/0      pmns            -p -d
-2:2426/4065     pmns            -p -d
-2:2426/4066     pmns            -p -d
-2:2426/4067     pmns            -p -d
+242:5900/1      pmns            -p
+242:5900/2      pmns            -p
+242:5900/3      pmns            -p
+242:5900/0      pmns            -p
+2:2426/4065     pmns            -p
+2:2426/4066     pmns            -p
+2:2426/4067     pmns            -p
 242:1002/120    gonzo          
 2:246/8019      gonzo          
 242:7000/710    dpk.berlin     
@@ -371,10 +365,6 @@
 242:3700/6      911            
 242:2000/305    911            
 242:2000/306    911            
-242:6000/203    mbyte          
-242:6000/204    mbyte          
-242:6000/205    mbyte          
-2:2432/840      mbyte          
 242:7000/305    median.berlin  
 242:7000/315    median.berlin  
 242:7000/398    median.berlin  
@@ -393,8 +383,6 @@
 2:2457/107      emsbox         
 2:2457/108      emsbox         
 2:2457/109      emsbox         
-242:9000/110    warp9          
-2:240/5210      warp9          
 242:1000/255    dia            
 2:244/1372      dia            
 2:244/1371      dia            
@@ -537,3 +525,38 @@
 2:241/1136      infokomm       
 2:241/1137      infokomm       
 2:241/1138      infokomm       
+242:4700/4      dreamhold      
+2:240/5053      dreamhold      
+242:5000/17     shire          
+242:5000/18     shire          
+2:241/1104      shire          
+2:241/1105      shire          
+242:9000/143    ihc            
+2:240/5244      ihc            
+2:240/5243      ihc            
+242:4000/308    warlord        
+242:4000/309    warlord        
+242:4000/310    warlord        
+242:4000/300    warlord        
+2:2448/308      warlord        
+2:2448/309      warlord        
+2:2448/310      warlord        
+242:4000/1611   cyberhouse     
+242:4000/1612   cyberhouse     
+2:2433/1609.17  cyberhouse     
+2:2433/1608.17  cyberhouse     
+242:9000/72     duesti         
+2:249/1010      duesti         
+242:7600/120    noname         
+2:246/6020      noname         
+242:4700/5      hotbox         
+242:4700/6      hotbox         
+2:241/235       hotbox         
+2:241/236       hotbox         
+242:7600/50     source         
+242:7600/51     source         
+2:2474/500      source         
+2:2474/501      source         
+242:9000/73     leipziger      
+2:249/1030      leipziger      
+2:249/1031      leipziger      

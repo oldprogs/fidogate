@@ -1,6 +1,6 @@
 #:ts=8
 #
-# $Id: config.ftp,v 4.1 1996/10/03 09:48:41 mj Exp $
+# $Id: config.ftp,v 4.2 1996/11/29 21:24:01 mj Exp $
 #
 # FIDOGATE config file FTP hub
 #
@@ -45,7 +45,3 @@ FTPchroot	/var/spool/bt
 # FTP hub inbound
 #
 FTPInbound	/var/spool/bt/pin
-
-
-
-
