@@ -12,23 +12,26 @@ echo "DosDrive X: "`pwd` >>tmp_config.dos
 cp config.dos tmp_file1.txt
 cp config.dos tmp_file2.xyz
 cp run        tmp_file3.abc
+cp config.dos tmp_file4.txt
+cp config.dos tmp_file5.xyz
+cp run        tmp_file6.abc
 
 echo "tc: running"
 $T1 $A `pwd`/tmp_file1.txt
 $T1 $A `pwd`/tmp_file2.xyz
 $T1 $A `pwd`/tmp_file3.abc
-$T1 $A \#`pwd`/tmp_file1.txt
-$T1 $A `pwd`/tmp_file2.xyz
-$T1 $A \^`pwd`/tmp_file3.abc
+$T1 $A \#`pwd`/tmp_file4.txt
+$T1 $A `pwd`/tmp_file5.xyz
+$T1 $A \^`pwd`/tmp_file6.abc
 
 $T2 $A
 
 $T1 $A `pwd`/tmp_file1.txt
 $T1 $A `pwd`/tmp_file2.xyz
 $T1 $A `pwd`/tmp_file3.abc
-$T1 $A \#`pwd`/tmp_file1.txt
-$T1 $A `pwd`/tmp_file2.xyz
-$T1 $A \^`pwd`/tmp_file3.abc
+$T1 $A \#`pwd`/tmp_file4.txt
+$T1 $A `pwd`/tmp_file5.xyz
+$T1 $A \^`pwd`/tmp_file6.abc
 
 $T3 -l $A
 $T3 -vvvvv -x 'echo --- %s ---' $A

@@ -3,9 +3,9 @@ Subject: FIDOGATE 4.3.5 --- Fido-Internet Gateway and Tosser
 Keywords: fido ftn netmail echomail tosser areafix mail news gateway
 Followup-To: comp.os.linux.misc
 
-  ==================================================================
-  FIDOGATE 4.3.5, a development snapshot of the new FIDOGATE release
-  ==================================================================
+  =================================================================
+  FIDOGATE 4.3.5, a development version of the new FIDOGATE release
+  =================================================================
 
 			   FIDOGATE Version 4
 		      ===========================
@@ -23,7 +23,7 @@ Followup-To: comp.os.linux.misc
     ftp://ftp.fido.de/pub/fidogate/
     http://www.fido.de/pub/fidogate/
 
-[NOT FOR DEVELOPMENT SNAPSHOTS! ...
+[NOT FOR DEVELOPMENT VERSIONS! ...
     ftp://sunsite.unc.edu/pub/Linux/system/fido/
     http://sunsite.unc.edu/pub/Linux/system/fido/
     (probably still in .../pub/Linux/Incoming)
@@ -62,6 +62,10 @@ Changes in 4.3.5:
 * sendmail configuration: no longer uses copy of m4 copy files, but
   symlinks to /usr/lib/sendmail-cf. New redhat6-orodruin.mc config
   file for RedHat 6.0 and sendmail 8.9.3.
+
+* rfc2ftn: bug fix for UseXHeaderforTearline.
+
+* Default configuration now supports INN 2.2 on RedHat 6.0.
 
 
 
@@ -234,11 +238,8 @@ Needed:
 * Perl5
 * GNU m4 for the sendmail m4 configuration
 
-===== fidogate.lsm ===================================================
-
-
 ======================================================================
 
-$Date: 1999/07/23 21:30:11 $
+$Date: 1999/08/08 13:23:27 $
 Martin Junius
 mailto:mj@fido.de

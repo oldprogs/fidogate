@@ -44,7 +44,8 @@ Locking OUT file
 ./bt/out/0994006e.pnt/00000002.hut already exists, seek to EOF-2
 attach mode=^ (^=delete, #=trunc)
 attach name=pin/TestFile.ZIP
-Open FLO file in append mode
+Opening FLO file, mode=a+
 Locking FLO file
-FLO file open and locking succeeded
+FLO file ./bt/out/0994006e.pnt/00000002.hlo open and locking succeeded
+FLO file open and locking succeeded, attaching file
 ftnpack file attach TestFile.ZIP (2447b) for 2:2452/110.2

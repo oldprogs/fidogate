@@ -1,5 +1,15 @@
 1999-08-08  Martin Junius  <mj@fido.de>
 
+	======= Release 4.3.5 ================================================
+	------- CVS tag R435 -------------------------------------------------
+	------- CVS ci -------------------------------------------------------
+
+	* fidogate.lsm: updated.
+
+	* ANNOUNCE: updated.
+
+	* test/tc.flo/run: test case adapted to new bink_attach() behaviour.
+
 	------- CVS ci -------------------------------------------------------
 
 	* config.make
