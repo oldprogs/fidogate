@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: message.c,v 4.17 2000/01/28 22:01:10 mj Exp $
+ * $Id: message.c,v 4.18 2000/01/29 16:40:36 mj Exp $
  *
  * Reading and processing FTN text body
  *
@@ -685,6 +685,7 @@ char *msg_xlate_line(char *buf, int n, char *line, int qp)
  * lines.
  */
 #define DEFAULT_LINE_LENGTH	72
+#define NOBREAK_LINE_LENGTH	79
 #define MAX_LINE_LENGTH		200
 
 static int msg_get_line_length(void)
@@ -723,7 +724,7 @@ int msg_format_buffer(char *buffer, Textlist *tlist)
 
     max_linelen = msg_get_line_length();
     
-    if(strlen(buffer) <= max_linelen)		/* Nothing to do */
+    if(strlen(buffer) <= NOBREAK_LINE_LENGTH)	/* Nothing to do */
     {
 	tl_append(tlist, buffer);
 	return 1;
