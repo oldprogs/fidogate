@@ -1,9 +1,9 @@
 #!/bin/sh
 #
-# $Id: tr.clean,v 4.1 1996/04/22 14:28:48 mj Exp $
+# $Id: tr.clean,v 4.2 1996/04/24 09:54:48 mj Exp $
 #
 # FIDOGATE test clean-up
 #
 
 rm -f *.bak *~ core history*
-rm -rf in out toss seq log bt
+rm -rf in out toss seq log bt locks

@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: ftnexpire.c,v 4.1 1996/04/18 09:56:34 mj Exp $
+ * $Id: ftnexpire.c,v 4.2 1996/04/24 09:54:47 mj Exp $
  *
  * Expire MSGID history database
  *
@@ -36,7 +36,7 @@
 
 
 #define PROGRAM 	"ftnexpire"
-#define VERSION 	"$Revision: 4.1 $"
+#define VERSION 	"$Revision: 4.2 $"
 #define CONFIG		CONFIG_MAIN
 
 
@@ -372,10 +372,18 @@ int main(int argc, char **argv)
     }
 
     /*
-     * Run expire
+     * Run expire, locking MSGID history database
      */
-    ret = do_expire() == ERROR ? EXIT_ERROR : EXIT_OK;
-        
+    if(lock_program(LOCK_HISTORY, FALSE) == ERROR)
+	/* Already busy */
+	exit(EXIT_BUSY);
+
+    if(do_expire() == ERROR)
+	ret = EXIT_ERROR;
+
+    unlock_program(LOCK_HISTORY);
+
+    
     exit(ret);
 
     /**NOT REACHED**/

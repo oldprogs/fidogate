@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: lock.c,v 4.0 1996/04/17 18:17:39 mj Exp $
+ * $Id: lock.c,v 4.1 1996/04/24 09:54:46 mj Exp $
  *
  * File locking
  *
@@ -118,6 +118,7 @@ int unlock_file(FILE *fp)
 int lock_lockfile(char *name, int wait)
 {
     int fd;
+    FILE *fp;
     
     /* Create lock file */
     debug(5, "Creating lock file %s ...", name);
@@ -131,7 +132,14 @@ int lock_lockfile(char *name, int wait)
 	debug(5, "Creating lock file %s %s.",
 	      name, fd==-1 ? "failed" : "succeeded");
 	if(fd != -1)
+	{
+	    if((fp = fdopen(fd, "w")))
+	    {
+		fprintf(fp, "%d\n", (int)getpid());
+		fclose(fp);
+	    }
 	    close(fd);
+	}
 	else if(wait)
 	    sleep(5);
     }

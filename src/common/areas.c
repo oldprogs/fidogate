@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: areas.c,v 4.1 1996/04/22 14:31:11 mj Exp $
+ * $Id: areas.c,v 4.2 1996/04/24 09:54:46 mj Exp $
  *
  * Area <-> newsgroups conversion
  *
@@ -38,11 +38,55 @@
  * Prototypes
  */
 static Area *area_build		(Area *, char *, char *);
+static void  areas_init_xlate	(void);
 
 
 
+/* Areas linked list */
 static Area *area_list = NULL;
 static Area *area_last = NULL;
+
+/* Area <-> newsgroup char translation table */
+static char areas_x_a[256];		/* Area -> newsgroup */
+static char areas_x_g[256];		/* Newsgroup -> area */
+
+
+
+/*
+ * Initialize translation tables from config option "AreasXlate"
+ */
+static void areas_init_xlate(void)
+{
+    char *cf, *x_a, *x_g;
+    unsigned char *p, *q;
+    
+    if((cf = cf_get_string("AreasXlate", TRUE)))
+    {
+	debug(8, "config: AreasXlate %s", cf);
+	
+	/* Chars in area name */
+	x_a = xstrtok(cf  , " \t");
+	/* Chars in newsgroup name */
+	x_g = xstrtok(NULL, " \t");
+	if(!x_a || !x_g)
+	    return;
+
+	/* Fill table */
+	p = x_a;
+	q = x_g;
+	while(*p || *q)
+	{
+	    if(*p)
+		areas_x_a[*p] = *q;
+	    if(*q)
+		areas_x_g[*q] = *p;
+	    if(*p)
+		p++;
+	    if(*q)
+		q++;
+	}
+    }
+}
 
 
 
@@ -91,6 +135,8 @@ void areas_init(void)
     FILE *fp;
     Area *p;
 
+    areas_init_xlate();
+    
     debug(14, "Reading areas file");
     
     fp = xfopen(AREAS, R_MODE_T);
@@ -260,44 +306,34 @@ static Area *area_build(Area *pa, char *area, char *group)
     /* AREA -> Newsgroup */
     if(area)				/* Was searching for area */
     {
-	strncpy0(bufa, area, sizeof(bufa));
-	strncpy0(bufg, pa->group, sizeof(bufg));
+	BUF_COPY(bufa, area);
+	BUF_COPY(bufg, pa->group);
 	p   = bufg + strlen(bufg);
 	end = bufg + sizeof(bufg) - 1;
 	q   = area + strlen(pa->area);
 	
 	for(; *q && p<end; q++, p++)
-	    switch(*q)
-	    {
-	    case '_':
-		*p = '-';
-		break;
-	    default:
+	    if(areas_x_a[(unsigned char)*q])
+		*p = areas_x_a[(unsigned char)*q];
+	    else
 		*p = tolower(*q);
-		break;
-	    }
 	*p = 0;
     }
 
     /* Newsgroup -> AREA */
     if(group)				/* Was searching for newsgroup */
     {
-	strncpy0(bufa, pa->area, sizeof(bufa));
-	strncpy0(bufg, group, sizeof(bufg));
+	BUF_COPY(bufa, pa->area);
+	BUF_COPY(bufg, group);
 	p   = bufa + strlen(bufa);
 	end = bufa + sizeof(bufa) - 1;
 	q   = group + strlen(pa->group);
 	
 	for(; *q && p<end; q++, p++)
-	    switch(*q)
-	    {
-	    case '-':
-		*p = '_';
-		break;
-	    default:
+	    if(areas_x_g[(unsigned char)*q])
+		*p = areas_x_g[(unsigned char)*q];
+	    else
 		*p = toupper(*q);
-		break;
-	    }
 	*p = 0;
     }
     

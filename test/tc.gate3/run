@@ -1,0 +1,8 @@
+#!/bin/sh
+
+../tr.init
+
+echo "tc: running"
+for f in ../ti.news-a/*; do
+  ../../src/gate/rfc2ftn -L../cf -vvvvv -n <$f
+done

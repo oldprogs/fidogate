@@ -13,13 +13,13 @@ DONE.	* ftnaf: no zone check for FileFix
 
 DONE.	* Don't abort, if HOSTS/PASSWD/ALIASES don't exist.
 
-X	* ftntoss/ftnexpire: lock access to MSGID history database
+DONE.	* ftntoss/ftnexpire: lock access to MSGID history database
 
 DONE.	* Default flavor "Hold" configurable.
 
 DONE.	* ftnexpire utility for handling MSGID history.
 
-X	* areas.c: change automatic name conversion for -H to be
+DONE.	* areas.c: change automatic name conversion for -H to be
 	  configurable for -/_
 	  config option "AreaXlat ASet GSet"
 

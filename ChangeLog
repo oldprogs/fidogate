@@ -1,3 +1,29 @@
+Wed Apr 24 10:55:23 1996  Martin Junius  <mj@fido.de>
+
+	------- CVS commit ---------------------------------------------------
+
+	* src/toss/ftnexpire.c (main): same.
+
+	* src/toss/ftntoss.c (main): use LOCK_HISTORY lock file to lock
+	  access to MSGID history database.
+
+	* src/common/lock.c (lock_lockfile): write PID to lock file.
+
+	* config.h (LOCK_HISTORY): new #define for lock file name
+	  accessing MSGID history database.
+
+	* src/gate/rfc2ftn.c (snd_mail, snd_message): some formatting
+	  changes, use BUF_COPY(), BUF_APPEND().
+
+	* src/common/areas.c (areas_init_xlate): new function reading char
+	  translation for automatic conversion of area <-> newsgroup names
+	  (AREAS: -H option) and filling areas_x_a[] and areas_x_g[]
+	  translation tables.
+	  (areas_init): call areas_init_xlate().
+	  (area_build): use new areas_x_a[] and areas_x_g[] translation
+	  tables. 
+	  (area_build): use BUF_COPY instead of strncpy0().
+
 Tue Apr 23 11:49:42 1996  Martin Junius  <mj@fido.de>
 
 	------- CVS commit ---------------------------------------------------

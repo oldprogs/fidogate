@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# $Id: tr.init,v 4.1 1996/04/22 14:28:48 mj Exp $
+# $Id: tr.init,v 4.2 1996/04/24 09:54:48 mj Exp $
 #
 # FIDOGATE test initialization
 #
@@ -13,7 +13,7 @@ echo "tc: init"
 
 mkdir toss toss/in toss/tmp toss/out toss/pack toss/bad bt
 mkdir in in/mail in/news in/bad out
-mkdir seq
+mkdir seq locks
 :> history
 :> history.dir
 :> history.pag

@@ -1,5 +1,7 @@
 #:ts=8
 #
+# $Id: config.gate,v 4.3 1996/04/24 09:54:49 mj Exp $
+#
 # FIDOGATE config file gateway programs
 #
 # orodruin.fido.de
@@ -42,7 +44,7 @@ Organization	"Martin Junius' orodruin.fido.de"
 #
 # Use text from * Origin line for Organization header
 #
-UseOriginForOrganization
+#UseOriginForOrganization
 
 
 #
@@ -84,12 +86,12 @@ EchoMail4D
 # Don't gate messages with unknown zone in ^AMSGID (known zones are defined
 # in config.common).
 #
-KillUnknownMSGIDZone
+#KillUnknownMSGIDZone
 
 #
 # Don't gate messages without a valid ^AMSGID (or similar)
 #
-KillNoMSGID
+#KillNoMSGID
 
 
 #
@@ -153,3 +155,12 @@ FTNJunkGroup		fido.junk
 # Errors-To header
 #
 #Errors-To		postmaster@orodruin.fido.de
+
+
+#
+# Translation of chars for automatic areas <-> newsgroup conversion
+# (-H hierarchy option in AREAS)
+#
+#                       area chars	newsgroup chars
+#			----------	---------------
+AreasXlate		_PXYZ		-+abc

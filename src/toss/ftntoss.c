@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftntoss.c,v 4.2 1996/04/22 14:31:15 mj Exp $
+ * $Id: ftntoss.c,v 4.3 1996/04/24 09:54:47 mj Exp $
  *
  * Toss FTN NetMail/EchoMail
  *
@@ -38,7 +38,7 @@
 
 
 #define PROGRAM 	"ftntoss"
-#define VERSION 	"$Revision: 4.2 $"
+#define VERSION 	"$Revision: 4.3 $"
 #define CONFIG		CONFIG_MAIN
 
 
@@ -1469,7 +1469,12 @@ int main(int argc, char **argv)
 
 	/* Open history */
 	if(dupe_check)
+	{
+	    if(lock_program(LOCK_HISTORY, FALSE) == ERROR)
+		/* Already busy */
+		exit(EXIT_BUSY);
 	    hi_init();
+	}
 	
 	for(pkt_name=dir_get(TRUE); pkt_name; pkt_name=dir_get(FALSE))
 	{
@@ -1487,7 +1492,10 @@ int main(int argc, char **argv)
 
 	/* Close history */
 	if(dupe_check)
+	{
+	    unlock_program(LOCK_HISTORY);
 	    hi_close();
+	}
 	
 	dir_close();
 

@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway software UNIX <-> FIDO
  *
- * $Id: config.h,v 4.1 1996/04/22 14:32:06 mj Exp $
+ * $Id: config.h,v 4.2 1996/04/24 09:54:45 mj Exp $
  *
  * Configuration header file
  *
@@ -263,6 +263,7 @@
 
 #define LOG		"log"		/* Default log file */
 
+/* Sequencer files */
 #define SEQ_MAIL	"seq.mail"	/* ftn2rfc: mail files */
 #define SEQ_NEWS	"seq.news"	/* ftn2rfc: news files */
 #define SEQ_MSGID	"seq.msgid"	/* local ^AMSGID */
@@ -273,6 +274,9 @@
 #define SEQ_PACK	"seq.pack"	/* ftnpack: archived .pkts */
 #define SEQ_MQ		"seq.mq"	/* queuemail: messages */
 #define SEQ_TICK	"seq.tick"	/* ftnhatch/ftntick: .tic file ids */
+
+/* Lock files */
+#define LOCK_HISTORY	"historydb"	/* Access to MSGID history database */
 
 /*
  * Directories in SPOOLDIR

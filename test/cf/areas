@@ -29,3 +29,6 @@
 LINUX.GER                     fido.ger.linux                -x -z 2 -8
 TOLKIEN.GER                   fido.ger.tolkien              -x -z 2 -8
 
+# Usenet
+COMP.                         comp.                         -H -z 242
+DE.                           de.                           -H -z 242

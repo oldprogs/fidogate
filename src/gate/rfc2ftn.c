@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway software UNIX <-> FIDO
  *
- * $Id: rfc2ftn.c,v 4.1 1996/04/22 14:31:14 mj Exp $
+ * $Id: rfc2ftn.c,v 4.2 1996/04/24 09:54:46 mj Exp $
  *
  * Read mail or news from standard input and convert it to a FIDO packet.
  *
@@ -39,7 +39,7 @@
 
 
 #define PROGRAM 	"rfc2ftn"
-#define VERSION 	"$Revision: 4.1 $"
+#define VERSION 	"$Revision: 4.2 $"
 #define CONFIG		CONFIG_GATE
 
 
@@ -536,9 +536,8 @@ time_t mail_date(void)
  * Process mail/news message
  */
 int snd_mail(char *from, char *to, long int size)
-               				/* Address from */
-             				/* Address to send to (news = NULL) */
-              
+    /* from --- address from */
+    /* to   --- address to send to (news = NULL) */
 {
     char groups[BUFSIZ];
     Node node_from, node_to;
@@ -565,7 +564,7 @@ int snd_mail(char *from, char *to, long int size)
 	    sendback("Address %s:\n  address/host is unknown", to);
 	return(EX_NOHOST);
     }
-    strncpy0(msg.name_to, p, sizeof(msg.name_to));
+    BUF_COPY(msg.name_to, p);
     fido = isfido();
 
     cf_set_zone(node_to.zone);
@@ -576,7 +575,7 @@ int snd_mail(char *from, char *to, long int size)
     p = mail_sender(&node_from);
     if(!p)
 	p = "Gateway";
-    strncpy0(msg.name_from, p, sizeof(msg.name_from));
+    BUF_COPY(msg.name_from, p);
 
     /*
      * Subject
@@ -658,8 +657,7 @@ int snd_mail(char *from, char *to, long int size)
 	/*
 	 * Check for news control message
 	 */
-	p = header_get("Control");
-	if(p)
+	if((p = header_get("Control")))
 	{
 	    debug(3, "Skipping Control: %s", p);
 	    return EX_OK;
@@ -674,7 +672,7 @@ int snd_mail(char *from, char *to, long int size)
 	    sendback("No Newsgroups header in news message");
 	    return(EX_DATAERR);
 	}
-	strncpy0(groups, p, sizeof(groups));
+	BUF_COPY(groups, p);
 	debug(3, "RFC Newsgroups: %s", groups);
 
 	xpost_flag = strchr(groups, ',') != NULL;
@@ -739,16 +737,17 @@ int snd_mail(char *from, char *to, long int size)
 }
 
 
-int snd_message(Message *msg, Area *parea, char *from, char *to, char *subj, long int size, char *flags, int fido, MIMEInfo *mime)
-                 			/* FTN nessage structure */
-                			/* Area/newsgroup */
-               				/* Internet sender */
-             				/* Internet recipient */
-               				/* Internet Subject line */
-              
-                			/* From X-Flags header */
-             				/* TRUE: recipient is FTN address */
-                   			/* MIME stuff */
+int snd_message(Message *msg, Area *parea,
+		char *from, char *to, char *subj,
+		long int size, char *flags, int fido, MIMEInfo *mime)
+    /* msg    --- FTN nessage structure */
+    /* pareas --- area/newsgroup */
+    /* from   --- Internet sender */
+    /* to     --- Internet recipient */
+    /* subj   --- Internet Subject line */
+    /* flags  --- X-Flags header */
+    /* fido   --- TRUE: recipient is FTN address */
+    /* mime   --- MIME stuff */
 {
     static int last_zone = -1;		/* Zone address of last packet */
     static FILE *sf;			/* Packet file */
@@ -845,10 +844,10 @@ int snd_message(Message *msg, Area *parea, char *from, char *to, char *subj, lon
     if(split && part>1)
     {
 	sprintf(msg->subject, "%02d: ", part);
-	strncat0(msg->subject, subj, sizeof(msg->subject));
+	BUF_APPEND(msg->subject, subj);
     }
     else
-	strncpy0(msg->subject, subj, sizeof(msg->subject));
+	BUF_COPY(msg->subject, subj);
 
     /* Header */
     pkt_put_msg_hdr(sf, msg, TRUE);
