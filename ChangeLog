@@ -1,4 +1,30 @@
+Wed Feb  4 20:00:05 1998  Martin Junius  <mj@fido.de>
+
+	------- CVS ci -------------------------------------------------------
+
+	* src/common/ftnaddr.c (ftnaddr_parse): if no address after @, set
+	  node address to 0:0/0.0.
+
+	* src/common/outpkt.c (outpkt_netmail): new function, creates new
+	  packet in OUTPKT with message header msg and text body tl,
+	  additional argument program for program name in ^AVia line.
+
+	* src/common/textlist.c (tl_print_x): new function, outputs
+	  complete textlist with extra EOL string.
+
+	* test/tc.outpkt/run: new test case for ftnoutpkt.
+
+Mon Feb  2 21:23:24 1998  Martin Junius  <mj@fido.de>
+
+	* src/util/ftnoutpkt.c: new utility creating OUTPKT packet with
+	  message from stdin.
+
+	* src/common/ftnaddr.c (ftnaddr_parse): if no address after @, use
+	  default local address.
+
 Sun Feb  1 17:57:27 1998  Martin Junius  <mj@fido.de>
+
+	------- CVS ci -------------------------------------------------------
 
 	* src/common/ftnaddr.c (ftnaddr_init): new function, init FTNAddr.
 	  (ftnaddr_invalid): new function, invalidate FTNAddr.

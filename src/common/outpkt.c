@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: outpkt.c,v 4.3 1998/01/24 14:07:26 mj Exp $
+ * $Id: outpkt.c,v 4.4 1998/02/04 19:17:37 mj Exp $
  *
  * Output packet handling for ftntoss and ftroute.
  *
@@ -345,4 +345,44 @@ int outpkt_close(void)
     outpkt_nopen = 0;			/* Just to be sure ... */
     
     return ret;
+}
+
+
+
+/*
+ * Create packet in OUTPKT with netmail message header
+ */
+int outpkt_netmail(Message *msg, Textlist *tl, char *program)
+{
+    FILE *fp;
+    
+    /* If from node is default, use aka for to zone */
+    cf_set_zone(msg->node_to.zone);
+    if(msg->node_from.zone == 0)
+	msg->node_from = cf_n_addr();
+    
+    /* Open outpkt packet */
+    fp = outpkt_open(&msg->node_from, &msg->node_to, '0', '0', '0', FALSE);
+    if(!fp)
+	return ERROR;
+    
+    /* Write message header */
+    pkt_put_msg_hdr(fp, msg, TRUE);
+    /* Additional kludges */
+    fprintf(fp, "\001MSGID: %s %08ld\r\n",
+	    znfp(&msg->node_from), sequencer(DEFAULT_SEQ_MSGID));
+    /* Write message body */
+    tl_print_x(tl, fp, "\r\n");
+    /* Additional kludges */
+    fprintf(fp, "\r\n--- FIDOGATE %s\r\n", version_global());
+    fprintf(fp, "\001Via FIDOGATE/%s %s, %s\r\n",
+	    program, znfp(&msg->node_from),
+	    date("%a %b %d %Y at %H:%M:%S %Z", NULL)  );
+
+    /* Terminating 0-byte */
+    putc(0, fp);
+
+    outpkt_close();
+
+    return OK;
 }

@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: textlist.c,v 4.3 1998/01/18 09:47:54 mj Exp $
+ * $Id: textlist.c,v 4.4 1998/02/04 19:17:39 mj Exp $
  *
  * Store text file as chain of linked text lines in memory
  *
@@ -177,6 +177,24 @@ void tl_print(Textlist *list, FILE *fp)
 
     for(p=list->first; p; p=p->next)
 	fputs(p->line, fp);
+}
+
+
+
+/*
+ * Output complete textlist with extra end-of-line
+ */
+int tl_print_x(Textlist *list, FILE *fp, char *extra)
+{
+    Textline *p;
+
+    for(p=list->first; p; p=p->next)
+    {
+	fputs(p->line, fp);
+	fputs(extra  , fp);
+    }
+
+    return ferror(fp);
 }
 
 

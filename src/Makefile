@@ -1,6 +1,6 @@
 #:ts=8
 #
-#    $Id: Makefile,v 4.6 1998/01/28 22:00:16 mj Exp $
+#    $Id: Makefile,v 4.7 1998/02/04 19:17:36 mj Exp $
 #
 #    Makefile for FIDOGATE src/
 #
@@ -38,4 +38,4 @@ clean::
 check::
 
 tags:
-	etags */*.[hcy] */*.pl */*.sh
+	etags */*.[hcy] */*.pl *.pl
