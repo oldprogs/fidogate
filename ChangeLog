@@ -2,6 +2,75 @@ Sun Jan 18 09:31:56 1998  Martin Junius  <mj@fido.de>
 
 	------- CVS ci -------------------------------------------------------
 
+	* Makefile (INSTALLDIRS): new directories.
+
+	* src/gate/rfc2ftn.c (main): removed -L, -S options.
+	  (main): default pkt_outdir() is OUTPKT_MAIL/NEWS for mail/news
+	  mode.
+
+	* config.h (OUTPKT_*): PKT output directory definitions for rfc2ftn.
+
+	* src/common/mail.c (mail_open): changed file extension to .rfc.
+
+	* src/gate/ftnin.c (main): removed -L, -S options.
+	  (exec_ftn2rfc): debug() level changed to 2.
+	  (do_packets): dito.
+
+	* src/gate/ftn2rfc.c (main): default input directory is PINBOUND,
+	  mail_dir[], news_dir[] set to OUTRFC_MAIL, OUTRFC_NEWS.
+
+	* src/gate/ftn2rfc.c (main): removed -L, -S options.
+
+	* src/toss/ftnroute.c (main): use BUF_EXPAND().
+
+	* src/toss/ftntoss.c (main): use BUF_EXPAND().
+
+	* src/gate/ftnin.c (main): use BUF_EXPAND().
+
+	* src/gate/ftn2rfc.c (main): use BUF_EXPAND().
+
+	* src/ffx/ffxqt.c (parse_ffxcmd): use BUF_EXPAND().
+	  (do_ffx): use BUF_EXPAND().
+
+	* src/common/packet.c (pkt_outdir): use BUF_EXPAND().
+	  (pkt_baddir): use BUF_EXPAND().
+
+	* src/common/log.c (log_file): use BUF_EXPAND(), set
+	  use_syslog=FALSE for non-syslog cases.
+
+	* src/common/fopen.c (fopen_expand_name): use BUF_EXPAND().
+
+	* src/common/lock.c (lock_program_id): use cf_p_lockdir().
+	  (lock_program): dito.
+	  (unlock_program): dito.
+
+	* config.h (SEQ_*): all sequencer files seq.xxx changed to %V/seq/xxx.
+
+	* src/util/ftnseq.c (main): removed -L, -S options, added FALSE
+	  argument to sequencer_nx().
+
+	* src/common/sequencer.c (sequencer): log() message changed.
+	  (sequencer_nx): add new err_abort argument. If TRUE, write log()
+	  message and exit() in case of error.
+	  (sequencer): simplified, just calls sequencer_nx().
+
+	* config.h (SEQ_MQ): removed.
+
+	* src/common/config.c (cf_debug): removed output of LIBDIR,
+	  SPOOLDIR, LOGDIR.
+
+	* src/ffx/ffxqt.c (main): removed -L, -S options.
+	  Use PINBOUND as input directory.
+	  (do_ffx): apply str_expand_name() to PINBOUND.
+
+	* src/tick/ftntick.c (main): removed -L, -S options.
+	  Use PINBOUND as input directory.
+
+	* src/common/log.c (log): if log file can't be opened, add errno
+	  and error text to stderr message.
+
+	------- CVS ci -------------------------------------------------------
+
 	* test/cf/*.conf: adapted to new config.
 
 	* config.make (DEFAULT_CONFIG_*): changed config file names

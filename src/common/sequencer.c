@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: sequencer.c,v 4.2 1998/01/18 09:47:54 mj Exp $
+ * $Id: sequencer.c,v 4.3 1998/01/18 15:33:09 mj Exp $
  *
  * Number sequencer using sequence file in LIBDIR
  *
@@ -37,48 +37,41 @@
 /*
  * Sequencer: read number from file and increment it
  */
-long sequencer(char *filename)
+long sequencer(char *seqname)
 {
-    long seqn = sequencer_nx(filename);
-    
-    if(seqn == -1L)
-    {
-	log("$can't access sequencer file %s/%s/%s",
-	    cf_p_spooldir(), SEQ, filename);
-	exit(EX_OSFILE);
-    }
-    
-    return seqn;
+    return sequencer_nx(seqname, TRUE);
 }
 
 
-long sequencer_nx(char *filename)
+long sequencer_nx(char *seqname, int err_abort)
 {
-    char buffer[MAXPATH];
+    char filename[MAXPATH];
     FILE *fp;
     long seqn;
 
-    BUF_COPY5(buffer, cf_p_spooldir(), "/", SEQ, "/", filename);
-
-    /*
-     * Open file, create if necessary
-     */
-    if((fp = fopen(buffer, RP_MODE)) == NULL)
-	if(errno == ENOENT) {
-	    /* Create */
-	    if((fp = fopen(buffer, WP_MODE)) == NULL)
-		return -1L;
+    /* Open file, create if necessary */
+    BUF_EXPAND(filename, seqname);
+    if( (fp = fopen(filename, RP_MODE)) == NULL )
+	if(errno == ENOENT)
+	    fp = fopen(filename, WP_MODE);
+	    
+    if(fp == NULL)
+    {
+	if(err_abort) 
+	{
+	    log("$ERROR: can't access sequencer file %s", filename);
+	    exit(EX_OSFILE);
 	}
 	else
-	    return -1L;
-
-    /*
-     * Lock file, get number and increment it
-     */
+	    return ERROR;
+    }
+    
+    /* Lock file, get number and increment it */
     lock_file(fp);
 
-    if(fgets(buffer, sizeof(buffer), fp))
-	seqn = atol(buffer);
+    /* filename[] is also used as a buffer for reading the seq value */
+    if(fgets(filename, sizeof(filename), fp))
+	seqn = atol(filename);
     else
 	seqn = 0;
     seqn++;

@@ -3,7 +3,7 @@
 /*
  * FIDOGATE
  *
- * $Id: paths.h,v 4.3 1998/01/18 10:58:08 mj Exp $
+ * $Id: paths.h,v 4.4 1998/01/18 15:33:13 mj Exp $
  */
 
 #define DEFAULT_LOGDIR                  "/var/log/fidogate"
@@ -25,12 +25,12 @@
 #define DEFAULT_NEWSLIBDIR              "/usr/lib/news"
 #define DEFAULT_CONFIGDIR               "/etc/fidogate"
 #define DEFAULT_LIBDIR                  "/usr/lib/fidogate"
-#define DEFAULT_CONFIG_GATE             "%C/config.gate"
+#define DEFAULT_CONFIG_GATE             "%C/gate.conf"
 #define DEFAULT_BINDIR                  "/usr/lib/fidogate/bin"
 #define DEFAULT_NEWSETCDIR              "/etc/news"
-#define DEFAULT_CONFIG_FFX              "%C/config.ffx"
+#define DEFAULT_CONFIG_FFX              "%C/ffx.conf"
 #define DEFAULT_UUINBOUND               "/var/spool/bt/uuin"
 #define DEFAULT_FTPINBOUND              "/var/spool/bt/ftpin"
-#define DEFAULT_CONFIG_MAIN             "%C/config.main"
+#define DEFAULT_CONFIG_MAIN             "%C/toss.conf"
 #define DEFAULT_PACKING                 "%C/packing"
 #define DEFAULT_PINBOUND                "/var/spool/bt/pin"

@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ffxqt.c,v 4.9 1998/01/18 09:47:57 mj Exp $
+ * $Id: ffxqt.c,v 4.10 1998/01/18 15:33:10 mj Exp $
  *
  * Process incoming ffx control and data files
  *
@@ -38,7 +38,7 @@
 
 
 #define PROGRAM		"ffxqt"
-#define VERSION		"$Revision: 4.9 $"
+#define VERSION		"$Revision: 4.10 $"
 #define CONFIG		DEFAULT_CONFIG_FFX
 
 
@@ -128,7 +128,7 @@ void parse_ffxcmd()
 	
 	debug(8, "config: FFXCommand %s %s", name, cmd);
 
-	str_expand_name(buffer, sizeof(buffer), cmd);
+	BUF_EXPAND(buffer, cmd);
 	l_cmd[n_cmd].type = 'C';
 	l_cmd[n_cmd].name = name;
 	l_cmd[n_cmd].cmd  = strsave(buffer);
@@ -151,7 +151,7 @@ void parse_ffxcmd()
 	
 	debug(8, "config: FFXUncompress %s %s", name, cmd);
 
-	str_expand_name(buffer, sizeof(buffer), cmd);
+	BUF_EXPAND(buffer, cmd);
 	l_cmd[n_cmd].type = 'U';
 	l_cmd[n_cmd].name = name;
 	l_cmd[n_cmd].cmd  = strsave(buffer);
@@ -189,13 +189,14 @@ int do_ffx(int t_flag)
     char buf[MAXPATH];
     char pattern[16];
     
-    strncpy0(pattern, "f???????.ffx", sizeof(pattern));
+    BUF_COPY(pattern, "f???????.ffx");
     if(g_flag)
 	pattern[1] = g_flag;
 
-    if( chdir(cf_p_inbound()) == -1 )
+    BUF_EXPAND(buffer, cf_p_pinbound());
+    if( chdir(buffer) == -1 )
     {
-	log("$ERROR: can't chdir %s", cf_p_inbound());
+	log("$ERROR: can't chdir %s", buffer);
 	return ERROR;
     }
 
@@ -548,14 +549,12 @@ void usage(void)
     fprintf(stderr, "usage:   %s [-options]\n\n", PROGRAM);
     fprintf(stderr, "\
 options:  -g --grade G                 processing grade\n\
-          -I --inbound dir             set inbound directory\n\
+          -I --inbound dir             set inbound dir (default: PINBOUND)\n\
           -t --insecure                process ffx files without password\n\
 \n\
           -v --verbose                 more verbose\n\
 	  -h --help                    this help\n\
           -c --config name             read config file (\"\" = none)\n\
-	  -L --lib-dir name            set lib directory\n\
-	  -S --spool-dir name          set spool directory\n\
 	  -a --addr Z:N/F.P            set FTN address\n\
 	  -u --uplink-addr Z:N/F.P     set FTN uplink address\n");
 
@@ -572,7 +571,6 @@ int main(int argc, char **argv)
     char *I_flag=NULL;
     int   t_flag=FALSE;
     char *c_flag=NULL;
-    char *S_flag=NULL, *L_flag=NULL;
     char *a_flag=NULL, *u_flag=NULL;
     
     int option_index;
@@ -585,8 +583,6 @@ int main(int argc, char **argv)
 	{ "verbose",      0, 0, 'v'},	/* More verbose */
 	{ "help",         0, 0, 'h'},	/* Help */
 	{ "config",       1, 0, 'c'},	/* Config file */
-	{ "spool-dir",    1, 0, 'S'},	/* Set FIDOGATE spool directory */
-	{ "lib-dir",      1, 0, 'L'},	/* Set FIDOGATE lib directory */
 	{ "addr",         1, 0, 'a'},	/* Set FIDO address */
 	{ "uplink-addr",  1, 0, 'u'},	/* Set FIDO uplink address */
 	{ 0,              0, 0, 0  }
@@ -598,7 +594,7 @@ int main(int argc, char **argv)
     cf_initialize();
 
 
-    while ((c = getopt_long(argc, argv, "g:tI:vhc:S:L:a:u:",
+    while ((c = getopt_long(argc, argv, "g:tI:vhc:a:u:",
 			    long_options, &option_index     )) != EOF)
 	switch (c) {
 	/***** ffxqt options *****/
@@ -622,12 +618,6 @@ int main(int argc, char **argv)
 	case 'c':
 	    c_flag = optarg;
 	    break;
-	case 'S':
-	    S_flag = optarg;
-	    break;
-	case 'L':
-	    L_flag = optarg;
-	    break;
 	case 'a':
 	    a_flag = optarg;
 	    break;
@@ -639,20 +629,10 @@ int main(int argc, char **argv)
 	    break;
 	}
 
-    /*
-     * Read config file
-     */
-    if(L_flag)				/* Must set libdir beforehand */
-	cf_s_libdir(L_flag);
+    /* Read config file */
     cf_read_config_file(c_flag ? c_flag : CONFIG);
 
-    /*
-     * Process config options
-     */
-    if(L_flag)
-	cf_s_libdir(L_flag);
-    if(S_flag)
-	cf_s_spooldir(S_flag);
+    /* Process config options */
     if(a_flag)
 	cf_set_addr(a_flag);
     if(u_flag)
@@ -666,7 +646,7 @@ int main(int argc, char **argv)
     parse_ffxcmd();
 
     if(I_flag)
-	cf_s_inbound(I_flag);
+	cf_s_pinbound(I_flag);
 
     passwd_init();
 

@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftn2rfc.c,v 4.30 1998/01/18 09:47:58 mj Exp $
+ * $Id: ftn2rfc.c,v 4.31 1998/01/18 15:33:11 mj Exp $
  *
  * Convert FTN mail packets to RFC mail and news batches
  *
@@ -40,7 +40,7 @@
 
 
 #define PROGRAM 	"ftn2rfc"
-#define VERSION 	"$Revision: 4.30 $"
+#define VERSION 	"$Revision: 4.31 $"
 #define CONFIG		DEFAULT_CONFIG_GATE
 
 
@@ -1221,8 +1221,6 @@ options: -1 --single-articles         write single news articles, not batch\n\
 	 -v --verbose                 more verbose\n\
 	 -h --help                    this help\n\
          -c --config name             read config file (\"\" = none)\n\
-	 -L --lib-dir name            set lib directory\n\
-	 -S --spool-dir name          set spool directory\n\
 	 -a --addr Z:N/F.P            set FTN address\n\
 	 -u --uplink-addr Z:N/F.P     set FTN uplink address\n");
     
@@ -1240,7 +1238,6 @@ int main(int argc, char **argv)
     int l_flag=FALSE;
     char *I_flag=NULL;
     char *c_flag=NULL;
-    char *S_flag=NULL, *L_flag=NULL;
     char *a_flag=NULL, *u_flag=NULL;
     char *pkt_name;
     char *p;
@@ -1259,8 +1256,6 @@ int main(int argc, char **argv)
 	{ "verbose",      0, 0, 'v'},	/* More verbose */
 	{ "help",         0, 0, 'h'},	/* Help */
 	{ "config",       1, 0, 'c'},	/* Config file */
-	{ "spool-dir",    1, 0, 'S'},	/* Set FIDOGATE spool directory */
-	{ "lib-dir",      1, 0, 'L'},	/* Set FIDOGATE lib directory */
 	{ "addr",         1, 0, 'a'},	/* Set FIDO address */
 	{ "uplink-addr",  1, 0, 'u'},	/* Set FIDO uplink address */
 	{ 0,              0, 0, 0  }
@@ -1272,7 +1267,7 @@ int main(int argc, char **argv)
     cf_initialize();
 
 
-    while ((c = getopt_long(argc, argv, "1itI:lnx:vhc:S:L:a:u:",
+    while ((c = getopt_long(argc, argv, "1itI:lnx:vhc:a:u:",
 			    long_options, &option_index     )) != EOF)
 	switch (c) {
 	/***** ftn2rfc options *****/
@@ -1316,12 +1311,6 @@ int main(int argc, char **argv)
 	case 'c':
 	    c_flag = optarg;
 	    break;
-	case 'S':
-	    S_flag = optarg;
-	    break;
-	case 'L':
-	    L_flag = optarg;
-	    break;
 	case 'a':
 	    a_flag = optarg;
 	    break;
@@ -1337,17 +1326,11 @@ int main(int argc, char **argv)
     /*
      * Read config file
      */
-    if(L_flag)				/* Must set libdir beforehand */
-	cf_s_libdir(L_flag);
     cf_read_config_file(c_flag ? c_flag : CONFIG);
 
     /*
      * Process config options
      */
-    if(L_flag)
-	cf_s_libdir(L_flag);
-    if(S_flag)
-	cf_s_spooldir(S_flag);
     if(a_flag)
 	cf_set_addr(a_flag);
     if(u_flag)
@@ -1359,21 +1342,15 @@ int main(int argc, char **argv)
      * Process local options
      */
     if(I_flag)
-    {
-	str_expand_name(in_dir, sizeof(in_dir), I_flag);
-	BUF_COPY3(mail_dir, in_dir, "/", INDIR_MAIL);
-	BUF_COPY3(news_dir, in_dir, "/", INDIR_NEWS);
-    }
+	BUF_EXPAND(in_dir, I_flag);
     else 
-    {
-	BUF_COPY3(in_dir  , cf_p_spooldir(), "/", t_flag ? INSECUREDIR : INDIR);
-	BUF_COPY3(mail_dir, in_dir, "/", INDIR_MAIL);
-	BUF_COPY3(news_dir, in_dir, "/", INDIR_NEWS);
-    }
-    
-    /*
-     * Process optional config statements
-     */
+	BUF_EXPAND(in_dir, cf_p_pinbound());
+
+    /* Initialize mail_dir[], news_dir[] output directories */
+    BUF_EXPAND(mail_dir, OUTRFC_MAIL);
+    BUF_EXPAND(news_dir, OUTRFC_NEWS);
+
+    /* Process optional config statements */
     if(cf_get_string("DotNames", TRUE))
     {
 	debug(8, "config: DotNames");
@@ -1538,7 +1515,7 @@ int main(int argc, char **argv)
     {
 	int retx;
 
-	str_expand_name(buffer, sizeof(buffer), execprog);
+	BUF_EXPAND(buffer, execprog);
 	debug(4, "Command: %s", buffer);
 	retx = run_system(buffer);
 	debug(4, "Exit code=%d", ret);

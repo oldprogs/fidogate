@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: ftnseq.c,v 4.2 1998/01/18 09:48:17 mj Exp $
+ * $Id: ftnseq.c,v 4.3 1998/01/18 15:33:16 mj Exp $
  *
  * Command line interface to sequencer files
  *****************************************************************************
@@ -34,7 +34,7 @@
 
 
 #define PROGRAM 	"ftnseq"
-#define VERSION 	"$Revision: 4.2 $"
+#define VERSION 	"$Revision: 4.3 $"
 #define CONFIG		DEFAULT_CONFIG_MAIN
 
 
@@ -66,9 +66,7 @@ void usage(void)
     fprintf(stderr, "\
 options: -v --verbose                 more verbose\n\
 	 -h --help                    this help\n\
-         -c --config name             read config file (\"\" = none)\n\
-	 -L --lib-dir name            set lib directory\n\
-	 -S --spool-dir name          set spool directory\n");
+         -c --config name             read config file (\"\" = none)\n");
 }
 
 
@@ -79,7 +77,6 @@ int main(int argc, char **argv)
 {
     int c;
     char *c_flag=NULL;
-    char *S_flag=NULL, *L_flag=NULL;
     long n;
     
     int option_index;
@@ -88,8 +85,6 @@ int main(int argc, char **argv)
 	{ "verbose",      0, 0, 'v'},	/* More verbose */
 	{ "help",         0, 0, 'h'},	/* Help */
 	{ "config",       1, 0, 'c'},	/* Config file */
-	{ "spool-dir",    1, 0, 'S'},	/* Set FIDOGATE spool directory */
-	{ "lib-dir",      1, 0, 'L'},	/* Set FIDOGATE lib directory */
 	{ 0,              0, 0, 0  }
     };
 
@@ -99,7 +94,7 @@ int main(int argc, char **argv)
     cf_initialize();
 
 
-    while ((c = getopt_long(argc, argv, "vhc:S:L:",
+    while ((c = getopt_long(argc, argv, "vhc:",
 			    long_options, &option_index     )) != EOF)
 	switch (c) {
 	/***** Common options *****/
@@ -113,30 +108,13 @@ int main(int argc, char **argv)
 	case 'c':
 	    c_flag = optarg;
 	    break;
-	case 'S':
-	    S_flag = optarg;
-	    break;
-	case 'L':
-	    L_flag = optarg;
-	    break;
 	default:
 	    short_usage();
 	    exit(EX_USAGE);
 	    break;
 	}
 
-    /*
-     * Read config file
-     */
-    if(L_flag)				/* Must set libdir beforehand */
-	cf_s_libdir(L_flag);
     cf_read_config_file(c_flag ? c_flag : CONFIG);
-
-    if(L_flag)
-	cf_s_libdir(L_flag);
-    if(S_flag)
-	cf_s_spooldir(S_flag);
-
     cf_debug();
     
     /*
@@ -148,7 +126,7 @@ int main(int argc, char **argv)
 	exit(EX_USAGE);
     }
 
-    n = sequencer_nx(argv[optind]);
+    n = sequencer_nx(argv[optind], FALSE);
     
     n == -1L ? printf("ERROR\n") : printf("%ld\n", n) ;
     

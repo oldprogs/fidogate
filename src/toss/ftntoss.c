@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftntoss.c,v 4.22 1998/01/18 09:48:13 mj Exp $
+ * $Id: ftntoss.c,v 4.23 1998/01/18 15:33:15 mj Exp $
  *
  * Toss FTN NetMail/EchoMail
  *
@@ -39,7 +39,7 @@
 
 
 #define PROGRAM 	"ftntoss"
-#define VERSION 	"$Revision: 4.22 $"
+#define VERSION 	"$Revision: 4.23 $"
 #define CONFIG		DEFAULT_CONFIG_MAIN
 
 
@@ -1660,7 +1660,7 @@ int main(int argc, char **argv)
      * Process local options
      */
     if(I_flag)
-	str_expand_name(in_dir, sizeof(in_dir), I_flag);
+	BUF_EXPAND(in_dir, I_flag);
     else 
 	BUF_COPY3(in_dir, cf_p_spooldir(), "/", TOSS_IN);
     if(O_flag)

@@ -1,6 +1,6 @@
 # -*- Makefile -*-
 #
-# $Id: config.make,v 4.14 1998/01/18 12:30:20 mj Exp $
+# $Id: config.make,v 4.15 1998/01/18 15:33:01 mj Exp $
 #
 # FIDOGATE main configuration
 #
@@ -88,14 +88,16 @@ DEFAULT_ROUTING		= %C/routing
 DEFAULT_HISTORY		= %V/history
 DEFAULT_LOGFILE		= %G/log
 
-#
-# In addition, the perl interpreter used by subst.pl
-#
-# perl
-PERL		= /usr/bin/perl
+# The perl interpreter used by subst.pl
+PERL			= /usr/bin/perl
+
+# Directories for installing documentation, not used by subst.pl
+INFODIR			= /usr/info
+HTMLDIR			= /home/mj/public_html/fidogate
 
 ##############################################################################
 ##############################################################################
+
 
 # The old names back again ... (to be out-phased)
 BINDIR		= $(DEFAULT_BINDIR)
@@ -112,10 +114,6 @@ NEWSLIBDIR	= $(DEFAULT_NEWSLIBDIR)
 NEWSSPOOLDIR	= $(DEFAULT_NEWSSPOOLDIR)
 IFMAILDIR       = $(DEFAULT_IFMAILDIR)
 
-
-# Directories for installing documentation
-INFODIR		= /usr/local/info
-HTMLDIR		= /home/mj/public_html/fidogate
 
 # OS2: comment out
 SHELL		= /bin/sh

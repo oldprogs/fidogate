@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway software UNIX <-> FIDO
  *
- * $Id: config.h,v 4.28 1998/01/18 09:47:24 mj Exp $
+ * $Id: config.h,v 4.29 1998/01/18 15:33:01 mj Exp $
  *
  * Configuration header file
  *
@@ -329,11 +329,6 @@
  *                                                                          *
  ****************************************************************************/
 
-/* Config files */
-#define CONFIG_GATE	DEFAULT_CONFIG_GATE
-#define CONFIG_MAIN	DEFAULT_CONFIG_MAIN
-#define CONFIG_FFX	DEFAULT_CONFIG_FFX
-
 /* Values retrieved from config */
 #define ALIASES		cf_p_aliases()
 #define AREAS		cf_p_areas()
@@ -343,31 +338,27 @@
 #define ROUTING		cf_p_routing()
 
 /* Sequencer files */
-#define SEQ_MAIL	"seq.mail"	/* ftn2rfc: temp mail files */
-#define SEQ_NEWS	"seq.news"	/* ftn2rfc: temp news files */
-#define SEQ_MSGID	"seq.msgid"	/* local ^AMSGID */
-#define SEQ_PKT		"seq.pkt"	/* rfc2ftn: outgoing packets */
-#define SEQ_SPLIT	"seq.split"	/* rfc2ftn: msg # of split msgs */
-#define SEQ_FF		"seq.ff"	/* ffx: control/data files */
-#define SEQ_TOSS	"seq.toss"	/* ftntoss/ftnroute: output packets */
-#define SEQ_PACK	"seq.pack"	/* ftnpack: archived .pkts */
-#define SEQ_MQ		"seq.mq"	/* queuemail: messages */
-#define SEQ_TICK	"seq.tick"	/* ftnhatch/ftntick: .tic file ids */
+#define SEQ_MAIL	"%V/seq/mail"	/* ftn2rfc: temp mail files */
+#define SEQ_NEWS	"%V/seq/news"	/* ftn2rfc: temp news files */
+#define SEQ_MSGID	"%V/seq/msgid"	/* local ^AMSGID */
+#define SEQ_PKT		"%V/seq/pkt"	/* rfc2ftn: outgoing packets */
+#define SEQ_SPLIT	"%V/seq/split"	/* rfc2ftn: msg # of split msgs */
+#define SEQ_FF		"%V/seq/ff"	/* ffx: control/data files */
+#define SEQ_TOSS	"%V/seq/toss"	/* ftntoss/ftnroute: output packets */
+#define SEQ_PACK	"%V/seq/pack"	/* ftnpack: archived .pkts */
+#define SEQ_TICK	"%V/seq/tick"	/* ftnhatch/ftntick: .tic file ids */
 
-/* Lock files */
-#define LOCK_HISTORY	"historydb"	/* Access to MSGID history database */
+/* Program lock files */
+#define LOCK_HISTORY	"history"	/* Access to MSGID history database */
 
-/*
- * Directories in SPOOLDIR
- */
-#define INDIR		"in"		/* ftn2rfc: input .pkt's */
-#define INSECUREDIR	"insecure"	/* ftn2rfc: insecure input */
-#define INDIR_MAIL	"tmpmail"	/* ftn2rfc: mail output, rel. INDIR */
-#define INDIR_NEWS	"tmpnews"	/* ftn2rfc: news output, rel. INDIR */
-#define OUTDIR		"out"		/* rfc2ftn: output .pkt's */
 
-#define SEQ		"seq"		/* Dir for sequencer files */
-#define LOCKS		"locks"		/* Dir for lock files */
+/* Directories in SPOOLDIR */
+#define OUTRFC_MAIL	"%S/outrfc/mail"	/* ftn2rfc: RFC mail output */
+#define OUTRFC_NEWS	"%S/outrfc/news"	/* ftn2rfc: RFC news output */
+#define OUTPKT_MAIL	"%S/outpkt/mail"	/* rfc2ftn: PKT mail output */
+#define OUTPKT_NEWS	"%S/outpkt/news"	/* rfc2ftn: PKT news output */
+
+
 #define TOSS_IN		"toss/in"	/* ftntoss in */
 #define TOSS_TMP	"toss/tmp"	/* ftntoss out, ftnroute in */
 #define TOSS_OUT	"toss/out"	/* ftnroute out, ftnpack in */

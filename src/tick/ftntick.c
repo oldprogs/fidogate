@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftntick.c,v 4.13 1998/01/18 09:48:08 mj Exp $
+ * $Id: ftntick.c,v 4.14 1998/01/18 15:33:14 mj Exp $
  *
  * Process incoming TIC files
  *
@@ -37,7 +37,7 @@
 
 
 #define PROGRAM		"ftntick"
-#define VERSION		"$Revision: 4.13 $"
+#define VERSION		"$Revision: 4.14 $"
 #define CONFIG		DEFAULT_CONFIG_MAIN
 
 
@@ -86,9 +86,9 @@ int do_tic(int t_flag)
     BUF_COPY(pattern, "*.tic");
 
     dir_sortmode(DIR_SORTMTIME);
-    if(dir_open(cf_p_inbound(), pattern, TRUE) == ERROR)
+    if(dir_open(cf_p_pinbound(), pattern, TRUE) == ERROR)
     {
-	log("$ERROR: can't open directory %s", cf_p_inbound());
+	log("$ERROR: can't open directory %s", cf_p_pinbound());
 	return ERROR;
     }
     
@@ -272,7 +272,7 @@ int process_tic(Tick *tic)
     /*
      * Move file from inbound to file area, add description to FILES.BBS
      */
-    BUF_COPY3(old_name, cf_p_inbound(), "/", tic->file);
+    BUF_COPY3(old_name, cf_p_pinbound(), "/", tic->file);
     BUF_COPY3(new_name, bbs->dir    , "/", tic->file);
     debug(1, "%s -> %s", old_name, new_name);
     if(move(tic, old_name, new_name) == ERROR)
@@ -483,14 +483,14 @@ int check_file(Tick *tic)
     }
 
     /* Search file */
-    if(dir_search(cf_p_inbound(), tic->file) == NULL)
+    if(dir_search(cf_p_pinbound(), tic->file) == NULL)
     {
 	log("ERROR: can't find file %s", tic->file);
 	return ERROR;
     }
 
     /* Full path name */
-    BUF_COPY3(name, cf_p_inbound(), "/", tic->file);
+    BUF_COPY3(name, cf_p_pinbound(), "/", tic->file);
     if(stat(name, &st) == ERROR)
     {
 	log("$ERROR: can't stat() file %s", name);
@@ -559,14 +559,12 @@ void usage(void)
     fprintf(stderr, "usage:   %s [-options]\n\n", PROGRAM);
     fprintf(stderr, "\
 options:  -b --fareas-bbs NAME         use alternate FAREAS.BBS\n\
-          -I --inbound dir             set inbound directory\n\
+          -I --inbound dir             set inbound dir (default: PINBOUND)\n\
           -t --insecure                process TIC files without password\n\
 \n\
           -v --verbose                 more verbose\n\
 	  -h --help                    this help\n\
           -c --config name             read config file (\"\" = none)\n\
-	  -L --lib-dir name            set lib directory\n\
-	  -S --spool-dir name          set spool directory\n\
 	  -a --addr Z:N/F.P            set FTN address\n\
 	  -u --uplink-addr Z:N/F.P     set FTN uplink address\n");
 
@@ -585,7 +583,6 @@ int main(int argc, char **argv)
     char *I_flag=NULL;
     int   t_flag=FALSE;
     char *c_flag=NULL;
-    char *S_flag=NULL, *L_flag=NULL;
     char *a_flag=NULL, *u_flag=NULL;
     
     int option_index;
@@ -593,13 +590,11 @@ int main(int argc, char **argv)
     {
         { "fareas-bbs",	  1, 0, 'b'},
 	{ "insecure",     0, 0, 't'},	/* Insecure */
-	{ "inbound",      1, 0, 'I'},	/* Set Binkley inbound */
+	{ "inbound",      1, 0, 'I'},	/* Set tick inbound */
 
 	{ "verbose",      0, 0, 'v'},	/* More verbose */
 	{ "help",         0, 0, 'h'},	/* Help */
 	{ "config",       1, 0, 'c'},	/* Config file */
-	{ "spool-dir",    1, 0, 'S'},	/* Set FIDOGATE spool directory */
-	{ "lib-dir",      1, 0, 'L'},	/* Set FIDOGATE lib directory */
 	{ "addr",         1, 0, 'a'},	/* Set FIDO address */
 	{ "uplink-addr",  1, 0, 'u'},	/* Set FIDO uplink address */
 	{ 0,              0, 0, 0  }
@@ -611,7 +606,7 @@ int main(int argc, char **argv)
     cf_initialize();
 
 
-    while ((c = getopt_long(argc, argv, "b:tI:vhc:S:L:a:u:",
+    while ((c = getopt_long(argc, argv, "b:tI:vhc:a:u:",
 			    long_options, &option_index     )) != EOF)
 	switch (c) {
 	/***** ftntick options *****/
@@ -635,12 +630,6 @@ int main(int argc, char **argv)
 	case 'c':
 	    c_flag = optarg;
 	    break;
-	case 'S':
-	    S_flag = optarg;
-	    break;
-	case 'L':
-	    L_flag = optarg;
-	    break;
 	case 'a':
 	    a_flag = optarg;
 	    break;
@@ -655,17 +644,11 @@ int main(int argc, char **argv)
     /*
      * Read config file
      */
-    if(L_flag)				/* Must set libdir beforehand */
-	cf_s_libdir(L_flag);
     cf_read_config_file(c_flag ? c_flag : CONFIG);
 
     /*
      * Process config options
      */
-    if(L_flag)
-	cf_s_libdir(L_flag);
-    if(S_flag)
-	cf_s_spooldir(S_flag);
     if(a_flag)
 	cf_set_addr(a_flag);
     if(u_flag)
@@ -674,7 +657,7 @@ int main(int argc, char **argv)
     cf_debug();
 
     if(I_flag)
-	cf_s_inbound(I_flag);
+	cf_s_pinbound(I_flag);
 
     /*
      * Process optional config statements

@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: mail.c,v 4.4 1998/01/18 09:47:50 mj Exp $
+ * $Id: mail.c,v 4.5 1998/01/18 15:33:08 mj Exp $
  *
  * Create RFC messages in mail/news dir
  *
@@ -60,7 +60,7 @@ int mail_open(int sel)
     case 'M':
 	n = sequencer(SEQ_MAIL);
 	sprintf(m_tmp,  "%s/%08ld.tmp", mail_dir, n);
-	sprintf(m_name, "%s/%08ld.msg", mail_dir, n);
+	sprintf(m_name, "%s/%08ld.rfc", mail_dir, n);
 	m_file = fopen(m_tmp, W_MODE);
 	if(!m_file) {
 	    log("$Can't create mail file %s", m_tmp);
@@ -72,7 +72,7 @@ int mail_open(int sel)
     case 'N':
 	n = sequencer(SEQ_NEWS);
 	sprintf(n_tmp,  "%s/%08ld.tmp", news_dir, n);
-	sprintf(n_name, "%s/%08ld.msg", news_dir, n);
+	sprintf(n_name, "%s/%08ld.rfc", news_dir, n);
 	n_file = fopen(n_tmp, W_MODE);
 	if(!n_file) {
 	    log("$Can't create mail file %s", n_tmp);

@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: fopen.c,v 4.4 1998/01/18 10:58:07 mj Exp $
+ * $Id: fopen.c,v 4.5 1998/01/18 15:33:07 mj Exp $
  *
  * Specialized fopen()-like functions
  *
@@ -45,7 +45,7 @@ FILE *fopen_expand_name(char *name, char *mode, int err_abort)
     if(!name)
 	return NULL;
     
-    str_expand_name(xname, sizeof(xname), name);
+    BUF_EXPAND(xname, name);
     
     fp = fopen(xname, mode);
     if(fp == NULL)

@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway software UNIX <-> FIDO
  *
- * $Id: rfc2ftn.c,v 4.33 1998/01/18 09:48:00 mj Exp $
+ * $Id: rfc2ftn.c,v 4.34 1998/01/18 15:33:11 mj Exp $
  *
  * Read mail or news from standard input and convert it to a FIDO packet.
  *
@@ -39,7 +39,7 @@
 
 
 #define PROGRAM 	"rfc2ftn"
-#define VERSION 	"$Revision: 4.33 $"
+#define VERSION 	"$Revision: 4.34 $"
 #define CONFIG		DEFAULT_CONFIG_GATE
 
 
@@ -1622,8 +1622,6 @@ options: -b --news-batch              process news batch\n\
 	 -v --verbose                 more verbose\n\
 	 -h --help                    this help\n\
          -c --config name             read config file (\"\" = none)\n\
-	 -L --lib-dir name            set lib directory\n\
-	 -S --spool-dir name          set spool directory\n\
 	 -a --addr Z:N/F.P            set FTN address\n\
 	 -u --uplink-addr Z:N/F.P     set FTN uplink address\n");
     
@@ -1644,7 +1642,6 @@ int main(int argc, char **argv)
     char *B_flag=NULL;
     char *O_flag=NULL;
     char *c_flag=NULL;
-    char *S_flag=NULL, *L_flag=NULL;
     char *a_flag=NULL, *u_flag=NULL;
     int option_index;
     static struct option long_options[] =
@@ -1662,8 +1659,6 @@ int main(int argc, char **argv)
 	{ "verbose",      0, 0, 'v'},	/* More verbose */
 	{ "help",         0, 0, 'h'},	/* Help */
 	{ "config",       1, 0, 'c'},	/* Config file */
-	{ "spool-dir",    1, 0, 'S'},	/* Set FIDOGATE spool directory */
-	{ "lib-dir",      1, 0, 'L'},	/* Set FIDOGATE lib directory */
 	{ "addr",         1, 0, 'a'},	/* Set FIDO address */
 	{ "uplink-addr",  1, 0, 'u'},	/* Set FIDO uplink address */
 	{ 0,              0, 0, 0  }
@@ -1678,7 +1673,7 @@ int main(int argc, char **argv)
 
     
 
-    while ((c = getopt_long(argc, argv, "bB:o:niO:w:Wtvhc:L:S:a:u:",
+    while ((c = getopt_long(argc, argv, "bB:o:niO:w:Wtvhc:a:u:",
 			    long_options, &option_index     )) != EOF)
 	switch (c) {
 	/***** rfc2ftn options *****/
@@ -1729,12 +1724,6 @@ int main(int argc, char **argv)
 	case 'c':
 	    c_flag = optarg;
 	    break;
-	case 'S':
-	    S_flag = optarg;
-	    break;
-	case 'L':
-	    L_flag = optarg;
-	    break;
 	case 'a':
 	    a_flag = optarg;
 	    break;
@@ -1751,8 +1740,6 @@ int main(int argc, char **argv)
     /*
      * Read config file
      */
-    if(L_flag)				/* Must set libdir beforehand */
-	cf_s_libdir(L_flag);
     cf_read_config_file(c_flag ? c_flag : CONFIG);
     cf_check_gate();
     
@@ -1761,10 +1748,6 @@ int main(int argc, char **argv)
      */
     if(B_flag)
 	cf_s_btbasedir(B_flag);
-    if(L_flag)
-	cf_s_libdir(L_flag);
-    if(S_flag)
-	cf_s_spooldir(S_flag);
     if(a_flag)
 	cf_set_addr(a_flag);
     if(u_flag)
@@ -1889,10 +1872,12 @@ int main(int argc, char **argv)
     /*
      * Process local options
      */
+    if(newsmode)
+	pkt_outdir(OUTPKT_NEWS, NULL);
+    else
+	pkt_outdir(OUTPKT_MAIL, NULL);
     if(O_flag)
 	pkt_outdir(O_flag, NULL);
-    else
-	pkt_outdir(cf_p_spooldir(), OUTDIR);
 
     /*
      * Init various modules

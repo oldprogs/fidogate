@@ -2,9 +2,11 @@
 
 	************** TODO list for FIDOGATE development **************
 
+	* dir.c, ftntick: allow %X as directory name.
+
 DONE	* bounce.c: read from CONFIGDIR.
 
-	* ftntick/ffxqt: default inbound cf_p_pinbound().
+DONE	* ftntick/ffxqt: default inbound cf_p_pinbound().
 
 DONE	* config.c:
 DONE	  - replace cf_set_* with cf_s_*
@@ -63,8 +65,9 @@ DONE	* config: different lib and sbin directory?
 4.3.x	* ftn2rfc: ^ARFC-<mime> import.
 
 4.3.x	* ftn2rfc/rfc2ftn: MAIL-log messages configurable.
+	* ftn2rfc/rfc2ftn: mail log + size / message date
 
-4.3.x	* config: move config files to /etc/fidogate, %C for config dir.
+DONE	* config: move config files to /etc/fidogate, %C for config dir.
 
 	* ftnaf: option to sort areas.bbs, including zone/keys.
 
@@ -96,8 +99,6 @@ STARTED	* areas.bbs: read-only/vacation flag for downlinks,
 
 	* rfc2ftn: save large mails to file, fattach on hold for
 	  recipient?
-
-	* ftn2rfc/rfc2ftn: mail log + size / message date
 
 	* rfc2ftn: configuration option for mail RFC level *per*
 	  *host*, e.g. option in HOSTS.

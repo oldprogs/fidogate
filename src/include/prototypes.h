@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: prototypes.h,v 4.33 1998/01/18 09:48:06 mj Exp $
+ * $Id: prototypes.h,v 4.34 1998/01/18 15:33:14 mj Exp $
  *
  * Prototypes for functions in libfidogate.a
  *
@@ -439,7 +439,7 @@ PktDesc*parse_pkt_name		(char *, Node *, Node *);
 
 /* sequencer.c */
 long	sequencer		(char *);
-long	sequencer_nx		(char *);
+long	sequencer_nx		(char *, int);
 
 /* textlist.c */
 int	tl_fput			(FILE *, Textlist *);

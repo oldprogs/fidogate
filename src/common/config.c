@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: config.c,v 4.13 1998/01/18 10:58:06 mj Exp $
+ * $Id: config.c,v 4.14 1998/01/18 15:33:07 mj Exp $
  *
  * Configuration data and functions
  *
@@ -159,8 +159,6 @@ void cf_debug(void)
 {
     int i;
 
-    debug(8, "config: libdir=%s  spooldir=%s  logdir=%s",
-	  cf_p_libdir(), cf_p_spooldir(), cf_p_logdir() );
     debug(8, "config: fqdn=%s", scf_fqdn);
     
     for(i=0; i<scf_naddr; i++)

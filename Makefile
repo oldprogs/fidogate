@@ -1,5 +1,5 @@
 #
-# $Id: Makefile,v 4.10 1998/01/18 09:47:22 mj Exp $
+# $Id: Makefile,v 4.11 1998/01/18 15:33:01 mj Exp $
 #
 # Makefile FIDOGATE TOPDIR
 #
@@ -11,18 +11,30 @@ include $(TOPDIR)/rules.make
 
 SUBDIRS		= src scripts test doc sendmail
 
-INSTALLDIRS	= $(LIBDIR) \
-		  $(SPOOLDIR) $(SPOOLDIR)/in \
-		  $(SPOOLDIR)/in/tmpmail $(SPOOLDIR)/in/tmpnews \
-		  $(SPOOLDIR)/in/bad $(SPOOLDIR)/insecure \
-		  $(SPOOLDIR)/out \
-		  $(SPOOLDIR)/outpkt $(SPOOLDIR)/outpkt/mail \
-		  $(SPOOLDIR)/locks $(SPOOLDIR)/seq \
-		  $(SPOOLDIR)/toss $(SPOOLDIR)/toss/in \
-		  $(SPOOLDIR)/toss/bad $(SPOOLDIR)/toss/tmp \
-		  $(SPOOLDIR)/toss/out $(SPOOLDIR)/toss/pack $(LOGDIR) \
-		  $(OUTBOUND) $(INBOUND) $(PINBOUND) $(UUINBOUND) \
-		  $(BINDIR) $(INFODIR)
+INSTALLDIRS	= $(DEFAULT_CONFIGDIR) \
+		  $(DEFAULT_LIBDIR) \
+		  $(DEFAULT_BINDIR) \
+		  $(DEFAULT_LOGDIR) \
+		  $(DEFAULT_VARDIR) \
+		  $(DEFAULT_VARDIR)/seq \
+		  $(DEFAULT_LOCKDIR) \
+		  $(DEFAULT_SPOOLDIR) \
+		  $(DEFAULT_SPOOLDIR)/outrfc \
+		  $(DEFAULT_SPOOLDIR)/outrfc/mail \
+		  $(DEFAULT_SPOOLDIR)/outrfc/news \
+		  $(DEFAULT_SPOOLDIR)/outpkt \
+		  $(DEFAULT_SPOOLDIR)/outpkt/mail \
+		  $(DEFAULT_SPOOLDIR)/outpkt/news \
+		  $(DEFAULT_SPOOLDIR)/toss \
+		  $(DEFAULT_SPOOLDIR)/toss/toss \
+		  $(DEFAULT_SPOOLDIR)/toss/route \
+		  $(DEFAULT_SPOOLDIR)/toss/pack \
+		  $(DEFAULT_SPOOLDIR)/toss/bad \
+		  $(DEFAULT_BTBASEDIR) \
+		  $(DEFAULT_INBOUND) \
+		  $(DEFAULT_PINBOUND) \
+		  $(DEFAULT_UUINBOUND) \
+		  $(DEFAULT_FTPINBOUND)
 
 
 

@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftnin.c,v 4.5 1998/01/18 09:47:59 mj Exp $
+ * $Id: ftnin.c,v 4.6 1998/01/18 15:33:11 mj Exp $
  *
  * Search for mail packets destined to gateway's FTN addresses and feed
  * them to ftn2rfc.
@@ -39,7 +39,7 @@
 
 
 #define PROGRAM		"ftnin"
-#define VERSION		"$Revision: 4.5 $"
+#define VERSION		"$Revision: 4.6 $"
 #define CONFIG		DEFAULT_CONFIG_GATE
 
 
@@ -124,9 +124,9 @@ int do_packets(void)
     {
 	int ret;
 
-	debug(1, "Command: %s", script);
+	debug(2, "Command: %s", script);
 	ret = run_system(script);
-	debug(1, "Exit code=%d", ret);
+	debug(2, "Exit code=%d", ret);
 	if(ret)
 	{
 	    log("ERROR: can't exec command %s", script);
@@ -146,16 +146,16 @@ int exec_ftn2rfc(char *name)
 {
     int ret;
     
-    debug(1, "Packet: %s", name);
+    debug(2, "Packet: %s", name);
     
     strncpy0(buffer, cmd , BUFFERSIZE);
     strncat0(buffer, args, BUFFERSIZE);
     strncat0(buffer, " " , BUFFERSIZE);
     strncat0(buffer, name, BUFFERSIZE);
-    debug(1, "Command: %s", buffer);
+    debug(2, "Command: %s", buffer);
 
     ret = run_system(buffer);
-    debug(1, "Exit code=%d", ret);
+    debug(2, "Exit code=%d", ret);
     if(ret)
     {
 	log("ERROR: can't exec command %s", buffer);
@@ -191,8 +191,6 @@ options:  -n --no-toss                 don't call ftn2rfc for tossing\n\
           -v --verbose                 more verbose\n\
 	  -h --help                    this help\n\
           -c --config name             read config file (\"\" = none)\n\
-	  -L --lib-dir name            set lib directory\n\
-	  -S --spool-dir name          set spool directory\n\
 	  -a --addr Z:N/F.P            set FTN address\n\
 	  -u --uplink-addr Z:N/F.P     set FTN uplink address\n");
 
@@ -207,7 +205,6 @@ int main(int argc, char **argv)
 {
     int c;
     char *c_flag=NULL;
-    char *S_flag=NULL, *L_flag=NULL;
     char *a_flag=NULL, *u_flag=NULL;
     char *exec=NULL;
     
@@ -220,8 +217,6 @@ int main(int argc, char **argv)
 	{ "verbose",      0, 0, 'v'},	/* More verbose */
 	{ "help",         0, 0, 'h'},	/* Help */
 	{ "config",       1, 0, 'c'},	/* Config file */
-	{ "spool-dir",    1, 0, 'S'},	/* Set FIDOGATE spool directory */
-	{ "lib-dir",      1, 0, 'L'},	/* Set FIDOGATE lib directory */
 	{ "addr",         1, 0, 'a'},	/* Set FIDO address */
 	{ "uplink-addr",  1, 0, 'u'},	/* Set FIDO uplink address */
 	{ 0,              0, 0, 0  }
@@ -234,7 +229,7 @@ int main(int argc, char **argv)
     cf_initialize();
 
 
-    while ((c = getopt_long(argc, argv, "nx:vhc:S:L:a:u:",
+    while ((c = getopt_long(argc, argv, "nx:vhc:a:u:",
 			    long_options, &option_index     )) != EOF)
 	switch (c) {
 	/***** Local options *****/
@@ -259,16 +254,6 @@ int main(int argc, char **argv)
 	    args_add(optarg);
 	    c_flag = optarg;
 	    break;
-	case 'S':
-	    args_add(" -S ");
-	    args_add(optarg);
-	    S_flag = optarg;
-	    break;
-	case 'L':
-	    args_add(" -L ");
-	    args_add(optarg);
-	    L_flag = optarg;
-	    break;
 	case 'a':
 	    args_add(" -a ");
 	    args_add(optarg);
@@ -287,17 +272,11 @@ int main(int argc, char **argv)
     /*
      * Read config file
      */
-    if(L_flag)				/* Must set libdir beforehand */
-	cf_s_libdir(L_flag);
     cf_read_config_file(c_flag ? c_flag : CONFIG);
 
     /*
      * Process config options
      */
-    if(L_flag)
-	cf_s_libdir(L_flag);
-    if(S_flag)
-	cf_s_spooldir(S_flag);
     if(a_flag)
 	cf_set_addr(a_flag);
     if(u_flag)
@@ -307,7 +286,7 @@ int main(int argc, char **argv)
 
     BUF_COPY3(cmd, cf_p_libdir(), "/", FTN2RFC);
     if(exec)
-	str_expand_name(script, sizeof(script), exec);
+	BUF_EXPAND(script, exec);
     
     /* Create busy files, if o.k., process packets */
     if(bink_bsy_create_all(NOWAIT) == OK)
