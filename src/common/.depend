@@ -66,6 +66,11 @@ dir.o: dir.c ../../src/include/fidogate.h \
  ../../src/include/node.h ../../src/include/packet.h \
  ../../src/include/structs.h ../../src/include/prototypes.h
 exit.o: exit.c
+flo.o: flo.c ../../src/include/fidogate.h \
+ ../../src/include/../../config.h ../../src/include/paths.h \
+ ../../src/include/sysexits.h ../../src/include/declare.h \
+ ../../src/include/node.h ../../src/include/packet.h \
+ ../../src/include/structs.h ../../src/include/prototypes.h
 fopen.o: fopen.c ../../src/include/fidogate.h \
  ../../src/include/../../config.h ../../src/include/paths.h \
  ../../src/include/sysexits.h ../../src/include/declare.h \

@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftnflo.c,v 4.1 1996/06/10 19:36:10 mj Exp $
+ * $Id: ftnflo.c,v 4.2 1996/06/17 19:10:38 mj Exp $
  *
  * Run script for every entry in FLO file for node
  *
@@ -38,7 +38,7 @@
 
 
 #define PROGRAM		"ftnflo"
-#define VERSION		"$Revision: 4.1 $"
+#define VERSION		"$Revision: 4.2 $"
 #define CONFIG		CONFIG_MAIN
 
 
@@ -62,6 +62,81 @@ int x_flag = FALSE;
  */
 int do_flo(Node *node)
 {
+    int mode, ret, del_ok;
+    char *line;
+    char buf[MAXPATH];
+
+    del_ok = TRUE;
+    
+    /* Open FLO file */
+    if(flo_open(node, TRUE) == ERROR)
+    {
+	log("nothing on hold for %s", znfp(node));
+	return OK;
+    }
+
+    /* Read FLO entries */
+    while( (line = flo_gets(buffer, sizeof(buffer))) )
+    {
+	if(*line == '~')
+	    continue;
+	mode = ' ';
+	if(*line == '^' || *line == '#')
+	    mode = *line++;
+	if(cf_dos())
+	    line = cf_unix_xlate(line);
+
+	debug(2, "FLO entry: %c %s", mode, line);
+
+	if(l_flag)
+	{
+	    printf("%10ld    %c %s\n", check_size(line), mode, line);
+	}
+	if(x_flag)
+	{
+	    /* Command */
+	    sprintf(buf, script, line);
+	    debug(2, "Command: %s", buf);
+
+	    if(!n_flag)
+	    {
+		ret = (system(buf) >> 8) & 0xff;
+		debug(2, "Exit code=%d", ret);
+		if(ret)
+		{
+		    log("ERROR: running command %s", buf);
+		    flo_close(node, TRUE, FALSE);
+		    return ERROR;
+		}
+
+		/* According to mode ... */
+		switch(mode)
+		{
+		case '^':
+		    /* ... delete */
+		    debug(2, "Removing %s", line);
+		    if(unlink(line) == ERROR)
+			log("ERROR: can't remove %s", line);
+		    break;
+
+		case '#':
+		    /* ... truncate */
+		    debug(2, "Truncating %s", line);
+		    if(truncate(line, 0) == ERROR)
+			log("ERROR: can't truncate %s", line);
+		    break;
+		}
+
+		/* Mark as sent */
+		flo_mark();
+	    }
+	}
+	else
+	    del_ok = FALSE;
+    }
+
+    /* Close and delete if completed FLO file */
+    flo_close(node, TRUE, del_ok);
 
     return OK;
 }
@@ -142,13 +217,14 @@ int main(int argc, char **argv)
 	    B_flag = optarg;
 	    break;
 	case 'l':
-
+	    l_flag = TRUE;
 	    break;
 	case 'n':
-
+	    n_flag = TRUE;
 	    break;
 	case 'x':
-
+	    x_flag = TRUE;
+	    BUF_COPY(script, optarg);
 	    break;
 
 	/***** Common options *****/
@@ -172,6 +248,10 @@ int main(int argc, char **argv)
 	    break;
 	}
 
+    /* Default: -l */
+    if(!l_flag && !x_flag)
+	l_flag = TRUE;
+    
     /*
      * Read config file
      */

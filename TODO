@@ -1,8 +1,6 @@
 -*- Indented-Text -*-
 
-X = for release 4.0alpha3
-
-	* ftnflo: finish -x.
+X = for release 4.0alpha4
 
 	* ftnflo: pipe to program processing the entries (e.g. send
  	  with FTP)

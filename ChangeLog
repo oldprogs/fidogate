@@ -1,3 +1,18 @@
+Mon Jun 17 20:54:35 1996  Martin Junius  <mj@fido.de>
+
+	------- CVS tag r40alpha3 --------------------------------------------
+
+	------- CVS commit ---------------------------------------------------
+
+	* test/tc.flo/run: added utility ftnflo to test case.
+
+	* src/util/ftnflo.c (do_flo): new function processing FLO file. -l
+	  lists FLO entries, -x SCRIPT runs script for every FLO entry. %s
+	  in SCRIPT will be replaced with the FLO entry file name. After
+	  running script, the FLO entry file will be deleted or truncated,
+	  if specified in the FLO file. Remove FLO file, if all entries
+	  have been processed with -x.
+
 Sun Jun 16 10:40:45 1996  Martin Junius  <mj@fido.de>
 
 	------- CVS commit ---------------------------------------------------

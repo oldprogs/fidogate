@@ -2,6 +2,7 @@
 
 T1="../../src/util/ftnfattach -L../cf -c./tmp_config.dos -v"
 T2="../../src/common/testflo -L../cf -c./tmp_config.dos -vvvvv"
+T3="../../src/util/ftnflo -L../cf -c./tmp_config.dos"
 A="1:2/3.4"
 
 ../tr.init
@@ -9,13 +10,24 @@ cp config.dos tmp_config.dos
 echo "DosDrive X: "`pwd` >>tmp_config.dos
 cp config.dos tmp_file1.txt
 cp config.dos tmp_file2.xyz
+cp run        tmp_file3.abc
 
 echo "tc: running"
-$T1 $A `pwd`/run
 $T1 $A `pwd`/tmp_file1.txt
 $T1 $A `pwd`/tmp_file2.xyz
-$T1 $A \^`pwd`/run
+$T1 $A `pwd`/tmp_file3.abc
 $T1 $A \#`pwd`/tmp_file1.txt
 $T1 $A `pwd`/tmp_file2.xyz
+$T1 $A \^`pwd`/tmp_file3.abc
 
-$T2 1:2/3.4
+$T2 $A
+
+$T1 $A `pwd`/tmp_file1.txt
+$T1 $A `pwd`/tmp_file2.xyz
+$T1 $A `pwd`/tmp_file3.abc
+$T1 $A \#`pwd`/tmp_file1.txt
+$T1 $A `pwd`/tmp_file2.xyz
+$T1 $A \^`pwd`/tmp_file3.abc
+
+$T3 -l $A
+$T3 -vvvvv -x 'echo --- %s ---' $A
