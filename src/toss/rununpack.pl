@@ -1,6 +1,6 @@
 #!/usr/bin/perl
 #
-# $Id: rununpack.pl,v 4.8 1999/01/02 16:35:06 mj Exp $
+# $Id: rununpack.pl,v 4.9 1999/03/28 10:04:36 mj Exp $
 #
 # Unpack ArcMail archives
 #
@@ -9,7 +9,7 @@
 
 require 5.000;
 
-my $VERSION = '$Revision: 4.8 $ ';
+my $VERSION = '$Revision: 4.9 $ ';
 my $PROGRAM = "rununpack";
 
 use strict;
@@ -159,7 +159,7 @@ sub arc_type {
     return "LHA" if($b[2]==ord('-') && $b[3]==ord('l') && $b[4]==ord('h'));
     return "ZOO" if($b[0]==ord('Z') && $b[1]==ord('O') && $b[2]==ord('O'));
     return "ARJ" if($b[0]==0x60 && $b[1]==0xea);
-    return "ZOO" if($b[0]==ord('R') && $b[1]==ord('a') && $b[2]==ord('r'));
+    return "RAR" if($b[0]==ord('R') && $b[1]==ord('a') && $b[2]==ord('r'));
 
     return "UNKNOWN";
 }

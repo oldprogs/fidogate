@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftn2rfc.c,v 4.48 1999/03/20 14:30:56 mj Exp $
+ * $Id: ftn2rfc.c,v 4.49 1999/03/28 10:04:33 mj Exp $
  *
  * Convert FTN mail packets to RFC mail and news batches
  *
@@ -40,7 +40,7 @@
 
 
 #define PROGRAM 	"ftn2rfc"
-#define VERSION 	"$Revision: 4.48 $"
+#define VERSION 	"$Revision: 4.49 $"
 #define CONFIG		DEFAULT_CONFIG_GATE
 
 
@@ -971,8 +971,8 @@ int unpack(FILE *pkt_file, Packet *pkt)
 	    log("MAIL: %s -> %s", from_line, to_line);
 	    
 	    tl_appendf(&theader,
-			     "From %s %s\n", s_rfcaddr_to_asc(&addr_from, FALSE),
-			     date("%a %b %d %H:%M:%S %Y", NULL) );
+		       "From %s %s\n", s_rfcaddr_to_asc(&addr_from, FALSE),
+		       date(DATE_FROM, NULL) );
 	    tl_appendf(&theader,
 		"Received: by %s (FIDOGATE %s)\n",
 		thisdomain, version_global()                            );

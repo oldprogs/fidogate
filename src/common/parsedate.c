@@ -1,5 +1,6 @@
 
-/*  A Bison parser, made from parsedate.y with Bison version GNU Bison version 1.24
+/*  A Bison parser, made from parsedate.y
+ by  GNU Bison version 1.25
   */
 
 #define YYBISON 1  /* Identify Bison output.  */
@@ -21,7 +22,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: parsedate.c,v 4.1 1996/04/18 09:58:37 mj Exp $
+ * $Id: parsedate.c,v 4.2 1999/03/28 10:04:32 mj Exp $
  *
  * parsedate() date/time parser. Taken from ifmail 1.7 / inn 1.4 and
  * adopted for FIDOGATE. Added DST from old getdate.y.
@@ -144,23 +145,6 @@ typedef union {
     time_t		Number;
     enum _MERIDIAN	Meridian;
 } YYSTYPE;
-
-#ifndef YYLTYPE
-typedef
-  struct yyltype
-    {
-      int timestamp;
-      int first_line;
-      int first_column;
-      int last_line;
-      int last_column;
-      char *text;
-   }
-  yyltype;
-
-#define YYLTYPE yyltype
-#endif
-
 #include <stdio.h>
 
 #ifndef __cplusplus
@@ -238,11 +222,15 @@ static const short yyrline[] = { 0,
    272,   277,   281,   286,   291,   298,   301,   304,   307,   312,
    315
 };
+#endif
+
+
+#if YYDEBUG != 0 || defined (YYERROR_VERBOSE)
 
 static const char * const yytname[] = {   "$","error","$undefined.","tDAY","tDAYZONE",
 "tMERIDIAN","tMONTH","tMONTH_UNIT","tSEC_UNIT","tSNUMBER","tUNUMBER","tZONE",
 "tDST","':'","'/'","','","spec","item","time","zone","numzone","date","rel",
-"o_merid",""
+"o_merid", NULL
 };
 #endif
 
@@ -459,16 +447,16 @@ int yyparse (void);
 #endif
 
 #if __GNUC__ > 1		/* GNU C and GNU C++ define this.  */
-#define __yy_memcpy(FROM,TO,COUNT)	__builtin_memcpy(TO,FROM,COUNT)
+#define __yy_memcpy(TO,FROM,COUNT)	__builtin_memcpy(TO,FROM,COUNT)
 #else				/* not GNU C or C++ */
 #ifndef __cplusplus
 
 /* This is the most reliable way to avoid incompatibilities
    in available built-in functions on various systems.  */
 static void
-__yy_memcpy (from, to, count)
-     char *from;
+__yy_memcpy (to, from, count)
      char *to;
+     char *from;
      int count;
 {
   register char *f = from;
@@ -484,7 +472,7 @@ __yy_memcpy (from, to, count)
 /* This is the most reliable way to avoid incompatibilities
    in available built-in functions on various systems.  */
 static void
-__yy_memcpy (char *from, char *to, int count)
+__yy_memcpy (char *to, char *from, int count)
 {
   register char *f = from;
   register char *t = to;
@@ -497,7 +485,7 @@ __yy_memcpy (char *from, char *to, int count)
 #endif
 #endif
 
-#line 192 "/usr/lib/bison.simple"
+#line 196 "/usr/lib/bison.simple"
 
 /* The user can define YYPARSE_PARAM as the name of an argument to be passed
    into yyparse.  The argument should have type void *.
@@ -506,14 +494,20 @@ __yy_memcpy (char *from, char *to, int count)
    to the proper pointer type.  */
 
 #ifdef YYPARSE_PARAM
-#define YYPARSE_PARAM_DECL void *YYPARSE_PARAM;
-#else
-#define YYPARSE_PARAM
+#ifdef __cplusplus
+#define YYPARSE_PARAM_ARG void *YYPARSE_PARAM
 #define YYPARSE_PARAM_DECL
-#endif
+#else /* not __cplusplus */
+#define YYPARSE_PARAM_ARG YYPARSE_PARAM
+#define YYPARSE_PARAM_DECL void *YYPARSE_PARAM;
+#endif /* not __cplusplus */
+#else /* not YYPARSE_PARAM */
+#define YYPARSE_PARAM_ARG
+#define YYPARSE_PARAM_DECL
+#endif /* not YYPARSE_PARAM */
 
 int
-yyparse(YYPARSE_PARAM)
+yyparse(YYPARSE_PARAM_ARG)
      YYPARSE_PARAM_DECL
 {
   register int yystate;
@@ -630,12 +624,12 @@ yynewstate:
       if (yystacksize > YYMAXDEPTH)
 	yystacksize = YYMAXDEPTH;
       yyss = (short *) alloca (yystacksize * sizeof (*yyssp));
-      __yy_memcpy ((char *)yyss1, (char *)yyss, size * sizeof (*yyssp));
+      __yy_memcpy ((char *)yyss, (char *)yyss1, size * sizeof (*yyssp));
       yyvs = (YYSTYPE *) alloca (yystacksize * sizeof (*yyvsp));
-      __yy_memcpy ((char *)yyvs1, (char *)yyvs, size * sizeof (*yyvsp));
+      __yy_memcpy ((char *)yyvs, (char *)yyvs1, size * sizeof (*yyvsp));
 #ifdef YYLSP_NEEDED
       yyls = (YYLTYPE *) alloca (yystacksize * sizeof (*yylsp));
-      __yy_memcpy ((char *)yyls1, (char *)yyls, size * sizeof (*yylsp));
+      __yy_memcpy ((char *)yyls, (char *)yyls1, size * sizeof (*yylsp));
 #endif
 #endif /* no yyoverflow */
 
@@ -1047,7 +1041,7 @@ case 31:
     break;}
 }
    /* the action file gets copied in in place of this dollarsign */
-#line 487 "/usr/lib/bison.simple"
+#line 498 "/usr/lib/bison.simple"
 
   yyvsp -= yylen;
   yyssp -= yylen;
@@ -1733,6 +1727,46 @@ parsedate(char *p, TIMEINFO *now)
 }
 
 
+
+/***** TEST main ************************************************************/
+#ifdef TEST
+
+/*
+ * Parser test
+ */
+int main(int argc, char *argv[])
+{
+    time_t t;
+
+    if(argc != 2)
+    {
+	fprintf(stderr, "usage: testdate DATE-STRING\n");
+	exit(1);
+    }
+
+    t = parsedate(argv[1], NULL);
+
+    printf("parsedate(%s) = %ld\n", argv[1], t);
+    if(t != ERROR)
+    {
+	printf("date() = %s\n",
+	       date("%Y-%m-%d %X", &t));
+    
+	printf("         %s\n",
+	       date("%a %b %d %H %j %m %M %S %w %x %X %y %Y %Z %O", &t) );
+    }
+    
+    exit(0);
+
+    /**NOT REACHED**/
+    return 0;
+}
+
+#endif /**TEST**/
+
+
+/* Old test */
+#if 0
 #if	defined(TEST)
 
 #if	YYDEBUG
@@ -1774,3 +1808,5 @@ main(int ac, char *av[])
     /* NOTREACHED */
 }
 #endif	/* defined(TEST) */
+
+#endif /**0**/

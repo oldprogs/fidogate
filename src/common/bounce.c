@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: bounce.c,v 4.7 1999/03/07 16:11:47 mj Exp $
+ * $Id: bounce.c,v 4.8 1999/03/28 10:04:31 mj Exp $
  *
  * Bounce mails for various reasons, using LIBDIR/bounce.XXX messages
  *
@@ -122,7 +122,7 @@ int bounce_header(char *to)
      * Create RFC header
      */
     fprintf(mail_file('m'),
-	    "From Mailer-Daemon %s\n", date("%a %b %d %H:%M:%S %Y", NULL) );
+	    "From Mailer-Daemon %s\n", date(DATE_FROM, NULL) );
     fprintf(mail_file('m'),
 	    "Date: %s\n", date(NULL, NULL) );
     fprintf(mail_file('m'),

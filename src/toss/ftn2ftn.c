@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: ftn2ftn.c,v 4.8 1999/03/07 17:37:13 mj Exp $
+ * $Id: ftn2ftn.c,v 4.9 1999/03/28 10:04:35 mj Exp $
  *
  * FTN-FTN gateway for NetMail, using the %Z:N/F.P addressing in the
  * from/to fields.
@@ -35,7 +35,7 @@
 
 
 #define PROGRAM 	"ftn2ftn"
-#define VERSION 	"$Revision: 4.8 $"
+#define VERSION 	"$Revision: 4.9 $"
 #define CONFIG		DEFAULT_CONFIG_MAIN
 
 
@@ -73,7 +73,7 @@ void add_via(Textlist *list, Node *gate)
 {
     tl_appendf(list, "\001Via FIDOGATE/%s %s, %s\r\n",
 		     PROGRAM, node_to_asc(gate, FALSE),
-		     date("%a %b %d %Y at %H:%M:%S %Z", NULL)  );
+		     date(DATE_VIA, NULL)  );
 }
 
 

@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftntoss.c,v 4.33 1999/03/07 17:37:14 mj Exp $
+ * $Id: ftntoss.c,v 4.34 1999/03/28 10:04:35 mj Exp $
  *
  * Toss FTN NetMail/EchoMail
  *
@@ -39,7 +39,7 @@
 
 
 #define PROGRAM 	"ftntoss"
-#define VERSION 	"$Revision: 4.33 $"
+#define VERSION 	"$Revision: 4.34 $"
 #define CONFIG		DEFAULT_CONFIG_MAIN
 
 
@@ -1077,7 +1077,7 @@ void add_via(Textlist *list, Node *gate)
 {
     tl_appendf(list, "\001Via FIDOGATE/%s %s, %s\r\n",
 		     PROGRAM, node_to_asc(gate, FALSE),
-		     date("%a %b %d %Y at %H:%M:%S %Z", NULL)  );
+		     DATE_VIA, NULL)  );
 }
 
 

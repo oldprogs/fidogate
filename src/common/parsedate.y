@@ -3,7 +3,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: parsedate.y,v 4.0 1996/04/17 18:17:40 mj Exp $
+ * $Id: parsedate.y,v 4.1 1999/03/28 10:04:32 mj Exp $
  *
  * parsedate() date/time parser. Taken from ifmail 1.7 / inn 1.4 and
  * adopted for FIDOGATE. Added DST from old getdate.y.
@@ -806,6 +806,46 @@ parsedate(char *p, TIMEINFO *now)
 }
 
 
+
+/***** TEST main ************************************************************/
+#ifdef TEST
+
+/*
+ * Parser test
+ */
+int main(int argc, char *argv[])
+{
+    time_t t;
+
+    if(argc != 2)
+    {
+	fprintf(stderr, "usage: testdate DATE-STRING\n");
+	exit(1);
+    }
+
+    t = parsedate(argv[1], NULL);
+
+    printf("parsedate(%s) = %ld\n", argv[1], t);
+    if(t != ERROR)
+    {
+	printf("date() = %s\n",
+	       date("%Y-%m-%d %X", &t));
+    
+	printf("         %s\n",
+	       date("%a %b %d %H %j %m %M %S %w %x %X %y %Y %Z %O", &t) );
+    }
+    
+    exit(0);
+
+    /**NOT REACHED**/
+    return 0;
+}
+
+#endif /**TEST**/
+
+
+/* Old test */
+#if 0
 #if	defined(TEST)
 
 #if	YYDEBUG
@@ -847,3 +887,5 @@ main(int ac, char *av[])
     /* NOTREACHED */
 }
 #endif	/* defined(TEST) */
+
+#endif /**0**/

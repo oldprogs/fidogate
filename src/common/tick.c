@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: tick.c,v 4.13 1999/03/07 17:37:10 mj Exp $
+ * $Id: tick.c,v 4.14 1999/03/28 10:04:33 mj Exp $
  *
  * TIC file processing
  *
@@ -367,6 +367,6 @@ void tick_add_path(Tick *tic)
 
     now = time(NULL);
     tl_appendf(&tic->path, "%s %ld %s",
-	       node_to_asc(cf_addr(), FALSE), now, date(DATE_FIDO, &now) );
+	       node_to_asc(cf_addr(), FALSE), now, date(DATE_TICK_PATH, &now));
 
 }

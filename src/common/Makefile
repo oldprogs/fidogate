@@ -1,6 +1,6 @@
 #:ts=8
 #
-#    $Id: Makefile,v 4.15 1999/03/14 20:44:04 mj Exp $
+#    $Id: Makefile,v 4.16 1999/03/28 10:04:31 mj Exp $
 #
 #    Makefile for FIDOGATE src/common/
 #
@@ -69,7 +69,7 @@ OBJS		= acl.o \
 LIBOBJS		= $(OBJS:%=$(LIB)(%))
 
 TESTS		= testparse testmatch testflo testheader testdir testtmps \
-		  testftnaddr
+		  testftnaddr testdate
 TESTOBJS	= $(TESTS:%=%.o)
 
 
@@ -143,6 +143,11 @@ testftnaddr:	testftnaddr.o $(LIB)
 	$(CC) $(LFLAGS) -o testftnaddr testftnaddr.o $(LIBS)
 testftnaddr.o:	ftnaddr.c
 	$(CC) $(CFLAGS) $(LOCAL_CFLAGS) -DTEST -c ftnaddr.c -o testftnaddr.o
+
+testdate:	testdate.o $(LIB)
+	$(CC) $(LFLAGS) -o testdate testdate.o $(LIBS)
+testdate.o:	parsedate.c
+	$(CC) $(CFLAGS) $(LOCAL_CFLAGS) -DTEST -c parsedate.c -o testdate.o
 
 
 #

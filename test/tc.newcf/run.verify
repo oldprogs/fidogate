@@ -766,8 +766,6 @@ config: zone 242 : .Fido.DE  FidoDE  out.0f2
 config: gateway=0:0/0.0
 config: SPOOLDIR .
 config: MaxMsgSize 32000
-config: MAUSdomain .maus.de
-config: MAUSgate 2:2452/101.6
 config: EchoMail4D
 config: HostsRestricted
 config: RFCLevel 1

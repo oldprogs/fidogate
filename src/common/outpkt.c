@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: outpkt.c,v 4.6 1999/03/07 17:37:10 mj Exp $
+ * $Id: outpkt.c,v 4.7 1999/03/28 10:04:32 mj Exp $
  *
  * Output packet handling for ftntoss and ftroute.
  *
@@ -378,7 +378,7 @@ int outpkt_netmail(Message *msg, Textlist *tl, char *program)
     fprintf(fp, "\r\n--- FIDOGATE %s\r\n", version_global());
     fprintf(fp, "\001Via FIDOGATE/%s %s, %s\r\n",
 	    program, znfp(&msg->node_from),
-	    date("%a %b %d %Y at %H:%M:%S %Z", NULL)  );
+	    date(DATE_VIA, NULL)  );
 
     /* Terminating 0-byte */
     putc(0, fp);

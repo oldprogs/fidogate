@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: packet.c,v 4.10 1999/03/07 17:37:10 mj Exp $
+ * $Id: packet.c,v 4.11 1999/03/28 10:04:32 mj Exp $
  *
  * Functions to read/write packets and messages
  *
@@ -600,7 +600,7 @@ int pkt_put_date(FILE *pkt, time_t t)
     }
     
     /* Date according to FTS-0001 */
-    pkt_put_string(pkt, date("%d %b %y  %H:%M:%S", &t) );
+    pkt_put_string(pkt, date(DATE_FTS_0001, &t) );
 
     return ferror(pkt);
 }

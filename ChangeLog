@@ -1,4 +1,50 @@
+1999-03-28  Martin Junius  <mj@fido.de>
+
+	------- CVS ci -------------------------------------------------------
+
+	* src/toss/ftntoss.c (add_via): use DATE_VIA.
+
+	* src/toss/ftnroute.c (add_via): use DATE_VIA.
+
+	* src/gate/rfc2ftn.c (snd_message): use DATE_SPLIT.
+	  (print_via): use DATE_VIA.
+
+	* src/gate/ftn2rfc.c (unpack): use DATE_FROM.
+
+	* src/common/outpkt.c (outpkt_netmail): use DATE_VIA.
+
+	* src/common/log.c (log): use DATE_LOG.
+
+	* src/common/bounce.c (bounce_header): use DATE_FROM.
+
+	* config.h (DATE_FROM): new #define for date in From_ lines.
+	  (DATE_LOG): new #define for date in log() messages.
+	  (DATE_VIA): new #define for date in ^AVia lines.
+	  (DATE_SPLIT): new #define for date in ^ASPLIT lines.
+
+	* src/common/tick.c (tick_add_path): use DATE_TICK_PATH.
+
+	* config.h (DATE_TICK_PATH): renamed DATE_FIDO.
+
+	* src/common/packet.c (pkt_put_date): use DATE_FTS_0001 from
+	  config.h as format string for date().
+
+1999-03-27  Martin Junius  <mj@fido.de>
+
+	* src/toss/rununpack.pl (arc_type): return "RAR" if it's a RAR
+	  archive. 
+
+1999-03-21  Martin Junius  <mj@fido.de>
+
+	* test/tc.y2k/run: new test case for Y2k and date/time functions.
+
+	* src/common/parsedate.y (main): test all date() % formats.
+
 1999-03-20  Martin Junius  <mj@fido.de>
+
+	* src/common/Makefile (testdate): new test program.
+
+	* src/common/parsedate.y (main): new test main().
 
 	======= Release 4.3.1 ================================================
 	------- CVS tag R431 -------------------------------------------------
