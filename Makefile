@@ -1,5 +1,5 @@
 #
-# $Id: Makefile,v 4.16 1999/10/17 11:49:26 mj Exp $
+# $Id: Makefile,v 4.17 2000/01/30 18:40:03 mj Exp $
 #
 # Makefile FIDOGATE TOPDIR
 #
@@ -63,6 +63,11 @@ install-uuin:
 
 install::
 	cp ANNOUNCE $(PREFIX)$(HTMLDIR)
+
+install-spec:
+	if [ -d $(RPMSPECDIR) ]; then \
+	  cp fidogate.spec RPMSPECDIR; \
+	fi
 
 tags:
 	etags *.[hcy] *.pl *.make Makefile */Makefile doc/*.texi doc/*.html \

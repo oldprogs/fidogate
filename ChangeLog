@@ -1,5 +1,16 @@
 2000-01-29  Martin Junius  <mj@fido.de>
 
+	------- CVS R440test1 for rpm building test --------------------------
+	------- CVS ci -------------------------------------------------------
+
+	* Makefile (install-spec): new target for installing fidogate.spec.
+
+	* config.make (RPM*DIR): added macros for RPM build directories.
+
+	* cvsexp: extended usage help.
+
+	* fidogate.spec: new rpm spec file, not yet complete.
+
 	------- CVS ci -------------------------------------------------------
 
 	* test/tc.*/run.verify: updated.

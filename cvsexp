@@ -1,7 +1,12 @@
 #!/bin/sh
 
 if [ $# -lt 1 ]; then
-    echo "usage: cvsexp M.M.P"
+    echo "usage:   cvsexp MAJ.MIN.PL [tag]"
+    echo " "
+    echo "example: cvsexp 4.4.0"
+    echo "             tag R440     -> fidogate-4.4.0.tar.gz"
+    echo "         cvsexp 4.4.0 pre1"
+    echo "             tag R440pre1 -> fidogate-4.4.0.tar.gz"
     exit 1
 fi
 
