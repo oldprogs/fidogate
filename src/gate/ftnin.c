@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftnin.c,v 4.8 1998/05/12 20:12:32 mj Exp $
+ * $Id: ftnin.c,v 4.9 1998/07/19 11:28:07 mj Exp $
  *
  * Search for mail packets destined to gateway's FTN addresses and feed
  * them to ftn2rfc.
@@ -39,7 +39,7 @@
 
 
 #define PROGRAM		"ftnin"
-#define VERSION		"$Revision: 4.8 $"
+#define VERSION		"$Revision: 4.9 $"
 #define CONFIG		DEFAULT_CONFIG_GATE
 
 
@@ -342,6 +342,7 @@ int main(int argc, char **argv)
     if(u_flag)
 	cf_set_uplink(u_flag);
 
+    cf_i_am_a_gateway_prog();
     cf_debug();
 
     BUF_COPY3(cmd, cf_p_libdir(), "/", FTN2RFC);

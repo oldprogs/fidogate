@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: config.c,v 4.15 1998/04/03 20:15:35 mj Exp $
+ * $Id: config.c,v 4.16 1998/07/19 11:28:04 mj Exp $
  *
  * Configuration data and functions
  *
@@ -113,6 +113,18 @@ struct st_cflist
 
 static struct st_cflist *scf_list_first = NULL;
 static struct st_cflist *scf_list_last  = NULL;
+
+
+
+/*
+ * Set config for gateway programs (ftn2rfc, rfc2ftn, ftnin, ftnmail),
+ * basically reshuffling addresses a bit (using GateAddress as the main
+ * address).
+ */
+void cf_i_am_a_gateway_prog(void)
+{
+
+}
 
 
 

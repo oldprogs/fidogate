@@ -1,9 +1,9 @@
-Subject: FIDOGATE 4.3a4 --- Fido-Internet Gateway and Tosser
+Subject: FIDOGATE 4.3a5 --- Fido-Internet Gateway and Tosser
 Keywords: fido ftn netmail echomail tosser areafix mail news gateway
 Followup-To: comp.os.linux.misc
 
 ======================================================================
-FIDOGATE 4.3a4, a development snapshot of the new FIDOGATE release 4.3
+FIDOGATE 4.3a5, a development snapshot of the new FIDOGATE release 4.3
 ======================================================================
 
 			   FIDOGATE Version 4
@@ -26,17 +26,23 @@ Internet:
     http://sunsite.unc.edu/pub/Linux/system/fido/
     (probably still in .../pub/Linux/Incoming)
 
-    fidogate-4.3a4.tar.gz	1170 Kbyte
+    fidogate-4.3a5.tar.gz	1250 Kbyte
 
 Fido File Request:
 ==================
     2:2452/110, 111  +49-241-876604  (V.34, ISDN V.110/X.75)
     
-    fgate***.tgz		1170 Kbyte
+    fgate***.tgz		1250 Kbyte
 
 
 
 ======================================================================
+
+Changes in 4.3a5:
+
+*
+
+
 
 Changes in 4.3a4:
 
@@ -231,6 +237,6 @@ Needed:
 
 ======================================================================
 
-$Date: 1998/07/12 14:59:11 $
+$Date: 1998/07/19 11:28:02 $
 Martin Junius
 mailto:mj@fido.de

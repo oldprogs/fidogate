@@ -1,3 +1,23 @@
+Sun Jul 19 13:17:56 1998  Martin Junius  <mj@fido.de>
+
+	------- CVS ci -------------------------------------------------------
+
+	* version.h (ALPHA): set to 5 (version 4.3a5).
+
+	* src/gate/rfc2ftn.c (main): dito.
+
+	* src/gate/ftnin.c (main): dito.
+
+	* src/gate/ftn2rfc.c (main): add call to cf_i_am_a_gateway_prog().
+
+	* src/common/config.c (cf_i_am_a_gateway_prog): new function to be
+	  called by gateway programs (ftn2rfc, rfc2ftn, ftnin, ftnmail) to
+	  set proper addresses.
+
+	* fidogate.lsm: updated.
+
+	* ANNOUNCE: updated.
+
 Sun Jul 12 13:07:58 1998  Martin Junius  <mj@fido.de>
 
 	======= Release 4.3a4 ================================================

@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: prototypes.h,v 4.49 1998/07/11 21:04:40 mj Exp $
+ * $Id: prototypes.h,v 4.50 1998/07/19 11:28:07 mj Exp $
  *
  * Prototypes for functions in libfidogate.a
  *
@@ -128,6 +128,7 @@ void	charset_init		(void);
 char   *charset_chrs_name	(char *);
 
 /* config.c */
+void	cf_i_am_a_gateway_prog	(void);
 void	cf_check_gate		(void);
 void	cf_debug		(void);
 Node   *cf_main_addr		(void);
