@@ -1,4 +1,4 @@
-Subject: FIDOGATE 4.1.1
+Subject: FIDOGATE 4.1.1 --- Fido-Internet Gateway and more
 Keywords: fido ftn netmail echomail tosser areafix mail news gateway
 
 FIDOGATE 4.1.1, an update to version 4 of the FIDOGATE package is
@@ -22,13 +22,13 @@ Internet:
     ftp://sunsite.unc.edu/pub/Linux/system/Fido/
     (maybe still in /pub/Linux/Incoming)
 
-    fidogate-4.1.1.tar.gz	653 Kbyte
+    fidogate-4.1.1.tar.gz	657 Kbyte
 
 Fido File Request:
 ------------------
     2:2452/110, 111  +49-241-876604  (V.34, ISDN V.110, X.75)
     
-    fgate411.tgz		653 Kbyte
+    fgate411.tgz		657 Kbyte
 
 
 
@@ -82,9 +82,9 @@ Keywords:       fido ftn netmail echomail tosser areafix mail news gateway
 Author:         mj@fido.de (Martin Junius)
 Maintained-by:  mj@fido.de (Martin Junius)
 Primary-site:   ftp.fido.de /pub/fidogate
-		653kB fidogate-4.1.1.tar.gz
+		657kB fidogate-4.1.1.tar.gz
 Alternate-site: sunsite.unc.edu /pub/Linux/system/Fido
-		653kB fidogate-4.1.1.tar.gz
+		657kB fidogate-4.1.1.tar.gz
 Platforms:      Linux, SunOS, but should be easily portable to most
 		UNIX systems. Supports OS/2 (EMX gcc port) and MSDOS
 		(DJGPP gcc port), too. perl is required.
@@ -93,4 +93,4 @@ End
 
 ----------------------------------------------------------------------
 
-Martin Junius <mj@fido.de>, $Date: 1996/11/10 10:49:38 $
+Martin Junius <mj@fido.de>, $Date: 1996/11/13 21:45:47 $

@@ -2,7 +2,7 @@
 @c
 @c FIDOGATE documentation
 @c
-@c $Id: fidogate.texi,v 4.13 1996/11/09 18:02:03 mj Exp $
+@c $Id: fidogate.texi,v 4.14 1996/11/13 21:45:49 mj Exp $
 @c
 
 @setfilename fidogate.info
@@ -2654,8 +2654,9 @@ Use the ISO-8859-1 MIME 8BIT character set when gating Fido NetMail.
 
 @item NetMailQuotedPrintable
 @item NetMailQP
-Use the ISO-8859-1 MIME quoted-printable character set when gating Fido
-NetMail.
+Use the ISO-8859-1 MIME QUOTED-PRINTABLE character set when gating Fido
+NetMail. @code{NetMailQuotedPrintable} overrides @code{NetMail8bit} if
+both are specified.
 
 @end table
 

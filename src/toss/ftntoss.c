@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftntoss.c,v 4.10 1996/11/09 18:02:18 mj Exp $
+ * $Id: ftntoss.c,v 4.11 1996/11/13 21:46:00 mj Exp $
  *
  * Toss FTN NetMail/EchoMail
  *
@@ -39,7 +39,7 @@
 
 
 #define PROGRAM 	"ftntoss"
-#define VERSION 	"$Revision: 4.10 $"
+#define VERSION 	"$Revision: 4.11 $"
 #define CONFIG		CONFIG_MAIN
 
 
@@ -618,8 +618,8 @@ int do_echomail(Packet *pkt, Message *msg, MsgBody *body)
 	    /* If KillNoMSGID ... */
 	    if(kill_nomsgid)
 	    {
-		log("no ^AMSGID treated as dupe area %s from %s",
-		    area->area, node_to_asc(&msg->node_from, TRUE)      );
+		log("no ^AMSGID treated as dupe from %s: %s",
+		    node_to_asc(&msg->node_from, TRUE), area->area);
 		msgs_dupe++;
 		if(!kill_dupe)
 		    return do_bad_msg(msg, body);
@@ -629,8 +629,8 @@ int do_echomail(Packet *pkt, Message *msg, MsgBody *body)
 	    /* No ^AMSGID, use sender, date and checksum */
 	    if(msg_parse_origin(body->origin, &msg->node_orig) == ERROR)
 	    {
-		log("invalid * Origin treated as dupe area %s from %s",
-		    area->area, node_to_asc(&msg->node_from, TRUE)      );
+		log("invalid * Origin treated as dupe from %s: %s",
+		    node_to_asc(&msg->node_from, TRUE), area->area);
 		msgs_dupe++;
 		if(!kill_dupe)
 		    return do_bad_msg(msg, body);
@@ -653,8 +653,7 @@ int do_echomail(Packet *pkt, Message *msg, MsgBody *body)
 	if(hi_test(msgid))
 	{
 	    /* Dupe! */
-	    log("dupe area %s from %s: %s", area->area,
-		node_to_asc(&msg->node_from, TRUE), msgid);
+	    log("dupe from %s: %s", node_to_asc(&msg->node_from, TRUE), msgid);
 	    msgs_dupe++;
 	    if(!kill_dupe)
 		return do_bad_msg(msg, body);

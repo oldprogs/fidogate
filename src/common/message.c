@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: message.c,v 4.4 1996/10/22 19:58:22 mj Exp $
+ * $Id: message.c,v 4.5 1996/11/13 21:45:59 mj Exp $
  *
  * Reading and processing FTN text body
  *
@@ -615,7 +615,7 @@ char *msg_xlate_line(char *buf, int n, char *line, int cvt8)
     cidx = 0;
     if(cvt8 & AREA_8BIT)
 	cidx = 1;
-    else if(cvt8 & AREA_QP)
+    if(cvt8 & AREA_QP)
 	cidx = 2;
 
     n--;				/* Room for \0 char */
@@ -632,9 +632,7 @@ char *msg_xlate_line(char *buf, int n, char *line, int cvt8)
 	if(c == '\r')
 	    c = '\n';
 	else if(c < ' ') {
-	    /*
-	     * Substitute control chars with '^X'
-	     */
+	    /* Translate control chars to ^X */
 	    if(c!='\t' && c!='\f')
 	    {
 		if(!n--)
@@ -643,11 +641,21 @@ char *msg_xlate_line(char *buf, int n, char *line, int cvt8)
 		c = c + '@';
 	    }
 	}
+	else if(cidx==2 && c=='=')
+	{
+	    /* Translate '=' to MIME quoted-printable =3D */
+	    xl = "=3D";
+	    while(*xl)
+	    {
+		if(!n--)
+		    break;
+		*p++ = *xl++;
+	    }
+	    continue;
+	}
 	else if(c & 0x80)
 	{
-	    /*
-	     * Translate special characters according to character set
-	     */
+	    /* Translate special characters according to character set */
 	    xl = charset_xlate(c, cidx);
 	    if(!xl || !*xl)
 		continue;

@@ -288,8 +288,9 @@ Special configuration `ftn2rfc' (config file `config.gate'):
 
 `NetMailQuotedPrintable'
 `NetMailQP'
-     Use the ISO-8859-1 MIME quoted-printable character set when gating
-     Fido NetMail.
+     Use the ISO-8859-1 MIME QUOTED-PRINTABLE character set when gating
+     Fido NetMail. `NetMailQuotedPrintable' overrides `NetMail8bit' if
+     both are specified.
 
 Special configuration `ftninpost' (config file `config.gate'):
 

@@ -1,4 +1,21 @@
+Wed Nov 13 22:14:55 1996  Martin Junius  <mj@fido.de>
+
+	------- CVS ci -------------------------------------------------------
+
+	* version.h (PATCHLEVEL): set to 2.
+
+	* src/common/message.c (msg_xlate_line): must translate '=' to
+	  '=3D' if using the MIME quoted-printable encoding.
+	  (msg_xlate_line): AREA_QP has priority over AREA_8BIT.
+
+	* test/tc.8bit/run: added another test mail, body2.
+
 Sun Nov 10 11:37:44 1996  Martin Junius  <mj@fido.de>
+
+	* src/toss/ftntoss.c (do_echomail): changed format of dupe log()
+	  messages. 
+
+	* ANNOUNCE, fidogate.lsm: updated file size.
 
 	======= Release 4.1.1 ================================================
 	------- CVS ci, tag R411 ---------------------------------------------
