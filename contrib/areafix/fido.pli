@@ -15,8 +15,10 @@ sub readconfig {
     $var = lc $var;
     if ($var eq "aka") {
       @akalist = (@akalist,$value);
-    } elsif ($var eq "toparse") {
-      @toparse = (@toparse,$value);
+    } elsif ($var eq "toparsea") {
+      @toparsea = (@toparsea,$value);
+    } elsif ($var eq "toparsef") {
+      @toparsef = (@toparsef,$value);
     } elsif ($var eq "uplink" ) {
       @uplink = (@uplink,$value);
     } elsif ($var eq "passwd") {
@@ -63,6 +65,9 @@ sub packaddress {
 sub binpackaddress {
   local ($bzone,$bnode,$bnet,$bpoint,@address);
   ($zone, $net, $node, $point) = @_;
+  if (!$point) {
+    $point = 0;
+  }
   $bzone = pack "S",$zone;
   $bnet = pack "S",$net;
   $bnode = pack "S",$node;
@@ -109,12 +114,6 @@ sub bpackdate {
   $bsec = pack "S",$sec;
   @date = ($bday,$bmon,$byear,$bhour,$bmin,$bsec);
   return @date;
-}
-
-sub binpack {
-  local ($data) = @_;
-  $data = pack "S",$data;
-  return $data;
 }
 
 #Create Packet-Header
@@ -236,7 +235,6 @@ sub closepacket {
 # Get next msgid
 sub msgid {
   local ($msgid);
-  print $config{"datadir"};
   open (MSGID,"$config{'datadir'}/msgid.seq") or die "Can't open Sequencer File";
   $msgid = <MSGID>;
   close MSGID;
@@ -249,11 +247,15 @@ sub msgid {
 
 # Parse areas.bbs from Fidogate
 sub parseareasbbs {
-  open (AREAS,$config{"areasbbs"}) or die "Can't open areas.bbs";
+  if ($filefix) {
+    open (AREAS,$config{"fareasbbs"}) or die "Can't open fareas.bbs";
+  } else {
+    open (AREAS,$config{"areasbbs"}) or die "Can't open areas.bbs";
+  }
   $firstlineinareasbbs = <AREAS>;
   while (<AREAS>) {
-    ($subscribe,$area,@options) = split ;
-    $subscribe{$area}=$subscribe;
+    ($subordir,$area,@options) = split;
+    $subordir{$area}=$subordir;
     $index{$index++}=$area;
     foreach $key (keys %area) { delete $area{$key} }
     for ($count=0;$count <= $#options ; $count++) {
@@ -263,12 +265,29 @@ sub parseareasbbs {
 	$level{$area} = $options[++$count];
       } elsif ($options[$count] =~ /-k/i) {
 	$key{$area} = $options[++$count];
+      } elsif ($options[$count] =~ /-#/) {
+	$passthrough{$area}=1;
+      } elsif ($options[$count] =~ /-a/i) {
+	$alternateaka{$area} = $options[++$count];
+      } elsif ($options[$count] =~ /-r/i) {
+	$readonly{$area} = 1;
+      } elsif ($options[$count] =~ /-d/i) {
+	$_ =~ /-d\s*\"(.*)\"(.*)/;
+	$desc{$area}=$1;
+	if ($2) {
+	  @options = split (/\s+/,"junk $2");
+	  $count = 0;
+	} else {
+	  last;
+	}
       } else {
 	$links{$area} .= "$options[$count] ";
       }
     }
-    @downlink ="";
-    $last ="";
+    $links{$area} =~ s/\s$//;
+    $count = 0;
+    @downlink = "";
+    $last = "";
     foreach $_ (split /\s/,$links{$area}) {
       if ($last) {
 	if ($last =~ /\./) {
@@ -282,77 +301,84 @@ sub parseareasbbs {
 	  if ($part1) {
 	    ($part2,$part3) = split /\:/,$last;
 	    $last = sprintf ("%s:%s",$part2,$_);
-	    $downlink[$count]=$last;
-	    $count += 1;
+	    $downlink[$count++]=$last;
 	  }
 	  else {
 	    ($part1,$part2) = split /\:/,$last;
 	    $last = sprintf ("%s%s",$part1,$_);
-	    $downlink[$count]=$last;
-	    $count += 1;
+	    $downlink[$count++]=$last;
 	  }
 	} elsif (/\./) {
 	  ($part1,$part2) = split (/\./,$_);
 	  if ($part1) {
 	    ($last,$junk) = split /\//,$last;
 	    $last = sprintf "%s/%s",$last,$_;
-	    $downlink[$count]=$last;
-	    $count += 1;
+	    $downlink[$count++]=$last;
 	  } else {
 	    $last = sprintf("%s%s",$last,$_);
-	    $downlink[$count]=$last;
-	    $count += 1;
+	    $downlink[$count++]=$last;
 	  }
 	} else {
 	  ($part1,$part2) = split /\//,$last;
 	  $last = sprintf ("%s/%s",$part1,$_);
-	  $downlink[$count]=$last;
-	  $count += 1;
+	  $downlink[$count++]=$last;
 	}
       }
       else {
 	$last = $_;
-	$downlink[$count] = $_;
-	$count += 1;
+	$downlink[$count++] = $_;
       }
     }
-    (@downlink) = split /\s+/,"@downlink";
-    $links{$area} = join (" ",@downlink);
-    $links{$area} =~ s/^\s//;
+    $links{$area} = join (" ",(split /\s+/,"@downlink"));
+    if (!$zone{$area}) {
+      $zone{$area} = $downlink[0];
+      $zone{$area} =~ /(.*):/;
+      $zone{$area} = $1;
+      $areasbbschanged = 1;
+    }
   }
 }
 
 # Write Fidogate areas.bbs
 sub writeareasbbs {
   local ($zone1,$net1,$node1,$point1,$zone2,$net2,$node2,$point2,$last);
-  local ($area,$index,$count,@down,$down,$areasbbsdir);
-  $areasbbsdir = $config{"areasbbs"};
-  $areasbbsdir =~ s/\/\w+\.\w+$//;
-  if ( -f "$areasbbsdir/areas.o05") {
-    unlink "$areasbbsdir/areas.o05";
+  local ($area,$index,$count,@down,$down,$areasbbsdir,$areasprefix,$ren,$ren2);
+  if ($filefix) {
+    $areasbbsdir = $config{"fareasbbs"};
+  } else {
+    $areasbbsdir = $config{"areasbbs"};
   }
-  if ( -f "$areasbbsdir/areas.o04") {
-    rename "$areasbbsdir/areas.o04","$areasbbsdir/areas.o05";
+  $areasbbsdir =~ s/\/([^\/]*)$//;
+  $areaprefix = $1;
+  $areaprefix =~ s/\.\w*$//;
+  if ( -f "$areasbbsdir/$areaprefix.o05") {
+    unlink "$areasbbsdir/$areaprefix.o05";
   }
-  if ( -f "$areasbbsdir/areas.o03") {
-    rename "$areasbbsdir/areas.o03","$areasbbsdir/areas.o04";
-  }
-  if ( -f "$areasbbsdir/areas.o02") {
-    rename "$areasbbsdir/areas.o02","$areasbbsdir/areas.o03";
-  }
-  if ( -f "$areasbbsdir/areas.o01") {
-    rename "$areasbbsdir/areas.o01","$areasbbsdir/areas.o02";
-  }
+  foreach $ren (4,3,2,1)
+    {
+      if ( -f "$areasbbsdir/$areaprefix.o0$ren") {
+	$ren2 = $ren + 1;
+	rename "$areasbbsdir/$areaprefix.o0$ren","$areasbbsdir/$areaprefix.o0$ren2";
+      }
+    }
   rename "$areasbbsdir/areas.bbs","$areasbbsdir/areas.o01";
-  open (AREAS,">$areasbbsdir/areas.bbs") or die "Can't write areas.bbs";
+  if ($filefix) {
+    open (AREAS,">$config{'fareasbbs'}") or die "Can't write fareas.bbs";
+  } else {
+    open (AREAS,">$config{'areasbbs'}") or die "Can't write areas.bbs";
+  }
   print AREAS $firstlineinareasbbs;
   $index=0;
-  foreach $junk (keys %subscribe) {
+  foreach $junk (keys %subordir) {
     $area = $index{$index++};
-    print AREAS "$subscribe{$area} $area ";
+    print AREAS "$subordir{$area} $area ";
+    print AREAS "-a $alternateaka{$area} " if $alternateaka{$area};
     print AREAS "-z $zone{$area} ";
     print AREAS "-l $level{$area} " if $level{$area};
     print AREAS "-k $key{$area} " if $key{$area};
+    print AREAS "-# " if $passthrough{$area};
+    print AREAS "-r " if $readonly{$area};
+    print AREAS "-d \"$desc{$area}\" " if $desc{$area};
     $last="";$count=0;@down="";
     foreach $down (split /\s+/,$links{$area}) {
       if ($last) {
@@ -436,7 +462,7 @@ sub addarea {
   if (defined $level{$area} && $level{$area} > $level) {
     return 3;
   }
-  if ($subscribe{$area} eq "#+") {
+  if ($filefix) {
     if ($zone != $zone{$area}) {
       return 2;
     }
@@ -452,19 +478,37 @@ sub addarea {
       $links{$area} = join (" ",@link);
       return 1;
     }
-  } elsif ($subscribe{$area} eq "#-") {
-    if ($zone != $zone{$area}) {
+  } else {
+    if ($subordir{$area} eq "#+") {
+      if ($zone != $zone{$area}) {
+	return 2;
+      }
+      if ($links{$area} =~ /\b\Q$node\E\b/) {
+	return 0;
+      } else {
+	$areasbbschanged=1;
+	@link = split /\s/,$links{$area};
+	@link = (@link,$node);
+	$first = shift @link;
+	@link = sort nodeliste @link;
+	unshift @link,$first;
+	$links{$area} = join (" ",@link);
+	return 1;
+      }
+    } elsif ($subordir{$area} eq "#-") {
+      if ($zone != $zone{$area}) {
+	return 2;
+      }
+      $areasbbschanged=1;
+      $subordir{$area} = "#+";
+      open (SUB,">>tosubscribe");
+      print SUB "$area\n";
+      close SUB;
+      $links{$area} .= " $node";
+      return 1;
+    } else {
       return 2;
     }
-    $areasbbschanged=1;
-    $subscribe{$area} = "#+";
-    open (SUB,">>tosubscribe");
-    print SUB "$area\n";
-    close SUB;
-    $links{$area} .= " $node";
-    return 1;
-  } else {
-    return 2;
   }
 }
 
@@ -481,10 +525,10 @@ sub delarea {
   if (defined $level{$area} && $level{$area} > $level) {
     return 3;
   }
-  if ($subscribe{$area} eq "#+") {
+  if ($filefix) {
     if ($zone != $zone{$area}) {
-      return 2;
-    }
+        return 2;
+      }
     if ($links{$area} =~ /\Q$node\E/i) {
       $areasbbschanged=1;
       @link = split /\s/,$links{$area};
@@ -494,20 +538,39 @@ sub delarea {
 	}
       }
       $links{$area} = join (" ",@link2);
-      if ($#link2 == 0) {
-	$subscribe{$area} = "#-";
-	open (USUB,">>tounsubscribe");
-	print USUB "$area\n";
-	close USUB;
-      }
-      return 1;	    
+      return 1;
     } else {
       return 0;
     }
-  } elsif ($subscribe{$area}) {
-    return 0;
   } else {
-    return 2;
+    if ($subordir{$area} eq "#+") {
+      if ($zone != $zone{$area}) {
+	return 2;
+      }
+      if ($links{$area} =~ /\Q$node\E/i) {
+	$areasbbschanged=1;
+	@link = split /\s/,$links{$area};
+	foreach $link (@link) {
+	  if ($node ne $link) {
+	    @link2 = (@link2,$link);
+	  }
+	}
+	$links{$area} = join (" ",@link2);
+	if ($#link2 == 0) {
+	  $subordir{$area} = "#-";
+	  open (USUB,">>tounsubscribe");
+	print USUB "$area\n";
+	  close USUB;
+	}
+	return 1;	    
+      } else {
+	return 0;
+      }
+    } elsif ($subordir{$area}) {
+      return 0;
+    } else {
+      return 2;
+    }
   }
 }
 
@@ -516,8 +579,8 @@ sub query {
   local ($node,$area,@link,$link);
   ($node) = @_;
   $#query=0;
-  foreach $area (keys %subscribe) {
-    if ($subscribe{$area} eq "#+") {
+  foreach $area (keys %subordir) {
+    if ($subordir{$area} eq "#+") {
       if ($links{$area} =~ /\b\Q$node\E\b/i) {
 	$query[$#query++] = $area;
       }
@@ -533,7 +596,7 @@ sub uquery {
   $zone = $node;
   $zone =~ s/:.*$//;
   $#uquery=0;
-  foreach $area (keys %subscribe) {
+  foreach $area (keys %subordir) {
     if ($zone == $zone{$area}) {
       if (!($links{$area} =~ /\b\Q$node\E\b/i)) {
 	$uquery[$#uquery++] = $area;
@@ -552,17 +615,33 @@ sub getpasswordaf {
     chomp;
     if ($_) {
       ($type,$link,$password,$pwname) = split (/\s+/,$_,4);
-      if ($type eq "af") {
-	if ($link eq $node) {
-	  if ($pwname =~ /^\"/) {
-	    $pwname =~ /"(.*)"/;
-	    $pwname = $1;
-	  } else {
-	    ($level,$key,$junk) = split (/\s+/,$pwname,3);
-	    $pwname =~ /"(.*)"/;
-	    $pwname = $1;
+      if ($filefix) {
+	if ($type eq "ff") {
+	  if ($link eq $node) {
+	    if ($pwname =~ /^\"/) {
+	      $pwname =~ /"(.*)"/;
+	      $pwname = $1;
+	    } else {
+	      ($level,$key,$junk) = split (/\s+/,$pwname,3);
+	      $pwname =~ /"(.*)"/;
+	      $pwname = $1;
+	    }
+	    return;
 	  }
-	  return;
+	}
+      } else {
+	if ($type eq "af") {
+	  if ($link eq $node) {
+	    if ($pwname =~ /^\"/) {
+	      $pwname =~ /"(.*)"/;
+	      $pwname = $1;
+	    } else {
+	      ($level,$key,$junk) = split (/\s+/,$pwname,3);
+	      $pwname =~ /"(.*)"/;
+	      $pwname = $1;
+	    }
+	    return;
+	  }
 	}
       }
     }
@@ -580,7 +659,11 @@ sub parseareafixmail {
   $subject =~ s/\W.*//;
   $options =~ s/^\w+//;
   if ($subject eq $password) {
-    $messageback = "\r\nHi $from\r\n\r\nDeine Mail an Areafix hat folgendes ergeben\r\n\r\n";
+    if ($filefix) {
+      $messageback = "\r\nHi $from\r\n\r\nDeine Mail an Filefix hat folgendes ergeben\r\n\r\n";
+    } else {
+      $messageback = "\r\nHi $from\r\n\r\nDeine Mail an Areafix hat folgendes ergeben\r\n\r\n";
+    }
     $currentline=0;
     @parse = split /^/,$message;
     if ($options =~ /q/i) {
@@ -629,7 +712,7 @@ sub parseareafixmail {
 	    }
 	  } elsif ($parse =~ /^query\b/i || $parse =~ /^linked\b/i) {
 	    &query ($orig);
-	    $messageback .= "\r\nQuery\r\n-----\r\n\r\n+: Area subscribed and cannot be unsubscribed yourself\r\n\r\n";
+	    $messageback .= "\r\nQuery\r\n-----\r\n\r\n+: Area ist bestellt und kann nicht abbestellt werden\r\n\r\n";
 	    foreach $query (sort @query) {
 	      if (defined $key{$query} && $key{$query} =~ /$key/i) {
 		$messageback .= "+ $query\r\n";
@@ -642,7 +725,7 @@ sub parseareafixmail {
 	    $messageback .= "\r\n";
 	  } elsif ($parse =~ /^unlinked\b/ ) {
 	    &uquery ($orig);
-	    $messageback .= "\r\nUnlinked\r\n-----\r\n\r\n-: Areas unsubscried and cannot be subscried yourself\r\n\r\n";
+	    $messageback .= "\r\nUnlinked\r\n-----\r\n\r\n-: Area nicht bestellt und kann nicht bestellt werden\r\n\r\n";
 	    foreach $uquery (sort @uquery) {
 	      if (defined $key{$uquery} && $key{$uquery} =~ /$key/i) {
 		$messageback .= "- $uquery\r\n";
@@ -653,12 +736,12 @@ sub parseareafixmail {
 	      }
 	    }
 	  } elsif ($parse =~ /^list\b/i) {
-	    $messageback .= "\r\nList\r\n----\r\n\r\n*: Area subscribed\r\n+: Area subscribed and cannot be unsubscribe yourself\r\n-: Area unsubscribed and cannot be subscribed yourself\r\n\r\n";
+	    $messageback .= "\r\nList\r\n----\r\n\r\n*: Area bestellt\r\n+: Area ist bestellt und kann nicht abbestellt werden\r\n-: Area nicht bestell\t und kann nicht bestellt werden\r\n\r\n";
 	    $zone = $orig;
 	    $zone =~ s/:.*$//;
 	    $index=0;
 	    &query;
-	    foreach $junk (sort keys %subscribe) {
+	    foreach $junk (sort keys %subordir) {
 	      $area = $index{$index++};
 	      if ($zone == $zone{$area}) {
 		if ("@query" =~ /\b\Q$area\E\b/) {
@@ -686,14 +769,18 @@ sub parseareafixmail {
 	      $orig = $parse;
 	      &getpasswordaf ($orig);
 	      $from = $pwname;
-	      $messageback = "\r\nHi $from\r\n\r\nDeine Mail an Areafix hat folgendes ergeben\r\n\r\n";
+	      if ($filefix) {
+		$messageback = "\r\nHi $from\r\n\r\nDeine Mail an Filefix hat folgendes ergeben\r\n\r\n";
+	      } else {
+		$messageback = "\r\nHi $from\r\n\r\nDeine Mail an Areafix hat folgendes ergeben\r\n\r\n";
+	      }
 	    } else {
 	      $messageback .= "\r\nDieser Befehl ist AUSSCHLIESSLICH vom Sysop ausfuehrbar!\r\n\r\n";
 	    }
 	  } elsif ($parse =~ /^compress\b/i) {
 	    $parse =~ s/^compress\b//i;
 	    if ($parse =~ /\?/) {
-	      $messageback .= "\r\nAvailabe Packers\r\n----------------\r\n";
+	      $messageback .= "\r\nVerfuegbare Packer\r\n----------------\r\n";
 	      open (PACK,$config{'packing'}) or die "Kann Packing nicht oeffnen";
 	      while (<PACK>) {
 		if (/^arc/i) {
@@ -720,10 +807,10 @@ sub parseareafixmail {
 		if ($setpacker) {
 		  $pack = "pack\t$setpacker\t$orig\n";
 		  @pack2 = (@pack2,$pack);
-		  $messageback .= "Packer changed to: $setpacker\r\n";
+		  $messageback .= "Packer geaendert auf: $setpacker\r\n";
 		  undef $setpacker;
 		} else {
-		  $messageback .= "Unknown packer\r\n";
+		  $messageback .= "Unbekannter Packer\r\n";
 		}
 	      } else {
 		@pack2 = (@pack2,$pack);
@@ -734,7 +821,7 @@ sub parseareafixmail {
 	      $temp = pop @pack2;
 	      @pack2 = (@pack2,$pack);
 	      push @pack2,$temp;
-	      $messageback .= "Packer changed to: $setpacker\r\n";
+	      $messageback .= "Packer geaendert auf: $setpacker\r\n";
 	    }
 	    foreach $pack (@pack2) { 
 	      print PACK $pack; 
@@ -749,24 +836,24 @@ sub parseareafixmail {
 	  $match =~ s/\*/\.\*/;
 	  $match =~ s/\?/\./;
 	  $foundnone=1;
-	  foreach $parse (keys %subscribe) {
+	  foreach $parse (keys %subordir) {
 	    if ($parse =~ /^$match$/i)
 	      {
 		undef $foundnone;
 		$return = &addarea ($orig,$parse);
 		if ($return == 1) {
-		  $messageback .= "Addarea: $parse\r\n";
+		  $messageback .= "Area hinzugefuegt:  $parse\r\n";
 		} elsif ($return == 2) {
-		  $messageback .= "Unknown Area: $parse\r\n";
+		  $messageback .= "Unbekannte Area:    $parse\r\n";
 		} elsif ($return == 3) {
-		  $messageback .= "Permission denied: $parse\r\n";
+		  $messageback .= "Nicht genug Rechte: $parse\r\n";
 		} else {
-		  $messageback .= "Already subscribed: $parse\r\n";
+		  $messageback .= "Bereits bestellt:   $parse\r\n";
 		}
 	      }
 	  }
 	  if ($foundnone) {
-	    $messageback .= "Unknown Area: $parse\r\n";
+	    $messageback .= "Unbekannte Area:    $parse\r\n";
 	  }
 	} elsif ($parse =~ /^\-/ || $parse =~ /^remove\b/i || $parse =~ /^del\b/i) {
 	  $parse =~ s/\w+\s+//;
@@ -775,48 +862,48 @@ sub parseareafixmail {
 	  $match =~ s/\*/\.\*/;
 	  $match =~ s/\?/\./;
 	  $foundnone=1;
-	  foreach $parse (keys %subscribe) {
+	  foreach $parse (keys %subordir) {
 	    if ($parse =~ /^$match$/i)
 	      {
 		undef $foundnone;
 		$return = &delarea ($orig,$parse);
 		if ($return == 1) {
-		  $messageback .= "Delarea: $parse\r\n";
+		  $messageback .= "Area entfernt:      $parse\r\n";
 		} elsif ($return ==2 ) {
-		  $messageback .= "Unknown Area: $parse\r\n";
+		  $messageback .= "Unbekannte Area:    $parse\r\n";
 		} elsif ($return == 3) {
-		  $messageback .= "Permission denied: $parse\r\n";
+		  $messageback .= "Nicht genug Rechte: $parse\r\n";
 		} else {
-		  $messageback .= "Already unsubscribed: $parse\r\n";
+		  $messageback .= "Bereits abbestellt: $parse\r\n";
 		}
 	      }
 	  }
 	  if ($foundnone) {
-	    $messageback .= "Unknown Area: $parse\r\n";
+	    $messageback .= "Unbekannte Area:    $parse\r\n";
 	    }
 	} else {
 	  $match = $parse;
 	  $match =~ s/\*/\.\*/;
 	  $match =~ s/\?/\./;
 	  $foundnone=1;
-	  foreach $parse (keys %subscribe) {
+	  foreach $parse (keys %subordir) {
 	    if ($parse =~ /^$match$/i)
 	      {
 		undef $foundnone;
 		$return = &addarea ($orig,$parse);
 		if ($return == 1) {
-		  $messageback .= "Addarea: $parse\r\n";
+		  $messageback .= "Area hinzugefuegt:  $parse\r\n";
 		} elsif ($return == 2) {
-		  $messageback .= "Unknown Area: $parse\r\n";
+		  $messageback .= "Unbekannte Area:    $parse\r\n";
 		} elsif ($return == 3) {
-		  $messageback .= "Permission denied: $parse\r\n";
+		  $messageback .= "Nicht genug Rechte: $parse\r\n";
 		} else {
-		  $messageback .= "Already subscribed: $parse\r\n";
+		  $messageback .= "Bereits bestellt:   $parse\r\n";
 		}
 	      }
 	  }
 	  if ($foundnone) {
-	    $messageback .= "Unknown Area: $parse\r\n";
+	    $messageback .= "Unbekannte Area:    $parse\r\n";
 	  }
 	}
       }
@@ -829,9 +916,9 @@ sub parseareafixmail {
 
 # Open Packet for Reading
 sub openpacket {
-  local $filename,$header;
+  local ($filename,$header);
   ($filename) = @_;
-  sysopen (PACKET,"$filename",0) or die "Kann Packet nicht oeffnen\n";
+  sysopen (PACKET,"$filename",0) or die "Kann Packet $filename nicht oeffnen\n";
   sysread (PACKET,$header,58);
   @packetheader = unpack "S*",$header;
 }
@@ -950,8 +1037,8 @@ sub aka2hash {
 
 # Sortierungsregeln fuer die Nodeliste;
 sub nodeliste {
-  $zones1 = $nets1 = $nodes1 = $points1 = $a;
-  $zones2 = $nets2 = $nodes2 = $points2 = $b;
+  local ($zones1 = $nets1 = $nodes1 = $points1 = $a);
+  local ($zones2 = $nets2 = $nodes2 = $points2 = $b);
   
   $zones1 =~ s/:.*$//;
   $nets1 =~ s/^.*://;
@@ -961,7 +1048,8 @@ sub nodeliste {
     $nodes1 =~ s/\..*$//;
     $points1 =~ s/^.*\.//;
   }
-  
+
+  $zones2 =~ s/:.*$//;
   $nets2 =~ s/^.*://;
   $nets2 =~ s/\/.*$//;
   $nodes2 =~ s/^.*\///;
@@ -969,7 +1057,7 @@ sub nodeliste {
     $nodes2 =~ s/\..*$//;
     $points2 =~ s/^.*\.//;
   }
-  
+
   if ($zones1 < $zones2 || $nets1 < $nets2 || $nodes1 < $nodes2  || $points1 < $points2) {
     -1;
   } else {
@@ -977,6 +1065,7 @@ sub nodeliste {
   }
 }
 
+# Dateinamen des zu bearbeiten Points ermitteln
 sub getfilename {
   local ($nummer) = @_;
   local ($zone,$net,$node,$point);
@@ -994,14 +1083,69 @@ sub getfilename {
   
  CONF:  while (<CONF>) {
     ($zon,$zone2,$junk,$junk,$outbound) = split;
-    if ($zon =~ /zone/i) {
-      if ($zone2 == $zone) {
-	last CONF;
+    if ($zon) {
+      if ($zon =~ /zone/i) {
+	if (!($zone2 =~ /default/i)) {
+	  if ($zone2 == $zone) {
+	    last CONF;
+	  }
+	}
       }
     }
   }
   close CONF;
   $parsefilename = sprintf ("%s/%s/%04x%04x.pnt/%08x.hut",$config{"outbegin"},$outbound,$net,$node,$point);
+}
+
+# Eine Area beim Uplink bestellen?
+sub subscribe {
+  open (SUB,"tosubscribe");
+  while (<SUB>) {
+    chomp;
+    if ($_) {
+      if ($createpacket) {
+	&createpacket ($config{"mainaka"},$config{"mainaka"},"GEHEIM\x00\x00");
+	undef $createpacket;
+      }
+      if ($filefix) {
+	&addnm ($akalist{$zone{$_}},$uplink{$zone{$_}},"Filefix","Filefix",$passwd{$uplink{$zone{$_}}},"$_\r\n",$config{"tearlinef"});
+      } else {
+	&addnm ($akalist{$zone{$_}},$uplink{$zone{$_}},"Areafix","Areafix",$passwd{$uplink{$zone{$_}}},"$_\r\n",$config{"tearlinea"});
+      }
+    }
+  }
+  unlink "tosubscribe";
+}
+
+# Eine Area beim Uplink abbestellen?
+sub unsubscribe {
+  open (SUB,"tounsubscribe");
+  while (<SUB>) {
+    chomp;
+    if ($_) {
+      if ($createpacket) {
+	&createpacket ($config{"mainaka"},$config{"mainaka"},"GEHEIM\x00\x00");
+	undef $createpacket;
+      }
+      if ($filefix) {
+	&addnm ($akalist{$zone{$_}},$uplink{$zone{$_}},"Filefix","Filefix",$passwd{$uplink{$zone{$_}}},"-$_\r\n",$config{"tearlinef"});
+      } else {
+	&addnm ($akalist{$zone{$_}},$uplink{$zone{$_}},"Areafix","Areafix",$passwd{$uplink{$zone{$_}}},"-$_\r\n",$config{"tearlinea"});
+      }
+    }
+  }
+  unlink "tounsubscribe";
+}
+
+# Array in dem das Packet steht auf Platte schreiben
+sub writepacket {
+  while ( -f $config{"tosendfile"}) {
+    sleep 10;
+  }
+  &closepacket;
+  open (TO,">$config{'tosendfile'}") or die "Kann tosend nicht schreiben";
+  for (@packet) { print TO; }
+  close TO;
 }
 
 1;

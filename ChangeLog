@@ -1,4 +1,20 @@
+Sun Feb 22 15:59:19 1998  Martin Junius  <mj@fido.de>
+
+	------- CVS ci -------------------------------------------------------
+
+	* examples/orodruin/README: update of configuration examples using
+	  new config files, added README.
+
+Fri Feb 20 18:43:18 1998  Martin Junius  <mj@fido.de>
+
+	* scripts/run/runpoll.sh: added runtoss outpkt.
+
 Thu Feb 19 15:04:57 1998  Martin Junius  <mj@fido.de>
+
+	* contrib/areafix/: update from Matthias Schniedermeyer
+	  <ms@citd.owl.de>.
+
+	* src/tick/ftnhatch.c (CREATOR): Created string without revision no.
 
 	------- CVS ci -------------------------------------------------------
 

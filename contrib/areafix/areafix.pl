@@ -1,19 +1,38 @@
-#!/usr/bin/perl
+#!/usr/bin/perl -w
 
 require "fido.pli";
+$filefix = 0;
+$name = $0;
+$name =~ /\/(.*)$/;
+$name = $1;
+
+if ($name =~ /filefix/i) {
+  $filefix = 1;
+}
+
+# Ein paar Variablen (damit Perl sich nicht beschwert!)
+$createpacket=1;
+$areasbbschanged=0;
+undef %akalist;
+undef @toparsea;
+undef @toparsef;
 
 # Read Config
 &readconfig;
 
-# Create Hash of Akalist
+# Erzeuge ein Hash der Akalist
 &aka2hash;
 
 # areas.bbs einlesen
 &parseareasbbs;
 
-# Packet oeffnen
-$createpacket=1;
+# Und los
 if ($config{"test"} == 0) {
+  if ($filefix) {
+    @toparse = @toparsef;
+  } else {
+    @toparse = @toparsea;
+  }
   for $toparse (@toparse) {
     &getfilename ($toparse);
     if (-f $parsefilename) {
@@ -22,19 +41,20 @@ if ($config{"test"} == 0) {
       if ($createpacket) {
 	&createpacket ($config{"mainaka"},$config{"mainaka"},"GEHEIM\x00\x00");
 	undef $createpacket;
-	$packetexist=1;
       }
-      # Message einlesen, parsen, (Meldung als Debug ausgeben), Antwort
-      # Mail schreiben
+      # Message einlesen, parsen, Antwort Mail schreiben
       while (&getnextmessage) {
 	&parseareafixmail($orig,$from,$subject,$message);
-#        print $messageback;
 	$zonetosend = $orig;
 	$zonetosend =~ s/:.*$//;
-	&addnm ($akalist{$zonetosend},$orig,"Areafix",$from,"Your Areafix request",$messageback,$config{"tearline"});
+	if ($filefix) {
+	  &addnm ($akalist{$zonetosend},$orig,"Filefix",$from,"Your Filefix request",$messageback,$config{"tearlinef"});
+	} else {
+	  &addnm ($akalist{$zonetosend},$orig,"Areafix",$from,"Your Areafix request",$messageback,$config{"tearlinea"});
+	}
       }
       close PACKET;
-      unlink $parsefilename or die "Kann $parsefile nicht loeschen";
+      unlink $parsefilename or die "Kann $parsefilename nicht loeschen";
     }    
   }
 } else {
@@ -55,45 +75,15 @@ if ($areasbbschanged) {
 
 # Eine Area beim Uplink bestellen?
 if ( -f "tosubscribe" ) {
-  open (SUB,"tosubscribe");
-  while (<SUB>) {
-    chomp;
-    if ($_) {
-      if ($createpacket) {
-	&createpacket ($config{"mainaka"},$config{"mainaka"},"GEHEIM\x00\x00");
-	undef $createpacket;
-	$packetexist=1;
-      }
-      &addnm ($akalist{$zone{$_}},$uplink{$zone{$_}},"Areafix","Areafix",$passwd{$uplink{$zone{$_}}},"$_\r\n",$config{"tearline"});
-    }
-  }
-  unlink "tosubscribe";
+  &subscribe;
 }
 
 # Eine Area beim Uplink abbestellen?
 if ( -f "tounsubscribe" ) {
-  open (SUB,"tounsubscribe");
-  while (<SUB>) {
-    chomp;
-    if ($_) {
-      if ($createpacket) {
-	&createpacket ($config{"mainaka"},$config{"mainaka"},"GEHEIM\x00\x00");
-	undef $createpacket;
-	$packetexist=1;
-      }
-      &addnm ($akalist{$zone{$_}},$uplink{$zone{$_}},"Areafix","Areafix",$passwd{$uplink{$zone{$_}}},"-$_\r\n",$config{"tearline"});
-    }
-  }
-  unlink "tounsubscribe";
+  &unsubscribe;
 }
 
 # Array in dem das Packet steht auf Platte schreiben
-if ($packetexist) {
-  while ( -f $config{"tosendfile"}) {
-    sleep 10;
-  }
-  &closepacket;
-  open (TO,">$config{'tosendfile'}") or die "Kann tosend nicht schreiben";
-  for (@packet) { print TO; }
-  close TO;
+if (!$createpacket) {
+  &writepacket;
 }

@@ -10,7 +10,7 @@ File   	 : testfile.txt
 Replaces : -NONE-
 Desc     : Test file ftnhatch/ftntick
 CRC    	 : CEC3AEB1
-Created	 : by FIDOGATE/ftnhatch $Revision: 1.1 $
+Created	 : by FIDOGATE/ftnhatch
 Size   	 : 4050
 Path     : 242:2/2
 Seenby   : 242:1000/5
@@ -66,7 +66,7 @@ Replaces : testold.txt
 Desc     : Test file ftnhatch/ftntick
 LDesc    : Whatever that may be ...
 CRC    	 : CEC3AEB1
-Created	 : by FIDOGATE/ftnhatch $Revision: 1.1 $
+Created	 : by FIDOGATE/ftnhatch
 Size   	 : 4050
 Path     : 242:2/2
 Seenby   : 242:1000/5
@@ -90,7 +90,7 @@ Replaces : does-not-exist.txt
 Desc     : Test file ftnhatch/ftntick
 LDesc    : Whatever that may be ...
 CRC    	 : CEC3AEB1
-Created	 : by FIDOGATE/ftnhatch $Revision: 1.1 $
+Created	 : by FIDOGATE/ftnhatch
 Size   	 : 4050
 Path     : 242:2/2
 Seenby   : 242:1000/5

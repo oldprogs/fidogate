@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# $Id: runpoll.sh,v 4.11 1998/01/28 22:00:13 mj Exp $
+# $Id: runpoll.sh,v 4.12 1998/02/22 15:09:34 mj Exp $
 #
 # Poll uplink
 #
@@ -33,6 +33,7 @@ $LIBDIR/ftnpack -f 242:1000/1 -I %B/out.0f2/morannon
 $NEWS/send-fidogate
 
 # Tosser w/o file attachments
+$BINDIR/runtoss outpkt
 $BINDIR/runtoss outpkt/mail
 $BINDIR/runtoss outpkt/news
 

@@ -23,8 +23,9 @@ passwd 998:200/0   GEHEIM
 # Passwortfile von Fidogate
 passwdfile /fido/fidogate/passwd
 
-# Wo ist die Areas.bbs von Fidogate?
+# Wo ist die areas.bbs & fareasbbs von Fidogate?
 areasbbs /fido/fidogate/areas.bbs
+fareasbbs /fido/fidogate/fareas.bbs
 
 # Wo ist die config.common von Fidogate?
 configcommon /fido/fidogate/config.common
@@ -36,9 +37,15 @@ helpfile /fido/data/hilfe.txt
 packing /fido/fidogate/packing
 
 # Welche Packete sollen abgearbeitet werden
-toparse 2:2432/605.98
-toparse 44:4932/100.98
-toparse 998:200/605.98
+# 1. Areafix
+toparsea 2:2432/605.98
+toparsea 44:4932/100.98
+toparsea 998:200/605.98
+
+# 2. Filefix
+toparsef 2:2432/605.97
+toparsef 44:4932/100.97
+toparsef 998:200/605.97
 
 # Wo soll das Sende-Packet hingeschoben werden?
 tosendfile /fido/fnet/in/areafix.pkt
@@ -47,7 +54,8 @@ tosendfile /fido/fnet/in/areafix.pkt
 outbegin /fido/fnet
 
 # Tearline for Messages
-tearline Areafix .6.5beta
+tearlinea Areafix .7.1beta
+tearlinef Filefix .7.1beta
 
 # Um das Sequenzer File fuer die MsgID zu speichern
 datadir /fido/data

@@ -98,12 +98,15 @@ cmd=4 node=2:1234/5678.0 arg=TEST2
 output via textlist
 node=2:1234/5678.0 command=list
 cmd=1 node=2:1234/5678.0 arg=
+ftnafpkt 2:1234/5678.0: list
 output via textlist
 node=2:1234/5678.0 command=query
 cmd=2 node=2:1234/5678.0 arg=
+ftnafpkt 2:1234/5678.0: query
 output via textlist
 node=2:1234/5678.0 command=unlinked
 cmd=3 node=2:1234/5678.0 arg=
+ftnafpkt 2:1234/5678.0: unlinked
 output via textlist
 node=2:1234/5678.0 command=create NEW
 cmd=9 node=2:1234/5678.0 arg=NEW
@@ -148,6 +151,7 @@ passwd name: Sysop
 output via textlist
 node=2:1234/5678.0 command=vacation *.ger
 cmd=10 node=2:1234/5678.0 arg=*.ger
+ftnafpkt 2:1234/5678.0: vacation
 output via textlist
 node=2:1234/5678.0 command=-TEST1
 cmd=5 node=2:1234/5678.0 arg=TEST1
@@ -229,6 +233,7 @@ passwd entry: -NONE-
 output via textlist
 node=2:2452/110.2 command=password 2:1234/5678 WUSEL
 cmd=7 node=2:2452/110.2 arg=2:1234/5678 WUSEL
+ftnafpkt 2:2452/110.2: passwd
 PASSWD entry: WUSEL
 password check o.k. - authorized
 passwd lvl : 1
@@ -240,6 +245,7 @@ cmd=4 node=2:1234/5678.0 arg=*.GER
 output via textlist
 node=2:1234/5678.0 command=list
 cmd=1 node=2:1234/5678.0 arg=
+ftnafpkt 2:1234/5678.0: list
 Open ./outpkt/00000009.tmp, mode w
 New packet ./outpkt/00000009.pkt (./outpkt/00000009.tmp): 2:2499/1.0 -> 2:1234/5678.0
 Writing FTN packet header:
@@ -277,18 +283,23 @@ passwd entry: -NONE-
 output via textlist
 node=2:2452/110.2 command=listall
 cmd=8 node=2:2452/110.2 arg=
+ftnafpkt 2:2452/110.2: listall
 output via textlist
 node=2:2452/110.2 command=list
 cmd=1 node=2:2452/110.2 arg=
+ftnafpkt 2:2452/110.2: list
 output via textlist
 node=2:2452/110.2 command=query
 cmd=2 node=2:2452/110.2 arg=
+ftnafpkt 2:2452/110.2: query
 output via textlist
 node=2:2452/110.2 command=unlinked
 cmd=3 node=2:2452/110.2 arg=
+ftnafpkt 2:2452/110.2: unlinked
 output via textlist
 node=2:2452/110.2 command=passwd   2:1234/5678 WUSEL
 cmd=7 node=2:2452/110.2 arg=2:1234/5678 WUSEL
+ftnafpkt 2:2452/110.2: passwd
 PASSWD entry: WUSEL
 password check o.k. - authorized
 passwd lvl : 1
@@ -297,6 +308,7 @@ passwd name: Sysop
 output via textlist
 node=2:1234/5678.0 command=password 2:1234/5678 WUSEL
 cmd=7 node=2:1234/5678.0 arg=2:1234/5678 WUSEL
+ftnafpkt 2:1234/5678.0: passwd
 PASSWD entry: WUSEL
 password check o.k. - authorized
 passwd lvl : 1
@@ -305,18 +317,23 @@ passwd name: Sysop
 output via textlist
 node=2:1234/5678.0 command=listall
 cmd=8 node=2:1234/5678.0 arg=
+ftnafpkt 2:1234/5678.0: listall
 output via textlist
 node=2:1234/5678.0 command=list
 cmd=1 node=2:1234/5678.0 arg=
+ftnafpkt 2:1234/5678.0: list
 output via textlist
 node=2:1234/5678.0 command=query
 cmd=2 node=2:1234/5678.0 arg=
+ftnafpkt 2:1234/5678.0: query
 output via textlist
 node=2:1234/5678.0 command=unlinked
 cmd=3 node=2:1234/5678.0 arg=
+ftnafpkt 2:1234/5678.0: unlinked
 output via textlist
 node=2:1234/5678.0 command=pass     2:1234/5678 WUSEL
 cmd=7 node=2:1234/5678.0 arg=2:1234/5678 WUSEL
+ftnafpkt 2:1234/5678.0: passwd
 PASSWD entry: WUSEL
 password check o.k. - authorized
 passwd lvl : 1
@@ -351,12 +368,14 @@ ftnafpkt 2:1234/5678.0: -TOLKIEN.GER
 output via textlist
 node=2:1234/5678.0 command=vacation *.ger
 cmd=10 node=2:1234/5678.0 arg=*.ger
+ftnafpkt 2:1234/5678.0: vacation
 output via textlist
 node=2:1234/5678.0 command=create newarea.ger -z 2 -k test
 cmd=9 node=2:1234/5678.0 arg=newarea.ger -z 2 -k test
 output via textlist
 node=2:1234/5678.0 command=help
 cmd=6 node=2:1234/5678.0 arg=
+ftnafpkt 2:1234/5678.0: help
 Open ./outpkt/0000000a.tmp, mode w
 New packet ./outpkt/0000000a.pkt (./outpkt/0000000a.tmp): 2:2499/1.0 -> 2:1234/5678.0
 Writing FTN packet header:
@@ -382,6 +401,7 @@ Renaming tmp_areas.o02 -> tmp_areas.o03
 Renaming tmp_areas.o01 -> tmp_areas.o02
 Renaming tmp_areas.bbs -> tmp_areas.o01
 Renaming tmp_areas.new -> tmp_areas.bbs
+ftnafpkt tmp_areas.bbs changed
 ==============================================================================
 FTN packet header:
     From: 2:2499/1.0

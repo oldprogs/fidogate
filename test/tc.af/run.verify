@@ -5,6 +5,7 @@ tc: running
 output via stdout
 node=2:2452/110.90 command=query
 cmd=2 node=2:2452/110.90 arg=
+ftnaf 2:2452/110.90: query
 
 2:2452/110.90 is linked to the following areas:
 
@@ -14,6 +15,7 @@ cmd=2 node=2:2452/110.90 arg=
 output via stdout
 node=2:2452/110.90 command=list
 cmd=1 node=2:2452/110.90 arg=
+ftnaf 2:2452/110.90: list
 
 Areas available to 2:2452/110.90:
 
@@ -25,6 +27,7 @@ Areas available to 2:2452/110.90:
 output via stdout
 node=2:2452/110.90 command=listall
 cmd=8 node=2:2452/110.90 arg=
+ftnaf 2:2452/110.90: listall
 
 ALL available areas:
 
@@ -45,26 +48,31 @@ output via stdout
 node=2:2452/110.1 command=add linux.ger
 cmd=4 node=2:2452/110.1 arg=linux.ger
 ftnaf 2:2452/110.1: +LINUX.GER
+ftnaf tmp_areas.bbs changed
 LINUX.GER                                : added
 output via stdout
 node=2:2452/110.1 command=add tolkien.ger
 cmd=4 node=2:2452/110.1 arg=tolkien.ger
 ftnaf 2:2452/110.1: +TOLKIEN.GER
+ftnaf tmp_areas.bbs changed
 TOLKIEN.GER                              : added
 output via stdout
 node=2:2452/110.1 command=add xx
 cmd=4 node=2:2452/110.1 arg=xx
 ftnaf 2:2452/110.1: +XX
+ftnaf tmp_areas.bbs changed
 XX                                       : added
 output via stdout
 node=2:2452/110.1 command=add yy
 cmd=4 node=2:2452/110.1 arg=yy
 ftnaf 2:2452/110.1: +YY
+ftnaf tmp_areas.bbs changed
 YY                                       : added
 output via stdout
 node=99:2452/110.1 command=add zz
 cmd=4 node=99:2452/110.1 arg=zz
 ftnaf 99:2452/110.1: +ZZ
+ftnaf tmp_areas.bbs changed
 ZZ                                       : added
 output via stdout
 node=2:2452/110.1 command=add UNKNOWN.GER
@@ -74,11 +82,13 @@ output via stdout
 node=2:99/99.0 command=del test1
 cmd=5 node=2:99/99.0 arg=test1
 ftnaf 2:99/99.0: -TEST1
+ftnaf tmp_areas.bbs changed
 TEST1                                    : removed
 output via stdout
 node=2:99/99.0 command=del test2
 cmd=5 node=2:99/99.0 arg=test2
 ftnaf 2:99/99.0: -TEST2
+ftnaf tmp_areas.bbs changed
 TEST2                                    : removed
 output via stdout
 node=2:99/99.0 command=del test2
@@ -96,6 +106,7 @@ output via stdout
 node=2:99/99.0 command=create AREA.NEW -d New-Test-Area
 cmd=9 node=2:99/99.0 arg=AREA.NEW -d New-Test-Area
 ftnaf 2:99/99.0: created AREA.NEW lvl=-1 key= desc=New-Test-Area
+ftnaf tmp_areas.bbs changed
 output via stdout
 node=2:99/99.0 command=create AREA.NEW -#
 cmd=9 node=2:99/99.0 arg=AREA.NEW -#
@@ -104,14 +115,17 @@ output via stdout
 node=2:99/99.0 command=create AREA.NEW1 -p -r
 cmd=9 node=2:99/99.0 arg=AREA.NEW1 -p -r
 ftnaf 2:99/99.0: created AREA.NEW1 lvl=-1 key= desc= passthru ro
+ftnaf tmp_areas.bbs changed
 output via stdout
 node=2:99/99.0 command=create AREA.NEWER -p -l 10
 cmd=9 node=2:99/99.0 arg=AREA.NEWER -p -l 10
 ftnaf 2:99/99.0: created AREA.NEWER lvl=10 key= desc= passthru
+ftnaf tmp_areas.bbs changed
 output via stdout
 node=2:99/99.0 command=create AREA.NEWEST -l 5 -k abcxyz
 cmd=9 node=2:99/99.0 arg=AREA.NEWEST -l 5 -k abcxyz
 ftnaf 2:99/99.0: created AREA.NEWEST lvl=5 key=abcxyz desc=
+ftnaf tmp_areas.bbs changed
  
 ----- Testing mail interface -----
 From: Sysop@f5678.n1234.z2.fidonet.org
@@ -137,12 +151,15 @@ cmd=4 node=2:1234/5678.0 arg=TEST2
 output via textlist
 node=2:1234/5678.0 command=list
 cmd=1 node=2:1234/5678.0 arg=
+ftnaf 2:1234/5678.0: list
 output via textlist
 node=2:1234/5678.0 command=query
 cmd=2 node=2:1234/5678.0 arg=
+ftnaf 2:1234/5678.0: query
 output via textlist
 node=2:1234/5678.0 command=unlinked
 cmd=3 node=2:1234/5678.0 arg=
+ftnaf 2:1234/5678.0: unlinked
 output via textlist
 node=2:1234/5678.0 command=create NEW
 cmd=9 node=2:1234/5678.0 arg=NEW
@@ -186,7 +203,7 @@ Areas available to 2:1234/5678:
 
 Command CREATE: not authorized.
 From: Sysop@test.fidonet.org
-X-FTN-From: Sysop @ 2:1234/5678
+X-FTN-From: Sysop Mueller @ 2:1234/5678
 FTN address: 2:1234/5678.0
 Subject passwd: WUSEL
 passwd entry: WUSEL
@@ -197,16 +214,17 @@ passwd name: Test Sysop
 output via textlist
 node=2:1234/5678.0 command=vacation *.ger
 cmd=10 node=2:1234/5678.0 arg=*.ger
+ftnaf 2:1234/5678.0: vacation
 output via textlist
 node=2:1234/5678.0 command=-TEST1
 cmd=5 node=2:1234/5678.0 arg=TEST1
 output via textlist
 node=2:1234/5678.0 command=-TEST2
 cmd=5 node=2:1234/5678.0 arg=TEST2
-Sending reply to: Sysop@test.fidonet.org
+Sending reply to: Sysop_Mueller@f5678.n1234.z2.fidonet.org
 AreafixMailer /bin/cat
 From: Areafix-Daemon@orodruin.fido.de (Areafix Daemon)
-To: Sysop@test.fidonet.org
+To: Sysop_Mueller@f5678.n1234.z2.fidonet.org
 Cc: AreafixTest@blah.wusel.org
 Subject: Your Areafix request
 
@@ -233,6 +251,7 @@ passwd entry: -NONE-
 output via textlist
 node=INVALID command=password 2:1234/5678 WUSEL
 cmd=7 node=INVALID arg=2:1234/5678 WUSEL
+ftnaf INVALID: passwd
 PASSWD entry: WUSEL
 password check o.k. - authorized
 passwd lvl : 1
@@ -246,6 +265,7 @@ ftnaf 2:1234/5678.0: +TOLKIEN.GER
 output via textlist
 node=2:1234/5678.0 command=list
 cmd=1 node=2:1234/5678.0 arg=
+ftnaf 2:1234/5678.0: list
 Sending reply to: mj@fido.de
 AreafixMailer /bin/cat
 From: Areafix-Daemon@orodruin.fido.de (Areafix Daemon)
@@ -272,6 +292,7 @@ passwd entry: -NONE-
 output via stdout
 node=INVALID command=help
 cmd=6 node=INVALID arg=
+ftnaf INVALID: help
 Sending reply to: mj@fido.de
 
 Help for Areafix, FIDOGATE 4.3a1

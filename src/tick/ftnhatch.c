@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: ftnhatch.c,v 4.4 1998/01/24 15:45:55 mj Exp $
+ * $Id: ftnhatch.c,v 4.5 1998/02/22 15:09:37 mj Exp $
  *
  * Hatch file into file area
  *
@@ -36,12 +36,12 @@
 
 
 #define PROGRAM		"ftnhatch"
-#define VERSION		"$Revision: 4.4 $"
+#define VERSION		"$Revision: 4.5 $"
 #define CONFIG		DEFAULT_CONFIG_MAIN
 
 
 
-#define CREATOR		"by FIDOGATE/ftnhatch $Revision: 4.4 $"
+#define CREATOR		"by FIDOGATE/ftnhatch"
 
 #define MY_AREASBBS	"FAreasBBS"    
 #define MY_CONTEXT	"ff"

@@ -37,6 +37,45 @@ Fido File Request:
 
 ======================================================================
 
+Changes in 4.3a1:
+
+* First release starting major restructuring of the FIDOGATEE code.
+
+* syslog support.
+
+* Totally new compile-time/run-time configuration controlled by
+  DEFAULT_* macros in config.make.
+    - compile-time defaults defined in config.make
+    - run-time values can be set in config files (*.conf)
+    - environment variables FIDOGATE_* to override
+
+* New default directory structure (see doc/dirs.html for details):
+    /etc/fidogate
+    /var/lib/fidogate
+    /var/lock/fidogate
+    /var/log/fidogate
+    /var/spool/fidogate
+    /var/spool/bt
+    /usr/lib/fidogate
+
+* Config files renamed to common.conf, ffx.conf, gate.conf, toss.conf.
+
+* config.h now only for system specific configuration.
+
+* -L, -S options removed from all programs.
+
+* Run-time configuration available to perl scripts.
+
+* ftnoutpkt: new utility for creating FTN packets.
+
+* New Areafix code structure.
+
+* ftnafpkt: new Areafix utility reading/writing FTN packets.
+
+* ftnpack: new commands dirmove, progn.
+
+
+
 Changes in 4.2.9:
 
 * ftn2rfc: new -n --no-remove option, allows ftn2rfc to be used from
@@ -91,6 +130,6 @@ End
 
 ======================================================================
 
-$Date: 1998/01/02 14:36:56 $
+$Date: 1998/02/22 15:09:23 $
 Martin Junius
 mailto:mj@fido.de

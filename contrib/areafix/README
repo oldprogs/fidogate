@@ -4,14 +4,13 @@ Fidogate-Areafix Ersatz v0.6beta
 1. Intro
 --------
 
-Hi Leute. Hier ist die erste Test-Version meines Areafix-Ersatzes fuer
-Fidogate.
+Hi Leute. Hier ist eine Test-Version meines Areafix-Ersatzes fuer Fidogate.
 
 Meiner Meinug nach koennen nicht mehr alzuviele Bugs im Programm lauern. :-)
 (Bei mir funktioniert das Programm auf jedenfall)
 
 Wie man an der Versionsnummer sehen kann. Kann sich bis zur 1.0 Version noch
-VIEL tun. (Das Vorliegene Programm ist die Arbeit von ca. 10 Stunden.)
+VIEL tun.
 
 1.1 Changes
 -----------
@@ -36,6 +35,30 @@ VIEL tun. (Das Vorliegene Programm ist die Arbeit von ca. 10 Stunden.)
 
 ! Grober Denkfehler beseitigt.
 + Externe Hilfe
+
+0.6.5beta -> 0.6.6beta
+
+! Tippfehler
+! Sinnloses print
++ Script "checkareasbbs.pl" das das automatische bestellen/abbstellen von
+  Areas beim Uplink auch ohne meinen Areafix zur Verfuegung stellt. Einfach
+  hin und wieder starten.
+
+0.6.6beta -> 0.7beta
+
++ Einbindung der restlichen Kommandos (-# -r -a -d)
++ Einbau der Filefix Funktionalitaet
+! Ein paar kleinere Umstrukturierungen
+! Sortierungsbug in der Sortierungsregel behoben
+! Ein paar "schlummernde" Bugs beseitigt.
+! Texte alle auf Deutsch geaendert. War ein ziemliches Kundelmuddel aus Deutsch
+  und English
+
+0.7beta -> 0.7.1beta
+
+! Durch einen Tippfehler funktionierte der Areafix gar nicht. Herzlichen Dank
+  an Martin Hochwallner. (Bei mir in der Box ist SEHR selten Areafix-Aktivitaet
+  deshalb war mir das nicht frueher aufgefallen.)
 
 2. Kleiner Hinweis
 ------------------
@@ -123,7 +146,19 @@ gestellt werden
 
 pack    noarc   2:2432/605.98
 
-5. Als letztes ist dann noch
+Das Format der areas.bbs MUSS wie folgt sein.
+
+(Nicht bestellt Areas haben "#-" als erstes, bestellte haben "#+")
+#- <Areaname> -z <zonennummer> [ -l <level> -k <key> ] <uplink> <downlinks>
+z.B.
+
+#+ LINUX.GER -z 2 2:2432/600 605.1 .2 .20
+
+(Im Moment fehlen noch ein paar Switches. Die einzigen derzeit unterstuetzen
+sind -z -l -k. Wenn andere Switches benutzt werden duerfte es zu Fehlern
+kommen.)
+
+5. Dann ist dann noch
 ----------------------------
 Jetzt muss man nurnoch dafuer sorgen das areafix.pl aufgerufen wird. Ich
 habe dafuer in mein toss Script folgende Zeile reingehaengt. (toss-Script
@@ -167,7 +202,27 @@ niemand sie liesst!)
 %info
 to be continued
 
-8. Ich glaube das wars
+8. Hinweis zu checkareasbbs.pl
+------------------------------
+
+Wer das Script "trocken" ohne den Areafix benutzten moechte SOLLTE vor dem
+ersten Start folgendes machen
+
+a) ALLE (Vorest NUR EchoMail-) Areas bei den Uplinks abbestellen
+b) Die Areas.bbs so abaendern das die Zeilen so aussehen
+
+#- <Areaname> -z <zonennummer> [ -l <level> -k <key> ] <uplink> <downlinks>
+z.B.
+
+#- LINUX.GER -z 2 2:2432/600 605.1 .2 .20
+
+Danach checkareasbbs.pl starten. Alle Areas die von irgendwelchen Downlinks
+bestellt worden sind werden dann bei den entsprechenden Uplinks bestellt.
+Danach wuerde die obrige Zeile so aussehen
+
+#+ LINUX.GER -z 2 2:2432/600 605.1 .2 .20
+
+9. Ich glaube das wars
 ----------------------
 
 Bugsreports/Patches/Hilfe ist immer gern willkommen!

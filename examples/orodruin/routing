@@ -1,4 +1,5 @@
-#:ts=8
+#
+# $Id: routing,v 4.2 1998/02/22 15:09:33 mj Exp $
 #
 # FIDOGATE ftntoss/ftnroute routing/remap/rewrite config file
 #
