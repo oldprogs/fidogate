@@ -1,4 +1,13 @@
+2000-11-25  Martin Junius  <mj@fido.de>
+
+	------- CVS ci -------------------------------------------------------
+
+	* src/ffx/ffxqt.c (run_ffx_cmd): only supply -f FQDN option for
+	  rmail command.
+
 2000-11-18  Martin Junius  <mj@fido.de>
+
+	* build-rpms: new script to run rpm -ba more easily.
 
 	------- CVS tag R442test1 for rpm building test ----------------------
 	------- CVS ci -------------------------------------------------------

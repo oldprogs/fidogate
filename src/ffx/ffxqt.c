@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ffxqt.c,v 4.20 2000/11/18 17:57:56 mj Exp $
+ * $Id: ffxqt.c,v 4.21 2000/11/25 22:54:21 mj Exp $
  *
  * Process incoming ffx control and data files
  *
@@ -40,7 +40,7 @@
 
 
 #define PROGRAM		"ffxqt"
-#define VERSION		"$Revision: 4.20 $"
+#define VERSION		"$Revision: 4.21 $"
 #define CONFIG		DEFAULT_CONFIG_FFX
 
 
@@ -458,40 +458,12 @@ int exec_ffx(FFX *ffx)
 	log("ERROR: uncompressing no longer supported in this version");
 	return ERROR;
     }
-    
 
     /* Execute */
     debug(2, "Command: %s", cmd_c);
     ret = run_ffx_cmd(cmd_c, name, ffx->fqdn, args, ffx->in);
     debug(2, "Exit code=%d", ret);
 
-#if 0
-    if(ffx->in)
-    {
-	/* Search for data file, ignoring case */
-	if(dir_search(".", ffx->in) == NULL)
-	{
-	    log("ERROR: can't find data file %s", ffx->in);
-	    return ERROR;
-	}
-	/* Feed data file as stdin to command */
-	str_printf(buffer, sizeof(buffer),
-		   "%s %s <%s", cmd_c, args, ffx->in);
-    }
-    else
-    {
-	/* Execute command without data file */
-	str_printf(buffer, sizeof(buffer), "%s %s", cmd_c, args);
-    }
-
-    /* FIXME: should do some proper calls to fork(), exec(), pipe()
-     * etc.  system() calls /bin/sh which is inefficient and creates
-     * security problems.  */
-    debug(2, "Command: %s", buffer);
-    ret = run_system(buffer);
-    debug(2, "Exit code=%d", ret);
-#endif
-    
     if(ret == 0)
     {
 	unlink(ffx->name);
@@ -521,7 +493,7 @@ int run_ffx_cmd(char *cmd,
 
     /* compile args[] vector */
     args[n++] = cmd_name;
-    if(cmd_fqdn) 
+    if(cmd_fqdn && streq(cmd_name, "rmail")) 
     {
 	args[n++] = "-f";
 	args[n++] = cmd_fqdn;
