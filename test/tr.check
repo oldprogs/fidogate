@@ -1,0 +1,34 @@
+#!/bin/sh
+#
+# $Id: tr.check,v 4.1 1997/11/16 17:26:44 mj Exp $
+#
+# FIDOGATE test check script, compares run output against run.verify
+#
+
+VERIFY=run.verify
+OUT=run.out
+DIFF=run.diff
+
+if [ -n "$1" ]; then
+    DIR=$1
+else
+    DIR="check"
+fi
+
+
+if [ -f $VERIFY ]; then
+
+    ./run > $OUT 2>&1
+    diff -u $VERIFY $OUT >$DIFF 2>&1
+    status=$?
+    if [ $status -ne 0 ]; then
+	echo "$DIR: not OK, see $DIR/$DIFF"
+	exit 1
+    else
+	echo "$DIR: OK"
+	exit 0
+    fi
+
+fi
+
+exit 0

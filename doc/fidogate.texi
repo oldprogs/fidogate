@@ -2,7 +2,7 @@
 @c
 @c FIDOGATE documentation
 @c
-@c $Id: fidogate.texi,v 4.33 1997/11/09 12:05:04 mj Exp $
+@c $Id: fidogate.texi,v 4.34 1997/11/16 17:26:36 mj Exp $
 @c
 
 @setfilename fidogate.info
@@ -3753,7 +3753,9 @@ This file contains the EchoMail areas and linked nodes. The file
 @code{fareas.bbs} is used for file echos.
 
 The format of this file is as follows, the first line being ignored for
-compatibility with the standard DOS AREAS.BBS.
+compatibility with the standard DOS AREAS.BBS. Individual fields can be
+enclosed in "..." to allow spaces, in particular for the area
+description. 
 
 @example
 @r{[}#@r{]}@i{directory}  @i{area}  @r{[}@i{options}@r{]}  @i{nodes}
@@ -3785,6 +3787,14 @@ automatically rewrite @code{areas.bbs}, inserting the @code{-z} option.
 Set Areafix/Filefix access level for this area.
 @item -k @i{key}
 Set Areafix/Filefix access key for this area.
+@item -d "@i{description}"
+Description for this area. Enclose in "..." to allow spaces in
+description text.
+@item -#
+Set pass-through flag for this area.
+@item -r
+Set read-only flag for this area. New downlink will have a read-only
+status. NOT YET IMPLEMENTED.
 @end table
 
 @item nodes

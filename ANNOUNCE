@@ -41,6 +41,13 @@ Changes in 4.2.9:
 * ftn2rfc: new -n --no-remove option, allows ftn2rfc to be used from
   packing prog gate ".../ftn2rfc -n %s".
 
+* sendmail/cf: rfc2ftn writes output packets to SPOOLDIR/outpkt/mail
+  to enable separate processing of mail and news.
+
+* Corresponding changes to run* scripts.
+
+* ftnaf: areas.bbs now supports an area description, option -d "DESC".
+
 * Some minor changes.
 
 ======================================================================
@@ -81,6 +88,6 @@ End
 
 ======================================================================
 
-$Date: 1997/11/16 15:53:19 $
+$Date: 1997/11/16 17:26:32 $
 Martin Junius
 mailto:mj@fido.de

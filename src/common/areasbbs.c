@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: areasbbs.c,v 4.9 1997/11/09 17:46:25 mj Exp $
+ * $Id: areasbbs.c,v 4.10 1997/11/16 17:26:43 mj Exp $
  *
  * Function for processing AREAS.BBS EchoMail distribution file.
  *
@@ -41,23 +41,47 @@ static AreasBBS *areasbbs_last    = NULL;
 
 
 /*
+ * Add nodes from string to list of nodes
+ */
+static int areasbbs_add_string(LON *lon, char *p)
+{
+    Node node, old;
+    int ret;
+    
+    old.zone = cf_zone();
+    old.net = old.node = old.point = -1;
+
+    ret = OK;
+    for(; p; p=xstrtok(NULL, " \t\r\n"))
+    {
+	if( asc_to_node_diff(p, &node, &old) == OK )
+	{
+	    old = node;
+	    lon_add(lon, &node);
+	}
+	else
+	{
+	    ret = ERROR;
+	    break;
+	}
+    }
+
+    return ret;
+}
+
+
+/*
  * Create new AreasBBS struct for line from AREAS.BBS
  */
-static AreasBBS *areasbbs_new	(char *);
-
 static AreasBBS *areasbbs_new(char *line)
 {
     AreasBBS *p;
-    char *dir, *tag, *nl, *o1, *o2;
+    char *dir, *tag, *nl, *o2;
    
-    dir = strtok(line, " \t");
-    tag = strtok(NULL, " \t");
-    nl  = strtok(NULL, "\r\n");
+    dir = xstrtok(line, " \t\r\n");
+    tag = xstrtok(NULL, " \t\r\n");
     if(!dir || !tag)
 	return NULL;
-    
-    while(nl && is_space(*nl))
-	nl++;
     
     p = (AreasBBS *)xmalloc(sizeof(AreasBBS));
     
@@ -75,39 +99,67 @@ static AreasBBS *areasbbs_new(char *line)
     p->lvl   = -1;
     p->key   = NULL;
     p->desc  = NULL;
+    lon_init(&p->nodes);
     
     /*
-     * Parse options before list of linked nodes:
+     * Options:
      *
      *     -a Z:N/F.P    alternate AKA for this area
      *     -z ZONE       alternate zone AKA for this area
      *     -l LVL        Areafix access level
      *     -k KEY        Areafix access key
      *     -d DESC       Area description text
+     *     -#            Passthru
+     +     -r            Read-only for new downlinks
      */
+    nl  = xstrtok(NULL, " \t\r\n");
     while(nl && *nl=='-')
     {
-	o1 = strtok(nl  , " \t");
-	o2 = strtok(NULL, " \t");
-	nl = strtok(NULL, "");
- 	while(nl && is_space(*nl))
-	    nl++;
-
-	if(o1 && o2 && streq(o1, "-a"))		/* -a Z:N/F.P */
+	if(streq(nl, "-a"))		/* -a Z:N/F.P */
+	{
+	    o2 = xstrtok(NULL, " \t\r\n");
 	    asc_to_node(o2, &p->addr, FALSE);
-	if(o1 && o2 && streq(o1, "-z"))		/* -z ZONE */
+	}
+	
+	if(streq(nl, "-z"))		/* -z ZONE */
+	{
+	    o2 = xstrtok(NULL, " \t\r\n");
 	    p->zone = atoi(o2);
-	if(o1 && o2 && streq(o1, "-l"))		/* -l LVL */
+	}
+	
+	if(streq(nl, "-l"))		/* -l LVL */
+	{
+	    o2 = xstrtok(NULL, " \t\r\n");
 	    p->lvl = atoi(o2);
-	if(o1 && o2 && streq(o1, "-k"))		/* -k KEY */
+	}
+	
+	if(streq(nl, "-k"))		/* -k KEY */
+	{
+	    o2 = xstrtok(NULL, " \t\r\n");
 	    p->key = strsave(o2);
-	if(o1 && o2 && streq(o1, "-d"))		/* -d DESC */
+	}
+	
+	if(streq(nl, "-d"))		/* -d DESC */
+	{
+	    o2 = xstrtok(NULL, " \t\r\n");
 	    p->desc = strsave(o2);
+	}
+	
+	if(streq(nl, "-#"))		/* -# */
+	{
+	    p->flags |= AREASBBS_PASSTHRU;
+	}
+	
+	if(streq(nl, "-r"))		/* -# */
+	{
+	    p->flags |= AREASBBS_READONLY;
+	}
+
+	nl  = xstrtok(NULL, " \t\r\n");
     }	
     
-    lon_init(&p->nodes);
-    if(nl)
-	lon_add_string(&p->nodes, nl);
+    areasbbs_add_string(&p->nodes, nl);
+
     if(p->zone == -1)
 	p->zone = p->nodes.first ? p->nodes.first->node.zone : 0;
     
@@ -196,10 +248,8 @@ int areasbbs_print(FILE *fp)
 	    fprintf(fp, "-l %d ", p->lvl);
 	if(p->key)
 	    fprintf(fp, "-k %s ", p->key);
-/*
 	if(p->desc)
 	    fprintf(fp, "-d \"%s\" ", p->desc);
-*/
 	lon_print_sorted(&p->nodes, fp, 1);
 	fprintf(fp, "\r\n");
     }

@@ -5,7 +5,7 @@
 	* new implementation of strtok(), xstrtok() function, using
 	  reentrant common routine.
 
-STARTED	* areas.bbs: option for area description.
+DONE	* areas.bbs: option for area description.
 	  Better parser for areas.bbs entries and options needed!
 	
 DONE	* tests: ftntoss echomail problems and Kill* config.

@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: node.c,v 4.3 1996/12/17 17:19:44 mj Exp $
+ * $Id: node.c,v 4.4 1997/11/16 17:26:43 mj Exp $
  *
  * Conversion Node structure <-> Z:N/F.P / pP.fF.nN.zZ
  *
@@ -426,7 +426,7 @@ int lon_add_string(LON *lon, char *s)
     }
 
     xfree(save);
-    return OK;
+    return ret;
 }
 
 

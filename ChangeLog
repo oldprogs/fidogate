@@ -1,5 +1,27 @@
 Sun Nov 16 15:20:41 1997  Martin Junius  <mj@fido.de>
 
+	* ANNOUNCE: update.
+
+	* doc/fidogate.texi (Areas.bbs): added new option -d DESC, -#, -r,
+	  and "..."
+
+	* src/common/areasbbs.c (areasbbs_add_string): new local static
+	  function, modified version of node.c:lon_add_string().
+	  (areasbbs_new): rewrote function to use xstrtok() and a better
+	  parsing for the options, adding -# and -r without an
+	  argument. Descriptions now can contains spaces if enclosed in "".
+	  (areasbbs_print): re-enabled output of -d "TEXT".
+
+	* src/common/node.c (lon_add_string): return ret, not OK.
+
+	* test/tc.af/run: added more verbose output, created run.verify
+	  for tr.check comparison.
+
+	* src/toss/ftnaf.c (do_command): added debug() output.
+	  (rewrite_areas_bbs): changed debug() level to 4.
+
+	* test/tr.check: new script, comparing run output against verify file.
+
 	------- CVS ci -------------------------------------------------------
 
 	* scripts/run/runpoll.sh: added runtoss outpkt/mail.

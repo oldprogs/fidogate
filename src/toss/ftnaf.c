@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: ftnaf.c,v 4.14 1997/11/09 17:46:25 mj Exp $
+ * $Id: ftnaf.c,v 4.15 1997/11/16 17:26:44 mj Exp $
  *
  * Areafix-like AREAS.BBS EchoMail distribution manager. Commands somewhat
  * conforming to FSC-0057.
@@ -39,7 +39,7 @@
 
 
 #define PROGRAM		"ftnaf"
-#define VERSION		"$Revision: 4.14 $"
+#define VERSION		"$Revision: 4.15 $"
 #define CONFIG		CONFIG_MAIN
 
 
@@ -193,7 +193,7 @@ int rewrite_areas_bbs(void)
     
     if(!areas_bbs_changed)
     {
-	debug(2, "AREAS.BBS not changed");
+	debug(4, "AREAS.BBS not changed");
 	return OK;
     }
 
@@ -210,7 +210,7 @@ int rewrite_areas_bbs(void)
      */
     strcpy(new, buffer);
     strcpy(new+ovwr, "new");
-    debug(2, "Writing %s", new);
+    debug(4, "Writing %s", new);
     if(!n_flag)
     {
 	if( (fp = fopen(new, W_MODE)) == NULL )
@@ -238,7 +238,7 @@ int rewrite_areas_bbs(void)
      */
     strcpy(old, buffer);
     sprintf(old+ovwr, "o%02d", N_HISTORY);
-    debug(2, "Removing %s", old);
+    debug(4, "Removing %s", old);
     if(!n_flag)
 	unlink(old);
     for(i=N_HISTORY-1; i>=1; i--)
@@ -247,7 +247,7 @@ int rewrite_areas_bbs(void)
 	sprintf(old+ovwr, "o%02d", i);
 	strcpy(new, buffer);
 	sprintf(new+ovwr, "o%02d", i+1);
-	debug(2, "Renaming %s -> %s", old, new);
+	debug(4, "Renaming %s -> %s", old, new);
 	if(!n_flag)
 	    rename(old, new);
     }
@@ -259,7 +259,7 @@ int rewrite_areas_bbs(void)
     strcpy(old+ovwr, "bbs");
     strcpy(new, buffer);
     strcpy(new+ovwr, "o01");
-    debug(2, "Renaming %s -> %s", old, new);
+    debug(4, "Renaming %s -> %s", old, new);
     if(!n_flag)
 	rename(old, new);
     
@@ -270,7 +270,7 @@ int rewrite_areas_bbs(void)
     strcpy(old+ovwr, "new");
     strcpy(new, buffer);
     strcpy(new+ovwr, "bbs");
-    debug(2, "Renaming %s -> %s", old, new);
+    debug(4, "Renaming %s -> %s", old, new);
     if(!n_flag)
 	rename(old, new);
     
@@ -463,7 +463,9 @@ int do_command(Node *node, char *line)
     char buf[32];
     int i, ret;
     int percent = FALSE;
-    
+
+    debug(2, "node=%s command=%s", znfp(node), line);
+
     if(line[0] == '+')
     {
 	cmd = CMD_ADD;
@@ -533,6 +535,8 @@ int do_command(Node *node, char *line)
     while(*arg && is_space(*arg))
 	arg++;
 
+    debug(2, "cmd=%d node=%s arg=%s", cmd, znfp(node), arg);
+
     ret = OK;
     switch(cmd)
     {
@@ -591,7 +595,7 @@ int cmd_create(Node *node, char *line)
 
     if( (p = areasbbs_lookup(name)) )
     {
-	fprintf(output, "%s: area already exists, can't create a new one\n",
+	fprintf(output, "%s: area already exists, can't create\n",
 		name);
 	return OK;
     }

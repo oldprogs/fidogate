@@ -2833,7 +2833,9 @@ This file contains the EchoMail areas and linked nodes. The file
 `fareas.bbs' is used for file echos.
 
    The format of this file is as follows, the first line being ignored
-for compatibility with the standard DOS AREAS.BBS.
+for compatibility with the standard DOS AREAS.BBS. Individual fields
+can be enclosed in "..." to allow spaces, in particular for the area
+description.
 
      [#]directory  area  [options]  nodes
 
@@ -2865,6 +2867,17 @@ options
 
     `-k key'
           Set Areafix/Filefix access key for this area.
+
+    `-d "description"'
+          Description for this area. Enclose in "..." to allow spaces in
+          description text.
+
+    `-#'
+          Set pass-through flag for this area.
+
+    `-r'
+          Set read-only flag for this area. New downlink will have a
+          read-only status. NOT YET IMPLEMENTED.
 
 nodes
      The list of downlink nodes. This is a sorted short list of nodes
