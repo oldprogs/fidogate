@@ -2,6 +2,14 @@ Sat Nov 30 14:35:27 1996  Martin Junius  <mj@fido.de>
 
 	------- CVS ci -------------------------------------------------------
 
+	* src/toss/runtoss.sh: outf uses FADIR=-F/
+
+	* src/toss/ftnpack.c (do_noarc): if -F / is specified, treat file
+	  attachment in subject as complete path, don't use
+	  dir_search().
+
+	------- CVS ci -------------------------------------------------------
+
 	* config.h (FTN_RFC_HEADERS): added "Sender" to list of recognized
 	  RFC headers.
 
