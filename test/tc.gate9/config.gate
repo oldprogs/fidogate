@@ -1,8 +1,0 @@
-#
-# FTN - Internet gateway. If set, Internet mail will be routed via FTN
-# and this gateway.
-#
-Gateway		2:2452/110.1
-
-
-include ../cf/fidogate.conf

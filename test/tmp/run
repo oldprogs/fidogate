@@ -1,8 +1,0 @@
-#!/bin/sh
-
-#echo "tc: init"
-../tr.init
-
-echo "tc: running"
-../../src/tick/ftntick -vvv -L../cf -S.
-

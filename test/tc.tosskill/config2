@@ -1,9 +1,0 @@
-AreasBBS	./areas.bbs
-KillUnknown
-KillRouted
-KillInsecure
-KillCircular
-KillDupe
-KillNoMSGID
-
-include		../cf/fidogate.conf

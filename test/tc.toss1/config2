@@ -1,9 +1,0 @@
-#
-# $Id: config2,v 4.3 1999/03/19 11:56:50 mj Exp $
-#
-# Test config with KillOld
-#
-
-KillOld
-
-include ../cf/fidogate.conf
