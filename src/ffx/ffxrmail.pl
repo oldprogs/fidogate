@@ -1,6 +1,6 @@
 #!/usr/bin/perl
 #
-# $Id: ffxrmail.pl,v 4.5 1998/09/23 19:23:14 mj Exp $
+# $Id: ffxrmail.pl,v 4.6 2000/11/18 17:57:56 mj Exp $
 #
 # sendmail frontend for processing ffx rmail commands
 #
@@ -10,13 +10,13 @@ require 5.000;
 my $PROGRAM = "ffxrmail";
  
 use strict;
-use vars qw($opt_v $opt_c);
+use vars qw($opt_v $opt_c $opt_f);
 use Getopt::Std;
 use FileHandle;
 
 <INCLUDE config.pl>
 
-getopts('vc:');
+getopts('vc:f:');
 
 # read config
 my $CONFIG = $opt_c ? $opt_c : "<CONFIG_FFX>";
@@ -25,6 +25,7 @@ CONFIG_read($CONFIG);
 # configuration
 my $SENDMAIL = CONFIG_get("FFXRmailSendmail");
 die "ffxrmail:$CONFIG:FFXRmailSendmail not defined\n" if(! $SENDMAIL);
+$SENDMAIL =~ s/-p[^ ]*/-pFFX:$opt_f/ if($opt_f);
 print "SENDMAIL: $SENDMAIL\n" if($opt_v);
 
 # ignore SIGPIPE

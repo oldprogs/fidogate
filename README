@@ -1,6 +1,6 @@
 -*- Indented-Text -*-
 
-$Id: README,v 4.32 2000/04/11 08:04:29 mj Exp $
+$Id: README,v 4.33 2000/11/18 17:57:56 mj Exp $
 
 ======================================================================
 				   
@@ -780,11 +780,11 @@ description of the FIDOGATE installation.
 There is a *NEW* mailing list for FIDOGATE discussions and
 announcements:
 
-    mailto:fidogate@fido.de
+    mailto:fidogate@fidogate.org
 
 To SUBSCRIBE to this mailing list, send a message to
 
-    mailto:majordomo@fido.de
+    mailto:majordomo@fidogate.org
 or
     Majordomo @ 2:2452/110
 
@@ -807,16 +807,12 @@ Latest version:
 
 The latest version of FIDOGATE can be found at:
 
-    ftp://ftp.fido.de/pub/fidogate/
-    http://www.fido.de/pub/fidogate/
-
-    ftp://sunsite.unc.edu/pub/Linux/system/fido/
-    http://sunsite.unc.edu/pub/Linux/system/fido/
-          (not always up-to-date!)
+    ftp://ftp.fidogate.org/pub/fidogate/
+    http://www.fidogate.org/pub/fidogate/
 
 See also the FIDOGATE home page at:
 
-    http://www.fido.de/fidogate/
+    http://www.fidogate.org/
 
 ======================================================================
 
@@ -872,6 +868,6 @@ not integrate your patches.
 
 ======================================================================
 
-$Date: 2000/04/11 08:04:29 $
+$Date: 2000/11/18 17:57:56 $
 Martin Junius
 mailto:mj@fido.de

@@ -14,7 +14,7 @@ Target packet: from=2:2452/110.2 to=2:2452/110.2 grade=n type=n flav=h
 ftnroute packet for 2:2452/110.2 (Hold)
 New packet ./toss/route/nnh00002.pkt (./toss/route/nnh00002.tmp): 2:2452/110.2 -> 2:2452/110.2
 Packet: from=2:2452/110.2 to=2:2452/110.2 grade=n type=n flav=h
-ftnpack packet (421b) for 2:2452/110.2 (noarc)
+ftnpack packet (420b) for 2:2452/110.2 (noarc)
 ftnpack file attach testfile.zip (2447b) for 2:2452/110.2
 tc: copying input packets
 tc: running
@@ -37,7 +37,7 @@ Reading FTN packet header:
     Capw: 0001
 Packet: from=2:2452/110.2 to=2:2452/110.2 grade=n type=n flav=h
 packing: pack=n dir= arc=noarc
-ftnpack packet (421b) for 2:2452/110.2 (noarc)
+ftnpack packet (420b) for 2:2452/110.2 (noarc)
 Open OUT file in append mode
 Reopen OUT file in read/write mode
 Locking OUT file

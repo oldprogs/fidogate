@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ffxqt.c,v 4.19 2000/11/18 12:18:42 mj Exp $
+ * $Id: ffxqt.c,v 4.20 2000/11/18 17:57:56 mj Exp $
  *
  * Process incoming ffx control and data files
  *
@@ -35,10 +35,12 @@
 #include "fidogate.h"
 #include "getopt.h"
 
+#include <sys/wait.h>
+
 
 
 #define PROGRAM		"ffxqt"
-#define VERSION		"$Revision: 4.19 $"
+#define VERSION		"$Revision: 4.20 $"
 #define CONFIG		DEFAULT_CONFIG_FFX
 
 
@@ -86,6 +88,7 @@ int	do_ffx			(int);
 void	remove_bad		(char *);
 FFX    *parse_ffx		(char *);
 int	exec_ffx		(FFX *);
+int	run_ffx_cmd		(char *, char *, char *, char *, char *);
 
 void	short_usage		(void);
 void	usage			(void);
@@ -458,6 +461,11 @@ int exec_ffx(FFX *ffx)
     
 
     /* Execute */
+    debug(2, "Command: %s", cmd_c);
+    ret = run_ffx_cmd(cmd_c, name, ffx->fqdn, args, ffx->in);
+    debug(2, "Exit code=%d", ret);
+
+#if 0
     if(ffx->in)
     {
 	/* Search for data file, ignoring case */
@@ -482,7 +490,8 @@ int exec_ffx(FFX *ffx)
     debug(2, "Command: %s", buffer);
     ret = run_system(buffer);
     debug(2, "Exit code=%d", ret);
-
+#endif
+    
     if(ret == 0)
     {
 	unlink(ffx->name);
@@ -491,6 +500,93 @@ int exec_ffx(FFX *ffx)
 	return OK;
     }
     
+    return ERROR;
+}
+
+
+
+/*
+ * Run ffx cmd using fork() and exec()
+ */
+#define MAXARGS		32
+
+int run_ffx_cmd(char *cmd,
+		char *cmd_name, char *cmd_fqdn, char *cmd_args, char *data)
+{
+    char *args[MAXARGS];
+    int n=0;
+    char *p;
+    pid_t pid;
+    int status;
+
+    /* compile args[] vector */
+    args[n++] = cmd_name;
+    if(cmd_fqdn) 
+    {
+	args[n++] = "-f";
+	args[n++] = cmd_fqdn;
+    }
+
+    for(p=strtok(cmd_args, SEP); p; p=strtok(NULL, SEP)) 
+    {
+	if(n >= MAXARGS-1) 
+	{
+	    log("ERROR: too many args in run_ffx_cmd()");
+	    return ERROR;
+	}
+	args[n++] = p;
+    }
+
+    args[n] = NULL;
+
+#if 0
+    {
+	int i;
+	debug(7, "cmd=%s", cmd);
+	for(i=0; i<=n; i++)
+	    debug(7, "args[%d] = %s", i, args[i]);
+	debug(7, "data=%s", data);
+    }
+#endif
+
+    /* fork() and exec() */
+    pid = fork();
+    if(pid == ERROR) 
+    {
+	log("$ERROR: fork failed");
+	return ERROR;
+    }
+
+    if(pid) 
+    {
+	/* parent */
+	if(waitpid(pid, &status, 0) == ERROR) 
+	{
+	    log("$ERROR: waitpid failed");
+	    return ERROR;
+	}
+	if(WIFEXITED(status))
+	    return WEXITSTATUS(status);
+	if(WIFSIGNALED(status)) 
+	    log("ERROR: child %s caught signal %d", cmd, WTERMSIG(status));
+	else
+	    log("ERROR: child %s, exit status=%04x", cmd, status);
+	return ERROR;
+    }
+    else 
+    {
+	/* child */
+	if(! freopen(data, R_MODE, stdin)) 
+	{
+	    log("ERROR: can't freopen stdin to %s", data);
+	    exit(1);
+	}
+	if( execv(cmd, args) == ERROR )
+	    log("ERROR: execv %s failed", cmd);
+	exit(1);
+    }
+
+    /**NOT REACHED**/
     return ERROR;
 }
 

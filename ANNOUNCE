@@ -1,10 +1,10 @@
 X-Emacs-Mode: -*- indented-text -*-
-Subject: FIDOGATE 4.4.1 - Fido-Internet Gateway and Tosser
+Subject: FIDOGATE 4.4.2 - Fido-Internet Gateway and Tosser
 Keywords: fido ftn netmail echomail tosser areafix mail news gateway
 Followup-To: comp.os.linux.misc
 
   =================================================================
-    FIDOGATE 4.4.1, a stable version of the new FIDOGATE release
+    FIDOGATE 4.4.2, a stable version of the new FIDOGATE release
   =================================================================
 
 			   FIDOGATE Version 4
@@ -19,17 +19,17 @@ Followup-To: comp.os.linux.misc
 
   Internet:
   =========
-    http://www.fido.de/fidogate/
-    ftp://ftp.fido.de/pub/fidogate/
-    http://www.fido.de/pub/fidogate/
+    http://www.fidogate.org/
+    ftp://ftp.fidogate.org/pub/fidogate/
+    http://www.fidogate.org/pub/fidogate/
 
     ftp://metalab.unc.edu/pub/Linux/system/fido/
     http://metalab.unc.edu/pub/Linux/system/fido/
     (maybe still in .../pub/Linux/Incoming)
 
-    fidogate-4.4.1.tar.gz	1140 Kbyte
-    fidogate-4.4.1-1.src.rpm	1140 Kbyte
-    fidogate-4.4.1-1.i386.rpm	1130 Kbyte
+    fidogate-4.4.2.tar.gz	1140 Kbyte
+    fidogate-4.4.2-1.src.rpm	1140 Kbyte
+    fidogate-4.4.2-1.i386.rpm	1130 Kbyte
     
 
   Fido File Request:
@@ -37,10 +37,22 @@ Followup-To: comp.os.linux.misc
     2:2452/110, 111  +49-241-876604  (V.34, ISDN V.110/X.75)
     
     Magic FIDOGATE or
-    fgate441.tgz		1140 Kbyte
+    fgate442.tgz		1140 Kbyte
 
 
 ======================================================================
+
+Changes in 4.4.2:
+
+* Some changes to the various scripts.
+
+* Code clean-up, got rid of all insecure strcpy(), strcat(), sprintf() 
+  functions.
+
+* ffx, ffxqt: support for job compression removed (ftnpack does this
+  anyway), several changes to improve security.
+
+
 
 Changes in 4.4.1:
 
@@ -82,6 +94,6 @@ Needed:
 
 ======================================================================
 
-$Date: 2000/04/11 08:04:29 $
+$Date: 2000/11/18 17:57:56 $
 Martin Junius
 mailto:mj@fido.de

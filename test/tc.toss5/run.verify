@@ -1,7 +1,7 @@
 tc: clean-up
 tc: init
 tc: copying input packets
-cp: ../ti.pkt-z2/CVS: omitting directory
+cp: ../ti.pkt-z2/CVS: Verzeichnis ausgelassen
 tc: running
 ftntoss creating MSGID history ./history.dir
 ftntoss creating MSGID history ./history.pag

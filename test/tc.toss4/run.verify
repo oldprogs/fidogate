@@ -1,7 +1,7 @@
 tc: clean-up
 tc: init
 tc: copying input packets
-cp: ../ti.pkt-z2/CVS: omitting directory
+cp: ../ti.pkt-z2/CVS: Verzeichnis ausgelassen
 tc: running
 ftntoss creating MSGID history ./history.dir
 ftntoss creating MSGID history ./history.pag
@@ -28,7 +28,7 @@ ftntoss packet ./pin/01184390.PKT (71064b) from 2:2452/110.0 to 2:2452/110.2
 ftntoss packet ./pin/01186013.PKT (33334b) from 2:2452/110.0 to 2:2452/110.2
 ftntoss msgs processed: 316 in, 316 out (0 mail, 316 echo)
 tc: copying input packets
-cp: ../ti.pkt-z2/CVS: omitting directory
+cp: ../ti.pkt-z2/CVS: Verzeichnis ausgelassen
 tc: running
 ftntoss packet ./pin/01165017.PKT (7930b) from 2:2452/110.0 to 2:2452/110.2
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: <4i9vav$6mf@spinnaker.rhein.de> da5ed49f

@@ -5,47 +5,183 @@ ffx: job=ff000001
 ffx: ctrl=./bt/out.0f2/test/ff000001.ffx
 ffx: data=./bt/out.0f2/test/ff000001
 ffx job ff000001: to 242:1/1.0 / rmail 123@fido.de
-Command: /bin/cat >./bt/out.0f2/test/ff000001
-Exit code=0
 ffx: job=ff000002
 ffx: ctrl=./bt/out.0f2/test/ff000002.ffx
 ffx: data=./bt/out.0f2/test/ff000002
 ffx job ff000002: to 242:1/1.0 / rmail abc@fido.de
-Command: /bin/cat >./bt/out.0f2/test/ff000002
-Exit code=0
 ffx: job=ff000003
 ffx: ctrl=./bt/out.0f2/test/ff000003.ffx
 ffx: data=./bt/out.0f2/test/ff000003
 ffx job ff000003: to 242:1/1.0 / rmail def@fido.de
-Command: /bin/cat >./bt/out.0f2/test/ff000003
-Exit code=0
 ffx: job=ff000004
 ffx: ctrl=./bt/out.0f2/test/ff000004.ffx
 ffx: data=./bt/out.0f2/test/ff000004
 ffx job ff000004: to 242:1/1.0 / rmail ghi@fido.de
-Command: /bin/cat >./bt/out.0f2/test/ff000004
+ff000001
+ff000001.ffx
+ff000002
+ff000002.ffx
+ff000003
+ff000003.ffx
+ff000004
+ff000004.ffx
+Subject: Test
+From: mj@fido.de
+To: mj@fido.de
+
+----
+TEST
+----
+# ffx 4.14
+U mj 242:1000/5.0 242:1/1.0 orodruin.fido.de
+Z
+J ff000001
+F ff000001
+I ff000001
+C rmail 123@fido.de
+# EOF
+Subject: Test
+From: mj@fido.de
+To: mj@fido.de
+
+----
+TEST
+----
+# ffx 4.14
+U mj 242:1000/5.0 242:1/1.0 orodruin.fido.de
+Z
+J ff000002
+F ff000002
+I ff000002
+C rmail abc@fido.de
+# EOF
+Subject: Test
+From: mj@fido.de
+To: mj@fido.de
+
+----
+TEST
+----
+# ffx 4.14
+U mj 242:1000/5.0 242:1/1.0 orodruin.fido.de
+Z
+J ff000003
+F ff000003
+I ff000003
+C rmail def@fido.de
+# EOF
+Subject: Test
+From: mj@fido.de
+To: mj@fido.de
+
+----
+TEST
+----
+# ffx 4.14
+U mj 242:1000/5.0 242:1/1.0 orodruin.fido.de
+Z
+J ff000004
+F ff000004
+I ff000004
+C rmail ghi@fido.de
+# EOF
+Packet: from=242:1000/5.0 to=242:1/1.0 grade=- type=- flav=n
+packing: pack=n dir= arc=zip
+ftnpack archiving packet (62b) for 242:1/1.0 (zip)
+Packet: from=242:1000/5.0 to=242:1/1.0 grade=- type=- flav=n
+packing: pack=n dir= arc=zip
+ftnpack archiving packet (117b) for 242:1/1.0 (zip)
+Packet: from=242:1000/5.0 to=242:1/1.0 grade=- type=- flav=n
+packing: pack=n dir= arc=zip
+ftnpack archiving packet (62b) for 242:1/1.0 (zip)
+Packet: from=242:1000/5.0 to=242:1/1.0 grade=- type=- flav=n
+packing: pack=n dir= arc=zip
+ftnpack archiving packet (117b) for 242:1/1.0 (zip)
+Packet: from=242:1000/5.0 to=242:1/1.0 grade=- type=- flav=n
+packing: pack=n dir= arc=zip
+ftnpack archiving packet (62b) for 242:1/1.0 (zip)
+Packet: from=242:1000/5.0 to=242:1/1.0 grade=- type=- flav=n
+packing: pack=n dir= arc=zip
+ftnpack archiving packet (117b) for 242:1/1.0 (zip)
+Packet: from=242:1000/5.0 to=242:1/1.0 grade=- type=- flav=n
+packing: pack=n dir= arc=zip
+ftnpack archiving packet (62b) for 242:1/1.0 (zip)
+Packet: from=242:1000/5.0 to=242:1/1.0 grade=- type=- flav=n
+packing: pack=n dir= arc=zip
+ftnpack archiving packet (117b) for 242:1/1.0 (zip)
+ffxqt: control file ./ff000001.ffx
+ffx: user=./ff000001.ffx fqdn=orodruin.fido.de
+     242:1000/5.0 -> 242:1/1.0
+     J ff000001
+     I ff000001 
+     F ff000001
+     C rmail 123@fido.de
+     P 
+ffxqt job ff000001: from 242:1000/5.0 data ff000001 (62b) / rmail 123@fido.de
+Command: /home/mj/src/fidogate/test/tc.ffx/rxxxx
+----- /home/mj/src/fidogate/test/tc.ffx/rxxxx -f orodruin.fido.de 123@fido.de -----
+Subject: Test
+From: mj@fido.de
+To: mj@fido.de
+
+----
+TEST
+----
 Exit code=0
-Packet: from=242:1000/5.0 to=242:1/1.0 grade=- type=- flav=n
-packing: pack=n dir= arc=zip
-ftnpack archiving packet (62b) for 242:1/1.0 (zip)
-Packet: from=242:1000/5.0 to=242:1/1.0 grade=- type=- flav=n
-packing: pack=n dir= arc=zip
-ftnpack archiving packet (101b) for 242:1/1.0 (zip)
-Packet: from=242:1000/5.0 to=242:1/1.0 grade=- type=- flav=n
-packing: pack=n dir= arc=zip
-ftnpack archiving packet (62b) for 242:1/1.0 (zip)
-Packet: from=242:1000/5.0 to=242:1/1.0 grade=- type=- flav=n
-packing: pack=n dir= arc=zip
-ftnpack archiving packet (101b) for 242:1/1.0 (zip)
-Packet: from=242:1000/5.0 to=242:1/1.0 grade=- type=- flav=n
-packing: pack=n dir= arc=zip
-ftnpack archiving packet (62b) for 242:1/1.0 (zip)
-Packet: from=242:1000/5.0 to=242:1/1.0 grade=- type=- flav=n
-packing: pack=n dir= arc=zip
-ftnpack archiving packet (101b) for 242:1/1.0 (zip)
-Packet: from=242:1000/5.0 to=242:1/1.0 grade=- type=- flav=n
-packing: pack=n dir= arc=zip
-ftnpack archiving packet (62b) for 242:1/1.0 (zip)
-Packet: from=242:1000/5.0 to=242:1/1.0 grade=- type=- flav=n
-packing: pack=n dir= arc=zip
-ftnpack archiving packet (101b) for 242:1/1.0 (zip)
+ffxqt: control file ./ff000002.ffx
+ffx: user=./ff000002.ffx fqdn=orodruin.fido.de
+     242:1000/5.0 -> 242:1/1.0
+     J ff000002
+     I ff000002 
+     F ff000002
+     C rmail abc@fido.de
+     P 
+ffxqt job ff000002: from 242:1000/5.0 data ff000002 (62b) / rmail abc@fido.de
+Command: /home/mj/src/fidogate/test/tc.ffx/rxxxx
+----- /home/mj/src/fidogate/test/tc.ffx/rxxxx -f orodruin.fido.de abc@fido.de -----
+Subject: Test
+From: mj@fido.de
+To: mj@fido.de
+
+----
+TEST
+----
+Exit code=0
+ffxqt: control file ./ff000003.ffx
+ffx: user=./ff000003.ffx fqdn=orodruin.fido.de
+     242:1000/5.0 -> 242:1/1.0
+     J ff000003
+     I ff000003 
+     F ff000003
+     C rmail def@fido.de
+     P 
+ffxqt job ff000003: from 242:1000/5.0 data ff000003 (62b) / rmail def@fido.de
+Command: /home/mj/src/fidogate/test/tc.ffx/rxxxx
+----- /home/mj/src/fidogate/test/tc.ffx/rxxxx -f orodruin.fido.de def@fido.de -----
+Subject: Test
+From: mj@fido.de
+To: mj@fido.de
+
+----
+TEST
+----
+Exit code=0
+ffxqt: control file ./ff000004.ffx
+ffx: user=./ff000004.ffx fqdn=orodruin.fido.de
+     242:1000/5.0 -> 242:1/1.0
+     J ff000004
+     I ff000004 
+     F ff000004
+     C rmail ghi@fido.de
+     P 
+ffxqt job ff000004: from 242:1000/5.0 data ff000004 (62b) / rmail ghi@fido.de
+Command: /home/mj/src/fidogate/test/tc.ffx/rxxxx
+----- /home/mj/src/fidogate/test/tc.ffx/rxxxx -f orodruin.fido.de ghi@fido.de -----
+Subject: Test
+From: mj@fido.de
+To: mj@fido.de
+
+----
+TEST
+----
+Exit code=0

@@ -106,7 +106,7 @@ FLO file:
 ----- packet toss 1 -----
 ftntoss creating MSGID history ./history.dir
 ftntoss creating MSGID history ./history.pag
-ftntoss packet ./pin/00000001.pkt (375b) from 2:2/0.0 to 2:2/1.0
+ftntoss packet ./pin/00000001.pkt (374b) from 2:2/0.0 to 2:2/1.0
 ftntoss MAIL: Test @ 2:2/0.0 -> Test @ 2:2/1.0
 ftntoss msgs processed: 1 in, 1 out (1 mail, 0 echo)
 ftnroute packet for 2:2/1.0 via 2:2452/110.0 (Normal)
@@ -121,7 +121,7 @@ Reading FTN packet header:
 Packet: from=2:2452/110.2 to=2:2452/110.0 grade=n type=n flav=n
 packing: pack=n dir= arc=zip
 node=2:2452/110.0 bsy file=./bt/out/0994006e.bsy
-ftnpack archiving packet (445b) for 2:2452/110.0 (zip)
+ftnpack archiving packet (443b) for 2:2452/110.0 (zip)
 Archiving ./toss/route/nnn00003.pkt for 2:2452/110.0 arc
     Packet  name: ./toss/pack/nnn00003.pkt
     Archive name: ./bt/out/00000000.xx0
@@ -159,7 +159,7 @@ Deleting BSY file ./bt/out/0994006e.bsy succeeded.
 0994006e.flo
 #./bt/out/00000000.xx0
 ----- packet toss 2 -----
-ftntoss packet ./pin/00000001.pkt (375b) from 2:2/0.0 to 2:2/1.0
+ftntoss packet ./pin/00000001.pkt (374b) from 2:2/0.0 to 2:2/1.0
 ftntoss MAIL: Test @ 2:2/0.0 -> Test @ 2:2/1.0
 ftntoss msgs processed: 1 in, 1 out (1 mail, 0 echo)
 ftnroute packet for 2:2/1.0 via 2:2452/110.0 (Normal)
@@ -174,7 +174,7 @@ Reading FTN packet header:
 Packet: from=2:2452/110.2 to=2:2452/110.0 grade=n type=n flav=n
 packing: pack=n dir= arc=zip
 node=2:2452/110.0 bsy file=./bt/out/0994006e.bsy
-ftnpack archiving packet (445b) for 2:2452/110.0 (zip)
+ftnpack archiving packet (443b) for 2:2452/110.0 (zip)
 Archiving ./toss/route/nnn00005.pkt for 2:2452/110.0 arc
     Packet  name: ./toss/pack/nnn00005.pkt
     Archive name: ./bt/out/00000000.xx0
@@ -214,7 +214,7 @@ Deleting BSY file ./bt/out/0994006e.bsy succeeded.
 0994006e.flo
 #./bt/out/00000000.xx0
 ----- packet toss 3 (flo removed) -----
-ftntoss packet ./pin/00000001.pkt (375b) from 2:2/0.0 to 2:2/1.0
+ftntoss packet ./pin/00000001.pkt (374b) from 2:2/0.0 to 2:2/1.0
 ftntoss MAIL: Test @ 2:2/0.0 -> Test @ 2:2/1.0
 ftntoss msgs processed: 1 in, 1 out (1 mail, 0 echo)
 ftnroute packet for 2:2/1.0 via 2:2452/110.0 (Normal)
@@ -229,7 +229,7 @@ Reading FTN packet header:
 Packet: from=2:2452/110.2 to=2:2452/110.0 grade=n type=n flav=n
 packing: pack=n dir= arc=zip
 node=2:2452/110.0 bsy file=./bt/out/0994006e.bsy
-ftnpack archiving packet (445b) for 2:2452/110.0 (zip)
+ftnpack archiving packet (443b) for 2:2452/110.0 (zip)
 Archiving ./toss/route/nnn00007.pkt for 2:2452/110.0 arc
     Packet  name: ./toss/pack/nnn00007.pkt
     Archive name: ./bt/out/00000000.xx0

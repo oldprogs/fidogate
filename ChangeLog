@@ -1,5 +1,28 @@
 2000-11-18  Martin Junius  <mj@fido.de>
 
+	------- CVS tag R442test1 for rpm building test ----------------------
+	------- CVS ci -------------------------------------------------------
+
+	* fidogate.spec: updated.
+
+	* fidogate.lsm: updated.
+
+	* README: updated.
+
+	* ANNOUNCE: updated.
+
+	* test/tc.*: updated verify files.
+
+	------- CVS ci -------------------------------------------------------
+
+	* src/ffx/ffxrmail.pl: new option -f RELAY, sets -pFFX:RELAY for
+	  sendmail, if FFXRmailSendmail already contains a -p option.
+
+	* src/ffx/ffxqt.c (run_ffx_cmd): new function for running ffx commands.
+	  (exec_ffx): use run_ffx_cmd().
+	  (run_ffx_cmd): now does proper fork() and execv(), avoiding
+	  security problems with system().
+
 	------- CVS ci -------------------------------------------------------
 
 	* version.h (PATCHLEVEL): set to 2, version 4.4.2.

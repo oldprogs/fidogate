@@ -77,7 +77,7 @@ Reading FTN packet header:
     Rev : x.x
     Pass: ""
     Capw: 0001
-ftn2rfc packet ./pin/00000001.pkt (313b) from 2:2499/99.0 to 2:2452/110.2
+ftn2rfc packet ./pin/00000001.pkt (312b) from 2:2499/99.0 to 2:2452/110.2
 ftn2rfc MAIL: Test <Test@f99.n2499.z2.fidonet.org> -> Test@orodruin.fido.de
 Reading FTN packet header:
     From: 2:2499/99.0
@@ -87,7 +87,7 @@ Reading FTN packet header:
     Rev : x.x
     Pass: ""
     Capw: 0001
-ftn2rfc packet ./pin/00000002.pkt (313b) from 2:2499/99.0 to 2:2452/110.2
+ftn2rfc packet ./pin/00000002.pkt (312b) from 2:2499/99.0 to 2:2452/110.2
 Message to `UUCP' or `GATEWAY' without To line
 ftn2rfc BOUNCE: mail from Test <Test@f99.n2499.z2.fidonet.org> without To line
 Reading FTN packet header:
@@ -98,7 +98,7 @@ Reading FTN packet header:
     Rev : x.x
     Pass: ""
     Capw: 0001
-ftn2rfc packet ./pin/00000003.pkt (342b) from 2:2499/99.0 to 2:2452/110.2
+ftn2rfc packet ./pin/00000003.pkt (341b) from 2:2499/99.0 to 2:2452/110.2
 Not a registered node: 2:2499/99.0
 ftn2rfc BOUNCE: mail from unregistered Test <Test@f99.n2499.z2.fidonet.org>
 Reading FTN packet header:
@@ -109,6 +109,6 @@ Reading FTN packet header:
     Rev : x.x
     Pass: ""
     Capw: 0001
-ftn2rfc packet ./pin/00000004.pkt (336b) from 2:242/2.0 to 2:2452/110.2
+ftn2rfc packet ./pin/00000004.pkt (335b) from 2:242/2.0 to 2:2452/110.2
 Not a registered node: 2:242/2.0
 ftn2rfc BOUNCE: mail from unregistered Test <Test@f2.n242.z2.fidonet.org>
