@@ -1,7 +1,7 @@
 <HTML>
 <HEAD>
 <!-- This HTML file has been created by texi2html 1.51
-     from ../fidogate.texi on 1 November 1997 -->
+     from ../fidogate.texi on 9 November 1997 -->
 
 <TITLE>FIDOGATE
  - FIDOGATE Programs</TITLE>
@@ -570,19 +570,28 @@ Options:
 Write single articles to output files (in <CODE>tmpnews</CODE>), not news
 batches containing several articles (batch is default).
 
+<DT><CODE>-I --inbound-dir <I>NAME</I></CODE>
+<DD>
+Set the input directory for FTN packets.
+
+<DT><CODE>-i --ignore-hosts</CODE>
+<DD>
+Don't bounce unknown hosts (unknown = not registered in <CODE>hosts</CODE>)
+
+<DT><CODE>-l --lock-file</CODE>
+<DD>
+Create lock file while processing.
+
+<DT><CODE>-n --no-remove</CODE>
+<DD>
+Don't remove or rename input packet files, return exit code 1 if
+processing fails.
+
 <DT><CODE>-t --insecure</CODE>
 <DD>
 Operate in insecure mode. All messages containing a To line for gateway
 addressing will be bounced. Also sets the input directory to
 SPOOLDIR/insecure.
-
-<DT><CODE>-I --inbound-dir <I>NAME</I></CODE>
-<DD>
-Set the input directory for FTN packets.
-
-<DT><CODE>-l --lock-file</CODE>
-<DD>
-Create lock file while processing.
 
 <DT><CODE>-x --exec-program <I>SCRIPT</I></CODE>
 <DD>

@@ -21,7 +21,7 @@ versions.
 
 Indirect:
 fidogate.info-1: 767
-fidogate.info-2: 49965
+fidogate.info-2: 50167
 
 Tag Table:
 (Indirect)
@@ -44,49 +44,49 @@ Node: ffxrmail29128
 Node: ffxrun29542
 Node: ftn2ftn29896
 Node: ftn2rfc30917
-Node: ftnaf31957
-Node: ftnafmail33161
-Node: ftnbounce33695
-Node: ftnbsy33997
-Node: ftnconfig34460
-Node: ftnhatch35114
-Node: ftnin35413
-Node: ftninpost35979
-Node: ftninrecomb36337
-Node: ftnlock36676
-Node: ftnlog37380
-Node: ftnpack37796
-Node: ftnroute39512
-Node: ftnseq40235
-Node: ftntick40648
-Node: ftntoss41043
-Node: ftnfattach42389
-Node: pktdebug42920
-Node: rfc2ftn43568
-Node: rundf44539
-Node: runin45087
-Node: runout45735
-Node: runtoss46137
-Node: rununpack46750
-Node: sumcrc47775
-Node: Config files48637
-Node: Config49965
-Node: Hosts65752
-Node: Aliases67997
-Node: Areas68792
-Node: Bounce71780
-Node: Passwd72975
-Node: Routing74198
-Node: Packing77942
-Node: Areas.bbs79631
-Node: Basic81093
-Node: Sendmail81608
-Node: Example Point82922
-Node: Example Point 284999
-Node: Example Node87522
-Node: Usage90385
-Node: RFC Headers90600
-Node: X Headers91959
-Node: Index92804
+Node: ftnaf32159
+Node: ftnafmail33363
+Node: ftnbounce33897
+Node: ftnbsy34199
+Node: ftnconfig34662
+Node: ftnhatch35316
+Node: ftnin35615
+Node: ftninpost36181
+Node: ftninrecomb36539
+Node: ftnlock36878
+Node: ftnlog37582
+Node: ftnpack37998
+Node: ftnroute39714
+Node: ftnseq40437
+Node: ftntick40850
+Node: ftntoss41245
+Node: ftnfattach42591
+Node: pktdebug43122
+Node: rfc2ftn43770
+Node: rundf44741
+Node: runin45289
+Node: runout45937
+Node: runtoss46339
+Node: rununpack46952
+Node: sumcrc47977
+Node: Config files48839
+Node: Config50167
+Node: Hosts65954
+Node: Aliases68199
+Node: Areas68994
+Node: Bounce71982
+Node: Passwd73177
+Node: Routing74400
+Node: Packing78144
+Node: Areas.bbs79833
+Node: Basic81295
+Node: Sendmail81810
+Node: Example Point83124
+Node: Example Point 285201
+Node: Example Node87724
+Node: Usage90587
+Node: RFC Headers90802
+Node: X Headers92161
+Node: Index93006
 
 End Tag Table

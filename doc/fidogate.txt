@@ -1057,16 +1057,23 @@ Options:
      Write single articles to output files (in `tmpnews'), not news
      batches containing several articles (batch is default).
 
+`-I --inbound-dir NAME'
+     Set the input directory for FTN packets.
+
+`-i --ignore-hosts'
+     Don't bounce unknown hosts (unknown = not registered in `hosts')
+
+`-l --lock-file'
+     Create lock file while processing.
+
+`-n --no-remove'
+     Don't remove or rename input packet files, return exit code 1 if
+     processing fails.
+
 `-t --insecure'
      Operate in insecure mode. All messages containing a To line for
      gateway addressing will be bounced. Also sets the input directory
      to SPOOLDIR/insecure.
-
-`-I --inbound-dir NAME'
-     Set the input directory for FTN packets.
-
-`-l --lock-file'
-     Create lock file while processing.
 
 `-x --exec-program SCRIPT'
      Run SCRIPT after processing all FTN packets. Typically this is

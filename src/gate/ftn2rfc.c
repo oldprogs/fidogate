@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftn2rfc.c,v 4.28 1997/10/26 10:42:32 mj Exp $
+ * $Id: ftn2rfc.c,v 4.29 1997/11/09 12:05:12 mj Exp $
  *
  * Convert FTN mail packets to RFC mail and news batches
  *
@@ -40,7 +40,7 @@
 
 
 #define PROGRAM 	"ftn2rfc"
-#define VERSION 	"$Revision: 4.28 $"
+#define VERSION 	"$Revision: 4.29 $"
 #define CONFIG		CONFIG_GATE
 
 
@@ -67,6 +67,7 @@ void	usage			(void);
 /*
  * Command line options
  */
+int n_flag = FALSE;
 int t_flag = FALSE;
 
 char in_dir[MAXPATH];
@@ -1141,14 +1142,24 @@ int unpack_file(char *pkt_name)
     pkt_file = fopen(pkt_name, R_MODE);
     if(!pkt_file) {
 	log("$ERROR: can't open packet %s", pkt_name);
-	rename_bad(pkt_name);
-	return OK;
+	if(n_flag)
+	    return ERROR;
+	else
+	{
+	    rename_bad(pkt_name);
+	    return OK;
+	}
     }
     if(pkt_get_hdr(pkt_file, &pkt) == ERROR)
     {
 	log("ERROR: reading header from %s", pkt_name);
-	rename_bad(pkt_name);
-	return OK;
+	if(n_flag)
+	    return ERROR;
+	else
+	{
+	    rename_bad(pkt_name);
+	    return OK;
+	}
     }
     
     /*
@@ -1157,16 +1168,21 @@ int unpack_file(char *pkt_name)
     log("packet %s (%ldb) from %s to %s", pkt_name, check_size(pkt_name),
 	node_to_asc(&pkt.from, TRUE), node_to_asc(&pkt.to, TRUE) );
     
-    if(unpack(pkt_file, &pkt) == -1) 
+    if(unpack(pkt_file, &pkt) == ERROR) 
     {
 	log("ERROR: processing %s", pkt_name);
-	rename_bad(pkt_name);
-	return OK;
+	if(n_flag)
+	    return ERROR;
+	else
+	{
+	    rename_bad(pkt_name);
+	    return OK;
+	}
     }
     
     fclose(pkt_file);
     
-    if (unlink(pkt_name)) {
+    if(!n_flag && unlink(pkt_name)==ERROR) {
 	log("$ERROR: can't unlink packet %s", pkt_name);
 	rename_bad(pkt_name);
 	return OK;
@@ -1195,10 +1211,11 @@ void usage(void)
     fprintf(stderr, "usage:   %s [-options] [packet ...]\n\n", PROGRAM);
     fprintf(stderr, "\
 options: -1 --single-articles         write single news articles, not batch\n\
-         -i --ignore-hosts            do not bounce unknown host\n\
-	 -t --insecure                process insecure packets\n\
          -I --in-dir name             set input packet directory\n\
+         -i --ignore-hosts            do not bounce unknown host\n\
          -l --lock-file               create lock file while processing\n\
+         -n --no-remove               don't remove/rename input packet file\n\
+	 -t --insecure                process insecure packets\n\
          -x --exec-program name       exec program after processing\n\
 \n\
 	 -v --verbose                 more verbose\n\
@@ -1218,7 +1235,7 @@ options: -1 --single-articles         write single news articles, not batch\n\
 
 int main(int argc, char **argv)
 {
-    int c;
+    int c, ret;
     char *execprog = NULL;
     int l_flag=FALSE;
     char *I_flag=NULL;
@@ -1232,10 +1249,11 @@ int main(int argc, char **argv)
     static struct option long_options[] =
     {
 	{ "single-articles", 0, 0, '1'},/* Write single article files */
-	{ "ignore-hosts", 0, 0, 'i'},	/* Do not bounce unknown hosts */
-	{ "insecure",     0, 0, 't'},	/* Toss insecure packets */
 	{ "in-dir",       1, 0, 'I'},	/* Set inbound packets directory */
+	{ "ignore-hosts", 0, 0, 'i'},	/* Do not bounce unknown hosts */
 	{ "lock-file",    0, 0, 'l'},	/* Create lock file while processing */
+	{ "no-remove",    0, 0, 'n'},	/* Don't remove/rename packet file */
+	{ "insecure",     0, 0, 't'},	/* Toss insecure packets */
 	{ "exec-program", 1, 0, 'x'},	/* Exec program after processing */
 
 	{ "verbose",      0, 0, 'v'},	/* More verbose */
@@ -1254,7 +1272,7 @@ int main(int argc, char **argv)
     cf_initialize();
 
 
-    while ((c = getopt_long(argc, argv, "1itI:lx:vhc:S:L:a:u:",
+    while ((c = getopt_long(argc, argv, "1itI:lnx:vhc:S:L:a:u:",
 			    long_options, &option_index     )) != EOF)
 	switch (c) {
 	/***** ftn2rfc options *****/
@@ -1262,22 +1280,26 @@ int main(int argc, char **argv)
 	    /* Write single article files */
 	    single_articles = TRUE;
 	    break;
-	case 'i':
-	    /* Don't bounce unknown hosts */
-	    ignore_hosts = TRUE;
-	    break;
-	case 't':
-	    /* Insecure */
-	    t_flag = TRUE;
-	    break;
 	case 'I':
 	    /* Inbound packets directory */
 	    I_flag = optarg;
+	    break;
+	case 'i':
+	    /* Don't bounce unknown hosts */
+	    ignore_hosts = TRUE;
 	    break;
         case 'l':
             /* Lock file */
 	    l_flag = TRUE;
             break;
+	case 'n':
+	    /* Don't remove/rename input packet file */
+	    n_flag = TRUE;
+	    break;
+	case 't':
+	    /* Insecure */
+	    t_flag = TRUE;
+	    break;
         case 'x':
             /* Exec program after unpack */
             execprog = optarg;
@@ -1478,6 +1500,8 @@ int main(int argc, char **argv)
 	if(lock_program(PROGRAM, NOWAIT) == ERROR)
 	    exit(EXIT_BUSY);
 
+    ret = EXIT_OK;
+
     if(optind >= argc)
     {
 	/* process packet files in input directory */
@@ -1491,7 +1515,8 @@ int main(int argc, char **argv)
 	}
 
 	for(pkt_name=dir_get(TRUE); pkt_name; pkt_name=dir_get(FALSE))
-	    unpack_file(pkt_name);
+	    if(unpack_file(pkt_name) != OK)
+		ret = EXIT_ERROR;
 
 	dir_close();
     }
@@ -1501,7 +1526,8 @@ int main(int argc, char **argv)
 	 * Process packet files on command line
 	 */
 	for(; optind<argc; optind++)
-	    unpack_file(argv[optind]);
+	    if(unpack_file(argv[optind]) != OK)
+		ret = EXIT_ERROR;
     }
     
 
@@ -1510,18 +1536,20 @@ int main(int argc, char **argv)
      */
     if(execprog)
     {
-	int ret;
+	int retx;
 
 	str_expand_name(buffer, sizeof(buffer), execprog);
 	debug(4, "Command: %s", buffer);
-	ret = run_system(buffer);
+	retx = run_system(buffer);
 	debug(4, "Exit code=%d", ret);
+	if(retx != EXIT_OK)
+	    ret = EXIT_ERROR;
     }
     
     if(l_flag)
 	unlock_program(PROGRAM);
     
-    exit(EX_OK);
+    exit(ret);
 
     /**NOT REACHED**/
     return 1;

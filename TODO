@@ -4,7 +4,7 @@
 	
 	* tests: ftntoss echomail problems and Kill* config.
 
-DONE	* ftn2rfc: option to *not* delete input packet for usage with
+	* ftn2rfc: option to *not* delete input packet for usage with
 	  ftnpack and the prog packing command.
 
 	* ^ACHRS default configurable per area.

@@ -2,7 +2,7 @@
 @c
 @c FIDOGATE documentation
 @c
-@c $Id: fidogate.texi,v 4.32 1997/11/01 16:53:53 mj Exp $
+@c $Id: fidogate.texi,v 4.33 1997/11/09 12:05:04 mj Exp $
 @c
 
 @setfilename fidogate.info
@@ -1442,16 +1442,23 @@ ftn2rfc  @r{[}@i{-options}@r{]}  @r{[}@i{packet} @r{... ]}
 Write single articles to output files (in @code{tmpnews}), not news
 batches containing several articles (batch is default).
 
+@item -I --inbound-dir @i{NAME}
+Set the input directory for FTN packets.
+
+@item -i --ignore-hosts
+Don't bounce unknown hosts (unknown = not registered in @code{hosts})
+
+@item -l --lock-file
+Create lock file while processing.
+
+@item -n --no-remove
+Don't remove or rename input packet files, return exit code 1 if
+processing fails.
+
 @item -t --insecure
 Operate in insecure mode. All messages containing a To line for gateway
 addressing will be bounced. Also sets the input directory to
 SPOOLDIR/insecure.
-
-@item -I --inbound-dir @i{NAME}
-Set the input directory for FTN packets.
-
-@item -l --lock-file
-Create lock file while processing.
 
 @item -x --exec-program @i{SCRIPT}
 Run @i{SCRIPT} after processing all FTN packets. Typically this is
