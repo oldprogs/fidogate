@@ -1,6 +1,6 @@
 #:ts=8
 #
-# $Id: config.main,v 4.10 1997/02/23 18:20:37 mj Exp $
+# $Id: config.main,v 4.11 1997/03/30 16:32:51 mj Exp $
 #
 # FIDOGATE config file main AKA
 #
@@ -93,7 +93,7 @@ DupeCheck
 # Number of days a MSGID entry stays in the history database
 # (decimal fraction allowed)
 #
-MaxHistory 14
+MaxHistory 28
 
 #
 # Kill old messages (date < now - MaxHistory) (= treat as dupe)

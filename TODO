@@ -70,8 +70,7 @@ DONE.	* ftntoss: make point tosser work without EchoMail4D
 
 	* rfc2ftn: config parameter to disable/enable X-Flags
 	  processing. Add config parameter for specifying addresses
-	  allowed to use X-Flags. Automatically using X-Flags: MN for
-	  local users sending mails to Fido.
+	  allowed to use X-Flags.
 
 	* ftn2rfc: rewrite, split huge unpack() function into parts
 	  for processing netmail and echomail.

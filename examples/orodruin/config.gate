@@ -1,6 +1,6 @@
 #:ts=8
 #
-# $Id: config.gate,v 4.16 1997/03/28 11:31:19 mj Exp $
+# $Id: config.gate,v 4.17 1997/03/30 16:32:51 mj Exp $
 #
 # FIDOGATE config file gateway programs
 #
@@ -138,7 +138,7 @@ MaxMsgSize		15000
 #
 # Limit message size for gateway, bigger messages will be bounced/not gated
 #
-LimitMsgSize		256000
+#LimitMsgSize		256000
 
 
 #
