@@ -1,13 +1,13 @@
 #!/usr/bin/perl
 #
-# $Id: logsendmail.pl,v 4.4 1999/10/17 11:49:29 mj Exp $
+# $Id: logsendmail.pl,v 4.5 2001/10/21 20:17:21 mj Exp $
 #
 # Gather statistics from sendmail V8 syslog output
 #
 
 require 5.000;
 
-my $VERSION    = '$Revision: 4.4 $ ';
+my $VERSION    = '$Revision: 4.5 $ ';
 my $PROGRAM    = "logsendmail";
 
 use strict;
@@ -181,7 +181,7 @@ my $stat_user_unknown;
 while(<>) {
     chop;
 
-    if( /^(.+) [a-zA-Z0-9_\-]+ sendmail\[\d+\]: ([A-Z0-9]+): (.*)$/ ) {
+    if( /^(.+) [a-zA-Z0-9_\-]+ sendmail\[\d+\]: ([A-Za-z0-9]+): (.*)$/ ) {
 	$date = $1;
 	$id   = $2;
 	$rest = $3;
@@ -201,7 +201,7 @@ while(<>) {
 	}
 
 	# bounce message
-	if($rest =~ /^([A-Z0-9]+): (.*?): (.*)$/) {
+	if($rest =~ /^([A-Za-z0-9]+): (.*?): (.*)$/) {
 	    $dsn{$1} = "$id:$2:$3";
 	    $dsn_count{$2}++;
 	    print "DSN: $1, $id, $2, $3\n" if($opt_v);

@@ -1,6 +1,6 @@
 #!/usr/bin/perl
 #
-# $Id: logcheck.pl,v 4.11 2001/07/28 08:33:37 mj Exp $
+# $Id: logcheck.pl,v 4.12 2001/10/21 20:17:21 mj Exp $
 #
 # Create report for sendmail check_mail/rcpt/relay rejects
 #
@@ -11,7 +11,7 @@ use FileHandle;
 
 
 my $PROGRAM     = 'logcheck';
-my $VERSION     = '1.0 $Revision: 4.11 $ ';
+my $VERSION     = '1.0 $Revision: 4.12 $ ';
 
 
 my $NEWSGROUPS  = "fido.de.lists";
@@ -117,7 +117,7 @@ while(<>) {
     }
 
     # RBL
-    if( /ruleset=check_relay, arg1=(.*), arg2=(.*), relay=(.*), reject=553 Rejected -/ ) {
+    if( /ruleset=check_relay, arg1=(.*), arg2=(.*), relay=(.*), reject=.* Rejected -/ ) {
 	$addr = $1;
 	$addr = "<$addr>" if(! $addr =~ /^<.*>$/);
 	$r = $3;
@@ -125,7 +125,7 @@ while(<>) {
 	print "rbl rbl: $addr\n" if($opt_v);
     }
     # DUL
-    elsif( /ruleset=check_relay, arg1=(.*), arg2=(.*), relay=(.*), reject=553 Dialup -/ ) {
+    elsif( /ruleset=check_relay, arg1=(.*), arg2=(.*), relay=(.*), reject=.* Dialup -/ ) {
 	$addr = $1;
 	$addr = "<$addr>" if(! $addr =~ /^<.*>$/);
 	$r = $3;
@@ -133,7 +133,7 @@ while(<>) {
 	print "rbl dul: $addr\n" if($opt_v);
     }
     # RSS
-    elsif( /ruleset=check_relay, arg1=(.*), arg2=(.*), relay=(.*), reject=553 Open spam relay -/ ) {
+    elsif( /ruleset=check_relay, arg1=(.*), arg2=(.*), relay=(.*), reject=.* Open spam relay -/ ) {
 	$addr = $1;
 	$addr = "<$addr>" if(! $addr =~ /^<.*>$/);
 	$r = $3;
@@ -147,7 +147,7 @@ while(<>) {
     }
 
     # ORxx
-    elsif( /ruleset=check_relay, arg1=(.*), arg2=(.*), relay=(.*), reject=553 Open relay - see http:\/\/www\.(.*)\.org\/$/ ) {
+    elsif( /ruleset=check_relay, arg1=(.*), arg2=(.*), relay=(.*), reject=.* Open relay - see http:\/\/www\.(.*)\.org\/$/ ) {
 #	$addr = $1;
 #	$addr = "<$addr>" if(! $addr =~ /^<.*>$/);
 	$r    = $1;
