@@ -82,6 +82,17 @@ from 2:1234/5678 WUSEL
 list
 EOF
 
+$T -m -n -b tmp_areas.bbs <<EOF
+From: mj@fido.de
+Subject: Areafix request
+
+from 2:1/1 DUDEL
+&NEW_AREA_TEST -z 99 -l 99 -k abcdefghijklmnopqrstuvwxyz
+~XX
+~xxxxxxxxxx
+listall
+EOF
+
 # No mailer, stdout
 $T -m -r -n -b tmp_areas.bbs <<EOF
 From: mj@fido.de

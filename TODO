@@ -2,6 +2,8 @@
 
 	************** TODO list for FIDOGATE development **************
 
+	* ftnpack: allow %X in programs (pack, prog, progn)
+
 	* ftnafpkt: automatically recognize Areafix/Filefix as name_to
 
 DONE	* runtoss,rununpack: rewrite using Perl.

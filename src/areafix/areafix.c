@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: areafix.c,v 1.4 1998/03/08 21:07:35 mj Exp $
+ * $Id: areafix.c,v 1.5 1998/03/22 17:57:36 mj Exp $
  *
  * Common Areafix functions
  *
@@ -96,7 +96,8 @@ static char *authorized_key 	= "";
 static char *authorized_name    = "Sysop";
 static Node  authorized_node    = { -1, -1, -1, -1, "" };
 static int   authorized_cmdline = FALSE;
-static int   authorized_create  = FALSE;
+static int   authorized_new     = FALSE;
+static int   authorized_delete  = FALSE;
 
 
 /*
@@ -197,11 +198,75 @@ void areafix_set_areasbbs(char *name)
 
 
 /*
- * Authorize for ftnafcmd
+ * Authorize functions
  */
+void areafix_auth_init(void)
+{
+    authorized         = FALSE;
+    authorized_lvl     = 1;
+    authorized_key     = "";
+    authorized_name    = "Sysop";
+    node_invalid(&authorized_node);
+    authorized_cmdline = FALSE;
+    authorized_new     = FALSE;
+    authorized_delete  = FALSE;
+}
+
+int areafix_auth_check(Node *node, char *passwd)
+{
+    Passwd *pwd;
+    char *p, *s;
+    
+    /* Init */
+    areafix_auth_init();
+
+    /* Check password */
+    debug(3, "Node %s, passwd %s", znfp(node), passwd);
+    pwd = passwd_lookup(MY_CONTEXT, node);
+    debug(3, "passwd entry: %s", pwd ? pwd->passwd : "-NONE-");
+	
+    if(passwd && pwd && !stricmp(passwd, pwd->passwd))
+    {
+	debug(3, "passwd check o.k. - authorized");
+	authorized = TRUE;
+    }
+
+    if(!authorized)
+	return FALSE;
+    
+    /* Extract level, key, and real name from pwd->args */
+    authorized_node = *node;
+    s = strsave(pwd->args);
+    if( (p = xstrtok(s, " \t")) )
+	authorized_lvl = atoi(p);
+    if( (p = xstrtok(NULL, " \t")) )
+	authorized_key = strsave(p);
+    if( (p = xstrtok(NULL, " \t")) )
+	authorized_name = strsave(p);
+    xfree(s);
+    
+    debug(3, "passwd lvl : %d", authorized_lvl);
+    debug(3, "passwd key : %s", authorized_key);
+    debug(3, "passwd name: %s", authorized_name);
+    
+    if(strchr(authorized_key, '&'))
+    {
+	debug(3, "authorized for NEW command");
+	authorized_new = TRUE;
+    }
+    if(strchr(authorized_key, '~'))
+    {
+	debug(3, "authorized for DELETE command");
+	authorized_delete = TRUE;
+    }
+       
+    return TRUE;
+}
+
 void areafix_auth_cmd(void)
 {
-    authorized = authorized_cmdline = authorized_create = TRUE;
+    authorized = authorized_cmdline = authorized_new    =
+		 authorized_new     = authorized_delete = TRUE;
 }
 
 
@@ -232,29 +297,14 @@ Node *areafix_auth_node(void)
 int areafix_do(Node *node, char *subj, Textlist *tl, Textlist *out)
 {
     char *passwd;
-    Passwd *pwd;
     char *p, *q;
     int q_flag=FALSE, l_flag=FALSE;
     Textline *tp;
 
-    /* Reset */
-    authorized = authorized_cmdline = authorized_create = FALSE;
-    authorized_lvl = 1;
-    authorized_key = "";
-    node_invalid(&authorized_node);
+    areafix_auth_init();
     
     /* Check password in Subject and process options */
     passwd = strtok(subj, " \t");
-    debug(3, "Subject passwd: %s", passwd);
-    pwd    = passwd_lookup(MY_CONTEXT, node);
-    debug(3, "passwd entry: %s", pwd ? pwd->passwd : "-NONE-");
-	
-    if(passwd && pwd && !stricmp(passwd, pwd->passwd))
-    {
-	debug(3, "passwd check o.k. - authorized");
-	authorized = TRUE;
-    }
-
     while( (q = strtok(NULL, " \t")) )
     {
 	if(!stricmp(q, "-q"))		/* -q = QUERY */
@@ -262,26 +312,7 @@ int areafix_do(Node *node, char *subj, Textlist *tl, Textlist *out)
 	if(!stricmp(q, "-l"))		/* -l = LIST */
 	    l_flag = TRUE;
     }
-
-    /* Extract level, key, and real name from pwd->args */
-    if(authorized)
-    {
-	authorized_lvl  = 1;
-	authorized_key  = "";
-	authorized_name = "Sysop";
-	authorized_node = *node;
-	/* Warning: destroys pwd->args! */
-	if( (p = xstrtok(pwd->args, " \t")) )
-	    authorized_lvl = atoi(p);
-	if( (p = xstrtok(NULL, " \t")) )
-	    authorized_key = strsave(p);
-	if( (p = xstrtok(NULL, " \t")) )
-	    authorized_name = strsave(p);
-
-	debug(3, "passwd lvl : %d", authorized_lvl);
-	debug(3, "passwd key : %s", authorized_key);
-	debug(3, "passwd name: %s", authorized_name);
-    }
+    areafix_auth_check(node, passwd);
 
     /* Execute commands for subject options */
     if(q_flag)
@@ -597,9 +628,9 @@ int cmd_new(Node *node, char *line)
     AreasBBS *p;
     char *name, *o1, *o2;
 
-    if(!authorized_create)
+    if(!authorized_new)
     {
-	areafix_printf("Command CREATE: not authorized.");
+	areafix_printf("Command NEW: not authorized.");
 	return OK;
     }
 
@@ -631,7 +662,8 @@ int cmd_new(Node *node, char *line)
      *     -p            passthru
      *     -r            read-only
      *     -l LVL        Areafix access level
-     *     -k KEY        Areafix access key   */
+     *     -k KEY        Areafix access key
+     *     -z Z          zone                 */
     while( (o1 = xstrtok(NULL, " \t")) )
     {
 	if(streq(o1, "-#") || streq(o1, "-p"))		/* -# */
@@ -659,6 +691,12 @@ int cmd_new(Node *node, char *line)
 	    if(! (o2 = xstrtok(NULL, " \t")) )
 		break;
 	    p->desc = strsave(o2);
+	}
+	if(streq(o1, "-z"))				/* -z Z */
+	{
+	    if(! (o2 = xstrtok(NULL, " \t")) )
+		break;
+	    p->zone = atoi(o2);
 	}
     }	
     
@@ -1064,7 +1102,6 @@ int cmd_passwd(Node *node, char *arg)
 {
     char *p;
     Node n;
-    Passwd *pwd;
     
     log("%s: passwd", znfp(node));
 
@@ -1092,40 +1129,10 @@ int cmd_passwd(Node *node, char *arg)
 	return OK;
     }
 
-    pwd = passwd_lookup(MY_CONTEXT, node);
-    debug(3, "PASSWD entry: %s", pwd ? pwd->passwd : "-NONE-");
-    if(!pwd)
-    {
-	areafix_printf("Command PASSWORD: address %s not authorized.",
-		node_to_asc(node, TRUE));
-	authorized = FALSE;
-	return OK;
-    }	
-    if(stricmp(p, pwd->passwd))
-    {
-	areafix_printf("Command PASSWORD: wrong password for address %s.",
-		node_to_asc(node, TRUE));
-	authorized = FALSE;
-	return OK;
-    }	
-
-    debug(3, "password check o.k. - authorized");
-    authorized = TRUE;
-
-    authorized_lvl  = 1;
-    authorized_key  = "";
-    authorized_name = "Sysop";
-    /* Warning: destroys pwd->args! */
-    if( (p = xstrtok(pwd->args, " \t")) )
-	authorized_lvl = atoi(p);
-    if( (p = xstrtok(NULL, " \t")) )
-	authorized_key = strsave(p);
-    if( (p = xstrtok(NULL, " \t")) )
-	authorized_name = strsave(p);
-    
-    debug(3, "passwd lvl : %d", authorized_lvl);
-    debug(3, "passwd key : %s", authorized_key);
-    debug(3, "passwd name: %s", authorized_name);
+    areafix_auth_check(node, p);
+    if(!authorized)
+	areafix_printf("Command PASSWORD: authorization for %s failed.",
+		       znfp(node));
     
     return OK;
 }
@@ -1137,6 +1144,12 @@ int cmd_passwd(Node *node, char *arg)
  */
 int cmd_delete(Node *node, char *area)
 {
+    if(!authorized_new)
+    {
+	areafix_printf("Command DELETE: not authorized.");
+	return OK;
+    }
+
     areafix_printf("Command DELETE: sorry, not yet implemented.");
 	
     return OK;

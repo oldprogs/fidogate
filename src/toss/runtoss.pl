@@ -1,6 +1,6 @@
 #!/usr/bin/perl
 #
-# $Id: runtoss.pl,v 4.2 1998/03/08 21:07:39 mj Exp $
+# $Id: runtoss.pl,v 4.3 1998/03/22 17:57:39 mj Exp $
 #
 # Wrapper for ftntoss, ftnroute, ftnpack doing the toss process
 #
@@ -8,7 +8,7 @@
 #    or  runtoss /path/dir
 #
 
-$VERSION = '$Revision: 4.2 $ ';
+$VERSION = '$Revision: 4.3 $ ';
 $PROGRAM = "runtoss";
 
 
@@ -260,6 +260,7 @@ while($flag) {
     elsif($status == 2) {	# MSGID history or lock file busy
 	sleep(60);
 	$flag = 1;
+	next;
     }
     elsif($status == 3) {	# Continue tossing
 	$flag = 1;

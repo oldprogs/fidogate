@@ -1,6 +1,6 @@
 #!/usr/local/bin/perl
 #
-# $Id: logcheck.pl,v 4.4 1998/01/02 14:37:04 mj Exp $
+# $Id: logcheck.pl,v 4.5 1998/03/22 17:57:34 mj Exp $
 #
 # Create report for sendmail check_mail rules
 #
@@ -13,7 +13,7 @@ $SENDMAIL   = "/usr/sbin/sendmail";
 
 
 require "getopts.pl";
-&Getopts('g:s:nm:v');
+&Getopts('g:s:nm:vr');
 
 if($opt_g) {
     $NEWSGROUPS = $opt_g;
@@ -47,19 +47,31 @@ while(<>) {
 	$last_date  = $1;
     }
 
-    if( /check_mail \((<.*>)\) rejection: 551.*/ ) {
-	$reject{$1}++;
-	print "reject: $1\n" if($opt_v);
+    if(/check_mail \(([^\)]*)\) rejection: 551.*/ ||
+       /check_mail, arg1=(.*), relay=(.*), reject=551.*/ ) {
+	$a = $1;
+	$a = "<$a>" if(! $a =~ /^<.*>$/);
+	$r = $2;
+	$reject{"$a /// $r"}++;
+	print "reject: $a\n" if($opt_v);
     }
 
-    if( /check_mail \((<.*>)\) rejection: 451.*unresolv/ ) {
-	$nodns{$1}++;
-	print "no DNS: $1\n" if($opt_v);
+    if(/check_mail \(([^\)]*)\) rejection: 451.*/ ||
+       /check_mail, arg1=(.*), relay=(.*), reject=451.*/ ) {
+	$a = $1;
+	$a = "<$a>" if(! $a =~ /^<.*>$/);
+	$r = $2;
+	$nodns{"$a /// $r"}++;
+	print "no DNS: $a\n" if($opt_v);
     }
 
-    if( /check_rcpt \((<.*>)\) rejection: 551.*we do not relay/ ) {
-	$relay{$1}++;
-	print "relay : $1\n" if($opt_v);
+    if(/check_rcpt \(([^\)]*)\) rejection: 551.*we do not relay/ ||
+       /check_mail, arg1=(.*), relay=(.*), reject=551.*we do not relay/ ) {
+	$a = $1;
+	$a = "<$a>" if(! $a =~ /^<.*>$/);
+	$r = $2;
+	$relay{"$a /// $r"}++;
+	print "relay : $a\n" if($opt_v);
     }
 }
 
@@ -71,7 +83,10 @@ if(scalar(%reject)) {
 	"\nAddresses rejected using blacklist:\n",
 	"-----------------------------------\n";
     for $k (sort { $reject{$b} <=> $reject{$a} } keys(%reject)) {
-	printf "%8d %s\n", $reject{$k}, $k;
+	($a, $r) = split(" /// ", $k);
+	printf "%5d", $reject{$k};
+	print " $a\n";
+	print "                relay: $r\n" if($opt_r);
     }
 }
 
@@ -80,7 +95,10 @@ if(scalar(%nodns)) {
 	"\nAddresses without valid DNS entry:\n",
 	"----------------------------------\n";
     for $k (sort { $nodns{$b} <=> $nodns{$a} } keys(%nodns)) {
-	printf "%8d %s\n", $nodns{$k}, $k;
+	($a, $r) = split(" /// ", $k);
+	printf "%5d", $nodns{$k};
+	print " $a\n";
+	print "                relay: $r\n" if($opt_r);
     }
 }
 
@@ -89,11 +107,12 @@ if(scalar(%relay)) {
 	"\nAddresses from relay attempts:\n",
 	"------------------------------\n";
     for $k (sort { $relay{$b} <=> $relay{$a} } keys(%relay)) {
-	printf "%8d %s\n", $relay{$k}, $k;
+	($a, $r) = split(" /// ", $k);
+	printf "%5d", $relay{$k};
+	print " $a\n";
+	print "                relay: $r\n" if($opt_r);
     }
 }
 
 
-if($out_flag) {
-    close(OUT);
-}
+close(OUT) if($out_flag);

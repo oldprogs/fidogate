@@ -1,0 +1,106 @@
+#
+# $Id: charset.map,v 1.1 1998/03/22 17:57:38 mj Exp $
+#
+# Character set mapping table (to be compiled by charsetc)
+#
+# Syntax:
+#
+#       alias ALIAS NAME
+#	table IN-SET OUT-SET
+#	map IN-CHAR OUT-CHAR
+#	map 1:1
+	map default CHAR
+#	...
+#
+#	IN-SET/OUT-SET:	us-ascii	(FSC-0054: ASCII, VT100)
+#			iso-8859-1	(FSC-0054: LATIN-1, AMIGA)
+#			x-ibmpc		(FSC-0054: IBMPC, PC-8)
+#			x-mac		(FSC-0054: MAC)
+#			koir-8		(KOIR-8)
+#			x-alt		(ALT)
+#			...
+#
+#	IN-CHAR:	X		character X
+#			\NNN		octal value
+#			\xNN		hex value
+#
+#	OUT-CHAR:	up to 3 characters (syntax IN-CHAR)
+#
+#	1:1		all characters not explicitly defined are
+#			mapped to the same character
+#
+#	default CHAR	all characters not explicitly defined are
+#			mapped to CHAR (syntax IN-CHAR)
+#
+# Currently only characters with high bit set (0x80) are mapped!!!
+# If not defined, the default mapping is any character >=0x80 -> ' ' (space)
+#
+# Charset names must be less than 16 characters in length!!!
+#
+
+#
+# Aliases for FSC-0054 ^ACHRS
+#
+alias	ascii		us-ascii
+alias	vt100		us-ascii
+alias	latin-1		iso-8859-1
+alias	amiga		iso-8859-1
+alias	ibmpc		x-ibmpc
+alias	pc-8		x-ibmpc
+alias	mac		x-mac
+alias	alt		x-alt
+
+
+# ----------------------------------------------------------------------------
+table	us-ascii	us-ascii
+# nothing special to map
+
+
+# ----------------------------------------------------------------------------
+table	iso-8859-1	us-ascii
+##FIXME:add map##
+
+# ----------------------------------------------------------------------------
+table	x-ibmpc		us-ascii
+##FIXME:add map##
+
+
+# ----------------------------------------------------------------------------
+table	x-mac		us-ascii
+##FIXME:add map##
+
+
+# ----------------------------------------------------------------------------
+table	us-ascii	iso-8859-1
+# nothing special to map
+
+
+# ----------------------------------------------------------------------------
+table	iso-8859-1	iso-8859-1
+map 1:1
+
+
+# ----------------------------------------------------------------------------
+table	x-ibmpc		iso-8859-1
+##FIXME:add map##
+
+
+# ----------------------------------------------------------------------------
+table	x-mac		iso-8859-1
+##FIXME:add map##
+
+
+#
+# Russian, contributed by Vladimir Ivaschenko <hazard.bsn@poboxes.com>
+#
+
+# ----------------------------------------------------------------------------
+table	x-alt		koir-8
+##FIXME:add map##
+
+
+# ----------------------------------------------------------------------------
+table	koir-8		x-alt
+##FIXME:add map##
+
+

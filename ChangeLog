@@ -1,3 +1,61 @@
+Sun Mar 22 14:04:13 1998  Martin Junius  <mj@fido.de>
+
+	------- CVS ci -------------------------------------------------------
+
+	* scripts/maintenance/logsendmail.pl: major changes, now only needs
+	  one pass thru the log, added support for mail and news.
+
+	* scripts/maintenance/logdaily.sh: added running logcheck,
+	  logsendmail. 
+
+	* scripts/maintenance/logsendmail.pl: new, renamed version of old
+	  sendmailstat.pl.
+
+	* scripts/maintenance/logcheck.pl: adapted to new log entry
+	  created by sendmail 8.8.7.
+
+Tue Mar 17 19:45:55 1998  Martin Junius  <mj@fido.de>
+
+	* src/areafix/areafix.c (areafix_auth_check): don't destroy pwd->args.
+	  (cmd_passwd): use new areafix_auth_check().
+	  (cmd_new): allow -z ZONE option.
+
+	* test/tc.af/run: added test for NEW/DELETE from mail interface.
+
+	* src/areafix/areafix.c (authorized_create): renamed to
+	  authorized_new. 
+	  (authorized_delete): new flag.
+	  (cmd_delete): check new flag.
+	  (areafix_auth_init): new function initializing authorized* flags.
+	  (areafix_auth_check): new function unifying authorization check
+	  for node and password.
+	  (areafix_do): use new areafix_auth_check().
+	  (areafix_auth_check): key containing & allows NEW area command,
+	  key containing ~ allows DELETE area command.
+
+Sun Mar 15 09:03:54 1998  Martin Junius  <mj@fido.de>
+
+	* src/toss/runtoss.pl: continue loop after sleep if ftntoss
+	  returns 2.
+
+Sat Mar 14 10:56:51 1998  Martin Junius  <mj@fido.de>
+
+	* src/charset/charsetc.c: started charset compiler code.
+
+	* src/charset/charset.map: first version of charset mapping table
+	  in text format.
+
+	* src/Makefile (SUBDIRS): added charset/.
+
+	* src/charset/Makefile: new Makefile.
+
+	* src/charset/: new directory containing utilities and mapping
+	  tables for character sets.
+
+	* doc/index.html: removed reference to Fido-Point-*.
+
+	* doc/Fido-Point-*: removed, too obsolete to be useful anymore.
+
 Sun Mar  8 17:05:55 1998  Martin Junius  <mj@fido.de>
 
 	------- CVS ci -------------------------------------------------------
