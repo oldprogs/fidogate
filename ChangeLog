@@ -2,6 +2,31 @@
 
 	------- CVS ci -------------------------------------------------------
 
+	* src/util/pktdebug.c (main): call tmps_freeall().
+
+	* src/util/ftnoutpkt.c (do_addr): use TMPS_RETURN().
+
+	* src/toss/ftntoss.c (unpack_file): use TMPS_RETURN().
+	  (unpack): dito.
+
+	* src/toss/ftnroute.c (do_file): use TMPS_RETURN().
+	  (do_packet): dito.
+
+	* src/toss/ftnpack.c (main): calls to tmps_freeall().
+	  (do_packing): use TMPS_RETURN().
+	  (do_noarc): dito.
+	  (do_file): dito.
+
+	* src/toss/ftn2ftn.c (unpack): use TMPS_RETURN().
+	  (main): calls to tmps_freeall().
+
+	* src/tick/ftntick.c (do_tic): added call to tmps_freeall().
+	  (process_tic): added call to tmps_freeall in for loop.
+
+	* src/tick/ftnhatch.c (main): added call to tmps_freeall().
+
+	------- CVS ci -------------------------------------------------------
+
 	* src/gate/ftn2rfc.c (main): added call to tmps_freeall().
 	  (unpack): use tmps_freeall(), TMPS_RETURN().
 

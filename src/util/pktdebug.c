@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: pktdebug.c,v 4.6 1999/01/02 16:35:07 mj Exp $
+ * $Id: pktdebug.c,v 4.7 1999/03/06 18:53:34 mj Exp $
  *
  * Debug contents of FTN packet
  *
@@ -37,7 +37,7 @@
 
 
 #define PROGRAM		"pktdebug"
-#define VERSION		"$Revision: 4.6 $"
+#define VERSION		"$Revision: 4.7 $"
 
 
 
@@ -230,6 +230,8 @@ int main(int argc, char **argv)
 		    pkt_debug_msg_hdr(stdout, &msg, "");
 		if(t_flag)
 		    msg_body_debug(stdout, &body, t_flag>1 ? TRUE : FALSE);
+
+		tmps_freeall();
 	    }
 	}
 	while(0);
@@ -241,6 +243,8 @@ int main(int argc, char **argv)
 	if(s_flag)
 	    printf("%s: %s -> %s, %ld mail, %ld echo\n",
 		   name, znfp(&pkt.from), znfp(&pkt.to), n_mail, n_echo);
+
+	tmps_freeall();
     }
     
     exit(0);

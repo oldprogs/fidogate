@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftnoutpkt.c,v 4.2 1999/01/02 16:35:07 mj Exp $
+ * $Id: ftnoutpkt.c,v 4.3 1999/03/06 18:53:33 mj Exp $
  *
  * Create packet in OUTPKT with message from stdin.
  *
@@ -36,7 +36,7 @@
 
 
 #define PROGRAM		"ftnoutpkt"
-#define VERSION		"$Revision: 4.2 $"
+#define VERSION		"$Revision: 4.3 $"
 #define CONFIG		DEFAULT_CONFIG_MAIN
 
 
@@ -59,7 +59,7 @@ int do_addr(FTNAddr *from, FTNAddr *to, char *subj, Textlist *tl)
     BUF_COPY(msg.subject, subj);
     msg.area      = NULL;
     
-    return outpkt_netmail(&msg, tl, PROGRAM);
+    TMPS_RETURN(outpkt_netmail(&msg, tl, PROGRAM));
 }
 
 

@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftntoss.c,v 4.31 1999/01/09 17:39:42 mj Exp $
+ * $Id: ftntoss.c,v 4.32 1999/03/06 18:53:32 mj Exp $
  *
  * Toss FTN NetMail/EchoMail
  *
@@ -39,7 +39,7 @@
 
 
 #define PROGRAM 	"ftntoss"
-#define VERSION 	"$Revision: 4.31 $"
+#define VERSION 	"$Revision: 4.32 $"
 #define CONFIG		DEFAULT_CONFIG_MAIN
 
 
@@ -1320,11 +1320,11 @@ int unpack(FILE *pkt_file, Packet *pkt)
 	if(feof(pkt_file))
 	{
 	    log("WARNING: premature EOF reading input packet");
-	    return OK;
+	    TMPS_RETURN(OK);
 	}
 	
 	log("ERROR: reading input packet");
-	return ERROR;
+	TMPS_RETURN(ERROR);
     }
 
     while(type == MSG_TYPE)
@@ -1337,7 +1337,7 @@ int unpack(FILE *pkt_file, Packet *pkt)
 	if(pkt_get_msg_hdr(pkt_file, &msg) == ERROR)
 	{
 	    log("ERROR: reading input packet");
-	    return ERROR;
+	    TMPS_RETURN(ERROR);
 	}
 	
 	/*
@@ -1353,7 +1353,7 @@ int unpack(FILE *pkt_file, Packet *pkt)
 	    else
 	    {
 		log("ERROR: reading input packet");
-		return ERROR;
+		TMPS_RETURN(ERROR);
 	    }
 	}
 	msgs_in++;
@@ -1378,7 +1378,7 @@ int unpack(FILE *pkt_file, Packet *pkt)
 		  node_to_asc(&msg.node_from, TRUE),
 		  node_to_asc(&msg.node_to  , TRUE) );
 	    if(do_netmail(pkt, &msg, &body) == ERROR)
-		return ERROR;
+		TMPS_RETURN(ERROR);
 	}
 	else 
 	{
@@ -1391,7 +1391,7 @@ int unpack(FILE *pkt_file, Packet *pkt)
 		  node_to_asc(&msg.node_from, TRUE),
 		  node_to_asc(&msg.node_to  , TRUE) );
 	    if(do_echomail(pkt, &msg, &body) == ERROR)
-		return ERROR;
+		TMPS_RETURN(ERROR);
 	}
 
 	/*
@@ -1401,7 +1401,7 @@ int unpack(FILE *pkt_file, Packet *pkt)
 	{
 	    outpkt_close();
 	    msg_count = 0;
-	    return severe_error=ERROR;
+	    TMPS_RETURN(severe_error=ERROR);
 	}
 	
 	/*
@@ -1416,9 +1416,10 @@ int unpack(FILE *pkt_file, Packet *pkt)
 	    msg_count = 0;
 	}
 
+	tmps_freeall();
     } /**while(type == MSG_TYPE)**/
 
-    return OK;
+    TMPS_RETURN(OK);
 }
 
 
@@ -1473,14 +1474,14 @@ int unpack_file(char *pkt_name)
     if(!pkt_file) {
 	log("$ERROR: can't open packet %s", pkt_name);
 	rename_bad(pkt_name);
-	return OK;
+	TMPS_RETURN(OK);
     }
     if(pkt_get_hdr(pkt_file, &pkt) == ERROR)
     {
 	log("ERROR: reading header from %s", pkt_name);
 	fclose(pkt_file);
 	rename_bad(pkt_name);
-	return OK;
+	TMPS_RETURN(OK);
     }
     
     /* Unpack it */
@@ -1495,7 +1496,7 @@ int unpack_file(char *pkt_name)
 	log("ERROR: processing %s", pkt_name);
 	fclose(pkt_file);
 	rename_bad(pkt_name);
-	return severe_error;
+	TMPS_RETURN(severe_error);
     }
     
     fclose(pkt_file);
@@ -1503,10 +1504,10 @@ int unpack_file(char *pkt_name)
     if (unlink(pkt_name)) {
 	log("$ERROR: can't unlink %s", pkt_name);
 	rename_bad(pkt_name);
-	return ERROR;
+	TMPS_RETURN(ERROR);
     }
 
-    return OK;
+    TMPS_RETURN(OK);
 }
 
 

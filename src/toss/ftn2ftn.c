@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: ftn2ftn.c,v 4.6 1999/01/02 16:35:05 mj Exp $
+ * $Id: ftn2ftn.c,v 4.7 1999/03/06 18:53:31 mj Exp $
  *
  * FTN-FTN gateway for NetMail, using the %Z:N/F.P addressing in the
  * from/to fields.
@@ -35,7 +35,7 @@
 
 
 #define PROGRAM 	"ftn2ftn"
-#define VERSION 	"$Revision: 4.6 $"
+#define VERSION 	"$Revision: 4.7 $"
 #define CONFIG		DEFAULT_CONFIG_MAIN
 
 
@@ -191,7 +191,7 @@ int unpack(Node *gate, FILE *pkt_file, Packet *pkt)
 	if(type == ERROR)
 	{
 	    log("ftn2ftn: error reading input packet");
-	    return ERROR;
+	    TMPS_RETURN(ERROR);
 	}
 	
 	if( msg_body_parse(&tl, &body) == -2 )
@@ -200,13 +200,13 @@ int unpack(Node *gate, FILE *pkt_file, Packet *pkt)
 	kludge_pt_intl(&body, &msg, TRUE);
 
 	if( do_message(gate, &msg, &body) != OK )
-	    return ERROR;
+	    TMPS_RETURN(ERROR);
     }
 
     /* Close packet */
     pkt_close();
     
-    return OK;
+    TMPS_RETURN(OK);
 }
 
 
@@ -432,11 +432,16 @@ int main(int argc, char **argv)
     {	
 	/* Process outbound packets for both addresses */
 	do_outbound(&gate_a, &gate_b);
+	tmps_freeall();
 	do_outbound(&gate_b, &gate_a);
+	tmps_freeall();
     }
     else
 	for(; optind<argc; optind++)
+	{
 	    unpack_file(&gate_a, argv[optind]);
+	    tmps_freeall();
+	}
 
     exit(EX_OK);
 

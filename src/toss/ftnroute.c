@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftnroute.c,v 4.18 1999/01/02 16:35:05 mj Exp $
+ * $Id: ftnroute.c,v 4.19 1999/03/06 18:53:32 mj Exp $
  *
  * Route FTN NetMail/EchoMail
  *
@@ -40,7 +40,7 @@
 
 
 #define PROGRAM 	"ftnroute"
-#define VERSION 	"$Revision: 4.18 $"
+#define VERSION 	"$Revision: 4.19 $"
 #define CONFIG		DEFAULT_CONFIG_MAIN
 
 
@@ -317,7 +317,7 @@ int do_packet(char *pkt_name, FILE *pkt_file, Packet *pkt, PktDesc *desc)
     if(fp == NULL)
     {
 	fclose(pkt_file);
-	return ERROR;
+	TMPS_RETURN(ERROR);
     }
     
     /*
@@ -402,23 +402,24 @@ int do_packet(char *pkt_name, FILE *pkt_file, Packet *pkt, PktDesc *desc)
 	    ret = severe_error=ERROR;
 	    break;
 	}
-	
+
+	tmps_freeall();
     } /**while(type == MSG_TYPE)**/
 
 
     if(fclose(pkt_file) == ERROR)
     {
 	log("$ERROR: can't close packet %s", pkt_name);
-	return severe_error=ERROR;
+	TMPS_RETURN(severe_error=ERROR);
     }
 
     if(ret == OK)
 	if (unlink(pkt_name)) {
 	    log("$ERROR: can't unlink packet %s", pkt_name);
-	    return ERROR;
+	    TMPS_RETURN(ERROR);
 	}
 
-    return ret;
+    TMPS_RETURN(ret);
 }
 
 
@@ -437,12 +438,12 @@ int do_file(char *pkt_name)
     pkt_file = fopen(pkt_name, R_MODE);
     if(!pkt_file) {
 	log("$ERROR: can't open packet %s", pkt_name);
-	return ERROR;
+	TMPS_RETURN(ERROR);
     }
     if(pkt_get_hdr(pkt_file, &pkt) == ERROR)
     {
 	log("ERROR: reading header from %s", pkt_name);
-	return ERROR;
+	TMPS_RETURN(ERROR);
     }
 
     /*
@@ -451,10 +452,10 @@ int do_file(char *pkt_name)
     if(do_routing(pkt_name, pkt_file, &pkt) == ERROR) 
     {
 	log("ERROR: in processing %s", pkt_name);
-	return ERROR;
+	TMPS_RETURN(ERROR);
     }
 
-    return OK;
+    TMPS_RETURN(OK);
 }
 
 

@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftnpack.c,v 4.21 1999/01/02 16:35:05 mj Exp $
+ * $Id: ftnpack.c,v 4.22 1999/03/06 18:53:31 mj Exp $
  *
  * Pack output packets of ftnroute for Binkley outbound (ArcMail)
  *
@@ -40,7 +40,7 @@
 
 
 #define PROGRAM 	"ftnpack"
-#define VERSION 	"$Revision: 4.21 $"
+#define VERSION 	"$Revision: 4.22 $"
 #define CONFIG		DEFAULT_CONFIG_MAIN
 
 
@@ -587,7 +587,7 @@ int do_noarc(char *name, Node *flonode,
 	log("ERROR: can't open outbound packet for %s",
 	    node_to_asc(&desc->to, TRUE)      );
 	fclose(pkt_file);
-	return ERROR;
+	TMPS_RETURN(ERROR);
     }
     
     tl_init(&tl);
@@ -606,7 +606,7 @@ int do_noarc(char *name, Node *flonode,
 	    log("$ERROR reading input packet %s", name);
 	    pkt_close();
 	    fclose(pkt_file);
-	    return ERROR;
+	    TMPS_RETURN(ERROR);
 	}
 	/* Read message body */
 	type = pkt_get_body(pkt_file, &tl);
@@ -615,7 +615,7 @@ int do_noarc(char *name, Node *flonode,
 	    log("$ERROR: reading input packet %s", name);
 	    pkt_close();
 	    fclose(pkt_file);
-	    return ERROR;
+	    TMPS_RETURN(ERROR);
 	}
 
 	/* File attaches */
@@ -668,7 +668,7 @@ int do_noarc(char *name, Node *flonode,
 	    log("$ERROR: writing packet %s", pkt_name());
 	    pkt_close();
 	    fclose(pkt_file);
-	    return ERROR;
+	    TMPS_RETURN(ERROR);
 	}
 	/* Write message body */
 	tl_print(&tl, fp);
@@ -679,23 +679,25 @@ int do_noarc(char *name, Node *flonode,
 	    log("$ERROR: writing packet %s", pkt_name());
 	    pkt_close();
 	    fclose(pkt_file);
-	    return ERROR;
+	    TMPS_RETURN(ERROR);
 	}
+	
+	tmps_freeall();
     } /**while**/
 
     fclose(pkt_file);
     if(pkt_close() != OK)
     {
 	log("$ERROR: can't close outbound packet");
-	return ERROR;
+	TMPS_RETURN(ERROR);
     }
     if(unlink(name) != OK)
     {
 	log("$ERROR: can't remove packet %s", name);
-	return ERROR;
+	TMPS_RETURN(ERROR);
     }
     
-    return OK;
+    TMPS_RETURN(OK);
 }
 
 
@@ -910,6 +912,7 @@ int do_packing(char *name, FILE *fp, Packet *pkt)
     PktDesc pktdesc;
     Packing *r;
     LNode *p;
+    int ret;
 
     if(pkt_flag || ffx_flag)
     {
@@ -927,7 +930,7 @@ int do_packing(char *name, FILE *fp, Packet *pkt)
 	/* Parse description from filename */
 	desc = parse_pkt_name(name, &pkt->from, &pkt->to);
 	if(desc == NULL)
-	    return ERROR;
+	    TMPS_RETURN(ERROR);
     }
     
     debug(2, "Packet: from=%s to=%s grade=%c type=%c flav=%c",
@@ -944,11 +947,12 @@ int do_packing(char *name, FILE *fp, Packet *pkt)
 		debug(3, "packing: pack=%c dir=%s arc=%s",
 		      r->pack, r->dir ? r->dir : "",
 		      (r->arc ? r->arc->name : NULL)      );
-		return r->dir ? do_dirpack(desc, name, fp, r)
-		              : do_pack   (desc, name, fp, r);
+		ret = r->dir ? do_dirpack(desc, name, fp, r)
+		             : do_pack   (desc, name, fp, r);
+		TMPS_RETURN(ret);
 	    }
 
-    return OK;
+    TMPS_RETURN(OK);
 }
 
 
@@ -975,12 +979,12 @@ int do_file(char *pkt_name)
 	pkt_file = fopen(pkt_name, R_MODE);
 	if(!pkt_file) {
 	    log("$ERROR: can't open packet %s", pkt_name);
-	    return severe_error;
+	    TMPS_RETURN(severe_error);
 	}
 	if(pkt_get_hdr(pkt_file, &pkt) == ERROR)
 	{
 	    log("ERROR: reading header from %s", pkt_name);
-	    return severe_error;
+	    TMPS_RETURN(severe_error);
 	}
     }
     
@@ -988,10 +992,10 @@ int do_file(char *pkt_name)
     if(do_packing(pkt_name, pkt_file, &pkt) == ERROR) 
     {
 	log("ERROR: processing %s", pkt_name);
-	return severe_error;
+	TMPS_RETURN(severe_error);
     }
 
-    return OK;
+    TMPS_RETURN(OK);
 }
 
 
@@ -1250,6 +1254,7 @@ int main(int argc, char **argv)
 		    ret = EXIT_ERROR;
 		    break;
 		}
+		tmps_freeall();
 	    }
 	    dir_close();
 	}
@@ -1274,11 +1279,14 @@ int main(int argc, char **argv)
 	
 	/* Process packet files on command line */
 	for(; optind<argc; optind++)
+	{
 	    if(do_file(argv[optind]) == ERROR)
 	    {
 		ret = EXIT_ERROR;
 		break;
 	    }
+	    tmps_freeall();
+	}
 	
 	/* Lock file */
 	if(l_flag)
