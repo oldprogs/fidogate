@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: rfcaddr.c,v 4.8 1999/03/07 17:37:10 mj Exp $
+ * $Id: rfcaddr.c,v 4.9 1999/03/19 17:05:26 mj Exp $
  *
  * RFCAddr struct handling
  *
@@ -350,7 +350,6 @@ int main(int argc, char *argv[])
     cf_initialize();
     cf_read_config_file(CONFIG_GATE);
     hosts_init();
-    maus_init();
     
     if(argc != 3)
     {
@@ -377,7 +376,6 @@ int main(int argc, char *argv[])
     cf_initialize();
     cf_read_config_file(CONFIG_GATE);
     hosts_init();
-    maus_init();
     
     if(argc != 2)
     {

@@ -75,7 +75,7 @@ charset: in=LATIN-1 out=us-ascii
 charset: table found in=iso-8859-1 out=us-ascii
 charset: in=LATIN-1 out=us-ascii
 charset: table found in=iso-8859-1 out=us-ascii
-ftn2rfc MAIL: mj@orodruin.fido.de (Martin Junius) -> mj@orodruin.fido.de
+ftn2rfc MAIL: Martin Junius <mj@orodruin.fido.de> -> mj@orodruin.fido.de
 Reading FTN packet header:
     From: 2:2452/110.2
     To  : 2:2452/110.2
@@ -92,7 +92,7 @@ charset: in=LATIN-1 out=us-ascii
 charset: table found in=iso-8859-1 out=us-ascii
 charset: in=LATIN-1 out=us-ascii
 charset: table found in=iso-8859-1 out=us-ascii
-ftn2rfc MAIL: mj@orodruin.fido.de (Martin Junius) -> mj@orodruin.fido.de
+ftn2rfc MAIL: Martin Junius <mj@orodruin.fido.de> -> mj@orodruin.fido.de
 Reading FTN packet header:
     From: 2:2452/110.2
     To  : 2:2452/110.2
@@ -109,7 +109,7 @@ charset: in=LATIN-1 out=iso-8859-1
 charset: table found in=iso-8859-1 out=iso-8859-1
 charset: in=LATIN-1 out=us-ascii
 charset: table found in=iso-8859-1 out=us-ascii
-ftn2rfc MAIL: mj@orodruin.fido.de (Martin Junius) -> mj@orodruin.fido.de
+ftn2rfc MAIL: Martin Junius <mj@orodruin.fido.de> -> mj@orodruin.fido.de
 Reading FTN packet header:
     From: 2:2452/110.2
     To  : 2:2452/110.2
@@ -126,7 +126,7 @@ charset: in=LATIN-1 out=iso-8859-1
 charset: table found in=iso-8859-1 out=iso-8859-1
 charset: in=LATIN-1 out=us-ascii
 charset: table found in=iso-8859-1 out=us-ascii
-ftn2rfc MAIL: mj@orodruin.fido.de (Martin Junius) -> mj@orodruin.fido.de
+ftn2rfc MAIL: Martin Junius <mj@orodruin.fido.de> -> mj@orodruin.fido.de
 Reading FTN packet header:
     From: 2:2452/110.2
     To  : 2:2452/110.2
@@ -143,7 +143,7 @@ charset: in=LATIN-1 out=us-ascii
 charset: table found in=iso-8859-1 out=us-ascii
 charset: in=LATIN-1 out=us-ascii
 charset: table found in=iso-8859-1 out=us-ascii
-ftn2rfc MAIL: mj@orodruin.fido.de (Martin Junius) -> mj@orodruin.fido.de
+ftn2rfc MAIL: Martin Junius <mj@orodruin.fido.de> -> mj@orodruin.fido.de
 Reading FTN packet header:
     From: 2:2452/110.2
     To  : 2:2452/110.2
@@ -160,7 +160,7 @@ charset: in=LATIN-1 out=us-ascii
 charset: table found in=iso-8859-1 out=us-ascii
 charset: in=LATIN-1 out=us-ascii
 charset: table found in=iso-8859-1 out=us-ascii
-ftn2rfc MAIL: mj@orodruin.fido.de (Martin Junius) -> mj@orodruin.fido.de
+ftn2rfc MAIL: Martin Junius <mj@orodruin.fido.de> -> mj@orodruin.fido.de
 Reading FTN packet header:
     From: 2:2452/110.2
     To  : 2:2452/110.2
@@ -177,7 +177,7 @@ charset: in=LATIN-1 out=iso-8859-1
 charset: table found in=iso-8859-1 out=iso-8859-1
 charset: in=LATIN-1 out=us-ascii
 charset: table found in=iso-8859-1 out=us-ascii
-ftn2rfc MAIL: mj@orodruin.fido.de (Martin Junius) -> mj@orodruin.fido.de
+ftn2rfc MAIL: Martin Junius <mj@orodruin.fido.de> -> mj@orodruin.fido.de
 Reading FTN packet header:
     From: 2:2452/110.2
     To  : 2:2452/110.2
@@ -194,7 +194,7 @@ charset: in=LATIN-1 out=us-ascii
 charset: table found in=iso-8859-1 out=us-ascii
 charset: in=LATIN-1 out=us-ascii
 charset: table found in=iso-8859-1 out=us-ascii
-ftn2rfc MAIL: mj@orodruin.fido.de (Martin Junius) -> mj@orodruin.fido.de
+ftn2rfc MAIL: Martin Junius <mj@orodruin.fido.de> -> mj@orodruin.fido.de
 Reading FTN packet header:
     From: 2:2452/110.2
     To  : 2:2452/110.2
@@ -211,7 +211,7 @@ charset: in=LATIN-1 out=iso-8859-1
 charset: table found in=iso-8859-1 out=iso-8859-1
 charset: in=LATIN-1 out=us-ascii
 charset: table found in=iso-8859-1 out=us-ascii
-ftn2rfc MAIL: mj@orodruin.fido.de (Martin Junius) -> mj@orodruin.fido.de
+ftn2rfc MAIL: Martin Junius <mj@orodruin.fido.de> -> mj@orodruin.fido.de
 Reading FTN packet header:
     From: 2:2452/110.2
     To  : 2:2452/110.2
@@ -228,7 +228,7 @@ charset: in=LATIN-1 out=iso-8859-1
 charset: table found in=iso-8859-1 out=iso-8859-1
 charset: in=LATIN-1 out=us-ascii
 charset: table found in=iso-8859-1 out=us-ascii
-ftn2rfc MAIL: mj@orodruin.fido.de (Martin Junius) -> mj@orodruin.fido.de
+ftn2rfc MAIL: Martin Junius <mj@orodruin.fido.de> -> mj@orodruin.fido.de
 Reading FTN packet header:
     From: 2:2452/110.2
     To  : 2:2452/110.2
@@ -245,7 +245,7 @@ charset: in=LATIN-1 out=iso-8859-1
 charset: table found in=iso-8859-1 out=iso-8859-1
 charset: in=LATIN-1 out=us-ascii
 charset: table found in=iso-8859-1 out=us-ascii
-ftn2rfc MAIL: mj@orodruin.fido.de (Martin Junius) -> mj@orodruin.fido.de
+ftn2rfc MAIL: Martin Junius <mj@orodruin.fido.de> -> mj@orodruin.fido.de
 Reading FTN packet header:
     From: 2:2452/110.2
     To  : 2:2452/110.2
@@ -262,7 +262,7 @@ charset: in=LATIN-1 out=us-ascii
 charset: table found in=iso-8859-1 out=us-ascii
 charset: in=LATIN-1 out=us-ascii
 charset: table found in=iso-8859-1 out=us-ascii
-ftn2rfc MAIL: mj@orodruin.fido.de (Martin Junius) -> mj@orodruin.fido.de
+ftn2rfc MAIL: Martin Junius <mj@orodruin.fido.de> -> mj@orodruin.fido.de
 Reading FTN packet header:
     From: 2:2452/110.2
     To  : 2:2452/110.2
@@ -279,7 +279,7 @@ charset: in=LATIN-1 out=iso-8859-1
 charset: table found in=iso-8859-1 out=iso-8859-1
 charset: in=LATIN-1 out=us-ascii
 charset: table found in=iso-8859-1 out=us-ascii
-ftn2rfc MAIL: mj@orodruin.fido.de (Martin Junius) -> mj@orodruin.fido.de
+ftn2rfc MAIL: Martin Junius <mj@orodruin.fido.de> -> mj@orodruin.fido.de
 Reading FTN packet header:
     From: 2:2452/110.2
     To  : 2:2452/110.2
@@ -296,7 +296,7 @@ charset: in=LATIN-1 out=us-ascii
 charset: table found in=iso-8859-1 out=us-ascii
 charset: in=LATIN-1 out=us-ascii
 charset: table found in=iso-8859-1 out=us-ascii
-ftn2rfc MAIL: mj@orodruin.fido.de (Martin Junius) -> mj@orodruin.fido.de
+ftn2rfc MAIL: Martin Junius <mj@orodruin.fido.de> -> mj@orodruin.fido.de
 Reading FTN packet header:
     From: 2:2452/110.2
     To  : 2:2452/110.2
@@ -313,7 +313,7 @@ charset: in=LATIN-1 out=iso-8859-1
 charset: table found in=iso-8859-1 out=iso-8859-1
 charset: in=LATIN-1 out=us-ascii
 charset: table found in=iso-8859-1 out=us-ascii
-ftn2rfc MAIL: mj@orodruin.fido.de (Martin Junius) -> mj@orodruin.fido.de
+ftn2rfc MAIL: Martin Junius <mj@orodruin.fido.de> -> mj@orodruin.fido.de
 Reading FTN packet header:
     From: 2:2452/110.2
     To  : 2:2452/110.2
@@ -330,7 +330,7 @@ charset: in=LATIN-1 out=iso-8859-1
 charset: table found in=iso-8859-1 out=iso-8859-1
 charset: in=LATIN-1 out=us-ascii
 charset: table found in=iso-8859-1 out=us-ascii
-ftn2rfc MAIL: mj@orodruin.fido.de (Martin Junius) -> mj@orodruin.fido.de
+ftn2rfc MAIL: Martin Junius <mj@orodruin.fido.de> -> mj@orodruin.fido.de
 Reading FTN packet header:
     From: 2:2452/110.2
     To  : 2:2452/110.2
@@ -347,7 +347,7 @@ charset: in=LATIN-1 out=iso-8859-1
 charset: table found in=iso-8859-1 out=iso-8859-1
 charset: in=LATIN-1 out=us-ascii
 charset: table found in=iso-8859-1 out=us-ascii
-ftn2rfc MAIL: mj@orodruin.fido.de (Martin Junius) -> mj@orodruin.fido.de
+ftn2rfc MAIL: Martin Junius <mj@orodruin.fido.de> -> mj@orodruin.fido.de
 Reading FTN packet header:
     From: 2:2452/110.2
     To  : 2:2452/110.2
@@ -364,7 +364,7 @@ charset: in=LATIN-1 out=us-ascii
 charset: table found in=iso-8859-1 out=us-ascii
 charset: in=LATIN-1 out=us-ascii
 charset: table found in=iso-8859-1 out=us-ascii
-ftn2rfc MAIL: mj@orodruin.fido.de (Martin Junius) -> mj@orodruin.fido.de
+ftn2rfc MAIL: Martin Junius <mj@orodruin.fido.de> -> mj@orodruin.fido.de
 outrfc/mail/00000001.rfc:Content-Type: text/plain; charset=us-ascii
 outrfc/mail/00000001.rfc:Content-Transfer-Encoding: 7bit
 outrfc/mail/00000002.rfc:Content-Type: text/plain; charset=us-ascii

@@ -80,6 +80,9 @@ Changes in 4.3.1:
   file fidogate.conf (that's internal for me, the test cases are not
   included in the source distribution).
 
+* rfc2ftn: parsing of *.maus.de addresses removed, config options
+  MausGate, MausDomain are now obsolete.
+
 
 
 Changes in 4.3.0:
@@ -337,6 +340,6 @@ Needed:
 
 ======================================================================
 
-$Date: 1999/03/19 11:56:32 $
+$Date: 1999/03/19 17:05:20 $
 Martin Junius
 mailto:mj@fido.de

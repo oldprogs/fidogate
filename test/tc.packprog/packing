@@ -19,8 +19,8 @@
 arc	zip	"/usr/bin/zip -gkjq %s %s"
 arc	arc	"/usr/bin/arc an %s %s"
 
-prog	gate	"../../src/gate/ftn2rfc -c../cf/gate.conf -n -v %s"
-progn	areafix	"../../src/areafix/ftnafpkt -c../cf/toss.conf -v %s"
+prog	gate	"../../src/gate/ftn2rfc -c../cf/fidogate.conf -n -v %s"
+progn	areafix	"../../src/areafix/ftnafpkt -c../cf/fidogate.conf -v %s"
 
 
 ######## P A C K I N G #######################################################

@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway software UNIX <-> FIDO
  *
- * $Id: rfc2ftn.c,v 4.46 1999/03/14 20:44:05 mj Exp $
+ * $Id: rfc2ftn.c,v 4.47 1999/03/19 17:05:26 mj Exp $
  *
  * Read mail or news from standard input and convert it to a FIDO packet.
  *
@@ -39,7 +39,7 @@
 
 
 #define PROGRAM 	"rfc2ftn"
-#define VERSION 	"$Revision: 4.46 $"
+#define VERSION 	"$Revision: 4.47 $"
 #define CONFIG		DEFAULT_CONFIG_GATE
 
 
@@ -73,8 +73,6 @@ extern int	mime_qp_soft_endline;
 /*
  * Prototypes
  */
-void	addr_set_mausdomain	(char *);
-void	addr_set_mausgate	(char *);
 char   *get_name_from_body	(void);
 MIMEInfo *get_mime		(void);
 void	sendback		(const char *, ...);
@@ -155,32 +153,6 @@ int newsmode = FALSE;
  * Global Textlist to save message body
  */
 Textlist body = { NULL, NULL };
-
-
-
-/*
- * MAUS address stuff
- */
-static char *maus_domain = NULL;
-static Node  maus_gate   = { -1, -1, -1, -1, "" };
-
-/*
- * Set
- */
-void addr_set_mausdomain(char *s)
-{
-    maus_domain = s;
-}
-
-void addr_set_mausgate(char *s)
-{
-    Node node;
-    
-    if(asc_to_node(s, &node, FALSE) == ERROR)
-	log("illegal MAUSGate node address %s", s);
-    else
-	maus_gate = node;
-}
 
 
 
@@ -464,40 +436,6 @@ int rfc_parse(RFCAddr *rfc, char *name, Node *node, int gw)
 	    p[len-1] = 0;
 	}
 	mime_deheader(name, MSG_MAXNAME, p, 0);
-    }
-
-    /*
-     * Special handling for addresses `*.maus.de'. These adresses are
-     * converted to the form suitable for the FIDO<->MAUS gateway.
-     */
-    if(maus_domain)
-    {
-	int i, dlen, diff;
-
-	len  = strlen(rfc->addr);
-	dlen = strlen(maus_domain);
-	diff = len - dlen;
-	if(len > dlen                          &&
-	   !strcmp(rfc->addr+diff, maus_domain)   )  /* Got it! */
-	{
-	    debug(3, "    is MAUS:  %s", rfc->addr);
-
-	    if(name)
-	    {
-		str_append(name, MSG_MAXNAME, "_%_");
-		for(i=strlen(name), p=rfc->addr;
-		    i<MSG_MAXNAME-1 && *p && *p!='.';
-		    i++, p++                          )
-		    name[i] = toupper(*p);
-		name[i] = 0;
-		debug(3, "    cvt to:   %s", name);
-	    }
-	    if(node)
-		*node = maus_gate;
-
-	    rfc_isfido_flag = TRUE;
-	    return OK;
-	}
     }
 
     if(!node)
@@ -2066,16 +2004,6 @@ int main(int argc, char **argv)
 	    log("WARNING: illegal LimitMsgSize value %s", p);
 	else
 	    areas_limitmsgsize(sz);
-    }
-    if( (p = cf_get_string("MAUSDomain", TRUE)) )
-    {
-	debug(8, "config: MAUSdomain %s", p);
-	addr_set_mausdomain(p);
-    }
-    if( (p = cf_get_string("MAUSGate", TRUE)) )
-    {
-	debug(8, "config: MAUSgate %s", p);
-	addr_set_mausgate(p);
     }
     if( cf_get_string("EchoMail4D", TRUE) )
     {
