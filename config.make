@@ -1,6 +1,6 @@
 # -*- Makefile -*-
 #
-# $Id: config.make,v 4.30 2000/04/11 12:02:25 mj Exp $
+# $Id: config.make,v 4.31 2001/08/20 05:23:53 mj Exp $
 #
 # FIDOGATE main configuration
 #
@@ -149,7 +149,10 @@ DEFAULT_A_UUINBOUND	= %U
 PERL			= /usr/bin/perl
 
 # Directory with sendmail m4 configuration files
-SENDMAIL_CF_DIR		= /usr/lib/sendmail-cf
+# RedHat 6.x
+#SENDMAIL_CF_DIR		= /usr/lib/sendmail-cf
+# RedHat 7.x
+SENDMAIL_CF_DIR		= /usr/share/sendmail-cf
 
 # Directories for installing documentation, not used by subst.pl
 INFODIR			= /usr/info
