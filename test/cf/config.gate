@@ -1,6 +1,6 @@
 #:ts=8
 #
-# $Id: config.gate,v 4.4 1996/04/26 08:41:42 mj Exp $
+# $Id: config.gate,v 4.5 1996/06/16 08:41:27 mj Exp $
 #
 # FIDOGATE config file gateway programs
 #
@@ -182,7 +182,7 @@ RFCLevel		1
 #
 # Don't generate From: line at beginning of text body.
 #
-NoFromLine
+#NoFromLine
 
 #
 # Don't generate FSC-0035 kludges (^AREPLYADDR, ^AREPLYTO)

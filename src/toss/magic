@@ -1,0 +1,13 @@
+#
+# $Id: magic,v 4.1 1996/06/16 08:41:27 mj Exp $
+#
+# Definitions to be used with FIDOGATE's rununpack
+#
+
+# ----- Archiver ---------------------------------------------------------
+0	string		PK		ZIP Archive
+0	byte		0x1a		ARC Archive
+2	string		-lh		LHA Archive
+0	string		ZOO		ZOO Archive
+0	short		0xea60		ARJ Archive
+0	short		0x60ea		ARJ Archive

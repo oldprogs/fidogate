@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftnpack.c,v 4.5 1996/05/11 15:05:38 mj Exp $
+ * $Id: ftnpack.c,v 4.6 1996/06/16 08:41:26 mj Exp $
  *
  * Pack output packets of ftnroute for Binkley outbound (ArcMail)
  *
@@ -39,7 +39,7 @@
 
 
 #define PROGRAM 	"ftnpack"
-#define VERSION 	"$Revision: 4.5 $"
+#define VERSION 	"$Revision: 4.6 $"
 #define CONFIG		CONFIG_MAIN
 
 
@@ -791,9 +791,14 @@ int do_dirpack(PktDesc *desc, char *name, FILE *file, Packing *pack)
     set_zero(&arcnode);
     set_zero(&flonode);
     
-    /* Create lock file */
+    /* Create BSY file(s) */
+    if(bink_bsy_create(&arcnode, NOWAIT) == ERROR)
+    {
+	debug(1, "%s busy, skipping", node_to_asc(&arcnode, TRUE));
+	fclose(file);
+	return OK;			/* This is o.k. */
+    }
 
-    
     /* Do the various pack functions */
     if(pack->arc->pack == PACK_ARC)
     {
@@ -808,8 +813,8 @@ int do_dirpack(PktDesc *desc, char *name, FILE *file, Packing *pack)
 	}
     }
     
-    /* Remove lock file */
-
+    /* Delete BSY file */
+    bink_bsy_delete(&arcnode);
     
     return ret;
 }

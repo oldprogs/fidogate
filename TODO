@@ -2,6 +2,23 @@
 
 X = for release 4.0alpha3
 
+	* test/tc.tick: test case for ftntick (Replaces).
+
+	* msg_body_parse(): there may be ^AVia in the kludges at the
+	  beginning of the messages!
+
+DONE.	* ftntick: integrate patches from Sholto Douglas.
+
+	* ftntick: remove FILES.BBS entry for old replaced file.
+
+DONE.	* rununpack: use separate magic data file for the file
+	  command, avoiding problems with having to change
+	  /usr/lib/magic.
+
+	* ftntick: if node is busy, put necessary data for
+	  bink_attach() into separate file, don't wait, retry on the
+	  next run.
+
 DONE.	* ftnaf: command line mode must override level/key, right now
 	  level/key are checked but not set.
 
@@ -37,7 +54,7 @@ DONE.	* charset.c: integrate charset.h.latin1. #ifdef?
 	* ftnconfig: tool for reading stuff from FIDOGATE config files
 	  for shell/perl scripts.
 
-X	* ftnpack: lock file for do_dirpack().
+DONE.	* ftnpack: lock file for do_dirpack().
 
 	* ftn2rfc: bounce messages should include the complete FTN
 	  message with all kludges etc. to ease debugging.
@@ -76,7 +93,7 @@ DONE.	* node.c, routing.c: merge node parsing functions into general
 
 	* ftn2rfc: Newsgroups header?
 
-PARTLY	* ftnpack: better file attach processing, -F DIR option. Don't
+MOSTLY	* ftnpack: better file attach processing, -F DIR option. Don't
 DONE.	  copy netmail packets (do_noarc()), use rename(). If archiver
 	  fails, move packets back to toss/out directory.
 

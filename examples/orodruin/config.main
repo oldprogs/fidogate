@@ -1,6 +1,6 @@
 #:ts=8
 #
-# $Id: config.main,v 4.5 1996/04/26 13:24:10 mj Exp $
+# $Id: config.main,v 4.6 1996/06/16 08:41:22 mj Exp $
 #
 # FIDOGATE config file main AKA
 #
@@ -133,6 +133,12 @@ TickFlav	"Normal"
 # Default outbound flavor for file attaches by ftnfattach
 #
 FAttachFlav	"Normal"
+
+
+#
+# Directory for old files replaced by ftntick with new versions
+#
+#TickReplacedDir	"/pub/fido/oldfiles"
 
 
 #

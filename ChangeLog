@@ -1,3 +1,40 @@
+Sun Jun 16 10:40:45 1996  Martin Junius  <mj@fido.de>
+
+	------- CVS commit ---------------------------------------------------
+
+Sat Jun 15 20:35:35 1996  Martin Junius  <mj@fido.de>
+
+	* src/toss/ftnroute.c (main): removed break in packet processing
+	  loop, will continue processing after bad packet.
+
+	* src/toss/ftnpack.c (do_dirpack): create/delete BSY files for
+	  destination node.
+
+	* src/toss/rununpack.sh: use file -m LIBDIR/magic to determine
+	  file type with separate magic file. Added mixed case and lower
+	  case variants for archive names.
+
+	* src/toss/Makefile (install): magic -> LIBDIR
+
+	* src/toss/magic: new file with separate file(1) magic definitions
+	  for rununpack.
+
+	* src/tick/ftntick.c (copy_file): move file copy code from move()
+	  to this new function.
+	  (move): copy code replaced with call to copy_file().
+	  (process_tic): if Replaces is not empty: copy old file to
+	  "TickReplacedDir" if set, remove old file, and removed entry for
+	  old file in FILES.BBS.
+
+	* src/common/tick.c (tick_init): initialize new fields.
+	  (tick_delete): delete new fields.
+	  (tick_put): output new fields, if not empty.
+	  (tick_get): get new fields.
+	  (tick_debug): added debug output of new fields.
+
+	* src/include/structs.h (Tick): added "replaces" and "ldesc"
+	  fields. Patches from <Sholto_Douglas@f308.n2455.z2.fidonet.org>.
+
 Mon Jun 10 19:51:47 1996  Martin Junius  <mj@fido.de>
 
 	------- CVS tag r40alpha2c -------------------------------------------

@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftntick.c,v 4.2 1996/06/06 15:59:30 mj Exp $
+ * $Id: ftntick.c,v 4.3 1996/06/16 08:41:25 mj Exp $
  *
  * Process incoming TIC files
  *
@@ -37,7 +37,7 @@
 
 
 #define PROGRAM		"ftntick"
-#define VERSION		"$Revision: 4.2 $"
+#define VERSION		"$Revision: 4.3 $"
 #define CONFIG		CONFIG_MAIN
 
 
@@ -55,6 +55,7 @@
 int	do_tic			(int);
 int	process_tic		(Tick *);
 int	move			(Tick *, char *, char *);
+int	copy_file		(char *, char *);
 int	add_files_bbs		(Tick *, char *);
 int	do_seenby		(LON *, LON *, LON *);
 int	check_file		(Tick *);
@@ -224,6 +225,27 @@ int process_tic(Tick *tic)
     if(move(tic, old_name, new_name) == ERROR)
 	return ERROR;
     add_files_bbs(tic, bbs->dir);
+
+    /*
+     * Replaces old file
+     */
+    if(tic->replaces)
+    {
+	char *rdir = cf_get_string("TickReplacedDir", TRUE);
+
+	BUF_COPY3(old_name, bbs->dir, "/", tic->replaces);
+	if(rdir)
+	{
+	    /* Copy to ReplacedFilesDir */
+	    BUF_COPY3(new_name, rdir, "/", tic->replaces);
+	    copy_file(old_name, new_name);
+	}
+	/* Remove old file */
+	unlink(old_name);
+
+	/* Remove old file from FILES.BBS */
+	/**FIXME**/
+    }
     
     /*
      * Add us to Path list
@@ -267,10 +289,49 @@ int process_tic(Tick *tic)
  */
 int move(Tick *tic, char *old, char *new)
 {
-    FILE *fold, *fnew;
-    int nr, nw;
     unsigned long crc;
     struct utimbuf ut;
+
+    /* Copy */
+    if(copy_file(old, new) == ERROR)
+	return ERROR;
+    
+    /* Compute CRC again to be sure */
+    crc = crc32_file(new);
+    if(crc != tic->crc)
+    {
+	log("ERROR: error while copying to %s, wrong CRC", new);
+	unlink(new);
+	return ERROR;
+    }
+    
+    /* o.k., now unlink file in inbound */
+    if(unlink(old) == ERROR)
+    {
+	log("ERROR: can't remove %s", old);
+	return ERROR;
+    }
+
+    /* Set a/mtime to time from TIC */
+    ut.actime = ut.modtime = tic->date;
+    if(utime(new, &ut) == ERROR)
+    {
+	log("$ERROR: can't set time of %s", new);
+	return ERROR;
+    }
+
+    return OK;
+}
+
+
+
+/*
+ * Copy file
+ */
+int copy_file(char *old, char *new)
+{
+    FILE *fold, *fnew;
+    int nr, nw;
     
     /* Open */
     if( (fold = fopen(old, R_MODE)) == NULL)
@@ -311,30 +372,6 @@ int move(Tick *tic, char *old, char *new)
     /* Close */
     fclose(fold);
     fclose(fnew);
-    
-    /* Compute CRC again to be sure */
-    crc = crc32_file(new);
-    if(crc != tic->crc)
-    {
-	log("ERROR: error while copying to %s, wrong CRC", new);
-	unlink(new);
-	return ERROR;
-    }
-    
-    /* o.k., now unlink file in inbound */
-    if(unlink(old) == ERROR)
-    {
-	log("ERROR: can't remove %s", old);
-	return ERROR;
-    }
-
-    /* Set a/mtime to time from TIC */
-    ut.actime = ut.modtime = tic->date;
-    if(utime(new, &ut) == ERROR)
-    {
-	log("$ERROR: can't set time of %s", new);
-	return ERROR;
-    }
 
     return OK;
 }

@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: tick.c,v 4.2 1996/05/08 18:50:05 mj Exp $
+ * $Id: tick.c,v 4.3 1996/06/16 08:41:24 mj Exp $
  *
  * TIC file processing
  *
@@ -48,7 +48,9 @@ void tick_init(Tick *tic)
     node_invalid(&tic->to);
     tic->area = NULL;
     tic->file = NULL;
+    tic->replaces = NULL;
     tl_init(&tic->desc);
+    tl_init(&tic->ldesc);
     tic->crc = 0;
     tic->created = NULL;
     tic->size = 0;
@@ -74,7 +76,10 @@ void tick_delete(Tick *tic)
     tic->area = NULL;
     xfree(tic->file);
     tic->file = NULL;
+    xfree(tic->replaces);
+    tic->replaces = NULL;
     tl_clear(&tic->desc);
+    tl_clear(&tic->ldesc);
     tic->crc = 0;
     xfree(tic->created);
     tic->created = NULL;
@@ -106,7 +111,11 @@ int tick_put(Tick *tic, char *name)
     fprintf(fp, "Origin %s\r\n", node_to_asc(&tic->origin, FALSE));
     fprintf(fp, "From %s\r\n", node_to_asc(&tic->from, FALSE));
     fprintf(fp, "File %s\r\n", tic->file);
+    if(tic->replaces)
+	fprintf(fp, "Replaces %s\r\n", tic->file);
     fprintf(fp, "Desc %s\r\n", tic->desc.first->line);
+    if(tic->ldesc.first)
+	fprintf(fp, "LDesc %s\r\n", tic->desc.first->line);
     fprintf(fp, "CRC %08lX\r\n", tic->crc);
     fprintf(fp, "Created %s\r\n", tic->created);
     fprintf(fp, "Size %lu\r\n", tic->size);
@@ -169,9 +178,20 @@ int tick_get(Tick *tic, char *name)
 	    str_lower(tic->file);
 	}
 	
+	if(! stricmp(key, "Replaces"))
+	{
+	    tic->replaces = strsave(arg);
+	    str_lower(tic->replaces);
+	}
+	
 	if(! stricmp(key, "Desc"))
 	{
 	    tl_append(&tic->desc, arg);
+	}
+	
+	if(! stricmp(key, "LDesc"))
+	{
+	    tl_append(&tic->ldesc, arg);
 	}
 	
 	if(! stricmp(key, "CRC"))
@@ -235,25 +255,28 @@ void tick_debug(Tick *tic, int lvl)
     Textline *pl;
     LNode *p;
     
-    debug(lvl, "Origin : %s", node_to_asc(&tic->origin, TRUE));
-    debug(lvl, "From   : %s", node_to_asc(&tic->from, TRUE));
-    debug(lvl, "To     : %s", node_to_asc(&tic->to, TRUE));
-    debug(lvl, "Area   : %s", tic->area);
-    debug(lvl, "File   : %s", tic->file);
+    debug(lvl, "Origin 	 : %s", node_to_asc(&tic->origin, TRUE));
+    debug(lvl, "From   	 : %s", node_to_asc(&tic->from, TRUE));
+    debug(lvl, "To     	 : %s", node_to_asc(&tic->to, TRUE));
+    debug(lvl, "Area   	 : %s", tic->area);
+    debug(lvl, "File   	 : %s", tic->file);
+    debug(lvl, "Replaces : %s", tic->replaces ? tic->replaces : "-NONE-");
     for(pl=tic->desc.first; pl; pl=pl->next)
-	debug(lvl, "Desc   : %s", pl->line);
-    debug(lvl, "CRC    : %08lX", tic->crc);
-    debug(lvl, "Created: %s", tic->created);
-    debug(lvl, "Size   : %lu", tic->size);
+	debug(lvl, "Desc     : %s", pl->line);
+    for(pl=tic->ldesc.first; pl; pl=pl->next)
+	debug(lvl, "LDesc    : %s", pl->line);
+    debug(lvl, "CRC    	 : %08lX", tic->crc);
+    debug(lvl, "Created	 : %s", tic->created);
+    debug(lvl, "Size   	 : %lu", tic->size);
     for(pl=tic->path.first; pl; pl=pl->next)
-	debug(lvl, "Path   : %s", pl->line);
+	debug(lvl, "Path     : %s", pl->line);
     for(p=tic->seenby.first; p; p=p->next)
-	debug(lvl, "Seenby : %s", node_to_asc(&p->node, FALSE));
-    debug(lvl, "Pw     : %s", tic->pw);
-    debug(lvl, "Release: %ld", tic->release);
-    debug(lvl, "Date   : %ld", tic->date);
+	debug(lvl, "Seenby   : %s", node_to_asc(&p->node, FALSE));
+    debug(lvl, "Pw       : %s", tic->pw);
+    debug(lvl, "Release  : %ld", tic->release);
+    debug(lvl, "Date     : %ld", tic->date);
     for(pl=tic->app.first; pl; pl=pl->next)
-	debug(lvl, "App    : %s", pl->line);
+	debug(lvl, "App      : %s", pl->line);
 }
 
 

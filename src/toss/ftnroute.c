@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftnroute.c,v 4.7 1996/05/12 15:35:07 mj Exp $
+ * $Id: ftnroute.c,v 4.8 1996/06/16 08:41:27 mj Exp $
  *
  * Route FTN NetMail/EchoMail
  *
@@ -39,7 +39,7 @@
 
 
 #define PROGRAM 	"ftnroute"
-#define VERSION 	"$Revision: 4.7 $"
+#define VERSION 	"$Revision: 4.8 $"
 #define CONFIG		CONFIG_MAIN
 
 
@@ -633,13 +633,8 @@ int main(int argc, char **argv)
 		exit(EXIT_BUSY);
 	
 	for(pkt_name=dir_get(TRUE); pkt_name; pkt_name=dir_get(FALSE))
-	{
 	    if(do_file(pkt_name) == ERROR)
-	    {
 		ret = EXIT_ERROR;
-		break;
-	    }
-	}
 
 	dir_close();
 
@@ -660,10 +655,7 @@ int main(int argc, char **argv)
 	 */
 	for(; optind<argc; optind++)
 	    if(do_file(argv[optind]) == ERROR)
-	    {
 		ret = EXIT_ERROR;
-		break;
-	    }
 
 	/* Lock file */
 	if(l_flag)

@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: structs.h,v 4.1 1996/05/07 19:50:44 mj Exp $
+ * $Id: structs.h,v 4.2 1996/06/16 08:41:25 mj Exp $
  *
  * An assortment of FIDOGATE data structure definitions
  *
@@ -305,7 +305,9 @@ typedef struct st_tick 		/* .TIC file description, see also FSC-0028 */
     Node     to;			/* To (this tic) addresss */
     char    *area;			/* Area name */
     char    *file;			/* File name */
+    char    *replaces;			/* File to replace in file area */
     Textlist desc;			/* Description (multiple lines) */
+    Textlist ldesc;			/* Description (multiple lines) */
     unsigned long crc;			/* File CRC32 checksum */
     char    *created;			/* Creator */
     unsigned long size;			/* File size */

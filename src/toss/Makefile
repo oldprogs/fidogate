@@ -1,6 +1,6 @@
 #:ts=8
 #
-#    $Id: Makefile,v 4.4 1996/05/17 20:19:16 mj Exp $
+#    $Id: Makefile,v 4.5 1996/06/16 08:41:26 mj Exp $
 #
 #    Makefile for FIDOGATE src/toss/
 #
@@ -49,6 +49,7 @@ install:
 	$(INSTALL_PROG)   ftnpack     $(LIBDIR)
 	$(INSTALL_PROG)   runtoss     $(LIBDIR)
 	$(INSTALL_PROG)   rununpack   $(LIBDIR)
+	$(INSTALL_PROG)   magic       $(LIBDIR)
 	$(INSTALL_PROG)   runin       $(LIBDIR)
 	$(INSTALL_PROG)   runout      $(LIBDIR)
 	$(INSTALL_PROG)   rundf       $(LIBDIR)

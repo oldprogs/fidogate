@@ -1,12 +1,12 @@
 #!/bin/sh
 #
-# $Id: rununpack.sh,v 4.1 1996/05/05 12:26:58 mj Exp $
+# $Id: rununpack.sh,v 4.2 1996/06/16 08:41:27 mj Exp $
 #
 # Unpack ArcMail archives
 #
 # Usage: rununpack name
 #
-# Needs the following definitions in /etc/magic:
+# Needs LIBDIR/magic with the following definitions:
 #
 #  # ----- Archiver ---------------------------------------------------------
 #  0	string		PK		ZIP Archive
@@ -79,25 +79,25 @@ do
 if [ -f $arc ]; then
 
 	# Find out archive type and the unpacking command
-	type=`file $arc | awk '{print $2}'`
+	type=`file -m $PRG/magic $arc | awk '{print $2}'`
 	case $type in
-	ARJ)
+	ARJ | Arj | arj)
 		xcmd="$BIN/unarj e   $arc"
 		lcmd="$BIN/unarj l   $arc"
 		;;
-	ARC)
+	ARC | Arc | arc)
 		xcmd="$BIN/arc   e   $arc"
 		lcmd="$BIN/arc   l   $arc"
 		;;
-	ZIP)
+	ZIP | Zip | zip)
 		xcmd="$BIN/unzip -xj $arc"
 		lcmd="$BIN/unzip -l  $arc"
 		;;
-	LHA)
+	LHA | Lha | lha)
 		xcmd="$BIN/lharc ei  $arc"
 		lcmd="$BIN/lharc l   $arc"
 		;;
-	ZOO)
+	ZOO | Zoo | zoo)
 		xcmd="$BIN/zoo   e:  $arc"
 		lcmd="$BIN/zoo   l   $arc"
 		;;
