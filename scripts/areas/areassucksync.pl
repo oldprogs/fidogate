@@ -1,13 +1,13 @@
 #!/usr/bin/perl -w
 #
-# $Id: areassucksync.pl,v 1.2 2001/01/28 15:53:16 mj Exp $
+# $Id: areassucksync.pl,v 1.3 2001/03/04 17:58:51 mj Exp $
 #
 # Syncronize groups between areas.bbs, active, sucknewsrc, NNTP list
 #
 
 use strict;
 
-my $VERSION = '$Revision: 1.2 $ ';
+my $VERSION = '$Revision: 1.3 $ ';
 my $PROGRAM = "areasbbssync";
 
 use Getopt::Std;
@@ -184,7 +184,11 @@ for $group (sort keys %areas_list) {
     next unless($areas_list{$group} > 0);
 
     print "checking areas.bbs $group\n" if($opt_v);
-    unless($suck_list{$group}) {
+    if($suck_list{$group}) {
+	print "                   already in sucknewsrc\n" if($opt_v);
+	$n = $suck_list{$group};
+    }
+    else {
 	print "                   not in sucknewsrc\n" if($opt_v);
 	$n = $nntp_list_count{$group};
 	unless($n) {
@@ -193,10 +197,10 @@ for $group (sort keys %areas_list) {
 	}
 	$n -= $MAX;
 	$n = 1 if($n < 1);
-
-	##FIXME: add to sucknewsrc
-	print "$group $n\n";
     }
+
+    ##FIXME: write directly to sucknewsrc
+    print "$group $n\n";
 }
 
 

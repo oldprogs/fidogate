@@ -1,10 +1,10 @@
 X-Emacs-Mode: -*- indented-text -*-
-Subject: FIDOGATE 4.4.2 - Fido-Internet Gateway and Tosser
+Subject: FIDOGATE 4.4.3 - Fido-Internet Gateway and Tosser
 Keywords: fido ftn netmail echomail tosser areafix mail news gateway
 Followup-To: comp.os.linux.misc
 
   =================================================================
-    FIDOGATE 4.4.2, a stable version of the new FIDOGATE release
+    FIDOGATE 4.4.3, a stable version of the new FIDOGATE release
   =================================================================
 
 			   FIDOGATE Version 4
@@ -27,9 +27,9 @@ Followup-To: comp.os.linux.misc
     http://metalab.unc.edu/pub/Linux/system/fido/
     (maybe still in .../pub/Linux/Incoming)
 
-    fidogate-4.4.2.tar.gz	1140 Kbyte
-    fidogate-4.4.2-1.src.rpm	1140 Kbyte
-    fidogate-4.4.2-1.i386.rpm	1130 Kbyte
+    fidogate-4.4.3.tar.gz	1140 Kbyte
+    fidogate-4.4.3-1.src.rpm	1140 Kbyte
+    fidogate-4.4.3-1.i386.rpm	1130 Kbyte
     
 
   Fido File Request:
@@ -37,10 +37,33 @@ Followup-To: comp.os.linux.misc
     2:2452/110, 111  +49-241-876604  (V.34, ISDN V.110/X.75)
     
     Magic FIDOGATE or
-    fgate442.tgz		1140 Kbyte
+    fgate443.tgz		1140 Kbyte
 
 
 ======================================================================
+
+Changes in 4.4.3:
+
+* runpoll-binkd: updated for binkd 0.9.4
+
+* out-ls: updated, uses fidogate.conf
+
+* i386 RPM: fixed missing /var/lib/fidogate/seq/
+
+* ftnafutil: new "listdownlinks" for areassucksync
+
+* areassucksync: new script for sync'ing areas.bbs and sucknewsrc
+
+* runafutil: new run script for ftnafutil
+
+* outb: new wrapper script for out-ls
+
+* outb-kill: new script, remove outbound stuff for a node
+
+* rfc2ftn: new config options DontChangeContentTypeCharset,
+  DontProcessReturnReceiptTo
+
+
 
 Changes in 4.4.2:
 
@@ -94,6 +117,6 @@ Needed:
 
 ======================================================================
 
-$Date: 2000/11/18 17:57:56 $
+$Date: 2001/03/04 17:58:51 $
 Martin Junius
 mailto:mj@fido.de

@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway software UNIX <-> FIDO
  *
- * $Id: rfc2ftn.c,v 4.61 2000/11/17 21:18:07 mj Exp $
+ * $Id: rfc2ftn.c,v 4.62 2001/03/04 17:58:51 mj Exp $
  *
  * Read mail or news from standard input and convert it to a FIDO packet.
  *
@@ -39,7 +39,7 @@
 
 
 #define PROGRAM 	"rfc2ftn"
-#define VERSION 	"$Revision: 4.61 $"
+#define VERSION 	"$Revision: 4.62 $"
 #define CONFIG		DEFAULT_CONFIG_GATE
 
 
@@ -116,6 +116,11 @@ static int dont_use_reply_to = FALSE;	/* DontUseReplyTo      	 */
 static int replyaddr_ifmail_tx = FALSE;	/* ReplyAddrIfmailTX   	 */
 static int check_areas_bbs = FALSE;	/* CheckAreasBBS       	 */
 static int use_x_for_tearline = FALSE;	/* UseXHeaderForTearline */
+static int dont_change_content_type_charset = FALSE;
+					/* DontChangeContentTypeCharset */
+static int dont_process_return_receipt_to = FALSE;
+					/* DontProcessReturnReceiptTo */
+
 
 /* Charset stuff */
 static char *default_charset_out = NULL;
@@ -1007,7 +1012,8 @@ int snd_mail(RFCAddr rfc_to, long size)
 	/*
 	 * Return-Receipt-To -> RRREQ flag
 	 */
-	if( (p = header_get("Return-Receipt-To")) )
+	if(!dont_process_return_receipt_to &&
+	   (p = header_get("Return-Receipt-To")) )
 	   msg.attr |= MSG_RRREQ;
     }
     
@@ -1234,6 +1240,14 @@ int snd_message(Message *msg, Area *parea,
     str_upper(cs_out_fsc);
     cs_enc = strieq(cs_out_rfc, "us-ascii") ? "7bit" : "8bit";
     charset_set_in_out(cs_in, cs_out);
+    if(dont_change_content_type_charset) 
+    {
+	if(!strieq(cs_in, cs_out_rfc))
+	{
+	    debug(6, "charset: cs_out_rfc set to original %s", cs_in);
+	    cs_out_rfc = cs_in;
+	}
+    }
     debug(6, "charset: msg RFC=%s FSC=%s enc=%s",
 	  cs_out_rfc, cs_out_fsc, cs_enc         );
 
@@ -2111,6 +2125,15 @@ int main(int argc, char **argv)
 	strtok(p, ":");
 	netmail_charset_out = strtok(NULL, ":");
     }
+    if( (p = cf_get_string("DontChangeContentTypeCharset", TRUE)) )
+    {
+	dont_change_content_type_charset = TRUE;
+    }
+    if( (p = cf_get_string("DontProcessReturnReceiptTo", TRUE)) )
+    {
+	dont_process_return_receipt_to = TRUE;
+    }
+
 
     /*
      * Process local options

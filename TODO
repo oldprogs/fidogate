@@ -1,6 +1,9 @@
 							 -*- Indented-Text -*-
 ===== TODO list for FIDOGATE development =====================================
 
+DONE	* rfc2ftn: config option for passing charset in
+	  ^ARFC-Content-Type unmodified from original message.
+
 	* ffx*: auto create batch dirs.
 
 	* sequencer(): auto create %V/seq dir.
@@ -8,7 +11,7 @@
         * ffxmail: convert script to real setuid frontend like
 	  ftnmail.
 
-	* rfc2ftn: config option for setting RRQ for Return-Receipt-To.
+DONE	* rfc2ftn: config option for setting RRQ for Return-Receipt-To.
 
         * rfc2ftn: log WARNINGs if article not found, disable option
 	  in config.
@@ -21,6 +24,7 @@ DONE	* get rid of the fidogate_exit(), exit.c stuff. Is/will this
 
 DONE	* ffx/ffxqt: remove compression/decompression (handled by
 	  ftnpack).
+
 
 
         * ftn2rfc: if charset_set_in_out() fails, try to use a
