@@ -1,4 +1,23 @@
+Wed May 14 19:59:28 1997  Martin Junius  <mj@fido.de>
+
+	======= Release 4.2.3 ================================================
+	------- CVS ci, tag R423 ---------------------------------------------
+
+	* fidogate.lsm: updated.
+
+	* ANNOUNCE: updated.
+
+	* version.h (PATCHLEVEL): set to 3 (version 4.2.3).
+
+	* src/common/tick.c (tick_get): convert area name to upper case.
+
+	* src/common/areasbbs.c (areasbbs_lookup): make comparison
+	  case-insensitive using stricmp().
+
 Sun May 11 21:23:01 1997  Martin Junius  <mj@fido.de>
+
+	* sendmail/cf/morannon.mc: added FEATURE(local_procmail), updated
+	  confCF_VERSION to 4.4.
 
 	======= Release 4.2.2 ================================================
 	------- CVS ci, tag R422 ---------------------------------------------

@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: areasbbs.c,v 4.4 1996/12/17 17:19:38 mj Exp $
+ * $Id: areasbbs.c,v 4.5 1997/05/14 18:07:20 mj Exp $
  *
  * Function for processing AREAS.BBS EchoMail distribution file.
  *
@@ -217,13 +217,10 @@ AreasBBS *areasbbs_lookup(char *area)
 {
     AreasBBS *p;
     
-    /*
-     * FIXME: the search method should use hashing or similar
-     */
-
+    /**FIXME: the search method should use hashing or similar**/
     for(p=areasbbs_list; p; p=p->next)
     {
-	if(area  && !strcmp(area,  p->area ))
+	if(area  && !stricmp(area,  p->area ))
 	    return p;
     }
     

@@ -1,15 +1,15 @@
 #:ts=8
 #
-# $Id: morannon.mc,v 4.3 1996/09/22 20:12:37 mj Exp $
+# $Id: morannon.mc,v 4.4 1997/05/14 18:07:19 mj Exp $
 #
 # Fido.DE domain gateway morannon.fido.de sendmail V8 configuration
 #
 
 include(`../m4/cf.m4')
-VERSIONID(`$Id: morannon.mc,v 4.3 1996/09/22 20:12:37 mj Exp $')
+VERSIONID(`$Id: morannon.mc,v 4.4 1997/05/14 18:07:19 mj Exp $')
 OSTYPE(linux)
 
-define(`confCF_VERSION', `morannon-4.0')
+define(`confCF_VERSION', `morannon-4.4')
 
 define(`confMIME_FORMAT_ERRORS', `False')
 define(`confUSE_ERRORS_TO', `True')
@@ -19,6 +19,7 @@ define(`confMESSAGE_TIMEOUT', `5d/2d')
 FEATURE(notsticky)
 FEATURE(always_add_domain)
 FEATURE(mailertable,hash /etc/mail/mailertable.db)
+FEATURE(local_procmail)
 
 MAILER(local)
 MAILER(smtp)

@@ -1,7 +1,7 @@
-Subject: FIDOGATE 4.2.2 --- Fido-Internet Gateway and Tosser
+Subject: FIDOGATE 4.2.3 --- Fido-Internet Gateway and Tosser
 Keywords: fido ftn netmail echomail tosser areafix mail news gateway
 
-FIDOGATE 4.2.2, an update to version 4 of the FIDOGATE package is
+FIDOGATE 4.2.3, an update to version 4 of the FIDOGATE package is
 available.
 
 			   FIDOGATE Version 4
@@ -24,7 +24,7 @@ Internet:
     http://sunsite.unc.edu/pub/Linux/system/Fido/
     (probably still in .../pub/Linux/Incoming)
 
-    fidogate-4.2.2.tar.gz	740 Kbyte
+    fidogate-4.2.3.tar.gz	740 Kbyte
 
 Fido File Request:
 ==================
@@ -35,6 +35,11 @@ Fido File Request:
 
 
 ======================================================================
+
+Changes in 4.2.3:
+
+* ftntick: area lookup now case-insensitive.
+
 
 Changes in 4.2.2:
 
@@ -84,7 +89,7 @@ fgate-users-request@gondor.gun.de
 
 Begin3
 Title:          FIDOGATE
-Version:        4.2.2
+Version:        4.2.3
 Entered-date:   11MAY97
 Description:    FIDOGATE Version 4:
                  * Fido-Internet Gateway
@@ -96,9 +101,9 @@ Keywords:       fido ftn netmail echomail tosser areafix mail news gateway
 Author:         mj@fido.de (Martin Junius)
 Maintained-by:  mj@fido.de (Martin Junius)
 Primary-site:   ftp.fido.de /pub/fidogate
-		740kB fidogate-4.2.2.tar.gz
+		743kB fidogate-4.2.3.tar.gz
 Alternate-site: sunsite.unc.edu /pub/Linux/system/Fido
-		740kB fidogate-4.2.2.tar.gz
+		743kB fidogate-4.2.3.tar.gz
 Platforms:      Linux, SunOS, but should be easily portable to most
 		UNIX systems. Supports OS/2 (EMX gcc port) and MSDOS
 		(DJGPP gcc port), too. perl is required.
@@ -107,6 +112,6 @@ End
 
 ======================================================================
 
-$Date: 1997/05/11 19:50:56 $
+$Date: 1997/05/14 18:07:09 $
 Martin Junius
 mailto:mj@fido.de

@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: tick.c,v 4.5 1997/03/26 20:46:44 mj Exp $
+ * $Id: tick.c,v 4.6 1997/05/14 18:07:21 mj Exp $
  *
  * TIC file processing
  *
@@ -170,6 +170,7 @@ int tick_get(Tick *tic, char *name)
 	if(! stricmp(key, "Area"))
 	{
 	    tic->area = strsave(arg);
+	    str_upper(tic->area);
 	}
 	
 	if(! stricmp(key, "File"))
