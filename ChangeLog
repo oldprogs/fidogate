@@ -1,3 +1,17 @@
+Tue Jul  8 20:14:14 1997  Martin Junius  <mj@fido.de>
+
+	------- CVS ci -------------------------------------------------------
+
+	* examples/orodruin/config.gate: changed FTNInSendmail.
+
+	* src/ffx/ffxrmail.pl: added -L, -S options. FFXRmailSendmail
+	  config statement will be used for the sendmail command.
+
+	* examples/orodruin/config.ffx: added FFXRmailSendmail.
+
+	* sendmail/mailer/ftn.m4: add -- before $u to all rfc2ftn command
+	  line, preventing possible problems with -some@thing.
+
 Tue Jul  1 21:28:35 1997  Martin Junius  <mj@fido.de>
 
 	------- CVS ci -------------------------------------------------------

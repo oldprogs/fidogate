@@ -1,6 +1,6 @@
 #:ts=8
 #
-# $Id: config.ffx,v 4.4 1996/10/13 12:01:07 mj Exp $
+# $Id: config.ffx,v 4.5 1997/07/08 18:39:22 mj Exp $
 #
 # FIDOGATE config file ffx programs
 #
@@ -61,3 +61,8 @@ FFXCommand	unbatchzip	/usr/bin/unzip -ojqq
 
 FFXUncompress	unzip		/usr/bin/unzip -pqq
 FFXUncompress	gunzip		/bin/gunzip -cq
+
+#
+# Sendmail command for ffxrmail
+#
+FFXRmailSendmail  /usr/sbin/sendmail -oee -oi -pFFX:morannon.fido.de
