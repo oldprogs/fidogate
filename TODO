@@ -1,6 +1,8 @@
- -*- Indented-Text -*-
+-*- Indented-Text -*-
 
 X = for next release
+
+	* doc: document FIDOGATE env var.
 
 	* lock.c:lock_lockfile_id(): implement safer variant, see man 2
 	  open, NFS related bug with O_EXCL.
@@ -11,7 +13,7 @@ X = for next release
 
 	* ftn2rfc/rfc2ftn: MAIL-log messages configurable.
 
-	* ftn2rfc: create single news message (not a new batch),
+	* ftn2rfc: create single news message (not a news batch),
 	  suitable for e.g. innxmit.
 
 	* config: move config files to /etc/fidogate, %C for config dir.

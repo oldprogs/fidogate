@@ -1,3 +1,26 @@
+Sun Aug  3 09:47:38 1997  Martin Junius  <mj@fido.de>
+
+	------- CVS ci -------------------------------------------------------
+
+	* ANNOUNCE: update.
+
+	* scripts/nodelist/nl-diff.pl: fixed severe error in CRC check,
+	  the too well known = versus ==. :-(
+
+	* scripts/nodelist/nl-check.pl: new script checking CRC of nodelist.
+
+	* src/common/config.c (cf_initialize): use environment var
+	  FIDOGATE to initialize scf_libdir[], use BUF_COPY().
+	  (cf_do_line): use BUF_COPY(), BUF_APPEND().
+	  (cf_set_libdir): same.
+	  (cf_set_spooldir): same.
+	  (cf_set_logdir): same.
+	  (cf_unix_xlate): make comparison case-insensitive.
+
+	* test/tc.tick/run: added TIC test with missing file.
+
+	* src/toss/ftntoss.c (do_netmail): changed log() message.
+
 Fri Jul 25 22:01:56 1997  Martin Junius  <mj@fido.de>
 
 	------- CVS ci -------------------------------------------------------

@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: config.c,v 4.8 1996/12/17 17:19:39 mj Exp $
+ * $Id: config.c,v 4.9 1997/08/03 13:29:45 mj Exp $
  *
  * Configuration data and functions
  *
@@ -335,7 +335,7 @@ void cf_do_line(char *line)
 	    log("config: missing hostname");
 	    return;
 	}
-	strncpy0(scf_hostname, p, MAXPATH);
+	BUF_COPY(scf_hostname, p);
     }
     /***** domain *******************************************************/
     else if (!stricmp(keyword, "domain"  ))
@@ -348,13 +348,13 @@ void cf_do_line(char *line)
 	}
 	if(p[0] != '.')
 	{
-	    strncpy0(scf_domainname, ".", sizeof(scf_domainname));
-	    strncat0(scf_domainname, p  , sizeof(scf_domainname));
+	    BUF_COPY(scf_domainname, ".");
+	    BUF_APPEND(scf_domainname, p);
 	}
 	else
-	    strncpy0(scf_domainname, p  , sizeof(scf_domainname));
+	    BUF_COPY(scf_domainname, p);
 	/* This is also the default for "HostsDomain" */
-	strncpy0(scf_hostsdomain, scf_domainname, sizeof(scf_hostsdomain));
+	BUF_COPY(scf_hostsdomain, scf_domainname);
     }
     /***** hostsdomain **************************************************/
     else if (!stricmp(keyword, "hostsdomain"  ))
@@ -367,11 +367,11 @@ void cf_do_line(char *line)
 	}
 	if(p[0] != '.')
 	{
-	    strncpy0(scf_hostsdomain, ".", sizeof(scf_hostsdomain));
-	    strncat0(scf_hostsdomain, p  , sizeof(scf_hostsdomain));
+	    BUF_COPY(scf_hostsdomain, ".");
+	    BUF_APPEND(scf_hostsdomain, p);
 	}
 	else
-	    strncpy0(scf_hostsdomain, p  , sizeof(scf_hostsdomain));
+	    BUF_COPY(scf_hostsdomain, p);
     }
     /***** libdir *******************************************************/
     else if (!stricmp(keyword, "libdir"))
@@ -382,7 +382,7 @@ void cf_do_line(char *line)
 	    log("config: missing libdir");
 	    return;
 	}
-	strncpy0(scf_libdir, p, MAXPATH);
+	BUF_COPY(scf_libdir, p);
     }
     /***** spooldir *****************************************************/
     else if (!stricmp(keyword, "spooldir"))
@@ -393,7 +393,7 @@ void cf_do_line(char *line)
 	    log("config: missing spooldir");
 	    return;
 	}
-	strncpy0(scf_spooldir, p, MAXPATH);
+	BUF_COPY(scf_spooldir, p);
     }
     /***** logdir *******************************************************/
     else if (!stricmp(keyword, "logdir"))
@@ -404,7 +404,7 @@ void cf_do_line(char *line)
 	    log("config: missing logdir");
 	    return;
 	}
-	strncpy0(scf_logdir, p, MAXPATH);
+	BUF_COPY(scf_logdir, p);
     }
     /***** address ******************************************************/
     else if (!stricmp(keyword, "address" ))
@@ -603,8 +603,8 @@ void cf_read_config_file(char *name)
     scf_c_addr   = scf_addr[0].addr;
     scf_c_uplink = scf_addr[0].uplink;
     
-    strncpy0(scf_fqdn, scf_hostname,   MAXPATH);
-    strncat0(scf_fqdn, scf_domainname, MAXPATH);
+    BUF_COPY(scf_fqdn, scf_hostname);
+    BUF_APPEND(scf_fqdn, scf_domainname);
     
     fclose(cf);
 }
@@ -617,9 +617,14 @@ void cf_read_config_file(char *name)
  */
 void cf_initialize(void)
 {
-    strncpy0(scf_libdir,   LIBDIR,   MAXPATH);
-    strncpy0(scf_spooldir, SPOOLDIR, MAXPATH);
-    strncpy0(scf_logdir,   LOGDIR,   MAXPATH);
+    char *p;
+
+    if( (p = getenv("FIDOGATE")) )
+	BUF_COPY(scf_libdir, p);
+    else
+	BUF_COPY(scf_libdir, LIBDIR);
+    BUF_COPY(scf_spooldir, SPOOLDIR);
+    BUF_COPY(scf_logdir, LOGDIR);
 
     /*
      * Check for real uid != effective uid, setuid installed FIDOGATE
@@ -693,17 +698,17 @@ void cf_set_uplink(char *addr)
  */
 void cf_set_libdir(char *dir)
 {
-    strncpy0(scf_libdir, dir, MAXPATH);
+    BUF_COPY(scf_libdir, dir);
 }
 
 void cf_set_spooldir(char *dir)
 {
-    strncpy0(scf_spooldir, dir, MAXPATH);
+    BUF_COPY(scf_spooldir, dir);
 }
 
 void cf_set_logdir(char *dir)
 {
-    strncpy0(scf_logdir, dir, MAXPATH);
+    BUF_COPY(scf_logdir, dir);
 }
 
 char *cf_libdir(void)
@@ -926,7 +931,7 @@ char *cf_unix_xlate(char *name)
     for(i=0; i<scf_ndos; i++)
     {
 	len = strlen(scf_dos[i].drive);
-	if(!strncmp(name, scf_dos[i].drive, len))
+	if(!strnicmp(name, scf_dos[i].drive, len))
 	{
 	    BUF_COPY2(buf, scf_dos[i].path, name+len);
 	    for(s=buf; *s; s++)

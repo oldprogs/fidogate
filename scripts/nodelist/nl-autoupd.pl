@@ -13,6 +13,9 @@ $LIBDIR="<LIBDIR>";
 $DIFFDIR = "/pub/fido/files/nodelist";
 $NAME    = "nodelist";
 
+$LATEST  = "latest";
+$NLDIFF  = "nl-diff";
+
 @ARCX    = ("arc",   "xo");
 @LHAX    = ("lha",   "xf");
 @ZIPX    = ("unzip", "-joL");
@@ -41,7 +44,7 @@ sub run {
 # Search for current nodelist
 $uc = $name;
 $uc =~ tr/a-z/A-Z/;
-$nodelist = `/home/mj/src/fidogate/scripts/nodelist/latest $name.??? $uc.???`;
+$nodelist = `$LATEST $name.??? $uc.???`;
 chop $nodelist;
 die "nl-autoupd: can't find current nodelist\n" if(!$nodelist);
 
@@ -70,11 +73,8 @@ while(1) {
 
     $day += 7;
     ##FIXME: wrap-around for next year, take into account leap years##
-    $dd  = $day % 100;
-    $dd  = "0"."$dd" if($dd < 10);
-    $ddd = $day;
-    $ddd = "0"."$ddd" if($ddd < 100);
-    $ddd = "0"."$ddd" if($ddd < 10);
+    $dd  = sprintf "%02d", $day % 100;
+    $ddd = sprintf "%03d", $day;
 
     # ARC
     if(!$found) {
@@ -145,7 +145,7 @@ while(1) {
     print "Nodediff: $file\n" if($opt_v);
 
     # Run nl-diff
-    @nldiff = ("nl-diff", "-r", "-b$basename");
+    @nldiff = ($NLDIFF, "-r", "-b$basename");
     push @nldiff, "-v" if($opt_v);
     push @nldiff, $file;
     &run(@nldiff);

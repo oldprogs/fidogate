@@ -139,7 +139,7 @@ if( $wl1st =~ /Day number \d+ : (\d+)/ ) {
 	print "CRC check for nodelist $output ... ";
     }
     $new = `sumcrc -1z $output`;
-    if( $old = $new ) {
+    if( $old == $new ) {
 	print "OK\n" if ($opt_v);
 	if($opt_r) {
 	    unlink($input) || die "nl-diff: can't remove $input\n";

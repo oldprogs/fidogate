@@ -1,7 +1,7 @@
-Subject: FIDOGATE 4.2.5 --- Fido-Internet Gateway and Tosser
+Subject: FIDOGATE 4.2.6 --- Fido-Internet Gateway and Tosser
 Keywords: fido ftn netmail echomail tosser areafix mail news gateway
 
-FIDOGATE 4.2.5, an update to version 4 of the FIDOGATE package is
+FIDOGATE 4.2.6, an update to version 4 of the FIDOGATE package is
 available.
 
 			   FIDOGATE Version 4
@@ -24,17 +24,27 @@ Internet:
     http://sunsite.unc.edu/pub/Linux/system/Fido/
     (probably still in .../pub/Linux/Incoming)
 
-    fidogate-4.2.5.tar.gz	755 Kbyte
+    fidogate-4.2.6.tar.gz	755 Kbyte
 
 Fido File Request:
 ==================
     2:2452/110, 111  +49-241-876604  (V.34, ISDN V.110/X.75)
     
-    fgate425.tgz		755 Kbyte
+    fgate426.tgz		755 Kbyte
 
 
 
 ======================================================================
+
+Changes in 4.2.6:
+
+* Portability improvements, fixes for GNU-WIN32.
+
+* New nodelist utility scripts nl-check, nl-autoupd.
+
+* nl-diff: fixed CRC comparison bug.
+
+
 
 Changes in 4.2.5:
 
@@ -121,6 +131,6 @@ End
 
 ======================================================================
 
-$Date: 1997/07/08 19:24:02 $
+$Date: 1997/08/03 13:29:39 $
 Martin Junius
 mailto:mj@fido.de

@@ -21,3 +21,6 @@ $T -b fareasin.bbs -I ./pin -t
 
 cp testfile.txt test3.tic pin
 $T -b fareasin.bbs -I ./pin -t
+
+cp test4.tic pin
+$T -b fareasin.bbs -I ./pin -t

@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftntoss.c,v 4.18 1997/05/10 20:40:41 mj Exp $
+ * $Id: ftntoss.c,v 4.19 1997/08/03 13:29:47 mj Exp $
  *
  * Toss FTN NetMail/EchoMail
  *
@@ -39,7 +39,7 @@
 
 
 #define PROGRAM 	"ftntoss"
-#define VERSION 	"$Revision: 4.18 $"
+#define VERSION 	"$Revision: 4.19 $"
 #define CONFIG		CONFIG_MAIN
 
 
@@ -1048,7 +1048,7 @@ int do_netmail(Packet *pkt, Message *msg, MsgBody *body)
 
 
     if(log_netmail)
-	log("netmail: %s @ %s -> %s @ %s",
+	log("MAIL: %s @ %s -> %s @ %s",
 	    msg->name_from, node_to_asc(&msg->node_from, TRUE),
 	    msg->name_to  , node_to_asc(&msg->node_to  , TRUE) );
 
