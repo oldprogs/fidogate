@@ -2,6 +2,27 @@
 
 X = for next release
 
+	* ftnlock: put PID / command arg in lock file:
+-------------------------------------------------------------------------
+Date: Sun, 17 Nov 1996 18:04:24 +0000
+From: Ingmar Hupp <hyper@mignon.franken.de>
+To: fgate-users@gondor.gun.de
+Subject: Possible ftnlock enhancement?
+
+ftnlock currently uses only locking via a zero byte file. How about adding
+an option, which enables ftnlock to put a text (e.g. the process ID of the
+locking process) in the lock file? This would provide a way of checking if
+the locking process is still alive.
+
+It would be useful for example in the runout script, so one could put the
+process ID of runout in the lockfile, (e.g. "ftnlock -l runout $$", the
+second string is the text to put into the lockfile). Now it would be
+possible to test if the process is still running, and if not, remove the old
+lockfile (and create a new one).
+-------------------------------------------------------------------------
+
+	* ftntoss: make point tosser work without EchoMail4D
+
 	* rfc2ftn: get Envelope-From address, add Envelope-From like
 	  From line?
 
@@ -23,7 +44,7 @@ DONE.	* ffxqt/ftntick: replace cf_set_inbound()?
 DONE.	* config.c: make Origin/Organization normal cf_get_string()
 	  parameters.
 
-	* ftn2rfc: check ^AREPLYADDR for valid Internet address. At
+DONE.	* ftn2rfc: check ^AREPLYADDR for valid Internet address. At
 	  least check for something like ^AREPLYADDR Thomas Hamm%500:531/0.
 
 	* rfc2ftn: config parameter to disable/enable X-Flags

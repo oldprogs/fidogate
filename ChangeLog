@@ -1,4 +1,16 @@
+Fri Nov 29 22:17:54 1996  Martin Junius  <mj@fido.de>
+
+	------- CVS ci -------------------------------------------------------
+
+	* examples/morannon, orodruin: updated example config files.
+	
+	* version.h (PATCHLEVEL): set to 3.
+
 Mon Nov 25 19:34:09 1996  Martin Junius  <mj@fido.de>
+
+	* src/gate/ftn2rfc.c (get_from): try to parse ^AREPLYADDR as an
+	  FTN address. If it is an FTN address, don't return as Internet
+	  address. 
 
 	------- CVS ci -------------------------------------------------------
 

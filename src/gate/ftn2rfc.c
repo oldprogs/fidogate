@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftn2rfc.c,v 4.12 1996/11/17 12:21:34 mj Exp $
+ * $Id: ftn2rfc.c,v 4.13 1996/11/29 21:29:29 mj Exp $
  *
  * Convert FTN mail packets to RFC mail and news batches
  *
@@ -40,7 +40,7 @@
 
 
 #define PROGRAM 	"ftn2rfc"
-#define VERSION 	"$Revision: 4.12 $"
+#define VERSION 	"$Revision: 4.13 $"
 #define CONFIG		CONFIG_GATE
 
 
@@ -153,11 +153,17 @@ void check_chrs(char *buf)
  */
 char *get_from(Textlist *rfc, Textlist *kludge)
 {
-    char *p;
+    char *p, *q;
+    Node dummy;
     
     p = rfcheader_get(rfc, "From");
     if(!p)
-	p = kludge_get(kludge, "REPLYADDR", NULL);
+    {
+	if( (p = kludge_get(kludge, "REPLYADDR", NULL)) )
+	    if( (q = strchr(p,'%')) || (q = strchr(p,'@')) )
+		if(znfp_parse_partial(q+1, &dummy) == OK)
+		    return NULL;
+    }
     if(!p)
 	p = rfcheader_get(rfc, "UUCPFROM");
 

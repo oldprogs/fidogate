@@ -17,25 +17,11 @@
 #-----          --------                        -------
 242:1000/4	tweety.dfv.rwth-aachen.de.	
 #
-242:4900/99     sungate-ftn    
-2:2452/110.1    sungate-ftn    
-2:242/6.1       sungate-ftn    
 242:1000/1      hippo          
 242:1000/0      hippo          
-254:2410/6      hippo          
 2:2452/110      hippo          
-2:242/6         hippo          
-242:6000/1      lippebox       
-242:6000/2      lippebox       
-242:6000/3      lippebox       
-242:6000/4      lippebox       
-242:6000/5      lippebox       
-2:243/6300      lippebox       
-2:243/6301      lippebox       
-2:2432/300      lippebox       
-2:2432/301      lippebox       
-242:2000/4      yftn           
-2:242/2         yftn           
+242:1000/7      yftn           
+2:2452/108      yftn           
 242:3001/51     black          
 242:3001/52     black          
 242:3001/54     black          
@@ -46,10 +32,10 @@
 242:1000/3      mowgli         
 2:2452/107      mowgli         
 2:242/7         mowgli         
-242:1000/51     r-i-k           -p
-242:1000/50     r-i-k           -p
-2:2452/201      r-i-k           -p
-2:242/8         r-i-k           -p
+242:1000/51     inncomm         -p
+242:1000/54     inncomm         -p
+242:1000/50     inncomm         -p
+2:2452/201      inncomm         -p
 242:4000/1      project        
 242:4000/0      project        
 242:4000/26     project        
@@ -62,12 +48,6 @@
 2:242/42        wharfrat        -p
 242:1000/53     os2box         
 2:242/5170      os2box         
-242:2000/151    rmb            
-242:2000/155    rmb            
-242:2000/156    rmb            
-2:2454/20       rmb            
-242:2000/152    scary          
-2:2454/95       scary          
 242:1000/300    ccwn           
 242:1000/302    ccwn           
 2:246/1401      ccwn           
@@ -78,6 +58,7 @@
 2:2444/1116     oracle         
 242:8001/3      sandburg        -p
 242:8001/5      sandburg        -p
+242:8001/0      sandburg        -p
 2:2480/151      sandburg        -p
 242:1000/251    wildcat         -p
 242:1000/252    wildcat         -p
@@ -91,29 +72,20 @@
 2:244/1120      ambrosia       
 2:244/1121      ambrosia       
 242:1000/153    nirvana        
+242:1000/150    nirvana        
 2:2490/1521     nirvana        
-242:1000/453    stonebridge    
-242:1000/450    stonebridge    
-2:241/1017      stonebridge    
-242:3000/3      wuivendriet    
+242:1000/14     wuivendriet    
 2:2452/121      wuivendriet    
-242:1000/151    bms            
-242:1000/152    bms            
-242:1000/150    bms            
-2:2490/3000     bms            
-2:2490/3001     bms            
-2:2490/3002     bms            
 242:4000/6      suburbia       
-2:2448/7006     suburbia       
-2:2448/7007     suburbia       
-2:2448/7008     suburbia       
+2:2443/1031     suburbia       
+2:2443/1032     suburbia       
+2:2443/1033     suburbia       
 242:1000/503    freefall       
 2:2452/301      freefall       
 242:3001/101    cwg            
 242:3001/100    cwg            
 2:2452/158      cwg            
-2:242/59        cwg            
-242:3000/101    zaphod         
+242:1000/15     zaphod         
 2:2453/30       zaphod         
 2:2402/330      zaphod         
 242:2000/20     traveller      
@@ -121,11 +93,8 @@
 242:1000/601    punk           
 242:1000/602    punk           
 242:1000/600    punk           
-2:242/51        punk           
 2:2452/113      punk           
-2:242/5100      punk           
 2:2452/114      punk           
-242:1000/7      wad             -p
 242:2000/2      wharfrat-isdn  
 254:2410/2      wharfrat-isdn  
 2:2452/102      wharfrat-isdn  
@@ -143,11 +112,7 @@
 242:2000/7      ks              -p
 2:2452/117      ks              -p
 2:242/5120      ks              -p
-242:1000/505    busybox        
-2:270/32        busybox        
 242:1000/508    bitburger      
-242:1000/509    bitburger      
-242:1000/514    bitburger      
 2:2452/403      bitburger      
 242:1000/156    jdmbs          
 242:1000/157    jdmbs          
@@ -156,48 +121,34 @@
 2:2490/2012     jdmbs          
 2:2490/2013     jdmbs          
 242:1000/2      hippo-isdn     
-254:2410/46     hippo-isdn     
 2:2452/111      hippo-isdn     
-2:242/46        hippo-isdn     
-242:6000/101    elixier        
-242:6000/102    elixier        
-242:6000/100    elixier        
-2:2449/416      elixier        
 242:6000/301    newspoint      
 242:6000/300    newspoint      
 2:243/6006      newspoint      
-242:6000/106    bb             
-2:2449/422      bb             
 242:1000/506    renegade       
 2:2452/305      renegade       
 242:1000/501    saeubrenner    
 242:1000/502    saeubrenner    
+242:1000/500    saeubrenner    
 2:2452/401      saeubrenner    
 2:2452/402      saeubrenner    
-242:1000/551    mailserve      
-2:2457/310      mailserve      
 242:1000/510    highlands      
+242:1000/511    highlands      
 2:2452/351      highlands      
-242:3001/106    midgard        
-242:3000/62     midgard        
-2:2452/161      midgard        
-242:1000/603    cucumber       
-242:1000/604    cucumber       
-2:2457/140      cucumber       
-2:2457/141      cucumber       
-242:4000/4      thing          
-2:2440/506      thing          
-242:1000/257    tiger           -d
 242:3001/63     aero           
+242:3001/62     aero           
+242:3001/64     aero           
+2:2452/169      aero           
 2:2452/170      aero           
+2:2452/171      aero           
 242:3001/53     black-isdn     
 2:2452/153      black-isdn     
-242:1000/207    funclub        
-242:1000/200    funclub        
-2:240/5447      funclub        
+242:9000/1      funclub        
+242:9000/0      funclub        
 2:240/5010      funclub        
-242:1000/208    funclub-isdn   
-2:240/5448      funclub-isdn   
+242:9000/2      funclub-isdn   
+2:240/5011      funclub-isdn   
+2:240/5012      funclub-isdn   
 242:3001/104    krynn           -p
 242:3001/105    krynn           -p
 2:2452/172      krynn           -p
@@ -205,85 +156,33 @@
 242:2000/200    ibf            
 2:240/3007      ibf            
 2:240/3008      ibf            
-2:242/362       ibf            
-2:242/361       ibf            
-242:1000/303    cray-ii        
-2:2471/1060     cray-ii        
-242:1000/209    graft          
+242:9000/400    graft          
+242:9000/401    graft          
 2:240/5400      graft          
 242:1000/553    citybox        
+242:1000/551    citybox        
+242:1000/552    citybox        
 242:1000/550    citybox        
 2:2457/315      citybox        
 2:2457/316      citybox        
 2:2457/317      citybox        
-242:8001/4      lonestar        -d
-2:2487/2919     lonestar        -d
-242:1000/507    rage           
-242:1000/500    rage           
-2:2452/307      rage           
-242:6000/108    ax             
-242:6000/118    ax             
-2:2449/413      ax             
-242:1000/512    3w2ibel        
-2:2452/309      3w2ibel        
 242:6000/201    cavern         
 242:6000/200    cavern         
 242:6000/0      cavern         
-2:2449/615      cavern         
-2:2449/617      cavern         
-242:6000/302    micos          
-242:6000/303    micos          
-2:243/6000      micos          
-242:6000/107    goliath        
-2:2449/170      goliath        
-242:3001/8      airliner       
-242:3001/9      airliner       
-242:3001/10     airliner       
-2:245/5555      airliner       
-2:245/5566      airliner       
-2:245/5577      airliner       
+2:241/1170      cavern         
+2:241/1171      cavern         
 242:1000/259    pink           
 2:244/1502      pink           
-242:1000/513    freeline       
-2:2452/406      freeline       
-242:2000/154    bammbamm       
-2:2454/130      bammbamm       
-242:1000/310    kruemel        
-2:246/1405      kruemel        
-242:6000/110    big-blue2      
+242:6000/283    big-blue2      
+242:6000/284    big-blue2      
 2:2449/184      big-blue2      
 2:2449/183      big-blue2      
 242:3001/107    futureworld    
 242:3001/108    futureworld    
 242:3001/109    futureworld    
-242:3001/110    futureworld    
 2:2452/112      futureworld    
 2:2452/118      futureworld    
-242:1000/211    digital        
-2:240/5430      digital        
-242:2000/250    smalltown      
-2:2426/4033     smalltown      
-2:2426/4030     smalltown      
-2:2426/4031     smalltown      
-2:2426/4032     smalltown      
-242:1000/515    infinite-zone  
-2:245/5412      infinite-zone  
-242:1000/555    fhb            
-2:2457/440      fhb            
-242:1000/454    mailstorage    
-2:241/1060      mailstorage    
-242:3001/1      fastfile       
-2:2452/169      fastfile       
-242:1000/455    fsparks        
-2:241/1077      fsparks        
-242:8001/1      outofro        
-242:8001/2      outofro        
-242:8001/0      outofro        
-2:2480/413      outofro        
-242:1000/451    mailonly       
-2:241/1069      mailonly       
-242:1000/452    labrador       
-2:241/1039      labrador       
+2:2452/132      futureworld    
 242:1001/1      granny         
 242:1001/2      granny         
 242:1001/3      granny         
@@ -298,32 +197,16 @@
 2:241/1130      desert         
 2:241/1131      desert         
 2:241/1132      desert         
-242:4000/10     plutonium.dssd 
-242:4000/11     plutonium.dssd 
-242:4000/12     plutonium.dssd 
-242:4000/13     plutonium.dssd 
-2:2440/210      plutonium.dssd 
-242:4000/14     plutonium-isdn.dssd
-242:4000/15     plutonium-isdn.dssd
-242:4000/16     plutonium-isdn.dssd
-242:4000/17     plutonium-isdn.dssd
 242:3001/2      ariadne        
 2:2452/187      ariadne        
 242:6000/224    gruft          
 242:6000/225    gruft          
-2:2449/624      gruft          
+2:241/1172      gruft          
+2:241/1173      gruft          
 242:4000/5      confidential.dssd
 2:2433/1104     confidential.dssd
-242:2000/21     regio          
-2:325/6         regio          
 242:1000/323    starlight      
 2:246/1423      starlight      
-242:1000/203    tanktown       
-2:240/5454      tanktown       
-242:1000/516    frosch         
-2:2452/333      frosch         
-242:3001/20     ffb            
-2:2454/109      ffb            
 242:4000/18     pil.dssd       
 242:4000/19     pil.dssd       
 242:4000/20     pil.dssd       
@@ -332,114 +215,61 @@
 2:2433/1861     pil.dssd       
 2:2433/1862     pil.dssd       
 2:2433/1863     pil.dssd       
-242:2000/301    rollo          
-242:2000/300    rollo          
+242:3700/1      rollo          
+242:3700/0      rollo          
 2:2437/210      rollo          
 2:2437/211      rollo          
-242:2000/302    simbox         
+2:2437/212      rollo          
+242:3700/2      simbox         
 2:2437/213      simbox         
-242:2000/303    justice        
+242:3700/3      justice        
 2:2437/220      justice        
-242:2000/304    time-bandit     -d
-2:2437/221      time-bandit     -d
-242:6000/135    topbox         
-2:2449/435      topbox         
 242:4000/2      nub.dssd       
 2:2448/1400     nub.dssd       
 242:4000/3      kolbenfresser.dssd
 2:2433/445      kolbenfresser.dssd
 2:2433/446      kolbenfresser.dssd
 2:2433/447      kolbenfresser.dssd
-242:1000/458    ppabs          
-2:241/585       ppabs          
-242:2000/157    prometheus     
+242:3000/4      prometheus     
+242:3000/0      prometheus     
 2:2454/119      prometheus     
-242:1000/517    saloon         
-2:2452/407      saloon         
-242:1000/459    uli            
-242:1000/460    uli            
-2:241/570       uli            
-2:241/571       uli            
-242:1000/605    tros            -d
-242:1000/606    tros            -d
-2:2449/490      tros            -d
-2:2449/492      tros            -d
 242:1000/607    mccs           
 242:1000/608    mccs           
 2:246/8100      mccs           
-242:3001/3      doene          
-242:3001/4      doene          
-242:3001/5      doene          
-2:2452/250      doene          
-2:2452/251      doene          
-2:2452/252      doene          
-2:2452/253      doene          
-242:1000/204    rookie         
-2:240/5026      rookie         
-242:1000/461    kws             -d
-242:1000/462    kws             -d
-242:1000/463    kws             -d
-2:2437/400      kws             -d
-2:2437/401      kws             -d
-2:2437/402      kws             -d
-2:2437/403      kws             -d
-242:1000/205    hanse          
-242:1000/206    hanse          
-2:240/5253      hanse          
-2:240/5254      hanse          
-242:1000/612    tsb            
-242:1000/609    tsb            
-242:1000/610    tsb            
-242:1000/611    tsb            
-2:246/8112      tsb            
-2:246/8113      tsb            
-2:246/8114      tsb            
-2:246/8115      tsb            
-242:3001/11     oldie          
-2:2452/260      oldie          
+242:9000/50     rookie         
+242:9000/51     rookie         
+2:240/5001      rookie         
+2:240/5002      rookie         
+2:240/5003      rookie         
+242:9000/52     hanse          
+242:9000/53     hanse          
+2:240/5015      hanse          
+2:240/5016      hanse          
+242:1000/612    tsb             -p
+242:1000/609    tsb             -p
+242:1000/610    tsb             -p
+242:1000/611    tsb             -p
+2:246/8112      tsb             -p
+2:246/8113      tsb             -p
+2:246/8114      tsb             -p
+2:246/8115      tsb             -p
+242:3001/11     oldie           -p
+2:2452/260      oldie           -p
 242:1000/518    mazimoi        
 242:1000/519    mazimoi        
 2:2452/325      mazimoi        
 2:2452/326      mazimoi        
-242:5000/11     snakes         
-2:2450/10       snakes         
-242:5000/12     snakes-isdn    
-2:2450/11       snakes-isdn    
-242:6000/304    libori         
-2:2449/894      libori         
-242:1000/464    hallo          
-2:241/550       hallo          
-242:2000/158    schach-cafe    
-242:2000/159    schach-cafe    
-242:2000/160    schach-cafe    
-242:2000/150    schach-cafe    
-2:2454/91       schach-cafe    
-2:2454/910      schach-cafe    
-2:2454/911      schach-cafe    
-242:2000/254    pirol          
-2:2426/4100     pirol          
-2:2426/4101     pirol          
 242:1002/1      martec         
-242:1002/4      martec         
 242:1002/110    martec         
 242:1002/111    martec         
 242:1002/0      martec         
-242:4000/700    octopus        
-2:2449/700      octopus        
-2:2449/701      octopus        
-2:2449/702      octopus        
-2:2449/703      octopus        
-242:6000/237    shg            
-242:6000/238    shg            
-2:2449/637      shg            
+2:246/8020      martec         
 242:1000/56     death          
 242:1000/57     death          
 2:2433/619      death          
 2:2433/618      death          
-242:1000/465    linie-13       
-242:1000/466    linie-13       
-242:1000/467    linie-13       
 242:6000/231    mogway         
+242:6000/232    mogway         
 2:246/2318      mogway         
 242:6000/215    katel          
 242:6000/217    katel          
@@ -447,88 +277,286 @@
 2:2437/16       katel          
 2:2437/17       katel          
 2:2437/18       katel          
-242:1000/312    ayn             -p
-242:1000/313    ayn             -p
-242:1000/314    ayn             -p
-242:1000/315    ayn             -p
+242:1000/351    ayn             -p
+242:1000/352    ayn             -p
+242:1000/353    ayn             -p
+242:1000/350    ayn             -p
 2:2487/8001     ayn             -p
 2:2487/8002     ayn             -p
 2:2487/8003     ayn             -p
 2:2487/8004     ayn             -p
 2:2487/8005     ayn             -p
-242:1000/316    ayn-ii          -p
-242:1000/317    ayn-ii          -p
+242:1000/354    ayn-ii          -p
+242:1000/355    ayn-ii          -p
+242:1000/356    ayn-ii          -p
 2:2487/8006     ayn-ii          -p
-242:1000/212    dollar         
+242:9000/56     dollar         
+242:9000/57     dollar         
 2:240/5078      dollar         
-242:2000/161    chaos          
-242:2000/162    chaos          
-242:2000/163    chaos          
-2:2454/55       chaos          
-2:2454/500      chaos          
-2:2454/519      chaos          
-2:2454/520      chaos          
-242:2000/164    castle         
-2:2454/524      castle         
-2:2454/570      castle         
-242:2000/22     3lands          -p
+242:1000/16     3lands          -p
 2:301/221       3lands          -p
-242:1000/213    rolf           
+242:9000/58     rolf           
+242:9000/59     rolf           
 2:240/5225      rolf           
 2:240/5226      rolf           
 242:7000/704    wad.berlin      -p
+242:7000/1      wad.berlin      -p
 242:7000/0      wad.berlin      -p
 2:2410/704      wad.berlin      -p
-242:1002/130    herbie         
-2:246/8031      herbie         
-242:2000/255    pmns           
-242:2000/256    pmns           
-242:2000/257    pmns           
-2:2426/4065     pmns           
-2:2426/4066     pmns           
-2:2426/4067     pmns           
+242:5900/1      pmns            -p
+242:5900/2      pmns            -p
+242:5900/3      pmns            -p
+242:5900/0      pmns            -p
+2:2426/4065     pmns            -p
+2:2426/4066     pmns            -p
+2:2426/4067     pmns            -p
 242:1002/120    gonzo          
 2:246/8019      gonzo          
-242:7000/723    grem.berlin    
-2:2410/723      grem.berlin    
-242:2000/165    spirit         
-2:2454/580      spirit         
-242:1000/58     police         
-242:1000/59     police         
-2:2433/617      police         
-2:2433/627      police         
-242:2000/166    blubber        
-242:2000/167    blubber        
-2:2454/116      blubber        
-2:2454/133      blubber        
-242:2000/168    toga           
-242:2000/169    toga           
-242:2000/170    toga           
-2:2454/523      toga           
-2:2454/522      toga           
-2:2454/533      toga           
-242:1000/468    hobo           
-242:1000/469    hobo           
-242:1000/470    hobo           
-2:2437/423      hobo           
-2:2437/424      hobo           
-2:2437/425      hobo           
 242:7000/710    dpk.berlin     
 2:2410/710      dpk.berlin     
 242:6000/252    boox            -p
 2:241/1052      boox            -p
 2:241/1053      boox            -p
 2:241/1054      boox            -p
-242:1000/471    medix          
+2:241/1058      boox            -p
+242:5000/1      medix          
+242:5000/2      medix          
+242:5000/0      medix          
 2:2437/33       medix          
 2:2437/34       medix          
 242:7000/700    maine.berlin   
 242:7000/708    maine.berlin   
+242:7000/709    maine.berlin   
 2:2410/700      maine.berlin   
 2:2410/708      maine.berlin   
-242:1000/472    pm-box         
-242:1000/473    pm-box         
-2:241/510       pm-box         
-2:241/511       pm-box         
 242:1002/140    spew           
 2:246/8070      spew           
+242:3000/16     gbt            
+242:3000/17     gbt            
+2:2454/105      gbt            
+2:2454/115      gbt            
+242:1000/5      orodruin       
+2:2452/110.2    orodruin       
+242:9000/54     tiger          
+242:9000/55     tiger          
+2:240/5180      tiger          
+242:9000/200    joey           
+242:9000/201    joey           
+2:240/5100      joey           
+242:1000/504    cce            
+2:2452/440      cce            
+242:4900/99     sungate-ftn    
+2:2452/110.1    sungate-ftn    
+242:9000/102    xtc            
+2:240/5222      xtc            
+242:9000/112    takeoff        
+2:240/5070      takeoff        
+242:9000/100    hqsys          
+2:240/5202      hqsys          
+242:9000/108    hl             
+2:240/5021      hl             
+2:240/5212      hl             
+242:1001/500    mailonly       
+242:3800/500    mailonly       
+2:241/500       mailonly       
+2:241/501       mailonly       
+2:241/1069      mailonly       
+242:3700/5      911            
+242:3700/6      911            
+242:2000/305    911            
+242:2000/306    911            
+242:7000/305    median.berlin  
+242:7000/315    median.berlin  
+242:7000/398    median.berlin  
+2:2410/305      median.berlin  
+2:2410/315      median.berlin  
+2:2410/398      median.berlin  
+242:3700/4      mailstation     -p
+2:2437/209      mailstation     -p
+242:9000/500    ceres          
+2:240/3002      ceres          
+242:1000/560    emsbox         
+242:1000/568    emsbox         
+242:1000/569    emsbox         
+2:2457/105      emsbox         
+2:2457/106      emsbox         
+2:2457/107      emsbox         
+2:2457/108      emsbox         
+2:2457/109      emsbox         
+242:1000/255    dia            
+2:244/1372      dia            
+2:244/1371      dia            
+242:9000/104    queen          
+2:240/5245      queen          
+242:4000/2016   buntebox.dssd  
+242:4000/2017   buntebox.dssd  
+2:2444/2016     buntebox.dssd  
+2:2444/2017     buntebox.dssd  
+242:5000/6      hoernet        
+2:2437/58       hoernet        
+242:3800/570    uli            
+242:3800/1      uli            
+242:3800/0      uli            
+2:241/571       uli            
+242:6000/265    bbh            
+2:241/1065      bbh            
+2:241/1066      bbh            
+2:241/1067      bbh            
+2:241/1165      bbh            
+242:1000/360    mtm            
+2:2487/8060     mtm            
+242:4000/1608   bone           
+2:2433/1608     bone           
+2:2433/1609     bone           
+242:4700/1      turbo          
+242:4700/2      turbo          
+242:4700/3      turbo          
+242:4700/0      turbo          
+2:241/215       turbo          
+2:241/216       turbo          
+2:241/217       turbo          
+242:5000/8      kolbenfresser  
+242:5000/9      kolbenfresser  
+2:2437/67       kolbenfresser  
+2:2437/68       kolbenfresser  
+242:7000/224    pipe.berlin    
+242:7000/294    pipe.berlin    
+2:2410/224      pipe.berlin    
+2:2410/293      pipe.berlin    
+2:2410/294      pipe.berlin    
+242:3800/595    maw            
+2:241/595       maw            
+242:5000/10     geobox3        
+2:2437/41       geobox3        
+242:5000/11     aigyptos       
+2:2437/40       aigyptos       
+242:5000/201    ems-box        
+242:5000/202    ems-box        
+242:5000/200    ems-box        
+2:2432/860      ems-box        
+2:2432/861      ems-box        
+242:5000/12     adkanet        
+242:5000/13     adkanet        
+2:2437/921      adkanet        
+2:2437/928      adkanet        
+242:9000/64     caronia        
+2:240/5048      caronia        
+242:9000/60     dart           
+2:240/5067      dart           
+2:240/5068      dart           
+2:240/5069      dart           
+242:7600/1      bland          
+242:7600/2      bland          
+242:7600/0      bland          
+2:2476/418      bland          
+242:9000/66     elbe           
+242:9000/67     elbe           
+2:240/5032      elbe           
+2:240/5033      elbe           
+2:240/5043      elbe           
+242:5000/14     play           
+2:2437/131      play           
+2:2437/130      play           
+242:3700/7      quad           
+242:3700/8      quad           
+2:2437/222      quad           
+2:2437/228      quad           
+242:3800/599    pob            
+2:241/599       pob            
+242:3800/590    dudelsack      
+2:241/590       dudelsack      
+2:241/591       dudelsack      
+2:241/592       dudelsack      
+242:7600/101    graphic        
+242:7600/102    graphic        
+242:7600/100    graphic        
+2:246/6070      graphic        
+242:7600/10     airline        
+242:7600/11     airline        
+2:2476/266      airline        
+2:2476/267      airline        
+242:9000/68     databyte       
+2:240/5051      databyte       
+2:240/5061      databyte       
+242:7000/1001   solo.berlin    
+242:7000/1049   solo.berlin    
+2:2410/1000     solo.berlin    
+2:2410/1001     solo.berlin    
+2:2410/1002     solo.berlin    
+2:2410/1048     solo.berlin    
+2:2410/1049     solo.berlin    
+242:6800/1      rheingold      
+242:6800/2      rheingold      
+242:6800/0      rheingold      
+2:2468/9952     rheingold      
+2:2468/9953     rheingold      
+242:6000/230    guardian       
+2:2432/230      guardian       
+2:2432/231      guardian       
+2:2432/232      guardian       
+242:3800/529    medibox        
+2:2437/429      medibox        
+242:9000/70     suecide        
+2:240/5474      suecide        
+242:9000/157    pcw            
+2:240/5257      pcw            
+2:240/5258      pcw            
+242:5000/15     spellbook      
+242:5000/16     spellbook      
+2:2437/6        spellbook      
+2:2437/7        spellbook      
+242:7000/1007   mystic.berlin  
+2:2410/1007     mystic.berlin  
+242:7600/12     pyramid        
+2:2476/110      pyramid        
+242:9700/1      unicorn        
+242:9700/2      unicorn        
+242:9700/0      unicorn        
+242:6800/100    the-box        
+242:6800/101    the-box        
+2:2468/9950     the-box        
+2:2468/9966     the-box        
+242:1001/4      cave           
+242:1001/5      cave           
+2:2461/161      cave           
+2:2461/162      cave           
+242:5000/7      infokomm       
+2:241/1135      infokomm       
+2:241/1136      infokomm       
+2:241/1137      infokomm       
+2:241/1138      infokomm       
+242:4700/4      dreamhold      
+2:240/5053      dreamhold      
+242:5000/17     shire          
+242:5000/18     shire          
+2:241/1104      shire          
+2:241/1105      shire          
+242:9000/143    ihc            
+2:240/5244      ihc            
+2:240/5243      ihc            
+242:4000/308    warlord        
+242:4000/309    warlord        
+242:4000/310    warlord        
+242:4000/300    warlord        
+2:2448/308      warlord        
+2:2448/309      warlord        
+2:2448/310      warlord        
+242:4000/1611   cyberhouse     
+242:4000/1612   cyberhouse     
+2:2433/1609.17  cyberhouse     
+2:2433/1608.17  cyberhouse     
+242:9000/72     duesti         
+2:249/1010      duesti         
+242:7600/120    noname         
+2:246/6020      noname         
+242:4700/5      hotbox         
+242:4700/6      hotbox         
+2:241/235       hotbox         
+2:241/236       hotbox         
+242:7600/50     source         
+242:7600/51     source         
+2:2474/500      source         
+2:2474/501      source         
+242:9000/73     leipziger      
+2:249/1030      leipziger      
+2:249/1031      leipziger      
