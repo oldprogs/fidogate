@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway software UNIX <-> FIDO
  *
- * $Id: config.h,v 4.24 1997/08/10 17:34:20 mj Exp $
+ * $Id: config.h,v 4.25 1997/10/05 13:43:26 mj Exp $
  *
  * Configuration header file
  *
@@ -400,7 +400,7 @@
  */
 #define RFC_LVL_1_HEADERS \
     "From", "Reply-To", "To", "Cc", "Newsgroups", "Date", \
-    "Sender", "Resent-From", \
+    "Sender", "Resent-From", "Return-Path", \
     "MIME-Version", "Content-Type", "Content-Transfer-Encoding", \
     "Next-Attachment"
 

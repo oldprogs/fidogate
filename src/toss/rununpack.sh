@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# $Id: rununpack.sh,v 4.11 1997/06/21 21:16:47 mj Exp $
+# $Id: rununpack.sh,v 4.12 1997/10/05 13:43:36 mj Exp $
 #
 # Unpack ArcMail archives
 #
@@ -67,6 +67,9 @@ case X$NAME in
 		;;
 	Xuuin)
 		INPUT=$UUINBOUND
+		;;
+	X/*)
+		INPUT=$NAME
 		;;
 	*)
 		echo "rununpack: unknown $NAME"

@@ -2,9 +2,12 @@
 
 X = for next release
 
+	* Direct mailing list support, gateway EchoMail <-> mailing
+	  list.
+
 	* doc: add changes for FTNInSendmail.
 
-	* ftnaf: check problem with WIN32.
+DONE	* ftnaf: check problem with WIN32.
 	
 DONE	* ftnaf: create command.
 

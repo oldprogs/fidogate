@@ -1,6 +1,6 @@
 -*- Indented-Text -*-
 
-$Id: README,v 4.22 1997/08/20 21:04:57 mj Exp $
+$Id: README,v 4.23 1997/10/05 13:43:26 mj Exp $
 
 ======================================================================
 				   
@@ -236,18 +236,27 @@ description of the FIDOGATE installation.
 
 ======================================================================
 
-There is a mailing list for FIDOGATE discussions and announcements:
+There is a *NEW* mailing list for FIDOGATE discussions and
+announcements:
 
-    mailto:fgate-users@gondor.gun.de
+    mailto:fidogate@fido.de
 
-To SUBSCRIBE to this mailing list, simply send a message with the word
-"subscribe" in the Subject: field to
+To SUBSCRIBE to this mailing list, send a message to
 
-    mailto:fgate-users-request@gondor.gun.de
+    mailto:majordomo@fido.de
 
-To UNSUBSCRIBE from this mailing list, simply send a message with the
-word (you guessed it :-) "unsubscribe" in the Subject: field to
-fgate-users-request@gondor.gun.de
+with the command 
+
+    subscribe fidogate
+
+in the message *body* (not subject!). This will not immediately put
+your email address into the mailing list. A confirmation mail with an
+authentication code will be send to you, which must be returned to
+majordomo to finally enable your subscription.
+
+To UNSUBSCRIBE from this mailing list, send the command
+
+    unsubscribe fidogate
 
 ======================================================================
 
@@ -320,6 +329,6 @@ not integrate your patches.
 
 ======================================================================
 
-$Date: 1997/08/20 21:04:57 $
+$Date: 1997/10/05 13:43:26 $
 Martin Junius
 mailto:mj@fido.de

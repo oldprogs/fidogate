@@ -1,3 +1,45 @@
+Sun Oct  5 13:10:17 1997  Martin Junius  <mj@fido.de>
+
+	------- CVS ci -------------------------------------------------------
+
+	* sendmail/hack/: added HACKs from Claus Assman, see
+	  sendmail/README.check. 
+
+	* sendmail/: some documentation for check-HACKs by
+	  Claus Assmann <ca@informatik.uni-kiel.de>, HTML files and m4
+	  configuration files from
+	  http://www.informatik.uni-kiel.de/~ca/email/check.html
+
+	* sendmail/cf/Makefile: added *-check, removed install-* targets.
+
+	* sendmail/cf/junk: example filter data.
+
+	* sendmail/cf/orodruin-check.mc: dito.
+
+	* sendmail/cf/morannon-check.mc: new config file using check_mail3
+	  to check for SPAM.
+
+	* doc/rfc/: added new directory with mail/news message format
+	  related RFCs. 
+
+	* config.h (RFC_LVL_1_HEADERS): added Return-Path (envelope sender).
+
+Fri Oct  3 14:10:39 1997  Martin Junius  <mj@fido.de>
+
+	* README: new mailing list.
+
+	* sendmail/cf/morannon.mc: dito.
+
+	* sendmail/cf/orodruin.mc: added majordomo aliases, added
+	  majordomo to list of trusted users.
+
+Thu Sep 25 21:09:40 1997  Martin Junius  <mj@fido.de>
+
+	* src/toss/rununpack.sh: same.
+
+	* src/toss/runtoss.sh: allow input directory as argument to
+	  runtoss (must start with /).
+
 Sat Sep 20 09:10:03 1997  Martin Junius  <mj@fido.de>
 
 	------- CVS ci -------------------------------------------------------

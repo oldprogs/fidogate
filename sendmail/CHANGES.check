@@ -1,0 +1,7 @@
+Changes:
+
+1997-05-25	check_mail2.m4, check_mail3.m4:
+		corrected a problem with _ACCEPT_SOME_
+		(thanks to: Philippe Michel <Philippe.Michel@syseca.fr>)
+1997-05-25	created this file
+		(thanks to: Forrest Aldrich <forrie@tiac.net>)

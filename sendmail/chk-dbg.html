@@ -1,0 +1,449 @@
+<HTML>
+<HEAD>
+<TITLE>
+Debugging check_* in sendmail 8.8
+</TITLE>
+<LINK REV="MADE" HREF="mailto:ca@informatik.uni-kiel.de">
+<LINK REL="HOME" HREF="../index.html">
+<LINK REL="UP" HREF="english.html">
+<LINK REL="INDEX" HREF="misc.html">
+<META NAME="description" CONTENT="sendmail 8.8: debugging the check_* rules to avoid misuse of your sendmail system and spam (UCE)">
+<META NAME="keywords" CONTENT="e-mail, sendmail, debug, misuse, spam, uce, control, check, relay">
+</HEAD>
+
+<BODY>
+
+<!-- ========================================
+Begin
+     ========================================  -->
+<H1>
+Debugging check_* in sendmail 8.8
+</H1>
+
+<EM>Last Update 1997-10-01</EM>
+<HR>
+
+<H2>
+Some suggestions to debug the check_* rules
+</H2>
+
+After you have installed the new
+<A HREF="check.html">
+check_* rules
+</A>
+to avoid misuse of your system and
+<A HREF="http://spam.abuse.net/spam/">spam</A>
+from well-known sites,
+you need to test them.
+Or you can blindly trust the guys who wrote them...
+(never do that, someone may have made a mistake!).
+
+<P>
+First,
+you can use conventional debugging by testing
+the rewrite rules directly with
+<KBD>
+sendmail -bt
+</KBD>.
+If you want to test those rulesets
+which use the
+<CODE>
+$|
+</CODE>
+token,
+you should introduce the following ruleset first:
+<PRE>
+SStart
+R$* $$| $*		$: $1 $| $2		fake for -bt mode, remove for real version
+</PRE>
+since you can't enter the token
+<CODE>
+$|
+</CODE>.
+You have to enter then
+<BR>
+<KBD>
+&gt; Start,check_compat from_addr $| to_addr
+</KBD>
+<BR>
+to check your rules.
+Thanks to
+<A HREF="http://www.bcx.com/bcx/">Bryan Costales</A>
+and
+<A HREF="http://WWW.Reference.COM/~eric/">Eric Allman</A>
+for this tip.
+
+<P>
+A small note for Solaris 2 users from the
+<A HREF="releases/8.8.6.b3.html">8.8.6 Beta Release Notes</A>:
+
+<PRE>
+Solaris: a bug in strcasecmp caused characters with the
+	high order bit set to apparently randomly match
+	letters -- for example, $| (0233) matches "i" and "I".
+	Problem noted by John Gregson of the University of
+	Cambridge.
+</PRE>
+
+
+
+<H3>
+<A NAME="check_mail">
+Debugging check_mail
+</A>
+</H3>
+
+Let's assume you implemented the rules to block mail from spammers.
+Checking these is fairly simple. Let's assume you have
+<CODE>
+millions@millions.com
+</CODE>
+and
+<CODE>
+cyberpromo.com
+</CODE>
+in your class (or map) of spammers/spamdomains.
+Then run:
+<PRE>
+sendmail -bt
+&gt; check_mail &lt;millions@millions.com&gt;
+&gt; check_mail &lt;anyone@cyberpromo.com&gt;
+</PRE>
+In both cases you should get an error code back, like:
+
+<PRE>
+rewrite: ruleset 196 returns: $# error $@ 5 . 7 . 1 $: "551 You are banned, contact your local admin."
+rewrite: ruleset 196 returns: $# error $@ 5 . 7 . 1 $: "551 This domain is banned, contact your local admin."
+</PRE>
+
+If it doesn't work as expected you can have a look at the class you defined:
+<PRE>
+sendmail -bt
+&gt; $={Spammer}
+&gt; $={SpamDomains}
+</PRE>
+or check the map you use:
+<PRE>
+sendmail -bt
+&gt; /map junk cyberpromo.com
+map_lookup: junk (cyberpromo.com) returns JUNK (0)
+</PRE>
+
+<H3>
+<A NAME="check_rcpt">
+Debugging check_rcpt
+</A>
+</H3>
+
+<A HREF="check.html#check_rcpt">check_rcpt</A>
+makes use of the macro
+<CODE>
+${client_name}
+</CODE>
+or
+<CODE>
+${client_addr}
+</CODE>.
+You can set the value
+like this:
+<PRE>
+sendmail -bt
+ADDRESS TEST MODE (ruleset 3 NOT automatically invoked)
+Enter &lt;ruleset&gt; &lt;address&gt;
+&gt; .D{client_addr}1.2.3.4
+&gt; .D{client_name}domain.com
+</PRE>
+
+You should try the following tests:
+<OL>
+<LI>
+e-mail from internal to external,
+<LI>
+e-mail from external to internal,
+<LI>
+e-mail from external to external.
+</OL>
+
+Let's assume the following: you use
+<CODE>
+{LocalIP}
+</CODE>,
+one of the entries in it is
+<CODE>
+134.245.15.1
+</CODE>,
+and external IP address is
+<CODE>
+1.2.3.4
+</CODE>,
+a local hostname is
+<CODE>
+informatik.uni-kiel.de
+</CODE>,
+and an external name is
+<CODE>
+aol.com
+</CODE>.
+
+So you have to perform these tests:
+<OL>
+<LI>
+e-mail from internal to external:
+<PRE>
+sendmail -bt
+&gt; .D{client_addr}134.245.15.1
+&gt; check_rcpt &lt;a@aol.com&gt;
+</PRE>
+<A HREF="dbg-output.html#intext">(sample output)</A>
+
+<LI>
+e-mail from external to internal,
+<PRE>
+sendmail -bt
+&gt; .D{client_addr}1.2.3.4
+&gt; check_rcpt &lt;a@informatik.uni-kiel.de&gt;
+</PRE>
+<A HREF="dbg-output.html#extint">(sample output)</A>
+
+<LI>
+e-mail from external to external.
+<PRE>
+sendmail -bt
+&gt; .D{client_addr}1.2.3.4
+&gt; check_rcpt &lt;a@aol.com&gt;
+</PRE>
+<A HREF="dbg-output.html#extext">(sample output)</A>
+</OL>
+
+Only the last test should produce an error:
+<PRE>
+rewrite: ruleset 195 returns: $# error $@ 5 . 7 . 1 $: 551 we do not relay
+</PRE>
+
+<P>
+<EM>
+Note 1:
+</EM>
+You have to set
+<CODE>
+${client_addr}
+</CODE>
+for
+<CODE>
+HACK(use_ip)
+</CODE>
+and
+<CODE>
+${client_name}
+</CODE>
+for
+<CODE>
+HACK(use_names)
+</CODE>.
+If you use both, you have to set both!
+
+
+<P>
+<EM>
+Note 2:
+</EM>
+the code to remove those hostnames or domains for which you accept
+incoming mail as relay relies on DNS to canonicalize these names.
+The code in S96 add a trailing dot to the names which is required
+for matching.
+So if you test the rules, make sure you use real names with entries
+in the DNS.
+
+<H4>
+<A NAME="check_rcptlog">
+check_rcpt and entries in the logfile
+</A>
+</H4>
+
+<P>
+Blocked relay attempts can be found in the logfile,
+like this one:
+
+<PRE>
+QAA02454: &lt;ESCAPEFOUR@AOL.COM&gt;... we do not relay
+QAA02454: ruleset=check_rcpt, arg1=&lt;ESCAPEFOUR@AOL.COM&gt;,
+	relay=170-51-209.ipt.aol.com [152.170.51.209], reject=551
+	&lt;ESCAPEFOUR@AOL.COM&gt;... we do not relay
+QAA02454: from=&lt;Anonymous&gt;, size=0, class=0, pri=0, nrcpts=0,
+	proto=SMTP, relay=170-51-209.ipt.aol.com [152.170.51.209]
+</PRE>
+
+If you have a problem with
+<CODE>
+check_rcpt
+</CODE>
+denying relaying which should be allowed,
+you can use the entries from the logfile
+to check your rules and classes/maps.
+The
+<CODE>
+relay=
+</CODE>
+should be used for
+<CODE>
+${client_name}
+</CODE>,
+i.e.,
+<PRE>
+&gt; .D{client_name}170-51-209.ipt.aol.com
+</PRE>
+or
+<CODE>
+${client_addr}
+</CODE>,
+i.e.,
+<PRE>
+&gt; .D{client_addr}152.170.51.209
+</PRE>
+and
+<CODE>
+arg1
+</CODE>
+for the ruleset,
+i.e.,
+<PRE>
+&gt; check_rcpt &lt;ESCAPEFOUR@AOL.COM&gt;
+</PRE>
+
+This way you can see which classes/maps you have to modify.
+
+<H3>
+<A NAME="daemon">
+Running sendmail as daemon with debug flags
+</A>
+</H3>
+
+
+To check the rules
+which refer to special macros such as
+<CODE>
+${client_name}
+</CODE>
+or
+<CODE>
+${client_addr}
+</CODE>
+you can run sendmail in debug mode:
+<CODE>
+sendmail -bd -d21.4
+</CODE>
+(or other debug flags, see
+<CODE>
+src/TRACEFLAGS
+</CODE>
+in the actual source).
+Do this testing only on a special machine of course,
+don't put it on a production machine,
+if there is a mistake in your rules,
+you may receive no mail at all...
+<BR>
+BTW:
+<CODE>
+sendmail
+</CODE>
+uses internally only numbers for the rulesets,
+so you won't see:
+<CODE>
+ruleset check_mail
+</CODE>
+or something similar,
+but numbers just below 200 for the
+<CODE>
+check_*
+</CODE>
+rulesets.
+
+<P>
+Now you can connect from another machine
+either by hand
+<CODE>
+telnet test.machine smtp
+</CODE>
+or use the
+<CODE>
+-v
+</CODE>
+flag of
+<CODE>
+Mail
+</CODE>
+to see the actual SMTP dialogue.
+
+
+
+<H3>
+<A NAME="SCRIPT">
+A script to test mail relaying capabilities
+</A>
+</H3>
+
+<P>
+<A HREF="mailto:andrew@andrew.triumf.ca">
+Andrew Daviel
+</A>
+wrote a nice
+<A HREF="ftp://vancouver-webpages.com/pub/chkspam">
+script
+</A>
+to check whether e-mail can be relayed through your
+system.
+(It requires
+<A HREF="http://www.perl.org/">PERL</A>
+5).
+Make sure you read the
+<PRE>
+ DISCLAIMER: This script is intended to test mail relaying capabilities.
+ Unauthorized use of this script on non-local hosts may be interpreted as 
+ a network attack.
+ Each copy of this script is identified by a unique serial number and  
+ may be traced back to the user.   
+</PRE>
+
+<H4>
+<A NAME="LOGSCRIPT">
+A script to analyze the logfile
+</A>
+</H4>
+
+<A HREF="ftp://ftp.kcnet.com/pub/util/smreject">smreject:</A>
+A perl script written by
+<A HREF="mailto:tgeorge@kcnet.com">Ted George</A>
+which analyzes the sendmail logfile for rejected messages based on the
+<CODE>check_*</CODE>
+rules.
+Shows rejected message counts for each junk file entry.
+Also shows counts of failed messages for the top mail relay hosts and email
+addresses attempting to use your mail server.
+
+
+<H3>
+Suggestions?
+</H3>
+
+<P>
+If you have other proposals to debug the new rules,
+please
+<A HREF="mailto:ca@informatik.uni-kiel.de">let me know</A>.
+<HR>
+<A HREF="misc.html">[(links)]</A>
+<A HREF="english.html">[Hints]</A>
+<A HREF="check.html">[Avoiding Spam]</A>
+<A HREF="../faqs/sendmailv8.html">[FAQ]</A>
+<A HREF="README.cf.8.8.html">[cf/README]</A>
+<A HREF="new.html">[New]</A>
+
+<ADDRESS>
+Copyright &#169;
+<A HREF="../index.html">
+Claus A&szlig;mann
+</A>
+Please send comments to:
+<A HREF="mailto:ca@informatik.uni-kiel.de"> &lt;ca@informatik.uni-kiel.de&gt;</A>
+</ADDRESS>
+</BODY>
+</HTML>

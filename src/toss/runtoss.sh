@@ -1,10 +1,11 @@
 #!/bin/sh
 #
-# $Id: runtoss.sh,v 4.6 1996/11/30 16:18:48 mj Exp $
+# $Id: runtoss.sh,v 4.7 1997/10/05 13:43:36 mj Exp $
 #
 # Wrapper for ftntoss, ftnroute, ftnpack doing the toss process
 #
 # Usage: runtoss name
+#    or  runtoss /path/dir
 #
 
 PRG=<LIBDIR>
@@ -105,6 +106,12 @@ case X$NAME in
 	   LIBDIR=../cf
 	   PRG=../../src/toss
 	   ARGS="-L$PRG -S$SPOOL $ARGS"
+	   ;;
+  X/*)
+	   INPUT=-I$NAME
+	   FADIR=-F$NAME
+	   GRADE=
+	   FLAGS=-s
 	   ;;
   *)
            echo "runtoss: unknown $NAME"

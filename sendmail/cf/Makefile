@@ -1,6 +1,6 @@
 #:ts=8
 #
-#    $Id: Makefile,v 4.4 1996/11/10 10:49:42 mj Exp $
+#    $Id: Makefile,v 4.5 1997/10/05 13:43:32 mj Exp $
 #
 #    Makefile for FIDOGATE sendmail/cf/
 #
@@ -16,8 +16,8 @@ include $(TOPDIR)/config.make
 include $(TOPDIR)/rules.make
 
 
-CF		= orodruin.cf orodruin-smtp.cf\
-		  morannon.cf morannon-ffx.cf\
+CF		= orodruin.cf orodruin-smtp.cf orodruin-check.cf\
+		  morannon.cf morannon-ffx.cf morannon-check.cf\
 		  point.cf
 
 
@@ -25,27 +25,6 @@ all:		$(CF)
 
 
 install:
-
-#
-# Note: these install targets are somewhat Linux specific
-#
-install-orodruin:
-	install -g root -o root -m 644 orodruin.cf          /etc/sendmail.cf
-	install -g root -o root -m 644 mailertable-orodruin /etc/mail/mailertable
-	install -g root -o root -m 644 rewrite-orodruin     /etc/mail/rewrite
-	install -g root -o root -m 755 mkmaildb             /etc/mail
-	/etc/mail/mkmaildb
-	killall sendmail
-	/usr/sbin/sendmail -bd -q15m
-
-install-morannon:
-	install -g root -o root -m 644 morannon.cf          /etc/sendmail.cf
-	install -g root -o root -m 644 mailertable-morannon /etc/mail/mailertable
-	install -g root -o root -m 644 rewrite-morannon     /etc/mail/rewrite
-	install -g root -o root -m 755 mkmaildb             /etc/mail
-	/etc/mail/mkmaildb
-	killall sendmail
-	/usr/sbin/sendmail -bd -q15m
 
 
 clean:
