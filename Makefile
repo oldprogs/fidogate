@@ -1,5 +1,5 @@
 #
-# $Id: Makefile,v 4.20 2000/04/11 12:02:25 mj Exp $
+# $Id: Makefile,v 4.21 2003/06/08 21:01:25 n0ll Exp $
 #
 # Makefile FIDOGATE TOPDIR
 #
@@ -56,7 +56,7 @@ install-dirs:
 	fi; done
 
 install-uuin:
-	if [ ! -d $$d ]; then \
+	if [ ! -d $(PREFIX)$(DEFAULT_V_UUINBOUND) ]; then \
 	    $(INSTALL_DIR) $(PREFIX)$(DEFAULT_V_UUINBOUND); \
 	fi
 	chgrp mail $(PREFIX)$(DEFAULT_V_UUINBOUND)

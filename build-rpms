@@ -26,6 +26,7 @@ if [ -f $tarfilevartmp ]; then
     mv $tarfilevartmp /usr/src/redhat/SOURCES
 fi
 
-rpm -ba fidogate.spec
+#rpm -ba fidogate.spec
+rpmbuild -ba fidogate.spec
 
 rpm --addsign $rpmb $rpms

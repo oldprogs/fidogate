@@ -1,4 +1,25 @@
+2003-06-08  Martin Junius  <mj@m-j-s.net>
+
+	------- CVS ci -------------------------------------------------------
+
+	* sendmail/cf/redhat6-morannon.mc: updated version for
+	  morannon.fido.de.
+
+	* src/gate/send-fidogate.sh: generic handling of interface to
+	  batch files. The optimized version for INN 2.2, rfc2ftn -f
+	  BATCH, is only used with INN 2.2, otherwise the script will use
+	  the standard INN batcher. This should make FIDOGATE compatible
+	  with all INN version, in particular INN 2.3.
+
 2003-04-26  Martin Junius  <mj@m-j-s.net>
+
+	* fidogate.spec: remove RPM_BUILD_ROOT/html after install.
+
+	* Makefile (install-uuin): fixed.
+
+	* build-rpms: must use rpmbuild for -ba.
+
+	* ANNOUNCE: updated.
 
 	======= Release 4.4.8 ================================================
 	------- CVS tag R448 -------------------------------------------------

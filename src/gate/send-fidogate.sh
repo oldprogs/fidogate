@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# $Id: send-fidogate.sh,v 4.2 1999/10/04 08:18:23 mj Exp $
+# $Id: send-fidogate.sh,v 4.3 2003/06/08 21:01:26 n0ll Exp $
 #
 # SH script to send batches to FIDOGATE
 #
@@ -62,13 +62,16 @@ for SITE in ${LIST}; do
 
     echo "${PROGNAME}: [$$] begin ${SITE}"
 
-# old version using batcher
-#    time batcher -N ${QUEUEJOBS} -b500000 \
-#	-p"$RFC2FTN -b -n" \
-#	${SITE} ${BATCHFILE}
-
-# new version using rfc2ftn in batch file mode
-    time $RFC2FTN -f $BATCHFILE -m 500
+    case $VERSION in
+    INN 2.2*)
+	# optimized version for INN 2.2, no longer works with INN 2.3
+	time $RFC2FTN -f $BATCHFILE -m 500
+	;;
+    *)
+	# generic version using batcher
+	time batcher -b500000 -p"$RFC2FTN -b -n" ${SITE} ${BATCHFILE}
+	;;
+    esac
 
     echo "${PROGNAME}: [$$] end ${SITE}"
 done

@@ -28,6 +28,7 @@ make PREFIX=$RPM_BUILD_ROOT install-dirs
 mkdir -p $RPM_BUILD_ROOT/etc/news
 make PREFIX=$RPM_BUILD_ROOT install
 make PREFIX=$RPM_BUILD_ROOT install-config
+rm -rf $RPM_BUILD_ROOT/html
 
 %clean
 rm -rf $RPM_BUILD_ROOT

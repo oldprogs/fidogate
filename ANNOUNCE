@@ -35,8 +35,8 @@ Followup-To: comp.os.linux.misc
 
     fidogate-4.4.8.lsm			   1 Kbyte
     fidogate-4.4.8.tar.gz		1164 Kbyte
-    fidogate-4.4.8-1.9x.src.rpm		1164 Kbyte
-    fidogate-4.4.8-1.9x.i386.rpm	1088 Kbyte
+    fidogate-4.4.8-1.rh9x.src.rpm	1164 Kbyte
+    fidogate-4.4.8-1.rh9x.i386.rpm	1088 Kbyte
 
 
 
@@ -169,6 +169,6 @@ Needed:
 
 ======================================================================
 
-$Date: 2003/04/26 16:35:05 $
+$Date: 2003/06/08 21:01:24 $
 Martin Junius
 mailto:mj@fido.de
