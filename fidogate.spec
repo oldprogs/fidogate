@@ -46,15 +46,15 @@ rm -rf $RPM_BUILD_ROOT
 /var/spool/fidogate
 /var/spool/bt
 /etc/news/newsfeeds.fidogate
-%config /etc/fidogate/aliases
-%config /etc/fidogate/areas
-%config /etc/fidogate/fidogate.conf
-%config /etc/fidogate/hosts
-%config /etc/fidogate/packing
-%config /etc/fidogate/passwd
-%config /etc/fidogate/routing
-%config /var/lib/fidogate/areas.bbs
-%config /var/lib/fidogate/fareas.bbs
+%config(noreplace) /etc/fidogate/aliases
+%config(noreplace) /etc/fidogate/areas
+%config(noreplace) /etc/fidogate/fidogate.conf
+%config(noreplace) /etc/fidogate/hosts
+%config(noreplace) /etc/fidogate/packing
+%config(noreplace) /etc/fidogate/passwd
+%config(noreplace) /etc/fidogate/routing
+%config(noreplace) /var/lib/fidogate/areas.bbs
+%config(noreplace) /var/lib/fidogate/fareas.bbs
 
 %changelog
 * Mon May 28 2001 Martin Junius <mj@m-j-s.net>
