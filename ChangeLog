@@ -1,3 +1,22 @@
+2001-01-07  Martin Junius  <mj@m-j-s.net>
+
+	------- CVS ci -------------------------------------------------------
+
+	* version.h (PATCHLEVEL): set to 3, version 4.4.3.
+
+	* scripts/areas/areassucksync.pl: new script fro synchronizing
+	  areas, areas.bbs, sucknewsrc, remote NNTP server newsgroups list.
+	  At first, it checks groups from areas.bbs with links against
+	  sucknewsrc and writes sucknewsrc entries to retrieving not yet
+	  sucked groups.
+
+	* scripts/maintenance/logcheck.pl: TH_RSS set to 50.
+
+	* src/areafix/ftnafutil.c (usage, do_cmd): new command "listdownlinks".
+	  (do_areasbbs): new command DO_LISTDOWNLINKS.
+	  (do_cmd): call cf_i_am_a_gateway_prog() for listdownlinks.
+	  (do_cmd): renamed to "listgwlinks".
+
 2001-01-04  Martin Junius  <mj@m-j-s.net>
 
 	------- CVS ci -------------------------------------------------------

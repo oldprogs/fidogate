@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: ftnafutil.c,v 1.9 2000/11/17 21:18:06 mj Exp $
+ * $Id: ftnafutil.c,v 1.10 2001/01/07 15:29:44 mj Exp $
  *
  * Utility program for Areafix.
  *
@@ -36,7 +36,7 @@
 
 
 #define PROGRAM		"ftnafutil"
-#define VERSION		"$Revision: 1.9 $"
+#define VERSION		"$Revision: 1.10 $"
 #define CONFIG		DEFAULT_CONFIG_MAIN
 
 
@@ -105,9 +105,10 @@ int do_mail(Node *node, char *area, char *s, Passwd *pwd)
 /*
  * Process areas.bbs
  */
-#define DO_DELETE	0
-#define DO_SUBSCRIBE	1
-#define DO_UNSUBSCRIBE	2
+#define DO_DELETE	 0
+#define DO_SUBSCRIBE	 1
+#define DO_UNSUBSCRIBE	 2
+#define DO_LISTGWLINKS 3
 
 int do_areasbbs(int cmd)
 {
@@ -174,6 +175,19 @@ int do_areasbbs(int cmd)
 		}
 	    }
 	    break;
+
+	case DO_LISTGWLINKS:
+	    n = lon->size;
+	    cf_set_zone(p->zone);
+    	    debug(5, "area %s, LON size %d, zone %d", p->area, n, p->zone);
+	    if(uplink && node_eq(uplink, cf_addr())) {
+		/* 1st downlink is gateway, don't include in # of downlinks */
+		n--;
+		debug(5, "     # downlinks is %d", n);
+	    }
+	    printf("%s %s %d\n",
+		   p->area, uplink ? znfp1(uplink) : "-", n);
+	    break;
 	    
 	default:
 	    return ERROR;
@@ -200,12 +214,18 @@ int do_cmd(char *cmd[])
 {
     if(cmd[0])
     {
-	if     (strieq(cmd[0], "delete"     ))
+	if     (strieq(cmd[0], "delete"))
 	    do_areasbbs(DO_DELETE);
-	else if(strieq(cmd[0], "subscribe"  ))
+	else if(strieq(cmd[0], "subscribe"))
 	    do_areasbbs(DO_SUBSCRIBE);
 	else if(strieq(cmd[0], "unsubscribe"))
 	    do_areasbbs(DO_UNSUBSCRIBE);
+	else if(strieq(cmd[0], "listgwlinks"))
+	{
+	    cf_i_am_a_gateway_prog();
+	    cf_debug();
+	    do_areasbbs(DO_LISTGWLINKS);
+	}
 	else
 	{
 	    fprintf(stderr, "%s: illegal command %s\n", PROGRAM, cmd[0]);
@@ -250,6 +270,7 @@ options: -n --no-rewrite              don't rewrite AREAS.BBS\n\
 command: delete         delete dead areas (no uplink or downlink)\n\
          subscribe      subscribe to areas with new downlinks\n\
          unsubscribe    unsubscribe from areas with no more downlinks\n\
+         listgwlinks    list areas with number of ext. links (excl. gateway)\n\
 ");
 
     exit(0);

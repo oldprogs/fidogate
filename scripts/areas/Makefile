@@ -1,6 +1,6 @@
 #:ts=8
 #
-#    $Id: Makefile,v 1.1 2001/01/04 20:03:42 mj Exp $
+#    $Id: Makefile,v 1.2 2001/01/07 15:29:44 mj Exp $
 #
 #    Makefile for FIDOGATE scripts/areas/
 #
@@ -16,7 +16,7 @@ include $(TOPDIR)/config.make
 include $(TOPDIR)/rules.make
 
 
-PROGS		= areasbbssync
+PROGS		= areasbbssync areassucksync
 
 
 all:		$(PROGS)

@@ -1,6 +1,6 @@
 #!/usr/bin/perl
 #
-# $Id: logcheck.pl,v 4.9 2000/06/01 07:51:18 mj Exp $
+# $Id: logcheck.pl,v 4.10 2001/01/07 15:29:44 mj Exp $
 #
 # Create report for sendmail check_mail/rcpt/relay rejects
 #
@@ -11,14 +11,14 @@ use FileHandle;
 
 
 my $PROGRAM     = 'logcheck';
-my $VERSION     = '0.0 $Revision: 4.9 $ ';
+my $VERSION     = '0.0 $Revision: 4.10 $ ';
 
 
 my $NEWSGROUPS  = "fido.de.lists";
 my $SUBJECT     = "Fido.DE Sendmail Reject Report";
 my $MAX         = 50;
 my $TH_DISABLED = 100;
-my $TH_RSS      = 100;
+my $TH_RSS      = 50;
 
 my $INEWS       = "/usr/bin/inews -h -S";
 my $SENDMAIL    = "/usr/sbin/sendmail";
