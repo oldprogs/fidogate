@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: ftnaf.c,v 4.5 1996/08/25 10:16:08 mj Exp $
+ * $Id: ftnaf.c,v 4.6 1996/09/27 19:39:08 mj Exp $
  *
  * Areafix-like AREAS.BBS EchoMail distribution manager. Commands somewhat
  * conforming to FSC-0057.
@@ -39,7 +39,7 @@
 
 
 #define PROGRAM		"ftnaf"
-#define VERSION		"$Revision: 4.5 $"
+#define VERSION		"$Revision: 4.6 $"
 #define CONFIG		CONFIG_MAIN
 
 
@@ -401,6 +401,9 @@ int do_mail(void)
 	/* Extract level, key, and real name from pwd->args */
 	if(authorized)
 	{
+	    authorized_lvl  = 1;
+	    authorized_key  = "";
+	    authorized_name = "Sysop";
 	    /* Warning: destroys pwd->args! */
 	    if( (p = xstrtok(pwd->args, " \t")) )
 		authorized_lvl = atoi(p);
@@ -595,7 +598,7 @@ int cmd_listall(Node *node)
 	return OK;
     }
     
-    fprintf(output, "\nAll available areas:\n\n");
+    fprintf(output, "\nALL available areas:\n\n");
     
     for(p=areasbbs_first(); p; p=p->next)
     {
@@ -973,6 +976,21 @@ int cmd_passwd(Node *node, char *arg)
     debug(3, "password check o.k. - authorized");
     authorized = TRUE;
 
+    authorized_lvl  = 1;
+    authorized_key  = "";
+    authorized_name = "Sysop";
+    /* Warning: destroys pwd->args! */
+    if( (p = xstrtok(pwd->args, " \t")) )
+	authorized_lvl = atoi(p);
+    if( (p = xstrtok(NULL, " \t")) )
+	authorized_key = strsave(p);
+    if( (p = xstrtok(NULL, " \t")) )
+	authorized_name = strsave(p);
+    
+    debug(3, "passwd lvl : %d", authorized_lvl);
+    debug(3, "passwd key : %s", authorized_key);
+    debug(3, "passwd name: %s", authorized_name);
+    
     return OK;
 }
 

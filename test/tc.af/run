@@ -6,6 +6,7 @@ T="../../src/toss/ftnaf -L../cf -S."
 
 echo "tc: running"
 
+# command line
 $T -v -b areas.bbs 2:2452/110.90 query
 $T -v -b areas.bbs 2:2452/110.90 list
 $T -v -b areas.bbs 2:2452/110.90 listall
@@ -20,3 +21,32 @@ $T -v -b tmp_areas.bbs 99:2452/110.1 add zz
 
 $T -v -b tmp_areas.bbs 2:2452/110.1 add UNKNOWN.GER
 $T -v -b tmp_areas.bbs -x./unknown 2:2452/110.1 add UNKNOWN.GER
+
+# mail interface
+$T -m -r -n -v -b tmp_areas.bbs <<EOF
+From: Sysop@f5678.n1234.z2.fidonet.org
+Subject: WUSEL
+
+add *.GER
+add TEST1
+add TEST2
+list
+query
+unlinked
+EOF
+
+$T -m -r -n -v -b tmp_areas.bbs <<EOF
+From: mj@fido.de
+Subject: Areafix request
+
+add *.GER
+EOF
+
+$T -m -r -n -v -b tmp_areas.bbs <<EOF
+From: mj@fido.de
+Subject: Areafix request
+
+password 2:1234/5678 WUSEL
+add *.GER
+list
+EOF

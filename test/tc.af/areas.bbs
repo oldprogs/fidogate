@@ -8,3 +8,6 @@
 #/test ABC 242:1000/99
 # DEF 242:1000/99
 /test GHI -z 99 -l 2 -k xyz9 242:1000/99
+
+- TEST1 -k F -l 1 2:99/99
+- TEST2 -k F -l 99 2:99/99

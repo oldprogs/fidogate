@@ -1,3 +1,16 @@
+Fri Sep 27 21:34:30 1996  Martin Junius  <mj@fido.de>
+
+	------- CVS ci -------------------------------------------------------
+
+	* src/toss/ftnaf.c (cmd_passwd): set authorized_lvl, _key, _name
+	  after sender is authorized. Initialize authorized_* vars before
+	  parsing passwd options.
+	  (do_mail): initialize authorized_* vars before parsing passwd
+	  options. 
+
+	* test/tc.af/run: added tests for mail interface, both Fido and
+	  Internet sender.
+
 Sun Sep 22 13:00:06 1996  Martin Junius  <mj@fido.de>
 
 	------- CVS ci -------------------------------------------------------
