@@ -1,4 +1,14 @@
+Sat Jan 10 20:40:07 1998  Martin Junius  <mj@fido.de>
+
+	------- CVS ci -------------------------------------------------------
+
 Sat Jan  3 11:41:17 1998  Martin Junius  <mj@fido.de>
+
+	* contrib/xmonout/: new outbound monitor with Tk interface
+	  contributed by Len Ovens <root@studio.cbbs.org>, slightly modified
+	  for my setup.
+
+	* scripts/nodelist/nl-autoupd.pl: wrap around 365 at end of year.
 
 	------- CVS ci -------------------------------------------------------
 

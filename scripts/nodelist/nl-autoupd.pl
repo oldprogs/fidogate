@@ -72,7 +72,9 @@ while(1) {
     $found = 0;
 
     $day += 7;
-    ##FIXME: wrap-around for next year, take into account leap years##
+    $day -= 365 if($day > 365);
+    ##FIXME: take into account leap years?##
+
     $dd  = sprintf "%02d", $day % 100;
     $ddd = sprintf "%03d", $day;
 

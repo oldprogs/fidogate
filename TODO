@@ -2,6 +2,9 @@
 
 	************** TODO list for FIDOGATE development **************
 
+	* rfc2ftn.c (+other?): header_getcomplete() may return NULL,
+	  log() messages in snd_mail().
+
 	* log.c: switch on syslog logging from config file, new config
 	  LogFile syslog.
 
