@@ -1,6 +1,6 @@
 #:ts=8
 #
-#    $Id: Makefile,v 4.15 2003/04/15 18:45:22 n0ll Exp $
+#    $Id: Makefile,v 4.16 2003/04/26 16:35:06 n0ll Exp $
 #
 #    Makefile for FIDOGATE sendmail/cf/
 #
@@ -20,8 +20,8 @@ M4OPTIONS	= -DconfFIDOGATE_LIBDIR=$(LIBDIR)
 #		  -DconfFIDOGATE_OUTDIR=%S/outpkt/mail
 
 
-CF		= redhat6-orodruin.cf redhat7-orodruin.cf \
-		  redhat6-morannon.cf
+#CF		= redhat6-orodruin.cf redhat7-orodruin.cf \
+#		  redhat6-morannon.cf
 #CF		= orodruin.cf orodruin-smtp.cf orodruin-check.cf\
 #		  morannon.cf morannon-ffx.cf morannon-check.cf\
 #		  point.cf
@@ -31,14 +31,24 @@ all:
 
 redhat6:	redhat6-morannon.cf
 redhat7:	redhat7-orodruin.cf
-redhat9:	redhat9-orodruin.cf
+redhat9:	redhat9-orodruin.cf redhat9-submit.cf
 
 
 install:
 
+install-redhat9:
+		$(INSTALL) -c -o root -g root -m 444 redhat9-orodruin.mc \
+		  /etc/mail/sendmail.mc
+		$(INSTALL) -c -o root -g root -m 444 redhat9-orodruin.cf \
+		  /etc/mail/sendmail.cf
+		$(INSTALL) -c -o root -g root -m 444 redhat9-submit.mc \
+		  /etc/mail/submit.mc
+		$(INSTALL) -c -o root -g root -m 444 redhat9-submit.cf \
+		  /etc/mail/submit.cf
+
 
 clean:
-	rm -f $(CF)
+	rm -f *.cf
 	rm -f *~ *.bak *.o tags TAGS core paths.tmp
 
 check verify:

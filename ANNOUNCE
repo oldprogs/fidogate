@@ -1,10 +1,10 @@
 X-Emacs-Mode: -*- indented-text -*-
-Subject: FIDOGATE 4.4.7 - Fido-Internet Gateway and Tosser
+Subject: FIDOGATE 4.4.8 - Fido-Internet Gateway and Tosser
 Keywords: fido ftn netmail echomail tosser areafix mail news gateway
 Followup-To: comp.os.linux.misc
 
   =================================================================
-    FIDOGATE 4.4.7, a stable version of the new FIDOGATE release
+    FIDOGATE 4.4.8, a stable version of the new FIDOGATE release
   =================================================================
 
 			   FIDOGATE Version 4
@@ -33,14 +33,21 @@ Followup-To: comp.os.linux.misc
     http://metalab.unc.edu/pub/Linux/system/fido/
     (maybe still in .../pub/Linux/Incoming)
 
-    fidogate-4.4.7.lsm			   1 Kbyte
-    fidogate-4.4.7.tar.gz		1160 Kbyte
-    fidogate-4.4.7-1.7x.src.rpm		1164 Kbyte
-    fidogate-4.4.7-1.7x.i386.rpm	1088 Kbyte
+    fidogate-4.4.8.lsm			   1 Kbyte
+    fidogate-4.4.8.tar.gz		1164 Kbyte
+    fidogate-4.4.8-1.9x.src.rpm		1164 Kbyte
+    fidogate-4.4.8-1.9x.i386.rpm	1088 Kbyte
 
 
 
 ======================================================================
+
+Changes in 4.4.8:
+
+* Minor changes, new sendmail mc configuration files for building
+  FIDOGATE on RedHat 9. New RPMs for RedHat 9.
+
+
 
 Changes in 4.4.7:
 
@@ -162,6 +169,6 @@ Needed:
 
 ======================================================================
 
-$Date: 2003/04/11 19:26:15 $
+$Date: 2003/04/26 16:35:05 $
 Martin Junius
 mailto:mj@fido.de

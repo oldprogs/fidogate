@@ -1,3 +1,24 @@
+2003-04-26  Martin Junius  <mj@m-j-s.net>
+
+	======= Release 4.4.8 ================================================
+	------- CVS tag R448 -------------------------------------------------
+	------- CVS ci -------------------------------------------------------
+
+	* fidogate.lsm: updated.
+
+	* ANNOUNCE: updated.
+
+	* scripts/run/runpoll-orodruin.sh: don't run sendmail -q,
+	  may require special priviledge, removed -xterm stuff.
+
+2003-04-21  Martin Junius  <mj@m-j-s.net>
+
+	* sendmail/cf/redhat9-submit.mc: new m4 config file for RedHat9
+	  sendmail submit configuration.
+
+	* sendmail/cf/Makefile (install-redhat9): added new target for
+	  installing RedHat9 sendmail config files.
+
 2003-04-15  Martin Junius  <mj@m-j-s.net>
 
 	------- CVS ci -------------------------------------------------------

@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# $Id: runpoll-orodruin.sh,v 4.4 2000/04/19 17:07:28 mj Exp $
+# $Id: runpoll-orodruin.sh,v 4.5 2003/04/26 16:35:05 n0ll Exp $
 #
 # orodruin.fido.de's poll script using ifcico
 #
@@ -11,13 +11,6 @@ IFMAIL=<IFMAILDIR>
 
 UPLINK=f2.n1000.z242
 
-XTERM=/usr/X11R6/bin/xterm
-
-# -xterm: run in XTerm window
-if [ "$1" = "-xterm" ]; then
-  exec $XTERM -display :0 -g 100x20 -title "FIDOGATE runpoll" -e $0
-  exit 0
-fi
 
 
 # Show executed commands
@@ -55,7 +48,7 @@ $LIBDIR/ffxqt
 $LIBDIR/ftntick
 
 # Process mail queue
-/usr/sbin/sendmail -q
+#/usr/sbin/sendmail -q
 
 # Tosser expire
 $LIBDIR/ftnexpire
