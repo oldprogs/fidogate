@@ -2,6 +2,11 @@
 
 X = for next release
 
+	* ftntoss/ftnroute: new RemapFrom, make Remap/RemapFrom send
+	  mail to /dev/null if destination is 0:0/0.0
+
+	* sendmailstat: update for new sendmail.
+
 	* rfc2ftn: config parameter to disable/enable X-Flags
 	  processing.
 

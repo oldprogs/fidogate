@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway software UNIX <-> FIDO
  *
- * $Id: rfc2ftn.c,v 4.11 1996/09/03 19:17:52 mj Exp $
+ * $Id: rfc2ftn.c,v 4.12 1996/09/07 16:21:53 mj Exp $
  *
  * Read mail or news from standard input and convert it to a FIDO packet.
  *
@@ -39,7 +39,7 @@
 
 
 #define PROGRAM 	"rfc2ftn"
-#define VERSION 	"$Revision: 4.11 $"
+#define VERSION 	"$Revision: 4.12 $"
 #define CONFIG		CONFIG_GATE
 
 
@@ -464,12 +464,12 @@ int rfc_parse(RFCAddr *rfc, char *name, Node *node)
 	    *node = *n;
 	rfc_isfido_flag = TRUE;
 	ret = OK;
-	debug(3, "    FTN node: %s", node_to_asc(node, TRUE));
+	debug(3, "    FTN node: %s", node_to_asc(n, TRUE));
 
 	/*
 	 * Look up in HOSTS
 	 */
-	if( (h = hosts_lookup(node, NULL)) )
+	if( (h = hosts_lookup(n, NULL)) )
 	{
 	    if( (h->flags & HOST_DOWN) )
 	    {
@@ -478,7 +478,7 @@ int rfc_parse(RFCAddr *rfc, char *name, Node *node)
 		    /* Node is down, bounce mail */
 		    sprintf(address_error,
 			    "FTN address %s: currently down, unreachable",
-			    node_to_asc(node, TRUE));
+			    node_to_asc(n, TRUE));
 		    ret = ERROR;
 		}
 	    }
@@ -490,18 +490,18 @@ int rfc_parse(RFCAddr *rfc, char *name, Node *node)
 	{
 	    sprintf(address_error,
 		    "FTN address %s: not registered for this domain",
-		    node_to_asc(node, TRUE));
+		    node_to_asc(n, TRUE));
 	    ret = ERROR;
 	}
 
 	/*
 	 * Check for supported zones (zone statement in CONFIG)
 	 */
-	if(!cf_zones_check(node->zone))
+	if(!cf_zones_check(n->zone))
 	{
 	    sprintf(address_error,
 		    "FTN address %s: zone %d not supported",
-		    node_to_asc(node, TRUE), node->zone);
+		    node_to_asc(n, TRUE), n->zone);
 	    ret = ERROR;
 	}
 	

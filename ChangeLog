@@ -1,4 +1,17 @@
+Sat Sep  7 18:09:32 1996  Martin Junius  <mj@fido.de>
+
+	------- CVS commit ---------------------------------------------------
+
+	* src/gate/rfc2ftn.c (rfc_parse): use n instead of node. node may
+	  be NULL. Thanx to Roland Rosenfeld <roland@spinnaker.rhein.de>
+	  for reporting this bug.
+
 Tue Sep  3 20:42:23 1996  Martin Junius  <mj@fido.de>
+
+	------- CVS commit ---------------------------------------------------
+
+	* src/gate/rfc2ftn.c (snd_mail): capitalized log() message for
+	  non-local users trying X-Flags.
 
 	* src/common/address.c (addr_is_domain): fixed user@DOMAIN.
 
