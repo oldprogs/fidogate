@@ -1,15 +1,21 @@
 PUSHDIVERT(-1)
 #
-# $Id: ffx.m4,v 4.1 1996/09/22 12:24:03 mj Exp $
+# $Id: ffx.m4,v 4.2 1996/09/28 08:13:53 mj Exp $
 #
 # FIDOGATE FFX mailer for sendmail V8
 #
 # MAILER(smtp) and MAILER(uucp) must be included!
 #
 
-ifdef(`FFX_MAILER_PATH',, `define(`FFX_MAILER_PATH', /usr/local/lib/fidogate/ffxmail)')
-ifdef(`FFX_MAILER_ARGS',, `define(`FFX_MAILER_ARGS', `ffxmail $h $u')')
-ifdef(`FFX_MAILER_FLAGS',, `define(`FFX_MAILER_FLAGS', `')')
+ifdef(`confFIDOGATE_LIBDIR',,
+  `define(`confFIDOGATE_LIBDIR', `/usr/local/lib/fidogate')')
+
+ifdef(`FFX_MAILER_PATH',,
+  `define(`FFX_MAILER_PATH', confFIDOGATE_LIBDIR/ffxmail)')
+ifdef(`FFX_MAILER_ARGS',,
+  `define(`FFX_MAILER_ARGS', `ffxmail $h $u')')
+ifdef(`FFX_MAILER_FLAGS',,
+  `define(`FFX_MAILER_FLAGS', `')')
 POPDIVERT
 
 
@@ -17,7 +23,7 @@ POPDIVERT
 ###    FFX Mailer specification   ###
 #####################################
 
-VERSIONID(`$Revision: 4.1 $')
+VERSIONID(`$Revision: 4.2 $')
 
 ifdef(`_MAILER_smtp_',
 `# FIDOGATE mailer

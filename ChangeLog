@@ -1,3 +1,38 @@
+Sat Sep 28 09:25:28 1996  Martin Junius  <mj@fido.de>
+
+	------- CVS ci -------------------------------------------------------
+
+	* rules.make (%.cf): set confFIDOGATE_LIBDIR macro on command line.
+
+	* sendmail/mailer/ffx.m4, ftn.m4: added confFIDOGATE_LIBDIR macro,
+	  default value /usr/local/lib/fidogate.
+
+	* rules.make: changed .pl and .sh rule to use new subst.pl.
+
+	* scripts/inn/newsfeeds-orodruin: example newsfeeds entry for FIDOGATE.
+
+	* scripts/inn/viaffx.sh: support script for send-ffx.
+
+	* scripts/inn/send-ffx.sh: INN script for processing articles to
+	  be send via FIDOGATE's ffx.
+
+	* scripts/inn/send-fidogate.sh: INN script for processing articles
+	  to FIDOGATE.
+
+	* subst.pl: new substitution script automatically using all macro
+	  setting from config.make which start in the first column.
+
+	* config.make (NEWSETCDIR): added NEWSETCDIR, NEWSVARDIR,
+	  NEWSLIBDIR, NEWSSPOOLDIR. Indented macros not be used by the new
+	  subst.pl by 1 space.
+
+	* scripts/inn/Makefile: new Makefile for inn subdirectory.
+
+	* src/toss/ftnaf.c (cmd_passwd): move authorized=FALSE to start of
+	  function.
+
+	* scripts/Makefile (SUBDIRS): added inn subdirectory.
+
 Fri Sep 27 21:34:30 1996  Martin Junius  <mj@fido.de>
 
 	------- CVS ci -------------------------------------------------------

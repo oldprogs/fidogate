@@ -1,6 +1,6 @@
-#:ts=8
+# -*- Makefile -*-
 #
-# $Id: rules.make,v 4.1 1996/09/22 12:26:44 mj Exp $
+# $Id: rules.make,v 4.2 1996/09/28 08:13:50 mj Exp $
 #
 # Common rules for all FIDOGATE Makefiles
 #
@@ -14,15 +14,15 @@
 	$(CC) $(LFLAGS) $(LOCAL_LFLAGS) -o $* $*.o $(LIBS)
 
 %:		%.pl
-	$(PERL) $(TOPDIR)/mksubst.pl -c$(TOPDIR)/config.make -p$(PERL) $< >$*
+	$(PERL) $(TOPDIR)/subst.pl -c$(TOPDIR)/config.make -p$(PERL) $< >$*
 	chmod +x $*
 
 %:		%.sh
-	$(PERL) $(TOPDIR)/mksubst.pl -c$(TOPDIR)/config.make $< >$*
+	$(PERL) $(TOPDIR)/subst.pl -c$(TOPDIR)/config.make $< >$*
 	chmod +x $*
 
 %.cf:		%.mc
-	$(M4) $< >$*.cf
+	$(M4) -DconfFIDOGATE_LIBDIR=$(LIBDIR) $< >$*.cf
 
 #$(LIB)(%.o):	%.o
 #	$(AR) r $(LIB) $<

@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: ftnaf.c,v 4.6 1996/09/27 19:39:08 mj Exp $
+ * $Id: ftnaf.c,v 4.7 1996/09/28 08:13:54 mj Exp $
  *
  * Areafix-like AREAS.BBS EchoMail distribution manager. Commands somewhat
  * conforming to FSC-0057.
@@ -39,7 +39,7 @@
 
 
 #define PROGRAM		"ftnaf"
-#define VERSION		"$Revision: 4.6 $"
+#define VERSION		"$Revision: 4.7 $"
 #define CONFIG		CONFIG_MAIN
 
 
@@ -933,6 +933,8 @@ int cmd_passwd(Node *node, char *arg)
     Node n;
     Passwd *pwd;
     
+    authorized = FALSE;
+
     p = strtok(arg, " \t");			/* Node address */
     if(!p)
     {
@@ -946,7 +948,6 @@ int cmd_passwd(Node *node, char *arg)
     }
     *node = n;
     cf_set_zone(node->zone);
-    authorized = FALSE;
     
     p = strtok(NULL, " \t");			/* Password */
     if(!p)

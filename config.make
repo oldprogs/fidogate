@@ -1,14 +1,20 @@
-#:ts=8
+# -*- Makefile -*-
 #
-# $Id: config.make,v 4.2 1996/09/22 12:26:44 mj Exp $
+# $Id: config.make,v 4.3 1996/09/28 08:13:50 mj Exp $
 #
 # FIDOGATE Makefile configuration
 #
 
+##############################################################
+# Settings to be used by subst.pl must start in column 1 and #
+# use uppercase A-Z letters!!!                               #
+##############################################################
+
+
 # OS2 = OS/2 with EMX GCC
 
 # OS2: comment out
-SHELL		= /bin/sh
+ SHELL		= /bin/sh
 
 # Directories
 BINDIR		= /usr/local/bin
@@ -22,57 +28,62 @@ INBOUND		= /var/spool/bt/in
 PINBOUND	= /var/spool/bt/pin
 UUINBOUND	= /var/spool/bt/uuin
 
+NEWSETCDIR	= /etc/news
+NEWSVARDIR	= /var/lib/news
+NEWSLIBDIR	= /usr/lib/news
+NEWSSPOOLDIR	= /var/spool/news
+
 # perl
 PERL		= /usr/bin/perl
 
 # m4
-M4		= m4
+ M4		= m4
 
 # owner / group
-OWNER		= news
-GROUP		= news
+ OWNER		= news
+ GROUP		= news
 
 # install permissions
-PERM_PROG	= 755
-PERM_DATA	= 644
-PERM_SETUID	= 4755
-PERM_DIR	= 755
+ PERM_PROG	= 755
+ PERM_DATA	= 644
+ PERM_SETUID	= 4755
+ PERM_DIR	= 755
 
 # C compiler / flags
-CC		= gcc
-#YACC		= yacc					# Use yacc, not bison
-YACC		= bison -y
-AR		= ar
-#RANLIB		= @echo >/dev/null			# No ranlib
-RANLIB		= ranlib
-#RANLIB		= ar s					# OS2
+ CC		= gcc
+# YACC		= yacc					# Use yacc, not bison
+ YACC		= bison -y
+ AR		= ar
+# RANLIB	= @echo >/dev/null			# No ranlib
+ RANLIB		= ranlib
+# RANLIB	= ar s					# OS2
 
-#DEBUG		= -O2
-DEBUG		= -g
+# DEBUG		= -O2
+ DEBUG		= -g
 
-INCLUDE		= -I$(TOPDIR) -I$(TOPDIR)/src/include
+ INCLUDE	= -I$(TOPDIR) -I$(TOPDIR)/src/include
 
 # ISC 3.x
-#CFLAGS		= $(DEBUG) $(INCLUDE) -Wall -posix -DISC
+# CFLAGS	= $(DEBUG) $(INCLUDE) -Wall -posix -DISC
 # OS2			   
-#CFLAGS		= $(DEBUG) $(INCLUDE) -Wall -DOS2
-CFLAGS		= $(DEBUG) $(INCLUDE) -Wall
+# CFLAGS	= $(DEBUG) $(INCLUDE) -Wall -DOS2
+ CFLAGS		= $(DEBUG) $(INCLUDE) -Wall
 
 # OS2
-#LFLAGS		= -Zexe $(DEBUG) -L$(TOPDIR)/src/common
-LFLAGS		= $(DEBUG) -L$(TOPDIR)/src/common
+# LFLAGS	= -Zexe $(DEBUG) -L$(TOPDIR)/src/common
+ LFLAGS		= $(DEBUG) -L$(TOPDIR)/src/common
 
 # ISC 3.x
-#LIBS		= -lfidogate -linet -lPW -lcposix
-LIBS		= -lfidogate
+# LIBS		= -lfidogate -linet -lPW -lcposix
+ LIBS		= -lfidogate
 
 # installation program
 # ISC 3.x: use bsdinst
-INSTALL_PROG	= install -g $(GROUP) -o $(OWNER) -m $(PERM_PROG)
-INSTALL_DATA	= install -g $(GROUP) -o $(OWNER) -m $(PERM_DATA)
-INSTALL_SETUID	= install -g $(GROUP) -o $(OWNER) -m $(PERM_SETUID)
-INSTALL_DIR	= install -g $(GROUP) -o $(OWNER) -m $(PERM_DIR) -d
+ INSTALL_PROG	= install -g $(GROUP) -o $(OWNER) -m $(PERM_PROG)
+ INSTALL_DATA	= install -g $(GROUP) -o $(OWNER) -m $(PERM_DATA)
+ INSTALL_SETUID	= install -g $(GROUP) -o $(OWNER) -m $(PERM_SETUID)
+ INSTALL_DIR	= install -g $(GROUP) -o $(OWNER) -m $(PERM_DIR) -d
 
 # library name
-#LIB		= fidogate.a			# OS2
-LIB		= libfidogate.a
+# LIB		= fidogate.a			# OS2
+ LIB		= libfidogate.a
