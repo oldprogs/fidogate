@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: areasbbs.c,v 4.5 1997/05/14 18:07:20 mj Exp $
+ * $Id: areasbbs.c,v 4.6 1997/08/17 13:13:18 mj Exp $
  *
  * Function for processing AREAS.BBS EchoMail distribution file.
  *
@@ -225,4 +225,19 @@ AreasBBS *areasbbs_lookup(char *area)
     }
     
     return NULL;
+}
+
+
+
+/*
+ * Add areas.bbs entry
+ */
+void areasbbs_add(AreasBBS *p)
+{
+    /* Put into linked list */
+    if(areasbbs_list)
+	areasbbs_last->next = p;
+    else
+	areasbbs_list       = p;
+    areasbbs_last       = p;
 }

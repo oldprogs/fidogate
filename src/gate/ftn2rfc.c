@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftn2rfc.c,v 4.25 1997/08/10 18:01:57 mj Exp $
+ * $Id: ftn2rfc.c,v 4.26 1997/08/17 13:13:19 mj Exp $
  *
  * Convert FTN mail packets to RFC mail and news batches
  *
@@ -40,7 +40,7 @@
 
 
 #define PROGRAM 	"ftn2rfc"
-#define VERSION 	"$Revision: 4.25 $"
+#define VERSION 	"$Revision: 4.26 $"
 #define CONFIG		CONFIG_GATE
 
 
@@ -1108,7 +1108,7 @@ int rename_bad(char *name)
 	len = 0;
     strcpy(bad + len, ".bad");
     
-    log("ERROR: bad packet renamed %s", bad);
+    log("ERROR: bad packet renamed to %s", bad);
     if(rename(name, bad) == ERROR)
     {
 	log("$ERROR: can't rename %s -> %s", name, bad);

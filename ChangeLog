@@ -1,3 +1,48 @@
+Sun Aug 17 11:26:47 1997  Martin Junius  <mj@fido.de>
+
+	------- CVS ci -------------------------------------------------------
+
+	* src/include/structs.h (AREASBBS_READONLY): new #define for
+	  read-only areas.
+
+	* src/common/areasbbs.c (areasbbs_add): new function adding entry
+	  to areas.bbs list in memory.
+
+	* src/toss/ftnaf.c (main): init output for command line operation.
+
+	* test/tc.af/run: added test for create, vacation commands.
+
+	* src/toss/ftnaf.c (main): authorized_create is TRUE when called
+	  from command line.
+	  (main): use BUF_APPEND().
+	  (cmd_help): updated help text.
+	  (CMD_CREATE): new command.
+	  (CMD_VACATION): new command.
+	  (do_command): implemented create, vacation commands.
+	  (cmd_vacation): new function implementing vacation command.
+	  (cmd_create): new function implementing create command.
+
+	* src/gate/rfc2ftn.c (snd_mail): mime_deheader() subj before
+	  calling snd_message().
+
+	* test/tc.gate7/run: added test with MIME umlauts in Subject.
+
+	* src/toss/ftntoss.c (rename_bad): changed log() message.
+
+	* src/gate/ftn2rfc.c (rename_bad): changed log() message.
+
+	* src/gate/ftninpost.pl: improved post processing script, now
+	  passing command line options as an array to system, avoiding
+	  potential problems with shell meta characters (and improving
+	  security of course).
+
+Thu Aug 14 21:50:49 1997  Martin Junius  <mj@fido.de>
+
+	* test/tc.tick/run: added new test5.tic (Desc empty).
+
+	* src/tick/ftntick.c (add_files_bbs): check that tic->desc isn't
+	  empty. 
+
 Wed Aug 13 19:23:47 1997  Martin Junius  <mj@fido.de>
 
 	------- CVS ci -------------------------------------------------------

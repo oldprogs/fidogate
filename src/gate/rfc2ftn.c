@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway software UNIX <-> FIDO
  *
- * $Id: rfc2ftn.c,v 4.27 1997/06/28 16:26:35 mj Exp $
+ * $Id: rfc2ftn.c,v 4.28 1997/08/17 13:13:20 mj Exp $
  *
  * Read mail or news from standard input and convert it to a FIDO packet.
  *
@@ -39,7 +39,7 @@
 
 
 #define PROGRAM 	"rfc2ftn"
-#define VERSION 	"$Revision: 4.27 $"
+#define VERSION 	"$Revision: 4.28 $"
 #define CONFIG		CONFIG_GATE
 
 
@@ -752,7 +752,8 @@ int snd_mail(RFCAddr rfc_to, long size)
     char groups[BUFSIZ];
     Node node_from, node_to;
     RFCAddr rfc_from;
-    char *p, *subj;
+    char *p;
+    char subj[MSG_MAXSUBJ];
     int status, fido;
     Message msg;
     char *flags = NULL;
@@ -800,9 +801,12 @@ int snd_mail(RFCAddr rfc_to, long size)
     /*
      * Subject
      */
-    subj = header_get("Subject");
-    if(!subj)
-	subj = "(no subject)";
+    if( (p = header_get("Subject")) )
+    {
+	mime_deheader(subj, MSG_MAXSUBJ, p, 0);
+    }
+    else
+	BUF_COPY(subj, "(no subject)");
 
     /*
      * Date

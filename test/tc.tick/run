@@ -15,6 +15,9 @@ mkdir tmp_in tmp_old
 cp testfile.txt test1.tic pin
 $T -b fareasin.bbs -I ./pin -t
 
+cp testfile.txt test5.tic pin
+$T -b fareasin.bbs -I ./pin -t
+
 mv tmp_in/testfile.txt tmp_in/testold.txt
 cp testfile.txt test2.tic pin
 $T -b fareasin.bbs -I ./pin -t

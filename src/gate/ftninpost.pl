@@ -1,6 +1,6 @@
-#!/usr/local/bin/perl
+#!/usr/bin/perl
 #
-# $Id: ftninpost.pl,v 4.4 1997/08/10 17:34:24 mj Exp $
+# $Id: ftninpost.pl,v 4.5 1997/08/17 13:13:19 mj Exp $
 #
 # Postprocessor for ftnin, feeds output of ftn2rfc to rnews and sendmail.
 # Call via ftnin's -x option or run after ftn2rfc. Replaces old fidorun
@@ -51,6 +51,21 @@ print
     "recombine = $RECOMB\n"
     if($opt_v);
 
+# command lists
+@sendmail = split(' ', $SENDMAIL);
+@rnews    = split(' ', $RNEWS);
+# remove -f%s option from sendmail command if present
+# (compatibility with old configurations)
+$fidx = -1;
+for($i=0; $i<=$#sendmail; $i++) {
+    $fidx = $i if($sendmail[$i] eq "-f%s");
+}
+if($fidx > -1) {
+    splice(@sendmail, $fidx, 1);
+    print "sendmail  = @sendmail\n" if($opt_v);
+}
+
+
 
 # ----- main -----------------------------------------------------------------
 
@@ -67,7 +82,7 @@ opendir(DIR, "$dir") || die "ftninpost: can't open $dir\n";
 closedir(DIR);
 
 for $f (sort @files) {
-    &do_file($dir, $f);
+    &do_file(1, "$dir/$f");
 }
 
 # news
@@ -78,7 +93,7 @@ opendir(DIR, "$dir") || die "ftninpost: can't open $dir\n";
 closedir(DIR);
 
 for $f (sort @files) {
-    &do_file($dir, $f);
+    &do_file(0, "$dir/$f");
 }
 
 
@@ -86,29 +101,40 @@ for $f (sort @files) {
 # ----- do_file() - process mail message or news batch -----------------------
 
 sub do_file {
-    local($dir, $f) = @_;
-    local($file)    = "$dir/$f";
-    local($bad)     = "$INDIR/bad/$f";
+    local($mail, $file) = @_;
+    local($ret);
 
-    $from = &get_sender($file);
-    if($from eq "::NEWS::") {
-	$cmd = "$RNEWS <$file";
+    if($mail) {
+	# Mail
+	@cmd = @sendmail;
+	$from = &get_sender($file);
+	push(@cmd, "-f$from") if($from);
     }
     else {
-	$cmd = sprintf("$SENDMAIL <$file", $from);
+	# News
+	@cmd = @rnews;
     }
 
-    print "CMD: $cmd\n" if($opt_v);
+    print "CMD: @cmd\n" if($opt_v);
 
-    if(&do_cmd($cmd) == 0) {
+    # Save STDIN, open $file as new STDIN
+    open(SAVE, "<&STDIN") || die "ftninpost: can't save STDIN\n";
+    open(STDIN, "$file") || die "ftninpost: can't open STDIN with $file\n";
+
+    # Run
+    $ret = system(@cmd) >> 8;
+
+    # Restore STDIN
+    close(STDIN);
+    open(STDIN, "<&SAVE") || die "ftninpost: can't restore STDIN\n";
+
+    if($ret == 0) {
 	print "SUCCESS\n" if($opt_v);
-	unlink($file) ||
-	    print STDERR "ftninpost: can't unlink $file\n";
+	unlink($file) || die "ftninpost: can't unlink $file\n";
     }
     else {
 	print "ERROR\n" if($opt_v);
-	rename($file, $bad) ||
-	    print STDERR "ftninpost: can't move $file -> $bad\n";
+	rename($file, $bad) || die "ftninpost: can't move $file -> $bad\n";
     }
 }
 
@@ -124,19 +150,9 @@ sub get_sender {
     close(FILE);
 
     if( /^From ([^ ]+) / ) {
-	return "$1";
+	return $1;
     }
     else {
-	return "::NEWS::";
+	return "";
     }
-}
-
-    
-
-# ----- do_cmd() - exec command ----------------------------------------------
-
-sub do_cmd {
-    local($cmd) = @_;
-
-    return system($cmd) >> 8;
 }

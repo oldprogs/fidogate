@@ -164,6 +164,21 @@ From: kris@schulung.netuse.de (=?ISO-8859-1?Q?Kristian K=F6hntopp?=)
 TEST ;-)
 EOF
 
+$T test_user@f123.n2499.z2.fidonet.org <<EOF
+Date: Sun, 17 Aug 1997 13:56:56 +0200 (MET DST)
+From: Martin Junius <mj@orodruin.fido.de>
+To: Martin Junius <mj@orodruin.fido.de>
+Subject: Test tc.gate7 / 00000019: =?iso-8859-1?Q?Umlaute_=F6=E4=FC=DF=D6=C4=DC_im_Subject?=
+Message-ID: <Pine.LNX.3.95.970817135631.1113F-100000@orodruin.fido.de>
+MIME-Version: 1.0
+Content-Type: TEXT/PLAIN; charset=iso-8859-1
+Content-Transfer-Encoding: 8bit
+
+TEST
+
+öäüßÖÄÜ
+EOF
+
 
 
 ##### Mit Gateway 242:4900/99 ################################################
@@ -172,40 +187,26 @@ EOF
 
 $TC -n <<EOF
 Newsgroups: test
-Subject: Test tc.gate7 / 00000019
-From: abc@f678.n9999.z242.fido.de (Test User X)
-X-Comment-To: test_user@f123.n2499.z2.fidonet.org
-
-TEST ;-)
-
-From: abc@f678.n9999.z242.fido.de (Test User X)
-X-Comment-To: test_user@f123.n2499.z2.fidonet.org
-EOF
-
-$TC -n <<EOF
-Newsgroups: test
 Subject: Test tc.gate7 / 00000020
 From: abc@f678.n9999.z242.fido.de (Test User X)
-X-Comment-To: test_user
+X-Comment-To: test_user@f123.n2499.z2.fidonet.org
 
 TEST ;-)
 
 From: abc@f678.n9999.z242.fido.de (Test User X)
-X-Comment-To: test_user
+X-Comment-To: test_user@f123.n2499.z2.fidonet.org
 EOF
 
 $TC -n <<EOF
 Newsgroups: test
 Subject: Test tc.gate7 / 00000021
 From: abc@f678.n9999.z242.fido.de (Test User X)
-Reply-To: abc@f678.n9999.z242.fido.de
-X-Comment-To: Hans Test User
+X-Comment-To: test_user
 
 TEST ;-)
 
 From: abc@f678.n9999.z242.fido.de (Test User X)
-Reply-To: abc@f678.n9999.z242.fido.de
-X-Comment-To: Hans Test User
+X-Comment-To: test_user
 EOF
 
 $TC -n <<EOF
@@ -213,6 +214,20 @@ Newsgroups: test
 Subject: Test tc.gate7 / 00000022
 From: abc@f678.n9999.z242.fido.de (Test User X)
 Reply-To: abc@f678.n9999.z242.fido.de
+X-Comment-To: Hans Test User
+
+TEST ;-)
+
+From: abc@f678.n9999.z242.fido.de (Test User X)
+Reply-To: abc@f678.n9999.z242.fido.de
+X-Comment-To: Hans Test User
+EOF
+
+$TC -n <<EOF
+Newsgroups: test
+Subject: Test tc.gate7 / 00000023
+From: abc@f678.n9999.z242.fido.de (Test User X)
+Reply-To: abc@f678.n9999.z242.fido.de
 X-Comment-To: test@p1.f2.n3.z4.fidonet.org (Hans Test User)
 
 TEST ;-)
@@ -224,7 +239,7 @@ EOF
 
 $TC -n <<EOF
 Newsgroups: test
-Subject: Test tc.gate7 / 00000023
+Subject: Test tc.gate7 / 00000024
 From: abc@f678.n9999.z242.fido.de (Test User X)
 X-Comment-To: (Test User X)
 

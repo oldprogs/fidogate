@@ -2,6 +2,13 @@
 
 X = for next release
 
+	* ftnaf: check problem with WIN32.
+	
+DONE	* ftnaf: create command.
+
+	* rfc2ftn: configuration option, use only From header for Fido
+	  from field, not Reply-To.
+
 	* doc: add include command for all config file.
 
 	* doc: add hints for setting up packing config files, in
@@ -23,11 +30,11 @@ X = for next release
 
 	* ftn2rfc: ^ARFC-<mime> import.
 
-DONE.	* ftn2rfc: gateway check, log area.
+DONE	* ftn2rfc: gateway check, log area.
 
 	* ftn2rfc/rfc2ftn: MAIL-log messages configurable.
 
-DONE.	* ftn2rfc: create single news message (not a news batch),
+DONE	* ftn2rfc: create single news message (not a news batch),
 	  suitable for e.g. innxmit.
 
 4.3.x	* config: move config files to /etc/fidogate, %C for config dir.
@@ -41,7 +48,7 @@ DONE.	* ftn2rfc: create single news message (not a news batch),
 	* ftntoss: remove duplicate addresses from SEEN-BY
 	  (postprocessing for PASSTHRU_ECHOMAIL).
 
-	* rfc2ftn: mime_deheader() for all header lines?
+DONE	* rfc2ftn: mime_deheader() for all header.
 
 	* ftn2rfc: allow Newsgroups, Followup-To: header.
 
@@ -52,7 +59,7 @@ DONE.	* ftn2rfc: create single news message (not a news batch),
 	  RFC_LVL_1_HEADERS, and text headers put into FTN message by
 	  rfc2ftn.
 
-	* areas.bbs: read-only/vacation flag for downlinks,
+STARTED	* areas.bbs: read-only/vacation flag for downlinks,
 	  e.g. Z:N/F.P=flags 
 	  ftnaf: commands for vacation flag.
 
@@ -84,9 +91,9 @@ DONE.	* ftn2rfc: create single news message (not a news batch),
 	  if area is subscribed by any downlink and send add/del
 	  request to uplink.
 
-STARTED.* Replace calls to strncpy0/strncat0 with str_copy/str_append.
+STARTED * Replace calls to strncpy0/strncat0 with str_copy/str_append.
 
-DONE.	* "include" for reading routing/packing config file.
+DONE	* "include" for reading routing/packing config file.
 
 	* Generic alias matching: name@Z:N/F.P <-> user@do.main (Name),
 	  recipient *and* sender
@@ -141,7 +148,7 @@ DONE.	* "include" for reading routing/packing config file.
 	* X-Gateway / ^AGATEWAY processing.
 
 MOSTLY	* ftnpack: better file attach processing, -F DIR option. Don't
-DONE.	  copy netmail packets (do_noarc()), use rename(). If archiver
+DONE	  copy netmail packets (do_noarc()), use rename(). If archiver
 	  fails, move packets back to toss/out directory.
 
 	* Check packet passwords of incoming packets.

@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftntoss.c,v 4.19 1997/08/03 13:29:47 mj Exp $
+ * $Id: ftntoss.c,v 4.20 1997/08/17 13:13:22 mj Exp $
  *
  * Toss FTN NetMail/EchoMail
  *
@@ -39,7 +39,7 @@
 
 
 #define PROGRAM 	"ftntoss"
-#define VERSION 	"$Revision: 4.19 $"
+#define VERSION 	"$Revision: 4.20 $"
 #define CONFIG		CONFIG_MAIN
 
 
@@ -1266,7 +1266,7 @@ int rename_bad(char *name)
 	len = 0;
     strcpy(bad + len, ".bad");
     
-    log("ERROR: bad packet renamed %s", bad);
+    log("ERROR: bad packet renamed to %s", bad);
     if(rename(name, bad) == ERROR)
     {
 	log("$ERROR: can't rename %s -> %s", name, bad);

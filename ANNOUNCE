@@ -55,6 +55,15 @@ renamed to SPOOLDIR/in/tmpmail and SPOOLDIR/in/tmpnews.
 * aliases/areas/hosts/routing/packing/passwd config files support a
   new "include FILE" command.
 
+* ftntick: bugfix for empty Desc(ription) line.
+
+* ftnaf: bugfix for command line mode, added create command (currently
+  command line only), stub for vacation command.
+
+* ftninpost: improved version.
+
+* rfc2ftn: MIME quoted-printable in Subject is converted to 8bit.
+
 
 
 Changes in 4.2.5:
@@ -142,6 +151,6 @@ End
 
 ======================================================================
 
-$Date: 1997/08/13 19:11:22 $
+$Date: 1997/08/17 13:13:13 $
 Martin Junius
 mailto:mj@fido.de

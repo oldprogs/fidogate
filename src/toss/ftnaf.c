@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: ftnaf.c,v 4.11 1997/06/28 16:26:36 mj Exp $
+ * $Id: ftnaf.c,v 4.12 1997/08/17 13:13:22 mj Exp $
  *
  * Areafix-like AREAS.BBS EchoMail distribution manager. Commands somewhat
  * conforming to FSC-0057.
@@ -39,7 +39,7 @@
 
 
 #define PROGRAM		"ftnaf"
-#define VERSION		"$Revision: 4.11 $"
+#define VERSION		"$Revision: 4.12 $"
 #define CONFIG		CONFIG_MAIN
 
 
@@ -75,6 +75,8 @@ int     mailer_close		(FILE *);
 int	rewrite_areas_bbs	(void);
 int	do_mail			(void);
 int	do_command		(Node *, char *);
+int	cmd_create		(Node *, char *);
+int	cmd_vacation		(Node *, char *);
 int	cmd_list		(Node *);
 int	cmd_listall		(Node *);
 int	cmd_query		(Node *);
@@ -109,6 +111,7 @@ static int   authorized_lvl 	= 1;
 static char *authorized_key 	= "";
 static char *authorized_name    = "Sysop";
 static int   authorized_cmdline = FALSE;
+static int   authorized_create  = FALSE;
 
 static FILE *output = NULL;
 
@@ -450,6 +453,8 @@ Additional help on the usage of %s may be requested with the HELP command.\n",
 #define CMD_HELP	6
 #define CMD_PASSWD	7
 #define CMD_LISTALL     8
+#define CMD_CREATE	9
+#define CMD_VACATION	10
 
 int do_command(Node *node, char *line)
 {
@@ -505,6 +510,10 @@ int do_command(Node *node, char *line)
 	    cmd = CMD_PASSWD;
 	else if(!stricmp(buf, "listall"))
 	    cmd = CMD_LISTALL;
+	else if(!stricmp(buf, "create"))
+	    cmd = CMD_CREATE;
+	else if(!stricmp(buf, "vacation"))
+	    cmd = CMD_VACATION;
 	else
 	{
 	    if(percent)
@@ -551,9 +560,118 @@ int do_command(Node *node, char *line)
     case CMD_LISTALL:
 	ret = cmd_listall(node);
 	break;
+    case CMD_CREATE:
+	ret = cmd_create(node, arg);
+	break;
+    case CMD_VACATION:
+	ret = cmd_vacation(node, arg);
+	break;
     }	
     
     return ret;
+}
+
+
+
+/*
+ * Create command
+ */
+int cmd_create(Node *node, char *line)
+{
+    AreasBBS *p;
+    char *name, *o1, *o2;
+
+    if(!authorized_create)
+    {
+	fprintf(output, "Command CREATE: not authorized.\n");
+	return OK;
+    }
+
+    name = strtok(line, " \t");
+
+    if( (p = areasbbs_lookup(name)) )
+    {
+	fprintf(output, "%s: area already exists, can't create a new one\n",
+		name);
+	return OK;
+    }
+
+    /* Create new areas.bbs entry */
+    p = (AreasBBS *)xmalloc(sizeof(AreasBBS));
+    
+    p->next  = NULL;
+    p->flags = 0;
+    p->dir   = "-";
+    p->area  = strsave(name);
+    p->zone  = node->zone;
+    node_invalid(&p->addr);
+    p->lvl   = -1;
+    p->key   = NULL;
+    
+    /* Parse options:
+     *
+     *     -#            passthru
+     *     -p            passthru
+     *     -r            read-only
+     *     -l LVL        Areafix access level
+     *     -k KEY        Areafix access key   */
+    while( (o1 = strtok(NULL, " \t")) )
+    {
+	if(streq(o1, "-#") || streq(o1, "-p"))		/* -# */
+	    p->flags |= AREASBBS_PASSTHRU;
+	    
+	if(streq(o1, "-r"))				/* -r */
+	    p->flags |= AREASBBS_READONLY;
+	    
+	if(streq(o1, "-l"))				/* -l LVL */
+	{
+	    if(! (o2 = strtok(NULL, " \t")) )
+		break;
+	    p->lvl = atoi(o2);
+	}
+	
+	if(streq(o1, "-k"))				/* -k KEY */
+	{
+	    if(! (o2 = strtok(NULL, " \t")) )
+		break;
+	    p->key = strsave(o2);
+	}
+    }	
+    
+    lon_init(&p->nodes);
+    lon_add(&p->nodes, node);
+
+    areasbbs_add(p);
+
+    log("%s: created %s lvl=%d key=%s%s%s",
+	node_to_asc(node, TRUE),
+	p->area,
+	p->lvl,
+	p->key ? p->key : "",
+	p->flags & AREASBBS_PASSTHRU ? " passthru" : "",
+	p->flags & AREASBBS_READONLY ? " ro" : "");
+
+    areas_bbs_changed = TRUE;
+
+    return OK;
+}
+
+
+
+/*
+ * Vacation command
+ */
+int cmd_vacation(Node *node, char *area)
+{
+    if(!authorized)
+    {
+	fprintf(output, "Command VACATION: not authorized.\n");
+	return OK;
+    }
+
+    fprintf(output, "Command VACATION: sorry, not yet implemented.\n");
+
+    return OK;
 }
 
 
@@ -885,6 +1003,8 @@ Commands in message body:\n\
     delete AREA\n\
     del AREA\n\
     -AREA\n\
+    vacation AREA                set vacation flag for area\n\
+    create AREA [-options]       create new area\n\
     help                         this help\n\
 \n\
 AREA names are not case-sensitive and support shell-style wildcards\n\
@@ -1181,7 +1301,7 @@ int main(int argc, char **argv)
 	/*
 	 * Execute command, always authorized if command line
 	 */
-	authorized = authorized_cmdline = TRUE;
+	authorized = authorized_cmdline = authorized_create = TRUE;
 	
 	if(areasbbs_init(areas_bbs) == ERROR)
 	    exit(EX_OSFILE);
@@ -1190,11 +1310,12 @@ int main(int argc, char **argv)
 	buffer[0] = 0;
 	for(; optind<argc; optind++)
 	{
-	    strncat0(buffer, argv[optind], sizeof(buffer));
+	    BUF_APPEND(buffer, argv[optind]);
 	    if(optind < argc-1)
-		strncat0(buffer, " ", sizeof(buffer));
+		BUF_APPEND(buffer, " ");
 	}
-
+	
+	output = stdout;
 	if(do_command(&node, buffer) == ERROR)
 	    ret = 1;
 	if(ret == 0)

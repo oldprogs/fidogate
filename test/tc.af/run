@@ -7,24 +7,32 @@ T="../../src/toss/ftnaf -L../cf -S."
 echo "tc: running"
 
 # command line
-$T -v -b areas.bbs 2:2452/110.90 query
-$T -v -b areas.bbs 2:2452/110.90 list
-$T -v -b areas.bbs 2:2452/110.90 listall
+$T -v -b areas.bbs -- 2:2452/110.90 query
+$T -v -b areas.bbs -- 2:2452/110.90 list
+$T -v -b areas.bbs -- 2:2452/110.90 listall
 
 cp areas.bbs tmp_areas.bbs
 
-$T -v -b tmp_areas.bbs 2:2452/110.1 add linux.ger
-$T -v -b tmp_areas.bbs 2:2452/110.1 add tolkien.ger
-$T -v -b tmp_areas.bbs 2:2452/110.1 add xx
-$T -v -b tmp_areas.bbs 2:2452/110.1 add yy
-$T -v -b tmp_areas.bbs 99:2452/110.1 add zz
+$T -v -b tmp_areas.bbs -- 2:2452/110.1 add linux.ger
+$T -v -b tmp_areas.bbs -- 2:2452/110.1 add tolkien.ger
+$T -v -b tmp_areas.bbs -- 2:2452/110.1 add xx
+$T -v -b tmp_areas.bbs -- 2:2452/110.1 add yy
+$T -v -b tmp_areas.bbs -- 99:2452/110.1 add zz
 
-$T -v -b tmp_areas.bbs 2:2452/110.1 add UNKNOWN.GER
+$T -v -b tmp_areas.bbs -- 2:2452/110.1 add UNKNOWN.GER
 #$T -v -b tmp_areas.bbs -x./unknown 2:2452/110.1 add UNKNOWN.GER
 
-$T -v -b tmp_areas.bbs 2:99/99 del test1
-$T -v -b tmp_areas.bbs 2:99/99 del test2
-$T -v -b tmp_areas.bbs 2:99/99 del test2
+$T -v -b tmp_areas.bbs -- 2:99/99 del test1
+$T -v -b tmp_areas.bbs -- 2:99/99 del test2
+$T -v -b tmp_areas.bbs -- 2:99/99 del test2
+
+$T -v -b tmp_areas.bbs -- 2:99/99 create LINUX.GER
+$T -v -b tmp_areas.bbs -- 2:99/99 create LINUX.GER -#
+$T -v -b tmp_areas.bbs -- 2:99/99 create AREA.NEW
+$T -v -b tmp_areas.bbs -- 2:99/99 create AREA.NEW -#
+$T -v -b tmp_areas.bbs -- 2:99/99 create AREA.NEW1 -p -r
+$T -v -b tmp_areas.bbs -- 2:99/99 create AREA.NEWER -p -l 10
+$T -v -b tmp_areas.bbs -- 2:99/99 create AREA.NEWEST -l 5 -k abcxyz
 
 
 # mail interface
@@ -38,6 +46,7 @@ add TEST2
 list
 query
 unlinked
+create NEW
 EOF
 
 $T -m -r -n -v -b tmp_areas.bbs <<EOF
@@ -45,6 +54,7 @@ From: Sysop@f5678.n1234.z2.fidonet.org
 X-FTN-From: Sysop @ 2:1234/5678
 Subject: WUSEL
 
+vacation *.ger
 -TEST1
 -TEST2
 EOF
