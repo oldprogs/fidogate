@@ -1,4 +1,33 @@
+Sun Jun  1 18:04:04 1997  Martin Junius  <mj@fido.de>
+
+	------- CVS ci -------------------------------------------------------
+
+	* version.h (PATCHLEVEL): set to 4 (version 4.2.4).
+
+	* ANNOUNCE: updated.
+
+	* config.make: added CFLAGS, LFLAGS for NextStep.
+
+	* src/common/rfcheader.c (header_hops): if RECEIVED_BY_MAILER is
+	  defined, ignore those Received lines while counting.
+
+	* config.h (DO_HAVE_SYSEXISTS_H): fixed silly spellung mistuk.
+	  (__Next__): added port to NextStep 3.3 contributed by
+	  <Holger_Graudejus@p17.f6666.n245.z2.fidonet.org>.
+	  (RECEIVED_BY_MAILER): new #define used by header_hops().
+
+Sun May 18 21:05:57 1997  Martin Junius  <mj@fido.de>
+
+	* test/tc.gatenode/config.gate: special for test case.
+
+	* test/tc.gatenode/run: new test case, tosser and gateway under
+	  the same *node* address.
+
 Wed May 14 19:59:28 1997  Martin Junius  <mj@fido.de>
+
+	* fidogate.lsm: some corrections.
+
+	* ANNOUNCE: some corrections.
 
 	======= Release 4.2.3 ================================================
 	------- CVS ci, tag R423 ---------------------------------------------

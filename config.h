@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway software UNIX <-> FIDO
  *
- * $Id: config.h,v 4.19 1997/05/10 20:40:17 mj Exp $
+ * $Id: config.h,v 4.20 1997/06/01 16:21:53 mj Exp $
  *
  * Configuration header file
  *
@@ -115,7 +115,7 @@
  *
  *   DO_HAVE_TM_GMTOFF		Does your (struct tm) have a tm_gmtoff field?
  *
- *   DO_HAVE_SYSEXITS_H         Do you have sysexists.h?
+ *   DO_HAVE_SYSEXITS_H         Do you have sysexits.h?
  *
  *
  * Define only one of DO_HAVE_TM_ZONE, DO_HAVE_STRFTIME, DO_HAVE_TZNAME!!!
@@ -135,12 +135,18 @@
  *
  *
  *   DO_BINARY			Open files in binary mode
+ *
+ *
+ *   RECEIVED_BY_MAILER "Received: by NeXT.Mailer"
+ *				Define this if your mail system allways
+ *				generates something like
+ *				"Received: by NeXT.Mailer"
  */
 
 #ifdef __sun__				/* SUNOS 4.1.x, GNU gcc */
 # define DO_HAVE_GETTIMEOFDAY
 # define DO_HAVE_TM_GMTOFF
-# define DO_HAVE_SYSEXISTS_H
+# define DO_HAVE_SYSEXITS_H
 # undef  DO_HAVE_TM_ZONE
 # define DO_HAVE_STRFTIME
 # undef  DO_HAVE_TZNAME
@@ -152,7 +158,7 @@
 #ifdef __linux__			/* LINUX LIBC 5.x.x, GNU gcc */
 # define DO_HAVE_GETTIMEOFDAY
 # undef  DO_HAVE_TM_GMTOFF
-# define DO_HAVE_SYSEXISTS_H
+# define DO_HAVE_SYSEXITS_H
 # undef  DO_HAVE_TM_ZONE
 # define DO_HAVE_STRFTIME
 # undef  DO_HAVE_TZNAME
@@ -164,6 +170,7 @@
 #ifdef __FreeBSD__			/* FreeBSD 2.1.6., GNU gcc */
 # define DO_HAVE_GETTIMEOFDAY
 # define DO_HAVE_TM_GMTOFF
+# define DO_HAVE_SYSEXITS_H
 # define DO_HAVE_TM_ZONE
 # define DO_HAVE_STRFTIME
 # undef  DO_HAVE_TZNAME
@@ -175,7 +182,7 @@
 #ifdef ISC				/* ISC 3.x, GNU gcc, -DISC necessary */
 # define DO_HAVE_GETTIMEOFDAY
 # undef  DO_HAVE_TM_GMTOFF
-# undef  DO_HAVE_SYSEXISTS_H		/* ? */
+# undef  DO_HAVE_SYSEXITS_H		/* ? */
 # undef  DO_HAVE_TM_ZONE
 # undef  DO_HAVE_STRFTIME
 # define DO_HAVE_TZNAME
@@ -186,7 +193,7 @@
 
 #ifdef MSDOS				/* MSDOS, DJGPP GNU gcc */
 # define DO_HAVE_TM_GMTOFF
-# undef  DO_HAVE_SYSEXISTS_H		/* ? */
+# undef  DO_HAVE_SYSEXITS_H		/* ? */
 # undef  DO_HAVE_TM_ZONE
 # define DO_HAVE_GETTIMEOFDAY
 # define DO_HAVE_STRFTIME
@@ -201,7 +208,7 @@
 # endif
 #endif
 #ifdef OS2
-# undef  DO_HAVE_SYSEXISTS_H		/* ? */
+# undef  DO_HAVE_SYSEXITS_H		/* ? */
 # define DO_HAVE_GETTIMEOFDAY
 # define DO_HAVE_STRFTIME
 # undef  DO_HAVE_STRCASECMP
@@ -209,6 +216,18 @@
 # define DO_BINARY
 #endif
 
+#ifdef __NeXT__                         /* NEXTSTEP 3.3 (Intel only?) */
+# define DO_HAVE_GETTIMEOFDAY
+# define DO_HAVE_TM_GMTOFF
+# define DO_HAVE_SYSEXITS_H
+# define DO_HAVE_TM_ZONE
+# define DO_HAVE_STRFTIME
+# define DO_HAVE_TZNAME
+# undef  DO_HAVE_STRCASECMP
+# undef  DO_HAVE_STRICMP
+# undef  DO_BINARY
+# define RECEIVED_BY_MAILER "Received: by NeXT.Mailer"
+#endif /* __NeXT__ */
 
 /***** End of configuration *************************************************/
 

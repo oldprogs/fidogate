@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: rfcheader.c,v 4.3 1996/12/17 17:19:47 mj Exp $
+ * $Id: rfcheader.c,v 4.4 1997/06/01 16:22:05 mj Exp $
  *
  * Functions to process RFC822 header lines from messages
  *
@@ -143,8 +143,14 @@ int header_hops(void)
     hops = 0;
     
     for(p=header.first; p; p=p->next)
+    {
+#ifdef RECEIVED_BY_MAILER
+	if(!strnicmp(p->line, RECEIVED_BY_MAILER, strlen(RECEIVED_BY_MAILER)))
+	    continue;
+#endif
 	if(!strnicmp(p->line, name, len) && p->line[len]==':')
 	    hops++;
+    }
 
     return hops;
 }

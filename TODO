@@ -5,7 +5,7 @@ X = for next release
 
 	* rfc2ftn: BOUNCE log() with cause.
 
-!!!	* ftntick: ignore case in TIC area names.
+DONE.	* ftntick: ignore case in TIC area names.
 
 	* config: run-time configuration for FTN_RFC_HEADERS,
 	  RFC_LVL_1_HEADERS, and text headers put into FTN message by

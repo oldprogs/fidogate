@@ -1,7 +1,7 @@
-Subject: FIDOGATE 4.2.3 --- Fido-Internet Gateway and Tosser
+Subject: FIDOGATE 4.2.4 --- Fido-Internet Gateway and Tosser
 Keywords: fido ftn netmail echomail tosser areafix mail news gateway
 
-FIDOGATE 4.2.3, an update to version 4 of the FIDOGATE package is
+FIDOGATE 4.2.4, an update to version 4 of the FIDOGATE package is
 available.
 
 			   FIDOGATE Version 4
@@ -24,19 +24,27 @@ Internet:
     http://sunsite.unc.edu/pub/Linux/system/Fido/
     (probably still in .../pub/Linux/Incoming)
 
-    fidogate-4.2.3.tar.gz	740 Kbyte
+    fidogate-4.2.4.tar.gz	744 Kbyte
 
 Fido File Request:
 ==================
     2:2452/110, 111  +49-241-876604  (V.34, ISDN V.110/X.75)
     
-    fgate422.tgz		740 Kbyte
+    fgate424.tgz		744 Kbyte
 
 
 
 ======================================================================
 
-Changes in 4.2.3:
+Changes in 4.2.4:
+
+* Port to NextStep 3.3 contributed by
+  <Holger_Graudejus@p17.f6666.n245.z2.fidonet.org>.
+
+* config.h: fixed DO_HAVE_SYSEXITS_H.
+
+
+Changes in 4.2.4:
 
 * ftntick: area lookup now case-insensitive.
 
@@ -89,7 +97,7 @@ fgate-users-request@gondor.gun.de
 
 Begin3
 Title:          FIDOGATE
-Version:        4.2.3
+Version:        4.2.4
 Entered-date:   11MAY97
 Description:    FIDOGATE Version 4:
                  * Fido-Internet Gateway
@@ -101,9 +109,9 @@ Keywords:       fido ftn netmail echomail tosser areafix mail news gateway
 Author:         mj@fido.de (Martin Junius)
 Maintained-by:  mj@fido.de (Martin Junius)
 Primary-site:   ftp.fido.de /pub/fidogate
-		743kB fidogate-4.2.3.tar.gz
+		744kB fidogate-4.2.4.tar.gz
 Alternate-site: sunsite.unc.edu /pub/Linux/system/Fido
-		743kB fidogate-4.2.3.tar.gz
+		744kB fidogate-4.2.4.tar.gz
 Platforms:      Linux, SunOS, but should be easily portable to most
 		UNIX systems. Supports OS/2 (EMX gcc port) and MSDOS
 		(DJGPP gcc port), too. perl is required.
@@ -112,6 +120,6 @@ End
 
 ======================================================================
 
-$Date: 1997/05/14 18:07:09 $
+$Date: 1997/06/01 16:21:49 $
 Martin Junius
 mailto:mj@fido.de

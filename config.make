@@ -1,6 +1,6 @@
 # -*- Makefile -*-
 #
-# $Id: config.make,v 4.7 1997/04/27 11:19:04 mj Exp $
+# $Id: config.make,v 4.8 1997/06/01 16:21:53 mj Exp $
 #
 # FIDOGATE Makefile configuration
 #
@@ -74,12 +74,17 @@ PERL		= /usr/bin/perl
 
  INCLUDE	= -I$(TOPDIR) -I$(TOPDIR)/src/include
 
+# NEXTSTEP 3.3
+# CFLAGS	= $(DEBUG) $(INCLUDE) -Wall -posix
 # ISC 3.x
 # CFLAGS	= $(DEBUG) $(INCLUDE) -Wall -posix -DISC
 # OS2			   
 # CFLAGS	= $(DEBUG) $(INCLUDE) -Wall -DOS2
+# Linux, SunOS
  CFLAGS		= $(DEBUG) $(INCLUDE) -Wall
 
+# NEXTSTEP 3.3
+# LFLAGS	= $(DEBUG) -L$(TOPDIR)/src/common -posix
 # OS2
 # LFLAGS	= -Zexe $(DEBUG) -L$(TOPDIR)/src/common
  LFLAGS		= $(DEBUG) -L$(TOPDIR)/src/common
