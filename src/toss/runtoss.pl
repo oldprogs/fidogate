@@ -1,6 +1,6 @@
 #!/usr/bin/perl
 #
-# $Id: runtoss.pl,v 4.3 1998/03/22 17:57:39 mj Exp $
+# $Id: runtoss.pl,v 4.4 1998/04/28 19:02:26 mj Exp $
 #
 # Wrapper for ftntoss, ftnroute, ftnpack doing the toss process
 #
@@ -8,18 +8,20 @@
 #    or  runtoss /path/dir
 #
 
-$VERSION = '$Revision: 4.3 $ ';
+$VERSION = '$Revision: 4.4 $ ';
 $PROGRAM = "runtoss";
 
 
 # Common configuration for perl scripts 
 <INCLUDE config.pl>
 
+##use Sys::Syslog;
+
 require "getopts.pl";
 &Getopts('vc:');
 
 # read config
-$CONFIG      = $opt_c ? $opt_c : "<CONFIG_GATE>";
+$CONFIG      = $opt_c ? $opt_c : "<CONFIG_MAIN>";
 &CONFIG_read($CONFIG);
 
 # additional arguments for ftntoss/route/pack
@@ -37,6 +39,10 @@ $UUINBOUND  = &CONFIG_get("uuinbound");
 $FTPINBOUND = &CONFIG_get("ftpinbound");
 $LOGFILE    = &CONFIG_get("logfile");
 
+# syslog facility
+$FACILITY   = &CONFIG_get("logfacility");
+$FACILITY   = "local0" if(!$FACILITY);
+
 # Minimum free disk space required for tossing
 $MINFREE    = &CONFIG_get("diskfreemin");
 $MINFREE    = &CONFIG_get("mindiskfree") if(!$MINFREE);
@@ -51,11 +57,6 @@ $DFMETHOD   = "prog" if(!$DFMETHOD);		# "prog" = Use DiskFreeProg
 $DFPROG     = &CONFIG_get("diskfreeprog");
 $DFPROG     = "df -P %p" if(!$DFPROG);		# GNU fileutils df
 
-
-if($LOGFILE eq "syslog") {
-    $LOGFILE = "stdout";
-    &log("rununpack WARNING: syslog output not supported, using stdout");
-}
 
 
 if($#ARGV != 0) {
@@ -131,24 +132,31 @@ sub log {
     
     print "$PROGRAM @text\n" if($opt_v);
 
-    # Write to log file
-    if($LOGFILE eq "stdout") {
-	open(F, ">&STDOUT") || die "$PROGRAM: can't open log $LOGFILE\n";
+    if($LOGFILE eq "syslog") {
+	# syslog logging
+##	openlog($PROGRAM, 'pid', $FACILITY);
+##	syslog('notice', @text);
+##	closelog();
+    } else {
+	# write to log file
+	if($LOGFILE eq "stdout") {
+	    open(F, ">&STDOUT") || die "$PROGRAM: can't open log $LOGFILE\n";
+	}
+	elsif($LOGFILE eq "stderr") {
+	    open(F, ">&STDERR") || die "$PROGRAM: can't open log $LOGFILE\n";
+	}
+	else {
+	    open(F, ">>$LOGFILE") || die "$PROGRAM: can't open log $LOGFILE\n";
+	}
+	
+	@x = localtime;
+	printf
+	    F "%s %02d %02d:%02d:%02d ",
+	    $month[$x[4]], $x[3], $x[2], $x[1], $x[0]; 
+	print F "$PROGRAM @text\n" if($opt_v);
+	
+	close(F);
     }
-    elsif($LOGFILE eq "stderr") {
-	open(F, ">&STDERR") || die "$PROGRAM: can't open log $LOGFILE\n";
-    }
-    else {
-	open(F, ">>$LOGFILE") || die "$PROGRAM: can't open log $LOGFILE\n";
-    }
-    
-    @x = localtime;
-    printf
-	F "%s %02d %02d:%02d:%02d ",
-	$month[$x[4]], $x[3], $x[2], $x[1], $x[0]; 
-    print F "$PROGRAM @text\n" if($opt_v);
-
-    close(F);
 }
 
 

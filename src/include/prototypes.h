@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: prototypes.h,v 4.44 1998/04/18 20:20:08 mj Exp $
+ * $Id: prototypes.h,v 4.45 1998/04/28 19:02:25 mj Exp $
  *
  * Prototypes for functions in libfidogate.a
  *
@@ -392,6 +392,8 @@ int	pkt_put_string		(FILE *, char *);
 int	pkt_put_line		(FILE *, char *);
 int	pkt_put_int16		(FILE *, int);
 int	pkt_put_date		(FILE *, time_t);
+int	pkt_set_forcefmpt0	(int);
+int	pkt_set_forceintl	(int);
 int	pkt_put_msg_hdr		(FILE *, Message *, int);
 long	pkt_get_int16		(FILE *);
 int	pkt_get_nbytes		(FILE *, char *, int);

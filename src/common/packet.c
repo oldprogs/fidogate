@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: packet.c,v 4.6 1998/01/24 14:07:27 mj Exp $
+ * $Id: packet.c,v 4.7 1998/04/28 19:02:25 mj Exp $
  *
  * Functions to read/write packets and messages
  *
@@ -608,6 +608,20 @@ int pkt_put_date(FILE *pkt, time_t t)
 /*
  * Write message header to packet.
  */
+static int force_fmpt0 = FALSE;
+static int force_intl  = TRUE;
+
+int pkt_set_forcefmpt0(int f)
+{
+    force_fmpt0 = f;
+}
+
+int pkt_set_forceintl(int f)
+{
+    force_intl = f;
+}
+
+
 int pkt_put_msg_hdr(FILE *pkt, Message *msg, int kludge_flag)
     /* kludge_flag --- TRUE: write AREA/^AINTL,^AFMPT,^ATOPT */
 {
@@ -640,14 +654,11 @@ int pkt_put_msg_hdr(FILE *pkt, Message *msg, int kludge_flag)
 	fprintf(pkt, "AREA:%s\r\n", msg->area);
     else 
     {
-#ifdef FTN_FORCE_INTL
-	if(TRUE)
-#else
-	if(cf_zone()    != msg->node_from.zone  ||
+	if(force_intl                           ||
+	   cf_zone()    != msg->node_from.zone  ||
 	   cf_defzone() != msg->node_from.zone  ||
 	   cf_zone()    != msg->node_to  .zone  ||
 	   cf_defzone() != msg->node_to  .zone     )
-#endif
 	{
 	    Node tmpf, tmpt;
 	    
@@ -657,9 +668,7 @@ int pkt_put_msg_hdr(FILE *pkt, Message *msg, int kludge_flag)
 		    node_to_asc(&tmpt, FALSE), node_to_asc(&tmpf, FALSE));
 	}
 
-/* Kludge: always generate ^AFMPT, because SQUISH adds point address,
- * if the origin address of the packet is a point address.
- **	if(msg->node_from.point)  **/
+	if(force_fmpt0 || msg->node_from.point)
 	    fprintf(pkt, "\001FMPT %d\r\n", msg->node_from.point);
 	if(msg->node_to  .point)
 	    fprintf(pkt, "\001TOPT %d\r\n", msg->node_to  .point);

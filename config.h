@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway software UNIX <-> FIDO
  *
- * $Id: config.h,v 4.34 1998/04/10 17:49:10 mj Exp $
+ * $Id: config.h,v 4.35 1998/04/28 19:02:23 mj Exp $
  *
  * Configuration header file
  *
@@ -109,12 +109,6 @@
  * Implemented, but requires ftntoss run after rfc2ftn to sort SEEN-BY
  */
 /* #define PASSTHRU_ECHOMAIL */
-
-/*
- * Always generate a ^AINTL kludge for NetMails. (undef: only for mails
- * to other zones)
- */
-#define FTN_FORCE_INTL
 
 /*
  * Don't pass news control messages to FTN

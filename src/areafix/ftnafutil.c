@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: ftnafutil.c,v 1.2 1998/04/19 10:15:35 mj Exp $
+ * $Id: ftnafutil.c,v 1.3 1998/04/28 19:02:25 mj Exp $
  *
  * Utility program for Areafix.
  *
@@ -36,7 +36,7 @@
 
 
 #define PROGRAM		"ftnafutil"
-#define VERSION		"$Revision: 1.2 $"
+#define VERSION		"$Revision: 1.3 $"
 #define CONFIG		DEFAULT_CONFIG_MAIN
 
 
@@ -55,6 +55,7 @@ int	rewrite_areas_bbs	(void);
 int	areafix_do_cmd		(Node *, char *, Textlist *);
 void	areafix_set_changed	(void);
 
+int	do_mail			(Node *, char *, char *, Passwd *);
 int	do_areasbbs		(int);
 int	do_cmd			(char **);
 void	short_usage		(void);
@@ -65,15 +66,12 @@ void	usage			(void);
 /*
  * Subscribe to an area
  */
-int do_mail(Node *node, char *area, char *s)
+int do_mail(Node *node, char *area, char *s, Passwd *pwd)
 {
     Textlist outbody;
     Message outmsg;
-    Passwd *pwd;
     char *to;
 
-    /* Get password for uplink */
-    pwd = passwd_lookup("uplink", node);
     if(!pwd || !pwd->passwd)
     {
 	log("ERROR: no uplink password for %s, can't send request", 
@@ -118,6 +116,7 @@ int do_areasbbs(int cmd)
     Node *uplink;
     int n;
     char *state;
+    Passwd *pwd;
     
     pl = NULL;
     p  = areasbbs_first();
@@ -147,9 +146,11 @@ int do_areasbbs(int cmd)
 	case DO_SUBSCRIBE:
 	    if(uplink && n>0 && strchr(state, 'U'))
 	    {
+		if(! (pwd = passwd_lookup("uplink", uplink)) )
+		    break;
 		log("area %s: #dl=%d state=%s, subscribing at uplink %s",
 		      p->area, n, state, znfp(uplink));
-		if(do_mail(uplink, p->area, "+") != ERROR)
+		if(do_mail(uplink, p->area, "+", pwd) != ERROR)
 		{
 		    /**FIXME: remove "U", add "S"**/
 		    p->state = strsave("S");
@@ -161,9 +162,11 @@ int do_areasbbs(int cmd)
 	case DO_UNSUBSCRIBE:
 	    if(uplink && n<=0 && !strchr(state, 'U'))
 	    {
+		if(! (pwd = passwd_lookup("uplink", uplink)) )
+		    break;
 		log("area %s: #dl=%d state=%s, unsubscribing at uplink %s",
 		      p->area, n, state, znfp(uplink));
-		if(do_mail(uplink, p->area, "-") != ERROR)
+		if(do_mail(uplink, p->area, "-", pwd) != ERROR)
 		{
 		    /**FIXME: add "U", remove "S"**/
 		    p->state = strsave("U");

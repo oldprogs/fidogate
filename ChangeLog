@@ -1,4 +1,48 @@
+Tue Apr 28 20:53:57 1998  Martin Junius  <mj@fido.de>
+
+	------- CVS ci -------------------------------------------------------
+
+	* version.h (ALPHA): changed to 3, version 4.3a3.
+
+	* config.h (FTN_FORCE_INTL): #define removed.
+
+	* src/common/packet.c (pkt_set_forcefmpt0): new function to
+	  force_fmpt0 flag (default: FALSE).
+	  (pkt_set_forceintl): new function to set force_intl flag
+	  (default: TRUE).
+	  (pkt_put_msg_hdr): removed #ifdef FTN_FORCE_INTL, use
+	  force_intl, force_fmpt0 flags.
+
+Mon Apr 27 21:41:21 1998  Martin Junius  <mj@fido.de>
+
+	* src/areafix/ftnafutil.c (do_areasbbs): subscribe/unsubscribe,
+	  don't try request if no "uplink" entry in passwd (avoids log
+	  messages).
+	  (do_mail): additional argument pwd, passing passwd lookup from
+	  do_areasbbs(). 
+
+Sat Apr 25 21:09:54 1998  Martin Junius  <mj@fido.de>
+
+	* src/toss/runtoss.pl (log): dito.
+
+	* src/toss/rununpack.pl (log): syslog support commented, currently
+	  problems with perl not finding stdarg.ph.
+
+	* examples/orodruin/common.conf: added LogFacility example.
+
+	* src/toss/rununpack.pl: dito.
+
+	* src/toss/runtoss.pl: use <CONFIG_MAIN>.
+	  New config LogFacility, facility for syslog support.
+	  (log): implemented syslog support, using Sys::Syslog.
+
+	* src/toss/rununpack.pl: use <CONFIG_MAIN>.
+
 Sun Apr 19 10:52:30 1998  Martin Junius  <mj@fido.de>
+
+	* test/tc.point2/run: adapted to new configuration.
+
+	* src/areafix/Makefile (install): fixed missing $.
 
 	======= Release 4.3a2 ================================================
 

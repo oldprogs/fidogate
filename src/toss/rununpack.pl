@@ -1,13 +1,13 @@
 #!/usr/bin/perl
 #
-# $Id: rununpack.pl,v 4.3 1998/04/18 20:20:08 mj Exp $
+# $Id: rununpack.pl,v 4.4 1998/04/28 19:02:26 mj Exp $
 #
 # Unpack ArcMail archives
 #
 # Usage: rununpack name
 #
 
-$VERSION = '$Revision: 4.3 $ ';
+$VERSION = '$Revision: 4.4 $ ';
 $PROGRAM = "rununpack";
 
 $BADDIR  = "bad";
@@ -35,11 +35,13 @@ $arc_x{"ZOO"}   = "zoo   e:   %a";
 # Common configuration for perl scripts 
 <INCLUDE config.pl>
 
+##use Sys::Syslog;
+
 require "getopts.pl";
 &Getopts('vc:');
 
 # read config
-$CONFIG      = $opt_c ? $opt_c : "<CONFIG_GATE>";
+$CONFIG      = $opt_c ? $opt_c : "<CONFIG_MAIN>";
 &CONFIG_read($CONFIG);
 
 
@@ -52,10 +54,11 @@ $UUINBOUND  = &CONFIG_get("uuinbound");
 $FTPINBOUND = &CONFIG_get("ftpinbound");
 $LOGFILE    = &CONFIG_get("logfile");
 
-if($LOGFILE eq "syslog") {
-    $LOGFILE = "stdout";
-    &log("rununpack WARNING: syslog output not supported, using stdout");
-}
+# syslog facility
+$FACILITY   = &CONFIG_get("logfacility");
+$FACILITY   = "local0" if(!$FACILITY);
+
+
 
 if($#ARGV != 0) {
     die "usage: $PROGRAM NAME\n";
@@ -93,27 +96,35 @@ else {
 
 sub log {
     local(@text) = @_;
-    local(*F, @x, $d);
+    local(*F, @x);
     
     print "$PROGRAM @text\n" if($opt_v);
 
-    # Write to log file
-    if($LOGFILE eq "stdout") {
-	open(F, ">&STDOUT") || die "$PROGRAM: can't open log $LOGFILE\n";
+    if($LOGFILE eq "syslog") {
+	# syslog logging
+##	openlog($PROGRAM, 'pid', $FACILITY);
+##	syslog('notice', @text);
+##	closelog();
+    } else {
+	# write to log file
+	if($LOGFILE eq "stdout") {
+	    open(F, ">&STDOUT") || die "$PROGRAM: can't open log $LOGFILE\n";
+	}
+	elsif($LOGFILE eq "stderr") {
+	    open(F, ">&STDERR") || die "$PROGRAM: can't open log $LOGFILE\n";
+	}
+	else {
+	    open(F, ">>$LOGFILE") || die "$PROGRAM: can't open log $LOGFILE\n";
+	}
+	
+	@x = localtime;
+	printf
+	    F "%s %02d %02d:%02d:%02d ",
+	    $month[$x[4]], $x[3], $x[2], $x[1], $x[0]; 
+	print F "$PROGRAM @text\n" if($opt_v);
+	
+	close(F);
     }
-    elsif($LOGFILE eq "stderr") {
-	open(F, ">&STDERR") || die "$PROGRAM: can't open log $LOGFILE\n";
-    }
-    else {
-	open(F, ">>$LOGFILE") || die "$PROGRAM: can't open log $LOGFILE\n";
-    }
-    
-    @x = localtime;
-    $d = sprintf "%s %02d %02d:%02d:%02d",
-	         $month[$x[4]], $x[3], $x[2], $x[1], $x[0]; 
-    print F "$d $PROGRAM @text\n";
-
-    close(F);
 }
 
 

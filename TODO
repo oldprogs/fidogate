@@ -7,6 +7,15 @@
     
     Features
 
+	
+	* ftnafutil: only process areas with uplink entry in passwd?
+
+	* log.c/config.h: get syslog facility from LogFacility, parse
+	  at run-time.
+
+	* packet.c:pkt_put_msg_hdr(): add run-time configuration for
+	  ^AFMPT 0, normally none.
+
 	* ftnafutil: option to sort areas.bbs, including zone/keys.
 
 	* ftn2rfc/rfc2ftn: integrate new charset mapping
@@ -38,17 +47,8 @@
 
     Code rewrite
 
-	* new implementation of strtok(), xstrtok() function, using
-	  reentrant common routine.
+	* config.make/subst.pl: configuration macro if syslog is available.
 
-	* rfcheader.c: rewrite all *header_get* functions using the
-	  new rfcheader_geth().
-
-STARTED * Replace calls to strncpy0/strncat0 with str_copy/str_append.
-
-MOSTLY	* ftnpack: better file attach processing, -F DIR option. Don't
-DONE	  copy netmail packets (do_noarc()), use rename(). If archiver
-	  fails, move packets back to toss/out directory.
 
 
     Priority 2
@@ -67,6 +67,21 @@ STARTED	* areas.bbs: read-only/vacation flag for downlinks,
 	* ftn2rfc: process ^ARFC headers. If RFC level 1, import
 	  important headers such as Date, Message-ID. If RFC level 2,
 	  import all headers present.
+
+    Code rewrite
+
+	* new implementation of strtok(), xstrtok() function, using
+	  reentrant common routine.
+
+	* rfcheader.c: rewrite all *header_get* functions using the
+	  new rfcheader_geth().
+
+STARTED * Replace calls to strncpy0/strncat0 with str_copy/str_append.
+
+MOSTLY	* ftnpack: better file attach processing, -F DIR option. Don't
+DONE	  copy netmail packets (do_noarc()), use rename(). If archiver
+	  fails, move packets back to toss/out directory.
+
 
 
     Priority 3
