@@ -2,6 +2,32 @@ Sat Sep 28 09:25:28 1996  Martin Junius  <mj@fido.de>
 
 	------- CVS ci -------------------------------------------------------
 
+	* src/toss/ftnpack.c (main): same.
+
+	* src/toss/ftnroute.c (prog_signal): same function for ftnroute.
+	  (do_packet): if signal_exit is TRUE force error exit.
+	  (main): break out of file processing loop, if do_file() returns
+	  ERROR. 
+	  (main): install signal handlers.
+
+	* src/toss/ftnpack.c (prog_signal): same function for ftnpack.
+
+	* src/toss/ftntoss.c (prog_signal): new function handling signals
+	  SIGHUP, SIGINT, SIGQUIT.
+	  (main): install signal handler for these signals.
+	  Made l_flag global.
+	  (unpack): if signal_exit is TRUE (signal received), close all
+	  output packets and force error exit.
+
+	* src/common/exit.c (ExitHandler): struct for linked list of exit
+	  handler functions.
+	  (exit_handler): new function adding function to linked list of
+	  exit handler functions.
+	  (fidogate_exit): run all exit handler functions before doing the
+	  real exit().
+
+	------- CVS ci -------------------------------------------------------
+
 	* rules.make (%.cf): set confFIDOGATE_LIBDIR macro on command line.
 
 	* sendmail/mailer/ffx.m4, ftn.m4: added confFIDOGATE_LIBDIR macro,

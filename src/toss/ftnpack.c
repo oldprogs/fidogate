@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftnpack.c,v 4.6 1996/06/16 08:41:26 mj Exp $
+ * $Id: ftnpack.c,v 4.7 1996/09/28 20:18:38 mj Exp $
  *
  * Pack output packets of ftnroute for Binkley outbound (ArcMail)
  *
@@ -34,12 +34,13 @@
 #include "getopt.h"
 
 #include <fcntl.h>
+#include <signal.h>
 
 
 
 
 #define PROGRAM 	"ftnpack"
-#define VERSION 	"$Revision: 4.6 $"
+#define VERSION 	"$Revision: 4.7 $"
 #define CONFIG		CONFIG_MAIN
 
 
@@ -55,8 +56,9 @@ static char in_dir [MAXPATH];
 static char out_dir [MAXPATH];
 static char file_attach_dir[MAXPATH];
 
-
 static int severe_error = OK;		/* ERROR: exit after error */
+
+static int signal_exit = FALSE;		/* Flag: TRUE if signal received */
 
 
 /* "noarc" packer program */
@@ -96,6 +98,7 @@ int	do_packing		(char *, FILE *, Packet *);
 int	do_packet		(FILE *, Packet *, PktDesc *);
 void	add_via			(Textlist *, Node *);
 int	do_file			(char *);
+void	prog_signal		(int);
 void	short_usage		(void);
 void	usage			(void);
 
@@ -909,6 +912,32 @@ int do_file(char *pkt_name)
 
 
 /*
+ * Function called on SIGINT
+ */
+void prog_signal(int signum)
+{
+    char *name = "";
+
+    signal_exit = TRUE;
+    
+    switch(signum)
+    {
+    case SIGHUP:
+	name = " by SIGHUP";  break;
+    case SIGINT:
+	name = " by SIGINT";  break;
+    case SIGQUIT:
+	name = " by SIGQUIT"; break;
+    default:
+	name = "";            break;
+    }
+
+    log("KILLED%s: exit forced", name);
+}
+
+
+
+/*
  * Usage messages
  */
 void short_usage(void)
@@ -1098,6 +1127,11 @@ int main(int argc, char **argv)
 
     packing_init(p_flag ? p_flag : PACKING);
     passwd_init();
+
+    /* Install signal/exit handlers */
+    signal(SIGHUP,  prog_signal);
+    signal(SIGINT,  prog_signal);
+    signal(SIGQUIT, prog_signal);
 
 
     ret = EXIT_OK;

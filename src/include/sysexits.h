@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: sysexits.h,v 4.0 1996/04/17 18:17:42 mj Exp $
+ * $Id: sysexits.h,v 4.1 1996/09/28 20:18:38 mj Exp $
  *
  * Exit status for systems that don't have /usr/include/sysexits.h
  *
@@ -53,3 +53,5 @@
 #define EXIT_ERROR	1		/* error */
 #define EXIT_BUSY	2		/* program already running */
 #define EXIT_CONTINUE	3		/* still work to do */
+
+#define EXIT_KILL	32		/* killed: exit code = 32 + signum */

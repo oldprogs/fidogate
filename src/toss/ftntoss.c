@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftntoss.c,v 4.7 1996/09/15 15:09:45 mj Exp $
+ * $Id: ftntoss.c,v 4.8 1996/09/28 20:18:39 mj Exp $
  *
  * Toss FTN NetMail/EchoMail
  *
@@ -34,11 +34,12 @@
 #include "getopt.h"
 
 #include <fcntl.h>
+#include <signal.h>
 
 
 
 #define PROGRAM 	"ftntoss"
-#define VERSION 	"$Revision: 4.7 $"
+#define VERSION 	"$Revision: 4.8 $"
 #define CONFIG		CONFIG_MAIN
 
 
@@ -68,7 +69,7 @@ int	do_netmail		(Packet *, Message *, MsgBody *);
 int	unpack			(FILE *, Packet *);
 int	rename_bad		(char *);
 int	unpack_file		(char *);
-
+void	prog_signal		(int);
 void	short_usage		(void);
 void	usage			(void);
 
@@ -84,6 +85,7 @@ int n_flag = FALSE;			/* Accept EchoMail messages not */
 int s_flag = FALSE;			/* Strip CRASH, HOLD attribute */
 int maxmsg = 0;				/* Process maxmsg messages */
 int x_flag = FALSE;			/* Exit after maxmsg messages */
+int l_flag = FALSE;			/* Create lock file */
 
 static char in_dir[MAXPATH];		/* Input directory */
 
@@ -92,6 +94,9 @@ static int must_exit = FALSE;		/* Flag for -x operation */
 static int msg_count = 0;		/* Counter for -m, -x operation */
 
 static int severe_error = OK;		/* ERROR: exit after error */
+
+static int signal_exit = FALSE;		/* Flag: TRUE if signal received */
+
 
 
 /*
@@ -1111,6 +1116,16 @@ int unpack(FILE *pkt_file, Packet *pkt)
 	}
 
 	/*
+	 * Exit if signal received
+	 */
+	if(signal_exit)
+	{
+	    outpkt_close();
+	    msg_count = 0;
+	    return severe_error=ERROR;
+	}
+	
+	/*
 	 * Check for number of messages exceeding maxmsg
 	 */
 	if(maxmsg  &&  msg_count >= maxmsg)
@@ -1208,6 +1223,32 @@ int unpack_file(char *pkt_name)
 
 
 /*
+ * Function called on SIGINT
+ */
+void prog_signal(int signum)
+{
+    char *name = "";
+
+    signal_exit = TRUE;
+    
+    switch(signum)
+    {
+    case SIGHUP:
+	name = " by SIGHUP";  break;
+    case SIGINT:
+	name = " by SIGINT";  break;
+    case SIGQUIT:
+	name = " by SIGQUIT"; break;
+    default:
+	name = "";            break;
+    }
+
+    log("KILLED%s: exit forced", name);
+}
+
+
+
+/*
  * Usage messages
  */
 void short_usage(void)
@@ -1256,7 +1297,6 @@ int main(int argc, char **argv)
 {
     int c, ret;
     char *p;
-    int l_flag = FALSE;
     char *I_flag=NULL, *O_flag=NULL, *r_flag=NULL, *M_flag=NULL;
     char *c_flag=NULL;
     char *S_flag=NULL, *L_flag=NULL;
@@ -1295,7 +1335,7 @@ int main(int argc, char **argv)
     /* Init configuration */
     cf_initialize();
 
-
+    /* Parse options */
     while ((c = getopt_long(argc, argv, "g:O:I:ltnr:sm:xM:b:vhc:S:L:a:u:",
 			    long_options, &option_index     )) != EOF)
 	switch (c) {
@@ -1491,6 +1531,12 @@ int main(int argc, char **argv)
     routing_init(r_flag ? r_flag : ROUTING);
     areasbbs_init(areas_bbs);
     passwd_init();
+
+    
+    /* Install signal/exit handlers */
+    signal(SIGHUP,  prog_signal);
+    signal(SIGINT,  prog_signal);
+    signal(SIGQUIT, prog_signal);
 
     
     ret = EXIT_OK;

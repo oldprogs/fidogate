@@ -25,7 +25,7 @@ DONE.	* rfc2ftn: integrate rfc_is_local(), rfc_is_domain() with
 	* ftn2rfc: rewrite, split huge unpack() function into parts
 	  for processing netmail and echomail.
 
-	* ftnroute: crash mails to points via boss node.
+	* ftnroute: crashmails to points via boss node.
 
 	* ftn2rfc: process ^ARFC headers. If RFC level 1, import
 	  important headers such as Date, Message-ID. If RFC level 2,
@@ -66,7 +66,7 @@ DONE.	* rfc2ftn: integrate rfc_is_local(), rfc_is_domain() with
 	  ArcMail extensions: mo[0-9], plus mo[a-f], maybe mo[a-z]?
 	  runtime configuration of arcmail extensions usage.
 
-	* Catch SIGINT, process clean-up function.
+DONE.	* Catch SIGINT, process clean-up function.
 	  - close all packet files for ftntoss, ftnroute, etc.
 
 	* areas: option -M MAXSIZE, limit maximum RFC message size to

@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftnroute.c,v 4.8 1996/06/16 08:41:27 mj Exp $
+ * $Id: ftnroute.c,v 4.9 1996/09/28 20:18:38 mj Exp $
  *
  * Route FTN NetMail/EchoMail
  *
@@ -35,11 +35,12 @@
 
 #include <fcntl.h>
 #include <utime.h>
+#include <signal.h>
 
 
 
 #define PROGRAM 	"ftnroute"
-#define VERSION 	"$Revision: 4.8 $"
+#define VERSION 	"$Revision: 4.9 $"
 #define CONFIG		CONFIG_MAIN
 
 
@@ -53,6 +54,7 @@ int	do_cmd			(PktDesc *, Routing *, Node *);
 int	do_packet		(char *, FILE *, Packet *, PktDesc *);
 void	add_via			(Textlist *, Node *);
 int	do_file			(char *);
+void	prog_signal		(int);
 void	short_usage		(void);
 void	usage			(void);
 
@@ -64,6 +66,10 @@ void	usage			(void);
 int g_flag = 0;
 
 static char in_dir [MAXPATH];
+
+static int severe_error = OK;		/* ERROR: exit after error */
+
+static int signal_exit = FALSE;		/* Flag: TRUE if signal received */
 
 
 
@@ -350,12 +356,12 @@ int do_packet(char *pkt_name, FILE *pkt_file, Packet *pkt, PktDesc *desc)
 	    /* Write message header and body */
 	    if( pkt_put_msg_hdr(fp, &msg, TRUE) != OK )
 	    {
-		ret = ERROR;
+		ret = severe_error=ERROR;
 		break;
 	    }
 	    if( msg_put_msgbody(fp, &body, TRUE) != OK )
 	    {
-		ret = ERROR;
+		ret = severe_error=ERROR;
 		break;
 	    }
 	}
@@ -367,23 +373,32 @@ int do_packet(char *pkt_name, FILE *pkt_file, Packet *pkt, PktDesc *desc)
 	    /* Write message header and body */
 	    if( pkt_put_msg_hdr(fp, &msg, FALSE) != OK )
 	    {
-		ret = ERROR;
+		ret = severe_error=ERROR;
 		break;
 	    }
 	    if( msg_put_msgbody(fp, &body, TRUE) != OK )
 	    {
-		ret = ERROR;
+		ret = severe_error=ERROR;
 		break;
 	    }
 	}
 
+	/*
+	 * Exit if signal received
+	 */
+	if(signal_exit)
+	{
+	    ret = severe_error=ERROR;
+	    break;
+	}
+	
     } /**while(type == MSG_TYPE)**/
 
 
     if(fclose(pkt_file) == ERROR)
     {
 	log("$ERROR: can't close packet %s", pkt_name);
-	return ERROR;
+	return severe_error=ERROR;
     }
 
     if(ret == OK)
@@ -429,6 +444,32 @@ int do_file(char *pkt_name)
     }
 
     return OK;
+}
+
+
+
+/*
+ * Function called on SIGINT
+ */
+void prog_signal(int signum)
+{
+    char *name = "";
+
+    signal_exit = TRUE;
+    
+    switch(signum)
+    {
+    case SIGHUP:
+	name = " by SIGHUP";  break;
+    case SIGINT:
+	name = " by SIGINT";  break;
+    case SIGQUIT:
+	name = " by SIGQUIT"; break;
+    default:
+	name = "";            break;
+    }
+
+    log("KILLED%s: exit forced", name);
 }
 
 
@@ -609,6 +650,11 @@ int main(int argc, char **argv)
     routing_init(r_flag ? r_flag : ROUTING);
     passwd_init();
     
+    /* Install signal/exit handlers */
+    signal(SIGHUP,  prog_signal);
+    signal(SIGINT,  prog_signal);
+    signal(SIGQUIT, prog_signal);
+
 
     ret = EXIT_OK;
     
@@ -634,7 +680,11 @@ int main(int argc, char **argv)
 	
 	for(pkt_name=dir_get(TRUE); pkt_name; pkt_name=dir_get(FALSE))
 	    if(do_file(pkt_name) == ERROR)
+	    {
 		ret = EXIT_ERROR;
+		break;
+	    }
+	
 
 	dir_close();
 
@@ -655,7 +705,10 @@ int main(int argc, char **argv)
 	 */
 	for(; optind<argc; optind++)
 	    if(do_file(argv[optind]) == ERROR)
+	    {
 		ret = EXIT_ERROR;
+		break;
+	    }
 
 	/* Lock file */
 	if(l_flag)

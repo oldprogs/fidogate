@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: exit.c,v 4.0 1996/04/17 18:17:39 mj Exp $
+ * $Id: exit.c,v 4.1 1996/09/28 20:18:37 mj Exp $
  *
  * FIDOGATE's exit() replacement with clean-up
  *
@@ -34,11 +34,57 @@
 
 #include <stdlib.h>
 
+/* Duplicates of definitions in fidogate.h */
+typedef int (*ExitHandlerF) (int);
+void   *xmalloc			(int);
 
 
+/*
+ * List of exit handlers
+ */
+typedef struct st_exit_handler
+{
+    ExitHandlerF f;			/* Function pointer */
+    struct st_exit_handler *next;	/* Next entry */
+} ExitHandler;
+
+
+static ExitHandler *ehl_first = NULL;
+static ExitHandler *ehl_last  = NULL;
+
+
+
+/*
+ * Add function to list of exit handlers
+ */
+void exit_handler(ExitHandlerF f)
+{
+    ExitHandler *eh;
+    
+    eh = (ExitHandler *)xmalloc(sizeof(ExitHandler));
+    eh->f     = f;
+    eh->next  = NULL;
+    
+    if(ehl_first)
+	ehl_last->next = eh;
+    else
+	ehl_first      = eh;
+    ehl_last = eh;
+}
+
+
+
+/*
+ * Replacement for standard exit()
+ */
 void fidogate_exit(int status)
 {
-    /* ... cleanup here ... */
+    ExitHandler *eh;
 
+    /* Run exit handler functions */
+    for(eh=ehl_first; eh; eh=eh->next)
+	(eh->f)(status);
+
+    /* Now the real libc exit() */
     exit(status);
 }
