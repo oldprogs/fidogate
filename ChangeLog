@@ -1,3 +1,32 @@
+Wed Feb 25 09:45:16 1998  Martin Junius  <mj@fido.de>
+
+	------- CVS ci -------------------------------------------------------
+
+	* src/gate/ftninrecomb.pl: dito.
+
+	* src/gate/ftninpost.pl: use <INCLUDE config.pl>, removed -L, -S
+	  options. 
+
+	* subst.pl (do_file): output #!PERL only for first file.
+
+	* src/ffx/Makefile: scripts depend on subst.pl and config.pl.
+
+	* src/ffx/ffxrmail.pl: use <INCLUDE config.pl>, removed -L option.
+
+	* rules.make: use new subst.pl option -tTOPDIR.
+
+	* subst.pl (do_file): <INCLUDE file> reads file from TOPDIR.
+
+	* src/Makefile (all): removed config.pl target and installation.
+
+	* config.pl: will be include by <INCLUDE config.pl>.
+
+	* src/config.plt: moved to main dir.
+
+	* subst.pl (do_file): new function, read file, substitute, write
+	  to STDOUT. Replaces substitution code in old main
+	  loop. Implemented new <INCLUDE file>.
+
 Tue Feb 24 18:24:11 1998  Martin Junius  <mj@fido.de>
 
 	------- CVS ci -------------------------------------------------------

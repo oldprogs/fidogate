@@ -2,6 +2,11 @@
 
 	************** TODO list for FIDOGATE development **************
 
+	* runtoss,rununpack: rewrite using Perl.
+
+DONE	* config.pl: install in CONFIGDIR, not LIBDIR, remove -L
+	  option from perl scripts.
+
 DONE	* ftnmail: new setuid frontend for rfc2ftn to fix security
 
 	* Update documentation.

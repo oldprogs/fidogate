@@ -1,6 +1,6 @@
 #:ts=8
 #
-#    $Id: Makefile,v 4.8 1998/02/07 18:35:18 mj Exp $
+#    $Id: Makefile,v 4.9 1998/02/25 09:15:24 mj Exp $
 #
 #    Makefile for FIDOGATE src/
 #
@@ -19,14 +19,9 @@ include $(TOPDIR)/rules.make
 SUBDIRS		= include common areafix ffx gate tick toss util
 
 
-all::		config.pl
-
-config.pl:	config.plt $(TOPDIR)/config.make $(TOPDIR)/subst.pl
-	$(PERL) $(TOPDIR)/subst.pl -c$(TOPDIR)/config.make -p $< >$*.pl
-
+all::
 
 install::
-	$(INSTALL_PROG) config.pl $(PREFIX)$(LIBDIR)
 
 
 all clean veryclean depend install check::

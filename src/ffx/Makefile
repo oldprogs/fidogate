@@ -1,6 +1,6 @@
 #:ts=8
 #
-#    $Id: Makefile,v 4.5 1998/01/24 15:45:53 mj Exp $
+#    $Id: Makefile,v 4.6 1998/02/25 09:15:26 mj Exp $
 #
 #    Makefile for FIDOGATE src/ffx/
 #
@@ -16,7 +16,8 @@ include $(TOPDIR)/config.make
 include $(TOPDIR)/rules.make
 
 
-PROGS		= ffx ffxqt ffxmail ffxrmail
+SCRIPTS		= ffxmail ffxrmail
+PROGS		= ffx ffxqt $(SCRIPTS)
 
 
 all:		$(PROGS)
@@ -24,6 +25,8 @@ all:		$(PROGS)
 ffx:		$(TOPDIR)/src/common/$(LIB)
 ffxqt:		$(TOPDIR)/src/common/$(LIB)
 ffxbatch:	$(TOPDIR)/src/common/$(LIB)
+
+$(SCRIPTS):	$(TOPDIR)/subst.pl $(TOPDIR)/config.pl
 
 
 install:

@@ -1,21 +1,19 @@
 #!/usr/bin/perl
 #
-# $Id: ftninpost.pl,v 4.7 1998/01/24 14:07:31 mj Exp $
+# $Id: ftninpost.pl,v 4.8 1998/02/25 09:15:27 mj Exp $
 #
 # Postprocessor for ftnin, feeds output of ftn2rfc to rnews and sendmail.
 # Call via ftnin's -x option or run after ftn2rfc. Replaces old fidorun
 # script.
 #
+ 
+<INCLUDE config.pl>
 
 require "getopts.pl";
-&Getopts('vL:S:c:');
+&Getopts('vc:');
 
-# defaults
+# read config
 $CONFIG      = $opt_c ? $opt_c : "<CONFIG_GATE>";
-$LIBDIR      = $opt_L ? $opt_L : "<LIBDIR>";
-
-# config.pl
-require "$LIBDIR/config.pl";
 &CONFIG_read($CONFIG);
 
 # options
@@ -25,14 +23,6 @@ if($opt_c) {
 }
 if($opt_v) {
     push @options, "-v";
-}
-if($opt_L) {
-    $CONFIG{"libdir"} = $opt_L;
-    push @options, ("-L", $opt_L);
-}
-if($opt_S) {
-    $CONFIG{"spooldir"} = $opt_S;
-    push @options, ("-S", $opt_S);
 }
 
 

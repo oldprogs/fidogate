@@ -1,34 +1,23 @@
-#!/usr/local/bin/perl
+#!/usr/bin/perl
 #
-# $Id: ftninrecomb.pl,v 4.3 1998/01/24 14:07:31 mj Exp $
+# $Id: ftninrecomb.pl,v 4.4 1998/02/25 09:15:27 mj Exp $
 #
 # Recombine split mail and news messages.
+#
+ 
+<INCLUDE config.pl>
 
 require "getopts.pl";
-&Getopts('vL:S:c:');
+&Getopts('vc:');
 
-# defaults
+# read config
 $CONFIG      = $opt_c ? $opt_c : "<CONFIG_GATE>";
-$LIBDIR      = $opt_L ? $opt_L : "<LIBDIR>";
-
-# config.pl
-require "$LIBDIR/config.pl";
 &CONFIG_read($CONFIG);
 
 # options
 $options = "";
-if($opt_L) {
-    $CONFIG{"libdir"} = $opt_L;
-    $LIBDIR   = $opt_L;
-    $options  = "$options -L$LIBDIR";
-}
-if($opt_S) {
-    $CONFIG{"spooldir"} = $opt_S;
-    $SPOOLDIR = $opt_S;
-    $options  = "$options -L$SPOOLDIR";
-}
-$INDIR    = $opt_I if($opt_I);
 
+$libdir   = &CONFIG_get("LIBDIR");
 $maildir  = &CONFIG_get("OUTRFC_MAIL");
 $newsdir  = &CONFIG_get("OUTRFC_NEWS");
 $newsseq  = "seq.news";
@@ -497,7 +486,7 @@ sub unsplit_news {
 # ----- Get number from seq.news ---------------------------------------------
 
 sub sequencer {
-    $nseq = `$LIBDIR/ftnseq $options $newsseq`;
+    $nseq = `$libdir/ftnseq $options $newsseq`;
     die "Can't access $newsseq\n" if($nseq eq "ERROR" || $nseq eq "");
 
     return $nseq;

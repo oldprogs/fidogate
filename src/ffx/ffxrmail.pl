@@ -1,19 +1,17 @@
 #!/usr/bin/perl
 #
-# $Id: ffxrmail.pl,v 4.3 1998/01/28 22:00:20 mj Exp $
+# $Id: ffxrmail.pl,v 4.4 1998/02/25 09:15:27 mj Exp $
 #
 # sendmail frontend for processing ffx rmail commands
 #
+ 
+<INCLUDE config.pl>
 
 require "getopts.pl";
-&Getopts('vL:c:');
+&Getopts('vc:');
 
-# defaults
+# read config
 $CONFIG      = $opt_c ? $opt_c : "<CONFIG_FFX>";
-$LIBDIR      = $opt_L ? $opt_L : "<LIBDIR>";
-
-# config.pl
-require "$LIBDIR/config.pl";
 &CONFIG_read($CONFIG);
 
 # configuration

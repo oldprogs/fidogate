@@ -1,8 +1,9 @@
-#!/usr/bin/perl
+##############################################################################
 #
-# $Id: config.plt,v 4.1 1998/02/22 16:25:50 mj Exp $
+# $Id: config.pl,v 4.1 1998/02/25 09:15:19 mj Exp $
 #
-# Perl functions to read FIDOGATE config file
+# Perl functions to read FIDOGATE config file,
+# included by <INCLUDE config.pl> when running subst.pl
 #
 
 undef %CONFIG;
@@ -78,3 +79,5 @@ sub CONFIG_debug {
 	print "$key = $CONFIG{$key} -> ", &CONFIG_get($key), "\n";
     }
 }
+
+##############################################################################
