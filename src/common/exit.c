@@ -2,16 +2,16 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: exit.c,v 4.1 1996/09/28 20:18:37 mj Exp $
+ * $Id: exit.c,v 4.2 1996/12/17 17:19:41 mj Exp $
  *
  * FIDOGATE's exit() replacement with clean-up
  *
  *****************************************************************************
- * Copyright (C) 1990-1996
+ * Copyright (C) 1990-1997
  *  _____ _____
  * |     |___  |   Martin Junius             FIDO:      2:2452/110
- * | | | |   | |   Republikplatz 3           Internet:  mj@fido.de
- * |_|_|_|@home|   D-52072 Aachen, Germany
+ * | | | |   | |   Radiumstr. 18             Internet:  mj@fido.de
+ * |_|_|_|@home|   D-51069 Koeln, Germany
  *
  * This file is part of FIDOGATE.
  *

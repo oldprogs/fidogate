@@ -2,16 +2,16 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: ftnexpire.c,v 4.5 1996/12/02 19:51:27 mj Exp $
+ * $Id: ftnexpire.c,v 4.6 1996/12/17 17:19:58 mj Exp $
  *
  * Expire MSGID history database
  *
  *****************************************************************************
- * Copyright (C) 1990-1996
+ * Copyright (C) 1990-1997
  *  _____ _____
  * |     |___  |   Martin Junius             FIDO:      2:2452/110
- * | | | |   | |   Republikplatz 3           Internet:  mj@fido.de
- * |_|_|_|@home|   D-52072 Aachen, Germany
+ * | | | |   | |   Radiumstr. 18             Internet:  mj@fido.de
+ * |_|_|_|@home|   D-51069 Koeln, Germany
  *
  * This file is part of FIDOGATE.
  *
@@ -36,7 +36,7 @@
 
 
 #define PROGRAM 	"ftnexpire"
-#define VERSION 	"$Revision: 4.5 $"
+#define VERSION 	"$Revision: 4.6 $"
 #define CONFIG		CONFIG_MAIN
 
 

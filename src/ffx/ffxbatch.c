@@ -2,16 +2,16 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ffxbatch.c,v 4.4 1996/05/17 20:19:15 mj Exp $
+ * $Id: ffxbatch.c,v 4.5 1996/12/17 17:19:49 mj Exp $
  *
  * ffx FIDO-FIDO execution batcher, packs batched (-b) ffx jobs.
  *
  *****************************************************************************
- * Copyright (C) 1990-1996
+ * Copyright (C) 1990-1997
  *  _____ _____
  * |     |___  |   Martin Junius             FIDO:      2:2452/110
- * | | | |   | |   Republikplatz 3           Internet:  mj@fido.de
- * |_|_|_|@home|   D-52072 Aachen, Germany
+ * | | | |   | |   Radiumstr. 18             Internet:  mj@fido.de
+ * |_|_|_|@home|   D-51069 Koeln, Germany
  *
  * This file is part of FIDOGATE.
  *
@@ -38,7 +38,7 @@
 
 
 #define PROGRAM		"ffxbatch"
-#define VERSION		"$Revision: 4.4 $"
+#define VERSION		"$Revision: 4.5 $"
 #define CONFIG		CONFIG_FFX
 
 

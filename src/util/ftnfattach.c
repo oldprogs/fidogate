@@ -2,16 +2,16 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftnfattach.c,v 4.1 1996/04/23 10:24:59 mj Exp $
+ * $Id: ftnfattach.c,v 4.2 1996/12/17 17:20:00 mj Exp $
  *
  * Attach file to FLO entry in outbound
  *
  *****************************************************************************
- * Copyright (C) 1990-1996
+ * Copyright (C) 1990-1997
  *  _____ _____
  * |     |___  |   Martin Junius             FIDO:      2:2452/110
- * | | | |   | |   Republikplatz 3           Internet:  mj@fido.de
- * |_|_|_|@home|   D-52072 Aachen, Germany
+ * | | | |   | |   Radiumstr. 18             Internet:  mj@fido.de
+ * |_|_|_|@home|   D-51069 Koeln, Germany
  *
  * This file is part of FIDOGATE.
  *
@@ -38,7 +38,7 @@
 
 
 #define PROGRAM		"ftnfattach"
-#define VERSION		"$Revision: 4.1 $"
+#define VERSION		"$Revision: 4.2 $"
 #define CONFIG		CONFIG_MAIN
 
 
