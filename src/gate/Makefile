@@ -1,6 +1,6 @@
 #:ts=8
 #
-#    $Id: Makefile,v 4.7 1998/03/07 16:53:29 mj Exp $
+#    $Id: Makefile,v 4.8 1998/11/08 18:28:00 mj Exp $
 #
 #    Makefile for FIDOGATE src/gate/
 #
@@ -16,8 +16,8 @@ include $(TOPDIR)/config.make
 include $(TOPDIR)/rules.make
 
 
-PROGS		= ftn2rfc ftnin rfc2ftn ftnmail
-SCRIPTS		= ftninpost ftninrecomb
+PROGS		= ftn2rfc ftnin rfc2ftn ftnmail send-fidogate
+SCRIPTS		= ftninpost ftninrecomb rungate
 
 
 all:		$(PROGS) $(SCRIPTS)
@@ -37,6 +37,8 @@ install:
 	$(INSTALL_PROG) ftnin$(EXE) $(PREFIX)$(LIBDIR)
 	$(INSTALL_PROG) ftninpost $(PREFIX)$(LIBDIR)
 	$(INSTALL_PROG) ftninrecomb $(PREFIX)$(LIBDIR)
+	$(INSTALL_PROG) rungate $(PREFIX)$(BINDIR)
+	$(INSTALL_PROG) send-fidogate $(PREFIX)$(NEWSETCDIR)
 
 
 clean veryclean:

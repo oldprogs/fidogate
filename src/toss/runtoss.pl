@@ -1,6 +1,6 @@
 #!/usr/bin/perl
 #
-# $Id: runtoss.pl,v 4.7 1998/10/18 18:12:56 mj Exp $
+# $Id: runtoss.pl,v 4.8 1998/11/08 18:28:02 mj Exp $
 #
 # Wrapper for ftntoss, ftnroute, ftnpack doing the toss process
 #
@@ -10,7 +10,7 @@
  
 require 5.000;
 
-my $VERSION = '$Revision: 4.7 $ ';
+my $VERSION = '$Revision: 4.8 $ ';
 my $PROGRAM = "runtoss";
 
 use strict;
@@ -103,7 +103,7 @@ elsif( $NAME eq "ftpin") {
 elsif( $NAME eq "outpkt") {
     $INPUT="$SPOOL/outpkt";
     $FADIR="";
-    $GRADE="";
+    $GRADE="-go";
     $FLAGS="-n -t -p";
 }
 elsif( $NAME eq "outpkt/mail") {

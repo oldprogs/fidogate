@@ -1,3 +1,42 @@
+1998-11-08  Martin Junius  <mj@fido.de>
+
+	------- CVS ci -------------------------------------------------------
+
+	* scripts/maintenance/rc.fidogate.sh: adapted to new FIDOGATE dir
+	  hierarchy.
+
+	* scripts/maintenance/newsyslog.sh: removed (dito).
+
+	* scripts/maintenance/logmaint.sh: removed (replaced with
+	  logrotate configuration).
+
+	* scripts/maintenance/logdaily.sh: added logstat, logreport.
+
+	* src/toss/runtoss.pl: use grade "o" for tossing "outpkt".
+
+	* scripts/maintenance/fidogate.logrotate: example logrotate
+	  configuration for new FIDOGATE log files (run* scripts).
+
+	* src/gate/rungate.sh: don't use non-standard log file "log-gate".
+
+	* src/ffx/runffx.sh: add "orodruin" argument to send-ffx, use %B
+	  for Binkley base dir.
+
+	* src/gate/send-fidogate.sh: new script interface to INN.
+
+	* src/ffx/send-ffx.sh: new script interface to INN, using new
+	  ffxnews. 
+
+	* src/ffx/ffxnews.sh: new script replacing old viaffx script.
+
+1998-11-04  Martin Junius  <mj@fido.de>
+
+	* src/ffx/runffx.sh: new cron script for running ffx sub-system.
+
+	* src/toss/runin.sh: added ftntick.
+
+	* src/gate/rungate.sh: new cron script for running gateway progs.
+
 1998-10-18  Martin Junius  <mj@fido.de>
 
 	======= Release 4.3a5 ================================================

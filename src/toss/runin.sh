@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# $Id: runin.sh,v 4.4 1998/04/07 12:21:59 mj Exp $
+# $Id: runin.sh,v 4.5 1998/11/08 18:28:02 mj Exp $
 #
 # Toss inbound, protected inbound, uuencode inbound, ftp inbound
 #
@@ -39,6 +39,9 @@ if [ -d <FTPINBOUND> ]; then
     <BINDIR>/rununpack ftpin
     <BINDIR>/runtoss   ftpin
 fi
+
+# Process tic files
+<LIBDIR>/ftntick
 
 # Unlock it
 <LIBDIR>/ftnlock -u $LOCK

@@ -1,6 +1,6 @@
 #:ts=8
 #
-#    $Id: Makefile,v 4.7 1998/03/22 17:57:34 mj Exp $
+#    $Id: Makefile,v 4.8 1998/11/08 18:27:56 mj Exp $
 #
 #    Makefile for FIDOGATE scripts/filebase/
 #
@@ -16,8 +16,8 @@ include $(TOPDIR)/config.make
 include $(TOPDIR)/rules.make
 
 
-PROGS		= logcheck logmaint logreport logstat logdaily logsendmail\
-		  newsyslog rc.fidogate
+PROGS		= logcheck logreport logstat logdaily logsendmail\
+		  rc.fidogate
 
 
 all:		$(PROGS)
@@ -25,11 +25,11 @@ all:		$(PROGS)
 
 
 install:
-	$(INSTALL_PROG) newsyslog $(PREFIX)$(BINDIR)
 	$(INSTALL_PROG) logsendmail $(PREFIX)$(BINDIR)
-	$(INSTALL_PROG) logmaint $(PREFIX)$(LIBDIR)
-	$(INSTALL_PROG) logreport $(PREFIX)$(LIBDIR)
-	$(INSTALL_PROG) logstat $(PREFIX)$(LIBDIR)
+	$(INSTALL_PROG) logmaint $(PREFIX)$(BINDIR)
+	$(INSTALL_PROG) logreport $(PREFIX)$(BINDIR)
+	$(INSTALL_PROG) logstat $(PREFIX)$(BINDIR)
+	$(INSTALL_PROG) logdaily $(PREFIX)$(BINDIR)
 
 
 clean:
