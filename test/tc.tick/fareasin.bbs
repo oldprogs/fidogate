@@ -1,3 +1,4 @@
 !
 ./tmp_in TEST 242:2/2 4/4
 ./tmp_in CELEB_KINO 444:4966/0
+./tmp_unknown UNKNOWN

@@ -58,6 +58,9 @@ Changes in 4.2.7:
 * rfc2ftn: new config XFlagsPolicy, DontUseReplyTo (see docs). Better
   log for all mails with X-Flags settings.
 
+* ftntick: new UnkownTickArea for incoming TICs with unknown file
+  areas.
+
 
 
 Changes in 4.2.6:
@@ -164,7 +167,7 @@ To UNSUBSCRIBE from this mailing list, send the command
 Begin3
 Title:          FIDOGATE
 Version:        4.2.7
-Entered-date:   12OCT97
+Entered-date:   13OCT97
 Description:    FIDOGATE Version 4:
                  * Fido-Internet Gateway
 		 * Fido FTN-FTN Gateway
@@ -186,6 +189,6 @@ End
 
 ======================================================================
 
-$Date: 1997/10/12 18:29:37 $
+$Date: 1997/10/13 19:29:44 $
 Martin Junius
 mailto:mj@fido.de

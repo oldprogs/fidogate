@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftntick.c,v 4.11 1997/08/20 21:05:05 mj Exp $
+ * $Id: ftntick.c,v 4.12 1997/10/13 19:29:57 mj Exp $
  *
  * Process incoming TIC files
  *
@@ -37,7 +37,7 @@
 
 
 #define PROGRAM		"ftntick"
-#define VERSION		"$Revision: 4.11 $"
+#define VERSION		"$Revision: 4.12 $"
 #define CONFIG		CONFIG_MAIN
 
 
@@ -46,6 +46,10 @@
 #define MY_CONTEXT	"ff"
 
 #define MY_FILESBBS	"files.bbs"
+
+
+
+static char *unknown_tick_area = NULL;	/* config.main: UnknownTickArea */
 
 
 
@@ -188,6 +192,7 @@ int process_tic(Tick *tic)
     LNode *p;
     char old_name[MAXPATH];
     char new_name[MAXPATH];
+    int is_unknown = FALSE;
     
     /*
      * Lookup file area
@@ -199,55 +204,68 @@ int process_tic(Tick *tic)
     }
     if( (bbs = areasbbs_lookup(tic->area)) == NULL )
     {
-	log("unknown area %s from %s",
-	    tic->area, node_to_asc(&tic->from, TRUE) );
-	return ERROR;
+	if( unknown_tick_area &&
+	    (bbs = areasbbs_lookup(unknown_tick_area)) )
+	{
+	    is_unknown = TRUE;
+	    log("unknown area %s, using %s instead",
+		  tic->area, unknown_tick_area      );
+	}
+	else
+	{
+	    log("unknown area %s from %s",
+		tic->area, node_to_asc(&tic->from, TRUE) );
+	    return ERROR;
+	}
     }
     cf_set_zone(bbs->zone);
     tic->to = cf_n_addr();
 
-    /*
-     * Check that sender is listed in FAreas.BBS
-     */
-    if(! lon_search(&bbs->nodes, &tic->from) )
+    if(!is_unknown)
     {
-	log("insecure tic area %s from %s", tic->area,
-	    node_to_asc(&tic->from, TRUE)             );
-	return ERROR;
-    }
-
-    /*
-     * Replaces: move or delete old file
-     */
-    if(tic->replaces)
-    {
-	char *rdir = cf_get_string("TickReplacedDir", TRUE);
-
-	BUF_COPY3(old_name, bbs->dir, "/", tic->replaces);
-	if(check_access(old_name, CHECK_FILE) == TRUE)
+	/*
+	 * Check that sender is listed in FAreas.BBS
+	 */
+	if(! lon_search(&bbs->nodes, &tic->from) )
 	{
-	    if(rdir)
+	    log("insecure tic area %s from %s", tic->area,
+		node_to_asc(&tic->from, TRUE)             );
+	    return ERROR;
+	}
+	
+	/*
+	 * Replaces: move or delete old file
+	 */
+	if(tic->replaces)
+	{
+	    char *rdir = cf_get_string("TickReplacedDir", TRUE);
+	    
+	    BUF_COPY3(old_name, bbs->dir, "/", tic->replaces);
+	    if(check_access(old_name, CHECK_FILE) == TRUE)
 	    {
-		/* Copy to ReplacedFilesDir */
-		BUF_COPY3(new_name, rdir, "/", tic->replaces);
-		debug(1, "%s -> %s", old_name, new_name);
-		if(copy_file(old_name, new_name) == ERROR)
+		if(rdir)
 		{
-		    log("$ERROR: can't copy %s -> %s", old_name, new_name);
-		    return ERROR;
+		    /* Copy to ReplacedFilesDir */
+		    BUF_COPY3(new_name, rdir, "/", tic->replaces);
+		    debug(1, "%s -> %s", old_name, new_name);
+		    if(copy_file(old_name, new_name) == ERROR)
+		    {
+			log("$ERROR: can't copy %s -> %s", old_name, new_name);
+			return ERROR;
+		    }
+		    log("area %s file %s replaces %s, moved to %s",
+			tic->area, tic->file, tic->replaces, rdir);
 		}
-		log("area %s file %s replaces %s, moved to %s",
-		    tic->area, tic->file, tic->replaces, rdir);
+		else
+		    log("area %s file %s replaces %s, removed",
+			tic->area, tic->file, tic->replaces);
+		
+		/* Remove old file, no error if this fails */
+		unlink(old_name);
+		
+		/* Remove old file from FILES.BBS */
+		/**FIXME**/
 	    }
-	    else
-		log("area %s file %s replaces %s, removed",
-		    tic->area, tic->file, tic->replaces);
-	    
-	    /* Remove old file, no error if this fails */
-	    unlink(old_name);
-	    
-	    /* Remove old file from FILES.BBS */
-	    /**FIXME**/
 	}
     }
     
@@ -261,39 +279,41 @@ int process_tic(Tick *tic)
 	return ERROR;
     add_files_bbs(tic, bbs->dir);
 
-    /*
-     * Add us to Path list
-     */
-    tick_add_path(tic);
-
-    /*
-     * Add sender to SEEN-BY if not already there
-     */
-    if(!lon_search(&tic->seenby, &tic->from))
-	lon_add(&tic->seenby, &tic->from);
+    if(!is_unknown)
+    {
+	/*
+	 * Add us to Path list
+	 */
+	tick_add_path(tic);
 	
-    /*
-     * We're the sender
-     */
-    tic->from = cf_n_addr();
+	/*
+	 * Add sender to SEEN-BY if not already there
+	 */
+	if(!lon_search(&tic->seenby, &tic->from))
+	    lon_add(&tic->seenby, &tic->from);
+	
+	/*
+	 * We're the sender
+	 */
+	tic->from = cf_n_addr();
+	
+	/*
+	 * Add nodes not already in SEEN-BY to seenby and new.
+	 */
+	lon_init(&new);
+	do_seenby(&tic->seenby, &bbs->nodes, &new);
+	lon_debug(3, "Send to new nodes: ", &new, TRUE);
+	
+	/*
+	 * Send file to all nodes in LON new
+	 */
+	BUF_COPY3(new_name, bbs->dir, "/", tic->file);
+	for(p=new.first; p; p=p->next)
+	    if(tick_send(tic, &p->node, new_name) == ERROR)
+		log("ERROR: send area %s file %s to %s failed",
+		    tic->area, tic->file, node_to_asc(&p->node, TRUE));
+    }
     
-    /*
-     * Add nodes not already in SEEN-BY to seenby and new.
-     */
-    lon_init(&new);
-    do_seenby(&tic->seenby, &bbs->nodes, &new);
-    lon_debug(3, "Send to new nodes: ", &new, TRUE);
-
-    /*
-     * Send file to all nodes in LON new
-     */
-    BUF_COPY3(new_name, bbs->dir, "/", tic->file);
-    for(p=new.first; p; p=p->next)
-	if(tick_send(tic, &p->node, new_name) == ERROR)
-	    log("ERROR: send area %s file %s to %s failed",
-		tic->area, tic->file, node_to_asc(&p->node, TRUE));
-    
-
     return OK;
 }
 
@@ -415,7 +435,7 @@ int add_files_bbs(Tick *tic, char *dir)
     }
     
     fprintf(fp, "%-12s  %s\r\n", tic->file, 
-	    tic->desc.first ? tic->desc.first->line : "-no description-");
+	    tic->desc.first ? tic->desc.first->line : "--no description--");
 
     fclose(fp);
     
@@ -560,6 +580,7 @@ options:  -b --fareas-bbs NAME         use alternate FAREAS.BBS\n\
 int main(int argc, char **argv)
 {
     char *areas_bbs = NULL;
+    char *p;
     int c;
     char *I_flag=NULL;
     int   t_flag=FALSE;
@@ -654,6 +675,15 @@ int main(int argc, char **argv)
 
     if(I_flag)
 	cf_set_inbound(I_flag);
+
+    /*
+     * Process optional config statements
+     */
+    if( (p = cf_get_string("UnknownTickArea", TRUE)) )
+    {
+	debug(8, "config: UnknownTickArea %s", p);
+	unknown_tick_area = p;
+    }
 
     /*
      * Get name of fareas.bbs file from config file

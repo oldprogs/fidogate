@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: tick.c,v 4.7 1997/08/20 21:05:03 mj Exp $
+ * $Id: tick.c,v 4.8 1997/10/13 19:29:57 mj Exp $
  *
  * TIC file processing
  *
@@ -190,6 +190,8 @@ int tick_get(Tick *tic, char *name)
 	
 	if(! stricmp(key, "Desc"))
 	{
+	    if(!*arg)
+		arg = "--no description--";
 	    tl_append(&tic->desc, arg);
 	}
 	

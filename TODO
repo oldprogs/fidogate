@@ -2,17 +2,12 @@
 	************** TODO list for FIDOGATE development **************
 
 
-DONE	* rfc2ftn: config.gate command to control X-Flags security.
-
 4.3.x	* rfc2ftn: different output dirs for mail and news.
 
 4.3.x	* log.c: add alternate logging via openlog(), syslog().
 
 	* Direct mailing list support, gateway EchoMail <-> mailing
 	  list.
-
-DONEx	* rfc2ftn: configuration option, use only From header for Fido
-	  from field, not Reply-To.
 
 4.3.x	* config: different lib and sbin directory?
 
@@ -27,8 +22,6 @@ DONEx	* rfc2ftn: configuration option, use only From header for Fido
 4.3.x	* ftn2rfc/rfc2ftn: MAIL-log messages configurable.
 
 4.3.x	* config: move config files to /etc/fidogate, %C for config dir.
-
-x	* ftntick: junk file area for unknown file echo areas.
 
 	* ftnaf: option to sort areas.bbs, including zone/keys.
 

@@ -1,6 +1,6 @@
 #:ts=8
 #
-# $Id: config.main,v 4.11 1997/03/30 16:32:51 mj Exp $
+# $Id: config.main,v 4.12 1997/10/13 19:29:54 mj Exp $
 #
 # FIDOGATE config file main AKA
 #
@@ -155,6 +155,11 @@ FAttachFlav	"Normal"
 # Directory for old files replaced by ftntick with new versions
 #
 #TickReplacedDir	"/pub/fido/oldfiles"
+
+#
+# File area for unknown TIC file areas
+#
+UnknownTickArea UNKNOWN
 
 
 #

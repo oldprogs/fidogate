@@ -1,3 +1,39 @@
+Mon Oct 13 20:32:58 1997  Martin Junius  <mj@fido.de>
+
+	------- CVS ci -------------------------------------------------------
+
+	* fidogate.lsm: updated.
+
+	* ANNOUNCE: updated.
+
+	* src/tick/ftntick.c (process_tic): fixed unknown_tick_area
+	  processing, don't replace, don't forward file to downlink. The
+	  file will be just moved to the unknown area directory.
+
+	* src/common/areasbbs.c (areasbbs_init): strip_crlf(buffer) after
+	  reading line from file.
+
+	* test/tc.tick/run: added test6.tic with unkown file area.
+
+	* examples/orodruin/config.main: dito.
+
+	* test/cf/config.main: added UnknownTickArea.
+
+	* src/tick/ftntick.c (process_tic): if unknown_tic_area is set,
+	  try to use this area, if area from TIC file can't be found.
+
+	* doc/fidogate.texi (Config): documented new UnknownTickArea.
+
+	* src/tick/ftntick.c (main): new config.main option
+	  UnknownTickArea, sets entry from fareas.bbs to be used for
+	  unknown areas.
+
+	* src/common/tick.c (tick_get): if Desc is empty, set to "--no
+	  description--".
+
+	* src/tick/ftntick.c (add_files_bbs): changed "--no description--"
+	  text (actually, this won't be use, but anyway ...)
+
 Sun Oct 12 00:02:28 1997  Martin Junius  <mj@fido.de>
 
 	------- CVS ci -------------------------------------------------------

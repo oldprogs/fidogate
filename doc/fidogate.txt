@@ -2182,6 +2182,11 @@ Special configuration `ftntick' (config file `config.main'):
 `TickReplacedDir directory'
      Directory for old files replaced by `ftntick'.
 
+`UnknownTickArea area'
+     File area to be used to TIC files with an unknown area. Incoming
+     files with an unknown area will be moved to this unknown area's
+     directory.
+
 Special configuration `ftnaf' (config file `config.main'):
 
 `AreasBBS name'
