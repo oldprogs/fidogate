@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ffx.c,v 4.13 2000/11/17 21:18:07 mj Exp $
+ * $Id: ffx.c,v 4.14 2000/11/18 12:18:42 mj Exp $
  *
  * ffx FIDO-FIDO execution
  *
@@ -38,7 +38,7 @@
 
 
 #define PROGRAM		"ffx"
-#define VERSION		"$Revision: 4.13 $"
+#define VERSION		"$Revision: 4.14 $"
 #define CONFIG		DEFAULT_CONFIG_FFX
 
 
@@ -196,8 +196,8 @@ int ffx(Node *node, int cmdc, char **cmdv,
     fclose(ctrl);
 
     /* Copy stdin to data file */
-    data = fopen(dataname, W_MODE);
-    if(data)
+    ret = OK;
+    if( (data = fopen(dataname, W_MODE)) )
     {
 	int nr, nw;
 
@@ -209,14 +209,14 @@ int ffx(Node *node, int cmdc, char **cmdv,
 	    if(ferror(stdin))
 	    {
 		log("$ERROR: can't read from stdin");
-		ret =  ERROR;
+		ret = ERROR;
 	    }
 	    
 	    nw = fwrite(buffer, sizeof(char), nr, data);
 	    if(ferror(data))
 	    {
 		log("$ERROR: can't write to %s", dataname);
-		ret =  ERROR;
+		ret = ERROR;
 	    }
 	}
 	while(!feof(stdin));
@@ -289,6 +289,7 @@ options:  -b --batch-dir DIR           operate in batch mode, using DIR\n\
           -B --binkley DIR             set Binkley-style outbound directory\n\
           -F --flavor FLAV             Hold | Normal | Direct | Crash\n\
           -g --grade G                 Grade [a-z]\n\
+          -n                           ignored for compatibilty\n\
 \n\
           -v --verbose                 more verbose\n\
 	  -h --help                    this help\n\
@@ -344,7 +345,7 @@ int main(int argc, char **argv)
     cf_initialize();
 
 
-    while ((c = getopt_long(argc, argv, "b:B:F:g:vhc:S:L:a:u:",
+    while ((c = getopt_long(argc, argv, "b:B:F:g:nvhc:S:L:a:u:",
 			    long_options, &option_index     )) != EOF)
 	switch (c) {
 	case 'b':
@@ -360,6 +361,8 @@ int main(int argc, char **argv)
 	    g_flag = *optarg;
 	    if(g_flag<'a' || g_flag>'z')
 		g_flag = 0;
+	    break;
+	case 'n':
 	    break;
 	    
 	/***** Common options *****/
@@ -389,6 +392,13 @@ int main(int argc, char **argv)
 	    break;
 	}
 
+
+    /* Don't allow options for setuid ffx */
+    if(getuid() != geteuid())
+    {
+	L_flag = c_flag = B_flag = L_flag = S_flag = a_flag = u_flag = NULL;
+    }
+    
     /*
      * Read config file
      */

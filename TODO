@@ -1,6 +1,9 @@
 							 -*- Indented-Text -*-
 ===== TODO list for FIDOGATE development =====================================
 
+        * ffxmail: convert script to real setuid frontend like
+	  ftnmail.
+
 	* rfc2ftn: config option for setting RRQ for Return-Receipt-To.
 
         * rfc2ftn: log WARNINGs if article not found, disable option
@@ -13,7 +16,7 @@ DONE	* get rid of the fidogate_exit(), exit.c stuff. Is/will this
 	  be used anyway???
 
 DONE	* ffx/ffxqt: remove compression/decompression (handled by
-ffx	  ftnpack).
+	  ftnpack).
 
 
         * ftn2rfc: if charset_set_in_out() fails, try to use a

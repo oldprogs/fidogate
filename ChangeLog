@@ -1,4 +1,26 @@
+2000-11-18  Martin Junius  <mj@fido.de>
+
+	------- CVS ci -------------------------------------------------------
+
+	* version.h (PATCHLEVEL): set to 2, version 4.4.2.
+
+	* test/tc.ffx/run: test ffxqt, too.
+
+	* src/ffx/ffx.c (main): reset most command line options to default 
+	  for setuid ffx.
+
+	* src/ffx/ffxqt.c (st_ffx): new field fqdn.
+	  (parse_ffxcmd): removed FFXUncompress parsing.
+	  (parse_ffx): parse FQDN in U line, include in debug() output.
+	  (exec_ffx): no longer support uncompressing.
+
 2000-11-17  Martin Junius  <mj@fido.de>
+
+	* test/tc.ffx/run: more output.
+
+	* src/ffx/ffx.c (main): option -n ressurected, but ignored for
+	  compatibility.
+	  (ffx): initialize ret.
 
 	------- CVS ci -------------------------------------------------------
 

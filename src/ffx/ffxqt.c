@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ffxqt.c,v 4.18 2000/11/17 21:18:07 mj Exp $
+ * $Id: ffxqt.c,v 4.19 2000/11/18 12:18:42 mj Exp $
  *
  * Process incoming ffx control and data files
  *
@@ -38,7 +38,7 @@
 
 
 #define PROGRAM		"ffxqt"
-#define VERSION		"$Revision: 4.18 $"
+#define VERSION		"$Revision: 4.19 $"
 #define CONFIG		DEFAULT_CONFIG_FFX
 
 
@@ -54,6 +54,7 @@ typedef struct st_ffx
     char *job;			/* Job name */
     char *name;			/* .ffx file name */
     Node from, to;		/* FTN addresses */
+    char *fqdn;			/* Sender FQDN */
     char *passwd;		/* Password */
     char *cmd;			/* Command with args */
     char *in;			/* stdin file */
@@ -130,29 +131,6 @@ void parse_ffxcmd()
 
 	BUF_EXPAND(buffer, cmd);
 	l_cmd[n_cmd].type = 'C';
-	l_cmd[n_cmd].name = name;
-	l_cmd[n_cmd].cmd  = strsave(buffer);
-	n_cmd++;
-    }
-	  
-    /* Uncompressors */
-    for(p = cf_get_string("FFXUncompress", TRUE);
-	p && *p;
-	p = cf_get_string("FFXUncompress", FALSE) )
-    {
-	if(n_cmd >= MAXFFXCMD)
-	    continue;
-	name = xstrtok(p   , "\n\t ");
-	cmd  = xstrtok(NULL, "\n");
-	if(!name || !cmd)
-	    continue;
-	while(isspace(*cmd))
-	    cmd++;
-	
-	debug(8, "config: FFXUncompress %s %s", name, cmd);
-
-	BUF_EXPAND(buffer, cmd);
-	l_cmd[n_cmd].type = 'U';
 	l_cmd[n_cmd].name = name;
 	l_cmd[n_cmd].cmd  = strsave(buffer);
 	n_cmd++;
@@ -238,7 +216,8 @@ int do_ffx(int t_flag)
 	 */
 	if(!t_flag && !passwd)
 	{
-	    log("%s: no password for %s in PASSWD", name, znfp1(&ffx->from)  );
+	    log("ERROR: %s: no password for %s in PASSWD",
+		name, znfp1(&ffx->from)  );
 	    goto rename_to_bad;
 	}
 	
@@ -251,7 +230,7 @@ int do_ffx(int t_flag)
 	    {
 		if(stricmp(passwd, ffx->passwd))
 		{
-		    log("%s: wrong password from %s: ours=%s his=%s",
+		    log("ERROR: %s: wrong password from %s: ours=%s his=%s",
 			name, znfp1(&ffx->from), passwd,
 			ffx->passwd                              );
 		    goto rename_to_bad;
@@ -259,15 +238,15 @@ int do_ffx(int t_flag)
 	    }
 	    else
 	    {
-		log("%s: no password from %s: ours=%s", name,
+		log("ERROR: %s: no password from %s: ours=%s", name,
 		    znfp1(&ffx->from), passwd );
 		goto rename_to_bad;
 	    }
 	}
 
-	log("job %s: from %s data %s (%ldb) %s / %s",
+	log("job %s: from %s data %s (%ldb) / %s",
 	    ffx->job, znfp1(&ffx->from), ffx->file, check_size(ffx->file),
-	    ffx->decompr ? ffx->decompr : "", ffx->cmd                  );
+	    ffx->cmd);
 	
 	if(exec_ffx(ffx) == ERROR)
 	{
@@ -336,9 +315,11 @@ FFX *parse_ffx(char *name)
     FILE *fp;
     static FFX ffx;
     char *buf, *p;
-    
+
+    /**FIXME: this isn't really clean**/
     xfree(ffx.job);	ffx.job     = NULL;
     xfree(ffx.name);	ffx.name    = NULL;
+    xfree(ffx.fqdn);	ffx.fqdn    = NULL;
     xfree(ffx.passwd);	ffx.passwd  = NULL;
     xfree(ffx.cmd);	ffx.cmd     = NULL;
     xfree(ffx.in);	ffx.in      = NULL;
@@ -383,6 +364,10 @@ FFX *parse_ffx(char *name)
 	    p = strtok(NULL , SEP);
 	    if(p)
 		asc_to_node(p, &ffx.to, FALSE);
+	    /* FQDN */
+	    p = strtok(NULL , SEP);
+	    if(p)
+		ffx.fqdn = strsave(p);
 	    break;
 	    
 	case 'I':
@@ -425,7 +410,7 @@ FFX *parse_ffx(char *name)
     if(!ffx.cmd)
 	return NULL;
     
-    debug(3, "ffx: %s", ffx.name);
+    debug(3, "ffx: user=%s fqdn=%s", ffx.name, ffx.fqdn ? ffx.fqdn : "-none-");
     debug(3, "     %s -> %s", znfp1(&ffx.from), znfp2(&ffx.to));
     debug(3, "     J %s", ffx.job ? ffx.job : "");
     debug(3, "     I %s %s",
@@ -446,11 +431,9 @@ FFX *parse_ffx(char *name)
 int exec_ffx(FFX *ffx)
 {
     int ret;
-    char *name, *args=NULL, *cmd_c=NULL, *cmd_u=NULL;
+    char *name, *args=NULL, *cmd_c=NULL;
     
-    /*
-     * Extract command name and args
-     */
+    /* Extract command name and args */
     name = strtok(ffx->cmd, "\n\t ");
     args = strtok(NULL,     "\n"   );
     if(!name)
@@ -460,9 +443,7 @@ int exec_ffx(FFX *ffx)
     while(isspace(*args))
 	args++;
 
-    /*
-     * Find command and uncompressor
-     */
+    /* Find command and uncompressor */
     cmd_c = find_ffxcmd('C', name);
     if(!cmd_c)
     {
@@ -471,18 +452,12 @@ int exec_ffx(FFX *ffx)
     }
     if(ffx->decompr) 
     {
-	cmd_u = find_ffxcmd('U', ffx->decompr);
-	if(!cmd_u)
-	{
-	    log("ERROR: no FFXUncompress found for \"%s\"", ffx->decompr);
-	    return ERROR;
-	}
+	log("ERROR: uncompressing no longer supported in this version");
+	return ERROR;
     }
     
 
-    /*
-     * Execute
-     */
+    /* Execute */
     if(ffx->in)
     {
 	/* Search for data file, ignoring case */
@@ -491,13 +466,9 @@ int exec_ffx(FFX *ffx)
 	    log("ERROR: can't find data file %s", ffx->in);
 	    return ERROR;
 	}
-	/* Feed data file as stdin to command, optionally decompressing */
-	if(ffx->decompr)		/* Data file with compression */
-	    str_printf(buffer, sizeof(buffer),
-		       "%s %s | %s %s", cmd_u, ffx->in, cmd_c, args);
-	else				/* No compression */
-	    str_printf(buffer, sizeof(buffer),
-		       "%s %s <%s", cmd_c, args, ffx->in);
+	/* Feed data file as stdin to command */
+	str_printf(buffer, sizeof(buffer),
+		   "%s %s <%s", cmd_c, args, ffx->in);
     }
     else
     {
@@ -505,11 +476,9 @@ int exec_ffx(FFX *ffx)
 	str_printf(buffer, sizeof(buffer), "%s %s", cmd_c, args);
     }
 
-    /*
-     * FIXME: should do some proper calls to fork(), exec(), pipe() etc.
-     * system() calls /bin/sh which is inefficient and creates security
-     * problems.
-     */
+    /* FIXME: should do some proper calls to fork(), exec(), pipe()
+     * etc.  system() calls /bin/sh which is inefficient and creates
+     * security problems.  */
     debug(2, "Command: %s", buffer);
     ret = run_system(buffer);
     debug(2, "Exit code=%d", ret);
