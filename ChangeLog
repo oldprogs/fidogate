@@ -1,4 +1,42 @@
+Sat Feb  7 18:42:34 1998  Martin Junius  <mj@fido.de>
+
+	* src/Makefile (SUBDIRS): added areafix dir.
+
+	------- CVS ci -------------------------------------------------------
+
+	* test/tc.af/run: ftnaf now lives in ../../src/areafix.
+
+	* src/areafix/ftnaf.c (main): more adaptions.
+
+	* src/areafix/areafix.c (areafix_areasbbs): name of areas.bbs file.
+	  (areafix_set_areasbbs): set name of areas.bbs file.
+	  (areafix_auth_cmd): set authentication for command line.
+	  (areafix_name): return name (Areafix/Filefix).
+	  (areafix_output): set output file.
+	  (areafix_do): main processing of areafix command from stdin.
+
+	* src/areafix/ftnaf.c (main): handle n_flag locally.
+	  (do_mail): main part of function moved to areafix_do().
+
+	* src/areafix/areafix.c (areafix_init): new function initializing
+	  common Areafix configuration.
+
+	* src/areafix/areafix.c,ftnaf.c: many function moved from ftnaf.c
+	  to areafix.c.
+	
 Wed Feb  4 20:00:05 1998  Martin Junius  <mj@fido.de>
+
+	* src/areafix/areafix.c: new module, will contain common Areafix
+	  function now in ftnaf.c.
+
+	* src/areafix/: new subdir for Areafix programs.
+
+	* src/toss/Makefile: ftnaf targets removed.
+
+	* src/toss/ftnaf.c,ftnafmail.c: moved to src/af/.
+
+	* src/common/textlist.c (tl_print): return type changed to int,
+	  returns ferror(fp).
 
 	------- CVS ci -------------------------------------------------------
 

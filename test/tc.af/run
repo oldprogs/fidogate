@@ -2,7 +2,7 @@
 
 ../tr.init
 
-T="../../src/toss/ftnaf -c../cf/toss.conf"
+T="../../src/areafix/ftnaf -c../cf/toss.conf"
 
 echo "tc: running"
 

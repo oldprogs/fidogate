@@ -1,6 +1,6 @@
 #:ts=8
 #
-#    $Id: Makefile,v 4.11 1998/01/24 15:45:56 mj Exp $
+#    $Id: Makefile,v 4.12 1998/02/07 18:35:23 mj Exp $
 #
 #    Makefile for FIDOGATE src/toss/
 #
@@ -16,7 +16,7 @@ include $(TOPDIR)/config.make
 include $(TOPDIR)/rules.make
 
 
-PROGS		= ftn2ftn ftnaf ftnafmail ftnexpire ftnpack ftnroute ftntoss\
+PROGS		= ftn2ftn ftnexpire ftnpack ftnroute ftntoss\
 		  rundf runin runmail runnews runtoss rununpack
 
 OBJS_TOSS	= ftntoss.o dbz.o history.o
@@ -29,7 +29,6 @@ LOCAL_LFLAGS	=
 all:		$(PROGS)
 
 ftn2ftn:	$(TOPDIR)/src/common/$(LIB)
-ftnaf:		$(TOPDIR)/src/common/$(LIB)
 ftnpack:	$(TOPDIR)/src/common/$(LIB)
 ftnroute:	$(TOPDIR)/src/common/$(LIB)
 
@@ -53,8 +52,6 @@ install:
 	$(INSTALL_PROG) runmail $(PREFIX)$(BINDIR)
 	$(INSTALL_PROG) runnews $(PREFIX)$(BINDIR)
 	$(INSTALL_PROG) rundf $(PREFIX)$(LIBDIR)
-	$(INSTALL_PROG) ftnaf$(EXE) $(PREFIX)$(LIBDIR)
-	$(INSTALL_SETUID) ftnafmail$(EXE) $(PREFIX)$(LIBDIR)
 
 
 

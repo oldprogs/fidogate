@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: prototypes.h,v 4.39 1998/02/04 19:17:39 mj Exp $
+ * $Id: prototypes.h,v 4.40 1998/02/07 18:35:22 mj Exp $
  *
  * Prototypes for functions in libfidogate.a
  *
@@ -458,8 +458,8 @@ void	tl_delete		(Textlist *, Textline *);
 void	tl_init			(Textlist *);
 void	tl_append		(Textlist *, char *);
 void	tl_appendf		(Textlist *, char *, ...);
-void	tl_print		(Textlist *, FILE *);
-void	tl_print_x		(Textlist *, FILE *, char *);
+int	tl_print		(Textlist *, FILE *);
+int	tl_print_x		(Textlist *, FILE *, char *);
 void	tl_clear		(Textlist *);
 long	tl_size			(Textlist *);
 void	tl_addtl		(Textlist *, Textlist *);

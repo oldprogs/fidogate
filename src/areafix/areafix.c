@@ -2,10 +2,9 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: ftnaf.c,v 4.17 1998/01/24 14:07:34 mj Exp $
+ * $Id: areafix.c,v 1.1 1998/02/07 18:35:19 mj Exp $
  *
- * Areafix-like AREAS.BBS EchoMail distribution manager. Commands somewhat
- * conforming to FSC-0057.
+ * Common Areafix functions
  *
  *****************************************************************************
  * Copyright (C) 1990-1998
@@ -32,15 +31,6 @@
  *****************************************************************************/
 
 #include "fidogate.h"
-#include "getopt.h"
-
-#include <signal.h>
-
-
-
-#define PROGRAM		"ftnaf"
-#define VERSION		"$Revision: 4.17 $"
-#define CONFIG		DEFAULT_CONFIG_MAIN
 
 
 
@@ -55,25 +45,8 @@
 #define MY_NAME		my_name
 #define MY_CONTEXT	my_context
 
-#define MAILER		"/usr/lib/sendmail -t"
-
-
-
-/*
- * Number of old AREAS.BBS to keep as AREAS.Onn
- */
-#define N_HISTORY	5
-
-
-
-/*
- * Prototypes
- */
 int	is_wildcard		(char *);
-FILE   *mailer_open		(char *);
-int     mailer_close		(FILE *);
 int	rewrite_areas_bbs	(void);
-int	do_mail			(void);
 int	do_command		(Node *, char *);
 int	cmd_create		(Node *, char *);
 int	cmd_vacation		(Node *, char *);
@@ -86,24 +59,19 @@ int	cmd_remove		(Node *, char *);
 int	cmd_help		(Node *);
 int	cmd_passwd		(Node *, char *);
 
-void	short_usage		(void);
-void	usage			(void);
-
-
 
 /*
- * Areafix (TRUE) / Filefix (FALSE) flag
+ * Number of old AREAS.BBS to keep as AREAS.Onn
  */
-static int   areafix = TRUE;
+#define N_HISTORY	5
+
+
+
 
 
 /*
  * Command line options
  */
-static int   m_flag = FALSE;
-static int   r_flag = FALSE;
-static int   n_flag = FALSE;
-
 static int   areas_bbs_changed = FALSE;
 
 static int   authorized     	= FALSE;
@@ -116,18 +84,204 @@ static int   authorized_create  = FALSE;
 static FILE *output = NULL;
 
 
+
+
+
+/**NEW************************************************************************/
 /*
- * Program name, context, config verb name
+ * Static configuration
  */
+
+/* Areafix (TRUE) / Filefix (FALSE) mode */
+static int areafix      = TRUE;
+
+/* Program name, context, config verb name */
 static char *my_name	= MY_NAME_AF;
 static char *my_context = MY_CONTEXT_AF;
 static char *my_areasbbs= MY_AREASBBS_AF;
 
+/* Name of areas.bbs file */
+static char *areas_bbs  = NULL;
+
+
 
 /*
- * Name of areas.bbs file
+ * Common Areafix init
  */
-static char *areas_bbs = NULL;
+int areafix_init(int mode)
+{
+    areafix = mode;
+
+    if(mode)
+    {
+	/* Areafix */
+	my_name     = MY_NAME_AF;
+	my_context  = MY_CONTEXT_AF;
+	my_areasbbs = MY_AREASBBS_AF;
+    }
+    else
+    {
+	/* Filefix */
+	my_name     = MY_NAME_FF;
+	my_context  = MY_CONTEXT_FF;
+	my_areasbbs = MY_AREASBBS_FF;
+    }
+    
+    /* Get name of areas.bbs file from config file */
+    if(!areas_bbs)
+	if( (areas_bbs = cf_get_string(my_areasbbs, TRUE)) )
+	{
+	    debug(8, "config: %s %s", my_areasbbs, areas_bbs);
+	}
+    if(!areas_bbs)
+    {
+	fprintf(stderr, "%s: no areas.bbs specified\n", my_name);
+	exit(EX_USAGE);
+    }
+
+    return OK;
+}
+
+
+
+/*
+ * Get/set name of areas.bbs file
+ */
+char *areafix_areasbbs(void)
+{
+    return areas_bbs;
+}
+
+void areafix_set_areasbbs(char *name)
+{
+    areas_bbs = name;
+}
+
+
+
+/*
+ * Authorize for ftnafcmd
+ */
+void areafix_auth_cmd(void)
+{
+    authorized = authorized_cmdline = authorized_create = TRUE;
+}
+
+
+
+/*
+ * Areafix name
+ */
+char *areafix_name(void)
+{
+    return my_name;
+}
+
+
+
+/*
+ * Set Areafix output
+ */
+void areafix_output(FILE *fp)
+{
+    output = fp;
+}
+
+
+
+/*
+ * Process Areafix command from stdin
+ */
+int areafix_do(Node *node, char *subj)
+{
+    char *passwd;
+    Passwd *pwd;
+    char *p, *q;
+    int q_flag=FALSE, l_flag=FALSE;
+
+
+    /* Check password in Subject and process options */
+    passwd = strtok(subj, " \t");
+    debug(3, "Subject passwd: %s", passwd);
+    pwd    = passwd_lookup(MY_CONTEXT, node);
+    debug(3, "passwd entry: %s", pwd ? pwd->passwd : "-NONE-");
+	
+    if(passwd && pwd && !stricmp(passwd, pwd->passwd))
+    {
+	debug(3, "passwd check o.k. - authorized");
+	authorized = TRUE;
+    }
+
+    while( (q = strtok(NULL, " \t")) )
+    {
+	if(!stricmp(q, "-q"))		/* -q = QUERY */
+	    q_flag = TRUE;
+	if(!stricmp(q, "-l"))		/* -l = LIST */
+	    l_flag = TRUE;
+    }
+
+    /* Extract level, key, and real name from pwd->args */
+    if(authorized)
+    {
+	authorized_lvl  = 1;
+	authorized_key  = "";
+	authorized_name = "Sysop";
+	/* Warning: destroys pwd->args! */
+	if( (p = xstrtok(pwd->args, " \t")) )
+	    authorized_lvl = atoi(p);
+	if( (p = xstrtok(NULL, " \t")) )
+	    authorized_key = strsave(p);
+	if( (p = xstrtok(NULL, " \t")) )
+	    authorized_name = strsave(p);
+
+	debug(3, "passwd lvl : %d", authorized_lvl);
+	debug(3, "passwd key : %s", authorized_key);
+	debug(3, "passwd name: %s", authorized_name);
+    }
+
+    /* Execute commands for subject options */
+    if(q_flag)
+	cmd_query(node);
+    if(l_flag)
+	cmd_list(node);
+    
+    /* Execute commands from stdin */
+    while(fgets(buffer, sizeof(buffer), stdin))
+    {
+	strip_crlf(buffer);			/* Strip CR/LF */
+	strip_space(buffer);			/* Strip spaces */
+	if(!strncmp(buffer, " * ", 3))		/* Skip " * blah" lines */
+	    continue;
+	if(!strncmp(buffer, "---", 3))		/* Ignore cmds after --- */
+	    break;
+	if(!strncmp(buffer, "--", 2))		/* Ignore cmds after --  */
+	    break;				/* (signature start)     */
+	if(!strncmp(buffer, "--=20", 5))	/* dito, MIME            */
+	    break;
+	for(p=buffer; *p && is_space(*p); p++) ;	/* Skip white space */
+	if(!*p)					/* Skip empty lines */
+	    continue;
+
+	do_command(node, p);
+    }
+
+
+    if(!authorized)
+    {
+	/* Trouble? Give some more help ... */
+	fprintf(output, "\n\
+Your %s request didn't made it, because authorization failed.\n\
+You may try using the PASSWORD command to set address and password,\n\
+if there is an address problem.\n\
+\n\
+Additional help can be requested with the HELP command.\n",
+		my_name);
+
+	return ERROR;
+    }
+    
+    return OK;
+}
 
 
 
@@ -140,44 +294,6 @@ int is_wildcard(char *s)
 	strchr(s, '*') ||
 	strchr(s, '?') ||
 	strchr(s, '[')    ;
-}
-
-
-
-/*
- * Open mailer for sending reply
- */
-FILE *mailer_open(char *to)
-{
-    FILE *fp;
-    char *cc;
-    
-    fp = popen(MAILER, W_MODE);
-    if(!fp)
-    {
-	log("$ERROR: can't open pipe to %s", MAILER);
-	return NULL;
-    }
-    
-    fprintf(fp, "From: %s-Daemon@%s (%s Daemon)\n",
-	    MY_NAME, cf_fqdn(), MY_NAME);
-    fprintf(fp, "To: %s\n", to);
-    if( (cc = cf_get_string("CCMail", TRUE)) )
-	fprintf(fp, "Cc: %s\n", cc);
-    fprintf(fp, "Subject: Your %s request\n", MY_NAME);
-    fprintf(fp, "\n");
-    
-    return fp;
-}
-
-
-
-/*
- * Close mailer
- */
-int mailer_close(FILE *fp)
-{
-    return pclose(fp);
 }
 
 
@@ -211,26 +327,24 @@ int rewrite_areas_bbs(void)
     strcpy(new, buffer);
     strcpy(new+ovwr, "new");
     debug(4, "Writing %s", new);
-    if(!n_flag)
+
+    if( (fp = fopen(new, W_MODE)) == NULL )
     {
-	if( (fp = fopen(new, W_MODE)) == NULL )
-	{
-	    log("$ERROR: can't open %s for writing AREAS.BBS", new);
-	    return ERROR;
-	}
-	if( areasbbs_print(fp) == ERROR )
-	{
-	    log("$ERROR: writing to %s", new);
-	    fclose(fp);
-	    unlink(new);
-	    return ERROR;
-	}
-	if( fclose(fp) == ERROR )
-	{
-	    log("$ERROR: closing %s", new);
-	    unlink(new);
-	    return ERROR;
-	}
+	log("$ERROR: can't open %s for writing AREAS.BBS", new);
+	return ERROR;
+    }
+    if( areasbbs_print(fp) == ERROR )
+    {
+	log("$ERROR: writing to %s", new);
+	fclose(fp);
+	unlink(new);
+	return ERROR;
+    }
+    if( fclose(fp) == ERROR )
+    {
+	log("$ERROR: closing %s", new);
+	unlink(new);
+	return ERROR;
     }
 
     /*
@@ -239,8 +353,7 @@ int rewrite_areas_bbs(void)
     strcpy(old, buffer);
     sprintf(old+ovwr, "o%02d", N_HISTORY);
     debug(4, "Removing %s", old);
-    if(!n_flag)
-	unlink(old);
+    unlink(old);
     for(i=N_HISTORY-1; i>=1; i--)
     {
 	strcpy(old, buffer);
@@ -248,8 +361,7 @@ int rewrite_areas_bbs(void)
 	strcpy(new, buffer);
 	sprintf(new+ovwr, "o%02d", i+1);
 	debug(4, "Renaming %s -> %s", old, new);
-	if(!n_flag)
-	    rename(old, new);
+	rename(old, new);
     }
     
     /*
@@ -260,8 +372,7 @@ int rewrite_areas_bbs(void)
     strcpy(new, buffer);
     strcpy(new+ovwr, "o01");
     debug(4, "Renaming %s -> %s", old, new);
-    if(!n_flag)
-	rename(old, new);
+    rename(old, new);
     
     /*
      * Rename AREAS.NEW -> AREAS.BBS
@@ -271,173 +382,9 @@ int rewrite_areas_bbs(void)
     strcpy(new, buffer);
     strcpy(new+ovwr, "bbs");
     debug(4, "Renaming %s -> %s", old, new);
-    if(!n_flag)
-	rename(old, new);
+    rename(old, new);
     
     return OK;
-}
-
-
-
-/*
- * Process request message in stdin
- */
-int do_mail(void)
-{
-    RFCAddr from;
-    char *pfrom, *p, *q;
-    char *passwd;
-    Node node, *n;
-    Passwd *pwd;
-    int q_flag=FALSE, l_flag=FALSE;
-    
-    node_invalid(&node);
-    
-    /*
-     * Read message header from stdin
-     */
-    header_delete();
-    header_read(stdin);
-
-    pfrom = header_get("From");
-    if(!pfrom)
-	return EX_UNAVAILABLE;
-    debug(3, "From: %s", pfrom);
-
-    /*
-     * Open mailer
-     */
-    if(r_flag)
-    {
-	output = mailer_open(pfrom);
-	if(!output)
-	    return EX_OSERR;
-    }
-    else
-        output = stdout;
-
-    /*
-     * Check From / X-FTN-From for FTN address
-     */
-    n = NULL;
-    if((p = header_get("X-FTN-From")))
-    {
-	debug(3, "X-FTN-From: %s", p);
-	if((p = strchr(p, '@')))
-	{
-	    p++;
-	    while(*p && is_space(*p))
-		p++;
-	    if(asc_to_node(p, &node, FALSE) == OK)
-		n = &node;
-	}
-    }
-    else
-    {
-	from = rfcaddr_from_rfc(pfrom);
-	n    = inet_to_ftn(from.addr);
-    }
-    
-    if(n)
-    {
-	debug(3, "FTN address: %s", node_to_asc(n, TRUE));
-	node = *n;
-	cf_set_zone(n->zone);
-    }
-    else
-	node_invalid(&node);
-
-    /*
-     * Check password in Subject and process options
-     */
-    if( (p = header_get("Subject")) )
-    {
-	passwd = strtok(p, " \t");
-	debug(3, "Subject passwd: %s", passwd);
-	pwd    = passwd_lookup(MY_CONTEXT, &node);
-	debug(3, "passwd entry: %s", pwd ? pwd->passwd : "-NONE-");
-	
-	if(passwd && pwd && !stricmp(passwd, pwd->passwd))
-	{
-	    debug(3, "passwd check o.k. - authorized");
-	    authorized = TRUE;
-	}
-
-	while( (q = strtok(NULL, " \t")) )
-	{
-	    if(!stricmp(q, "-q"))		/* -q = QUERY */
-		q_flag = TRUE;
-	    if(!stricmp(q, "-l"))		/* -l = LIST */
-		l_flag = TRUE;
-	}
-
-	/* Extract level, key, and real name from pwd->args */
-	if(authorized)
-	{
-	    authorized_lvl  = 1;
-	    authorized_key  = "";
-	    authorized_name = "Sysop";
-	    /* Warning: destroys pwd->args! */
-	    if( (p = xstrtok(pwd->args, " \t")) )
-		authorized_lvl = atoi(p);
-	    if( (p = xstrtok(NULL, " \t")) )
-		authorized_key = strsave(p);
-	    if( (p = xstrtok(NULL, " \t")) )
-		authorized_name = strsave(p);
-
-	    debug(3, "passwd lvl : %d", authorized_lvl);
-	    debug(3, "passwd key : %s", authorized_key);
-	    debug(3, "passwd name: %s", authorized_name);
-	}
-    }
-
-    /*
-     * Execute commands in message body
-     */
-    while(fgets(buffer, sizeof(buffer), stdin))
-    {
-	strip_crlf(buffer);			/* Strip CR/LF */
-	strip_space(buffer);			/* Strip spaces */
-	if(!strncmp(buffer, " * ", 3))		/* Skip " * blah" lines */
-	    continue;
-	if(!strncmp(buffer, "---", 3))		/* Ignore cmds after --- */
-	    break;
-	if(!strncmp(buffer, "--", 2))		/* Ignore cmds after --  */
-	    break;				/* (signature start)     */
-	if(!strncmp(buffer, "--=20", 5))	/* dito, MIME            */
-	    break;
-	for(p=buffer; *p && is_space(*p); p++) ;	/* Skip white space */
-	if(!*p)					/* Skip empty lines */
-	    continue;
-
-	do_command(&node, p);
-    }
-
-    /*
-     * Execute commands for options
-     */
-    if(q_flag)
-	cmd_query(&node);
-    if(l_flag)
-	cmd_list(&node);
-    
-
-    if(!authorized)
-	/* Trouble? Give some more help ... */
-	fprintf(output, "\n\
-Your %s request\n\
-    From: %s\n\
-    Node: %s\n\
-didn't made it, because authorization failed. You may try using the\n\
-PASSWORD command to set address and password, if there is an address\n\
-problem (the Node: address above doesn't seem to be the one you intended).\n\
-\n\
-Additional help on the usage of %s may be requested with the HELP command.\n",
-		PROGRAM, pfrom,
-		node.zone!=-1 ? node_to_asc(&node, TRUE) : "no FTN address",
-		PROGRAM);
-
-    return r_flag ? mailer_close(output) : EX_OK;
 }
 
 
@@ -994,8 +941,8 @@ int cmd_remove(Node *node, char *area)
 int cmd_help(Node *node)
 {
     fprintf(output, "\n\
-Help for %s, FIDOGATE %s  %s %s.\n\n",
-	    MY_NAME, version_global(), PROGRAM, version_local(VERSION) );
+Help for %s, FIDOGATE %s\n\n",
+	    MY_NAME, version_global());
 
     fprintf(output, "\n\
 Send mail\n\
@@ -1103,230 +1050,4 @@ int cmd_passwd(Node *node, char *arg)
     debug(3, "passwd name: %s", authorized_name);
     
     return OK;
-}
-
-
-
-/*
- * Usage messages
- */
-void short_usage(void)
-{
-    fprintf(stderr, "usage: %s [-options] [Z:N/F.P command]\n", PROGRAM);
-    fprintf(stderr, "       %s --help  for more information\n", PROGRAM);
-    exit(EX_USAGE);
-}
-
-
-void usage(void)
-{
-    fprintf(stderr, "FIDOGATE %s  %s %s\n\n",
-	    version_global(), PROGRAM, version_local(VERSION) );
-    
-    fprintf(stderr, "usage:   %s [-options] [Z:N/F.P command]\n\n", PROGRAM);
-    fprintf(stderr, "\
-options: -m --mail                    process Areafix mail on stdin\n\
-         -r --no-reply                don't send reply via mail\n\
-         -n --no-rewrite              don't rewrite AREAS.BBS\n\
-         -b --areas-bbs NAME          use alternate AREAS.BBS\n\
-         -F --filefix                 run as Filefix program (FAREAS.BBS)\n\
-\n\
-         -v --verbose                 more verbose\n\
-	 -h --help                    this help\n\
-         -c --config name             read config file (\"\" = none)\n\
-	 -a --addr Z:N/F.P            set FTN address\n\
-	 -u --uplink-addr Z:N/F.P     set FTN uplink address\n");
-
-    exit(0);
-}
-
-
-
-/***** main() ****************************************************************/
-
-int main(int argc, char **argv)
-{
-    int c;
-    char *c_flag=NULL;
-    char *a_flag=NULL, *u_flag=NULL;
-    Node node;
-    int ret;
-    
-    int option_index;
-    static struct option long_options[] =
-    {
-	{ "mail",         0, 0, 'm'},
-	{ "no-reply",     0, 0, 'r'},
-	{ "no-rewrite",   0, 0, 'n'},
-        { "areas-bbs",	  1, 0, 'b'},
-	{ "filefix",      0, 0, 'F'},
-
-	{ "verbose",      0, 0, 'v'},	/* More verbose */
-	{ "help",         0, 0, 'h'},	/* Help */
-	{ "config",       1, 0, 'c'},	/* Config file */
-	{ "addr",         1, 0, 'a'},	/* Set FIDO address */
-	{ "uplink-addr",  1, 0, 'u'},	/* Set FIDO uplink address */
-	{ 0,              0, 0, 0  }
-    };
-
-#ifdef SIGPIPE
-    /* Ignore SIGPIPE */
-    signal(SIGPIPE, SIG_IGN);
-#endif
-
-    log_program(PROGRAM);
-    
-    /* Init configuration */
-    cf_initialize();
-
-
-    while ((c = getopt_long(argc, argv, "mrnb:Fvhc:a:u:",
-			    long_options, &option_index     )) != EOF)
-	switch (c) {
-	/***** ftnaf options *****/
-	case 'm':
-	    m_flag = TRUE;
-	    r_flag = TRUE;
-	    break;
-	case 'r':
-	    r_flag = FALSE;
-	    break;
-	case 'n':
-	    n_flag = TRUE;
-	    break;
-	case 'b':
-	    areas_bbs = optarg;
-	    break;
-	case 'F':
-	    my_name     = MY_NAME_FF;
-	    my_context  = MY_CONTEXT_FF;
-	    my_areasbbs = MY_AREASBBS_FF;
-	    areafix     = FALSE;
-	    break;
-	    
-	/***** Common options *****/
-	case 'v':
-	    verbose++;
-	    break;
-	case 'h':
-	    usage();
-	    exit(0);
-	    break;
-	case 'c':
-	    c_flag = optarg;
-	    break;
-	case 'a':
-	    a_flag = optarg;
-	    break;
-	case 'u':
-	    u_flag = optarg;
-	    break;
-	default:
-	    short_usage();
-	    exit(EX_USAGE);
-	    break;
-	}
-
-    /*
-     * Read config file
-     */
-    cf_read_config_file(c_flag ? c_flag : CONFIG);
-
-    /*
-     * Process config options
-     */
-    if(a_flag)
-	cf_set_addr(a_flag);
-    if(u_flag)
-	cf_set_uplink(u_flag);
-
-    cf_debug();
-    
-    /*
-     * Get name of areas.bbs file from config file
-     */
-    if(!areas_bbs)
-	if( (areas_bbs = cf_get_string(my_areasbbs, TRUE)) )
-	{
-	    debug(8, "config: %s %s", my_areasbbs, areas_bbs);
-	}
-    if(!areas_bbs)
-    {
-	fprintf(stderr, "%s: no areas.bbs specified\n", PROGRAM);
-	exit(EX_USAGE);
-    }
-    
-    /* Read PASSWD */
-    passwd_init();
-    /* Read HOSTS */
-    hosts_init();
-    
-    ret = 0;
-    
-    if(m_flag)
-    {
-	/*
-	 * Process stdin as mail request for Areafix
-	 */
-	if(lock_program(PROGRAM, WAIT) == ERROR)
-	    ret = EX_OSERR;
-	else
-	{
-	    if(areasbbs_init(areas_bbs) == ERROR)
-		ret = EX_OSFILE;
-	    else
-		ret = do_mail();
-	    if(ret == 0)
-		if( rewrite_areas_bbs() == ERROR )
-		    ret = EX_CANTCREAT;
-	}
-	unlock_program(PROGRAM);
-    }
-    else
-    {
-	/*
-	 * Process command on command line
-	 */
-	/* Node */
-	if(optind >= argc)
-	{
-	    fprintf(stderr, "%s: expecting Z:N/F.P node\n", PROGRAM);
-	    short_usage();
-	}
-	if( asc_to_node(argv[optind], &node, FALSE) == ERROR )
-	{
-	    fprintf(stderr, "%s: invalid node %s\n", PROGRAM, argv[optind]);
-	    short_usage();
-	}
-	optind++;
-
-	/*
-	 * Execute command, always authorized if command line
-	 */
-	authorized = authorized_cmdline = authorized_create = TRUE;
-	
-	if(areasbbs_init(areas_bbs) == ERROR)
-	    exit(EX_OSFILE);
-
-	/* Command is rest of args on command line */
-	buffer[0] = 0;
-	for(; optind<argc; optind++)
-	{
-	    BUF_APPEND(buffer, argv[optind]);
-	    if(optind < argc-1)
-		BUF_APPEND(buffer, " ");
-	}
-	
-	output = stdout;
-	if(do_command(&node, buffer) == ERROR)
-	    ret = 1;
-	if(ret == 0)
-	    if( rewrite_areas_bbs() == ERROR )
-		ret = EX_CANTCREAT;
-    }
-
-    exit(ret);
-
-    /**NOT REACHED**/
-    return 1;
 }
