@@ -46,10 +46,14 @@ Changes in 4.4.7:
 
 * rfc2ftn: new options RegisteredHostsOnly (not yet implemented!),
   kinda reverse function to -i --ignore-hosts, and
-  RegisteredAliasesOny, allowing only mail to recipient addresses
+  RegisteredAliasesOnly, allowing only mail to recipient addresses
   registered via the ALIASES file, both alias@host.do.main and
   User_Name@host.do.main; bounced mails (host, user) are now logged,
   logging of messages now more sendmail-like.
+  
+  The RegisteredAliasesOnly option is quite useful for bouncing spam
+  to non-existing addresses right at the gateway (used that way at
+  Fido.DE).
 
 
 
@@ -158,6 +162,6 @@ Needed:
 
 ======================================================================
 
-$Date: 2003/04/10 21:22:04 $
+$Date: 2003/04/11 19:26:15 $
 Martin Junius
 mailto:mj@fido.de
