@@ -1,4 +1,41 @@
+Sun Dec 29 13:14:46 1996  Martin Junius  <mj@fido.de>
+
+	======= Release 4.1.5 ================================================
+	------- CVS ci, tag R415 ---------------------------------------------
+
+	* ANNOUNCE: updated.
+
+	* README: updated.
+
+Fri Dec 27 22:58:56 1996  Martin Junius  <mj@fido.de>
+
+	* scripts/misc/senduu.sh: rewritten to use the ftnflo utility.
+
+	* src/util/Makefile (install): install ftnfattach, ftnflo in LIBDIR.
+
+	* scripts/misc/Makefile (PROGS): added senduumail.
+
+	* scripts/misc/senduumail.sh: new script for sending single file
+	  as uuencoded mail.
+
+Thu Dec 26 16:58:24 1996  Martin Junius  <mj@fido.de>
+
+	* fidogate.lsm: updated.
+
+	* ANNOUNCE: updated.
+
+	* version.h (PATCHLEVEL): set to 5.
+
+Tue Dec 24 18:53:58 1996  Martin Junius  <mj@fido.de>
+
+	* sendmail/mailer/ftn.m4: removed ') after FTN_MAILER_ARGSA. Damn
+	  copy&paste! ;-)
+
+	* doc/gatebau/Makefile (install): must install msgid*.html.
+
 Sun Dec 22 10:48:09 1996  Martin Junius  <mj@fido.de>
+
+	* test/tc.gate7/config: added to CVS repository.
 
 	======= Release 4.1.4 ================================================
 	------- CVS ci, tag R414 ---------------------------------------------

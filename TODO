@@ -2,9 +2,12 @@
 
 X = for next release
 
-	* scripts/misc/: updated senduu/recvuu, using new ftnflo
+	* Generic alias matching: name@Z:N/F.P <-> user@do.main (Name),
+	  recipient *and* sender
 
-	* ftntoss: make point tosser work without EchoMail4D
+4.2.x	* ftntoss: NoEmptyPath, EchoMail4D für 4D-Points mit Tosser.
+
+4.2.x	* ftntoss: make point tosser work without EchoMail4D
 
 	* rfc2ftn: improve parser for 1st line. Use regexp library?
 
