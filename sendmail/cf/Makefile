@@ -1,6 +1,6 @@
 #:ts=8
 #
-#    $Id: Makefile,v 4.2 1996/09/22 20:12:36 mj Exp $
+#    $Id: Makefile,v 4.3 1996/11/01 16:37:51 mj Exp $
 #
 #    Makefile for FIDOGATE sendmail/cf/
 #
@@ -55,6 +55,8 @@ check:
 #
 # Dependencies
 #
+$(CF):		../mailer/ftn.m4 ../mailer/ffx.m4
+
 depend:
 
 depend-all:

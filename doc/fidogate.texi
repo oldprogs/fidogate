@@ -2,7 +2,7 @@
 @c
 @c FIDOGATE documentation
 @c
-@c $Id: fidogate.texi,v 4.11 1996/10/27 13:44:12 mj Exp $
+@c $Id: fidogate.texi,v 4.12 1996/11/01 16:37:43 mj Exp $
 @c
 
 @setfilename fidogate.info
@@ -81,7 +81,6 @@ This manual documents how to install and use FIDOGATE. It is the first
 step toward a concise documentation. Alas, writing documentation is a
 somewhat tedious business, so this manual is far from complete.
 
-
 @menu
 * Introduction::Introduction to FIDOGATE
 * Installation::Compiling and installing FIDOGATE
@@ -153,6 +152,7 @@ FIDOGATE Config Files
 Basic Configuration
 
 * Example Point::      Example point configuration
+* Example Point 2::    Example configuration with 2 point addresses
 * Example Node::       Example leaf node configuration
 @end menu
 
@@ -1891,6 +1891,10 @@ AREAS.BBS.
 Toss all EchoMail, even messages not addressed to one of our own AKAs
 (most probably routed EchoMail).
 
+
+@item -n --passthru
+Make all areas passthru (see also @code{#} in areas.bbs).
+
 @item -r --routing-file @i{name}
 Read alternate @code{routing} config file. Default: LIBDIR/routing
 
@@ -2669,7 +2673,8 @@ XY} for the Fido-MAUS gateway.
 
 @item EchoMail4D
 Generate 4D EchoMail control lines, when the gateway operates at a point
-address.
+address. @b{This is required when using the gateway and the tosser for a Fido
+point!}
 
 @item HostsRestricted
 Restrict usage of gateway to FTN addresses listed in @code{hosts}.
@@ -3507,13 +3512,14 @@ the tosser, so I added this chapter. Hopefully this will help ...
 
 @menu
 * Example Point::      Example point configuration
+* Example Point 2::    Example configuration with 2 point addresses
 * Example Node::       Example leaf node configuration
 @end menu
 
 
 
 @c ***************************************************************************
-@node Example Point, Example Node, Basic, Basic
+@node Example Point, Example Point 2, Basic, Basic
 
 @section Example Point Configuration
 @cindex Configuration
@@ -3537,11 +3543,13 @@ Uplink (NetMail and EchoMail) 2:2499/123
 
 @noindent
 Address configuration @code{config.gate} (uplink is the same as the
-point address!):
+point address!), @code{EchoMail4D} is stricly reqired:
 
 @example
 Address 2:2499/123.9
 Uplink  2:2499/123.9
+
+EchoMail4D
 @end example
 
 @noindent
@@ -3606,7 +3614,36 @@ needed for a point polling its mail at the boss node.
 
 
 @c ***************************************************************************
-@node Example Node, Index, Example Point, Basic
+@node Example Point 2, Example Node, Example Point, Basic
+
+@section Example Configuration with 2 Point Addresses
+@cindex Configuration
+@cindex Example
+@cindex Point
+
+@noindent
+This section describes a point setup with 2 different point addresses and 2
+different boss nodes (uplinks).
+
+@b{NOT YET COMPLETE!!!}
+
+@noindent
+Hints:
+
+@itemize @bullet
+
+@item
+Use the sendmail @code{ftna} mailer.
+
+@item
+@b{Disable} @code{CheckPath} in @code{config.main}.
+
+@end itemize
+
+
+
+@c ***************************************************************************
+@node Example Node, Index, Example Point 2, Basic
 
 @section Example Leaf Node configuration
 @cindex Configuration

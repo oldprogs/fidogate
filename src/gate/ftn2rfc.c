@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftn2rfc.c,v 4.9 1996/10/22 19:58:23 mj Exp $
+ * $Id: ftn2rfc.c,v 4.10 1996/11/01 16:37:55 mj Exp $
  *
  * Convert FTN mail packet to RFC messages (mail and news batches)
  *
@@ -40,7 +40,7 @@
 
 
 #define PROGRAM 	"ftn2rfc"
-#define VERSION 	"$Revision: 4.9 $"
+#define VERSION 	"$Revision: 4.10 $"
 #define CONFIG		CONFIG_GATE
 
 
@@ -1242,15 +1242,15 @@ int main(int argc, char **argv)
      */
     if(I_flag)
     {
-	BUF_COPY (in_dir  , I_flag);
-	BUF_COPY3(mail_dir, I_flag, "/", INDIR_MAIL);
-	BUF_COPY3(news_dir, I_flag, "/", INDIR_NEWS);
+	str_expand_name(in_dir, sizeof(in_dir), I_flag);
+	BUF_COPY3(mail_dir, in_dir, "/", INDIR_MAIL);
+	BUF_COPY3(news_dir, in_dir, "/", INDIR_NEWS);
     }
     else 
     {
 	BUF_COPY3(in_dir  , cf_spooldir(), "/", t_flag ? INSECUREDIR : INDIR);
-	BUF_COPY5(mail_dir, cf_spooldir(), "/", INDIR, "/", INDIR_MAIL);
-	BUF_COPY5(news_dir, cf_spooldir(), "/", INDIR, "/", INDIR_NEWS);
+	BUF_COPY3(mail_dir, in_dir, "/", INDIR_MAIL);
+	BUF_COPY3(news_dir, in_dir, "/", INDIR_NEWS);
     }
     
     /*

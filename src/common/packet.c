@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: packet.c,v 4.1 1996/09/15 11:55:11 mj Exp $
+ * $Id: packet.c,v 4.2 1996/11/01 16:37:54 mj Exp $
  *
  * Functions to read/write packets and messages
  *
@@ -55,7 +55,7 @@ static FILE *pkt_create		(Node *);
  */
 void pkt_outdir(char *dir1, char *dir2)
 {
-    BUF_COPY(packet_dir, dir1);
+    str_expand_name(packet_dir, sizeof(packet_dir), dir1);
     if(dir2)
     {
 	BUF_APPEND(packet_dir, "/" );
@@ -78,7 +78,7 @@ char *pkt_get_outdir(void)
  */
 void pkt_baddir(char *dir1, char *dir2)
 {
-    BUF_COPY(packet_bad, dir1);
+    str_expand_name(packet_bad, sizeof(packet_bad), dir1);
     if(dir2)
     {
 	BUF_APPEND(packet_bad, "/" );

@@ -336,7 +336,8 @@ Special configuration `rfc2ftn' (config file `config.gate'):
 
 `EchoMail4D'
      Generate 4D EchoMail control lines, when the gateway operates at a
-     point address.
+     point address. This is required when using the gateway and the
+     tosser for a Fido point!
 
 `HostsRestricted'
      Restrict usage of gateway to FTN addresses listed in `hosts'.
@@ -1019,10 +1020,11 @@ and the tosser, so I added this chapter. Hopefully this will help ...
 * Menu:
 
 * Example Point::      Example point configuration
+* Example Point 2::    Example configuration with 2 point addresses
 * Example Node::       Example leaf node configuration
 
 
-File: fidogate.info,  Node: Example Point,  Next: Example Node,  Prev: Basic,  Up: Basic
+File: fidogate.info,  Node: Example Point,  Next: Example Point 2,  Prev: Basic,  Up: Basic
 
 Example Point Configuration
 ===========================
@@ -1041,10 +1043,12 @@ configuration described in the next section.
    Uplink (NetMail and EchoMail) 2:2499/123
 
 Address configuration `config.gate' (uplink is the same as the point
-address!):
+address!), `EchoMail4D' is stricly reqired:
 
      Address 2:2499/123.9
      Uplink  2:2499/123.9
+     
+     EchoMail4D
 
 Address configuration `config.main' (no uplink here!):
 
@@ -1090,7 +1094,24 @@ should be run to gate any (unpacked) FTN outbound mail packet for
 for a point polling its mail at the boss node.
 
 
-File: fidogate.info,  Node: Example Node,  Next: Index,  Prev: Example Point,  Up: Basic
+File: fidogate.info,  Node: Example Point 2,  Next: Example Node,  Prev: Example Point,  Up: Basic
+
+Example Configuration with 2 Point Addresses
+============================================
+
+This section describes a point setup with 2 different point addresses
+and 2 different boss nodes (uplinks).
+
+   NOT YET COMPLETE!!!
+
+Hints:
+
+   * Use the sendmail `ftna' mailer.
+
+   * Disable `CheckPath' in `config.main'.
+
+
+File: fidogate.info,  Node: Example Node,  Next: Index,  Prev: Example Point 2,  Up: Basic
 
 Example Leaf Node configuration
 ===============================
@@ -1198,12 +1219,14 @@ Index
 * Config:                               ftnconfig.
 * Config files:                         Config files.
 * Configuration <1>:                    Example Node.
-* Configuration <2>:                    Example Point.
+* Configuration <2>:                    Example Point 2.
+* Configuration <3>:                    Example Point.
 * Configuration:                        Basic.
 * Connecting:                           Connecting.
 * CRC:                                  sumcrc.
 * EchoMail:                             Areas.bbs.
 * Example <1>:                          Example Node.
+* Example <2>:                          Example Point 2.
 * Example:                              Example Point.
 * ffx:                                  ffx.
 * ffxbatch:                             ffxbatch.
@@ -1251,7 +1274,8 @@ Index
 * Packing:                              Packing.
 * Password:                             Passwd.
 * pktdebug:                             pktdebug.
-* Point <1>:                            Example Point.
+* Point <1>:                            Example Point 2.
+* Point <2>:                            Example Point.
 * Point:                                Point.
 * Programs:                             Programs.
 * Remote Execution:                     ffxqt.

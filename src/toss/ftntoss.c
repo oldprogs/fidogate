@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftntoss.c,v 4.8 1996/09/28 20:18:39 mj Exp $
+ * $Id: ftntoss.c,v 4.9 1996/11/01 16:37:58 mj Exp $
  *
  * Toss FTN NetMail/EchoMail
  *
@@ -39,7 +39,7 @@
 
 
 #define PROGRAM 	"ftntoss"
-#define VERSION 	"$Revision: 4.8 $"
+#define VERSION 	"$Revision: 4.9 $"
 #define CONFIG		CONFIG_MAIN
 
 
@@ -86,6 +86,7 @@ int s_flag = FALSE;			/* Strip CRASH, HOLD attribute */
 int maxmsg = 0;				/* Process maxmsg messages */
 int x_flag = FALSE;			/* Exit after maxmsg messages */
 int l_flag = FALSE;			/* Create lock file */
+int p_flag = FALSE;			/* -p --passthru */
 
 static char in_dir[MAXPATH];		/* Input directory */
 
@@ -719,8 +720,6 @@ int do_echomail(Packet *pkt, Message *msg, MsgBody *body)
     lon_init(&new);
     kludge_to_lon(&body->seenby, &seenby);
     kludge_to_lon(&body->path  , &path);
-    tl_clear(&body->seenby);
-    tl_clear(&body->path);
     /*
      * If from 4D point, add address to SEEN-BY to prevent sending
      * message back to this point. Won't show up in output SEEN-BY
@@ -745,7 +744,8 @@ int do_echomail(Packet *pkt, Message *msg, MsgBody *body)
      * If not passthru area and not from our own address (point gateway
      * setup with Address==Uplink), add our own address to new
      */
-    if(! (area->flags & AREASBBS_PASSTHRU)    &&
+    if(! p_flag                               &&
+       ! (area->flags & AREASBBS_PASSTHRU)    &&
        ! node_eq(&msg->node_from, cf_addr())    )
 	lon_add(&new, cf_addr());
     /*
@@ -778,8 +778,10 @@ int do_echomail(Packet *pkt, Message *msg, MsgBody *body)
     }
     
     /*
-     * Add new SEEN-BY and ^APATH lines
+     * Create new SEEN-BY and ^APATH lines
      */
+    tl_clear(&body->seenby);
+    tl_clear(&body->path);
     lon_to_kludge_sorted(&body->seenby, "SEEN-BY:", &seenby);
     lon_to_kludge       (&body->path  , "\001PATH:", &path );
 
@@ -1271,6 +1273,7 @@ options: -g --grade G                 processing grade\n\
          -l --lock-file               create lock file while processing\n\
          -t --insecure                insecure tossing (no AREAS.BBS check)\n\
          -n --toss-all                toss all EchoMail messages\n\
+         -p --passthru                make all areas passthru\n\
          -r --routing-file NAME       read routing file\n\
          -s --strip-attribute         strip crash, hold message attribute\n\
          -m --maxmsg N                close output after N msgs\n\
@@ -1319,6 +1322,7 @@ int main(int argc, char **argv)
 	{ "maxmsg-exit",  0, 0, 'x'},	/* Exit after maxmsg messages */
 	{ "maxopen",      1, 0, 'M'},	/* Set max # open packet files */
         { "areas-bbs",	  1, 0, 'b'},
+        { "passthru",	  0, 0, 'p'},
 
 	{ "verbose",      0, 0, 'v'},	/* More verbose */
 	{ "help",         0, 0, 'h'},	/* Help */
@@ -1336,7 +1340,7 @@ int main(int argc, char **argv)
     cf_initialize();
 
     /* Parse options */
-    while ((c = getopt_long(argc, argv, "g:O:I:ltnr:sm:xM:b:vhc:S:L:a:u:",
+    while ((c = getopt_long(argc, argv, "g:O:I:ltnr:sm:xM:b:pvhc:S:L:a:u:",
 			    long_options, &option_index     )) != EOF)
 	switch (c) {
 	/***** ftntoss options *****/
@@ -1375,6 +1379,9 @@ int main(int argc, char **argv)
 	    break;
 	case 'b':
 	    areas_bbs = optarg;
+	    break;
+	case 'p':
+	    p_flag = TRUE;
 	    break;
 	    
 	/***** Common options *****/
@@ -1500,7 +1507,7 @@ int main(int argc, char **argv)
      * Process local options
      */
     if(I_flag)
-	BUF_COPY(in_dir, I_flag);
+	str_expand_name(in_dir, sizeof(in_dir), I_flag);
     else 
 	BUF_COPY3(in_dir, cf_spooldir(), "/", TOSS_IN);
     if(O_flag)

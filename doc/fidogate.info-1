@@ -100,6 +100,7 @@ FIDOGATE Config Files
 Basic Configuration
 
 * Example Point::      Example point configuration
+* Example Point 2::    Example configuration with 2 point addresses
 * Example Node::       Example leaf node configuration
 
 
@@ -1439,6 +1440,9 @@ Options:
 `-n --toss-all'
      Toss all EchoMail, even messages not addressed to one of our own
      AKAs (most probably routed EchoMail).
+
+`-n --passthru'
+     Make all areas passthru (see also `#' in areas.bbs).
 
 `-r --routing-file name'
      Read alternate `routing' config file. Default: LIBDIR/routing

@@ -1,7 +1,7 @@
 <HTML>
 <HEAD>
 <!-- This HTML file has been created by texi2html 1.51
-     from ../fidogate.texi on 27 October 1996 -->
+     from ../fidogate.texi on 1 November 1996 -->
 
 <TITLE>FIDOGATE
  - Basic Configuration</TITLE>
@@ -25,7 +25,8 @@ the tosser, so I added this chapter. Hopefully this will help ...
 
 <UL>
 <LI><A HREF="fidogate_5.html#SEC60">Example Point</A>: Example point configuration
-<LI><A HREF="fidogate_5.html#SEC61">Example Node</A>: Example leaf node configuration
+<LI><A HREF="fidogate_5.html#SEC61">Example Point 2</A>: Example configuration with 2 point addresses
+<LI><A HREF="fidogate_5.html#SEC62">Example Node</A>: Example leaf node configuration
 </UL>
 
 
@@ -63,13 +64,15 @@ Uplink (NetMail and EchoMail) 2:2499/123
 
 <P>
 Address configuration <CODE>config.gate</CODE> (uplink is the same as the
-point address!):
+point address!), <CODE>EchoMail4D</CODE> is stricly reqired:
 
 </P>
 
 <PRE>
 Address 2:2499/123.9
 Uplink  2:2499/123.9
+
+EchoMail4D
 </PRE>
 
 <P>
@@ -145,11 +148,46 @@ needed for a point polling its mail at the boss node.
 
 
 
-<H2><A NAME="SEC61" HREF="fidogate_toc.html#TOC61">Example Leaf Node configuration</A></H2>
+<H2><A NAME="SEC61" HREF="fidogate_toc.html#TOC61">Example Configuration with 2 Point Addresses</A></H2>
 <P>
 <A NAME="IDX86"></A>
 <A NAME="IDX87"></A>
 <A NAME="IDX88"></A>
+
+</P>
+<P>
+This section describes a point setup with 2 different point addresses and 2
+different boss nodes (uplinks).
+
+</P>
+<P>
+<B>NOT YET COMPLETE!!!</B>
+
+</P>
+<P>
+Hints:
+
+</P>
+
+<UL>
+
+<LI>
+
+Use the sendmail <CODE>ftna</CODE> mailer.
+
+<LI>
+
+<B>Disable</B> <CODE>CheckPath</CODE> in <CODE>config.main</CODE>.
+
+</UL>
+
+
+
+<H2><A NAME="SEC62" HREF="fidogate_toc.html#TOC62">Example Leaf Node configuration</A></H2>
+<P>
+<A NAME="IDX89"></A>
+<A NAME="IDX90"></A>
+<A NAME="IDX91"></A>
 
 </P>
 

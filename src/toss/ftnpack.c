@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftnpack.c,v 4.7 1996/09/28 20:18:38 mj Exp $
+ * $Id: ftnpack.c,v 4.8 1996/11/01 16:37:57 mj Exp $
  *
  * Pack output packets of ftnroute for Binkley outbound (ArcMail)
  *
@@ -40,7 +40,7 @@
 
 
 #define PROGRAM 	"ftnpack"
-#define VERSION 	"$Revision: 4.7 $"
+#define VERSION 	"$Revision: 4.8 $"
 #define CONFIG		CONFIG_MAIN
 
 
@@ -1117,13 +1117,13 @@ int main(int argc, char **argv)
      * Process local options
      */
     if(I_flag)
-	strncpy0(in_dir, I_flag, sizeof(in_dir));
+	str_expand_name(in_dir, sizeof(in_dir), I_flag);
     else 
-	sprintf(in_dir, "%s/%s", cf_spooldir(), TOSS_OUT);
+	BUF_COPY3(in_dir, cf_spooldir(), "/", TOSS_OUT);
     if(O_flag)
-	strncpy0(out_dir, O_flag, sizeof(out_dir));
-    else 
-	sprintf(out_dir, "%s/%s", cf_spooldir(), TOSS_PACK);
+	str_expand_name(out_dir, sizeof(out_dir), O_flag);
+    else
+	BUF_COPY3(out_dir, cf_spooldir(), "/", TOSS_PACK);
 
     packing_init(p_flag ? p_flag : PACKING);
     passwd_init();

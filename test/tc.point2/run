@@ -2,25 +2,53 @@
 
 ../tr.init
 
-R="../../src/gate/rfc2ftn -L../cf -vvv -i -cconfig.gate"
+G="../../src/gate/rfc2ftn -L../cf -v -i -cconfig.gate"
+T="../../src/toss/ftntoss -L../cf -v -cconfig.main"
+R="../../src/toss/ftnroute -L../cf -v -cconfig.main"
+P="../../src/toss/ftnpack -L../cf -v -cconfig.main"
 
-echo "Mail from Point 1"
-#$R -a 2:2449/417.2 Test_User@2:2449/123.4 <<EOF
-$R -a p2.f417.n2449.z2 Test_User@2:2449/123.4 <<EOF
+# create messages
+
+#$G -a 2:2449/417.2 Test_User@2:2449/123.4 <<EOF
+$G -a p2.f417.n2449.z2 Test_User@2:2449/123.4 <<EOF
 To: test (Test User)
-From: mj@fido.de
+From: mj@fido.de (Martin Junius)
 Subject: Test Point 1
 
 TEST
 EOF
 
-echo "Mail from Point 2"
-#$R -a 2:2449/450.1 Test_User@2:2449/567.8 <<EOF
-$R -a p1.f450.n2449.z2 Test_User@2:2449/567.8 <<EOF
+#$G -a 2:2449/450.1 Test_User@2:2449/567.8 <<EOF
+$G -a p1.f450.n2449.z2 Test_User@2:2449/567.8 <<EOF
 To: test (Test User)
-From: mj@fido.de
+From: mj@fido.de (Martin Junius)
 Subject: Test Point 1
 
 TEST
 EOF
 
+$G -n <<EOF
+Newsgroups: abc
+X-Comment-To: test (Test User)
+From: mj@fido.de (Martin Junius)
+Subject: Test Area ABC
+
+TEST
+EOF
+
+$G -n <<EOF
+Newsgroups: def
+X-Comment-To: test (Test User)
+From: mj@fido.de (Martin Junius)
+Subject: Test Area DEF
+
+TEST
+EOF
+
+
+# toss messages
+cp out/*.pkt toss/in
+
+$T -t -p -b areas.bbs -r routing
+$R -r routing
+#$P

@@ -2,6 +2,44 @@ Fri Nov  1 13:25:29 1996  Martin Junius  <mj@fido.de>
 
 	------- CVS ci -------------------------------------------------------
 
+	* doc/fidogate.texi (Example Point): added that EchoMail4D is
+	  reqired.
+
+	* src/toss/ftntoss.c (do_echomail): moved tl_clear() for SEEN-BY,
+	  PATH after path check, so that bad messages still contain the
+	  original SEEN-BYs and PATH.
+
+	* sendmail/mailer/ftn.m4: mailer ftna runs
+	      rfc2ftn -a $h -u $h -O %S/out/$h 
+	  writing output packets in a separate directory. This requires
+	  running the tosser afterwards because from/to addresses of the
+	  packet are the same ($h).
+    	
+	* src/gate/ftn2rfc.c (main): use str_expand_name() for -I.
+
+	* src/toss/ftnpack.c (main): same + use BUF_COPY3(), also for -O.
+
+	* src/toss/ftnroute.c (main): same + use BUF_COPY3().
+
+	* src/toss/ftntoss.c (main): use str_expand_name() for -I.
+
+	* src/common/packet.c (pkt_outdir): use str_expand_name(), so that
+	  %S/%L/%O can be used.
+	  (pkt_baddir): same.
+
+	* src/toss/runtoss.sh: added -p for "runtoss out".
+
+	* doc/fidogate.texi (ftntoss): added -p --passthru option.
+
+	* src/toss/ftntoss.c (usage): new -p --passthru option.
+	  (main): implemented -p --passthru.
+	  (do_echomail): only toss for own address if p_flag is FALSE.
+
+	* doc/fidogate.texi (Example Point 2): new section for setup with
+	  2 point addresses. Not yet complete.
+
+	------- CVS ci -------------------------------------------------------
+
 	* src/gate/rfc2ftn.c (rfc_parse): new argument gw, if TRUE enables
 	  cf_gateway() checking and address/name replacement.
 	  (mail_receiver): call rfc_parse() with gw=TRUE.
