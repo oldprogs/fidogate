@@ -2,7 +2,7 @@
 @c
 @c FIDOGATE documentation for 4.4
 @c
-@c $Id: fidogate.texi,v 4.53 2002/07/28 08:24:28 n0ll Exp $
+@c $Id: fidogate.texi,v 4.54 2002/12/14 21:05:46 n0ll Exp $
 @c
 
 @setfilename fidogate.info
@@ -3496,6 +3496,21 @@ Fido messages. This replaces the old @code{MAX_LINELEN} from
 Normally, soft CR characters (hex 0x8d) in FTN messages are
 ignored. When this option is turned on, they are treated as normal
 characters. Useful e.g. for the cyrillic cp866 charset.
+
+
+@item RegisteredHostsOnly
+The opposite of the @i{-i} @i{--ignore-hosts} command line option,
+always requiring that a node is registered in the @code{hosts} list. NOT
+YET IMPLEMENTED.
+
+
+@item RegisteredAliasesOnly
+Allow only those addresses listed in @code{aliases}, either
+@i{alias}@@@i{host.do.main} or @i{Full_Name}@@@i{host.do.main}, as valid
+recipients (also including @i{postmaster}) for @code{rfc2ftn}.
+
+With this option, the gateway can be restricted to registered users,
+which is also very useful for fighting Spam.
 
 
 @end table

@@ -1,6 +1,6 @@
 <HTML>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<!-- Created on July, 28  2002 by texi2html 1.64 -->
+<!-- Created on December, 14  2002 by texi2html 1.64 -->
 <!-- 
 Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
             Karl Berry  <karl@freefriends.org>
@@ -775,6 +775,22 @@ Fido messages. This replaces the old <CODE>MAX_LINELEN</CODE> from
 ignored. When this option is turned on, they are treated as normal
 characters. Useful e.g. for the cyrillic cp866 charset.
 <P>
+
+<DT><CODE>RegisteredHostsOnly</CODE>
+<DD>The opposite of the <I>-i</I> <I>--ignore-hosts</I> command line option,
+always requiring that a node is registered in the <CODE>hosts</CODE> list. NOT
+YET IMPLEMENTED.
+<P>
+
+<DT><CODE>RegisteredAliasesOnly</CODE>
+<DD>Allow only those addresses listed in <CODE>aliases</CODE>, either
+<I>alias</I>@<I>host.do.main</I> or <I>Full_Name</I>@<I>host.do.main</I>, as valid
+recipients (also including <I>postmaster</I>) for <CODE>rfc2ftn</CODE>.
+<P>
+
+With this option, the gateway can be restricted to registered users,
+which is also very useful for fighting Spam.
+</P><P>
 
 </DL>
 <P>
@@ -1737,7 +1753,7 @@ address, then it must be included in <CODE>nodes</CODE>!)
 <BR>  
 <FONT SIZE="-1">
 This document was generated
-by <I>Martin Junius</I> on <I>July, 28  2002</I>
+by <I>Martin Junius</I> on <I>December, 14  2002</I>
 using <A HREF="http://www.mathematik.uni-kl.de/~obachman/Texi2html
 "><I>texi2html</I></A>
 

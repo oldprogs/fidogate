@@ -2675,6 +2675,19 @@ Gateway configuration:
      ignored. When this option is turned on, they are treated as normal
      characters. Useful e.g. for the cyrillic cp866 charset.
 
+`RegisteredHostsOnly'
+     The opposite of the -i -ignore-hosts command line option, always
+     requiring that a node is registered in the `hosts' list. NOT YET
+     IMPLEMENTED.
+
+`RegisteredAliasesOnly'
+     Allow only those addresses listed in `aliases', either
+     alias@host.do.main or Full_Name@host.do.main, as valid recipients
+     (also including postmaster) for `rfc2ftn'.
+
+     With this option, the gateway can be restricted to registered
+     users, which is also very useful for fighting Spam.
+
 FFX configuration:
 
    (FFX is a part of FIDOGATE, an uux-like mechanism for remote

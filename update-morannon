@@ -16,6 +16,7 @@ cp -av \
     README ANNOUNCE ChangeLog \
     /html/fidogate
 
+# morannon
 scp \
     /usr/src/redhat/SOURCES/fidogate-$REL.tar.gz \
     /usr/src/redhat/SRPMS/fidogate-$REL-*.src.rpm \
@@ -26,3 +27,17 @@ scp fidogate.lsm morannon:/pub/fidogate/fidogate-$REL.lsm
 
 ssh morannon \
     "(cd /pub/fidogate; ln -s fidogate-$REL.tar.gz fgate$TAG.tgz)"
+
+
+# lftp
+src=$(ls -1 /usr/src/redhat/SOURCES/fidogate-$REL.tar.gz)
+brpm=$(ls -1 /usr/src/redhat/RPMS/i386/fidogate-$REL-*.i386.rpm)
+srpm=$(ls -1 /usr/src/redhat/SRPMS/fidogate-$REL-*.src.rpm)
+
+put="put $src; put $srpm; put $brpm; put fidogate.lsm -o fidogate-$REL.lsm"
+
+# sf.net
+lftp -c "open ftp://upload.sourceforge.net/incoming; $put"
+
+# metalab.unc.edu
+lftp -c "open ftp://metalab.unc.edu/incoming/Linux; $put"

@@ -3,9 +3,44 @@
 ../tr.init
 
 R="../../src/gate/rfc2ftn -c../cf/fidogate.conf -vvvvvvv"
+R1="../../src/gate/rfc2ftn -cconfig -vvvvvvv"
 F="../../src/gate/ftn2rfc -c../cf/fidogate.conf -vvvvvvv"
 
 echo "tc: running"
+
+# Test with local config
+echo "----- rfc2ftn: mail to mj@orodruin.fido.de -----"
+$R1 mj@orodruin.fido.de <<EOF
+Subject: Mail -> mj
+From: Test User <test@blah.org>
+
+TEST - OK
+EOF
+
+echo "----- rfc2ftn: mail to Martin_Junius@orodruin.fido.de -----"
+$R1 Martin_Junius@orodruin.fido.de <<EOF
+Subject: Mail -> Martin_Junius
+From: Test User <test@blah.org>
+
+TEST - OK
+EOF
+
+echo "----- rfc2ftn: mail to postmaster@orodruin.fido.de -----"
+$R1 postmaster@orodruin.fido.de <<EOF
+Subject: Mail -> postmaster
+From: Test User <test@blah.org>
+
+TEST - OK
+EOF
+
+echo "----- rfc2ftn: mail to unknown@orodruin.fido.de -----"
+$R1 unknown@orodruin.fido.de <<EOF
+Subject: Mail -> unknown
+From: Test User <test@blah.org>
+
+TEST - BOUNCE
+EOF
+
 
 # Generate mail addressed to Test 1/Test 2
 echo "----- rfc2ftn: mail to test_1 @ 2:2/0.0 -----"

@@ -1,4 +1,28 @@
+2002-12-14  Martin Junius  <mj@m-j-s.net>
+
+	------- CVS ci -------------------------------------------------------
+
+	* doc/fidogate.texi (Config): added documentation for
+	  RegisteredHostsOnly, RegisteredAliasesOnly options.
+
+	* src/gate/rfc2ftn.c (receiver): also search for full name in
+	  aliases, this allows sending mail to User_Name to registered
+	  aliases with RegisteredAliasesOnly switched on.
+
+	* test/tc.aliases/run: added test cases for rfc2ftn with
+	  RegisteredAliasesOnly. 
+
+	* test/tc.aliases/config: test config setting RegisteredAliasesOnly.
+
+	* src/gate/rfc2ftn.c (main): new config options
+	  RegisteredHostsOnly, opposite of the -i --ignore-hosts option, not
+	  yet functional, and RegisteredAliasesOnly.
+	  (receiver): if RegisteredAliasesOnly is set, flag missing alias
+	  as error "user is unknown", return NULL.
+
 2002-09-16  Martin Junius  <mj@m-j-s.net>
+
+	* update-morannon: added upload to sf.net and metalab via lftp.
 
 	======= Release 4.4.6 ================================================
 	------- CVS tag R446 -------------------------------------------------

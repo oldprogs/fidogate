@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway software UNIX <-> FIDO
  *
- * $Id: rfc2ftn.c,v 4.64 2002/07/15 20:21:58 n0ll Exp $
+ * $Id: rfc2ftn.c,v 4.65 2002/12/14 21:05:47 n0ll Exp $
  *
  * Read mail or news from standard input and convert it to a FIDO packet.
  *
@@ -39,7 +39,7 @@
 
 
 #define PROGRAM 	"rfc2ftn"
-#define VERSION 	"$Revision: 4.64 $"
+#define VERSION 	"$Revision: 4.65 $"
 #define CONFIG		DEFAULT_CONFIG_GATE
 
 
@@ -120,6 +120,8 @@ static int dont_change_content_type_charset = FALSE;
 					/* DontChangeContentTypeCharset */
 static int dont_process_return_receipt_to = FALSE;
 					/* DontProcessReturnReceiptTo */
+static int registered_hosts_only = FALSE;	/* RegisteredHostsOnly */
+static int registered_aliases_only = FALSE;	/* RegisteredAliasesOnly */
 
 
 /* Charset stuff */
@@ -653,18 +655,16 @@ char *receiver(char *to, Node *node)
     static char name[MSG_MAXNAME];
     Alias *alias;
     
-    /*
-     * Check for name alias
-     */
+    /* Check for name alias */
     debug(5, "Name for alias checking: %s", to);
 
-    /**FIXME: why && !alias->userdom?**/
+    /* search alias, use only plain (no @do.main) aliases */
     if( (alias = alias_lookup(node, to, NULL)) && !alias->userdom )
     {
 	debug(5, "Alias found: %s %s %s", alias->username,
 	      znfp1(&alias->node), alias->fullname);
 	BUF_COPY(name, alias->fullname);
-	/* Store address from ALIASES into node, this will reroute the
+	/* Store address from ALIASES into node, this will reroute the asdf 
 	 * message to the point specified in ALIASES, if the message
 	 * addressed to node without point address.  */
 	*node = alias->node;
@@ -672,19 +672,37 @@ char *receiver(char *to, Node *node)
 	return name;
     }
     
-    /*
-     * Alias not found. Return the the original receiver processed by
-     * convert_user_name().
-     */
+    /* No alias, return the the original receiver processed by
+     * convert_user_name() */
     BUF_COPY(name, to);
     cvt_user_name(name);
+    debug(6, "Converted receiver name: %s", name);
+
+    /* Search full name in aliases */
+    if( (alias = alias_lookup(node, NULL, name)) )
+    {
+	debug(5, "Alias (full name) found: %s %s %s", alias->username,
+	      znfp1(&alias->node), alias->fullname);
+	*node = alias->node;
+	return name;
+    }
 
     /**FIXME: implement a generic alias with pattern matching**/
-    /*
-     * Convert "postmaster" to "sysop"
-     */
+    /* Convert "postmaster" to "sysop" */
     if(!stricmp(name, "postmaster"))
+    {
 	BUF_COPY(name, "Sysop");
+	debug(5, "Alias postmaster: return %s", name);
+	return name;
+    }
+
+    /* If RegisteredAliasesOnly is set, flag missing alias as error */
+    if(registered_aliases_only) 
+    {
+	debug(5, "No alias found: returning address error");
+	BUF_COPY(address_error, "user is unknown");
+	return NULL;
+    }
     
     debug(5, "No alias found: return %s", name);
 
@@ -2132,6 +2150,14 @@ int main(int argc, char **argv)
     if( (p = cf_get_string("DontProcessReturnReceiptTo", TRUE)) )
     {
 	dont_process_return_receipt_to = TRUE;
+    }
+    if( (p = cf_get_string("RegisteredHostsOnly", TRUE)) )
+    {
+	registered_hosts_only = TRUE;
+    }
+    if( (p = cf_get_string("RegisteredAliasesOnly", TRUE)) )
+    {
+	registered_aliases_only = TRUE;
     }
 
 
