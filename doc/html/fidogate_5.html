@@ -1,7 +1,7 @@
 <HTML>
 <HEAD>
 <!-- This HTML file has been created by texi2html 1.51
-     from ../fidogate.texi on 1 November 1996 -->
+     from ../fidogate.texi on 9 November 1996 -->
 
 <TITLE>FIDOGATE
  - Basic Configuration</TITLE>
@@ -11,10 +11,10 @@ Go to the <A HREF="fidogate_1.html">first</A>, <A HREF="fidogate_4.html">previou
 <P><HR><P>
 
 
-<H1><A NAME="SEC59" HREF="fidogate_toc.html#TOC59">Basic Configuration</A></H1>
+<H1><A NAME="SEC60" HREF="fidogate_toc.html#TOC60">Basic Configuration</A></H1>
 
 <P>
-<A NAME="IDX82"></A>
+<A NAME="IDX84"></A>
 
 </P>
 <P>
@@ -24,18 +24,18 @@ the tosser, so I added this chapter. Hopefully this will help ...
 </P>
 
 <UL>
-<LI><A HREF="fidogate_5.html#SEC60">Example Point</A>: Example point configuration
-<LI><A HREF="fidogate_5.html#SEC61">Example Point 2</A>: Example configuration with 2 point addresses
-<LI><A HREF="fidogate_5.html#SEC62">Example Node</A>: Example leaf node configuration
+<LI><A HREF="fidogate_5.html#SEC61">Example Point</A>: Example point configuration
+<LI><A HREF="fidogate_5.html#SEC62">Example Point 2</A>: Example configuration with 2 point addresses
+<LI><A HREF="fidogate_5.html#SEC63">Example Node</A>: Example leaf node configuration
 </UL>
 
 
 
-<H2><A NAME="SEC60" HREF="fidogate_toc.html#TOC60">Example Point Configuration</A></H2>
+<H2><A NAME="SEC61" HREF="fidogate_toc.html#TOC61">Example Point Configuration</A></H2>
 <P>
-<A NAME="IDX83"></A>
-<A NAME="IDX84"></A>
 <A NAME="IDX85"></A>
+<A NAME="IDX86"></A>
+<A NAME="IDX87"></A>
 
 </P>
 <P>
@@ -64,13 +64,15 @@ Uplink (NetMail and EchoMail) 2:2499/123
 
 <P>
 Address configuration <CODE>config.gate</CODE> (uplink is the same as the
-point address!):
+point address!), <CODE>EchoMail4D</CODE> is stricly reqired:
 
 </P>
 
 <PRE>
 Address 2:2499/123.9
 Uplink  2:2499/123.9
+
+EchoMail4D
 </PRE>
 
 <P>
@@ -146,11 +148,11 @@ needed for a point polling its mail at the boss node.
 
 
 
-<H2><A NAME="SEC61" HREF="fidogate_toc.html#TOC61">Example Configuration with 2 Point Addresses</A></H2>
+<H2><A NAME="SEC62" HREF="fidogate_toc.html#TOC62">Example Configuration with 2 Point Addresses</A></H2>
 <P>
-<A NAME="IDX86"></A>
-<A NAME="IDX87"></A>
 <A NAME="IDX88"></A>
+<A NAME="IDX89"></A>
+<A NAME="IDX90"></A>
 
 </P>
 <P>
@@ -181,11 +183,11 @@ Use the sendmail <CODE>ftna</CODE> mailer.
 
 
 
-<H2><A NAME="SEC62" HREF="fidogate_toc.html#TOC62">Example Leaf Node configuration</A></H2>
+<H2><A NAME="SEC63" HREF="fidogate_toc.html#TOC63">Example Leaf Node configuration</A></H2>
 <P>
-<A NAME="IDX89"></A>
-<A NAME="IDX90"></A>
 <A NAME="IDX91"></A>
+<A NAME="IDX92"></A>
+<A NAME="IDX93"></A>
 
 </P>
 
@@ -311,9 +313,9 @@ working. You can then install suitable aliases in <CODE>/etc/aliases</CODE>:
 
 <PRE>
 # Areafix/Filefix - FIDOGATE ftnaf
-areafix: "|/usr/local/lib/fidonet/ftnaf -m"
+areafix: "|/usr/local/lib/fidogate/ftnafmail"
 areamgr: areafix
-filefix: "|/usr/local/lib/fidonet/ftnaf -F -m"
+filefix: "|/usr/local/lib/fidogate/ftnafmail -F"
 filemgr: filefix
 </PRE>
 

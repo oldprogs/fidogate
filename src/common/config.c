@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: config.c,v 4.4 1996/10/27 13:44:22 mj Exp $
+ * $Id: config.c,v 4.5 1996/11/09 18:02:12 mj Exp $
  *
  * Configuration data and functions
  *
@@ -680,13 +680,20 @@ void cf_initialize(void)
     strncpy0(scf_libdir,   LIBDIR,   MAXPATH);
     strncpy0(scf_spooldir, SPOOLDIR, MAXPATH);
     strncpy0(scf_logdir,   LOGDIR,   MAXPATH);
+
+    /*
+     * Check for real uid != effective uid, setuid installed FIDOGATE
+     * programs, and disable debug() output (-v on command line) in
+     * this case.
+     */
+    if(getuid() != geteuid())
+	no_debug = TRUE;
 }
 
 
 
 /*
- * Set FIDO address
- */
+ * Set FIDO address */
 void cf_set_addr(char *addr)
 {
     Node node;

@@ -1,3 +1,48 @@
+Sat Nov  9 17:26:07 1996  Martin Junius  <mj@fido.de>
+
+	------- CVS ci -------------------------------------------------------
+
+	* doc/fidogate.texi (Programs): added ftnafmail.
+	  (ftnafmail): new node describing new ftnafmail program.
+
+	* src/util/pktdebug.c (main): call kludge_pt_intl() to retrieve
+	  complete address information.
+
+	* src/toss/ftntoss.c (unpack): same.
+
+	* src/toss/ftnroute.c (do_packet): same, removed #if 0 code.
+
+	* src/toss/ftn2ftn.c (unpack): same.
+
+	* src/gate/ftn2rfc.c (unpack): changed call to kludge_pt_intl().
+
+	* src/common/kludge.c (kludge_pt_intl): new arg del, only call
+	  tl_delete() if del == TRUE.
+	  (kludge_pt_intl): strsave() ^AINTL line before running strtok().
+
+	* src/gate/rfc2ftn.c (sendback): added va_end().
+
+	* src/common/textlist.c (tl_appendf): added va_end().
+
+	* src/common/log.c (log): added call to va_end().
+	  (debug): error message, no output if no_debug == TRUE. Added
+	  call to va_end().
+
+	* src/common/config.c (cf_initialize): check for real uid !=
+	  effective uid (setuid installed FIDOGATE programs) and set
+	  no_debug=TRUE in this case.
+
+	* src/toss/Makefile (install): install ftnaf as normal binary,
+	  ftnafmail as setuid.
+
+	* src/toss/ftnafmail.c: new setuid wrapper for ftnaf. Used for
+	  sending mail to Areafix/Filefix.
+
+	* src/toss/ftnaf.c (main): removed -x --exec-program option,
+	  security problems.
+	  (run_script): removed.
+	  (cmd_add): removed call to run_script().
+
 Fri Nov  1 13:25:29 1996  Martin Junius  <mj@fido.de>
 
 	------- CVS ci -------------------------------------------------------

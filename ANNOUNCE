@@ -1,8 +1,8 @@
-Subject: FIDOGATE 4.1.0
+Subject: FIDOGATE 4.1.1
 Keywords: fido ftn netmail echomail tosser areafix mail news gateway
 
-After over 8 months of secret development, FIDOGATE 4.1.0, a new
-version of the famous FIDOGATE package is available ;-)
+FIDOGATE 4.1.1, an update to version 4 of the FIDOGATE package is
+available.
 
 			   FIDOGATE Version 4
 		        -----------------------
@@ -22,36 +22,27 @@ Internet:
     ftp://sunsite.unc.edu/pub/Linux/system/Fido/
     (maybe still in /pub/Linux/Incoming)
 
-    fidogate-4.1.0.tar.gz	651 Kbyte
+    fidogate-4.1.1.tar.gz	651 Kbyte
 
 Fido File Request:
 ------------------
     2:2452/110, 111  +49-241-876604  (V.34, ISDN V.110, X.75)
     
-    fgate410.tgz		651 Kbyte
+    fgate411.tgz		651 Kbyte
 
 
 
 ----------------------------------------------------------------------
 
-Major changes in FIDOGATE 4:
+Changes from 4.1.0:
 
-* Areas in AREAS.BBS must now explicitly be marked as passthru (dir
-  entry must start with `#'), otherwise ftntoss will create packets
-  for the own address as well.
+* Support for ISO-8859-1 8BIT and QUOTED-PRINTABLE character set when
+  gating Fido -> Internet.
 
-* Gateway can now work under the same main address as the tosser
-  (config.gate: Address == Uplink).
+* Important security fixes for setuid installed programs.
+  (New ftnafmail frontend for ftnaf)
 
-* If the KillXXXX options are not specified, ftntoss will put bad
-  messages into packets in SPOOLDIR/toss/bad.
-
-* File attach processing: option -F must be used with ftnpack.
-
-* Dupe check: ftntoss now uses a MSGID history database if enabled.
-
-* Tons of new config options! See examples/orodruin/... and
-  examples/morannon/...
+* Several bug fixes.
 
 ----------------------------------------------------------------------
 
@@ -77,29 +68,7 @@ for subscription requests.
 
 ----- fidogate.lsm -------------------------------------------------
 
-Begin3
-Title:          FIDOGATE
-Version:        4.1.0
-Entered-date:   18OCT96
-Description:    FIDOGATE Version 4:
-                * Fido-Internet Gateway
-		* Fido FTN-FTN Gateway
-		* Fido Mail Processor
-		* Fido File Processor
-		* Fido Areafix/Filefix
-Keywords:       fido ftn netmail echomail tosser areafix mail news gateway
-Author:         mj@fido.de (Martin Junius)
-Maintained-by:  mj@fido.de (Martin Junius)
-Primary-site:   ftp.fido.de /pub/fidogate
-		651kB fidogate-4.1.0.tar.gz
-Alternate-site: sunsite.unc.edu /pub/Linux/system/Fido
-		651kB fidogate-4.1.0.tar.gz
-Platforms:      Linux, SunOS, but should be easily portable to most
-		UNIX systems. Supports OS/2 (EMX gcc port) and MSDOS
-		(DJGPP gcc port), too. perl is required.
-Copying-policy: GPL
-End
 
 ----------------------------------------------------------------------
 
-Martin Junius <mj@fido.de>, $Date: 1996/11/01 13:07:57 $
+Martin Junius <mj@fido.de>, $Date: 1996/11/09 18:02:00 $

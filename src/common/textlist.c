@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: textlist.c,v 4.0 1996/04/17 18:17:40 mj Exp $
+ * $Id: textlist.c,v 4.1 1996/11/09 18:02:13 mj Exp $
  *
  * Store text file as chain of linked text lines in memory
  *
@@ -163,6 +163,8 @@ void tl_appendf(Textlist *list, char *fmt, ...)
 
     vsprintf(buf, fmt, args);
     tl_append(list, (char *)buf);
+
+    va_end(args);
 }
 
 

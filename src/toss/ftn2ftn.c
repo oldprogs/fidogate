@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: ftn2ftn.c,v 4.0 1996/04/17 18:17:42 mj Exp $
+ * $Id: ftn2ftn.c,v 4.1 1996/11/09 18:02:16 mj Exp $
  *
  * FTN-FTN gateway for NetMail, using the %Z:N/F.P addressing in the
  * from/to fields.
@@ -35,7 +35,7 @@
 
 
 #define PROGRAM 	"ftn2ftn"
-#define VERSION 	"$Revision: 4.0 $"
+#define VERSION 	"$Revision: 4.1 $"
 #define CONFIG		CONFIG_MAIN
 
 
@@ -197,7 +197,7 @@ int unpack(Node *gate, FILE *pkt_file, Packet *pkt)
 	if( msg_body_parse(&tl, &body) == -2 )
 	    log("ftn2ftn: error parsing message body");
 	/* Retrieve address information from body */
-	kludge_pt_intl(&body, &msg);
+	kludge_pt_intl(&body, &msg, TRUE);
 
 	if( do_message(gate, &msg, &body) != OK )
 	    return ERROR;

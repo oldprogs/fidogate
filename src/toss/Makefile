@@ -1,6 +1,6 @@
 #:ts=8
 #
-#    $Id: Makefile,v 4.5 1996/06/16 08:41:26 mj Exp $
+#    $Id: Makefile,v 4.6 1996/11/09 18:02:16 mj Exp $
 #
 #    Makefile for FIDOGATE src/toss/
 #
@@ -16,7 +16,7 @@ include $(TOPDIR)/config.make
 include $(TOPDIR)/rules.make
 
 
-PROGS		= ftn2ftn ftnaf ftnexpire ftnpack ftnroute ftntoss\
+PROGS		= ftn2ftn ftnaf ftnafmail ftnexpire ftnpack ftnroute ftntoss\
 		  rundf runin runout runtoss rununpack
 # + ftnbounce
 
@@ -53,7 +53,8 @@ install:
 	$(INSTALL_PROG)   runin       $(LIBDIR)
 	$(INSTALL_PROG)   runout      $(LIBDIR)
 	$(INSTALL_PROG)   rundf       $(LIBDIR)
-	$(INSTALL_SETUID)  ftnaf       $(LIBDIR)
+	$(INSTALL_PROG)   ftnaf       $(LIBDIR)
+	$(INSTALL_SETUID)  ftnafmail   $(LIBDIR)
 
 
 

@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway software UNIX <-> FIDO
  *
- * $Id: rfc2ftn.c,v 4.16 1996/11/01 13:07:59 mj Exp $
+ * $Id: rfc2ftn.c,v 4.17 1996/11/09 18:02:14 mj Exp $
  *
  * Read mail or news from standard input and convert it to a FIDO packet.
  *
@@ -39,7 +39,7 @@
 
 
 #define PROGRAM 	"rfc2ftn"
-#define VERSION 	"$Revision: 4.16 $"
+#define VERSION 	"$Revision: 4.17 $"
 #define CONFIG		CONFIG_GATE
 
 
@@ -275,6 +275,8 @@ void sendback(const char *fmt, ...)
     fprintf(stderr, "   ----- ERROR -----\n");
     vfprintf(stderr, fmt, args);
     fprintf(stderr, "\n");
+
+    va_end(args);
 }
 
 

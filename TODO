@@ -2,6 +2,8 @@
 
 X = for next release
 
+	* rfc2ftn: improve parser for 1st line. Use regexp library?
+
 	* rfc2ftn: option to use node address, not gateway point
 	  address for local users.
 
@@ -11,35 +13,12 @@ X = for next release
 
 	* ffxqt/ftntick: replace cf_set_inbound()?
 
-DONE.	* config.c: implement cf_p_inbound() returning value of
-	  PInbound. Fallback to Inbound, if PInbound is not set.
-
-DONE.	* config.common: implement PInbound, UUInbound
-
-DONE.	* config.gate: NetMailOptions, same as options in AREAS file.
-
-DONE.	* ftn2rfc: MIME header
-
-	  MIME-Version: 1.0
-	  Content-Type: text/plain; charset=US-ASCII
-	  Content-Transfer-Encoding: 7bit
-	  
-	  MIME-Version: 1.0
-	  Content-Type: text/plain; charset=ISO-8859-1
-	  Content-Transfer-Encoding: 8bit
-	  
-	  MIME-Version: 1.0
-	  Content-Type: TEXT/PLAIN; charset=iso-8859-1
-	  Content-Transfer-Encoding: QUOTED-PRINTABLE
-	  
 	* "BestMatchAKA" parameter for all programs. Similar to
 	  setting AKA based on current zone, using the AKA with best
 	  fits the sender/receiver. For multi-point operation.
 
 	* config.c: make Origin/Organization normal cf_get_string()
 	  parameters.
-
-DONE.	* config.c: make cf_p_*() use char * instead of char [].
 
 	* ftn2rfc: check ^AREPLYADDR for valid Internet address. At
 	  least check for something like ^AREPLYADDR Thomas Hamm%500:531/0.
@@ -60,9 +39,6 @@ DONE.	* config.c: make cf_p_*() use char * instead of char [].
 
 	* ftnflo: pipe to program processing the entries (e.g. send
  	  with FTP)
-
-	* rfc2ftn: better parsing of first line, don't use RFCAddr
-	  parser.
 
 	* ftntick: remove FILES.BBS entry for old replaced file.
 
@@ -106,10 +82,6 @@ DONE.	  copy netmail packets (do_noarc()), use rename(). If archiver
 	  fails, move packets back to toss/out directory.
 
 	* Check packet passwords of incoming packets.
-
-DONE.	* MIME support for outgoing RFC messages, especially using the
-	  ISO-8859-1 character set (8 bit and MIME quoted printable)
-	  for news messages.
 
 	* ftntoss: check # of ^AVia lines
 

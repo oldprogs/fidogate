@@ -336,7 +336,8 @@ Special configuration `rfc2ftn' (config file `config.gate'):
 
 `EchoMail4D'
      Generate 4D EchoMail control lines, when the gateway operates at a
-     point address.
+     point address. This is required when using the gateway and the
+     tosser for a Fido point!
 
 `HostsRestricted'
      Restrict usage of gateway to FTN addresses listed in `hosts'.
@@ -1042,10 +1043,12 @@ configuration described in the next section.
    Uplink (NetMail and EchoMail) 2:2499/123
 
 Address configuration `config.gate' (uplink is the same as the point
-address!):
+address!), `EchoMail4D' is stricly reqired:
 
      Address 2:2499/123.9
      Uplink  2:2499/123.9
+     
+     EchoMail4D
 
 Address configuration `config.main' (no uplink here!):
 
@@ -1185,9 +1188,9 @@ processing the inbound and the gateway output, respectively.
 working. You can then install suitable aliases in `/etc/aliases':
 
      # Areafix/Filefix - FIDOGATE ftnaf
-     areafix: "|/usr/local/lib/fidonet/ftnaf -m"
+     areafix: "|/usr/local/lib/fidogate/ftnafmail"
      areamgr: areafix
-     filefix: "|/usr/local/lib/fidonet/ftnaf -F -m"
+     filefix: "|/usr/local/lib/fidogate/ftnafmail -F"
      filemgr: filefix
 
    That's it. Hope that this short chapter on basic configuration
@@ -1204,6 +1207,7 @@ Index
 
 * Aliases:                              Aliases.
 * ArcMail:                              ftnpack.
+* Areafix <1>:                          ftnafmail.
 * Areafix:                              ftnaf.
 * Areas:                                Areas.
 * areas.bbs:                            Areas.bbs.
@@ -1238,6 +1242,7 @@ Index
 * ftn2ftn:                              ftn2ftn.
 * ftn2rfc <1>:                          ftnin.
 * ftn2rfc:                              ftn2rfc.
+* ftnaf <1>:                            ftnafmail.
 * ftnaf:                                ftnaf.
 * ftnbounce:                            ftnbounce.
 * ftnbsy:                               ftnbsy.

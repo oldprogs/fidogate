@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftnroute.c,v 4.10 1996/11/01 16:37:57 mj Exp $
+ * $Id: ftnroute.c,v 4.11 1996/11/09 18:02:17 mj Exp $
  *
  * Route FTN NetMail/EchoMail
  *
@@ -40,7 +40,7 @@
 
 
 #define PROGRAM 	"ftnroute"
-#define VERSION 	"$Revision: 4.10 $"
+#define VERSION 	"$Revision: 4.11 $"
 #define CONFIG		CONFIG_MAIN
 
 
@@ -345,14 +345,10 @@ int do_packet(char *pkt_name, FILE *pkt_file, Packet *pkt, PktDesc *desc)
 	if(body.area == NULL)
 	{
 	    /*
-	     * Special processing for NetMail
+	     * NetMail
 	     */
 	    /* Retrieve address from kludges */
-	    kludge_pt_intl(&body, &msg);
-#if 0
-	    /* Add ftnroute ^AVia line */
-	    add_via(&body.via, cf_addr());
-#endif	    
+	    kludge_pt_intl(&body, &msg, TRUE);
 	    /* Write message header and body */
 	    if( pkt_put_msg_hdr(fp, &msg, TRUE) != OK )
 	    {

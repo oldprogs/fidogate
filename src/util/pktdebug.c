@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: pktdebug.c,v 4.1 1996/06/06 15:59:33 mj Exp $
+ * $Id: pktdebug.c,v 4.2 1996/11/09 18:02:18 mj Exp $
  *
  * Debug contents of FTN packet
  *
@@ -37,7 +37,7 @@
 
 
 #define PROGRAM		"pktdebug"
-#define VERSION		"$Revision: 4.1 $"
+#define VERSION		"$Revision: 4.2 $"
 
 
 
@@ -178,8 +178,6 @@ int main(int argc, char **argv)
 		    printf("ERROR: %s: reading message header\n", name);
 		    break;
 		}
-		if(m_flag)
-		    pkt_debug_msg_hdr(stdout, &msg, "");
 		
 		type = pkt_get_body(fp, &tl);
 		if(type == ERROR)
@@ -199,6 +197,12 @@ int main(int argc, char **argv)
 		if( (err = msg_body_parse(&tl, &body)) != OK)
 		    fprintf(stdout, "ERROR: %s: parsing message "
 			    "body failed (%d)\n", name, err);
+		if(body.area == NULL)
+		    /* Retrieve complete address from kludges */
+		    kludge_pt_intl(&body, &msg, FALSE);
+
+		if(m_flag)
+		    pkt_debug_msg_hdr(stdout, &msg, "");
 		if(t_flag)
 		    msg_body_debug(stdout, &body, t_flag>1 ? TRUE : FALSE);
 	    }

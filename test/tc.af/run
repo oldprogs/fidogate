@@ -20,7 +20,7 @@ $T -v -b tmp_areas.bbs 2:2452/110.1 add yy
 $T -v -b tmp_areas.bbs 99:2452/110.1 add zz
 
 $T -v -b tmp_areas.bbs 2:2452/110.1 add UNKNOWN.GER
-$T -v -b tmp_areas.bbs -x./unknown 2:2452/110.1 add UNKNOWN.GER
+#$T -v -b tmp_areas.bbs -x./unknown 2:2452/110.1 add UNKNOWN.GER
 
 $T -v -b tmp_areas.bbs 2:99/99 del test1
 $T -v -b tmp_areas.bbs 2:99/99 del test2

@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: log.c,v 4.0 1996/04/17 18:17:39 mj Exp $
+ * $Id: log.c,v 4.1 1996/11/09 18:02:13 mj Exp $
  *
  * Log and debug functions
  *
@@ -38,6 +38,11 @@
  * Debug level -v --verbose option
  */
 int verbose = 0;
+
+/*
+ * Inhibit debug output
+ */
+int no_debug = FALSE;
 
 
 /*
@@ -133,6 +138,8 @@ void log(const char *fmt, ...)
 	fprintf(debugfile, "\n");
 	fflush(debugfile);
     }
+
+    va_end(args);
 }
 
 
@@ -148,10 +155,21 @@ void debug(int lvl, const char *fmt, ...)
 
     if(verbose >= lvl)
     {
-	vfprintf(debugfile, fmt, args);
-	fprintf(debugfile, "\n");
-	fflush(debugfile);
+	if(no_debug)
+	{
+	    fprintf(debugfile,
+		    "debug called for uid=%d euid=%d, output disabled\n",
+		    (int)getuid(), (int)geteuid());
+	}
+	else
+	{
+	    vfprintf(debugfile, fmt, args);
+	    fprintf(debugfile, "\n");
+	    fflush(debugfile);
+	}
     }
+
+    va_end(args);
 }
 
 

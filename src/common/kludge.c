@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: kludge.c,v 4.0 1996/04/17 18:17:39 mj Exp $
+ * $Id: kludge.c,v 4.1 1996/11/09 18:02:12 mj Exp $
  *
  * Processing of FTN ^A kludges in message body
  *
@@ -39,7 +39,7 @@
  * ^ATOPT, ^AFMPT, ^AINTL. Remove these kludges from MsgBody and put
  * the information in Message.
  */
-void kludge_pt_intl(MsgBody *body, Message *msg)
+void kludge_pt_intl(MsgBody *body, Message *msg, int del)
 {
     Textline *line;
     Textlist *list;
@@ -51,8 +51,9 @@ void kludge_pt_intl(MsgBody *body, Message *msg)
     /* ^AINTL */
     if( (p = kludge_get(list, "INTL", &line)) )
     {
-	/* Retrieve addr from ^AINTL, strtok() will destroy it, but we're */
-	/* deleting this kludge anyway.                                   */
+	p = strsave(p);
+
+	/* Retrieve addresses from ^AINTL */
 	if( (s = strtok(p, " \t\r\n")) )	/* Destination */
 	    if( asc_to_node(s, &node, FALSE) == OK )
 		msg->node_to = node;
@@ -60,7 +61,10 @@ void kludge_pt_intl(MsgBody *body, Message *msg)
 	    if( asc_to_node(s, &node, FALSE) == OK )
 		msg->node_from = node;
 
-	tl_delete(list, line);
+	xfree(p);
+	
+	if(del)
+	    tl_delete(list, line);
     }
     
     /* ^AFMPT */
@@ -68,7 +72,8 @@ void kludge_pt_intl(MsgBody *body, Message *msg)
     {
 	msg->node_from.point = atoi(p);
 
-	tl_delete(list, line);
+	if(del)
+	    tl_delete(list, line);
     }
     
     /* ^ATOPT */
@@ -76,7 +81,8 @@ void kludge_pt_intl(MsgBody *body, Message *msg)
     {
 	msg->node_to.point = atoi(p);
 
-	tl_delete(list, line);
+	if(del)
+	    tl_delete(list, line);
     }
 }
 

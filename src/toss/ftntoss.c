@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftntoss.c,v 4.9 1996/11/01 16:37:58 mj Exp $
+ * $Id: ftntoss.c,v 4.10 1996/11/09 18:02:18 mj Exp $
  *
  * Toss FTN NetMail/EchoMail
  *
@@ -39,7 +39,7 @@
 
 
 #define PROGRAM 	"ftntoss"
-#define VERSION 	"$Revision: 4.9 $"
+#define VERSION 	"$Revision: 4.10 $"
 #define CONFIG		CONFIG_MAIN
 
 
@@ -1097,7 +1097,7 @@ int unpack(FILE *pkt_file, Packet *pkt)
 	if(body.area == NULL)
 	{
 	    /* Retrieve complete address from kludges */
-	    kludge_pt_intl(&body, &msg);
+	    kludge_pt_intl(&body, &msg, TRUE);
 	    msg.node_orig = msg.node_from;
 
 	    debug(5, "NetMail: %s -> %s",
