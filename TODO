@@ -2,13 +2,22 @@
 
 X = for next release
 
+	* ftn2rfc: check ^AREPLYADDR for valid Internet address. At
+	  least check for something like ^AREPLYADDR Thomas Hamm%500:531/0.
+
+	* rununpack: search for archiver during make
+
+DONE.	* ftn2rfc: check for Z-Netz gateways.
+
 	* ftntoss/ftnroute: new RemapFrom, make Remap/RemapFrom send
 	  mail to /dev/null if destination is 0:0/0.0
 
 	* sendmailstat: update for new sendmail.
 
 	* rfc2ftn: config parameter to disable/enable X-Flags
-	  processing.
+	  processing. Add config parameter for specifying addresses
+	  allowed to use X-Flags. Automatically using X-Flags: MN for
+	  local users sending mails to Fido.
 
 DONE.	* rfc2ftn: integrate rfc_is_local(), rfc_is_domain() with
 	  address.c:addr_is_local(), addr_is_domain(), fix addr_is_* code.

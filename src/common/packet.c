@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: packet.c,v 4.0 1996/04/17 18:17:39 mj Exp $
+ * $Id: packet.c,v 4.1 1996/09/15 11:55:11 mj Exp $
  *
  * Functions to read/write packets and messages
  *
@@ -721,8 +721,8 @@ int pkt_get_hdr(FILE *fp, Packet *pkt)
     int cw, swap;
     char xpkt[4];
 
-    node_invalid(&pkt->from);
-    node_invalid(&pkt->to);
+    node_clear(&pkt->from);
+    node_clear(&pkt->to);
     pkt->time      = -1;
     pkt->baud      = 0;
     pkt->version   = 0;
@@ -810,7 +810,7 @@ int pkt_get_hdr(FILE *fp, Packet *pkt)
     /* Cap word */
     if((val = pkt_get_int16(fp)) == ERROR)  return ERROR;
     cw = val;
-    if(cw == swap)	/* 2+ packet according to FSC-0039 */
+    if(cw && cw == swap)	/* 2+ packet according to FSC-0039 */
 	debug(9, "Packet: type 2+");
     else
 	cw = 0;
@@ -818,15 +818,21 @@ int pkt_get_hdr(FILE *fp, Packet *pkt)
     /* Orig zone (FSC-0039) */
     if((val = pkt_get_int16(fp)) == ERROR)  return ERROR;
     if(cw)
+    {
 	pkt->from.zone = val;
-    if(ozone != val)
-	debug(9, "Packet: different zones %d / %d", ozone, val);
+	if(ozone != val)
+	    debug(9, "Packet: different zones %d (FTS-0001) / %d (FSC-0039)",
+		  ozone, val);
+    }
     /* Dest zone (FSC-0039) */
     if((val = pkt_get_int16(fp)) == ERROR)  return ERROR;
     if(cw)
+    {
 	pkt->to.zone = val;
-    if(dzone != val)
-	debug(9, "Packet: different zones %d / %d", dzone, val);
+	if(dzone != val)
+	    debug(9, "Packet: different zones %d (FTS-0001) / %d (FSC-0039)",
+		  dzone, val);
+    }
     /* Orig point (FSC-0039) */
     if((val = pkt_get_int16(fp)) == ERROR)  return ERROR;
     if(cw)

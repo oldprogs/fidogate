@@ -1,6 +1,6 @@
 #:ts=8
 #
-#    $Id: Makefile,v 4.1 1996/04/22 14:28:48 mj Exp $
+#    $Id: Makefile,v 4.2 1996/09/15 11:55:14 mj Exp $
 #
 #    Makefile for FIDOGATE test/
 #
@@ -23,7 +23,7 @@ check run::
 
 
 clean::
-	for d in tc.*; do (echo "$$d"; cd $$d; ../tr.clean); done 
+	for d in tc.* tmp*; do (echo "$$d"; cd $$d; ../tr.clean); done 
 
 clean::
 	rm -f *~ *.bak *.o tags TAGS core paths.tmp

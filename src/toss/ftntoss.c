@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftntoss.c,v 4.5 1996/06/06 15:59:31 mj Exp $
+ * $Id: ftntoss.c,v 4.6 1996/09/15 11:55:13 mj Exp $
  *
  * Toss FTN NetMail/EchoMail
  *
@@ -38,7 +38,7 @@
 
 
 #define PROGRAM 	"ftntoss"
-#define VERSION 	"$Revision: 4.5 $"
+#define VERSION 	"$Revision: 4.6 $"
 #define CONFIG		CONFIG_MAIN
 
 
@@ -667,7 +667,7 @@ int do_echomail(Packet *pkt, Message *msg, MsgBody *body)
      * Lookup area in AddToSeenBy list
      */
     for(addto=addto_first; addto; addto=addto->next)
-	if(addto->area[0]==buffer[0] && wildmat(buffer, addto->area))
+	if( wildmatch(area->area, addto->area, TRUE) )
 	    break;
     
     /*
@@ -675,12 +675,13 @@ int do_echomail(Packet *pkt, Message *msg, MsgBody *body)
      */
     if(!n_flag)
     {
-	if(! is_local_addr(&msg->node_to, FALSE) )
+	if(! node_eq(&msg->node_to, cf_addr())   &&
+	   ! is_local_addr(&msg->node_to, FALSE)   )
 	{
 	    /* Routed EchoMail */
-	    log("routed echomail area %s from %s to %s", buffer,
+	    log("routed echomail area %s from %s to %s", area->area,
 		node_to_asc(&msg->node_from, TRUE),
-		node_to_asc(&msg->node_to, TRUE)                 );
+		node_to_asc(&msg->node_to, TRUE)                    );
 	    msgs_routed++;
 	    if(!kill_routed)
 		return do_bad_msg(msg, body);
@@ -696,8 +697,8 @@ int do_echomail(Packet *pkt, Message *msg, MsgBody *body)
 	if(! lon_search(&area->nodes, &msg->node_from) )
 	{
 	    /* Insecure EchoMail */
-	    log("insecure echomail area %s from %s", buffer,
-		node_to_asc(&msg->node_from, TRUE)          );
+	    log("insecure echomail area %s from %s", area->area,
+		node_to_asc(&msg->node_from, TRUE)              );
 	    msgs_insecure++;
 	    if(!kill_insecure)
 		return do_bad_msg(msg, body);
@@ -756,7 +757,7 @@ int do_echomail(Packet *pkt, Message *msg, MsgBody *body)
      */
     if(check_path && do_check_path(&path)==ERROR)
     {
-	    /* Routed EchoMail */
+	    /* Circular ^APATH EchoMail */
 	    log("circular path echomail area %s from %s to %s",
 		area->area, node_to_asc(&msg->node_from, TRUE),
 		node_to_asc(&msg->node_to, TRUE)                 );

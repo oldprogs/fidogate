@@ -1,6 +1,6 @@
   Fido-Point-HOWTO
   Roland Rosenfeld, rroollaanndd@@ssppiinnnnaakkeerr..rrhheeiinn..ddee, 2:2450/111.13
-  $Revision: 4.1 $ $Date: 1996/05/07 19:50:39 $
+  $Revision: 4.2 $ $Date: 1996/09/15 11:55:06 $
 
   Dieses File soll helfen, einen Fido-Point unter Linux zu installieren,
   wobei ifcico als Mailer und FidoGate als Gatewaysoftware verwendet
@@ -80,10 +80,15 @@
 
   Falls Du eine etwas veraltete Version dieser HOWTO haben solltest,
   kannst Du Dir die immer aktuellste Version bei Guenter Mueller
-  (2:2450/111 V32B, 2:2450/112 ISDN) unter dem Namen FIDOPNT.GZ
+  (2:2450/111 V32B, 2:2450/112 ISDN) unter dem Namen FFIIDDOOPPNNTT..GGZZ
   requesten. Weiterhin ist sie per WWW unter
   <hhttttpp::////wwwwww..rrhheeiinn..ddee//~~rroollaanndd//FFiiddooPPnntt//> und per FTP unter
   <ffttpp::////ssuunnrriissee..ccss..uunnii--bboonnnn..ddee//ppuubb//lliinnuuxx//ffiiddoo//> verfügbar.
+
+  Eine englische Übersetzung von Oliver Much ist im Fido unter dem Namen
+  FFIIDDOOPPNNTTEE..GGZZ sowie im Internet unter
+  <hhttttpp::////wwwwww..rrhheeiinn..ddee//~~rroollaanndd//FFiiddooPPnntt--eenn//> bzw.  <ffttpp::////ssuunnrriissee..ccss..uunnii--
+  bboonnnn..ddee//ppuubb//lliinnuuxx//ffiiddoo//FFiiddooPPnntt--eenn..**> verfügbar.
 
   22..  BBeennööttiiggttee PPrrooggrraammmmee
 
@@ -119,6 +124,7 @@
   Die aktuellste Version wird regelmäßig von Eugene nach
   <ffttpp::////ttssxx--1111..mmiitt..eedduu//ppuubb//lliinnuuxx//ssoouurrcceess//uussrr..bbiinn//> und
   <ffttpp::////ssuunnssiittee..uunncc..eedduu//ppuubb//LLiinnuuxx//ssyysstteemm//FFiiddoo//> hochgeladen.
+
   22..33..  NNeewwss--TTrraannssppoorrtt--AAggeenntt ((NNTTAA))
 
   Als News-Transport-Agent kann man sowohl cnews als auch INN einsetzen.
@@ -335,7 +341,6 @@
   Adressen als Beispiel verwende, solltest Du auch für die ersten
   Versuche die Adressen und den Rechnernamen ändern, denn sonst bekomme
   ich die Antworten auf die Fragen, die Du unter meinem Namen stellst...
-
   55..  ZZuuggrriiffffssrreecchhttee
 
   Die Zugriffsrechte der einzelnen Dateien sind ein recht heikles Thema
@@ -452,12 +457,10 @@
 
   make install
 
-  Anschließend stehen alle benötigten Dateien in
-  //uussrr//llooccaall//lliibb//ffiiddooggaattee. Jetzt mußt Du natürlich noch einige Anpassun­
-  gen an Dein System vornehmen. Hier zunächst mal ein komplettes
-  //uussrr//llooccaall//lliibb//ffiiddooggaattee//ccoonnffiigg..ccoommmmoonn, welches die globalen
-  Konfigurationsdaten enthält:
-
+  Anschließend stehen alle benötigten Dateien in //uussrr//llooccaall//lliibb//ffiiddoo­­
+  ggaattee. Jetzt mußt Du natürlich noch einige Anpassungen an Dein System
+  vornehmen. Hier zunächst mal ein komplettes //uussrr//llooccaall//lliibb//ffiiddoo­­
+  ggaattee//ccoonnffiigg..ccoommmmoonn, welches die globalen Konfigurationsdaten enthält:
   ______________________________________________________________________
   #:ts=8
   #
@@ -532,7 +535,7 @@
 
   Als ich nur über fido.de Internet-Zugang hatte, habe ich dort pp1133 als
   Hostname und ..ffllookkiissttee..ffiiddoo..ddee als Domain verwendet.  Wenn Du keine
-  Internet-Adresse hast, kannst Du notfall auch einen beliebigen Namen
+  Internet-Adresse hast, kannst Du notfalls auch einen beliebigen Namen
   als Hostname einsetzen und dann als Domain ..uuuuccpp einsetzen (nicht den
   Punkt vergessen). Besonders wichtig ist, daß Du dann unbedingt darauf
   achtst, daß Du in ccoonnffiigg..ggaattee NNooFFrroommLLiinnee definiert hast, da sonst
@@ -837,10 +840,10 @@
   DE.                           de.                           -z 242 -H
   ______________________________________________________________________
 
-  Wie man sieht, ist es für die Usenet-Areas, die bis auf
-  Groß-/Kleinschreibung unter RFC und FTN den gleichen Namen haben,
-  möglich, auch ganze Hierarchien (--HH) einzubinden oder auch einzelne
-  Sub-Hierarchien auszuschließen (--!!).
+  Wie man sieht, ist es für die Usenet-Areas, die bis auf Groß-/Klein­
+  schreibung unter RFC und FTN den gleichen Namen haben, möglich, auch
+  ganze Hierarchien (--HH) einzubinden oder auch einzelne Sub-Hierarchien
+  auszuschließen (--!!).
 
   Letztendlich solltest Du mit ttoouucchh //uussrr//llooccaall//lliibb//ffiiddooggaattee//ppaasssswwdd noch
   ein leeres File anlegen, ansonsten versagt rrffcc22ffttnn nämlich seinen
@@ -1674,7 +1677,7 @@
   Wenn Du Sendmail installierst, solltest Du besonders darauf achten,
   daß Du den kompletten Satz an Configurations-Files installierst,
   welcher sich bei Slackware in dem Paket ssmmaaiillccnnff..ttggzz versteckt.  Diese
-  Configurations-Files finden in einem Verzeichnisbaum unter
+  Configurations-Files finden sich in einem Verzeichnisbaum unter
   //uussrr//ssrrcc//sseennddmmaaiill//ccff. In diesem Verzeichnis sollte sich auch ein knapp
   50KB großes README befinden, daß die neue Konfigurationsmethode
   beschreibt.
@@ -1814,7 +1817,7 @@
   R$* < $* fido.sub.org > $*              $1 < $2 fido.sub.de > $3
   ______________________________________________________________________
 
-  Hier wird zz22..ffiiddoonneett..oorrgg in zzww..ffiiddoo..ssuubb..ddee und ffiiddoo..ssuubb..oorrgg in
+  Hier wird zz22..ffiiddoonneett..oorrgg in zz22..ffiiddoo..ssuubb..ddee und ffiiddoo..ssuubb..oorrgg in
   ffiiddoo..ssuubb..ddee umgemappt, so daß alle Fido-Mails an die diversen Fido-
   Domains nach ffiiddoo..ssuubb..ddee geschickt werden, was dann per FTN (statt per
   UUCP o.ä.) verschickt wird. Dabei sollte man darauf achten, daß zwis­
@@ -1927,10 +1930,10 @@
   einzulesen.
 
   Sendmail schreibt seine Logmessages per syslog. Hierzu empfiehlt es
-  sich, folgenden Eintrag in /etc/syslog.conf aufzunehmen:
+  sich, folgenden Eintrag in //eettcc//ssyysslloogg..ccoonnff aufzunehmen:
 
   ______________________________________________________________________
-  mail.*                      /var/log/fnet/mail
+  mail.*                      /var/log/mail
   ______________________________________________________________________
 
   Nicht vergessen, den ssyyssllooggdd nach dieser Änderung mit kkiillllaallll --11
@@ -2110,25 +2113,25 @@
 
   Bei Slackware 3.0 wird bei jedem Aufruf von sseennddbbaattcchheess die UUCP-Queue
   überprüft, wobei eine Fehlermeldung ausgegeben wird, weil das System
-  fidogate nicht als UUCP-System existiert.  Um dieses Problem zu
-  beheben, muß das Script wie folgt geändert werden:
+  ffiiddooggaattee nicht als UUCP-System existiert.  Um dieses Problem zu
+  beheben, muß das Script qquueeuulleenn wie folgt geändert werden:
 
   ______________________________________________________________________
-  #!/bin/sh
-  # Find size of current queue of news outbound to $1.  Taylor version.
-  # =()<. ${NEWSCONFIG-@<NEWSCONFIG>@}>()=
-  \&. ${NEWSCONFIG-/var/lib/news/config}
+   #!/bin/sh
+   # Find size of current queue of news outbound to $1.  Taylor version.
+   # =()<. ${NEWSCONFIG-@<NEWSCONFIG>@}>()=
+   . ${NEWSCONFIG-/var/lib/news/config}
 
-  PATH=$NEWSCTL/bin:$NEWSBIN:$NEWSPATH ; export PATH
-  umask $NEWSUMASK
+   PATH=$NEWSCTL/bin:$NEWSBIN:$NEWSPATH ; export PATH
+   umask $NEWSUMASK
 
-  if test "$1" = "fidogate"
-  then
+   if test "$1" = "fidogate"
+   then
       echo -e "\t0"
       exit 0
-  else
-  uustat -s $1 -c rnews | wc -l
-  fi
+   else
+   uustat -s $1 -c rnews | wc -l
+   fi
   ______________________________________________________________________
 
   Nun müssen die Newsgroups noch in das News-System eingetragen werden.
@@ -2219,7 +2222,7 @@
 
   Damit darf nur mein eigener Rechner auf meinen NNTP-Server zugreifen.
 
-  //uussrr//llooccaall//lliibb//nneewwss//nnnnrrpp..aacccceess sollte wie folgt aussehen:
+  //uussrr//llooccaall//lliibb//nneewwss//nnnnrrpp..aacccceessss sollte wie folgt aussehen:
 
   ______________________________________________________________________
   ##  nnrp.access - access file for on-campus NNTP sites
@@ -2388,8 +2391,8 @@
 
   # Deutsche Newsgroups 7 Tage behalten:
   de.*:A:3:7:90
-  # de.comp.os.linux etwas länger:
-  de.comp.os.linux:A:3:14:90
+  # de.comp.os.linux.* etwas länger:
+  de.comp.os.linux.*:A:3:14:90
 
   # Moderierte c.o.l.* länger behalten:
   comp.os.linux.*:M:5:90:90
@@ -2418,22 +2421,22 @@
   Files zwei kleinere Änderungen an den Pfaden vornehmen:
 
   ______________________________________________________________________
-  #! /bin/sh
-  #:ts=8
-  ##  SH script to send batches to FIDOGATE
+   #! /bin/sh
+   #:ts=8
+   ##  SH script to send batches to FIDOGATE
 
-  ##  =()<. @<_PATH_SHELLVARS>@>()=
-  \&. /usr/local/lib/news/innshellvars
+   ##  =()<. @<_PATH_SHELLVARS>@>()=
+   . /usr/local/lib/news/innshellvars
 
-  #
-  # FIDOGATE rfc2ftn
-  #
-  RFC2FTN="/usr/local/lib/fidogate/rfc2ftn -w Normal -b -n "
+   #
+   # FIDOGATE rfc2ftn
+   #
+   RFC2FTN="/usr/local/lib/fidogate/rfc2ftn -w Normal -b -n "
   ______________________________________________________________________
 
   Damit die News exportiert werden können, muß ein Batch-Verzeichnis für
-  sie existieren, das //vvaarr//ssppooooll//nneewwss//oouutt..ggooiinngg heißt, news.news gehört
-  und die Permissions 775 haben sollte.  Im Gegensatz zu cnews dürfen in
+  sie existieren, das //vvaarr//ssppooooll//nneewwss//oouutt..ggooiinngg heißt, nneewwss..nneewwss gehört
+  und die Permissions 777755 haben sollte.  Im Gegensatz zu cnews dürfen in
   diesem Verzeichnis keine Unterverzeichnisse für die einzelnen
   Newsfeeds angelegt werden, denn INN verwendet nur ein File je Feed,
   welches er selber anlegt. Wer aber von cnews auf INN umsteigt, sollte
@@ -2447,7 +2450,7 @@
     /usr/local/lib/news/etc/rc.news &
   ______________________________________________________________________
 
-  Für den ersten Start von INN kann dieses Skript (also root) auch
+  Für den ersten Start von INN kann dieses Skript (als root) auch
   manuell gestartet werden. Allerdings ist darauf zu achten, daß nicht
   versehentlich mehrere innd gleichzeitig laufen.
 
@@ -2556,7 +2559,7 @@
   x_comment_to=ON
   ______________________________________________________________________
 
-  und schon weden in den Fido- und Gernet-Echos X-Comment-To:-Header
+  und schon weden in den Fido- und Gernet-Echos XX--CCoommmmeenntt--TToo::-Header
   erstellt, ohne daß Du tin patchen mußt.
 
   Als weitere Alternative bietet sich seit FidoGate 3.9.5 an, den
@@ -2569,7 +2572,7 @@
   user@do.main.writes:
   user@do.main (User Name) wrote:
   User Name <user@do.main> wrote:
-  user@do.main.wrote:
+  user@do.main wrote:
   In article <id@do.main> user@do.main writes:
   In article <id@do.main>, user@do.main writes:
 
@@ -2637,8 +2640,8 @@
   X-Flags: MN
 
   Will man Crashmails verschicken, so muß man zusätzlich "XX--FFllaaggss:: CC"
-  setzen. Wird dabei an einen Point adressiert, so wird die Mail über
-  dessen Boß geroutet.
+  setzen. Wird dabei an einen Point adressiert, so wird die Mail an
+  dessen Boß gecrasht.
 
   Auch FileAttaches sind möglich.  Hierzu gibt man "XX--FFllaaggss:: FF" an und
   gibt den Dateinamen mit Pfad(!) als Subject an.

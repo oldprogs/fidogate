@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway software UNIX <-> FIDO
  *
- * $Id: rfc2ftn.c,v 4.12 1996/09/07 16:21:53 mj Exp $
+ * $Id: rfc2ftn.c,v 4.13 1996/09/15 11:55:12 mj Exp $
  *
  * Read mail or news from standard input and convert it to a FIDO packet.
  *
@@ -39,7 +39,7 @@
 
 
 #define PROGRAM 	"rfc2ftn"
-#define VERSION 	"$Revision: 4.12 $"
+#define VERSION 	"$Revision: 4.13 $"
 #define CONFIG		CONFIG_GATE
 
 
@@ -1069,7 +1069,7 @@ int snd_message(Message *msg, Area *parea,
     pkt_put_msg_hdr(sf, msg, TRUE);
 
 
-    if(!flags || !strchr(flags, 'M'))		/* X-Flags: M */
+    if(!flags || !strchr(flags, 'M') || !strchr(flags, 'm'))/* X-Flags: M */
     {
 	/*
 	 * Add kludges for MSGID / REPLY and ORIGID / ORIGREF
@@ -1107,7 +1107,7 @@ int snd_message(Message *msg, Area *parea,
 	print_local_msgid(sf);
 
     if(!no_fsc_0035)
-	if(!flags || !strchr(flags, 'N'))
+	if(!flags || !strchr(flags, 'N') || !strchr(flags, 'n'))
 	{
 	    /*
 	     * Generate FSC-0035 ^AREPLYADDR, ^AREPLYTO
@@ -1119,7 +1119,7 @@ int snd_message(Message *msg, Area *parea,
 		    msg->name_from);
 	}
 
-    if(flags && strchr(flags, 'F'))
+    if( flags && (strchr(flags, 'F') || strchr(flags, 'f')) )
     {
 	/*
 	 * Generate ^AFLAGS KFS
@@ -1156,7 +1156,7 @@ int snd_message(Message *msg, Area *parea,
 	add_empty = TRUE;
     }
 
-    if(!flags || !strchr(flags, 'N'))
+    if(!flags || !strchr(flags, 'N') || !strchr(flags, 'n'))
     {
 	if(!no_from_line)
 	{

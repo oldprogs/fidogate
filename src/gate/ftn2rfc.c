@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftn2rfc.c,v 4.6 1996/08/28 21:05:14 mj Exp $
+ * $Id: ftn2rfc.c,v 4.7 1996/09/15 11:55:12 mj Exp $
  *
  * Convert FTN mail packet to RFC messages (mail and news batches)
  *
@@ -40,7 +40,7 @@
 
 
 #define PROGRAM 	"ftn2rfc"
-#define VERSION 	"$Revision: 4.6 $"
+#define VERSION 	"$Revision: 4.7 $"
 #define CONFIG		CONFIG_GATE
 
 
@@ -532,6 +532,15 @@ int unpack(FILE *pkt_file, Packet *pkt)
 		    node_to_asc(&msg.node_orig, TRUE));
 		continue;
 	    }
+
+	    /* Broken FidoZerb message splitting */
+	    if( (p = kludge_get(&body.kludge, "X-FZ-SPLIT", NULL)) )
+	    {
+		log("skipping message from gateway (X-FZ-SPLIT), origin=%s",
+		    node_to_asc(&msg.node_orig, TRUE));
+		continue;
+	    }
+	    
 	}
 
 	/*

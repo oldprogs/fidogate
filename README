@@ -1,6 +1,6 @@
 -*- Indented-Text -*-
 
-$Id: README,v 4.7 1996/08/25 13:09:43 mj Exp $
+$Id: README,v 4.8 1996/09/15 11:55:04 mj Exp $
 
 ----------------------------------------------------------------------
 				   
@@ -77,6 +77,19 @@ for subscription requests.
 
 ----------------------------------------------------------------------
 
+Latest version:
+
+The latest version of FIDOGATE can be found at:
+
+    ftp://ftp.fido.de/pub/fidogate/
+
+    ftp://ftp.comnets.rwth-aachen.de/pub/mail+news/fidogate/
+
+    ftp://sunsite.unc.edu/pub/Linux/system/Fido/
+          (not always up-to-date!)
+
+----------------------------------------------------------------------
+
 OS/2 version:
 
 For an OS/2 version of FIDOGATE contact:
@@ -86,4 +99,4 @@ For an OS/2 version of FIDOGATE contact:
 
 ----------------------------------------------------------------------
 
-Martin Junius <mj@fido.de>, $Date: 1996/08/25 13:09:43 $
+Martin Junius <mj@fido.de>, $Date: 1996/09/15 11:55:04 $

@@ -1,5 +1,7 @@
 Sun Sep 15 12:11:05 1996  Martin Junius  <mj@fido.de>
 
+	* version.h (ALPHA): changed to 6.
+
 	------- CVS ci -------------------------------------------------------
 
 	* src/common/packet.c (pkt_get_hdr): use node_clear() to
