@@ -1,5 +1,16 @@
 Fri Oct 18 18:31:45 1996  Martin Junius  <mj@fido.de>
 
+	------- CVS tag pre410 -----------------------------------------------
+
+	------- CVS ci -------------------------------------------------------
+
+	* ANNOUNCE: some changes.
+
+	* test/tc.tick/testfile.txt: new testfile.txt without RCS headers,
+	  and corresponding test[12].tic.
+
+	* src/gate/ftninpost.pl: removed test exit.
+
 	------- CVS ci -------------------------------------------------------
 
 	* doc/fidogate.texi (Config): added FTNIn* parameters.

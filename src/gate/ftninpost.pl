@@ -1,6 +1,6 @@
 #!/usr/local/bin/perl
 #
-# $Id: ftninpost.pl,v 4.1 1996/10/18 16:58:05 mj Exp $
+# $Id: ftninpost.pl,v 4.2 1996/10/18 19:29:54 mj Exp $
 #
 # Postprocessor for ftnin, feeds output of ftn2rfc to rnews and sendmail.
 # Call via ftnin's -x option or run after ftn2rfc. Replaces old fidorun
@@ -41,7 +41,6 @@ print
     "rnews     = $RNEWS\n",
     "recombine = $RECOMB\n"
     if($opt_v);
-exit;
 
 
 # ----- main -----------------------------------------------------------------
