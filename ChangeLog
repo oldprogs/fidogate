@@ -1,3 +1,10 @@
+2000-06-03  Martin Junius  <mj@fido.de>
+
+	------- CVS ci -------------------------------------------------------
+
+	* scripts/misc/hosts2dns.pl: new script, converting FIDOGATE hosts
+	  list to DNS MX records.
+
 2000-06-01  Martin Junius  <mj@fido.de>
 
 	------- CVS ci -------------------------------------------------------

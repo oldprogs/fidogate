@@ -1,6 +1,6 @@
 #:ts=8
 #
-#    $Id: Makefile,v 4.5 1999/10/17 11:49:29 mj Exp $
+#    $Id: Makefile,v 4.6 2000/06/03 20:36:40 mj Exp $
 #
 #    Makefile for FIDOGATE scripts/filebase/
 #
@@ -16,7 +16,7 @@ include $(TOPDIR)/config.make
 include $(TOPDIR)/rules.make
 
 
-PROGS		= areasbbssync recvuu senduu senduumail
+PROGS		= areasbbssync recvuu senduu senduumail hosts2dns
 
 
 all:		$(PROGS)
@@ -36,6 +36,7 @@ install:
 	$(INSTALL_PROG) recvuu $(PREFIX)$(BINDIR)
 	$(INSTALL_PROG) senduu $(PREFIX)$(BINDIR)
 	$(INSTALL_PROG) senduumail $(PREFIX)$(BINDIR)
+	$(INSTALL_PROG) hosts2dns $(PREFIX)$(BINDIR)
 
 
 clean:
