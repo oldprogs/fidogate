@@ -4,9 +4,9 @@
 
 G="../../src/gate/rfc2ftn -vv -c./config -i"
 
-T="../../src/toss/ftntoss  -c../cf/toss.conf -vv -r./routing"
-R="../../src/toss/ftnroute -c../cf/toss.conf -vv -r./routing"
-P="../../src/toss/ftnpack  -c../cf/toss.conf -v"
+T="../../src/toss/ftntoss  -c../cf/fidogate.conf -vv -r./routing"
+R="../../src/toss/ftnroute -c../cf/fidogate.conf -vv -r./routing"
+P="../../src/toss/ftnpack  -c../cf/fidogate.conf -v"
 
 echo "tc: running"
 

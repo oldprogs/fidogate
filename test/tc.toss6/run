@@ -2,8 +2,8 @@
 
 ../tr.init
 
-T="../../src/toss/ftntoss -c../cf/toss.conf"
-R="../../src/gate/rfc2ftn -c../cf/gate.conf"
+T="../../src/toss/ftntoss -c../cf/fidogate.conf"
+R="../../src/gate/rfc2ftn -c../cf/fidogate.conf"
 
 # Create input message
 $R -i -v Test_User_1@2:2452/110 -a 2:2499/123 -u 2:2452/110 <<EOF

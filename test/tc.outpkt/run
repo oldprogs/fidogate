@@ -2,7 +2,7 @@
 
 ../tr.init
 
-T="../../src/util/ftnoutpkt -c../cf/toss.conf -vvv"
+T="../../src/util/ftnoutpkt -c../cf/fidogate.conf -vvv"
 D="../../src/util/pktdebug"
 
 echo "tc: running"

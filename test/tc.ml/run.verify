@@ -1,6 +1,7 @@
 tc: clean-up
 tc: init
 tc: running
+---------- mail1 ---------
 RFC To:       Test_user@hippo.fido.de
 RFC From:     Karsten Keil <keil@temic-ech.spacenet.de>
 RFC Sender:   Karsten Keil <keil@temic-ech.spacenet.de>
@@ -11,8 +12,14 @@ Name for alias checking: Test_user
 No alias found: return Test user
     Name:     keil
     Address:  temic-ech.spacenet.de
+Name for alias checking: keil
+E-mail for alias checking: keil@temic-ech.spacenet.de
 RFC Date: Thu, 8 May 1997 12:49:15 +0200
 rfc2ftn MAIL: Karsten Keil <keil@temic-ech.spacenet.de> -> Test_user@hippo.fido.de
+    Name:     keil
+    Address:  temic-ech.spacenet.de
+Name for alias checking: keil
+E-mail for alias checking: keil@temic-ech.spacenet.de
 New packet file ./outpkt/mail/00000001.pkt (tmp ./outpkt/mail/00000001.tmp)
 Writing FTN packet header:
     From: 242:1000/5.0
@@ -22,19 +29,26 @@ Writing FTN packet header:
     Rev : 4.3
     Pass: ""
     Capw: 0001
+---------- mail2 ---------
 RFC To:       Test_user@hippo.fido.de
 RFC From:     Karsten Keil <isdn4@temic-ech.spacenet.de>
 RFC Reply-To: isdn4linux@hub-wue.franken.de
-RFC Sender:   isdn4linux@hub-wue.franken.de
+RFC Sender:   Karsten Keil <isdn4@temic-ech.spacenet.de>
     Name:     Test_user
     Address:  hippo.fido.de
     FTN node: 242:1000/1.0
 Name for alias checking: Test_user
 No alias found: return Test user
-    Name:     isdn4linux
-    Address:  hub-wue.franken.de
+    Name:     isdn4
+    Address:  temic-ech.spacenet.de
+Name for alias checking: isdn4
+E-mail for alias checking: isdn4@temic-ech.spacenet.de
 RFC Date: Thu, 1 May 1997 16:19:38 +0200
-rfc2ftn MAIL: isdn4linux@hub-wue.franken.de -> Test_user@hippo.fido.de
+rfc2ftn MAIL: Karsten Keil <isdn4@temic-ech.spacenet.de> -> Test_user@hippo.fido.de
+    Name:     isdn4
+    Address:  temic-ech.spacenet.de
+Name for alias checking: isdn4
+E-mail for alias checking: isdn4@temic-ech.spacenet.de
 New packet file ./outpkt/mail/00000002.pkt (tmp ./outpkt/mail/00000002.tmp)
 Writing FTN packet header:
     From: 242:1000/5.0
@@ -44,6 +58,7 @@ Writing FTN packet header:
     Rev : 4.3
     Pass: ""
     Capw: 0001
+---------- mail3 ---------
 RFC To:       Test_user@hippo.fido.de
 RFC From:     Reinhard Kotucha <reinhard@kammer.uni-hannover.de>
 RFC Sender:   Reinhard Kotucha <reinhard@kammer.uni-hannover.de>
@@ -54,8 +69,14 @@ Name for alias checking: Test_user
 No alias found: return Test user
     Name:     reinhard
     Address:  kammer.uni-hannover.de
+Name for alias checking: reinhard
+E-mail for alias checking: reinhard@kammer.uni-hannover.de
 RFC Date: Fri, 9 May 1997 15:41:20 +0200
 rfc2ftn MAIL: Reinhard Kotucha <reinhard@kammer.uni-hannover.de> -> Test_user@hippo.fido.de
+    Name:     reinhard
+    Address:  kammer.uni-hannover.de
+Name for alias checking: reinhard
+E-mail for alias checking: reinhard@kammer.uni-hannover.de
 New packet file ./outpkt/mail/00000003.pkt (tmp ./outpkt/mail/00000003.tmp)
 Writing FTN packet header:
     From: 242:1000/5.0
@@ -65,6 +86,7 @@ Writing FTN packet header:
     Rev : 4.3
     Pass: ""
     Capw: 0001
+---------- mail4 ---------
 RFC To:       Test_user@hippo.fido.de
 RFC From:     Bernd Raichle <raichle@Informatik.Uni-Stuttgart.DE>
 RFC Sender:   Bernd Raichle <raichle@Informatik.Uni-Stuttgart.DE>
@@ -75,8 +97,14 @@ Name for alias checking: Test_user
 No alias found: return Test user
     Name:     raichle
     Address:  Informatik.Uni-Stuttgart.DE
+Name for alias checking: raichle
+E-mail for alias checking: raichle@Informatik.Uni-Stuttgart.DE
 RFC Date: Fri, 9 May 1997 15:29:23 +0200 (MET DST)
 rfc2ftn MAIL: Bernd Raichle <raichle@Informatik.Uni-Stuttgart.DE> -> Test_user@hippo.fido.de
+    Name:     raichle
+    Address:  Informatik.Uni-Stuttgart.DE
+Name for alias checking: raichle
+E-mail for alias checking: raichle@Informatik.Uni-Stuttgart.DE
 New packet file ./outpkt/mail/00000004.pkt (tmp ./outpkt/mail/00000004.tmp)
 Writing FTN packet header:
     From: 242:1000/5.0
@@ -86,6 +114,7 @@ Writing FTN packet header:
     Rev : 4.3
     Pass: ""
     Capw: 0001
+
 ==============================================================================
 FTN packet header:
     From: 242:1000/5.0
@@ -115,6 +144,7 @@ FTN message header:
 ^ARFC-Cc: isdn4linux@hub-wue.franken.de
 ^ARFC-Newsgroups: de.alt.comm.isdn4linux
 ^ARFC-Sender: owner-isdn4linux@hub-wue.franken.de
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 From: Karsten Keil <keil@temic-ech.spacenet.de>
 Sender: owner-isdn4linux@hub-wue.franken.de
@@ -188,6 +218,7 @@ the message body [-vg]
 
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
 ==============================================================================
 ==============================================================================
 FTN packet header:
@@ -200,15 +231,15 @@ FTN packet header:
     Capw: 0001
 ==============================================================================
 FTN message header:
-    From: Isdn4linux                           @ 242:1000/5.0
+    From: Karsten Keil                         @ 242:1000/5.0
     To  : Test user                            @ 242:1000/1.0
     Subj: New isdn4linux version released
     Attr: 0001
 ------------------------------------------------------------------------------
 ^AINTL 242:1000/1 242:1000/5
 ^AMSGID: <19970501161938.ZZ35277@temic> 45e37387
-^AREPLYADDR <isdn4linux@hub-wue.franken.de>
-^AREPLYTO 242:1000/5 Isdn4linux
+^AREPLYADDR <isdn4@temic-ech.spacenet.de>
+^AREPLYTO 242:1000/5 Karsten Keil
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
 ^ARFC-Return-Path: <owner-isdn4linux@hub-wue.franken.de>
@@ -218,6 +249,7 @@ FTN message header:
 ^ARFC-To: isdn4linux@hub-wue.franken.de
 ^ARFC-Mime-Version: 1.0
 ^ARFC-Sender: owner-isdn4linux@hub-wue.franken.de
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 From: Karsten Keil <isdn4@temic-ech.spacenet.de>
 Reply-To: isdn4linux@hub-wue.franken.de
@@ -255,6 +287,7 @@ the message body [-vg]
 
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
 ==============================================================================
 ==============================================================================
 FTN packet header:
@@ -285,6 +318,7 @@ FTN message header:
 ^ARFC-To: rollo@artvark.com
 ^ARFC-CC: tetex@informatik.uni-hannover.de
 ^ARFC-Sender: owner-tetex@informatik.uni-hannover.de
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 From: Reinhard Kotucha <reinhard@kammer.uni-hannover.de>
 Sender: owner-tetex@informatik.uni-hannover.de
@@ -321,6 +355,7 @@ Microsoft isn't the answer. Microsoft is the question, and the answer is NO.
 
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
 ==============================================================================
 ==============================================================================
 FTN packet header:
@@ -350,6 +385,7 @@ FTN message header:
 ^ARFC-From: Bernd Raichle <raichle@Informatik.Uni-Stuttgart.DE>
 ^ARFC-To: tetex@informatik.uni-hannover.de
 ^ARFC-Sender: owner-tetex@informatik.uni-hannover.de
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 From: Bernd Raichle <raichle@Informatik.Uni-Stuttgart.DE>
 Sender: owner-tetex@informatik.uni-hannover.de
@@ -366,4 +402,5 @@ source code of the TeX executable, and described in the TeXbook.
 
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
 ==============================================================================

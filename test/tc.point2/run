@@ -2,10 +2,10 @@
 
 ../tr.init
 
-G="../../src/gate/rfc2ftn  -v -i -cconfig.gate"
-T="../../src/toss/ftntoss  -v -cconfig.main"
-R="../../src/toss/ftnroute -v -cconfig.main"
-P="../../src/toss/ftnpack  -v -cconfig.main"
+G="../../src/gate/rfc2ftn  -v -i -cfidogate.conf"
+T="../../src/toss/ftntoss  -v    -cfidogate.conf"
+R="../../src/toss/ftnroute -v    -cfidogate.conf"
+P="../../src/toss/ftnpack  -v    -cfidogate.conf"
 
 # create messages
 
@@ -49,6 +49,6 @@ EOF
 # toss messages
 cp outpkt/*/*.pkt pin
 
-$T -t -p -b areas.bbs -r routing
-$R -r routing
+$T -t -p
+$R
 #$P

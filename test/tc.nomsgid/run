@@ -2,8 +2,8 @@
 
 ../tr.init
 
-F="../../src/gate/ftn2rfc -c../cf/gate.conf -vvv"
-R="../../src/gate/rfc2ftn -c../cf/gate.conf -vvv"
+F="../../src/gate/ftn2rfc -c../cf/fidogate.conf -vvv"
+R="../../src/gate/rfc2ftn -c../cf/fidogate.conf -vvv"
 
 echo "tc: copying input packets"
 cp ../ti.pkt-misc/t-*nomsgid.pkt pin

@@ -4762,7 +4762,7 @@ FTN message header:
 AREA:DE.COMM.MISC
 ^AMSGID: <DpFu6G.7Iq@veteran.sax.de> d7bbaa53
 ^AREPLY: <4k1ckr$5ql@news.cs.tu-berlin.de> a9c21b0d
-^AREPLYADDR Carsten H. Wuestner <chw@veteran.sax.de>
+^AREPLYADDR <chw@veteran.sax.de>
 ^AREPLYTO 242:1000/5 Carsten H. Wuestner
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -4771,6 +4771,9 @@ AREA:DE.COMM.MISC
 ^ARFC-Date: Sat, 6 Apr 1996 11:20:39 GMT
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: chw@veteran.sax.de (Carsten H. Wuestner)
+------------------------------------------------------------------------------
+
 Andreas M. Kirchwitz (amk@cs.tu-berlin.de) writes:
 
 > Inzwischen habe ich die Schnauze voll von Telefonnummern-CDs.
@@ -4823,7 +4826,7 @@ FTN message header:
 AREA:DE.COMM.ISDN
 ^AMSGID: <FpTZxsiGAq2G089yn@appl2.hrz.uni-siegen.de> 6830911a
 ^AREPLY: <66FzjFL6WhB@pepe.wupper.de> 23999732
-^AREPLYADDR Alexander Schwanke <ge276@appl2.hrz.uni-siegen.de>
+^AREPLYADDR <ge276@appl2.hrz.uni-siegen.de>
 ^AREPLYTO 242:1000/5 Alexander Schwanke
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -4836,6 +4839,10 @@ AREA:DE.COMM.ISDN
 ^ARFC-Content-Transfer-Encoding: 8bit
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: ge276@appl2.hrz.uni-siegen.de (Alexander Schwanke)
+Reply-To: ge276@appl2.hrz.uni-siegen.de
+------------------------------------------------------------------------------
+
 In article <66FzjFL6WhB@pepe.wupper.de>,
 udob@pepe.wupper.de (Udo Boehlefeld) wrote:
 >rieger@stud.uni-frankfurt.de meinte am 03.04.96
@@ -4870,7 +4877,7 @@ FTN message header:
 AREA:DE.MARKT.COMP.MISC
 ^AMSGID: <FpTZxsiGAq2G089yn@appl2.hrz.uni-siegen.de> e6599779
 ^AREPLY: <66FzjFL6WhB@pepe.wupper.de> ce4ad12c
-^AREPLYADDR Alexander Schwanke <ge276@appl2.hrz.uni-siegen.de>
+^AREPLYADDR <ge276@appl2.hrz.uni-siegen.de>
 ^AREPLYTO 242:1000/5 Alexander Schwanke
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -4883,6 +4890,10 @@ AREA:DE.MARKT.COMP.MISC
 ^ARFC-Content-Transfer-Encoding: 8bit
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: ge276@appl2.hrz.uni-siegen.de (Alexander Schwanke)
+Reply-To: ge276@appl2.hrz.uni-siegen.de
+------------------------------------------------------------------------------
+
 In article <66FzjFL6WhB@pepe.wupper.de>,
 udob@pepe.wupper.de (Udo Boehlefeld) wrote:
 >rieger@stud.uni-frankfurt.de meinte am 03.04.96
@@ -4917,7 +4928,7 @@ FTN message header:
 AREA:DE.COMM.MISC
 ^AMSGID: <FpTZxsiGAq2G089yn@appl2.hrz.uni-siegen.de> 8dd1d8c0
 ^AREPLY: <66FzjFL6WhB@pepe.wupper.de> c678dee8
-^AREPLYADDR Alexander Schwanke <ge276@appl2.hrz.uni-siegen.de>
+^AREPLYADDR <ge276@appl2.hrz.uni-siegen.de>
 ^AREPLYTO 242:1000/5 Alexander Schwanke
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -4930,6 +4941,10 @@ AREA:DE.COMM.MISC
 ^ARFC-Content-Transfer-Encoding: 8bit
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: ge276@appl2.hrz.uni-siegen.de (Alexander Schwanke)
+Reply-To: ge276@appl2.hrz.uni-siegen.de
+------------------------------------------------------------------------------
+
 In article <66FzjFL6WhB@pepe.wupper.de>,
 udob@pepe.wupper.de (Udo Boehlefeld) wrote:
 >rieger@stud.uni-frankfurt.de meinte am 03.04.96
@@ -4964,7 +4979,7 @@ FTN message header:
 AREA:DE.MARKT.MISC
 ^AMSGID: <FpTZxsiGAq2G089yn@appl2.hrz.uni-siegen.de> 164491c9
 ^AREPLY: <66FzjFL6WhB@pepe.wupper.de> 23ba9035
-^AREPLYADDR Alexander Schwanke <ge276@appl2.hrz.uni-siegen.de>
+^AREPLYADDR <ge276@appl2.hrz.uni-siegen.de>
 ^AREPLYTO 242:1000/5 Alexander Schwanke
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -4977,6 +4992,10 @@ AREA:DE.MARKT.MISC
 ^ARFC-Content-Transfer-Encoding: 8bit
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: ge276@appl2.hrz.uni-siegen.de (Alexander Schwanke)
+Reply-To: ge276@appl2.hrz.uni-siegen.de
+------------------------------------------------------------------------------
+
 In article <66FzjFL6WhB@pepe.wupper.de>,
 udob@pepe.wupper.de (Udo Boehlefeld) wrote:
 >rieger@stud.uni-frankfurt.de meinte am 03.04.96
@@ -5021,7 +5040,7 @@ FTN message header:
 AREA:DE.COMM.MISC
 ^AMSGID: <4k8js2$2tq@newsbf02.news.aol.com> 89bf8490
 ^AREPLY: <66Lr6paJzbB@titan.ndh.com> a9a6c265
-^AREPLYADDR Ukrapp <ukrapp@aol.com>
+^AREPLYADDR <ukrapp@aol.com>
 ^AREPLYTO 242:1000/5 Ukrapp
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -5031,6 +5050,9 @@ AREA:DE.COMM.MISC
 ^ARFC-Sender: root@newsbf02.news.aol.com
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: ukrapp@aol.com (Ukrapp)
+------------------------------------------------------------------------------
+
 Im Artikel <66Lr6paJzbB@titan.ndh.com>, E.Ascheid@titan.ndh.com (Elmar
 Ascheid) schreibt:
 
@@ -5066,7 +5088,7 @@ FTN message header:
 AREA:DE.COMM.MISC
 ^AMSGID: <1996Apr6.203307.3131@krefcom.westfalen.de> 032897c2
 ^AREPLY: <660JqBq9PYB@malcolm.modebox.rhein-ruhr.de> fda64b1e
-^AREPLYADDR Jan Richert <jrichert@krefcom.westfalen.de>
+^AREPLYADDR <jrichert@krefcom.westfalen.de>
 ^AREPLYTO 242:1000/5 Jan Richert
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -5075,6 +5097,9 @@ AREA:DE.COMM.MISC
 ^ARFC-Date: Sat, 6 Apr 1996 20:33:07 GMT
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: jrichert@krefcom.westfalen.de (Jan Richert)
+------------------------------------------------------------------------------
+
 Malcolm@modebox.rhein-ruhr.de (Marvin Erdt) writes:
 
 >thilo.pohl tipperte am 29.03.96 auf seine Tastatur
@@ -5126,7 +5151,7 @@ FTN message header:
 ------------------------------------------------------------------------------
 AREA:DE.COMM.MISC
 ^AMSGID: <4k9ctg$ih@moreinfo.com> aab0d588
-^AREPLYADDR news@allusenet.com
+^AREPLYADDR <news@allusenet.com>
 ^AREPLYTO 242:1000/5 News
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -5135,6 +5160,9 @@ AREA:DE.COMM.MISC
 ^ARFC-Date: Sun, 07 Apr 1996 21:43:09 GMT
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: news@allusenet.com
+------------------------------------------------------------------------------
+
 
 ^INet-link offers the FULL usenet feed.  There is
 no censorship of any kind.  Every single usenet conference
@@ -5197,7 +5225,7 @@ FTN message header:
 AREA:DE.COMM.MISC
 ^AMSGID: <3168466B.239FF435@cape.de> 4bb55fcd
 ^AREPLY: <dX3iy*Moi1@caty.ol.sub.de> a909c81e
-^AREPLYADDR Maik Musall <maik@cape.de>
+^AREPLYADDR <maik@cape.de>
 ^AREPLYTO 242:1000/5 Maik Musall
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -5209,6 +5237,9 @@ AREA:DE.COMM.MISC
 ^ARFC-Content-Transfer-Encoding: 7bit
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: Maik Musall <maik@cape.de>
+------------------------------------------------------------------------------
+
 Holger Lubitz wrote:
 > 
 > In article <31533685.77992920@cape.de>, Maik Musall writes:
@@ -5259,7 +5290,7 @@ FTN message header:
 AREA:DE.COMM.MOBIL
 ^AMSGID: <3168466B.239FF435@cape.de> 8a969775
 ^AREPLY: <dX3iy*Moi1@caty.ol.sub.de> 95aea88c
-^AREPLYADDR Maik Musall <maik@cape.de>
+^AREPLYADDR <maik@cape.de>
 ^AREPLYTO 242:1000/5 Maik Musall
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -5271,6 +5302,9 @@ AREA:DE.COMM.MOBIL
 ^ARFC-Content-Transfer-Encoding: 7bit
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: Maik Musall <maik@cape.de>
+------------------------------------------------------------------------------
+
 Holger Lubitz wrote:
 > 
 > In article <31533685.77992920@cape.de>, Maik Musall writes:
@@ -5321,7 +5355,7 @@ FTN message header:
 AREA:DE.COMM.MODEM
 ^AMSGID: <3168466B.239FF435@cape.de> 55a9945d
 ^AREPLY: <dX3iy*Moi1@caty.ol.sub.de> 4a91aba4
-^AREPLYADDR Maik Musall <maik@cape.de>
+^AREPLYADDR <maik@cape.de>
 ^AREPLYTO 242:1000/5 Maik Musall
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -5333,6 +5367,9 @@ AREA:DE.COMM.MODEM
 ^ARFC-Content-Transfer-Encoding: 7bit
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: Maik Musall <maik@cape.de>
+------------------------------------------------------------------------------
+
 Holger Lubitz wrote:
 > 
 > In article <31533685.77992920@cape.de>, Maik Musall writes:
@@ -5393,7 +5430,7 @@ FTN message header:
 AREA:DE.COMM.ISDN
 ^AMSGID: <66UNvJez2TB@flatta.in-berlin.de> 5025239d
 ^AREPLY: <3162DB8E.1664@stud.uni-frankfurt.de> 3c7ad93b
-^AREPLYADDR Rene Kacza <rene@flatta.in-berlin.de>
+^AREPLYADDR <rene@flatta.in-berlin.de>
 ^AREPLYTO 242:1000/5 Rene Kacza
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -5402,6 +5439,9 @@ AREA:DE.COMM.ISDN
 ^ARFC-Newsgroups: de.comm.isdn,de.comm.misc,de.markt.comp.misc,de.markt.misc
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: rene@flatta.in-berlin.de (Rene Kacza)
+------------------------------------------------------------------------------
+
 ABS: rieger@stud.uni-frankfurt.de (Marc A. Rieger)
 ORG: Computing & Hardware Experts Frankfurt
 
@@ -5440,7 +5480,7 @@ FTN message header:
 AREA:DE.COMM.MISC
 ^AMSGID: <66UNvJez2TB@flatta.in-berlin.de> b5c46a47
 ^AREPLY: <3162DB8E.1664@stud.uni-frankfurt.de> d99b90e1
-^AREPLYADDR Rene Kacza <rene@flatta.in-berlin.de>
+^AREPLYADDR <rene@flatta.in-berlin.de>
 ^AREPLYTO 242:1000/5 Rene Kacza
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -5449,6 +5489,9 @@ AREA:DE.COMM.MISC
 ^ARFC-Newsgroups: de.comm.isdn,de.comm.misc,de.markt.comp.misc,de.markt.misc
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: rene@flatta.in-berlin.de (Rene Kacza)
+------------------------------------------------------------------------------
+
 ABS: rieger@stud.uni-frankfurt.de (Marc A. Rieger)
 ORG: Computing & Hardware Experts Frankfurt
 
@@ -5487,7 +5530,7 @@ FTN message header:
 AREA:DE.MARKT.COMP.MISC
 ^AMSGID: <66UNvJez2TB@flatta.in-berlin.de> c254fbe8
 ^AREPLY: <3162DB8E.1664@stud.uni-frankfurt.de> dd366c57
-^AREPLYADDR Rene Kacza <rene@flatta.in-berlin.de>
+^AREPLYADDR <rene@flatta.in-berlin.de>
 ^AREPLYTO 242:1000/5 Rene Kacza
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -5496,6 +5539,9 @@ AREA:DE.MARKT.COMP.MISC
 ^ARFC-Newsgroups: de.comm.isdn,de.comm.misc,de.markt.comp.misc,de.markt.misc
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: rene@flatta.in-berlin.de (Rene Kacza)
+------------------------------------------------------------------------------
+
 ABS: rieger@stud.uni-frankfurt.de (Marc A. Rieger)
 ORG: Computing & Hardware Experts Frankfurt
 
@@ -5534,7 +5580,7 @@ FTN message header:
 AREA:DE.MARKT.MISC
 ^AMSGID: <66UNvJez2TB@flatta.in-berlin.de> 65a092f8
 ^AREPLY: <3162DB8E.1664@stud.uni-frankfurt.de> 5a79cbdf
-^AREPLYADDR Rene Kacza <rene@flatta.in-berlin.de>
+^AREPLYADDR <rene@flatta.in-berlin.de>
 ^AREPLYTO 242:1000/5 Rene Kacza
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -5543,6 +5589,9 @@ AREA:DE.MARKT.MISC
 ^ARFC-Newsgroups: de.comm.isdn,de.comm.misc,de.markt.comp.misc,de.markt.misc
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: rene@flatta.in-berlin.de (Rene Kacza)
+------------------------------------------------------------------------------
+
 ABS: rieger@stud.uni-frankfurt.de (Marc A. Rieger)
 ORG: Computing & Hardware Experts Frankfurt
 
@@ -5591,7 +5640,7 @@ FTN message header:
 AREA:DE.COMM.MISC
 ^AMSGID: <1996Apr8.185946.499@silvana.westfalen.de> 89ecd116
 ^AREPLY: <315BDB83.50E0@anon.penet.fi> b963007f
-^AREPLYADDR Roger Schwentker <roger@larry.westfalen.de>
+^AREPLYADDR <roger@larry.westfalen.de>
 ^AREPLYTO 242:1000/5 Roger Schwentker
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -5601,6 +5650,9 @@ AREA:DE.COMM.MISC
 ^ARFC-Date: Mon, 8 Apr 1996 18:59:46 GMT
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: roger@larry.westfalen.de (Roger Schwentker)
+------------------------------------------------------------------------------
+
 ACiD APPlE (an456495@anon.penet.fi) schrieb am Fri, 29 Mar 1996 13:45:55 +0100:
 > http://194.163.56.129/~ronz/index.htm
 
@@ -5647,7 +5699,7 @@ FTN message header:
 ------------------------------------------------------------------------------
 AREA:DE.COMM.MISC
 ^AMSGID: <DpJJwB.1u5@gauhh.hanse.de> 4c8e70fd
-^AREPLYADDR Thorsten Gau <gau_t@gauhh.hanse.de>
+^AREPLYADDR <gau_t@gauhh.hanse.de>
 ^AREPLYTO 242:1000/5 Thorsten Gau
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -5656,6 +5708,9 @@ AREA:DE.COMM.MISC
 ^ARFC-Date: Mon, 8 Apr 1996 11:28:58 GMT
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: gau_t@gauhh.hanse.de (Thorsten Gau)
+------------------------------------------------------------------------------
+
 Hallo LAN-Gurus,
 ich brauche eure Hilfe.
 
@@ -5710,7 +5765,7 @@ FTN message header:
 ------------------------------------------------------------------------------
 AREA:DE.COMP.OS.LINUX.NETWORKING
 ^AMSGID: <DpJJwB.1u5@gauhh.hanse.de> 53f15048
-^AREPLYADDR Thorsten Gau <gau_t@gauhh.hanse.de>
+^AREPLYADDR <gau_t@gauhh.hanse.de>
 ^AREPLYTO 242:1000/5 Thorsten Gau
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -5719,6 +5774,9 @@ AREA:DE.COMP.OS.LINUX.NETWORKING
 ^ARFC-Date: Mon, 8 Apr 1996 11:28:58 GMT
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: gau_t@gauhh.hanse.de (Thorsten Gau)
+------------------------------------------------------------------------------
+
 Hallo LAN-Gurus,
 ich brauche eure Hilfe.
 
@@ -5784,7 +5842,7 @@ FTN message header:
 AREA:DE.COMM.MISC
 ^AMSGID: <4kdc59$lak@newsserv.zdv.uni-tuebingen.de> 9947ad3c
 ^AREPLY: <66Lr6paJzbB@titan.ndh.com> a9a6c265
-^AREPLYADDR Holger Schmid <holger.schmid@student.uni-tuebingen.de>
+^AREPLYADDR <holger.schmid@student.uni-tuebingen.de>
 ^AREPLYTO 242:1000/5 Holger Schmid
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -5794,6 +5852,10 @@ AREA:DE.COMM.MISC
 ^ARFC-Reply-To: holger.schmid@student.uni-tuebingen.de
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: holger.schmid@student.uni-tuebingen.de (Holger Schmid)
+Reply-To: holger.schmid@student.uni-tuebingen.de
+------------------------------------------------------------------------------
+
 E.Ascheid@titan.ndh.com (Elmar Ascheid) wrote:
 
 >Hallo,
@@ -5841,7 +5903,7 @@ FTN message header:
 ------------------------------------------------------------------------------
 AREA:DE.COMM.MISC
 ^AMSGID: <315B7327.2FEF@sp.zrz.tu-berlin.de> 320742cb
-^AREPLYADDR K. Seeland <kaisggdf@sp.zrz.tu-berlin.de>
+^AREPLYADDR <kaisggdf@sp.zrz.tu-berlin.de>
 ^AREPLYTO 242:1000/5 K. Seeland
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -5853,6 +5915,9 @@ AREA:DE.COMM.MISC
 ^ARFC-Content-Transfer-Encoding: 7bit
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: "K. Seeland" <kaisggdf@sp.zrz.tu-berlin.de>
+------------------------------------------------------------------------------
+
 wo bekomm tcpip und ftp die auf einem Dosrechner mit nur 2 Mb Festplatte 
 laufen?
 
@@ -5882,7 +5947,7 @@ FTN message header:
 AREA:DE.COMM.MISC
 ^AMSGID: <4k7t62$gso@news00.btx.dtag.de> 382bd882
 ^AREPLY: <H.eg.z16zss1dpdk@falcon.lahn.de> 6e3e4688
-^AREPLYADDR Thomas Adams <adams@t-online.de>
+^AREPLYADDR <adams@t-online.de>
 ^AREPLYTO 242:1000/5 Thomas Adams
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -5894,6 +5959,9 @@ AREA:DE.COMM.MISC
 ^ARFC-Content-Transfer-Encoding: 8bit
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: adams@t-online.de (Thomas Adams)
+------------------------------------------------------------------------------
+
 On Thu, 04 Apr 1996 15:09:08 +0100, udsch@falcon.lahn.de (Udo
 Schoeffmann) wrote:
 
@@ -5945,7 +6013,7 @@ FTN message header:
 ------------------------------------------------------------------------------
 AREA:DE.COMM.MISC
 ^AMSGID: <4kat5s$cjf@news00.btx.dtag.de> 4e895f37
-^AREPLYADDR Thomas Adams <adams@t-online.de>
+^AREPLYADDR <adams@t-online.de>
 ^AREPLYTO 242:1000/5 Thomas Adams
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -5957,6 +6025,9 @@ AREA:DE.COMM.MISC
 ^ARFC-Content-Transfer-Encoding: 8bit
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: adams@t-online.de (Thomas Adams)
+------------------------------------------------------------------------------
+
 Liest hier jemand, der bei dem DECT Versuch in Gelsenkirchen mitmacht?
 Schreibt doch mal was dazu.
 --
@@ -5988,7 +6059,7 @@ FTN message header:
 AREA:DE.COMM.MISC
 ^AMSGID: <boss-0904962122310001@194.77.103.65> eca0d491
 ^AREPLY: <1996Apr8.185946.499@silvana.westfalen.de> 89ecd116
-^AREPLYADDR Michael Soentgerath <boss@msoenix.du.gtn.com>
+^AREPLYADDR <boss@msoenix.du.gtn.com>
 ^AREPLYTO 242:1000/5 Michael Soentgerath
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -5997,6 +6068,9 @@ AREA:DE.COMM.MISC
 ^ARFC-Date: Tue, 09 Apr 1996 21:22:31 +0100
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: boss@msoenix.du.gtn.com (Michael Soentgerath)
+------------------------------------------------------------------------------
+
 In article <1996Apr8.185946.499@silvana.westfalen.de>,
 roger@larry.westfalen.de (Roger Schwentker) wrote:
 
@@ -6050,7 +6124,7 @@ FTN message header:
 AREA:DE.COMM.MISC
 ^AMSGID: <4kebqp$h9a@unlisys.unlisys.net> 25166897
 ^AREPLY: <S+0YxAwOBh107h@bbsro.wst.ni.schule.de> 1aa77a13
-^AREPLYADDR Stefan Gˆrg <sgeorg@berlin.snafu.de>
+^AREPLYADDR <sgeorg@berlin.snafu.de>
 ^AREPLYTO 242:1000/5 Stefan Gˆrg
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -6059,6 +6133,9 @@ AREA:DE.COMM.MISC
 ^ARFC-Date: Tue, 09 Apr 1996 18:55:18 GMT
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: sgeorg@berlin.snafu.de (Stefan Gˆrg)
+------------------------------------------------------------------------------
+
 didi@bbsro.wst.ni.schule.de (Dietrich Restemeyer) wrote:
 
 >die Cd der DeTeMedien kostet keine 30 DM und hat die wesentlich aktuelleren Daten!
@@ -6102,7 +6179,7 @@ FTN message header:
 ------------------------------------------------------------------------------
 AREA:DE.COMM.MISC
 ^AMSGID: <4kg9j2$k92@newsbf02.news.aol.com> 479d411f
-^AREPLYADDR EcKubitz <eckubitz@aol.com>
+^AREPLYADDR <eckubitz@aol.com>
 ^AREPLYTO 242:1000/5 EcKubitz
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -6113,6 +6190,10 @@ AREA:DE.COMM.MISC
 ^ARFC-Reply-To: eckubitz@aol.com (EcKubitz)
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: eckubitz@aol.com (EcKubitz)
+Reply-To: eckubitz@aol.com (EcKubitz)
+------------------------------------------------------------------------------
+
 Ich habe gehoert, mit den entsprechenden Programmen kann man auch im
 Internet telefonieren. 
 
@@ -6149,7 +6230,7 @@ FTN message header:
 AREA:DE.COMM.MISC
 ^AMSGID: <xaC2VMD50D8aoz5@candyman.ladune.westfalen.de> 168f3bac
 ^AREPLY: <664Vv70Hk6B@charly.in-ulm.de> a2f9f3e7
-^AREPLYADDR Ralf Pieper <CANDYMAN@LaDune.Westfalen.De>
+^AREPLYADDR <CANDYMAN@LaDune.Westfalen.De>
 ^AREPLYTO 242:1000/5 Ralf Pieper
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -6161,6 +6242,9 @@ AREA:DE.COMM.MISC
 ^ARFC-Content-Transfer-Encoding: 8bit
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x], ZCONNECT UE uukomet.teuto.de [PolyNet Amiga RFC/ZC V4.23 no. ]
 ------------------------------------------------------------------------------
+From: CANDYMAN@LaDune.Westfalen.De  (Ralf Pieper)
+------------------------------------------------------------------------------
+
 > p.ruhnau@jinxed.netland.de meinte am 01.04.96 zum Thema "Anrufbeantworter" 
 > im Brett /de/comm/misc: 
 >  
@@ -6214,7 +6298,7 @@ FTN message header:
 ------------------------------------------------------------------------------
 AREA:DE.COMM.MOBIL
 ^AMSGID: <4kg083$d7b@ginfizz.bb-data.de> 1f191fbf
-^AREPLYADDR Steffen Steiner <steiner@bb-data.de>
+^AREPLYADDR <steiner@bb-data.de>
 ^AREPLYTO 242:1000/5 Steffen Steiner
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -6224,6 +6308,10 @@ AREA:DE.COMM.MOBIL
 ^ARFC-Reply-To: steiner@bb-data.de
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: steiner@bb-data.de (Steffen Steiner)
+Reply-To: steiner@bb-data.de
+------------------------------------------------------------------------------
+
 ich suche eine Handytischhalterung f. o.g. Geraete. Beispielsweise wie
 sie in Haendlerschaukaesten etc. steht.
 Bitte nur Passiv und unter DM 30,- f. ein wenig Kunststoff
@@ -6255,7 +6343,7 @@ FTN message header:
 ------------------------------------------------------------------------------
 AREA:DE.COMM.MISC
 ^AMSGID: <4kg083$d7b@ginfizz.bb-data.de> 7b771705
-^AREPLYADDR Steffen Steiner <steiner@bb-data.de>
+^AREPLYADDR <steiner@bb-data.de>
 ^AREPLYTO 242:1000/5 Steffen Steiner
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -6265,6 +6353,10 @@ AREA:DE.COMM.MISC
 ^ARFC-Reply-To: steiner@bb-data.de
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: steiner@bb-data.de (Steffen Steiner)
+Reply-To: steiner@bb-data.de
+------------------------------------------------------------------------------
+
 ich suche eine Handytischhalterung f. o.g. Geraete. Beispielsweise wie
 sie in Haendlerschaukaesten etc. steht.
 Bitte nur Passiv und unter DM 30,- f. ein wenig Kunststoff
@@ -6307,7 +6399,7 @@ FTN message header:
 AREA:DE.COMM.MISC
 ^AMSGID: <QSUny*t1j1@caty.ol.sub.de> dd40b272
 ^AREPLY: <3168466B.239FF435@cape.de> 4bb55fcd
-^AREPLYADDR Holger Lubitz <hal@caty.ol.sub.de>
+^AREPLYADDR <hal@caty.ol.sub.de>
 ^AREPLYTO 242:1000/5 Holger Lubitz
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -6316,6 +6408,9 @@ AREA:DE.COMM.MISC
 ^ARFC-Date: Wed, 10 Apr 1996 13:59:00 GMT
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: hal@caty.ol.sub.de (Holger Lubitz)
+------------------------------------------------------------------------------
+
 In article <3168466B.239FF435@cape.de>, Maik Musall writes:
 > Die netto Datenrate in den digitalen Netzen (sprich D und E) ist 9.6
 > und nicht 12 kbps. Nicht oft, sondern immer wird nur diese Rate von
@@ -6379,7 +6474,7 @@ FTN message header:
 AREA:DE.COMM.MOBIL
 ^AMSGID: <QSUny*t1j1@caty.ol.sub.de> d1decc85
 ^AREPLY: <3168466B.239FF435@cape.de> 8a969775
-^AREPLYADDR Holger Lubitz <hal@caty.ol.sub.de>
+^AREPLYADDR <hal@caty.ol.sub.de>
 ^AREPLYTO 242:1000/5 Holger Lubitz
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -6388,6 +6483,9 @@ AREA:DE.COMM.MOBIL
 ^ARFC-Date: Wed, 10 Apr 1996 13:59:00 GMT
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: hal@caty.ol.sub.de (Holger Lubitz)
+------------------------------------------------------------------------------
+
 In article <3168466B.239FF435@cape.de>, Maik Musall writes:
 > Die netto Datenrate in den digitalen Netzen (sprich D und E) ist 9.6
 > und nicht 12 kbps. Nicht oft, sondern immer wird nur diese Rate von
@@ -6451,7 +6549,7 @@ FTN message header:
 AREA:DE.COMM.MODEM
 ^AMSGID: <QSUny*t1j1@caty.ol.sub.de> 0ee1cfad
 ^AREPLY: <3168466B.239FF435@cape.de> 55a9945d
-^AREPLYADDR Holger Lubitz <hal@caty.ol.sub.de>
+^AREPLYADDR <hal@caty.ol.sub.de>
 ^AREPLYTO 242:1000/5 Holger Lubitz
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -6460,6 +6558,9 @@ AREA:DE.COMM.MODEM
 ^ARFC-Date: Wed, 10 Apr 1996 13:59:00 GMT
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: hal@caty.ol.sub.de (Holger Lubitz)
+------------------------------------------------------------------------------
+
 In article <3168466B.239FF435@cape.de>, Maik Musall writes:
 > Die netto Datenrate in den digitalen Netzen (sprich D und E) ist 9.6
 > und nicht 12 kbps. Nicht oft, sondern immer wird nur diese Rate von
@@ -6532,7 +6633,7 @@ FTN message header:
 ------------------------------------------------------------------------------
 AREA:DE.COMP.OS.OS2.MISC
 ^AMSGID: <4kh184$37o@nz12.rz.uni-karlsruhe.de> 0b774d42
-^AREPLYADDR Frank Winkler @home <winkler@ira.uka.de>
+^AREPLYADDR <winkler@ira.uka.de>
 ^AREPLYTO 242:1000/5 Frank Winkler @home
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -6545,6 +6646,10 @@ AREA:DE.COMP.OS.OS2.MISC
 ^ARFC-Content-Transfer-Encoding: 8bit
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: winkler@ira.uka.de  (Frank Winkler @home)
+Reply-To: winkler@ira.uka.de (Frank Winkler)
+------------------------------------------------------------------------------
+
 Hallo !
 
 Gibt es eigentlich ein Programm fur OS/2, mit dem man Scalls anfunken oder 
@@ -6581,7 +6686,7 @@ FTN message header:
 ------------------------------------------------------------------------------
 AREA:DE.COMM.MISC
 ^AMSGID: <4kh184$37o@nz12.rz.uni-karlsruhe.de> 1086a13b
-^AREPLYADDR Frank Winkler @home <winkler@ira.uka.de>
+^AREPLYADDR <winkler@ira.uka.de>
 ^AREPLYTO 242:1000/5 Frank Winkler @home
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -6594,6 +6699,10 @@ AREA:DE.COMM.MISC
 ^ARFC-Content-Transfer-Encoding: 8bit
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: winkler@ira.uka.de  (Frank Winkler @home)
+Reply-To: winkler@ira.uka.de (Frank Winkler)
+------------------------------------------------------------------------------
+
 Hallo !
 
 Gibt es eigentlich ein Programm fur OS/2, mit dem man Scalls anfunken oder 
@@ -6641,7 +6750,7 @@ FTN message header:
 AREA:DE.COMM.ISDN
 ^AMSGID: <316C2EEF.4A4@stud.uni-frankfurt.de> 36ba72ad
 ^AREPLY: <66UNvJez2TB@flatta.in-berlin.de> 5025239d
-^AREPLYADDR Marc A. Rieger <rieger@stud.uni-frankfurt.de>
+^AREPLYADDR <rieger@stud.uni-frankfurt.de>
 ^AREPLYTO 242:1000/5 Marc A. Rieger
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -6655,6 +6764,10 @@ AREA:DE.COMM.ISDN
 ^ARFC-To: Rene Kacza <rene@flatta.in-berlin.de>
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: "Marc A. Rieger" <rieger@stud.uni-frankfurt.de>
+Reply-To: rieger@stud.uni-frankfurt.de
+------------------------------------------------------------------------------
+
 Rene Kacza wrote:
 > Was sagt die UNI eigentlich zu kommerziellen Angeboten?
 > Ich habe ehrlich nichts dagegen, wenn solche Sachen als Mail weg gehen - aber
@@ -6678,7 +6791,7 @@ FTN message header:
 AREA:DE.COMM.MISC
 ^AMSGID: <316C2EEF.4A4@stud.uni-frankfurt.de> d35b3b77
 ^AREPLY: <66UNvJez2TB@flatta.in-berlin.de> b5c46a47
-^AREPLYADDR Marc A. Rieger <rieger@stud.uni-frankfurt.de>
+^AREPLYADDR <rieger@stud.uni-frankfurt.de>
 ^AREPLYTO 242:1000/5 Marc A. Rieger
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -6692,6 +6805,10 @@ AREA:DE.COMM.MISC
 ^ARFC-To: Rene Kacza <rene@flatta.in-berlin.de>
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: "Marc A. Rieger" <rieger@stud.uni-frankfurt.de>
+Reply-To: rieger@stud.uni-frankfurt.de
+------------------------------------------------------------------------------
+
 Rene Kacza wrote:
 > Was sagt die UNI eigentlich zu kommerziellen Angeboten?
 > Ich habe ehrlich nichts dagegen, wenn solche Sachen als Mail weg gehen - aber
@@ -6715,7 +6832,7 @@ FTN message header:
 AREA:DE.MARKT.COMP.MISC
 ^AMSGID: <316C2EEF.4A4@stud.uni-frankfurt.de> 6a245c5e
 ^AREPLY: <66UNvJez2TB@flatta.in-berlin.de> c254fbe8
-^AREPLYADDR Marc A. Rieger <rieger@stud.uni-frankfurt.de>
+^AREPLYADDR <rieger@stud.uni-frankfurt.de>
 ^AREPLYTO 242:1000/5 Marc A. Rieger
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -6729,6 +6846,10 @@ AREA:DE.MARKT.COMP.MISC
 ^ARFC-To: Rene Kacza <rene@flatta.in-berlin.de>
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: "Marc A. Rieger" <rieger@stud.uni-frankfurt.de>
+Reply-To: rieger@stud.uni-frankfurt.de
+------------------------------------------------------------------------------
+
 Rene Kacza wrote:
 > Was sagt die UNI eigentlich zu kommerziellen Angeboten?
 > Ich habe ehrlich nichts dagegen, wenn solche Sachen als Mail weg gehen - aber
@@ -6752,7 +6873,7 @@ FTN message header:
 AREA:DE.MARKT.MISC
 ^AMSGID: <316C2EEF.4A4@stud.uni-frankfurt.de> 431f3d05
 ^AREPLY: <66UNvJez2TB@flatta.in-berlin.de> 65a092f8
-^AREPLYADDR Marc A. Rieger <rieger@stud.uni-frankfurt.de>
+^AREPLYADDR <rieger@stud.uni-frankfurt.de>
 ^AREPLYTO 242:1000/5 Marc A. Rieger
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -6766,6 +6887,10 @@ AREA:DE.MARKT.MISC
 ^ARFC-To: Rene Kacza <rene@flatta.in-berlin.de>
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: "Marc A. Rieger" <rieger@stud.uni-frankfurt.de>
+Reply-To: rieger@stud.uni-frankfurt.de
+------------------------------------------------------------------------------
+
 Rene Kacza wrote:
 > Was sagt die UNI eigentlich zu kommerziellen Angeboten?
 > Ich habe ehrlich nichts dagegen, wenn solche Sachen als Mail weg gehen - aber
@@ -6799,7 +6924,7 @@ FTN message header:
 AREA:DE.COMM.MISC
 ^AMSGID: <66WfdokuPYB@malcolm.modebox.rhein-ruhr.de> f05c1605
 ^AREPLY: <1996Apr6.203307.3131@krefcom.westfalen.de> 032897c2
-^AREPLYADDR Marvin Erdt <malcolm@modebox.rhein-ruhr.de>
+^AREPLYADDR <malcolm@modebox.rhein-ruhr.de>
 ^AREPLYTO 242:1000/5 Marvin Erdt
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -6811,6 +6936,9 @@ AREA:DE.COMM.MISC
 ^ARFC-Newsgroups: de.comm.misc
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x], ZCONNECT UU gismo.gun.de [DUUCP vom 01.07.1994]
 ------------------------------------------------------------------------------
+From: malcolm@modebox.rhein-ruhr.de (Marvin Erdt)
+------------------------------------------------------------------------------
+
 jrichert tipperte am 06.04.96 auf seine Tastatur
 zum Thema " Re: Vertrieb von DInfo2.0 verboten.... "  dieses kleine S‰tzlein :
 
@@ -6858,7 +6986,7 @@ FTN message header:
 ------------------------------------------------------------------------------
 AREA:DE.COMM.MISC
 ^AMSGID: <4ki9k0$46q@ilex.FernUni-Hagen.de> 1e749cb1
-^AREPLYADDR Thilo Pohl <thilo.pohl@fernuni-hagen.de>
+^AREPLYADDR <thilo.pohl@fernuni-hagen.de>
 ^AREPLYTO 242:1000/5 Thilo Pohl
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -6868,6 +6996,10 @@ AREA:DE.COMM.MISC
 ^ARFC-Reply-To: thilo.pohl@fernuni-hagen.de
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: thilo.pohl@fernuni-hagen.de (Thilo Pohl)
+Reply-To: thilo.pohl@fernuni-hagen.de
+------------------------------------------------------------------------------
+
 Ich habe gerade in meiner Tageszeitung (WestfRundschau) gelesen, dass
 in den Niederlanden seit heute (11.04.) neue Telefonvorwahlen gelten.
 Die Redaktion hielt es nicht fuer noetig eine Aufstellung abzudrucken.
@@ -6916,7 +7048,7 @@ FTN message header:
 ------------------------------------------------------------------------------
 AREA:DE.COMM.MISC
 ^AMSGID: <316CB268.41C6@grs.de> b4c78f65
-^AREPLYADDR Markus Zimmermann <zmm@grs.de>
+^AREPLYADDR <zmm@grs.de>
 ^AREPLYTO 242:1000/5 Markus Zimmermann
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -6928,6 +7060,9 @@ AREA:DE.COMM.MISC
 ^ARFC-Content-Transfer-Encoding: 8bit
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: Markus Zimmermann <zmm@grs.de>
+------------------------------------------------------------------------------
+
 Hallo alle Fax-Spezialisten,
 
 von meinem Vater hab ich ein uralt Fax bekommen mit Namen
@@ -6973,7 +7108,7 @@ FTN message header:
 ------------------------------------------------------------------------------
 AREA:DE.COMM.INTERNET.MISC
 ^AMSGID: <4kiknr$t40@public.ndh.com> 9bf8debc
-^AREPLYADDR Dirk Balthasar <n.balthasar@public.ndh.com>
+^AREPLYADDR <n.balthasar@public.ndh.com>
 ^AREPLYTO 242:1000/5 Dirk Balthasar
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -6982,6 +7117,9 @@ AREA:DE.COMM.INTERNET.MISC
 ^ARFC-Date: Thu, 11 Apr 1996 08:51:14 GMT
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: n.balthasar@public.ndh.com (Dirk Balthasar)
+------------------------------------------------------------------------------
+
 Hallo User!
 
 Wie kann man bei Eudora im Header die Funktion Return-Recept-To: 
@@ -7007,7 +7145,7 @@ FTN message header:
 ------------------------------------------------------------------------------
 AREA:DE.COMM.MISC
 ^AMSGID: <4kiknr$t40@public.ndh.com> 27566179
-^AREPLYADDR Dirk Balthasar <n.balthasar@public.ndh.com>
+^AREPLYADDR <n.balthasar@public.ndh.com>
 ^AREPLYTO 242:1000/5 Dirk Balthasar
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -7016,6 +7154,9 @@ AREA:DE.COMM.MISC
 ^ARFC-Date: Thu, 11 Apr 1996 08:51:14 GMT
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: n.balthasar@public.ndh.com (Dirk Balthasar)
+------------------------------------------------------------------------------
+
 Hallo User!
 
 Wie kann man bei Eudora im Header die Funktion Return-Recept-To: 
@@ -7052,7 +7193,7 @@ FTN message header:
 AREA:DE.COMM.MISC
 ^AMSGID: <4jv085$t9l@c4.hrz.uni-giessen.de> 7ac0f42d
 ^AREPLY: <achim.828478483@master> 72ef4586
-^AREPLYADDR Kai Ruettger <Kai.Ruettger@paediat.med.uni-giessen.de>
+^AREPLYADDR <Kai.Ruettger@paediat.med.uni-giessen.de>
 ^AREPLYTO 242:1000/5 Kai Ruettger
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -7062,6 +7203,10 @@ AREA:DE.COMM.MISC
 ^ARFC-Reply-To: Kai.Ruettger@paediat.med.uni-giessen.de
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: Kai.Ruettger@paediat.med.uni-giessen.de (Kai Ruettger)
+Reply-To: Kai.Ruettger@paediat.med.uni-giessen.de
+------------------------------------------------------------------------------
+
 achim@kd.fh-hannover.de (Joachim Gothe) wrote:
 
 >Eigentlich habe ICH das Copyright auf MEINE Daten. Wenn die Telekom meine
@@ -7106,7 +7251,7 @@ FTN message header:
 AREA:DE.COMM.MISC
 ^AMSGID: <MUENCH.96Apr11143235@wolf.informatik.rwth-aachen.de> fa978416
 ^AREPLY: <4ki9k0$46q@ilex.FernUni-Hagen.de> 1e749cb1
-^AREPLYADDR Manfred Muench <muench@wolf.informatik.rwth-aachen.de>
+^AREPLYADDR <muench@wolf.informatik.rwth-aachen.de>
 ^AREPLYTO 242:1000/5 Manfred Muench
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -7115,6 +7260,9 @@ AREA:DE.COMM.MISC
 ^ARFC-Date: 11 Apr 1996 12:32:34 GMT
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: muench@wolf.informatik.rwth-aachen.de (Manfred Muench)
+------------------------------------------------------------------------------
+
 Hallo Thilo!
 
  TP> Ich habe gerade in meiner Tageszeitung (WestfRundschau) gelesen, dass
@@ -7181,7 +7329,7 @@ FTN message header:
 ------------------------------------------------------------------------------
 AREA:DE.COMM.GATEWAYS
 ^AMSGID: <matthias.bolten-1104961354190001@bigapple.cologne.de> 4f139b0e
-^AREPLYADDR Matthias Bolten <matthias.bolten@bigapple.Cologne.DE>
+^AREPLYADDR <matthias.bolten@bigapple.Cologne.DE>
 ^AREPLYTO 242:1000/5 Matthias Bolten
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -7190,6 +7338,9 @@ AREA:DE.COMM.GATEWAYS
 ^ARFC-Date: Thu, 11 Apr 1996 13:54:19 +0200
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: matthias.bolten@bigapple.Cologne.DE (Matthias Bolten)
+------------------------------------------------------------------------------
+
 Hallo!
 
 Zuerst: Entschuldigt, daﬂ ich zu so vielen Groups poste, aber ich wuﬂte
@@ -7227,7 +7378,7 @@ FTN message header:
 ------------------------------------------------------------------------------
 AREA:DE.COMM.INFOSYSTEMS.MISC
 ^AMSGID: <matthias.bolten-1104961354190001@bigapple.cologne.de> b743030e
-^AREPLYADDR Matthias Bolten <matthias.bolten@bigapple.Cologne.DE>
+^AREPLYADDR <matthias.bolten@bigapple.Cologne.DE>
 ^AREPLYTO 242:1000/5 Matthias Bolten
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -7236,6 +7387,9 @@ AREA:DE.COMM.INFOSYSTEMS.MISC
 ^ARFC-Date: Thu, 11 Apr 1996 13:54:19 +0200
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: matthias.bolten@bigapple.Cologne.DE (Matthias Bolten)
+------------------------------------------------------------------------------
+
 Hallo!
 
 Zuerst: Entschuldigt, daﬂ ich zu so vielen Groups poste, aber ich wuﬂte
@@ -7273,7 +7427,7 @@ FTN message header:
 ------------------------------------------------------------------------------
 AREA:DE.COMM.INTERNET.MISC
 ^AMSGID: <matthias.bolten-1104961354190001@bigapple.cologne.de> caebda6d
-^AREPLYADDR Matthias Bolten <matthias.bolten@bigapple.Cologne.DE>
+^AREPLYADDR <matthias.bolten@bigapple.Cologne.DE>
 ^AREPLYTO 242:1000/5 Matthias Bolten
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -7282,6 +7436,9 @@ AREA:DE.COMM.INTERNET.MISC
 ^ARFC-Date: Thu, 11 Apr 1996 13:54:19 +0200
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: matthias.bolten@bigapple.Cologne.DE (Matthias Bolten)
+------------------------------------------------------------------------------
+
 Hallo!
 
 Zuerst: Entschuldigt, daﬂ ich zu so vielen Groups poste, aber ich wuﬂte
@@ -7319,7 +7476,7 @@ FTN message header:
 ------------------------------------------------------------------------------
 AREA:DE.COMM.INTERNET.ROUTING
 ^AMSGID: <matthias.bolten-1104961354190001@bigapple.cologne.de> 0f090285
-^AREPLYADDR Matthias Bolten <matthias.bolten@bigapple.Cologne.DE>
+^AREPLYADDR <matthias.bolten@bigapple.Cologne.DE>
 ^AREPLYTO 242:1000/5 Matthias Bolten
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -7328,6 +7485,9 @@ AREA:DE.COMM.INTERNET.ROUTING
 ^ARFC-Date: Thu, 11 Apr 1996 13:54:19 +0200
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: matthias.bolten@bigapple.Cologne.DE (Matthias Bolten)
+------------------------------------------------------------------------------
+
 Hallo!
 
 Zuerst: Entschuldigt, daﬂ ich zu so vielen Groups poste, aber ich wuﬂte
@@ -7365,7 +7525,7 @@ FTN message header:
 ------------------------------------------------------------------------------
 AREA:DE.COMM.INTERNET.ZUGANG
 ^AMSGID: <matthias.bolten-1104961354190001@bigapple.cologne.de> 16f21c8a
-^AREPLYADDR Matthias Bolten <matthias.bolten@bigapple.Cologne.DE>
+^AREPLYADDR <matthias.bolten@bigapple.Cologne.DE>
 ^AREPLYTO 242:1000/5 Matthias Bolten
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -7374,6 +7534,9 @@ AREA:DE.COMM.INTERNET.ZUGANG
 ^ARFC-Date: Thu, 11 Apr 1996 13:54:19 +0200
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: matthias.bolten@bigapple.Cologne.DE (Matthias Bolten)
+------------------------------------------------------------------------------
+
 Hallo!
 
 Zuerst: Entschuldigt, daﬂ ich zu so vielen Groups poste, aber ich wuﬂte
@@ -7411,7 +7574,7 @@ FTN message header:
 ------------------------------------------------------------------------------
 AREA:DE.COMM.ISDN
 ^AMSGID: <matthias.bolten-1104961354190001@bigapple.cologne.de> 975d68fe
-^AREPLYADDR Matthias Bolten <matthias.bolten@bigapple.Cologne.DE>
+^AREPLYADDR <matthias.bolten@bigapple.Cologne.DE>
 ^AREPLYTO 242:1000/5 Matthias Bolten
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -7420,6 +7583,9 @@ AREA:DE.COMM.ISDN
 ^ARFC-Date: Thu, 11 Apr 1996 13:54:19 +0200
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: matthias.bolten@bigapple.Cologne.DE (Matthias Bolten)
+------------------------------------------------------------------------------
+
 Hallo!
 
 Zuerst: Entschuldigt, daﬂ ich zu so vielen Groups poste, aber ich wuﬂte
@@ -7457,7 +7623,7 @@ FTN message header:
 ------------------------------------------------------------------------------
 AREA:DE.COMM.MISC
 ^AMSGID: <matthias.bolten-1104961354190001@bigapple.cologne.de> 72bc2124
-^AREPLYADDR Matthias Bolten <matthias.bolten@bigapple.Cologne.DE>
+^AREPLYADDR <matthias.bolten@bigapple.Cologne.DE>
 ^AREPLYTO 242:1000/5 Matthias Bolten
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -7466,6 +7632,9 @@ AREA:DE.COMM.MISC
 ^ARFC-Date: Thu, 11 Apr 1996 13:54:19 +0200
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: matthias.bolten@bigapple.Cologne.DE (Matthias Bolten)
+------------------------------------------------------------------------------
+
 Hallo!
 
 Zuerst: Entschuldigt, daﬂ ich zu so vielen Groups poste, aber ich wuﬂte
@@ -7503,7 +7672,7 @@ FTN message header:
 ------------------------------------------------------------------------------
 AREA:DE.COMM.MODEM
 ^AMSGID: <matthias.bolten-1104961354190001@bigapple.cologne.de> 8c46c7ff
-^AREPLYADDR Matthias Bolten <matthias.bolten@bigapple.Cologne.DE>
+^AREPLYADDR <matthias.bolten@bigapple.Cologne.DE>
 ^AREPLYTO 242:1000/5 Matthias Bolten
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -7512,6 +7681,9 @@ AREA:DE.COMM.MODEM
 ^ARFC-Date: Thu, 11 Apr 1996 13:54:19 +0200
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: matthias.bolten@bigapple.Cologne.DE (Matthias Bolten)
+------------------------------------------------------------------------------
+
 Hallo!
 
 Zuerst: Entschuldigt, daﬂ ich zu so vielen Groups poste, aber ich wuﬂte
@@ -7560,7 +7732,7 @@ FTN message header:
 AREA:DE.COMM.ISDN
 ^AMSGID: <4kik5n$sep@mips.pfalz.de> 62283184
 ^AREPLY: <66Z-B3tlsAB@pandy.on-luebeck.de> 4951eb09
-^AREPLYADDR Christian Weisgerber <naddy@mips.pfalz.de>
+^AREPLYADDR <naddy@mips.pfalz.de>
 ^AREPLYTO 242:1000/5 Christian Weisgerber
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -7572,6 +7744,9 @@ AREA:DE.COMM.ISDN
 ^ARFC-Content-Transfer-Encoding: 8bit
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: naddy@mips.pfalz.de (Christian Weisgerber)
+------------------------------------------------------------------------------
+
 andy@pandy.on-luebeck.de (Andreas Schrot) writes:
 
 > wer von Euch kann mir sagen was es mit dem bei mir hˆrbaren Geb¸hrenimpuls  
@@ -7601,7 +7776,7 @@ FTN message header:
 AREA:DE.COMM.MISC
 ^AMSGID: <4kik5n$sep@mips.pfalz.de> 87c9785e
 ^AREPLY: <66Z-B3tlsAB@pandy.on-luebeck.de> acb0a2d3
-^AREPLYADDR Christian Weisgerber <naddy@mips.pfalz.de>
+^AREPLYADDR <naddy@mips.pfalz.de>
 ^AREPLYTO 242:1000/5 Christian Weisgerber
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -7613,6 +7788,9 @@ AREA:DE.COMM.MISC
 ^ARFC-Content-Transfer-Encoding: 8bit
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: naddy@mips.pfalz.de (Christian Weisgerber)
+------------------------------------------------------------------------------
+
 andy@pandy.on-luebeck.de (Andreas Schrot) writes:
 
 > wer von Euch kann mir sagen was es mit dem bei mir hˆrbaren Geb¸hrenimpuls  
@@ -7651,7 +7829,7 @@ FTN message header:
 ------------------------------------------------------------------------------
 AREA:DE.COMM.MISC
 ^AMSGID: <316D8765.5D03@econ2.uni-bonn.de> 8261b9da
-^AREPLYADDR Peter Klinke <pklinke@econ2.uni-bonn.de>
+^AREPLYADDR <pklinke@econ2.uni-bonn.de>
 ^AREPLYTO 242:1000/5 Peter Klinke
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -7663,6 +7841,9 @@ AREA:DE.COMM.MISC
 ^ARFC-Content-Transfer-Encoding: 7bit
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: Peter Klinke <pklinke@econ2.uni-bonn.de>
+------------------------------------------------------------------------------
+
 Tach zusammen,
 
 ich suche fuer eine SMC Token-Ring-Karte 8115T oder 8115T/A
@@ -7697,7 +7878,7 @@ FTN message header:
 AREA:DE.COMM.GATEWAYS
 ^AMSGID: <4kj54f$1f98@info4.rus.uni-stuttgart.de> b3267ba3
 ^AREPLY: <matthias.bolten-1104961354190001@bigapple.cologne.de> 4f139b0e
-^AREPLYADDR Ralf Sipple <usai1035@servus02.rus.uni-stuttgart.de>
+^AREPLYADDR <usai1035@servus02.rus.uni-stuttgart.de>
 ^AREPLYTO 242:1000/5 Ralf Sipple
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -7706,6 +7887,9 @@ AREA:DE.COMM.GATEWAYS
 ^ARFC-Date: 11 Apr 1996 14:31:43 GMT
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: usai1035@servus02.rus.uni-stuttgart.de (Ralf Sipple)
+------------------------------------------------------------------------------
+
 Matthias Bolten (matthias.bolten@bigapple.Cologne.DE) wrote:
 : einfach nicht wohin mit der Frage. Hier ist Sie: Kann mir einer von Euch
 : sagen, was eine Standleitung (Analog oder digital) derzeit bei der Telekom
@@ -7742,7 +7926,7 @@ FTN message header:
 AREA:DE.COMM.INFOSYSTEMS.MISC
 ^AMSGID: <4kj54f$1f98@info4.rus.uni-stuttgart.de> 5cd87c06
 ^AREPLY: <matthias.bolten-1104961354190001@bigapple.cologne.de> b743030e
-^AREPLYADDR Ralf Sipple <usai1035@servus02.rus.uni-stuttgart.de>
+^AREPLYADDR <usai1035@servus02.rus.uni-stuttgart.de>
 ^AREPLYTO 242:1000/5 Ralf Sipple
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -7751,6 +7935,9 @@ AREA:DE.COMM.INFOSYSTEMS.MISC
 ^ARFC-Date: 11 Apr 1996 14:31:43 GMT
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: usai1035@servus02.rus.uni-stuttgart.de (Ralf Sipple)
+------------------------------------------------------------------------------
+
 Matthias Bolten (matthias.bolten@bigapple.Cologne.DE) wrote:
 : einfach nicht wohin mit der Frage. Hier ist Sie: Kann mir einer von Euch
 : sagen, was eine Standleitung (Analog oder digital) derzeit bei der Telekom
@@ -7787,7 +7974,7 @@ FTN message header:
 AREA:DE.COMM.INTERNET.MISC
 ^AMSGID: <4kj54f$1f98@info4.rus.uni-stuttgart.de> 0e8a49b8
 ^AREPLY: <matthias.bolten-1104961354190001@bigapple.cologne.de> caebda6d
-^AREPLYADDR Ralf Sipple <usai1035@servus02.rus.uni-stuttgart.de>
+^AREPLYADDR <usai1035@servus02.rus.uni-stuttgart.de>
 ^AREPLYTO 242:1000/5 Ralf Sipple
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -7796,6 +7983,9 @@ AREA:DE.COMM.INTERNET.MISC
 ^ARFC-Date: 11 Apr 1996 14:31:43 GMT
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: usai1035@servus02.rus.uni-stuttgart.de (Ralf Sipple)
+------------------------------------------------------------------------------
+
 Matthias Bolten (matthias.bolten@bigapple.Cologne.DE) wrote:
 : einfach nicht wohin mit der Frage. Hier ist Sie: Kann mir einer von Euch
 : sagen, was eine Standleitung (Analog oder digital) derzeit bei der Telekom
@@ -7832,7 +8022,7 @@ FTN message header:
 AREA:DE.COMM.INTERNET.ROUTING
 ^AMSGID: <4kj54f$1f98@info4.rus.uni-stuttgart.de> e4927d8d
 ^AREPLY: <matthias.bolten-1104961354190001@bigapple.cologne.de> 0f090285
-^AREPLYADDR Ralf Sipple <usai1035@servus02.rus.uni-stuttgart.de>
+^AREPLYADDR <usai1035@servus02.rus.uni-stuttgart.de>
 ^AREPLYTO 242:1000/5 Ralf Sipple
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -7841,6 +8031,9 @@ AREA:DE.COMM.INTERNET.ROUTING
 ^ARFC-Date: 11 Apr 1996 14:31:43 GMT
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: usai1035@servus02.rus.uni-stuttgart.de (Ralf Sipple)
+------------------------------------------------------------------------------
+
 Matthias Bolten (matthias.bolten@bigapple.Cologne.DE) wrote:
 : einfach nicht wohin mit der Frage. Hier ist Sie: Kann mir einer von Euch
 : sagen, was eine Standleitung (Analog oder digital) derzeit bei der Telekom
@@ -7877,7 +8070,7 @@ FTN message header:
 AREA:DE.COMM.INTERNET.ZUGANG
 ^AMSGID: <4kj54f$1f98@info4.rus.uni-stuttgart.de> 83bb2b4f
 ^AREPLY: <matthias.bolten-1104961354190001@bigapple.cologne.de> 16f21c8a
-^AREPLYADDR Ralf Sipple <usai1035@servus02.rus.uni-stuttgart.de>
+^AREPLYADDR <usai1035@servus02.rus.uni-stuttgart.de>
 ^AREPLYTO 242:1000/5 Ralf Sipple
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -7886,6 +8079,9 @@ AREA:DE.COMM.INTERNET.ZUGANG
 ^ARFC-Date: 11 Apr 1996 14:31:43 GMT
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: usai1035@servus02.rus.uni-stuttgart.de (Ralf Sipple)
+------------------------------------------------------------------------------
+
 Matthias Bolten (matthias.bolten@bigapple.Cologne.DE) wrote:
 : einfach nicht wohin mit der Frage. Hier ist Sie: Kann mir einer von Euch
 : sagen, was eine Standleitung (Analog oder digital) derzeit bei der Telekom
@@ -7922,7 +8118,7 @@ FTN message header:
 AREA:DE.COMM.ISDN
 ^AMSGID: <4kj54f$1f98@info4.rus.uni-stuttgart.de> c457ba5b
 ^AREPLY: <matthias.bolten-1104961354190001@bigapple.cologne.de> 975d68fe
-^AREPLYADDR Ralf Sipple <usai1035@servus02.rus.uni-stuttgart.de>
+^AREPLYADDR <usai1035@servus02.rus.uni-stuttgart.de>
 ^AREPLYTO 242:1000/5 Ralf Sipple
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -7931,6 +8127,9 @@ AREA:DE.COMM.ISDN
 ^ARFC-Date: 11 Apr 1996 14:31:43 GMT
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: usai1035@servus02.rus.uni-stuttgart.de (Ralf Sipple)
+------------------------------------------------------------------------------
+
 Matthias Bolten (matthias.bolten@bigapple.Cologne.DE) wrote:
 : einfach nicht wohin mit der Frage. Hier ist Sie: Kann mir einer von Euch
 : sagen, was eine Standleitung (Analog oder digital) derzeit bei der Telekom
@@ -7967,7 +8166,7 @@ FTN message header:
 AREA:DE.COMM.MISC
 ^AMSGID: <4kj54f$1f98@info4.rus.uni-stuttgart.de> 21b6f381
 ^AREPLY: <matthias.bolten-1104961354190001@bigapple.cologne.de> 72bc2124
-^AREPLYADDR Ralf Sipple <usai1035@servus02.rus.uni-stuttgart.de>
+^AREPLYADDR <usai1035@servus02.rus.uni-stuttgart.de>
 ^AREPLYTO 242:1000/5 Ralf Sipple
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -7976,6 +8175,9 @@ AREA:DE.COMM.MISC
 ^ARFC-Date: 11 Apr 1996 14:31:43 GMT
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: usai1035@servus02.rus.uni-stuttgart.de (Ralf Sipple)
+------------------------------------------------------------------------------
+
 Matthias Bolten (matthias.bolten@bigapple.Cologne.DE) wrote:
 : einfach nicht wohin mit der Frage. Hier ist Sie: Kann mir einer von Euch
 : sagen, was eine Standleitung (Analog oder digital) derzeit bei der Telekom
@@ -8012,7 +8214,7 @@ FTN message header:
 AREA:DE.COMM.MODEM
 ^AMSGID: <4kj54f$1f98@info4.rus.uni-stuttgart.de> 2aa99a4a
 ^AREPLY: <matthias.bolten-1104961354190001@bigapple.cologne.de> 8c46c7ff
-^AREPLYADDR Ralf Sipple <usai1035@servus02.rus.uni-stuttgart.de>
+^AREPLYADDR <usai1035@servus02.rus.uni-stuttgart.de>
 ^AREPLYTO 242:1000/5 Ralf Sipple
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -8021,6 +8223,9 @@ AREA:DE.COMM.MODEM
 ^ARFC-Date: 11 Apr 1996 14:31:43 GMT
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: usai1035@servus02.rus.uni-stuttgart.de (Ralf Sipple)
+------------------------------------------------------------------------------
+
 Matthias Bolten (matthias.bolten@bigapple.Cologne.DE) wrote:
 : einfach nicht wohin mit der Frage. Hier ist Sie: Kann mir einer von Euch
 : sagen, was eine Standleitung (Analog oder digital) derzeit bei der Telekom
@@ -8067,7 +8272,7 @@ FTN message header:
 AREA:DE.COMM.MISC
 ^AMSGID: <ghost.00ej@dawn.mayn.de> 565cbd2a
 ^AREPLY: <xaC2VMD50D8aoz5@candyman.ladune.westfalen.de> 168f3bac
-^AREPLYADDR Armin Wies <ghost@dawn.mayn.de>
+^AREPLYADDR <ghost@dawn.mayn.de>
 ^AREPLYTO 242:1000/5 Armin Wies
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -8076,6 +8281,9 @@ AREA:DE.COMM.MISC
 ^ARFC-Date: Thu, 11 Apr 96 11:28:59 +0100
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: ghost@dawn.mayn.de (Armin Wies)
+------------------------------------------------------------------------------
+
 Ralf Pieper (CANDYMAN@LaDune.Westfalen.De) wrote:
 : > p.ruhnau@jinxed.netland.de meinte am 01.04.96 zum Thema "Anrufbeantworter" 
 : > im Brett /de/comm/misc: 
@@ -8134,7 +8342,7 @@ FTN message header:
 AREA:DE.COMM.MISC
 ^AMSGID: <ghost.00ep@dawn.mayn.de> 17b2f677
 ^AREPLY: <4kg9j2$k92@newsbf02.news.aol.com> 479d411f
-^AREPLYADDR Armin Wies <ghost@dawn.mayn.de>
+^AREPLYADDR <ghost@dawn.mayn.de>
 ^AREPLYTO 242:1000/5 Armin Wies
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -8143,6 +8351,9 @@ AREA:DE.COMM.MISC
 ^ARFC-Date: Thu, 11 Apr 96 11:32:34 +0100
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: ghost@dawn.mayn.de (Armin Wies)
+------------------------------------------------------------------------------
+
 EcKubitz (eckubitz@aol.com) wrote:
 : Ich habe gehoert, mit den entsprechenden Programmen kann man auch im
 : Internet telefonieren. 
@@ -8183,7 +8394,7 @@ FTN message header:
 AREA:DE.COMM.GATEWAYS
 ^AMSGID: <mozart.0cc7@mozart.berlinet.de> 290a362e
 ^AREPLY: <matthias.bolten-1104961354190001@bigapple.cologne.de> 4f139b0e
-^AREPLYADDR Thomas Witt <mozart@mozart.berlinet.de>
+^AREPLYADDR <mozart@mozart.berlinet.de>
 ^AREPLYTO 242:1000/5 Thomas Witt
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -8195,6 +8406,9 @@ AREA:DE.COMM.GATEWAYS
 ^ARFC-Date: Thu, 11 Apr 96 16:58:21 MEZ
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: mozart@mozart.berlinet.de (Thomas Witt)
+------------------------------------------------------------------------------
+
 
 In article <matthias.bolten-1104961354190001@bigapple.cologne.de> matthias.bolten@bigapple.Cologne.DE (Matthias Bolten) writes:
 > Hier ist Sie: Kann mir einer von Euch
@@ -8229,7 +8443,7 @@ FTN message header:
 AREA:DE.COMM.INFOSYSTEMS.MISC
 ^AMSGID: <mozart.0cc7@mozart.berlinet.de> 5ae20248
 ^AREPLY: <matthias.bolten-1104961354190001@bigapple.cologne.de> b743030e
-^AREPLYADDR Thomas Witt <mozart@mozart.berlinet.de>
+^AREPLYADDR <mozart@mozart.berlinet.de>
 ^AREPLYTO 242:1000/5 Thomas Witt
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -8241,6 +8455,9 @@ AREA:DE.COMM.INFOSYSTEMS.MISC
 ^ARFC-Date: Thu, 11 Apr 96 16:58:21 MEZ
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: mozart@mozart.berlinet.de (Thomas Witt)
+------------------------------------------------------------------------------
+
 
 In article <matthias.bolten-1104961354190001@bigapple.cologne.de> matthias.bolten@bigapple.Cologne.DE (Matthias Bolten) writes:
 > Hier ist Sie: Kann mir einer von Euch
@@ -8275,7 +8492,7 @@ FTN message header:
 AREA:DE.COMM.INTERNET.MISC
 ^AMSGID: <mozart.0cc7@mozart.berlinet.de> 947b606f
 ^AREPLY: <matthias.bolten-1104961354190001@bigapple.cologne.de> caebda6d
-^AREPLYADDR Thomas Witt <mozart@mozart.berlinet.de>
+^AREPLYADDR <mozart@mozart.berlinet.de>
 ^AREPLYTO 242:1000/5 Thomas Witt
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -8287,6 +8504,9 @@ AREA:DE.COMM.INTERNET.MISC
 ^ARFC-Date: Thu, 11 Apr 96 16:58:21 MEZ
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: mozart@mozart.berlinet.de (Thomas Witt)
+------------------------------------------------------------------------------
+
 
 In article <matthias.bolten-1104961354190001@bigapple.cologne.de> matthias.bolten@bigapple.Cologne.DE (Matthias Bolten) writes:
 > Hier ist Sie: Kann mir einer von Euch
@@ -8321,7 +8541,7 @@ FTN message header:
 AREA:DE.COMM.INTERNET.ROUTING
 ^AMSGID: <mozart.0cc7@mozart.berlinet.de> e2a803c3
 ^AREPLY: <matthias.bolten-1104961354190001@bigapple.cologne.de> 0f090285
-^AREPLYADDR Thomas Witt <mozart@mozart.berlinet.de>
+^AREPLYADDR <mozart@mozart.berlinet.de>
 ^AREPLYTO 242:1000/5 Thomas Witt
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -8333,6 +8553,9 @@ AREA:DE.COMM.INTERNET.ROUTING
 ^ARFC-Date: Thu, 11 Apr 96 16:58:21 MEZ
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: mozart@mozart.berlinet.de (Thomas Witt)
+------------------------------------------------------------------------------
+
 
 In article <matthias.bolten-1104961354190001@bigapple.cologne.de> matthias.bolten@bigapple.Cologne.DE (Matthias Bolten) writes:
 > Hier ist Sie: Kann mir einer von Euch
@@ -8367,7 +8590,7 @@ FTN message header:
 AREA:DE.COMM.INTERNET.ZUGANG
 ^AMSGID: <mozart.0cc7@mozart.berlinet.de> 0f707a0a
 ^AREPLY: <matthias.bolten-1104961354190001@bigapple.cologne.de> 16f21c8a
-^AREPLYADDR Thomas Witt <mozart@mozart.berlinet.de>
+^AREPLYADDR <mozart@mozart.berlinet.de>
 ^AREPLYTO 242:1000/5 Thomas Witt
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -8379,6 +8602,9 @@ AREA:DE.COMM.INTERNET.ZUGANG
 ^ARFC-Date: Thu, 11 Apr 96 16:58:21 MEZ
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: mozart@mozart.berlinet.de (Thomas Witt)
+------------------------------------------------------------------------------
+
 
 In article <matthias.bolten-1104961354190001@bigapple.cologne.de> matthias.bolten@bigapple.Cologne.DE (Matthias Bolten) writes:
 > Hier ist Sie: Kann mir einer von Euch
@@ -8413,7 +8639,7 @@ FTN message header:
 AREA:DE.COMM.ISDN
 ^AMSGID: <mozart.0cc7@mozart.berlinet.de> 33d049fe
 ^AREPLY: <matthias.bolten-1104961354190001@bigapple.cologne.de> 975d68fe
-^AREPLYADDR Thomas Witt <mozart@mozart.berlinet.de>
+^AREPLYADDR <mozart@mozart.berlinet.de>
 ^AREPLYTO 242:1000/5 Thomas Witt
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -8425,6 +8651,9 @@ AREA:DE.COMM.ISDN
 ^ARFC-Date: Thu, 11 Apr 96 16:58:21 MEZ
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: mozart@mozart.berlinet.de (Thomas Witt)
+------------------------------------------------------------------------------
+
 
 In article <matthias.bolten-1104961354190001@bigapple.cologne.de> matthias.bolten@bigapple.Cologne.DE (Matthias Bolten) writes:
 > Hier ist Sie: Kann mir einer von Euch
@@ -8459,7 +8688,7 @@ FTN message header:
 AREA:DE.COMM.MISC
 ^AMSGID: <mozart.0cc7@mozart.berlinet.de> d6310024
 ^AREPLY: <matthias.bolten-1104961354190001@bigapple.cologne.de> 72bc2124
-^AREPLYADDR Thomas Witt <mozart@mozart.berlinet.de>
+^AREPLYADDR <mozart@mozart.berlinet.de>
 ^AREPLYTO 242:1000/5 Thomas Witt
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -8471,6 +8700,9 @@ AREA:DE.COMM.MISC
 ^ARFC-Date: Thu, 11 Apr 96 16:58:21 MEZ
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: mozart@mozart.berlinet.de (Thomas Witt)
+------------------------------------------------------------------------------
+
 
 In article <matthias.bolten-1104961354190001@bigapple.cologne.de> matthias.bolten@bigapple.Cologne.DE (Matthias Bolten) writes:
 > Hier ist Sie: Kann mir einer von Euch
@@ -8505,7 +8737,7 @@ FTN message header:
 AREA:DE.COMM.MODEM
 ^AMSGID: <mozart.0cc7@mozart.berlinet.de> 8ce24ade
 ^AREPLY: <matthias.bolten-1104961354190001@bigapple.cologne.de> 8c46c7ff
-^AREPLYADDR Thomas Witt <mozart@mozart.berlinet.de>
+^AREPLYADDR <mozart@mozart.berlinet.de>
 ^AREPLYTO 242:1000/5 Thomas Witt
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -8517,6 +8749,9 @@ AREA:DE.COMM.MODEM
 ^ARFC-Date: Thu, 11 Apr 96 16:58:21 MEZ
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: mozart@mozart.berlinet.de (Thomas Witt)
+------------------------------------------------------------------------------
+
 
 In article <matthias.bolten-1104961354190001@bigapple.cologne.de> matthias.bolten@bigapple.Cologne.DE (Matthias Bolten) writes:
 > Hier ist Sie: Kann mir einer von Euch
@@ -8561,7 +8796,7 @@ FTN message header:
 AREA:DE.COMM.MISC
 ^AMSGID: <66e9kdIjNiB@zocki.toppoint.de> cdf1fd48
 ^AREPLY: <xaC2VMD50D8aoz5@candyman.ladune.westfalen.de> 168f3bac
-^AREPLYADDR Rainer Zocholl <zoc@zocki.toppoint.de>
+^AREPLYADDR <zoc@zocki.toppoint.de>
 ^AREPLYTO 242:1000/5 Rainer Zocholl
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -8573,6 +8808,9 @@ AREA:DE.COMM.MISC
 ^ARFC-Content-Transfer-Encoding: 8bit
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: zoc@zocki.toppoint.de (Rainer Zocholl)
+------------------------------------------------------------------------------
+
 CANDYMAN@LaDune.Westfalen.De(Ralf Pieper)  07.04.96 in /de/comm/misc:
 
 Ralf
@@ -8613,7 +8851,7 @@ FTN message header:
 AREA:DE.COMM.GATEWAYS
 ^AMSGID: <0f1btdx60.alamito@bespin.in-berlin.de> 43726831
 ^AREPLY: <matthias.bolten-1104961354190001@bigapple.cologne.de> 4f139b0e
-^AREPLYADDR Sascha Matzke <root@bespin.in-berlin.de>
+^AREPLYADDR <root@bespin.in-berlin.de>
 ^AREPLYTO 242:1000/5 Sascha Matzke
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -8623,6 +8861,10 @@ AREA:DE.COMM.GATEWAYS
 ^ARFC-Reply-To: root@bespin.in-berlin.de
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: root@bespin.in-berlin.de (Sascha Matzke)
+Reply-To: root@bespin.in-berlin.de
+------------------------------------------------------------------------------
+
 >Hallo!
 >
 >Zuerst: Entschuldigt, daﬂ ich zu so vielen Groups poste, aber ich wuﬂte
@@ -8664,7 +8906,7 @@ FTN message header:
 AREA:DE.COMM.INFOSYSTEMS.MISC
 ^AMSGID: <0f1btdx60.alamito@bespin.in-berlin.de> b8605365
 ^AREPLY: <matthias.bolten-1104961354190001@bigapple.cologne.de> b743030e
-^AREPLYADDR Sascha Matzke <root@bespin.in-berlin.de>
+^AREPLYADDR <root@bespin.in-berlin.de>
 ^AREPLYTO 242:1000/5 Sascha Matzke
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -8674,6 +8916,10 @@ AREA:DE.COMM.INFOSYSTEMS.MISC
 ^ARFC-Reply-To: root@bespin.in-berlin.de
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: root@bespin.in-berlin.de (Sascha Matzke)
+Reply-To: root@bespin.in-berlin.de
+------------------------------------------------------------------------------
+
 >Hallo!
 >
 >Zuerst: Entschuldigt, daﬂ ich zu so vielen Groups poste, aber ich wuﬂte
@@ -8715,7 +8961,7 @@ FTN message header:
 AREA:DE.COMM.INTERNET.MISC
 ^AMSGID: <0f1btdx60.alamito@bespin.in-berlin.de> 98e9a268
 ^AREPLY: <matthias.bolten-1104961354190001@bigapple.cologne.de> caebda6d
-^AREPLYADDR Sascha Matzke <root@bespin.in-berlin.de>
+^AREPLYADDR <root@bespin.in-berlin.de>
 ^AREPLYTO 242:1000/5 Sascha Matzke
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -8725,6 +8971,10 @@ AREA:DE.COMM.INTERNET.MISC
 ^ARFC-Reply-To: root@bespin.in-berlin.de
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: root@bespin.in-berlin.de (Sascha Matzke)
+Reply-To: root@bespin.in-berlin.de
+------------------------------------------------------------------------------
+
 >Hallo!
 >
 >Zuerst: Entschuldigt, daﬂ ich zu so vielen Groups poste, aber ich wuﬂte
@@ -8766,7 +9016,7 @@ FTN message header:
 AREA:DE.COMM.INTERNET.ROUTING
 ^AMSGID: <0f1btdx60.alamito@bespin.in-berlin.de> 002a52ee
 ^AREPLY: <matthias.bolten-1104961354190001@bigapple.cologne.de> 0f090285
-^AREPLYADDR Sascha Matzke <root@bespin.in-berlin.de>
+^AREPLYADDR <root@bespin.in-berlin.de>
 ^AREPLYTO 242:1000/5 Sascha Matzke
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -8776,6 +9026,10 @@ AREA:DE.COMM.INTERNET.ROUTING
 ^ARFC-Reply-To: root@bespin.in-berlin.de
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: root@bespin.in-berlin.de (Sascha Matzke)
+Reply-To: root@bespin.in-berlin.de
+------------------------------------------------------------------------------
+
 >Hallo!
 >
 >Zuerst: Entschuldigt, daﬂ ich zu so vielen Groups poste, aber ich wuﬂte
@@ -8817,7 +9071,7 @@ FTN message header:
 AREA:DE.COMM.INTERNET.ZUGANG
 ^AMSGID: <0f1btdx60.alamito@bespin.in-berlin.de> 355b43c3
 ^AREPLY: <matthias.bolten-1104961354190001@bigapple.cologne.de> 16f21c8a
-^AREPLYADDR Sascha Matzke <root@bespin.in-berlin.de>
+^AREPLYADDR <root@bespin.in-berlin.de>
 ^AREPLYTO 242:1000/5 Sascha Matzke
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -8827,6 +9081,10 @@ AREA:DE.COMM.INTERNET.ZUGANG
 ^ARFC-Reply-To: root@bespin.in-berlin.de
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: root@bespin.in-berlin.de (Sascha Matzke)
+Reply-To: root@bespin.in-berlin.de
+------------------------------------------------------------------------------
+
 >Hallo!
 >
 >Zuerst: Entschuldigt, daﬂ ich zu so vielen Groups poste, aber ich wuﬂte
@@ -8868,7 +9126,7 @@ FTN message header:
 AREA:DE.COMM.ISDN
 ^AMSGID: <0f1btdx60.alamito@bespin.in-berlin.de> 0cb1a5fe
 ^AREPLY: <matthias.bolten-1104961354190001@bigapple.cologne.de> 975d68fe
-^AREPLYADDR Sascha Matzke <root@bespin.in-berlin.de>
+^AREPLYADDR <root@bespin.in-berlin.de>
 ^AREPLYTO 242:1000/5 Sascha Matzke
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -8878,6 +9136,10 @@ AREA:DE.COMM.ISDN
 ^ARFC-Reply-To: root@bespin.in-berlin.de
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: root@bespin.in-berlin.de (Sascha Matzke)
+Reply-To: root@bespin.in-berlin.de
+------------------------------------------------------------------------------
+
 >Hallo!
 >
 >Zuerst: Entschuldigt, daﬂ ich zu so vielen Groups poste, aber ich wuﬂte
@@ -8919,7 +9181,7 @@ FTN message header:
 AREA:DE.COMM.MISC
 ^AMSGID: <0f1btdx60.alamito@bespin.in-berlin.de> e950ec24
 ^AREPLY: <matthias.bolten-1104961354190001@bigapple.cologne.de> 72bc2124
-^AREPLYADDR Sascha Matzke <root@bespin.in-berlin.de>
+^AREPLYADDR <root@bespin.in-berlin.de>
 ^AREPLYTO 242:1000/5 Sascha Matzke
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -8929,6 +9191,10 @@ AREA:DE.COMM.MISC
 ^ARFC-Reply-To: root@bespin.in-berlin.de
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: root@bespin.in-berlin.de (Sascha Matzke)
+Reply-To: root@bespin.in-berlin.de
+------------------------------------------------------------------------------
+
 >Hallo!
 >
 >Zuerst: Entschuldigt, daﬂ ich zu so vielen Groups poste, aber ich wuﬂte
@@ -8970,7 +9236,7 @@ FTN message header:
 AREA:DE.COMM.MODEM
 ^AMSGID: <0f1btdx60.alamito@bespin.in-berlin.de> 8cdd2b32
 ^AREPLY: <matthias.bolten-1104961354190001@bigapple.cologne.de> 8c46c7ff
-^AREPLYADDR Sascha Matzke <root@bespin.in-berlin.de>
+^AREPLYADDR <root@bespin.in-berlin.de>
 ^AREPLYTO 242:1000/5 Sascha Matzke
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -8980,6 +9246,10 @@ AREA:DE.COMM.MODEM
 ^ARFC-Reply-To: root@bespin.in-berlin.de
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: root@bespin.in-berlin.de (Sascha Matzke)
+Reply-To: root@bespin.in-berlin.de
+------------------------------------------------------------------------------
+
 >Hallo!
 >
 >Zuerst: Entschuldigt, daﬂ ich zu so vielen Groups poste, aber ich wuﬂte
@@ -9031,7 +9301,7 @@ FTN message header:
 AREA:DE.COMM.INTERNET.MISC
 ^AMSGID: <petzi-1104961957540001@apfel.zit.th-darmstadt.de> 16cbd877
 ^AREPLY: <4kiknr$t40@public.ndh.com> 9bf8debc
-^AREPLYADDR Michael Beckmann <petzi@zit.th-darmstadt.de>
+^AREPLYADDR <petzi@zit.th-darmstadt.de>
 ^AREPLYTO 242:1000/5 Michael Beckmann
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -9043,6 +9313,9 @@ AREA:DE.COMM.INTERNET.MISC
 ^ARFC-Content-Transfer-Encoding: 8bit
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: petzi@zit.th-darmstadt.de (Michael Beckmann)
+------------------------------------------------------------------------------
+
 In article <4kiknr$t40@public.ndh.com>, n.balthasar@public.ndh.com (Dirk
 Balthasar) wrote:
 
@@ -9075,7 +9348,7 @@ FTN message header:
 AREA:DE.COMM.MISC
 ^AMSGID: <petzi-1104961957540001@apfel.zit.th-darmstadt.de> d03ce35a
 ^AREPLY: <4kiknr$t40@public.ndh.com> 27566179
-^AREPLYADDR Michael Beckmann <petzi@zit.th-darmstadt.de>
+^AREPLYADDR <petzi@zit.th-darmstadt.de>
 ^AREPLYTO 242:1000/5 Michael Beckmann
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -9087,6 +9360,9 @@ AREA:DE.COMM.MISC
 ^ARFC-Content-Transfer-Encoding: 8bit
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: petzi@zit.th-darmstadt.de (Michael Beckmann)
+------------------------------------------------------------------------------
+
 In article <4kiknr$t40@public.ndh.com>, n.balthasar@public.ndh.com (Dirk
 Balthasar) wrote:
 
@@ -9129,7 +9405,7 @@ FTN message header:
 AREA:DE.COMM.MISC
 ^AMSGID: <4kjiq4$982@sparcserver.lrz-muenchen.de> 06a28bb0
 ^AREPLY: <4kg9j2$k92@newsbf02.news.aol.com> 479d411f
-^AREPLYADDR Christian Grodau <groggy@eikon.e-technik.tu-muenchen.de>
+^AREPLYADDR <groggy@eikon.e-technik.tu-muenchen.de>
 ^AREPLYTO 242:1000/5 Christian Grodau
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -9138,6 +9414,9 @@ AREA:DE.COMM.MISC
 ^ARFC-Date: Thu, 11 Apr 1996 18:25:33 GMT
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: groggy@eikon.e-technik.tu-muenchen.de (Christian Grodau)
+------------------------------------------------------------------------------
+
 eckubitz@aol.com (EcKubitz) wrote:
 
 >Ich habe gehoert, mit den entsprechenden Programmen kann man auch im
@@ -9189,7 +9468,7 @@ FTN message header:
 AREA:DE.COMM.GATEWAYS
 ^AMSGID: <1996Apr11.195323.16969@fiction.pb.owl.de> 927a37c1
 ^AREPLY: <4kj54f$1f98@info4.rus.uni-stuttgart.de> b3267ba3
-^AREPLYADDR Daniel Roedding <daniel@fiction.pb.owl.de>
+^AREPLYADDR <daniel@fiction.pb.owl.de>
 ^AREPLYTO 242:1000/5 Daniel Roedding
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -9198,6 +9477,9 @@ AREA:DE.COMM.GATEWAYS
 ^ARFC-Date: Thu, 11 Apr 1996 19:53:23 GMT
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: daniel@fiction.pb.owl.de (Daniel Roedding)
+------------------------------------------------------------------------------
+
 usai1035@servus02.rus.uni-stuttgart.de (Ralf Sipple) writes:
 
 >Matthias Bolten (matthias.bolten@bigapple.Cologne.DE) wrote:
@@ -9239,7 +9521,7 @@ FTN message header:
 AREA:DE.COMM.INFOSYSTEMS.MISC
 ^AMSGID: <1996Apr11.195323.16969@fiction.pb.owl.de> ca500af5
 ^AREPLY: <4kj54f$1f98@info4.rus.uni-stuttgart.de> 5cd87c06
-^AREPLYADDR Daniel Roedding <daniel@fiction.pb.owl.de>
+^AREPLYADDR <daniel@fiction.pb.owl.de>
 ^AREPLYTO 242:1000/5 Daniel Roedding
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -9248,6 +9530,9 @@ AREA:DE.COMM.INFOSYSTEMS.MISC
 ^ARFC-Date: Thu, 11 Apr 1996 19:53:23 GMT
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: daniel@fiction.pb.owl.de (Daniel Roedding)
+------------------------------------------------------------------------------
+
 usai1035@servus02.rus.uni-stuttgart.de (Ralf Sipple) writes:
 
 >Matthias Bolten (matthias.bolten@bigapple.Cologne.DE) wrote:
@@ -9289,7 +9574,7 @@ FTN message header:
 AREA:DE.COMM.INTERNET.MISC
 ^AMSGID: <1996Apr11.195323.16969@fiction.pb.owl.de> d5834827
 ^AREPLY: <4kj54f$1f98@info4.rus.uni-stuttgart.de> 0e8a49b8
-^AREPLYADDR Daniel Roedding <daniel@fiction.pb.owl.de>
+^AREPLYADDR <daniel@fiction.pb.owl.de>
 ^AREPLYTO 242:1000/5 Daniel Roedding
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -9298,6 +9583,9 @@ AREA:DE.COMM.INTERNET.MISC
 ^ARFC-Date: Thu, 11 Apr 1996 19:53:23 GMT
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: daniel@fiction.pb.owl.de (Daniel Roedding)
+------------------------------------------------------------------------------
+
 usai1035@servus02.rus.uni-stuttgart.de (Ralf Sipple) writes:
 
 >Matthias Bolten (matthias.bolten@bigapple.Cologne.DE) wrote:
@@ -9339,7 +9627,7 @@ FTN message header:
 AREA:DE.COMM.INTERNET.ROUTING
 ^AMSGID: <1996Apr11.195323.16969@fiction.pb.owl.de> 721a0b7e
 ^AREPLY: <4kj54f$1f98@info4.rus.uni-stuttgart.de> e4927d8d
-^AREPLYADDR Daniel Roedding <daniel@fiction.pb.owl.de>
+^AREPLYADDR <daniel@fiction.pb.owl.de>
 ^AREPLYTO 242:1000/5 Daniel Roedding
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -9348,6 +9636,9 @@ AREA:DE.COMM.INTERNET.ROUTING
 ^ARFC-Date: Thu, 11 Apr 1996 19:53:23 GMT
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: daniel@fiction.pb.owl.de (Daniel Roedding)
+------------------------------------------------------------------------------
+
 usai1035@servus02.rus.uni-stuttgart.de (Ralf Sipple) writes:
 
 >Matthias Bolten (matthias.bolten@bigapple.Cologne.DE) wrote:
@@ -9389,7 +9680,7 @@ FTN message header:
 AREA:DE.COMM.INTERNET.ZUGANG
 ^AMSGID: <1996Apr11.195323.16969@fiction.pb.owl.de> 02655605
 ^AREPLY: <4kj54f$1f98@info4.rus.uni-stuttgart.de> 83bb2b4f
-^AREPLYADDR Daniel Roedding <daniel@fiction.pb.owl.de>
+^AREPLYADDR <daniel@fiction.pb.owl.de>
 ^AREPLYTO 242:1000/5 Daniel Roedding
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -9398,6 +9689,9 @@ AREA:DE.COMM.INTERNET.ZUGANG
 ^ARFC-Date: Thu, 11 Apr 1996 19:53:23 GMT
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: daniel@fiction.pb.owl.de (Daniel Roedding)
+------------------------------------------------------------------------------
+
 usai1035@servus02.rus.uni-stuttgart.de (Ralf Sipple) writes:
 
 >Matthias Bolten (matthias.bolten@bigapple.Cologne.DE) wrote:
@@ -9439,7 +9733,7 @@ FTN message header:
 AREA:DE.COMM.ISDN
 ^AMSGID: <1996Apr11.195323.16969@fiction.pb.owl.de> 75f2b6d9
 ^AREPLY: <4kj54f$1f98@info4.rus.uni-stuttgart.de> c457ba5b
-^AREPLYADDR Daniel Roedding <daniel@fiction.pb.owl.de>
+^AREPLYADDR <daniel@fiction.pb.owl.de>
 ^AREPLYTO 242:1000/5 Daniel Roedding
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -9448,6 +9742,9 @@ AREA:DE.COMM.ISDN
 ^ARFC-Date: Thu, 11 Apr 1996 19:53:23 GMT
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: daniel@fiction.pb.owl.de (Daniel Roedding)
+------------------------------------------------------------------------------
+
 usai1035@servus02.rus.uni-stuttgart.de (Ralf Sipple) writes:
 
 >Matthias Bolten (matthias.bolten@bigapple.Cologne.DE) wrote:
@@ -9489,7 +9786,7 @@ FTN message header:
 AREA:DE.COMM.MISC
 ^AMSGID: <1996Apr11.195323.16969@fiction.pb.owl.de> 9013ff03
 ^AREPLY: <4kj54f$1f98@info4.rus.uni-stuttgart.de> 21b6f381
-^AREPLYADDR Daniel Roedding <daniel@fiction.pb.owl.de>
+^AREPLYADDR <daniel@fiction.pb.owl.de>
 ^AREPLYTO 242:1000/5 Daniel Roedding
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -9498,6 +9795,9 @@ AREA:DE.COMM.MISC
 ^ARFC-Date: Thu, 11 Apr 1996 19:53:23 GMT
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: daniel@fiction.pb.owl.de (Daniel Roedding)
+------------------------------------------------------------------------------
+
 usai1035@servus02.rus.uni-stuttgart.de (Ralf Sipple) writes:
 
 >Matthias Bolten (matthias.bolten@bigapple.Cologne.DE) wrote:
@@ -9539,7 +9839,7 @@ FTN message header:
 AREA:DE.COMM.MODEM
 ^AMSGID: <1996Apr11.195323.16969@fiction.pb.owl.de> 29aedd4a
 ^AREPLY: <4kj54f$1f98@info4.rus.uni-stuttgart.de> 2aa99a4a
-^AREPLYADDR Daniel Roedding <daniel@fiction.pb.owl.de>
+^AREPLYADDR <daniel@fiction.pb.owl.de>
 ^AREPLYTO 242:1000/5 Daniel Roedding
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -9548,6 +9848,9 @@ AREA:DE.COMM.MODEM
 ^ARFC-Date: Thu, 11 Apr 1996 19:53:23 GMT
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: daniel@fiction.pb.owl.de (Daniel Roedding)
+------------------------------------------------------------------------------
+
 usai1035@servus02.rus.uni-stuttgart.de (Ralf Sipple) writes:
 
 >Matthias Bolten (matthias.bolten@bigapple.Cologne.DE) wrote:
@@ -9598,7 +9901,7 @@ FTN message header:
 ------------------------------------------------------------------------------
 AREA:DE.COMM.MISC
 ^AMSGID: <4kb930$aru@news.rrz.uni-koeln.de> abcd503a
-^AREPLYADDR Klaus Heimes <Klaus.Heimes@uni-koeln.de>
+^AREPLYADDR <Klaus.Heimes@uni-koeln.de>
 ^AREPLYTO 242:1000/5 Klaus Heimes
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -9607,6 +9910,9 @@ AREA:DE.COMM.MISC
 ^ARFC-Date: Mon, 08 Apr 1996 14:50:52 GMT
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: Klaus.Heimes@uni-koeln.de (Klaus Heimes)
+------------------------------------------------------------------------------
+
 Tach Ihr Profis !
 
 Ich habe ein Problem mit einem Telekom Kombi-Faxger‰t AF 320 TA.
@@ -9670,7 +9976,7 @@ FTN message header:
 AREA:DE.COMM.MISC
 ^AMSGID: <GUTSCHK.96Apr5154504corpus@uni-muenster.de> ae628391
 ^AREPLY: <4k1ckr$5ql@news.cs.tu-berlin.de> a9c21b0d
-^AREPLYADDR Markus Gutschke <gutschk@uni-muenster.de>
+^AREPLYADDR <gutschk@uni-muenster.de>
 ^AREPLYTO 242:1000/5 Markus Gutschke
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -9681,6 +9987,9 @@ AREA:DE.COMM.MISC
 ^ARFC-Content-Type: text/plain; charset=US-ASCII
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: gutschk@uni-muenster.de (Markus Gutschke)
+------------------------------------------------------------------------------
+
 -----BEGIN PGP SIGNED MESSAGE-----
 
 In article <4k1ckr$5ql@news.cs.tu-berlin.de> amk@cs.tu-berlin.de (Andreas M. Kirchwitz) writes:
@@ -9733,7 +10042,7 @@ FTN message header:
 AREA:DE.COMM.GATEWAYS
 ^AMSGID: <4kjsva$aof@rd.cls.de> 92b71398
 ^AREPLY: <4kj54f$1f98@info4.rus.uni-stuttgart.de> b3267ba3
-^AREPLYADDR Karlheinz Hagen <kalle@rd.cls.de>
+^AREPLYADDR <kalle@rd.cls.de>
 ^AREPLYTO 242:1000/5 Karlheinz Hagen
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -9742,6 +10051,9 @@ AREA:DE.COMM.GATEWAYS
 ^ARFC-Date: 11 Apr 1996 23:18:34 +0200
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: kalle@rd.cls.de (Karlheinz Hagen)
+------------------------------------------------------------------------------
+
 Ralf Sipple (usai1035@servus02.rus.uni-stuttgart.de) wrote:
 
 : Eine ISDN-Standleitung im gleichen Bezirk (eine OVSt) kostete damals
@@ -9773,7 +10085,7 @@ FTN message header:
 AREA:DE.COMM.INFOSYSTEMS.MISC
 ^AMSGID: <4kjsva$aof@rd.cls.de> 16bdf2fd
 ^AREPLY: <4kj54f$1f98@info4.rus.uni-stuttgart.de> 5cd87c06
-^AREPLYADDR Karlheinz Hagen <kalle@rd.cls.de>
+^AREPLYADDR <kalle@rd.cls.de>
 ^AREPLYTO 242:1000/5 Karlheinz Hagen
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -9782,6 +10094,9 @@ AREA:DE.COMM.INFOSYSTEMS.MISC
 ^ARFC-Date: 11 Apr 1996 23:18:34 +0200
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: kalle@rd.cls.de (Karlheinz Hagen)
+------------------------------------------------------------------------------
+
 Ralf Sipple (usai1035@servus02.rus.uni-stuttgart.de) wrote:
 
 : Eine ISDN-Standleitung im gleichen Bezirk (eine OVSt) kostete damals
@@ -9813,7 +10128,7 @@ FTN message header:
 AREA:DE.COMM.INTERNET.MISC
 ^AMSGID: <4kjsva$aof@rd.cls.de> 56a7d8e7
 ^AREPLY: <4kj54f$1f98@info4.rus.uni-stuttgart.de> 0e8a49b8
-^AREPLYADDR Karlheinz Hagen <kalle@rd.cls.de>
+^AREPLYADDR <kalle@rd.cls.de>
 ^AREPLYTO 242:1000/5 Karlheinz Hagen
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -9822,6 +10137,9 @@ AREA:DE.COMM.INTERNET.MISC
 ^ARFC-Date: 11 Apr 1996 23:18:34 +0200
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: kalle@rd.cls.de (Karlheinz Hagen)
+------------------------------------------------------------------------------
+
 Ralf Sipple (usai1035@servus02.rus.uni-stuttgart.de) wrote:
 
 : Eine ISDN-Standleitung im gleichen Bezirk (eine OVSt) kostete damals
@@ -9853,7 +10171,7 @@ FTN message header:
 AREA:DE.COMM.INTERNET.ROUTING
 ^AMSGID: <4kjsva$aof@rd.cls.de> aef7f376
 ^AREPLY: <4kj54f$1f98@info4.rus.uni-stuttgart.de> e4927d8d
-^AREPLYADDR Karlheinz Hagen <kalle@rd.cls.de>
+^AREPLYADDR <kalle@rd.cls.de>
 ^AREPLYTO 242:1000/5 Karlheinz Hagen
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -9862,6 +10180,9 @@ AREA:DE.COMM.INTERNET.ROUTING
 ^ARFC-Date: 11 Apr 1996 23:18:34 +0200
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: kalle@rd.cls.de (Karlheinz Hagen)
+------------------------------------------------------------------------------
+
 Ralf Sipple (usai1035@servus02.rus.uni-stuttgart.de) wrote:
 
 : Eine ISDN-Standleitung im gleichen Bezirk (eine OVSt) kostete damals
@@ -9893,7 +10214,7 @@ FTN message header:
 AREA:DE.COMM.INTERNET.ZUGANG
 ^AMSGID: <4kjsva$aof@rd.cls.de> 3990912b
 ^AREPLY: <4kj54f$1f98@info4.rus.uni-stuttgart.de> 83bb2b4f
-^AREPLYADDR Karlheinz Hagen <kalle@rd.cls.de>
+^AREPLYADDR <kalle@rd.cls.de>
 ^AREPLYTO 242:1000/5 Karlheinz Hagen
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -9902,6 +10223,9 @@ AREA:DE.COMM.INTERNET.ZUGANG
 ^ARFC-Date: 11 Apr 1996 23:18:34 +0200
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: kalle@rd.cls.de (Karlheinz Hagen)
+------------------------------------------------------------------------------
+
 Ralf Sipple (usai1035@servus02.rus.uni-stuttgart.de) wrote:
 
 : Eine ISDN-Standleitung im gleichen Bezirk (eine OVSt) kostete damals
@@ -9933,7 +10257,7 @@ FTN message header:
 AREA:DE.COMM.ISDN
 ^AMSGID: <4kjsva$aof@rd.cls.de> f413a596
 ^AREPLY: <4kj54f$1f98@info4.rus.uni-stuttgart.de> c457ba5b
-^AREPLYADDR Karlheinz Hagen <kalle@rd.cls.de>
+^AREPLYADDR <kalle@rd.cls.de>
 ^AREPLYTO 242:1000/5 Karlheinz Hagen
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -9942,6 +10266,9 @@ AREA:DE.COMM.ISDN
 ^ARFC-Date: 11 Apr 1996 23:18:34 +0200
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: kalle@rd.cls.de (Karlheinz Hagen)
+------------------------------------------------------------------------------
+
 Ralf Sipple (usai1035@servus02.rus.uni-stuttgart.de) wrote:
 
 : Eine ISDN-Standleitung im gleichen Bezirk (eine OVSt) kostete damals
@@ -9973,7 +10300,7 @@ FTN message header:
 AREA:DE.COMM.MISC
 ^AMSGID: <4kjsva$aof@rd.cls.de> 11f2ec4c
 ^AREPLY: <4kj54f$1f98@info4.rus.uni-stuttgart.de> 21b6f381
-^AREPLYADDR Karlheinz Hagen <kalle@rd.cls.de>
+^AREPLYADDR <kalle@rd.cls.de>
 ^AREPLYTO 242:1000/5 Karlheinz Hagen
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -9982,6 +10309,9 @@ AREA:DE.COMM.MISC
 ^ARFC-Date: 11 Apr 1996 23:18:34 +0200
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: kalle@rd.cls.de (Karlheinz Hagen)
+------------------------------------------------------------------------------
+
 Ralf Sipple (usai1035@servus02.rus.uni-stuttgart.de) wrote:
 
 : Eine ISDN-Standleitung im gleichen Bezirk (eine OVSt) kostete damals
@@ -10013,7 +10343,7 @@ FTN message header:
 AREA:DE.COMM.MODEM
 ^AMSGID: <4kjsva$aof@rd.cls.de> cf4c6058
 ^AREPLY: <4kj54f$1f98@info4.rus.uni-stuttgart.de> 2aa99a4a
-^AREPLYADDR Karlheinz Hagen <kalle@rd.cls.de>
+^AREPLYADDR <kalle@rd.cls.de>
 ^AREPLYTO 242:1000/5 Karlheinz Hagen
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -10022,6 +10352,9 @@ AREA:DE.COMM.MODEM
 ^ARFC-Date: 11 Apr 1996 23:18:34 +0200
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: kalle@rd.cls.de (Karlheinz Hagen)
+------------------------------------------------------------------------------
+
 Ralf Sipple (usai1035@servus02.rus.uni-stuttgart.de) wrote:
 
 : Eine ISDN-Standleitung im gleichen Bezirk (eine OVSt) kostete damals
@@ -10062,7 +10395,7 @@ FTN message header:
 ------------------------------------------------------------------------------
 AREA:DE.COMM.MISC
 ^AMSGID: <hf-1104962105030001@ulysses.reactor.in-passau.de> bd6667c8
-^AREPLYADDR Helmut Fromberger <hf@ulysses.reactor.in-passau.de>
+^AREPLYADDR <hf@ulysses.reactor.in-passau.de>
 ^AREPLYTO 242:1000/5 Helmut Fromberger
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -10074,6 +10407,9 @@ AREA:DE.COMM.MISC
 ^ARFC-Content-Transfer-Encoding: 8bit
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: hf@ulysses.reactor.in-passau.de (Helmut Fromberger)
+------------------------------------------------------------------------------
+
 
 
 Tag Zusammen!
@@ -10126,7 +10462,7 @@ FTN message header:
 AREA:DE.COMM.MODEM
 ^AMSGID: <66d9j25wMVB@tretow.in-berlin.de> f167346e
 ^AREPLY: <QSUny*t1j1@caty.ol.sub.de> 0ee1cfad
-^AREPLYADDR Joerg Tretow <joerg@tretow.in-berlin.de>
+^AREPLYADDR <joerg@tretow.in-berlin.de>
 ^AREPLYTO 242:1000/5 Joerg Tretow
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -10135,6 +10471,9 @@ AREA:DE.COMM.MODEM
 ^ARFC-Newsgroups: de.comm.modem,de.comm.misc,de.comm.mobil,ger.pc.hard
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: joerg@tretow.in-berlin.de (Joerg Tretow)
+------------------------------------------------------------------------------
+
 am 11.04.96 hast Du folgendes geschrieben:
 
 > In article <3168466B.239FF435@cape.de>, Maik Musall writes:
@@ -10214,7 +10553,7 @@ FTN message header:
 AREA:DE.COMM.MISC
 ^AMSGID: <66d9j25wMVB@tretow.in-berlin.de> 54d101ab
 ^AREPLY: <QSUny*t1j1@caty.ol.sub.de> dd40b272
-^AREPLYADDR Joerg Tretow <joerg@tretow.in-berlin.de>
+^AREPLYADDR <joerg@tretow.in-berlin.de>
 ^AREPLYTO 242:1000/5 Joerg Tretow
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -10223,6 +10562,9 @@ AREA:DE.COMM.MISC
 ^ARFC-Newsgroups: de.comm.modem,de.comm.misc,de.comm.mobil,ger.pc.hard
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: joerg@tretow.in-berlin.de (Joerg Tretow)
+------------------------------------------------------------------------------
+
 am 11.04.96 hast Du folgendes geschrieben:
 
 > In article <3168466B.239FF435@cape.de>, Maik Musall writes:
@@ -10302,7 +10644,7 @@ FTN message header:
 AREA:DE.COMM.MOBIL
 ^AMSGID: <66d9j25wMVB@tretow.in-berlin.de> 2e583746
 ^AREPLY: <QSUny*t1j1@caty.ol.sub.de> d1decc85
-^AREPLYADDR Joerg Tretow <joerg@tretow.in-berlin.de>
+^AREPLYADDR <joerg@tretow.in-berlin.de>
 ^AREPLYTO 242:1000/5 Joerg Tretow
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -10311,6 +10653,9 @@ AREA:DE.COMM.MOBIL
 ^ARFC-Newsgroups: de.comm.modem,de.comm.misc,de.comm.mobil,ger.pc.hard
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: joerg@tretow.in-berlin.de (Joerg Tretow)
+------------------------------------------------------------------------------
+
 am 11.04.96 hast Du folgendes geschrieben:
 
 > In article <3168466B.239FF435@cape.de>, Maik Musall writes:
@@ -10399,7 +10744,7 @@ FTN message header:
 ------------------------------------------------------------------------------
 AREA:DE.COMM.MISC
 ^AMSGID: <zp5c55aDcju2Z0@bubblebear.guru.rhein-main.de> 2c3a25da
-^AREPLYADDR Bubblebear <Bubblebear@guru.rhein-main.de>
+^AREPLYADDR <Bubblebear@guru.rhein-main.de>
 ^AREPLYTO 242:1000/5 Bubblebear
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -10411,6 +10756,9 @@ AREA:DE.COMM.MISC
 ^ARFC-Content-Transfer-Encoding: 8bit
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x], ZCONNECT UO odb.rhein-main.de [UNIX/Connect v0.55]
 ------------------------------------------------------------------------------
+From: Bubblebear@guru.rhein-main.de (Bubblebear)
+------------------------------------------------------------------------------
+
 
 Hi Leute,
 
@@ -10455,7 +10803,7 @@ FTN message header:
 AREA:DE.COMM.MISC
 ^AMSGID: <316DB04E.359FDEF9@cape.de> 10a7ab4e
 ^AREPLY: <QSUny*t1j1@caty.ol.sub.de> dd40b272
-^AREPLYADDR Maik Musall <maik@cape.de>
+^AREPLYADDR <maik@cape.de>
 ^AREPLYTO 242:1000/5 Maik Musall
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -10467,6 +10815,9 @@ AREA:DE.COMM.MISC
 ^ARFC-Content-Transfer-Encoding: 7bit
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: Maik Musall <maik@cape.de>
+------------------------------------------------------------------------------
+
 Holger Lubitz wrote:
 
 > > Die netto Datenrate in den digitalen Netzen (sprich D und E) ist 9.6
@@ -10524,7 +10875,7 @@ FTN message header:
 AREA:DE.COMM.MOBIL
 ^AMSGID: <316DB04E.359FDEF9@cape.de> fe7c571b
 ^AREPLY: <QSUny*t1j1@caty.ol.sub.de> d1decc85
-^AREPLYADDR Maik Musall <maik@cape.de>
+^AREPLYADDR <maik@cape.de>
 ^AREPLYTO 242:1000/5 Maik Musall
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -10536,6 +10887,9 @@ AREA:DE.COMM.MOBIL
 ^ARFC-Content-Transfer-Encoding: 7bit
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: Maik Musall <maik@cape.de>
+------------------------------------------------------------------------------
+
 Holger Lubitz wrote:
 
 > > Die netto Datenrate in den digitalen Netzen (sprich D und E) ist 9.6
@@ -10593,7 +10947,7 @@ FTN message header:
 AREA:DE.COMM.MODEM
 ^AMSGID: <316DB04E.359FDEF9@cape.de> 21435433
 ^AREPLY: <QSUny*t1j1@caty.ol.sub.de> 0ee1cfad
-^AREPLYADDR Maik Musall <maik@cape.de>
+^AREPLYADDR <maik@cape.de>
 ^AREPLYTO 242:1000/5 Maik Musall
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -10605,6 +10959,9 @@ AREA:DE.COMM.MODEM
 ^ARFC-Content-Transfer-Encoding: 7bit
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: Maik Musall <maik@cape.de>
+------------------------------------------------------------------------------
+
 Holger Lubitz wrote:
 
 > > Die netto Datenrate in den digitalen Netzen (sprich D und E) ist 9.6
@@ -10671,7 +11028,7 @@ FTN message header:
 ------------------------------------------------------------------------------
 AREA:DE.COMM.INTERNET.SOFTWARE
 ^AMSGID: <66d6V-z1k6B@charly.in-ulm.de> 69d70d65
-^AREPLYADDR Thomas Kammerer <T.Kammerer@charly.in-ulm.de>
+^AREPLYADDR <T.Kammerer@charly.in-ulm.de>
 ^AREPLYTO 242:1000/5 Thomas Kammerer
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -10680,6 +11037,9 @@ AREA:DE.COMM.INTERNET.SOFTWARE
 ^ARFC-Newsgroups: de.comm.internet.software,de.comm.misc,de.newusers.questions
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: T.Kammerer@charly.in-ulm.de (Thomas Kammerer)
+------------------------------------------------------------------------------
+
 
 Hallo Netzgemeinde ,
 
@@ -10727,7 +11087,7 @@ FTN message header:
 ------------------------------------------------------------------------------
 AREA:DE.COMM.MISC
 ^AMSGID: <66d6V-z1k6B@charly.in-ulm.de> b9a30f31
-^AREPLYADDR Thomas Kammerer <T.Kammerer@charly.in-ulm.de>
+^AREPLYADDR <T.Kammerer@charly.in-ulm.de>
 ^AREPLYTO 242:1000/5 Thomas Kammerer
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -10736,6 +11096,9 @@ AREA:DE.COMM.MISC
 ^ARFC-Newsgroups: de.comm.internet.software,de.comm.misc,de.newusers.questions
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: T.Kammerer@charly.in-ulm.de (Thomas Kammerer)
+------------------------------------------------------------------------------
+
 
 Hallo Netzgemeinde ,
 
@@ -10783,7 +11146,7 @@ FTN message header:
 ------------------------------------------------------------------------------
 AREA:DE.NEWUSERS.QUESTIONS
 ^AMSGID: <66d6V-z1k6B@charly.in-ulm.de> 630f16c0
-^AREPLYADDR Thomas Kammerer <T.Kammerer@charly.in-ulm.de>
+^AREPLYADDR <T.Kammerer@charly.in-ulm.de>
 ^AREPLYTO 242:1000/5 Thomas Kammerer
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -10792,6 +11155,9 @@ AREA:DE.NEWUSERS.QUESTIONS
 ^ARFC-Newsgroups: de.comm.internet.software,de.comm.misc,de.newusers.questions
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: T.Kammerer@charly.in-ulm.de (Thomas Kammerer)
+------------------------------------------------------------------------------
+
 
 Hallo Netzgemeinde ,
 
@@ -10850,7 +11216,7 @@ FTN message header:
 AREA:DE.COMM.INTERNET.MISC
 ^AMSGID: <66dsNxvSiRB@cae.muc.de> 07d6dc53
 ^AREPLY: <4kj54f$1f98@info4.rus.uni-stuttgart.de> 0e8a49b8
-^AREPLYADDR Christian A. Eroes <chris@cae.muc.de>
+^AREPLYADDR <chris@cae.muc.de>
 ^AREPLYTO 242:1000/5 Christian A. Eroes
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -10859,6 +11225,9 @@ AREA:DE.COMM.INTERNET.MISC
 ^ARFC-Newsgroups: de.comm.internet.misc,de.comm.gateways,de.comm.infosystems.misc,de.comm.internet.routing,de.comm.internet.zugang,de.comm.modem,de.comm.isdn,de.comm.misc
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: chris@cae.muc.de (Christian A. Eroes)
+------------------------------------------------------------------------------
+
 In article <4kj54f$1f98@info4.rus.uni-stuttgart.de>
 on 11.04.96 usai1035 wrote:
 
@@ -10889,7 +11258,7 @@ FTN message header:
 AREA:DE.COMM.GATEWAYS
 ^AMSGID: <66dsNxvSiRB@cae.muc.de> 5e09b349
 ^AREPLY: <4kj54f$1f98@info4.rus.uni-stuttgart.de> b3267ba3
-^AREPLYADDR Christian A. Eroes <chris@cae.muc.de>
+^AREPLYADDR <chris@cae.muc.de>
 ^AREPLYTO 242:1000/5 Christian A. Eroes
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -10898,6 +11267,9 @@ AREA:DE.COMM.GATEWAYS
 ^ARFC-Newsgroups: de.comm.internet.misc,de.comm.gateways,de.comm.infosystems.misc,de.comm.internet.routing,de.comm.internet.zugang,de.comm.modem,de.comm.isdn,de.comm.misc
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: chris@cae.muc.de (Christian A. Eroes)
+------------------------------------------------------------------------------
+
 In article <4kj54f$1f98@info4.rus.uni-stuttgart.de>
 on 11.04.96 usai1035 wrote:
 
@@ -10928,7 +11300,7 @@ FTN message header:
 AREA:DE.COMM.INFOSYSTEMS.MISC
 ^AMSGID: <66dsNxvSiRB@cae.muc.de> 978420ce
 ^AREPLY: <4kj54f$1f98@info4.rus.uni-stuttgart.de> 5cd87c06
-^AREPLYADDR Christian A. Eroes <chris@cae.muc.de>
+^AREPLYADDR <chris@cae.muc.de>
 ^AREPLYTO 242:1000/5 Christian A. Eroes
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -10937,6 +11309,9 @@ AREA:DE.COMM.INFOSYSTEMS.MISC
 ^ARFC-Newsgroups: de.comm.internet.misc,de.comm.gateways,de.comm.infosystems.misc,de.comm.internet.routing,de.comm.internet.zugang,de.comm.modem,de.comm.isdn,de.comm.misc
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: chris@cae.muc.de (Christian A. Eroes)
+------------------------------------------------------------------------------
+
 In article <4kj54f$1f98@info4.rus.uni-stuttgart.de>
 on 11.04.96 usai1035 wrote:
 
@@ -10967,7 +11342,7 @@ FTN message header:
 AREA:DE.COMM.INTERNET.ROUTING
 ^AMSGID: <66dsNxvSiRB@cae.muc.de> 2fce2145
 ^AREPLY: <4kj54f$1f98@info4.rus.uni-stuttgart.de> e4927d8d
-^AREPLYADDR Christian A. Eroes <chris@cae.muc.de>
+^AREPLYADDR <chris@cae.muc.de>
 ^AREPLYTO 242:1000/5 Christian A. Eroes
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -10976,6 +11351,9 @@ AREA:DE.COMM.INTERNET.ROUTING
 ^ARFC-Newsgroups: de.comm.internet.misc,de.comm.gateways,de.comm.infosystems.misc,de.comm.internet.routing,de.comm.internet.zugang,de.comm.modem,de.comm.isdn,de.comm.misc
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: chris@cae.muc.de (Christian A. Eroes)
+------------------------------------------------------------------------------
+
 In article <4kj54f$1f98@info4.rus.uni-stuttgart.de>
 on 11.04.96 usai1035 wrote:
 
@@ -11006,7 +11384,7 @@ FTN message header:
 AREA:DE.COMM.INTERNET.ZUGANG
 ^AMSGID: <66dsNxvSiRB@cae.muc.de> be546fff
 ^AREPLY: <4kj54f$1f98@info4.rus.uni-stuttgart.de> 83bb2b4f
-^AREPLYADDR Christian A. Eroes <chris@cae.muc.de>
+^AREPLYADDR <chris@cae.muc.de>
 ^AREPLYTO 242:1000/5 Christian A. Eroes
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -11015,6 +11393,9 @@ AREA:DE.COMM.INTERNET.ZUGANG
 ^ARFC-Newsgroups: de.comm.internet.misc,de.comm.gateways,de.comm.infosystems.misc,de.comm.internet.routing,de.comm.internet.zugang,de.comm.modem,de.comm.isdn,de.comm.misc
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: chris@cae.muc.de (Christian A. Eroes)
+------------------------------------------------------------------------------
+
 In article <4kj54f$1f98@info4.rus.uni-stuttgart.de>
 on 11.04.96 usai1035 wrote:
 
@@ -11045,7 +11426,7 @@ FTN message header:
 AREA:DE.COMM.MODEM
 ^AMSGID: <66dsNxvSiRB@cae.muc.de> 30f02b49
 ^AREPLY: <4kj54f$1f98@info4.rus.uni-stuttgart.de> 2aa99a4a
-^AREPLYADDR Christian A. Eroes <chris@cae.muc.de>
+^AREPLYADDR <chris@cae.muc.de>
 ^AREPLYTO 242:1000/5 Christian A. Eroes
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -11054,6 +11435,9 @@ AREA:DE.COMM.MODEM
 ^ARFC-Newsgroups: de.comm.internet.misc,de.comm.gateways,de.comm.infosystems.misc,de.comm.internet.routing,de.comm.internet.zugang,de.comm.modem,de.comm.isdn,de.comm.misc
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: chris@cae.muc.de (Christian A. Eroes)
+------------------------------------------------------------------------------
+
 In article <4kj54f$1f98@info4.rus.uni-stuttgart.de>
 on 11.04.96 usai1035 wrote:
 
@@ -11084,7 +11468,7 @@ FTN message header:
 AREA:DE.COMM.ISDN
 ^AMSGID: <66dsNxvSiRB@cae.muc.de> 4732c44f
 ^AREPLY: <4kj54f$1f98@info4.rus.uni-stuttgart.de> c457ba5b
-^AREPLYADDR Christian A. Eroes <chris@cae.muc.de>
+^AREPLYADDR <chris@cae.muc.de>
 ^AREPLYTO 242:1000/5 Christian A. Eroes
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -11093,6 +11477,9 @@ AREA:DE.COMM.ISDN
 ^ARFC-Newsgroups: de.comm.internet.misc,de.comm.gateways,de.comm.infosystems.misc,de.comm.internet.routing,de.comm.internet.zugang,de.comm.modem,de.comm.isdn,de.comm.misc
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: chris@cae.muc.de (Christian A. Eroes)
+------------------------------------------------------------------------------
+
 In article <4kj54f$1f98@info4.rus.uni-stuttgart.de>
 on 11.04.96 usai1035 wrote:
 
@@ -11123,7 +11510,7 @@ FTN message header:
 AREA:DE.COMM.MISC
 ^AMSGID: <66dsNxvSiRB@cae.muc.de> a2d38d95
 ^AREPLY: <4kj54f$1f98@info4.rus.uni-stuttgart.de> 21b6f381
-^AREPLYADDR Christian A. Eroes <chris@cae.muc.de>
+^AREPLYADDR <chris@cae.muc.de>
 ^AREPLYTO 242:1000/5 Christian A. Eroes
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -11132,6 +11519,9 @@ AREA:DE.COMM.MISC
 ^ARFC-Newsgroups: de.comm.internet.misc,de.comm.gateways,de.comm.infosystems.misc,de.comm.internet.routing,de.comm.internet.zugang,de.comm.modem,de.comm.isdn,de.comm.misc
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: chris@cae.muc.de (Christian A. Eroes)
+------------------------------------------------------------------------------
+
 In article <4kj54f$1f98@info4.rus.uni-stuttgart.de>
 on 11.04.96 usai1035 wrote:
 
@@ -11171,7 +11561,7 @@ FTN message header:
 ------------------------------------------------------------------------------
 AREA:DE.COMM.MISC
 ^AMSGID: <66hsOX7CiRB@cae.muc.de> f42ae976
-^AREPLYADDR Christian A. Eroes <chris@cae.muc.de>
+^AREPLYADDR <chris@cae.muc.de>
 ^AREPLYTO 242:1000/5 Christian A. Eroes
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -11180,6 +11570,9 @@ AREA:DE.COMM.MISC
 ^ARFC-Newsgroups: de.comm.misc
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: chris@cae.muc.de (Christian A. Eroes)
+------------------------------------------------------------------------------
+
 Hi Leute!
 
 Wie kann ich beim Sinus 42 AB an der Basisstation die Anzeige der  
@@ -11225,7 +11618,7 @@ FTN message header:
 AREA:DE.COMM.MISC
 ^AMSGID: <316BA89F.210B@tmfs.mpgfk.tu-dresden.de> ab46d1c2
 ^AREPLY: <315B7327.2FEF@sp.zrz.tu-berlin.de> 320742cb
-^AREPLYADDR Dirk Jacob <jacob@tmfs.mpgfk.tu-dresden.de>
+^AREPLYADDR <jacob@tmfs.mpgfk.tu-dresden.de>
 ^AREPLYTO 242:1000/5 Dirk Jacob
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -11237,6 +11630,9 @@ AREA:DE.COMM.MISC
 ^ARFC-Content-Transfer-Encoding: 7bit
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: Dirk Jacob <jacob@tmfs.mpgfk.tu-dresden.de>
+------------------------------------------------------------------------------
+
 K. Seeland wrote:
 > 
 > wo bekomm tcpip und ftp die auf einem Dosrechner mit nur 2 Mb Festplatte
@@ -11289,7 +11685,7 @@ FTN message header:
 AREA:DE.COMM.MISC
 ^AMSGID: <66hsbLBSiRB@cae.muc.de> 39218d94
 ^AREPLY: <66hsOX7CiRB@cae.muc.de> f42ae976
-^AREPLYADDR Christian A. Eroes <chris@cae.muc.de>
+^AREPLYADDR <chris@cae.muc.de>
 ^AREPLYTO 242:1000/5 Christian A. Eroes
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -11298,6 +11694,9 @@ AREA:DE.COMM.MISC
 ^ARFC-Newsgroups: de.comm.misc
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: chris@cae.muc.de (Christian A. Eroes)
+------------------------------------------------------------------------------
+
 In article <66hsOX7CiRB@cae.muc.de>
 on 12.04.96 chris wrote:
 
@@ -11346,7 +11745,7 @@ FTN message header:
 AREA:DE.COMM.MISC
 ^AMSGID: <DpqnC5.H3y@white.schulung.netuse.de> a08e758c
 ^AREPLY: <ghost.00ep@dawn.mayn.de> 17b2f677
-^AREPLYADDR =?ISO-8859-1?Q?Kristian_K=F6hntopp?= <kris@schulung.netuse.de>
+^AREPLYADDR <kris@schulung.netuse.de>
 ^AREPLYTO 242:1000/5 Kristian Kˆhntopp
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -11357,6 +11756,9 @@ AREA:DE.COMM.MISC
 ^ARFC-Date: Fri, 12 Apr 1996 07:26:28 GMT
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: kris@schulung.netuse.de (=?ISO-8859-1?Q?Kristian_K=F6hntopp?=)
+------------------------------------------------------------------------------
+
 ghost@dawn.mayn.de (Armin Wies) writes:
 >: Und: macht das bei unseren Bandbreiten ueberhaupt Sinn?
 
@@ -11412,7 +11814,7 @@ FTN message header:
 AREA:DE.COMM.GATEWAYS
 ^AMSGID: <66feGXGU2TB@flatta.in-berlin.de> 1687d236
 ^AREPLY: <matthias.bolten-1104961354190001@bigapple.cologne.de> 4f139b0e
-^AREPLYADDR Rene Kacza <rene@flatta.in-berlin.de>
+^AREPLYADDR <rene@flatta.in-berlin.de>
 ^AREPLYTO 242:1000/5 Rene Kacza
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -11421,6 +11823,9 @@ AREA:DE.COMM.GATEWAYS
 ^ARFC-Newsgroups: de.comm.gateways,de.comm.infosystems.misc,de.comm.internet.misc,de.comm.internet.routing,de.comm.internet.zugang,de.comm.isdn,de.comm.misc,de.comm.modem
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: rene@flatta.in-berlin.de (Rene Kacza)
+------------------------------------------------------------------------------
+
 >Zuerst: Entschuldigt, dass ich zu so vielen Groups poste, aber ich wusste
 Macht nichts:-)
 Haettest aber ein F'up setzen koennen
@@ -11445,7 +11850,7 @@ FTN message header:
 AREA:DE.COMM.INFOSYSTEMS.MISC
 ^AMSGID: <66feGXGU2TB@flatta.in-berlin.de> 830c8283
 ^AREPLY: <matthias.bolten-1104961354190001@bigapple.cologne.de> b743030e
-^AREPLYADDR Rene Kacza <rene@flatta.in-berlin.de>
+^AREPLYADDR <rene@flatta.in-berlin.de>
 ^AREPLYTO 242:1000/5 Rene Kacza
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -11454,6 +11859,9 @@ AREA:DE.COMM.INFOSYSTEMS.MISC
 ^ARFC-Newsgroups: de.comm.gateways,de.comm.infosystems.misc,de.comm.internet.misc,de.comm.internet.routing,de.comm.internet.zugang,de.comm.isdn,de.comm.misc,de.comm.modem
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: rene@flatta.in-berlin.de (Rene Kacza)
+------------------------------------------------------------------------------
+
 >Zuerst: Entschuldigt, dass ich zu so vielen Groups poste, aber ich wusste
 Macht nichts:-)
 Haettest aber ein F'up setzen koennen
@@ -11478,7 +11886,7 @@ FTN message header:
 AREA:DE.COMM.INTERNET.MISC
 ^AMSGID: <66feGXGU2TB@flatta.in-berlin.de> 2cc5c8ac
 ^AREPLY: <matthias.bolten-1104961354190001@bigapple.cologne.de> caebda6d
-^AREPLYADDR Rene Kacza <rene@flatta.in-berlin.de>
+^AREPLYADDR <rene@flatta.in-berlin.de>
 ^AREPLYTO 242:1000/5 Rene Kacza
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -11487,6 +11895,9 @@ AREA:DE.COMM.INTERNET.MISC
 ^ARFC-Newsgroups: de.comm.gateways,de.comm.infosystems.misc,de.comm.internet.misc,de.comm.internet.routing,de.comm.internet.zugang,de.comm.isdn,de.comm.misc,de.comm.modem
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: rene@flatta.in-berlin.de (Rene Kacza)
+------------------------------------------------------------------------------
+
 >Zuerst: Entschuldigt, dass ich zu so vielen Groups poste, aber ich wusste
 Macht nichts:-)
 Haettest aber ein F'up setzen koennen
@@ -11511,7 +11922,7 @@ FTN message header:
 AREA:DE.COMM.INTERNET.ROUTING
 ^AMSGID: <66feGXGU2TB@flatta.in-berlin.de> 3b468308
 ^AREPLY: <matthias.bolten-1104961354190001@bigapple.cologne.de> 0f090285
-^AREPLYADDR Rene Kacza <rene@flatta.in-berlin.de>
+^AREPLYADDR <rene@flatta.in-berlin.de>
 ^AREPLYTO 242:1000/5 Rene Kacza
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -11520,6 +11931,9 @@ AREA:DE.COMM.INTERNET.ROUTING
 ^ARFC-Newsgroups: de.comm.gateways,de.comm.infosystems.misc,de.comm.internet.misc,de.comm.internet.routing,de.comm.internet.zugang,de.comm.isdn,de.comm.misc,de.comm.modem
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: rene@flatta.in-berlin.de (Rene Kacza)
+------------------------------------------------------------------------------
+
 >Zuerst: Entschuldigt, dass ich zu so vielen Groups poste, aber ich wusste
 Macht nichts:-)
 Haettest aber ein F'up setzen koennen
@@ -11544,7 +11958,7 @@ FTN message header:
 AREA:DE.COMM.INTERNET.ZUGANG
 ^AMSGID: <66feGXGU2TB@flatta.in-berlin.de> 37aa6de3
 ^AREPLY: <matthias.bolten-1104961354190001@bigapple.cologne.de> 16f21c8a
-^AREPLYADDR Rene Kacza <rene@flatta.in-berlin.de>
+^AREPLYADDR <rene@flatta.in-berlin.de>
 ^AREPLYTO 242:1000/5 Rene Kacza
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -11553,6 +11967,9 @@ AREA:DE.COMM.INTERNET.ZUGANG
 ^ARFC-Newsgroups: de.comm.gateways,de.comm.infosystems.misc,de.comm.internet.misc,de.comm.internet.routing,de.comm.internet.zugang,de.comm.isdn,de.comm.misc,de.comm.modem
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: rene@flatta.in-berlin.de (Rene Kacza)
+------------------------------------------------------------------------------
+
 >Zuerst: Entschuldigt, dass ich zu so vielen Groups poste, aber ich wusste
 Macht nichts:-)
 Haettest aber ein F'up setzen koennen
@@ -11577,7 +11994,7 @@ FTN message header:
 AREA:DE.COMM.ISDN
 ^AMSGID: <66feGXGU2TB@flatta.in-berlin.de> bdb70047
 ^AREPLY: <matthias.bolten-1104961354190001@bigapple.cologne.de> 975d68fe
-^AREPLYADDR Rene Kacza <rene@flatta.in-berlin.de>
+^AREPLYADDR <rene@flatta.in-berlin.de>
 ^AREPLYTO 242:1000/5 Rene Kacza
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -11586,6 +12003,9 @@ AREA:DE.COMM.ISDN
 ^ARFC-Newsgroups: de.comm.gateways,de.comm.infosystems.misc,de.comm.internet.misc,de.comm.internet.routing,de.comm.internet.zugang,de.comm.isdn,de.comm.misc,de.comm.modem
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: rene@flatta.in-berlin.de (Rene Kacza)
+------------------------------------------------------------------------------
+
 >Zuerst: Entschuldigt, dass ich zu so vielen Groups poste, aber ich wusste
 Macht nichts:-)
 Haettest aber ein F'up setzen koennen
@@ -11610,7 +12030,7 @@ FTN message header:
 AREA:DE.COMM.MISC
 ^AMSGID: <66feGXGU2TB@flatta.in-berlin.de> 5856499d
 ^AREPLY: <matthias.bolten-1104961354190001@bigapple.cologne.de> 72bc2124
-^AREPLYADDR Rene Kacza <rene@flatta.in-berlin.de>
+^AREPLYADDR <rene@flatta.in-berlin.de>
 ^AREPLYTO 242:1000/5 Rene Kacza
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -11619,6 +12039,9 @@ AREA:DE.COMM.MISC
 ^ARFC-Newsgroups: de.comm.gateways,de.comm.infosystems.misc,de.comm.internet.misc,de.comm.internet.routing,de.comm.internet.zugang,de.comm.isdn,de.comm.misc,de.comm.modem
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: rene@flatta.in-berlin.de (Rene Kacza)
+------------------------------------------------------------------------------
+
 >Zuerst: Entschuldigt, dass ich zu so vielen Groups poste, aber ich wusste
 Macht nichts:-)
 Haettest aber ein F'up setzen koennen
@@ -11643,7 +12066,7 @@ FTN message header:
 AREA:DE.COMM.MODEM
 ^AMSGID: <66feGXGU2TB@flatta.in-berlin.de> 3ed126bf
 ^AREPLY: <matthias.bolten-1104961354190001@bigapple.cologne.de> 8c46c7ff
-^AREPLYADDR Rene Kacza <rene@flatta.in-berlin.de>
+^AREPLYADDR <rene@flatta.in-berlin.de>
 ^AREPLYTO 242:1000/5 Rene Kacza
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -11652,6 +12075,9 @@ AREA:DE.COMM.MODEM
 ^ARFC-Newsgroups: de.comm.gateways,de.comm.infosystems.misc,de.comm.internet.misc,de.comm.internet.routing,de.comm.internet.zugang,de.comm.isdn,de.comm.misc,de.comm.modem
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: rene@flatta.in-berlin.de (Rene Kacza)
+------------------------------------------------------------------------------
+
 >Zuerst: Entschuldigt, dass ich zu so vielen Groups poste, aber ich wusste
 Macht nichts:-)
 Haettest aber ein F'up setzen koennen
@@ -11686,7 +12112,7 @@ FTN message header:
 AREA:DE.COMM.MISC
 ^AMSGID: <dpr25v.b0@lisa.simpson.inka.de> 00696f27
 ^AREPLY: <zp5c55aDcju2Z0@bubblebear.guru.rhein-main.de> 2c3a25da
-^AREPLYADDR =?iso-8859-1?q?J=E9r=F4me_Waibel?= <schrom@lisa.simpson.inka.de>
+^AREPLYADDR <schrom@lisa.simpson.inka.de>
 ^AREPLYTO 242:1000/5 JÈrÙme Waibel
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -11698,6 +12124,9 @@ AREA:DE.COMM.MISC
 ^ARFC-Content-Transfer-Encoding: 8bit
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: =?iso-8859-1?q?J=E9r=F4me_Waibel?= <schrom@lisa.simpson.inka.de>
+------------------------------------------------------------------------------
+
 In article <zp5c55aDcju2Z0@bubblebear.guru.rhein-main.de>,
 Bubblebear <Bubblebear@guru.rhein-main.de> wrote:
 >wie vernetzt man einen AMIGA mit 'nem PC (Notebook) ?
@@ -11749,7 +12178,7 @@ FTN message header:
 ------------------------------------------------------------------------------
 AREA:DE.COMM.MISC
 ^AMSGID: <4kn10e$u2@arl-news-svc-4.compuserve.com> e41f6bfa
-^AREPLYADDR Michael Stein <100657.202@compuserve.com>
+^AREPLYADDR <100657.202@compuserve.com>
 ^AREPLYTO 242:1000/5 Michael Stein
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -11758,6 +12187,9 @@ AREA:DE.COMM.MISC
 ^ARFC-Date: Sat, 13 Apr 1996 01:45:23 GMT
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: 100657.202@compuserve.com (Michael Stein)
+------------------------------------------------------------------------------
+
 Hallo,
 
 ich mˆchte aus einem Ami Pro 3.1-Makro heraus ein Dokument per Telefax
@@ -11806,7 +12238,7 @@ FTN message header:
 AREA:DE.COMM.MISC
 ^AMSGID: <316F6F30.19D4@swreisedienst.com> a885bb6b
 ^AREPLY: <4kn10e$u2@arl-news-svc-4.compuserve.com> e41f6bfa
-^AREPLYADDR Stefan Wintermeyer <S.Wintermeyer@swreisedienst.com>
+^AREPLYADDR <S.Wintermeyer@swreisedienst.com>
 ^AREPLYTO 242:1000/5 Stefan Wintermeyer
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -11818,6 +12250,9 @@ AREA:DE.COMM.MISC
 ^ARFC-Content-Transfer-Encoding: 8BIT
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: Stefan Wintermeyer <S.Wintermeyer@swreisedienst.com>
+------------------------------------------------------------------------------
+
 Michael Stein wrote:
 > ich mˆchte aus einem Ami Pro 3.1-Makro heraus ein Dokument per Telefax
 > verschicken.
@@ -11863,7 +12298,7 @@ FTN message header:
 ------------------------------------------------------------------------------
 AREA:DE.COMM.SERVICE+TARIFE
 ^AMSGID: <17768E364S85.UPS500@ibm.rhrz.uni-bonn.de> d244f36b
-^AREPLYADDR Markus Schlegel <UPS500@ibm.rhrz.uni-bonn.de>
+^AREPLYADDR <UPS500@ibm.rhrz.uni-bonn.de>
 ^AREPLYTO 242:1000/5 Markus Schlegel
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -11872,6 +12307,9 @@ AREA:DE.COMM.SERVICE+TARIFE
 ^ARFC-Date: Sat, 13 Apr 96 16:10:12 MEZ
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: UPS500@ibm.rhrz.uni-bonn.de (Markus Schlegel)
+------------------------------------------------------------------------------
+
 OSLO, 13.4.1996 (Aftenposten) Wie die norwegische Tageszeitung in
 ihrer Tagesausgabe vom Samstag (S. 3) meldet, beabsichtigt die
 norwegische Telefongesellschaft Telenor mit WIrkung vom 1.1.1998
@@ -11928,7 +12366,7 @@ FTN message header:
 ------------------------------------------------------------------------------
 AREA:DE.COMM.MISC
 ^AMSGID: <17768E364S85.UPS500@ibm.rhrz.uni-bonn.de> 0b5aaa3b
-^AREPLYADDR Markus Schlegel <UPS500@ibm.rhrz.uni-bonn.de>
+^AREPLYADDR <UPS500@ibm.rhrz.uni-bonn.de>
 ^AREPLYTO 242:1000/5 Markus Schlegel
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -11937,6 +12375,9 @@ AREA:DE.COMM.MISC
 ^ARFC-Date: Sat, 13 Apr 96 16:10:12 MEZ
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: UPS500@ibm.rhrz.uni-bonn.de (Markus Schlegel)
+------------------------------------------------------------------------------
+
 OSLO, 13.4.1996 (Aftenposten) Wie die norwegische Tageszeitung in
 ihrer Tagesausgabe vom Samstag (S. 3) meldet, beabsichtigt die
 norwegische Telefongesellschaft Telenor mit WIrkung vom 1.1.1998
@@ -11993,7 +12434,7 @@ FTN message header:
 ------------------------------------------------------------------------------
 AREA:DE.COMM.MOBIL
 ^AMSGID: <17768E364S85.UPS500@ibm.rhrz.uni-bonn.de> de082fa9
-^AREPLYADDR Markus Schlegel <UPS500@ibm.rhrz.uni-bonn.de>
+^AREPLYADDR <UPS500@ibm.rhrz.uni-bonn.de>
 ^AREPLYTO 242:1000/5 Markus Schlegel
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -12002,6 +12443,9 @@ AREA:DE.COMM.MOBIL
 ^ARFC-Date: Sat, 13 Apr 96 16:10:12 MEZ
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: UPS500@ibm.rhrz.uni-bonn.de (Markus Schlegel)
+------------------------------------------------------------------------------
+
 OSLO, 13.4.1996 (Aftenposten) Wie die norwegische Tageszeitung in
 ihrer Tagesausgabe vom Samstag (S. 3) meldet, beabsichtigt die
 norwegische Telefongesellschaft Telenor mit WIrkung vom 1.1.1998
@@ -12069,7 +12513,7 @@ FTN message header:
 AREA:DE.COMM.MODEM
 ^AMSGID: <mozart.0ce8@mozart.berlinet.de> 40d908de
 ^AREPLY: <66d9j25wMVB@tretow.in-berlin.de> f167346e
-^AREPLYADDR Thomas Witt <mozart@mozart.berlinet.de>
+^AREPLYADDR <mozart@mozart.berlinet.de>
 ^AREPLYTO 242:1000/5 Thomas Witt
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -12081,6 +12525,9 @@ AREA:DE.COMM.MODEM
 ^ARFC-Date: Sat, 13 Apr 96 19:13:50 MEZ
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: mozart@mozart.berlinet.de (Thomas Witt)
+------------------------------------------------------------------------------
+
 
 In article <66d9j25wMVB@tretow.in-berlin.de> joerg@tretow.in-berlin.de (Joerg Tretow) writes:
 > Ich bin Besitzer eines D2handys. So weit ich weiﬂ, kann man Dfue
@@ -12111,7 +12558,7 @@ FTN message header:
 AREA:DE.COMM.MISC
 ^AMSGID: <mozart.0ce8@mozart.berlinet.de> e1049590
 ^AREPLY: <66d9j25wMVB@tretow.in-berlin.de> 54d101ab
-^AREPLYADDR Thomas Witt <mozart@mozart.berlinet.de>
+^AREPLYADDR <mozart@mozart.berlinet.de>
 ^AREPLYTO 242:1000/5 Thomas Witt
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -12123,6 +12570,9 @@ AREA:DE.COMM.MISC
 ^ARFC-Date: Sat, 13 Apr 96 19:13:50 MEZ
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: mozart@mozart.berlinet.de (Thomas Witt)
+------------------------------------------------------------------------------
+
 
 In article <66d9j25wMVB@tretow.in-berlin.de> joerg@tretow.in-berlin.de (Joerg Tretow) writes:
 > Ich bin Besitzer eines D2handys. So weit ich weiﬂ, kann man Dfue
@@ -12153,7 +12603,7 @@ FTN message header:
 AREA:DE.COMM.MOBIL
 ^AMSGID: <mozart.0ce8@mozart.berlinet.de> 9fe60bf6
 ^AREPLY: <66d9j25wMVB@tretow.in-berlin.de> 2e583746
-^AREPLYADDR Thomas Witt <mozart@mozart.berlinet.de>
+^AREPLYADDR <mozart@mozart.berlinet.de>
 ^AREPLYTO 242:1000/5 Thomas Witt
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -12165,6 +12615,9 @@ AREA:DE.COMM.MOBIL
 ^ARFC-Date: Sat, 13 Apr 96 19:13:50 MEZ
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: mozart@mozart.berlinet.de (Thomas Witt)
+------------------------------------------------------------------------------
+
 
 In article <66d9j25wMVB@tretow.in-berlin.de> joerg@tretow.in-berlin.de (Joerg Tretow) writes:
 > Ich bin Besitzer eines D2handys. So weit ich weiﬂ, kann man Dfue
@@ -12205,7 +12658,7 @@ FTN message header:
 AREA:DE.COMM.MISC
 ^AMSGID: <4kovcg$r15@nz12.rz.uni-karlsruhe.de> ece4c4e0
 ^AREPLY: <66hsOX7CiRB@cae.muc.de> f42ae976
-^AREPLYADDR Martin Schulte Moenting <uh5y@rz.uni-karlsruhe.de>
+^AREPLYADDR <uh5y@rz.uni-karlsruhe.de>
 ^AREPLYTO 242:1000/5 Martin Schulte Moenting
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -12217,6 +12670,9 @@ AREA:DE.COMM.MISC
 ^ARFC-Content-Transfer-Encoding: 8bit
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: uh5y@rz.uni-karlsruhe.de (Martin Schulte Moenting)
+------------------------------------------------------------------------------
+
 On 12 Apr 1996 08:24:00 +0100 Christian A. Eroes wrote:
 
 >Hi Leute!
@@ -12278,7 +12734,7 @@ FTN message header:
 ------------------------------------------------------------------------------
 AREA:DE.COMM.MISC
 ^AMSGID: <4kp8m4$5ju@newshost.uni-koblenz.de> 91573f43
-^AREPLYADDR Sven Lehmann <rufus@informatik.uni-koblenz.de>
+^AREPLYADDR <rufus@informatik.uni-koblenz.de>
 ^AREPLYTO 242:1000/5 Sven Lehmann
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -12287,6 +12743,9 @@ AREA:DE.COMM.MISC
 ^ARFC-Date: 13 Apr 1996 22:09:08 GMT
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: rufus@informatik.uni-koblenz.de (Sven Lehmann)
+------------------------------------------------------------------------------
+
 Hi!
 
 Suche Labels, die CD's brennen. Etwa in Stueckzahlen zwischen 1000-10000 
@@ -12330,7 +12789,7 @@ FTN message header:
 AREA:DE.COMP.OS.OS2.MISC
 ^AMSGID: <4kqeqq$8p6@sparcserver.lrz-muenchen.de> 0782c81d
 ^AREPLY: <4kh184$37o@nz12.rz.uni-karlsruhe.de> 0b774d42
-^AREPLYADDR Christian Grodau <groggy@eikon.e-technik.tu-muenchen.de>
+^AREPLYADDR <groggy@eikon.e-technik.tu-muenchen.de>
 ^AREPLYTO 242:1000/5 Christian Grodau
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -12339,6 +12798,9 @@ AREA:DE.COMP.OS.OS2.MISC
 ^ARFC-Date: Sun, 14 Apr 1996 09:00:16 GMT
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: groggy@eikon.e-technik.tu-muenchen.de (Christian Grodau)
+------------------------------------------------------------------------------
+
 winkler@ira.uka.de  (Frank Winkler @home) wrote:
 
 >Gibt es eigentlich ein Programm fur OS/2, mit dem man Scalls anfunken oder 
@@ -12381,7 +12843,7 @@ FTN message header:
 AREA:DE.COMM.MISC
 ^AMSGID: <4kqeqq$8p6@sparcserver.lrz-muenchen.de> 958699e2
 ^AREPLY: <4kh184$37o@nz12.rz.uni-karlsruhe.de> 1086a13b
-^AREPLYADDR Christian Grodau <groggy@eikon.e-technik.tu-muenchen.de>
+^AREPLYADDR <groggy@eikon.e-technik.tu-muenchen.de>
 ^AREPLYTO 242:1000/5 Christian Grodau
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -12390,6 +12852,9 @@ AREA:DE.COMM.MISC
 ^ARFC-Date: Sun, 14 Apr 1996 09:00:16 GMT
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: groggy@eikon.e-technik.tu-muenchen.de (Christian Grodau)
+------------------------------------------------------------------------------
+
 winkler@ira.uka.de  (Frank Winkler @home) wrote:
 
 >Gibt es eigentlich ein Programm fur OS/2, mit dem man Scalls anfunken oder 
@@ -12442,7 +12907,7 @@ FTN message header:
 AREA:DE.COMM.MISC
 ^AMSGID: <4kr0o1$90c@ilex.FernUni-Hagen.de> fc456541
 ^AREPLY: <4kn10e$u2@arl-news-svc-4.compuserve.com> e41f6bfa
-^AREPLYADDR Daniel Funke <funked@bonsai.fernuni-hagen.de>
+^AREPLYADDR <funked@bonsai.fernuni-hagen.de>
 ^AREPLYTO 242:1000/5 Daniel Funke
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -12451,6 +12916,9 @@ AREA:DE.COMM.MISC
 ^ARFC-Date: Sun, 14 Apr 1996 15:05:50 GMT
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: funked@bonsai.fernuni-hagen.de (Daniel Funke)
+------------------------------------------------------------------------------
+
 100657.202@compuserve.com (Michael Stein) wrote:
 
 >Hallo,
@@ -12498,7 +12966,7 @@ FTN message header:
 ------------------------------------------------------------------------------
 AREA:DE.COMM.MISC
 ^AMSGID: <4kri85$sep@news1.osn.de> 34f8e594
-^AREPLYADDR Ben <ben@osn.de>
+^AREPLYADDR <ben@osn.de>
 ^AREPLYTO 242:1000/5 Ben
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -12507,6 +12975,9 @@ AREA:DE.COMM.MISC
 ^ARFC-Date: Sun, 14 Apr 1996 19:04:09 GMT
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: ben@osn.de (Ben)
+------------------------------------------------------------------------------
+
 Mein Modem, ein Zoom V.34IE (intern), ist als Zusatzgeraet neben dem
 normalen Telefon (in der F-Buchse) an die N-Buchse einer
 NFN-Telefondose angeschlossen. 
@@ -12566,7 +13037,7 @@ FTN message header:
 AREA:DE.COMM.MISC
 ^AMSGID: <1996Apr14.071024.691@silvana.westfalen.de> 3ee99dad
 ^AREPLY: <316BA89F.210B@tmfs.mpgfk.tu-dresden.de> ab46d1c2
-^AREPLYADDR Roger Schwentker <roger@larry.westfalen.de>
+^AREPLYADDR <roger@larry.westfalen.de>
 ^AREPLYTO 242:1000/5 Roger Schwentker
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -12576,6 +13047,9 @@ AREA:DE.COMM.MISC
 ^ARFC-Date: Sun, 14 Apr 1996 07:10:24 GMT
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: roger@larry.westfalen.de (Roger Schwentker)
+------------------------------------------------------------------------------
+
 Dirk Jacob (jacob@tmfs.mpgfk.tu-dresden.de) schrieb am Wed, 10 Apr 1996 13:25:03 +0100:
 > > wo bekomm tcpip und ftp die auf einem Dosrechner mit nur 2 Mb Festplatte
 > > laufen?
@@ -12622,7 +13096,7 @@ FTN message header:
 AREA:DE.COMM.MISC
 ^AMSGID: <31716217.39898665@news.allcon.net> f335aad8
 ^AREPLY: <4kri85$sep@news1.osn.de> 34f8e594
-^AREPLYADDR Mark Deskowski <mark@umd.allcon.com>
+^AREPLYADDR <mark@umd.allcon.com>
 ^AREPLYTO 242:1000/5 Mark Deskowski
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -12631,6 +13105,9 @@ AREA:DE.COMM.MISC
 ^ARFC-Date: Sun, 14 Apr 1996 22:01:39 GMT
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: mark@umd.allcon.com (Mark Deskowski)
+------------------------------------------------------------------------------
+
 ben@osn.de (Ben) wrote:
 
 >WER HAT NUN RECHT, bzw. WIE SOLLTE ES SEIN ???
@@ -12673,7 +13150,7 @@ FTN message header:
 ------------------------------------------------------------------------------
 AREA:DE.COMM.MISC
 ^AMSGID: <4ksuth$de1@sparcserver.lrz-muenchen.de> 10379f96
-^AREPLYADDR Michael Ruhs <ruhs@thor.tech.chemie.tu-muenchen.de>
+^AREPLYADDR <ruhs@thor.tech.chemie.tu-muenchen.de>
 ^AREPLYTO 242:1000/5 Michael Ruhs
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -12684,6 +13161,9 @@ AREA:DE.COMM.MISC
 ^ARFC-Content-Type: Text/Plain; charset=ISO-8859-1
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: ruhs@thor.tech.chemie.tu-muenchen.de (Michael Ruhs)
+------------------------------------------------------------------------------
+
 Hallo,
 
 Ich suche die Pinbelegung der neuen Telekom TAE-Dosen (3-fach, mit dem
@@ -12726,7 +13206,7 @@ FTN message header:
 AREA:DE.COMM.MISC
 ^AMSGID: <dorfner.829560041@moni.fmi.uni-passau.de> b197f350
 ^AREPLY: <31716217.39898665@news.allcon.net> f335aad8
-^AREPLYADDR Clemens Dorfner <dorfner@susi.fmi.uni-passau.de>
+^AREPLYADDR <dorfner@susi.fmi.uni-passau.de>
 ^AREPLYTO 242:1000/5 Clemens Dorfner
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -12735,6 +13215,9 @@ AREA:DE.COMM.MISC
 ^ARFC-Date: 15 Apr 96 09:20:41 GMT
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: dorfner@susi.fmi.uni-passau.de (Clemens Dorfner)
+------------------------------------------------------------------------------
+
 
 mark@umd.allcon.com (Mark Deskowski) writes:
 >ben@osn.de (Ben) wrote:
@@ -12821,7 +13304,7 @@ FTN message header:
 AREA:DE.COMM.MISC
 ^AMSGID: <0W9bxUSCIG/E088yn@Informatik.TU-Muenchen.DE> ccbbf34b
 ^AREPLY: <4kik5n$sep@mips.pfalz.de> 87c9785e
-^AREPLYADDR Andreas Graef <graef@Informatik.TU-Muenchen.DE>
+^AREPLYADDR <graef@Informatik.TU-Muenchen.DE>
 ^AREPLYTO 242:1000/5 Andreas Graef
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -12831,6 +13314,10 @@ AREA:DE.COMM.MISC
 ^ARFC-Reply-To: graef@informatik.tu-muenchen.de
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: graef@Informatik.TU-Muenchen.DE (Andreas Graef)
+Reply-To: graef@informatik.tu-muenchen.de
+------------------------------------------------------------------------------
+
 In article <4kik5n$sep@mips.pfalz.de>,
 naddy@mips.pfalz.de (Christian Weisgerber) wrote:
 >andy@pandy.on-luebeck.de (Andreas Schrot) writes:
@@ -12887,7 +13374,7 @@ FTN message header:
 ------------------------------------------------------------------------------
 AREA:DE.COMM.MISC
 ^AMSGID: <4ktfme$90g@nx2.HRZ.Uni-Dortmund.DE> 6e5852bc
-^AREPLYADDR Thomas Adams <finc27@zx2.hrz.uni-dortmund.de>
+^AREPLYADDR <finc27@zx2.hrz.uni-dortmund.de>
 ^AREPLYTO 242:1000/5 Thomas Adams
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -12896,6 +13383,9 @@ AREA:DE.COMM.MISC
 ^ARFC-Date: 15 Apr 1996 12:33:18 GMT
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: finc27@zx2.hrz.uni-dortmund.de (Thomas Adams)
+------------------------------------------------------------------------------
+
 Nach dem die Telekom ja nun ziemlich viele Artikel im Wettbewerb zu 
 anderen Herstellern verkauft und auch immer mal wieder Mondpreise senkt, 
 frage ich mich, warum die Modems so teuer sind. Selbst Telekoms ISDN 
@@ -12931,7 +13421,7 @@ FTN message header:
 AREA:DE.COMM.MISC
 ^AMSGID: <4ktk76$4d3@basfigw.basf-corp.com> 52f7ea70
 ^AREPLY: <4kri85$sep@news1.osn.de> 34f8e594
-^AREPLYADDR Kay Marquardt <kay@ula1b18.zhv.basf-ag.de>
+^AREPLYADDR <kay@ula1b18.zhv.basf-ag.de>
 ^AREPLYTO 242:1000/5 Kay Marquardt
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -12940,6 +13430,9 @@ AREA:DE.COMM.MISC
 ^ARFC-Date: 15 Apr 1996 13:50:30 GMT
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: kay@ula1b18.zhv.basf-ag.de (Kay Marquardt)
+------------------------------------------------------------------------------
+
 In article <4kri85$sep@news1.osn.de>, ben@osn.de (Ben) writes:
 [modem kapp telefon]
 
@@ -12997,7 +13490,7 @@ FTN message header:
 AREA:DE.COMM.MISC
 ^AMSGID: <4ktn2v$eif@ilex.FernUni-Hagen.de> 177afa8e
 ^AREPLY: <4kri85$sep@news1.osn.de> 34f8e594
-^AREPLYADDR Daniel Funke <funked@bonsai.fernuni-hagen.de>
+^AREPLYADDR <funked@bonsai.fernuni-hagen.de>
 ^AREPLYTO 242:1000/5 Daniel Funke
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -13006,6 +13499,9 @@ AREA:DE.COMM.MISC
 ^ARFC-Date: Mon, 15 Apr 1996 15:39:24 GMT
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: funked@bonsai.fernuni-hagen.de (Daniel Funke)
+------------------------------------------------------------------------------
+
 ben@osn.de (Ben) wrote:
 
 >Mein Modem, ein Zoom V.34IE (intern), ist als Zusatzgeraet neben dem
@@ -13076,7 +13572,7 @@ FTN message header:
 AREA:DE.COMM.MISC
 ^AMSGID: <ghost.00hp@dawn.mayn.de> 1d7f17f6
 ^AREPLY: <4ksuth$de1@sparcserver.lrz-muenchen.de> 10379f96
-^AREPLYADDR Armin Wies <ghost@dawn.mayn.de>
+^AREPLYADDR <ghost@dawn.mayn.de>
 ^AREPLYTO 242:1000/5 Armin Wies
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -13085,6 +13581,9 @@ AREA:DE.COMM.MISC
 ^ARFC-Date: Mon, 15 Apr 96 19:48:39 +0100
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: ghost@dawn.mayn.de (Armin Wies)
+------------------------------------------------------------------------------
+
 Michael Ruhs (ruhs@thor.tech.chemie.tu-muenchen.de) wrote:
 
 : Ich suche die Pinbelegung der neuen Telekom TAE-Dosen (3-fach, mit dem
@@ -13132,7 +13631,7 @@ FTN message header:
 AREA:DE.COMM.MISC
 ^AMSGID: <66vodVkj2TB@flatta.in-berlin.de> 02cc84d5
 ^AREPLY: <4kri85$sep@news1.osn.de> 34f8e594
-^AREPLYADDR Rene Kacza <rene@flatta.in-berlin.de>
+^AREPLYADDR <rene@flatta.in-berlin.de>
 ^AREPLYTO 242:1000/5 Rene Kacza
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -13141,6 +13640,9 @@ AREA:DE.COMM.MISC
 ^ARFC-Newsgroups: de.comm.misc
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: rene@flatta.in-berlin.de (Rene Kacza)
+------------------------------------------------------------------------------
+
 geschrieben von ben@osn.de am 14.04.96
 zu "Modem / Telefon - Wer schmeisst wen aus der Leitung ?":
 
@@ -13185,7 +13687,7 @@ FTN message header:
 AREA:DE.COMM.MISC
 ^AMSGID: <66vn3NZrSxB@ra26.rman2.gun.de> cc5d410e
 ^AREPLY: <4kri85$sep@news1.osn.de> 34f8e594
-^AREPLYADDR Sebastian Koopmann <WASTL@RMAN2.gun.de>
+^AREPLYADDR <WASTL@RMAN2.gun.de>
 ^AREPLYTO 242:1000/5 Sebastian Koopmann
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -13194,6 +13696,9 @@ AREA:DE.COMM.MISC
 ^ARFC-Date: 15 Apr 96 21:42:00 +0200
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x], ZCONNECT UH rman2.gun.de [UUCPfZ V5.66 U026]
 ------------------------------------------------------------------------------
+From: WASTL@RMAN2.gun.de (Sebastian Koopmann)
+------------------------------------------------------------------------------
+
 Autor:   ben (Ben)
 Subjekt: Modem / Telefon - Wer schmeisst wen aus der Leitung ?
 
@@ -13258,7 +13763,7 @@ FTN message header:
 AREA:DE.COMM.MISC
 ^AMSGID: <66vng4cMSxB@ra26.rman2.gun.de> 6e945951
 ^AREPLY: <31716217.39898665@news.allcon.net> f335aad8
-^AREPLYADDR Sebastian Koopmann <WASTL@RMAN2.gun.de>
+^AREPLYADDR <WASTL@RMAN2.gun.de>
 ^AREPLYTO 242:1000/5 Sebastian Koopmann
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -13267,6 +13772,9 @@ AREA:DE.COMM.MISC
 ^ARFC-Date: 15 Apr 96 22:20:00 +0200
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x], ZCONNECT UH rman2.gun.de [UUCPfZ V5.66 U026]
 ------------------------------------------------------------------------------
+From: WASTL@RMAN2.gun.de (Sebastian Koopmann)
+------------------------------------------------------------------------------
+
 Autor:   mark (Mark Deskowski)
 Subjekt: Re: Modem / Telefon - Wer schmeisst wen aus der Leitung ?
 
@@ -13314,7 +13822,7 @@ FTN message header:
 AREA:DE.COMM.MISC
 ^AMSGID: <dpxcra.9m@lisa.simpson.inka.de> a7a95bdb
 ^AREPLY: <0W9bxUSCIG/E088yn@Informatik.TU-Muenchen.DE> ccbbf34b
-^AREPLYADDR =?iso-8859-1?q?J=E9r=F4me_Waibel?= <schrom@lisa.simpson.inka.de>
+^AREPLYADDR <schrom@lisa.simpson.inka.de>
 ^AREPLYTO 242:1000/5 JÈrÙme Waibel
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -13326,6 +13834,9 @@ AREA:DE.COMM.MISC
 ^ARFC-Content-Transfer-Encoding: 8bit
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: =?iso-8859-1?q?J=E9r=F4me_Waibel?= <schrom@lisa.simpson.inka.de>
+------------------------------------------------------------------------------
+
 In article <0W9bxUSCIG/E088yn@Informatik.TU-Muenchen.DE>,
 Andreas Graef <graef@informatik.tu-muenchen.de> wrote:
 >Ich haenge an ner alten Drehwaehlervermittlung (seufz). Und jedesmal wenn
@@ -13366,7 +13877,7 @@ FTN message header:
 AREA:DE.COMM.INTERNET.MISC
 ^AMSGID: <DpxBzF.4C1@sep.hamburg.com> 2f96ac96
 ^AREPLY: <66dsNxvSiRB@cae.muc.de> 07d6dc53
-^AREPLYADDR Helge Oldach <hmo@sep.hamburg.com>
+^AREPLYADDR <hmo@sep.hamburg.com>
 ^AREPLYTO 242:1000/5 Helge Oldach
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -13379,6 +13890,9 @@ AREA:DE.COMM.INTERNET.MISC
 ^ARFC-Date: Mon, 15 Apr 1996 22:04:26 GMT
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: hmo@sep.hamburg.com (Helge Oldach)
+------------------------------------------------------------------------------
+
 chris@cae.muc.de (Christian A. Eroes) writes:
 | In article <4kj54f$1f98@info4.rus.uni-stuttgart.de>
 | on 11.04.96 usai1035 wrote:
@@ -13417,7 +13931,7 @@ FTN message header:
 AREA:DE.COMM.GATEWAYS
 ^AMSGID: <DpxBzF.4C1@sep.hamburg.com> ccda77f0
 ^AREPLY: <66dsNxvSiRB@cae.muc.de> 5e09b349
-^AREPLYADDR Helge Oldach <hmo@sep.hamburg.com>
+^AREPLYADDR <hmo@sep.hamburg.com>
 ^AREPLYTO 242:1000/5 Helge Oldach
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -13430,6 +13944,9 @@ AREA:DE.COMM.GATEWAYS
 ^ARFC-Date: Mon, 15 Apr 1996 22:04:26 GMT
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: hmo@sep.hamburg.com (Helge Oldach)
+------------------------------------------------------------------------------
+
 chris@cae.muc.de (Christian A. Eroes) writes:
 | In article <4kj54f$1f98@info4.rus.uni-stuttgart.de>
 | on 11.04.96 usai1035 wrote:
@@ -13468,7 +13985,7 @@ FTN message header:
 AREA:DE.COMM.INFOSYSTEMS.MISC
 ^AMSGID: <DpxBzF.4C1@sep.hamburg.com> 59034c2b
 ^AREPLY: <66dsNxvSiRB@cae.muc.de> 978420ce
-^AREPLYADDR Helge Oldach <hmo@sep.hamburg.com>
+^AREPLYADDR <hmo@sep.hamburg.com>
 ^AREPLYTO 242:1000/5 Helge Oldach
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -13481,6 +13998,9 @@ AREA:DE.COMM.INFOSYSTEMS.MISC
 ^ARFC-Date: Mon, 15 Apr 1996 22:04:26 GMT
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: hmo@sep.hamburg.com (Helge Oldach)
+------------------------------------------------------------------------------
+
 chris@cae.muc.de (Christian A. Eroes) writes:
 | In article <4kj54f$1f98@info4.rus.uni-stuttgart.de>
 | on 11.04.96 usai1035 wrote:
@@ -13519,7 +14039,7 @@ FTN message header:
 AREA:DE.COMM.INTERNET.ROUTING
 ^AMSGID: <DpxBzF.4C1@sep.hamburg.com> e1494da0
 ^AREPLY: <66dsNxvSiRB@cae.muc.de> 2fce2145
-^AREPLYADDR Helge Oldach <hmo@sep.hamburg.com>
+^AREPLYADDR <hmo@sep.hamburg.com>
 ^AREPLYTO 242:1000/5 Helge Oldach
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -13532,6 +14052,9 @@ AREA:DE.COMM.INTERNET.ROUTING
 ^ARFC-Date: Mon, 15 Apr 1996 22:04:26 GMT
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: hmo@sep.hamburg.com (Helge Oldach)
+------------------------------------------------------------------------------
+
 chris@cae.muc.de (Christian A. Eroes) writes:
 | In article <4kj54f$1f98@info4.rus.uni-stuttgart.de>
 | on 11.04.96 usai1035 wrote:
@@ -13570,7 +14093,7 @@ FTN message header:
 AREA:DE.COMM.INTERNET.ZUGANG
 ^AMSGID: <DpxBzF.4C1@sep.hamburg.com> 58dc1588
 ^AREPLY: <66dsNxvSiRB@cae.muc.de> be546fff
-^AREPLYADDR Helge Oldach <hmo@sep.hamburg.com>
+^AREPLYADDR <hmo@sep.hamburg.com>
 ^AREPLYTO 242:1000/5 Helge Oldach
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -13583,6 +14106,9 @@ AREA:DE.COMM.INTERNET.ZUGANG
 ^ARFC-Date: Mon, 15 Apr 1996 22:04:26 GMT
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: hmo@sep.hamburg.com (Helge Oldach)
+------------------------------------------------------------------------------
+
 chris@cae.muc.de (Christian A. Eroes) writes:
 | In article <4kj54f$1f98@info4.rus.uni-stuttgart.de>
 | on 11.04.96 usai1035 wrote:
@@ -13621,7 +14147,7 @@ FTN message header:
 AREA:DE.COMM.MODEM
 ^AMSGID: <DpxBzF.4C1@sep.hamburg.com> 0756fd07
 ^AREPLY: <66dsNxvSiRB@cae.muc.de> 30f02b49
-^AREPLYADDR Helge Oldach <hmo@sep.hamburg.com>
+^AREPLYADDR <hmo@sep.hamburg.com>
 ^AREPLYTO 242:1000/5 Helge Oldach
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -13634,6 +14160,9 @@ AREA:DE.COMM.MODEM
 ^ARFC-Date: Mon, 15 Apr 1996 22:04:26 GMT
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: hmo@sep.hamburg.com (Helge Oldach)
+------------------------------------------------------------------------------
+
 chris@cae.muc.de (Christian A. Eroes) writes:
 | In article <4kj54f$1f98@info4.rus.uni-stuttgart.de>
 | on 11.04.96 usai1035 wrote:
@@ -13672,7 +14201,7 @@ FTN message header:
 AREA:DE.COMM.ISDN
 ^AMSGID: <DpxBzF.4C1@sep.hamburg.com> 39df7aa4
 ^AREPLY: <66dsNxvSiRB@cae.muc.de> 4732c44f
-^AREPLYADDR Helge Oldach <hmo@sep.hamburg.com>
+^AREPLYADDR <hmo@sep.hamburg.com>
 ^AREPLYTO 242:1000/5 Helge Oldach
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -13685,6 +14214,9 @@ AREA:DE.COMM.ISDN
 ^ARFC-Date: Mon, 15 Apr 1996 22:04:26 GMT
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: hmo@sep.hamburg.com (Helge Oldach)
+------------------------------------------------------------------------------
+
 chris@cae.muc.de (Christian A. Eroes) writes:
 | In article <4kj54f$1f98@info4.rus.uni-stuttgart.de>
 | on 11.04.96 usai1035 wrote:
@@ -13723,7 +14255,7 @@ FTN message header:
 AREA:DE.COMM.MISC
 ^AMSGID: <DpxBzF.4C1@sep.hamburg.com> dc3e337e
 ^AREPLY: <66dsNxvSiRB@cae.muc.de> a2d38d95
-^AREPLYADDR Helge Oldach <hmo@sep.hamburg.com>
+^AREPLYADDR <hmo@sep.hamburg.com>
 ^AREPLYTO 242:1000/5 Helge Oldach
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -13736,6 +14268,9 @@ AREA:DE.COMM.MISC
 ^ARFC-Date: Mon, 15 Apr 1996 22:04:26 GMT
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: hmo@sep.hamburg.com (Helge Oldach)
+------------------------------------------------------------------------------
+
 chris@cae.muc.de (Christian A. Eroes) writes:
 | In article <4kj54f$1f98@info4.rus.uni-stuttgart.de>
 | on 11.04.96 usai1035 wrote:
@@ -13784,7 +14319,7 @@ FTN message header:
 AREA:DE.COMM.MISC
 ^AMSGID: <66saeSM5DxB@crest4.lbcmbx.bln.sub.org> 3d30e54d
 ^AREPLY: <boss-0204961807460001@msoenix.du.gtn.com> 10c7b317
-^AREPLYADDR Karsten Kaulich <kakau@crest4.lbcmbx.bln.sub.org>
+^AREPLYADDR <kakau@crest4.lbcmbx.bln.sub.org>
 ^AREPLYTO 242:1000/5 Karsten Kaulich
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -13793,6 +14328,9 @@ AREA:DE.COMM.MISC
 ^ARFC-Newsgroups: de.comm.misc
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: kakau@crest4.lbcmbx.bln.sub.org (Karsten Kaulich)
+------------------------------------------------------------------------------
+
 Hallo Leute,
 
 Michael Soentgerath schrieb am 02.04.96 :
@@ -13850,7 +14388,7 @@ FTN message header:
 AREA:DE.COMM.MISC
 ^AMSGID: <66safhKqDxB@crest4.lbcmbx.bln.sub.org> 2a2a2de2
 ^AREPLY: <4jk1u3$gq2@news00.btx.dtag.de> 3ccd34ee
-^AREPLYADDR Karsten Kaulich <kakau@crest4.lbcmbx.bln.sub.org>
+^AREPLYADDR <kakau@crest4.lbcmbx.bln.sub.org>
 ^AREPLYTO 242:1000/5 Karsten Kaulich
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -13859,6 +14397,9 @@ AREA:DE.COMM.MISC
 ^ARFC-Newsgroups: de.comm.misc
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: kakau@crest4.lbcmbx.bln.sub.org (Karsten Kaulich)
+------------------------------------------------------------------------------
+
 Hallo Leute,
 
 Joachim Lack schrieb am 30.03.96 :
@@ -13907,7 +14448,7 @@ FTN message header:
 AREA:DE.COMM.MISC
 ^AMSGID: <66safuUaDxB@crest4.lbcmbx.bln.sub.org> 5c94fe7c
 ^AREPLY: <660JqBq9PYB@malcolm.modebox.rhein-ruhr.de> fda64b1e
-^AREPLYADDR Karsten Kaulich <kakau@crest4.lbcmbx.bln.sub.org>
+^AREPLYADDR <kakau@crest4.lbcmbx.bln.sub.org>
 ^AREPLYTO 242:1000/5 Karsten Kaulich
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -13916,6 +14457,9 @@ AREA:DE.COMM.MISC
 ^ARFC-Newsgroups: de.comm.misc
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: kakau@crest4.lbcmbx.bln.sub.org (Karsten Kaulich)
+------------------------------------------------------------------------------
+
 Hallo Leute,
 
 Marvin Erdt schrieb am 01.04.96 :
@@ -13986,7 +14530,7 @@ FTN message header:
 AREA:DE.COMM.MISC
 ^AMSGID: <66sag2ZaDxB@crest4.lbcmbx.bln.sub.org> 448751ce
 ^AREPLY: <66Dn-INZzbB@titan.ndh.com> 0706c511
-^AREPLYADDR Karsten Kaulich <kakau@crest4.lbcmbx.bln.sub.org>
+^AREPLYADDR <kakau@crest4.lbcmbx.bln.sub.org>
 ^AREPLYTO 242:1000/5 Karsten Kaulich
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -13995,6 +14539,9 @@ AREA:DE.COMM.MISC
 ^ARFC-Newsgroups: de.comm.misc
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: kakau@crest4.lbcmbx.bln.sub.org (Karsten Kaulich)
+------------------------------------------------------------------------------
+
 Hallo Leute,
 
 Elmar Ascheid schrieb am 04.04.96 :
@@ -14062,7 +14609,7 @@ FTN message header:
 AREA:DE.COMM.MODEM
 ^AMSGID: <31735777.D1B@rz.unibw-muenchen.de> 38671fbd
 ^AREPLY: <66d9j25wMVB@tretow.in-berlin.de> f167346e
-^AREPLYADDR Timo Christoph <i21atchr@rz.unibw-muenchen.de>
+^AREPLYADDR <i21atchr@rz.unibw-muenchen.de>
 ^AREPLYTO 242:1000/5 Timo Christoph
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -14075,6 +14622,9 @@ AREA:DE.COMM.MODEM
 ^ARFC-To: Joerg Tretow <joerg@tretow.in-berlin.de>
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: Timo Christoph <i21atchr@rz.unibw-muenchen.de>
+------------------------------------------------------------------------------
+
 Hallo,
 
 Joerg Tretow wrote:
@@ -14114,7 +14664,7 @@ FTN message header:
 AREA:DE.COMM.MISC
 ^AMSGID: <31735777.D1B@rz.unibw-muenchen.de> 58da54d8
 ^AREPLY: <66d9j25wMVB@tretow.in-berlin.de> 54d101ab
-^AREPLYADDR Timo Christoph <i21atchr@rz.unibw-muenchen.de>
+^AREPLYADDR <i21atchr@rz.unibw-muenchen.de>
 ^AREPLYTO 242:1000/5 Timo Christoph
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -14127,6 +14677,9 @@ AREA:DE.COMM.MISC
 ^ARFC-To: Joerg Tretow <joerg@tretow.in-berlin.de>
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: Timo Christoph <i21atchr@rz.unibw-muenchen.de>
+------------------------------------------------------------------------------
+
 Hallo,
 
 Joerg Tretow wrote:
@@ -14166,7 +14719,7 @@ FTN message header:
 AREA:DE.COMM.MOBIL
 ^AMSGID: <31735777.D1B@rz.unibw-muenchen.de> e7581c95
 ^AREPLY: <66d9j25wMVB@tretow.in-berlin.de> 2e583746
-^AREPLYADDR Timo Christoph <i21atchr@rz.unibw-muenchen.de>
+^AREPLYADDR <i21atchr@rz.unibw-muenchen.de>
 ^AREPLYTO 242:1000/5 Timo Christoph
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -14179,6 +14732,9 @@ AREA:DE.COMM.MOBIL
 ^ARFC-To: Joerg Tretow <joerg@tretow.in-berlin.de>
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: Timo Christoph <i21atchr@rz.unibw-muenchen.de>
+------------------------------------------------------------------------------
+
 Hallo,
 
 Joerg Tretow wrote:
@@ -14228,7 +14784,7 @@ FTN message header:
 AREA:DE.COMM.MISC
 ^AMSGID: <66-vxdJSVYB@elliot.allcon.com> 8a6262c5
 ^AREPLY: <4ktfme$90g@nx2.HRZ.Uni-Dortmund.DE> 6e5852bc
-^AREPLYADDR Leif Juergensen <leif@elliot.allcon.com>
+^AREPLYADDR <leif@elliot.allcon.com>
 ^AREPLYTO 242:1000/5 Leif Juergensen
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -14237,6 +14793,9 @@ AREA:DE.COMM.MISC
 ^ARFC-Newsgroups: de.comm.misc
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: leif@elliot.allcon.com (Leif Juergensen)
+------------------------------------------------------------------------------
+
 Thomas Adams <finc27@zx2.hrz.uni-dortmund.de> schrieb am 15.04.96:
 
 > Warum?
@@ -14269,7 +14828,7 @@ FTN message header:
 AREA:DE.COMM.MISC
 ^AMSGID: <4l05ea$qmb@zeus.rbi.informatik.uni-frankfurt.de> fd1ac6ae
 ^AREPLY: <4ktfme$90g@nx2.HRZ.Uni-Dortmund.DE> 6e5852bc
-^AREPLYADDR Ralf Zessin <zessin@helena.rbi.informatik.uni-frankfurt.de>
+^AREPLYADDR <zessin@helena.rbi.informatik.uni-frankfurt.de>
 ^AREPLYTO 242:1000/5 Ralf Zessin
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -14278,6 +14837,9 @@ AREA:DE.COMM.MISC
 ^ARFC-Date: 16 Apr 1996 12:56:42 GMT
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: zessin@helena.rbi.informatik.uni-frankfurt.de (Ralf Zessin)
+------------------------------------------------------------------------------
+
 In <4ktfme$90g@nx2.HRZ.Uni-Dortmund.DE> finc27@zx2.hrz.uni-dortmund.de (Thomas Adams) writes:
 
 :Nach dem die Telekom ja nun ziemlich viele Artikel im Wettbewerb zu 
@@ -14319,7 +14881,7 @@ FTN message header:
 ------------------------------------------------------------------------------
 AREA:DE.ORG.CCC
 ^AMSGID: <1776BD414S85.UZS106@ibm.rhrz.uni-bonn.de> 0ecec92f
-^AREPLYADDR Heiko Recktenwald <UZS106@ibm.rhrz.uni-bonn.de>
+^AREPLYADDR <UZS106@ibm.rhrz.uni-bonn.de>
 ^AREPLYTO 242:1000/5 Heiko Recktenwald
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -14328,6 +14890,9 @@ AREA:DE.ORG.CCC
 ^ARFC-Date: Tue, 16 Apr 96 15:04:50 MEZ
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: UZS106@ibm.rhrz.uni-bonn.de (Heiko Recktenwald)
+------------------------------------------------------------------------------
+
 Wenn ich es recht verstehe, haben wir also alle ein eigenes Kabel zur
 naechsten Vermittlunsstelle.
  
@@ -14358,7 +14923,7 @@ FTN message header:
 ------------------------------------------------------------------------------
 AREA:DE.SOC.NETZWESEN
 ^AMSGID: <1776BD414S85.UZS106@ibm.rhrz.uni-bonn.de> 5fc7338f
-^AREPLYADDR Heiko Recktenwald <UZS106@ibm.rhrz.uni-bonn.de>
+^AREPLYADDR <UZS106@ibm.rhrz.uni-bonn.de>
 ^AREPLYTO 242:1000/5 Heiko Recktenwald
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -14367,6 +14932,9 @@ AREA:DE.SOC.NETZWESEN
 ^ARFC-Date: Tue, 16 Apr 96 15:04:50 MEZ
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: UZS106@ibm.rhrz.uni-bonn.de (Heiko Recktenwald)
+------------------------------------------------------------------------------
+
 Wenn ich es recht verstehe, haben wir also alle ein eigenes Kabel zur
 naechsten Vermittlunsstelle.
  
@@ -14397,7 +14965,7 @@ FTN message header:
 ------------------------------------------------------------------------------
 AREA:DE.COMM.MISC
 ^AMSGID: <1776BD414S85.UZS106@ibm.rhrz.uni-bonn.de> 684ef4b8
-^AREPLYADDR Heiko Recktenwald <UZS106@ibm.rhrz.uni-bonn.de>
+^AREPLYADDR <UZS106@ibm.rhrz.uni-bonn.de>
 ^AREPLYTO 242:1000/5 Heiko Recktenwald
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -14406,6 +14974,9 @@ AREA:DE.COMM.MISC
 ^ARFC-Date: Tue, 16 Apr 96 15:04:50 MEZ
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: UZS106@ibm.rhrz.uni-bonn.de (Heiko Recktenwald)
+------------------------------------------------------------------------------
+
 Wenn ich es recht verstehe, haben wir also alle ein eigenes Kabel zur
 naechsten Vermittlunsstelle.
  
@@ -14447,7 +15018,7 @@ FTN message header:
 AREA:DE.COMM.INTERNET.MISC
 ^AMSGID: <3173CA67.55A1@omg.org> e477fbb1
 ^AREPLY: <4kiknr$t40@public.ndh.com> 9bf8debc
-^AREPLYADDR localhost <roberto_zicari@omg.org>
+^AREPLYADDR <roberto_zicari@omg.org>
 ^AREPLYTO 242:1000/5 localhost
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -14459,6 +15030,9 @@ AREA:DE.COMM.INTERNET.MISC
 ^ARFC-Content-Transfer-Encoding: 7bit
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: localhost <roberto_zicari@omg.org>
+------------------------------------------------------------------------------
+
 Internet Forum Europe 96
 
 I am looking for qualified speakers who wish 
@@ -14492,7 +15066,7 @@ FTN message header:
 AREA:DE.COMM.MISC
 ^AMSGID: <3173CA67.55A1@omg.org> 7417c563
 ^AREPLY: <4kiknr$t40@public.ndh.com> 27566179
-^AREPLYADDR localhost <roberto_zicari@omg.org>
+^AREPLYADDR <roberto_zicari@omg.org>
 ^AREPLYTO 242:1000/5 localhost
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -14504,6 +15078,9 @@ AREA:DE.COMM.MISC
 ^ARFC-Content-Transfer-Encoding: 7bit
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: localhost <roberto_zicari@omg.org>
+------------------------------------------------------------------------------
+
 Internet Forum Europe 96
 
 I am looking for qualified speakers who wish 
@@ -14547,7 +15124,7 @@ FTN message header:
 AREA:DE.COMM.MISC
 ^AMSGID: <DpyCJA.EsG@white.schulung.netuse.de> c762a35b
 ^AREPLY: <66safuUaDxB@crest4.lbcmbx.bln.sub.org> 5c94fe7c
-^AREPLYADDR =?ISO-8859-1?Q?Kristian_K=F6hntopp?= <kris@schulung.netuse.de>
+^AREPLYADDR <kris@schulung.netuse.de>
 ^AREPLYTO 242:1000/5 Kristian Kˆhntopp
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -14558,6 +15135,9 @@ AREA:DE.COMM.MISC
 ^ARFC-Date: Tue, 16 Apr 1996 11:13:57 GMT
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: kris@schulung.netuse.de (=?ISO-8859-1?Q?Kristian_K=F6hntopp?=)
+------------------------------------------------------------------------------
+
 kakau@crest4.lbcmbx.bln.sub.org (Karsten Kaulich) writes:
 >Im uebrigen ist kostet die DeTeMedien CD nur noch 30DM, enthaelt  
 >merklich aktuellere Daten und ist fehlerfrei. Warum also sollte jemand  
@@ -14600,7 +15180,7 @@ FTN message header:
 AREA:DE.COMM.MISC
 ^AMSGID: <BzXpy*Iza@aargh.incubus.sub.org> 4a52ff6c
 ^AREPLY: <4km4gj$ic3@mips.pfalz.de> 66202279
-^AREPLYADDR Marc 'Nepomuk' Heuler <marc@aargh.incubus.sub.org>
+^AREPLYADDR <marc@aargh.incubus.sub.org>
 ^AREPLYTO 242:1000/5 Marc 'Nepomuk' Heuler
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -14610,6 +15190,10 @@ AREA:DE.COMM.MISC
 ^ARFC-Reply-To: marc@aargh.incubus.sub.org
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: marc@aargh.incubus.sub.org (Marc 'Nepomuk' Heuler)
+Reply-To: marc@aargh.incubus.sub.org
+------------------------------------------------------------------------------
+
 In article <4km4gj$ic3@mips.pfalz.de>, Christian Weisgerber writes:
 
 > Was ist die maximale DTMF-Wahlgeschwindigkeit, die an den digitalen
@@ -14641,7 +15225,7 @@ FTN message header:
 ------------------------------------------------------------------------------
 AREA:DE.COMM.MISC
 ^AMSGID: <eae_9604161426@arco.de> 578160c6
-^AREPLYADDR Klaus Koenig <klaus@arco.de>
+^AREPLYADDR <klaus@arco.de>
 ^AREPLYTO 242:1000/5 Klaus Koenig
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -14650,6 +15234,9 @@ AREA:DE.COMM.MISC
 ^ARFC-Newsgroups: de.comm.misc
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: klaus@arco.de (Klaus Koenig)
+------------------------------------------------------------------------------
+
 Hi !
 
 In a message dated 11 Apr 96  Joerg Tretow wrote to  All:
@@ -14690,7 +15277,7 @@ FTN message header:
 AREA:DE.COMM.ISDN
 ^AMSGID: <66xm0XSIIuB@eder.pumuckl.cube.net> 7ffe8f03
 ^AREPLY: <66Dn-hiJzbB@titan.ndh.com> d0ab5f4a
-^AREPLYADDR Christian Frankenberg <Christian@eder.pumuckl.cube.net>
+^AREPLYADDR <Christian@eder.pumuckl.cube.net>
 ^AREPLYTO 242:1000/5 Christian Frankenberg
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -14699,6 +15286,9 @@ AREA:DE.COMM.ISDN
 ^ARFC-Newsgroups: de.comm.isdn,de.comm.misc,de.markt.misc,de.markt.comp.misc
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: Christian@eder.pumuckl.cube.net (Christian Frankenberg)
+------------------------------------------------------------------------------
+
 
 > >Emmerich ISTEC 1003 & Teles S0.16: DM 770.-
 > >Emmerich ISTEC 1003 & AVM Fritz!-Card: DM 788.-
@@ -14734,7 +15324,7 @@ FTN message header:
 AREA:DE.COMM.MISC
 ^AMSGID: <66xm0XSIIuB@eder.pumuckl.cube.net> 9a1fc6d9
 ^AREPLY: <66Dn-hiJzbB@titan.ndh.com> 354a1690
-^AREPLYADDR Christian Frankenberg <Christian@eder.pumuckl.cube.net>
+^AREPLYADDR <Christian@eder.pumuckl.cube.net>
 ^AREPLYTO 242:1000/5 Christian Frankenberg
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -14743,6 +15333,9 @@ AREA:DE.COMM.MISC
 ^ARFC-Newsgroups: de.comm.isdn,de.comm.misc,de.markt.misc,de.markt.comp.misc
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: Christian@eder.pumuckl.cube.net (Christian Frankenberg)
+------------------------------------------------------------------------------
+
 
 > >Emmerich ISTEC 1003 & Teles S0.16: DM 770.-
 > >Emmerich ISTEC 1003 & AVM Fritz!-Card: DM 788.-
@@ -14778,7 +15371,7 @@ FTN message header:
 AREA:DE.MARKT.MISC
 ^AMSGID: <66xm0XSIIuB@eder.pumuckl.cube.net> 7238f717
 ^AREPLY: <66Dn-hiJzbB@titan.ndh.com> 7d975bf3
-^AREPLYADDR Christian Frankenberg <Christian@eder.pumuckl.cube.net>
+^AREPLYADDR <Christian@eder.pumuckl.cube.net>
 ^AREPLYTO 242:1000/5 Christian Frankenberg
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -14787,6 +15380,9 @@ AREA:DE.MARKT.MISC
 ^ARFC-Newsgroups: de.comm.isdn,de.comm.misc,de.markt.misc,de.markt.comp.misc
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: Christian@eder.pumuckl.cube.net (Christian Frankenberg)
+------------------------------------------------------------------------------
+
 
 > >Emmerich ISTEC 1003 & Teles S0.16: DM 770.-
 > >Emmerich ISTEC 1003 & AVM Fritz!-Card: DM 788.-
@@ -14822,7 +15418,7 @@ FTN message header:
 AREA:DE.MARKT.COMP.MISC
 ^AMSGID: <66xm0XSIIuB@eder.pumuckl.cube.net> 92abc109
 ^AREPLY: <66Dn-hiJzbB@titan.ndh.com> 1dfe0039
-^AREPLYADDR Christian Frankenberg <Christian@eder.pumuckl.cube.net>
+^AREPLYADDR <Christian@eder.pumuckl.cube.net>
 ^AREPLYTO 242:1000/5 Christian Frankenberg
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -14831,6 +15427,9 @@ AREA:DE.MARKT.COMP.MISC
 ^ARFC-Newsgroups: de.comm.isdn,de.comm.misc,de.markt.misc,de.markt.comp.misc
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: Christian@eder.pumuckl.cube.net (Christian Frankenberg)
+------------------------------------------------------------------------------
+
 
 > >Emmerich ISTEC 1003 & Teles S0.16: DM 770.-
 > >Emmerich ISTEC 1003 & AVM Fritz!-Card: DM 788.-

@@ -22,4 +22,4 @@ X-FTN		ftTOVDSP
 #
 # Include common stuff (%L = LIBDIR)
 #
-include		../cf/gate.conf
+include		../cf/fidogate.conf

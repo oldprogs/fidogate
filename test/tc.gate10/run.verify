@@ -130,7 +130,7 @@ FTN message header:
 ^AFMPT 2
 ^AMSGID: <199611300712.CAA56154@POWERED.ZOO.CS.YALE.EDU> c4b4294a
 ^AREPLY: <sxaenhdko0y.fsf@havik.cwi.nl> 0bf5ef8f
-^AREPLYADDR Stefan Monnier <monnier-stefan@cs.yale.edu>
+^AREPLYADDR <monnier-stefan@cs.yale.edu>
 ^AREPLYTO 2:2452/110.2 Stefan Monnier
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -144,6 +144,12 @@ FTN message header:
 ^ARFC-Sender: owner-tetex@informatik.uni-hannover.de
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: "Stefan Monnier" <monnier-stefan@cs.yale.edu>
+Sender: owner-tetex@informatik.uni-hannover.de
+Header-To: Olaf Weber <Olaf.Weber@cwi.nl>
+Header-Cc: tetex@informatik.uni-hannover.de
+------------------------------------------------------------------------------
+
 > To default to /usr/local would be unreasonable in any case -- when I
 > first looked at teTeX I installed it under my home directory.  And I
 > like the fact that by default the teTeX installation is self-contained
@@ -232,7 +238,7 @@ FTN message header:
 ^AFMPT 2
 ^AMSGID: <Pine.LNX.3.95.961130074954.336B-100000@dialin122.zdv.uni-mainz.de> 1c03e852
 ^AREPLY: <199611291648.QAA28818@lochnagarn.elsevier.co.uk> 86036501
-^AREPLYADDR Paul Seelig <pseelig@goofy.zdv.Uni-Mainz.de>
+^AREPLYADDR <pseelig@goofy.zdv.Uni-Mainz.de>
 ^AREPLYTO 2:2452/110.2 Paul Seelig
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -247,6 +253,13 @@ FTN message header:
 ^ARFC-Sender: owner-tetex@informatik.uni-hannover.de
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: Paul Seelig <pseelig@goofy.zdv.Uni-Mainz.de>
+Reply-To: Paul Seelig <pseelig@goofy.zdv.Uni-Mainz.de>
+Sender: owner-tetex@informatik.uni-hannover.de
+Header-To: teTeX Mailing List <tetex@informatik.uni-hannover.de>
+Header-Cc: Sebastian Rahtz <s.rahtz@elsevier.co.uk>
+------------------------------------------------------------------------------
+
 On Fri, 29 Nov 1996, Sebastian Rahtz wrote:
 
 > I think you are addressing this from the wrong end. dont look at it
@@ -297,7 +310,7 @@ FTN message header:
 ^AFMPT 2
 ^AMSGID: <199611300341.EAA00917@libelle.pohlers.org> 3ca0be61
 ^AREPLY: <9611291606.AA04299@HPLEY1.col.sw-ley.de> 719a6d83
-^AREPLYADDR Bjarne Pohlers <bjarne%libelle.uucp%von-neumann@ESCHER.UNI-MUENSTER.DE>
+^AREPLYADDR <bjarne%libelle.uucp%von-neumann@ESCHER.UNI-MUENSTER.DE>
 ^AREPLYTO 2:2452/110.2 Bjarne Pohlers
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -310,6 +323,12 @@ FTN message header:
 ^ARFC-Reply-To: isdn4linux@hub-wue.franken.de
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: Bjarne Pohlers <bjarne%libelle.uucp%von-neumann@ESCHER.UNI-MUENSTER.DE>
+Reply-To: isdn4linux@hub-wue.franken.de
+Sender: owner-isdn4linux@hub-wue.franken.de
+Header-To: isdn4linux@hub-wue.franken.de
+------------------------------------------------------------------------------
+
 Norbert Kiesel writes:
 |>
 |>
@@ -356,7 +375,7 @@ FTN message header:
 ^AINTL 2:2452/110 2:2452/110
 ^AFMPT 2
 ^AMSGID: 2:2452/110.2 00000001
-^AREPLYADDR isdn4linux@hub-wue.franken.de
+^AREPLYADDR <isdn4linux@hub-wue.franken.de>
 ^AREPLYTO 2:2452/110.2 Isdn4linux
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -366,6 +385,10 @@ FTN message header:
 ^ARFC-Reply-To: isdn4linux@hub-wue.franken.de
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+Reply-To: isdn4linux@hub-wue.franken.de
+Sender: owner-isdn4linux@hub-wue.franken.de
+------------------------------------------------------------------------------
+
 Norbert Kiesel writes:
 |>
 |>

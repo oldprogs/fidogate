@@ -1,10 +1,10 @@
 X-Emacs-Mode: -*- indented-text -*-
-Subject: FIDOGATE 4.3.0 --- Fido-Internet Gateway and Tosser
+Subject: FIDOGATE 4.3.1 --- Fido-Internet Gateway and Tosser
 Keywords: fido ftn netmail echomail tosser areafix mail news gateway
 Followup-To: comp.os.linux.misc
 
   ==================================================================
-  FIDOGATE 4.3.0, a development snapshot of the new FIDOGATE release
+  FIDOGATE 4.3.1, a development snapshot of the new FIDOGATE release
   ==================================================================
 
 			   FIDOGATE Version 4
@@ -29,7 +29,7 @@ Followup-To: comp.os.linux.misc
     (probably still in .../pub/Linux/Incoming)
 ...]
 
-    fidogate-4.3.0.tar.gz	1250 Kbyte
+    fidogate-4.3.1.tar.gz	1250 Kbyte
 
 [NOT FOR DEVELOPMENT SNAPSHOTS! ...
   Fido File Request:
@@ -41,6 +41,46 @@ Followup-To: comp.os.linux.misc
 
 
 ======================================================================
+
+Changes in 4.3.1:
+
+* logdaily: updated.
+
+* logsendmail: major changes to analysis and output format.
+
+* areasbbssync: -l creates diff listing for text output.
+
+* runpoll-binkd: poll script using BinkD.
+
+* out-rm*: updated.
+
+* version.h code changed as follows:
+    VERSION_MAJOR	major version number
+    VERSION_MINOR	minor version number
+    PATCHLEVEL		patchlevel
+    STATE		development ./. stable
+  Current version: 4.3.1 (development)
+
+* Removed the last remaining ultra-ugly code from the original ifmail
+  - shuffle.h and SHUFFLEBUFFERS! FIDOGATE now uses the new temporary
+  string code in tmps.c with memory management throughout the various
+  programs.
+  This *may* result in some memory leaks in version 4.3.1, the new
+  version is not yet thoroughly tested!
+
+* An sprintf() replacement str_printf() is now used throughout the
+  FIDOGATE code, avoiding potential buffer overflows. If your C
+  library support snprinft() it will be used, otherwise FIDOGATE
+  terminates with a fatal error if a buffer overflow occurs.
+
+* Gateway programs: fixed some bugs with the new configuration file,
+  GateAddr and the handling of the -a / -u command line options.
+
+* All test cases have been updated to the new single configuration
+  file fidogate.conf (that's internal for me, the test cases are not
+  included in the source distribution).
+
+
 
 Changes in 4.3.0:
 
@@ -297,6 +337,6 @@ Needed:
 
 ======================================================================
 
-$Date: 1999/01/10 16:55:54 $
+$Date: 1999/03/19 11:56:32 $
 Martin Junius
 mailto:mj@fido.de

@@ -7,6 +7,6 @@ echo "tc: copying input packets"
 cp ../ti.pkt-z2/* pin
 
 echo "tc: running"
-../../src/toss/ftntoss  -c../cf/toss.conf -v
-../../src/toss/ftnroute -c../cf/toss.conf -v
-../../src/toss/ftnpack  -c../cf/toss.conf -v -ppacking
+../../src/toss/ftntoss  -c../cf/fidogate.conf -v
+../../src/toss/ftnroute -c../cf/fidogate.conf -v
+../../src/toss/ftnpack  -c../cf/fidogate.conf -v -ppacking

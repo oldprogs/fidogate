@@ -18,7 +18,6 @@ config: checkpath
 config: DupeCheck
 config: MaxMsg 400
 config: MaxOpenFiles 40
-config: KillOld
 config: MaxHistory 28
 config: PINBOUND ./pin
 config: SPOOLDIR .
@@ -41,7 +40,7 @@ Reading FTN packet header:
     Rev : 4.3
     Pass: ""
     Capw: 0001
-ftntoss packet ./pin/00000001.pkt (536b) from 2:2452/123.1 to 2:2452/123.0
+ftntoss packet ./pin/00000001.pkt (524b) from 2:2452/123.1 to 2:2452/123.0
 Reading FTN message header:
     From: Martin Junius                        @ 2:2452/123.1
     To  : All                                  @ 2:2452/123.0
@@ -50,7 +49,7 @@ Reading FTN message header:
 EchoMail: 2:2452/123.1 -> 2:2452/123.0
 EchoMail AREA: LINUX.GER
 Select Z2 AKA: 2:2452/123.0  Uplink: 0:0/0.0
-history: offset=0: LINUX.GER MSGID: 2:2452/123.1 00000001 921410570
+history: offset=0: LINUX.GER MSGID: 2:2452/123.1 00000001 123456789
 SEEN-BY: 2:2452/123.1
 Path   : 2:2452/123.1
 SEEN-BY: 2:2452/123.1 2:2452/123 2:2452/999 2:2452/123.2 2:2452/123.3 2:2452/123.4 2:2452/123.5
@@ -161,7 +160,7 @@ Reading FTN packet header:
     Rev : 4.3
     Pass: ""
     Capw: 0001
-ftntoss packet ./pin/00000002.pkt (536b) from 2:2452/123.2 to 2:2452/123.0
+ftntoss packet ./pin/00000002.pkt (524b) from 2:2452/123.2 to 2:2452/123.0
 Reading FTN message header:
     From: Martin Junius                        @ 2:2452/123.2
     To  : All                                  @ 2:2452/123.0
@@ -170,7 +169,7 @@ Reading FTN message header:
 EchoMail: 2:2452/123.2 -> 2:2452/123.0
 EchoMail AREA: LINUX.GER
 Select Z2 AKA: 2:2452/123.0  Uplink: 0:0/0.0
-history: offset=49: LINUX.GER MSGID: 2:2452/123.2 00000002 921410570
+history: offset=49: LINUX.GER MSGID: 2:2452/123.2 00000002 123456789
 SEEN-BY: 2:2452/123.2
 Path   : 2:2452/123.2
 SEEN-BY: 2:2452/123.2 2:2452/123 2:2452/999 2:2452/123.1 2:2452/123.3 2:2452/123.4 2:2452/123.5
@@ -231,7 +230,7 @@ Reading FTN packet header:
     Rev : 4.3
     Pass: ""
     Capw: 0001
-ftntoss packet ./pin/00000003.pkt (536b) from 2:2452/123.3 to 2:2452/123.0
+ftntoss packet ./pin/00000003.pkt (524b) from 2:2452/123.3 to 2:2452/123.0
 Reading FTN message header:
     From: Martin Junius                        @ 2:2452/123.3
     To  : All                                  @ 2:2452/123.0
@@ -240,7 +239,7 @@ Reading FTN message header:
 EchoMail: 2:2452/123.3 -> 2:2452/123.0
 EchoMail AREA: LINUX.GER
 Select Z2 AKA: 2:2452/123.0  Uplink: 0:0/0.0
-history: offset=98: LINUX.GER MSGID: 2:2452/123.3 00000003 921410570
+history: offset=98: LINUX.GER MSGID: 2:2452/123.3 00000003 123456789
 SEEN-BY: 2:2452/123.3
 Path   : 2:2452/123.3
 SEEN-BY: 2:2452/123.3 2:2452/123 2:2452/999 2:2452/123.1 2:2452/123.2 2:2452/123.4 2:2452/123.5
@@ -291,7 +290,7 @@ Reading FTN packet header:
     Rev : 4.3
     Pass: ""
     Capw: 0001
-ftntoss packet ./pin/00000004.pkt (536b) from 2:2452/123.4 to 2:2452/123.0
+ftntoss packet ./pin/00000004.pkt (524b) from 2:2452/123.4 to 2:2452/123.0
 Reading FTN message header:
     From: Martin Junius                        @ 2:2452/123.4
     To  : All                                  @ 2:2452/123.0
@@ -300,7 +299,7 @@ Reading FTN message header:
 EchoMail: 2:2452/123.4 -> 2:2452/123.0
 EchoMail AREA: LINUX.GER
 Select Z2 AKA: 2:2452/123.0  Uplink: 0:0/0.0
-history: offset=147: LINUX.GER MSGID: 2:2452/123.4 00000004 921410570
+history: offset=147: LINUX.GER MSGID: 2:2452/123.4 00000004 123456789
 SEEN-BY: 2:2452/123.4
 Path   : 2:2452/123.4
 SEEN-BY: 2:2452/123.4 2:2452/123 2:2452/999 2:2452/123.1 2:2452/123.2 2:2452/123.3 2:2452/123.5
@@ -351,7 +350,7 @@ Reading FTN packet header:
     Rev : 4.3
     Pass: ""
     Capw: 0001
-ftntoss packet ./pin/00000005.pkt (536b) from 2:2452/123.5 to 2:2452/123.0
+ftntoss packet ./pin/00000005.pkt (524b) from 2:2452/123.5 to 2:2452/123.0
 Reading FTN message header:
     From: Martin Junius                        @ 2:2452/123.5
     To  : All                                  @ 2:2452/123.0
@@ -360,7 +359,7 @@ Reading FTN message header:
 EchoMail: 2:2452/123.5 -> 2:2452/123.0
 EchoMail AREA: LINUX.GER
 Select Z2 AKA: 2:2452/123.0  Uplink: 0:0/0.0
-history: offset=196: LINUX.GER MSGID: 2:2452/123.5 00000005 921410570
+history: offset=196: LINUX.GER MSGID: 2:2452/123.5 00000005 123456789
 SEEN-BY: 2:2452/123.5
 Path   : 2:2452/123.5
 SEEN-BY: 2:2452/123.5 2:2452/123 2:2452/999 2:2452/123.1 2:2452/123.2 2:2452/123.3 2:2452/123.4
@@ -411,7 +410,7 @@ Reading FTN packet header:
     Rev : 4.3
     Pass: ""
     Capw: 0001
-ftntoss packet ./pin/00000006.pkt (532b) from 2:2452/999.0 to 2:2452/123.0
+ftntoss packet ./pin/00000006.pkt (520b) from 2:2452/999.0 to 2:2452/123.0
 Reading FTN message header:
     From: Martin Junius                        @ 2:2452/999.0
     To  : All                                  @ 2:2452/123.0
@@ -420,7 +419,7 @@ Reading FTN message header:
 EchoMail: 2:2452/999.0 -> 2:2452/123.0
 EchoMail AREA: LINUX.GER
 Select Z2 AKA: 2:2452/123.0  Uplink: 0:0/0.0
-history: offset=245: LINUX.GER MSGID: 2:2452/999 00000006 921410571
+history: offset=245: LINUX.GER MSGID: 2:2452/999 00000006 123456789
 SEEN-BY: 2:2452/999 2:2452/123
 Path   : 2:2452/999
 SEEN-BY: 2:2452/999 2:2452/123 2:2452/123.1 2:2452/123.2 2:2452/123.3 2:2452/123.4 2:2452/123.5
@@ -471,7 +470,7 @@ Reading FTN packet header:
     Rev : 4.3
     Pass: ""
     Capw: 0001
-ftntoss packet ./pin/00000007.pkt (528b) from 2:2452/123.0 to 2:2452/123.0
+ftntoss packet ./pin/00000007.pkt (516b) from 2:2452/123.0 to 2:2452/123.0
 Reading FTN message header:
     From: Martin Junius                        @ 2:2452/123.0
     To  : All                                  @ 2:2452/123.0
@@ -480,7 +479,7 @@ Reading FTN message header:
 EchoMail: 2:2452/123.0 -> 2:2452/123.0
 EchoMail AREA: LINUX.GER
 Select Z2 AKA: 2:2452/123.0  Uplink: 0:0/0.0
-history: offset=292: LINUX.GER MSGID: 2:2452/123 00000007 921410571
+history: offset=292: LINUX.GER MSGID: 2:2452/123 00000007 123456789
 SEEN-BY: 2:2452/123
 Path   : 2:2452/123
 SEEN-BY: 2:2452/123 2:2452/999 2:2452/123.1 2:2452/123.2 2:2452/123.3 2:2452/123.4 2:2452/123.5

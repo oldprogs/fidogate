@@ -57,7 +57,7 @@ FTN message header:
 ^AFMPT 2
 ^ATOPT 1
 ^AMSGID: 2:2452/110.2 00000001
-^AREPLYADDR Martin Junius <mj@fido.de>
+^AREPLYADDR <mj@fido.de>
 ^AREPLYTO 2:2452/110.2 Martin Junius
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -66,6 +66,7 @@ FTN message header:
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 To: test@abc.def.org
+From: mj@fido.de (Martin Junius)
 ------------------------------------------------------------------------------
 
 TEST GATEWAY

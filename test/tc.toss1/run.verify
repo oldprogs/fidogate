@@ -57,8 +57,8 @@ ftntoss packet ./pin/01186013.PKT (33334b) from 2:2452/110.0 to 2:2452/110.2
 ftntoss msgs processed: 316 in, 316 out (0 mail, 316 echo)
 ftnroute packet for 2:2452/110.99 (Normal)
 ftnroute packet for 2:2452/110.2 (Hold)
-ftnpack archiving packet (33995b) for 2:2452/110.99 (zip)
-ftnpack packet (554112b) for 2:2452/110.2 (noarc)
+ftnpack archiving packet (33771b) for 2:2452/110.99 (zip)
+ftnpack packet (552649b) for 2:2452/110.2 (noarc)
 tc: copying input packets
 tc: running with KillOld
 ftntoss packet ./pin/01165017.PKT (7930b) from 2:2452/110.0 to 2:2452/110.2

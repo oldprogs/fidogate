@@ -1,3 +1,69 @@
+1999-03-19  Martin Junius  <mj@fido.de>
+
+	------- CVS ci -------------------------------------------------------
+
+	* test/cf/common;ffx;gate;toss.conf: removed.
+
+	* ANNOUNCE: updated.
+
+	* test/: make verify now yields OK for all test cases.
+
+	* test/tc.tosskill/config*: dito.
+
+	* test/tc.tosskill/run: dito.
+
+	* test/tc.toss6/run: dito.
+
+	* test/tc.toss5/run: dito.
+
+	* test/tc.toss4/run: dito.
+
+	* test/tc.toss3/run: dito.
+
+1999-03-17  Martin Junius  <mj@fido.de>
+
+	* test/tc.toss2/run: dito.
+
+	* test/tc.toss1/config*: dito.
+
+	* test/tc.toss1/run: dito.
+
+	* test/tc.tick/run: new fidogate.conf.
+
+	* test/cf/fidogate.conf: commented KillOld.
+
+	* test/tc.rununpack/run: dito.
+
+	* test/tc.route/run: dito.
+
+	* test/tc.route/config: new fidogate.conf.
+
+	* src/common/config.c (cf_check_gate): #if 0'ed "no Uplink or
+	  GateAddress" check, cf_i_am_a_gateway_prog() will automatically
+	  copy Address to Uplink if no Uplink is specified.
+
+	* test/tc.point2/fidogate.conf: modified test fidogate.conf for
+	  point2 test case.
+
+1999-03-16  Martin Junius  <mj@fido.de>
+
+	* test/tc.passthru/config: dito.
+
+	* test/tc.packprog/run: dito.
+
+	* test/tc.outpkt/run: dito.
+
+	* test/tc.nomsgid/run: dito.
+
+	* test/tc.ml/run: new fidogate.conf
+
+	* test/cf/fidogate.conf: commented NoFromLine, uncommented
+	  ReplyAddrIfmailTX.
+
+	* test/tc.gateway/run: dito.
+
+	* test/tc.gatenode/run: dito, removed config.*.
+
 1999-03-14  Martin Junius  <mj@fido.de>
 
 	------- CVS ci -------------------------------------------------------

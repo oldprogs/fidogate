@@ -4,11 +4,11 @@
 
 mkdir tmp_dir1 tmp_dir2
 
-O="../../src/util/ftnoutpkt -c../cf/toss.conf -v"
+O="../../src/util/ftnoutpkt -c../cf/fidogate.conf -v"
 
-T="../../src/toss/ftntoss   -c../cf/toss.conf -v -r./routing"
-R="../../src/toss/ftnroute  -c../cf/toss.conf -v -r./routing"
-P="../../src/toss/ftnpack   -c../cf/toss.conf -v -p./packing"
+T="../../src/toss/ftntoss   -c../cf/fidogate.conf -v -r./routing"
+R="../../src/toss/ftnroute  -c../cf/fidogate.conf -v -r./routing"
+P="../../src/toss/ftnpack   -c../cf/fidogate.conf -v -p./packing"
 
 echo "tc: running"
 

@@ -1,7 +1,7 @@
 #!/bin/sh
 
-T1="../../src/toss/ftntoss -vv -c./config1"
-T2="../../src/toss/ftntoss -vv -c./config2"
+T1="../../src/toss/ftntoss -vv -cconfig1 -a2:2452/110 -d"
+T2="../../src/toss/ftntoss -vv -cconfig2 -a2:2452/110 -d"
 
 ../tr.init
 

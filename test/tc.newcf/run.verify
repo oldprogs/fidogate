@@ -765,7 +765,6 @@ config: zone 21  : .gernet.heise.de  GerNet  out.015
 config: zone 242 : .Fido.DE  FidoDE  out.0f2
 config: gateway=0:0/0.0
 config: SPOOLDIR .
-config: NoFromLine
 config: MaxMsgSize 32000
 config: MAUSdomain .maus.de
 config: MAUSgate 2:2452/101.6
@@ -775,6 +774,7 @@ config: RFCLevel 1
 config: XFlagsPolicy 0
 config: DontUseReplyTo
 config: RFCAddrMode 1
+config: ReplyAddrIfmailTX
 config: HOSTS %C/hosts
 Reading hosts file %C/hosts
 config: CONFIGDIR ../cf
@@ -1167,9 +1167,7 @@ config: checkpath
 config: DupeCheck
 config: MaxMsg 400
 config: MaxOpenFiles 40
-config: KillOld
 config: MaxHistory 28
-config: EchoMail4D
 config: PINBOUND ./pin
 config: SPOOLDIR .
 config: areasbbs ../cf/areas.bbs

@@ -2,8 +2,8 @@
 
 ../tr.init
 
-U="../../src/toss/rununpack -v -c../cf/toss.conf"
-T="../../src/toss/runtoss   -v -c../cf/toss.conf"
+U="../../src/toss/rununpack -v -c../cf/fidogate.conf"
+T="../../src/toss/runtoss   -v -c../cf/fidogate.conf"
 
 zip -k9j abcd1234.mo0 ../ti.pkt-z2/*.PKT
 arc a    abcd1234.tu1 ../ti.pkt-z2/*.PKT

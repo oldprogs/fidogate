@@ -2,8 +2,8 @@
 
 ../tr.init
 
-H="../../src/tick/ftnhatch -c../cf/toss.conf -vvv"
-T="../../src/tick/ftntick  -c../cf/toss.conf -vvv"
+H="../../src/tick/ftnhatch -c../cf/fidogate.conf -vvv"
+T="../../src/tick/ftntick  -c../cf/fidogate.conf -vvv"
 
 mkdir tmp_area tmp_unknown
 

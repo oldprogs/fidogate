@@ -1,6 +1,6 @@
 #:ts=8
 #
-# $Id: config,v 1.2 1998/01/24 14:07:44 mj Exp $
+# $Id: config,v 1.3 1999/03/19 11:56:49 mj Exp $
 #
 
 #
@@ -12,4 +12,4 @@
 #
 XFlagsPolicy a
 
-include ../cf/gate.conf
+include ../cf/fidogate.conf

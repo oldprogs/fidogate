@@ -816,23 +816,23 @@ ftnroute packet for 2:2452/110.2 (Hold)
 ftnpack packet (7930b) for 2:2452/110.2 (noarc)
 Running df -P .
 Running df -P ./bt
-Running ftntoss -x -I /home/mj/src/fidogate/test/tc.rununpack/pin -s -c ../cf/toss.conf -v
+Running ftntoss -x -I /home/mj/src/fidogate/test/tc.rununpack/pin -s -c ../cf/fidogate.conf -v
 Status 3
-Running ftnroute -c ../cf/toss.conf -v
+Running ftnroute -c ../cf/fidogate.conf -v
 Status 0
-Running ftnpack -F/home/mj/src/fidogate/test/tc.rununpack/pin -c ../cf/toss.conf -v
+Running ftnpack -F/home/mj/src/fidogate/test/tc.rununpack/pin -c ../cf/fidogate.conf -v
 Status 0
 Running df -P ./bt
-Running ftntoss -x -I /home/mj/src/fidogate/test/tc.rununpack/pin -s -c ../cf/toss.conf -v
+Running ftntoss -x -I /home/mj/src/fidogate/test/tc.rununpack/pin -s -c ../cf/fidogate.conf -v
 Status 3
-Running ftnroute -c ../cf/toss.conf -v
+Running ftnroute -c ../cf/fidogate.conf -v
 Status 0
-Running ftnpack -F/home/mj/src/fidogate/test/tc.rununpack/pin -c ../cf/toss.conf -v
+Running ftnpack -F/home/mj/src/fidogate/test/tc.rununpack/pin -c ../cf/fidogate.conf -v
 Status 0
 Running df -P ./bt
-Running ftntoss -x -I /home/mj/src/fidogate/test/tc.rununpack/pin -s -c ../cf/toss.conf -v
+Running ftntoss -x -I /home/mj/src/fidogate/test/tc.rununpack/pin -s -c ../cf/fidogate.conf -v
 Status 0
-Running ftnroute -c ../cf/toss.conf -v
+Running ftnroute -c ../cf/fidogate.conf -v
 Status 0
-Running ftnpack -F/home/mj/src/fidogate/test/tc.rununpack/pin -c ../cf/toss.conf -v
+Running ftnpack -F/home/mj/src/fidogate/test/tc.rununpack/pin -c ../cf/fidogate.conf -v
 Status 0

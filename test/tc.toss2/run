@@ -7,9 +7,9 @@ cp ../ti.pkt-misc/t-fattach.pkt pin
 cp ../ti.pkt-misc/testfile.zip  pin
 
 echo "tc: running"
-../../src/toss/ftntoss  -c../cf/toss.conf -vv
-../../src/toss/ftnroute -c../cf/toss.conf -vv
-../../src/toss/ftnpack  -c../cf/toss.conf -vv -Fpin
+../../src/toss/ftntoss  -c../cf/fidogate.conf -vv
+../../src/toss/ftnroute -c../cf/fidogate.conf -vv
+../../src/toss/ftnpack  -c../cf/fidogate.conf -vv -Fpin
 
 echo "tc: copying input packets"
 rm pin/*
@@ -17,6 +17,6 @@ cp ../ti.pkt-misc/t-fattach.pkt pin
 cp ../ti.pkt-misc/testfile.zip  pin/TestFile.ZIP
 
 echo "tc: running"
-../../src/toss/ftntoss  -c../cf/toss.conf -vv
-../../src/toss/ftnroute -c../cf/toss.conf -vv
-../../src/toss/ftnpack  -c../cf/toss.conf -vvvv -Fpin
+../../src/toss/ftntoss  -c../cf/fidogate.conf -vv
+../../src/toss/ftnroute -c../cf/fidogate.conf -vv
+../../src/toss/ftnpack  -c../cf/fidogate.conf -vvvv -Fpin

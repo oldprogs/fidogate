@@ -363,13 +363,16 @@ FTN message header:
 ^AINTL 2:2452/110 2:2452/110
 ^AFMPT 2
 ^AMSGID: 2:2452/110.2 00000001
-^AREPLYADDR mj@fido.de
+^AREPLYADDR <mj@fido.de>
 ^AREPLYTO 2:2452/110.2 Martin Junius
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
 ^ARFC-From: mj@fido.de
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: mj@fido.de
+------------------------------------------------------------------------------
+
 This
  is 
   another
@@ -399,7 +402,7 @@ FTN message header:
 ^AINTL 2:2452/110 2:2452/110
 ^AFMPT 2
 ^AMSGID: 2:2452/110.2 00000002
-^AREPLYADDR Martin Junius <mj@fido.de>
+^AREPLYADDR <mj@fido.de>
 ^AREPLYTO 2:2452/110.2 Martin Junius
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -407,6 +410,10 @@ FTN message header:
 ^ARFC-Reply-To: mj@fido.de
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: mj@fido.de (Martin Junius)
+Reply-To: mj@fido.de
+------------------------------------------------------------------------------
+
 This
  is 
   another
@@ -436,13 +443,16 @@ FTN message header:
 ^AINTL 2:2452/110 2:2452/110
 ^AFMPT 2
 ^AMSGID: 2:2452/110.2 00000003
-^AREPLYADDR Martin_Junius@p2.f110.n2452.z2.fidonet.org
+^AREPLYADDR <Martin_Junius@p2.f110.n2452.z2.fidonet.org>
 ^AREPLYTO 2:2452/110.2 Martin Junius
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
 ^ARFC-From: Martin_Junius@p2.f110.n2452.z2.fidonet.org
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: Martin_Junius@p2.f110.n2452.z2.fidonet.org
+------------------------------------------------------------------------------
+
 This
  is 
   another
@@ -472,13 +482,16 @@ FTN message header:
 ^AINTL 2:2452/110 2:2452/110
 ^AFMPT 2
 ^AMSGID: 2:2452/110.2 00000004
-^AREPLYADDR Test User <test@hippo.fido.de>
+^AREPLYADDR <test@hippo.fido.de>
 ^AREPLYTO 2:2452/110.2 Test User
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
 ^ARFC-From: test@hippo.fido.de (Test User)
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: test@hippo.fido.de (Test User)
+------------------------------------------------------------------------------
+
 This
  is 
   another
@@ -507,13 +520,16 @@ FTN message header:
 ------------------------------------------------------------------------------
 ^AINTL 242:1000/1 242:1000/5
 ^AMSGID: 242:1000/5 00000005
-^AREPLYADDR mj@fido.de
+^AREPLYADDR <mj@fido.de>
 ^AREPLYTO 242:1000/5 Martin Junius
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
 ^ARFC-From: mj@fido.de
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: mj@fido.de
+------------------------------------------------------------------------------
+
 This
  is 
   another
@@ -542,7 +558,7 @@ FTN message header:
 ------------------------------------------------------------------------------
 ^AINTL 242:1000/1 242:1000/5
 ^AMSGID: 242:1000/5 00000006
-^AREPLYADDR Martin Junius <mj@fido.de>
+^AREPLYADDR <mj@fido.de>
 ^AREPLYTO 242:1000/5 Martin Junius
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
@@ -550,6 +566,10 @@ FTN message header:
 ^ARFC-Reply-To: mj@fido.de
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: mj@fido.de (Martin Junius)
+Reply-To: mj@fido.de
+------------------------------------------------------------------------------
+
 This
  is 
   another
@@ -578,13 +598,16 @@ FTN message header:
 ------------------------------------------------------------------------------
 ^AINTL 242:1000/1 242:1000/5
 ^AMSGID: 242:1000/5 00000007
-^AREPLYADDR Martin_Junius@p2.f110.n2452.z2.fidonet.org
+^AREPLYADDR <Martin_Junius@p2.f110.n2452.z2.fidonet.org>
 ^AREPLYTO 242:1000/5 Martin Junius
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
 ^ARFC-From: Martin_Junius@p2.f110.n2452.z2.fidonet.org
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: Martin_Junius@p2.f110.n2452.z2.fidonet.org
+------------------------------------------------------------------------------
+
 This
  is 
   another
@@ -613,13 +636,16 @@ FTN message header:
 ------------------------------------------------------------------------------
 ^AINTL 242:1000/1 242:1000/5
 ^AMSGID: 242:1000/5 00000008
-^AREPLYADDR Test User <test@hippo.fido.de>
+^AREPLYADDR <test@hippo.fido.de>
 ^AREPLYTO 242:1000/5 Test User
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
 ^ARFC-From: test@hippo.fido.de (Test User)
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
+From: test@hippo.fido.de (Test User)
+------------------------------------------------------------------------------
+
 This
  is 
   another

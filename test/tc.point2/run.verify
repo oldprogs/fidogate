@@ -1,15 +1,15 @@
 tc: clean-up
 tc: init
-rfc2ftn MAIL: mj@fido.de (Martin Junius) -> Test_User@2:2449/123.4
-rfc2ftn MAIL: mj@fido.de (Martin Junius) -> Test_User@2:2449/567.8
+rfc2ftn MAIL: Martin Junius <mj@fido.de> -> Test_User@2:2449/123.4
+rfc2ftn MAIL: Martin Junius <mj@fido.de> -> Test_User@2:2449/567.8
 ftntoss creating MSGID history ./history.dir
 ftntoss creating MSGID history ./history.pag
-ftntoss packet ./pin/00000001.pkt (536b) from 2:2449/417.2 to 2:2449/417.2
+ftntoss packet ./pin/00000001.pkt (557b) from 2:2449/417.2 to 2:2449/417.2
 ftntoss MAIL: Martin Junius @ 2:2449/417.2 -> Test User @ 2:2449/123.4
-ftntoss packet ./pin/00000002.pkt (536b) from 2:2449/450.1 to 2:2449/417.2
+ftntoss packet ./pin/00000002.pkt (557b) from 2:2449/450.1 to 2:2449/450.1
 ftntoss MAIL: Martin Junius @ 2:2449/450.1 -> Test User @ 2:2449/567.8
-ftntoss packet ./pin/00000003.pkt (501b) from 2:2449/417.2 to 2:2449/417.2
-ftntoss packet ./pin/00000004.pkt (501b) from 2:2449/450.1 to 2:2449/417.2
+ftntoss packet ./pin/00000003.pkt (546b) from 2:2449/417.2 to 2:2449/417.2
+ftntoss packet ./pin/00000004.pkt (546b) from 2:2449/450.1 to 2:2449/417.2
 ftntoss msgs processed: 4 in, 4 out (2 mail, 2 echo)
 ftnroute packet for 2:2449/567.8 via 2:2452/417.0 (Normal)
 ftnroute packet for 2:2449/417.0 (Normal)

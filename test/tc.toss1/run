@@ -6,9 +6,9 @@ echo "tc: copying input packets"
 cp ../ti.pkt-z2/*.[pP][kK][tT] pin
 
 echo "tc: running"
-../../src/toss/ftntoss  -c../cf/toss.conf -bareas.bbs -v
-../../src/toss/ftnroute -c../cf/toss.conf -v
-../../src/toss/ftnpack  -c../cf/toss.conf -v
+../../src/toss/ftntoss  -c../cf/fidogate.conf -bareas.bbs -v
+../../src/toss/ftnroute -c../cf/fidogate.conf -v
+../../src/toss/ftnpack  -c../cf/fidogate.conf -v
 
 echo "tc: removing history"
 rm -f history*

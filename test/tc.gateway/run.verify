@@ -4,6 +4,8 @@ tc: running
     Name:     test
     Address:  blah.org
 RFC Newsgroups: test
+    Name:     test
+    Address:  blah.org
 Writing FTN packet header:
     From: 2:2452/110.2
     To  : 2:2452/110.2
@@ -24,6 +26,8 @@ ftn2rfc packet ./pin/00000001.pkt (534b) from 2:2452/110.2 to 2:2452/110.2
     Name:     test
     Address:  blah.org
 RFC Newsgroups: test
+    Name:     test
+    Address:  blah.org
 Writing FTN packet header:
     From: 2:2452/110.2
     To  : 2:2452/110.2

@@ -12,10 +12,11 @@ while(<>) {
     next if( /Kbyte\/s/ );
     next if( /^Free disk space/ );
     next if( /unique.*lock/ );
-    next if( /^From / );
+    next if( /^From [^ ]/ );
     next if( /^\s*id / );
 
     s/FIDOGATE \d+\.\d+\.\d+/FIDOGATE x.x.x/g;
+    s/\d+$/123456789/ if( /^history:/ );
 
     print;
 }

@@ -2,10 +2,10 @@
 
 ../tr.init
 
-G="../../src/gate/rfc2ftn  -v -i -cconfig.gate"
-T="../../src/toss/ftntoss  -v -cconfig.main"
-R="../../src/toss/ftnroute -v -cconfig.main"
-P="../../src/toss/ftnpack  -v -cconfig.main"
+G="../../src/gate/rfc2ftn  -v -i -c../cf/fidogate.conf -a2:2499/99 -u2:2499/99"
+T="../../src/toss/ftntoss  -v  	 -c../cf/fidogate.conf -a2:2499/99"
+R="../../src/toss/ftnroute -v  	 -c../cf/fidogate.conf -a2:2499/99"
+P="../../src/toss/ftnpack  -v  	 -c../cf/fidogate.conf -a2:2499/99"
 
 # create messages
 

@@ -28,13 +28,16 @@ Reading FTN packet header:
     Pass: ""
     Capw: 0001
 ftn2rfc packet ./pin/t-nomsgid.pkt (47066b) from 2:2452/110.0 to 2:2452/110.2
-Batch: message #1 size 1083
+Batch: message #1 size 1094
     Name:     
     Address:  
     Name:     Andreas_Kunst
     Address:  f138.n301.z2.fidonet.org
     FTN node: 2:301/138.0
 RFC Newsgroups: fido.ger.linux
+    Name:     Andreas_Kunst
+    Address:  f138.n301.z2.fidonet.org
+    FTN node: 2:301/138.0
 New packet file ./outpkt/news/00000001.pkt (tmp ./outpkt/news/00000001.tmp)
 Writing FTN packet header:
     From: 2:2452/110.2
@@ -44,188 +47,275 @@ Writing FTN packet header:
     Rev : 4.3
     Pass: ""
     Capw: 0001
-Batch: message #2 size 1817
+Batch: message #2 size 1834
     Name:     
     Address:  
     Name:     Daniel_Kroening
     Address:  p24.f2.n2476.z2.fidonet.org
     FTN node: 2:2476/2.24
 RFC Newsgroups: fido.ger.linux
-Batch: message #3 size 880
+    Name:     Daniel_Kroening
+    Address:  p24.f2.n2476.z2.fidonet.org
+    FTN node: 2:2476/2.24
+Batch: message #3 size 889
     Name:     
     Address:  
     Name:     Gerhard_Wrodnigg
     Address:  p77.f777.n316.z2.fidonet.org
     FTN node: 2:316/777.77
 RFC Newsgroups: fido.ger.linux
-Batch: message #4 size 894
+    Name:     Gerhard_Wrodnigg
+    Address:  p77.f777.n316.z2.fidonet.org
+    FTN node: 2:316/777.77
+Batch: message #4 size 903
     Name:     
     Address:  
     Name:     Bernhard_Gueth
     Address:  f111.n2461.z2.fidonet.org
     FTN node: 2:2461/111.0
 RFC Newsgroups: fido.ger.linux
-Batch: message #5 size 1345
+    Name:     Bernhard_Gueth
+    Address:  f111.n2461.z2.fidonet.org
+    FTN node: 2:2461/111.0
+Batch: message #5 size 1354
     Name:     
     Address:  
     Name:     Juergen_Kubiak
     Address:  p20.f301.n2410.z2.fidonet.org
     FTN node: 2:2410/301.20
 RFC Newsgroups: fido.ger.linux
-Batch: message #6 size 1038
+    Name:     Juergen_Kubiak
+    Address:  p20.f301.n2410.z2.fidonet.org
+    FTN node: 2:2410/301.20
+Batch: message #6 size 1071
     Name:     
     Address:  
     Name:     Daniel_Schlenzig
-    Address:  chaos.fido.de
-    FTN node: 242:2000/161.0
+    Address:  f500.n2454.z2.fidonet.org
+    FTN node: 2:2454/500.0
 RFC Newsgroups: fido.ger.linux
-Batch: message #7 size 1637
+    Name:     Daniel_Schlenzig
+    Address:  f500.n2454.z2.fidonet.org
+    FTN node: 2:2454/500.0
+Batch: message #7 size 1646
     Name:     Oliver_Much
     Address:  p12.f690.n2453.z2.fidonet.org
     FTN node: 2:2453/690.12
 RFC Newsgroups: fido.ger.linux
-Batch: message #8 size 1409
+    Name:     Oliver_Much
+    Address:  p12.f690.n2453.z2.fidonet.org
+    FTN node: 2:2453/690.12
+Batch: message #8 size 1418
     Name:     
     Address:  
     Name:     Maurice_Kemmann
     Address:  p5.f7805.n2448.z2.fidonet.org
     FTN node: 2:2448/7805.5
 RFC Newsgroups: fido.ger.linux
-Batch: message #9 size 1023
+    Name:     Maurice_Kemmann
+    Address:  p5.f7805.n2448.z2.fidonet.org
+    FTN node: 2:2448/7805.5
+Batch: message #9 size 1032
     Name:     
     Address:  
     Name:     Maurice_Kemmann
     Address:  p5.f7805.n2448.z2.fidonet.org
     FTN node: 2:2448/7805.5
 RFC Newsgroups: fido.ger.linux
-Batch: message #10 size 1155
+    Name:     Maurice_Kemmann
+    Address:  p5.f7805.n2448.z2.fidonet.org
+    FTN node: 2:2448/7805.5
+Batch: message #10 size 1164
     Name:     Maurice_Kemmann
     Address:  p5.f7805.n2448.z2.fidonet.org
     FTN node: 2:2448/7805.5
 RFC Newsgroups: fido.ger.linux
-Batch: message #11 size 938
+    Name:     Maurice_Kemmann
+    Address:  p5.f7805.n2448.z2.fidonet.org
+    FTN node: 2:2448/7805.5
+Batch: message #11 size 947
     Name:     Martin_Burkard
     Address:  p2.f819.n2476.z2.fidonet.org
     FTN node: 2:2476/819.2
 RFC Newsgroups: fido.ger.linux
-Batch: message #12 size 1743
+    Name:     Martin_Burkard
+    Address:  p2.f819.n2476.z2.fidonet.org
+    FTN node: 2:2476/819.2
+Batch: message #12 size 1752
     Name:     Anton_Ptacek
     Address:  p64.f39.n310.z2.fidonet.org
     FTN node: 2:310/39.64
 RFC Newsgroups: fido.ger.linux
-Batch: message #13 size 1381
+    Name:     Anton_Ptacek
+    Address:  p64.f39.n310.z2.fidonet.org
+    FTN node: 2:310/39.64
+Batch: message #13 size 1390
     Name:     Anton_Ptacek
     Address:  p64.f39.n310.z2.fidonet.org
     FTN node: 2:310/39.64
 RFC Newsgroups: fido.ger.linux
-Batch: message #14 size 1395
+    Name:     Anton_Ptacek
+    Address:  p64.f39.n310.z2.fidonet.org
+    FTN node: 2:310/39.64
+Batch: message #14 size 1404
     Name:     
     Address:  
     Name:     Denis_C._Aumueller
     Address:  p27.f6002.n2468.z2.fidonet.org
     FTN node: 2:2468/6002.27
 RFC Newsgroups: fido.ger.tolkien
-Batch: message #15 size 1039
+    Name:     Denis_C._Aumueller
+    Address:  p27.f6002.n2468.z2.fidonet.org
+    FTN node: 2:2468/6002.27
+Batch: message #15 size 1048
     Name:     
     Address:  
     Name:     Christian_Riege
     Address:  p66.f6666.n245.z2.fidonet.org
     FTN node: 2:245/6666.66
 RFC Newsgroups: fido.ger.linux
-Batch: message #16 size 961
+    Name:     Christian_Riege
+    Address:  p66.f6666.n245.z2.fidonet.org
+    FTN node: 2:245/6666.66
+Batch: message #16 size 970
     Name:     
     Address:  
     Name:     Dirk_Ulbrich
     Address:  p5.f2010.n2448.z2.fidonet.org
     FTN node: 2:2448/2010.5
 RFC Newsgroups: fido.ger.linux
-Batch: message #17 size 1901
+    Name:     Dirk_Ulbrich
+    Address:  p5.f2010.n2448.z2.fidonet.org
+    FTN node: 2:2448/2010.5
+Batch: message #17 size 1930
     Name:     
     Address:  
     Name:     Ralph_Rettinghaus
-    Address:  barracuda.fido.de
-    FTN node: 242:1000/55.0
+    Address:  p35.f605.n2433.z2.fidonet.org
+    FTN node: 2:2433/605.35
 RFC Newsgroups: fido.ger.linux
-Batch: message #18 size 986
+    Name:     Ralph_Rettinghaus
+    Address:  p35.f605.n2433.z2.fidonet.org
+    FTN node: 2:2433/605.35
+Batch: message #18 size 995
     Name:     Sholto_Douglas
     Address:  f308.n2455.z2.fidonet.org
     FTN node: 2:2455/308.0
 RFC Newsgroups: fido.ger.linux
-Batch: message #19 size 1435
+    Name:     Sholto_Douglas
+    Address:  f308.n2455.z2.fidonet.org
+    FTN node: 2:2455/308.0
+Batch: message #19 size 1444
     Name:     Peter_Gomez
     Address:  p104.f2340.n244.z2.fidonet.org
     FTN node: 2:244/2340.104
 RFC Newsgroups: fido.ger.linux
-Batch: message #20 size 970
+    Name:     Peter_Gomez
+    Address:  p104.f2340.n244.z2.fidonet.org
+    FTN node: 2:244/2340.104
+Batch: message #20 size 979
     Name:     Simon_Giesecke
     Address:  p11.f413.n2448.z2.fidonet.org
     FTN node: 2:2448/413.11
 RFC Newsgroups: fido.ger.linux
-Batch: message #21 size 977
+    Name:     Simon_Giesecke
+    Address:  p11.f413.n2448.z2.fidonet.org
+    FTN node: 2:2448/413.11
+Batch: message #21 size 986
     Name:     Andreas_Weltermann
     Address:  p117.f300.n2448.z2.fidonet.org
     FTN node: 2:2448/300.117
 RFC Newsgroups: fido.ger.linux
-Batch: message #22 size 880
+    Name:     Andreas_Weltermann
+    Address:  p117.f300.n2448.z2.fidonet.org
+    FTN node: 2:2448/300.117
+Batch: message #22 size 905
     Name:     
     Address:  
     Name:     Alain_Emmerich
-    Address:  barracuda.fido.de
-    FTN node: 242:1000/55.0
+    Address:  f606.n2433.z2.fidonet.org
+    FTN node: 2:2433/606.0
 RFC Newsgroups: fido.ger.linux
-Batch: message #23 size 1480
+    Name:     Alain_Emmerich
+    Address:  f606.n2433.z2.fidonet.org
+    FTN node: 2:2433/606.0
+Batch: message #23 size 1505
     Name:     
     Address:  
     Name:     Alain_Emmerich
-    Address:  barracuda.fido.de
-    FTN node: 242:1000/55.0
+    Address:  f606.n2433.z2.fidonet.org
+    FTN node: 2:2433/606.0
 RFC Newsgroups: fido.ger.linux
-Batch: message #24 size 1679
+    Name:     Alain_Emmerich
+    Address:  f606.n2433.z2.fidonet.org
+    FTN node: 2:2433/606.0
+Batch: message #24 size 1712
     Name:     
     Address:  
     Name:     Jens_Benecke
-    Address:  funclub.fido.de
-    FTN node: 242:1000/207.0
+    Address:  p45.f5010.n240.z2.fidonet.org
+    FTN node: 2:240/5010.45
 RFC Newsgroups: fido.ger.linux
-Batch: message #25 size 1359
+    Name:     Jens_Benecke
+    Address:  p45.f5010.n240.z2.fidonet.org
+    FTN node: 2:240/5010.45
+Batch: message #25 size 1392
     Name:     
     Address:  
     Name:     Jens_Benecke
-    Address:  funclub.fido.de
-    FTN node: 242:1000/207.0
+    Address:  p45.f5010.n240.z2.fidonet.org
+    FTN node: 2:240/5010.45
 RFC Newsgroups: fido.ger.linux
-Batch: message #26 size 1301
+    Name:     Jens_Benecke
+    Address:  p45.f5010.n240.z2.fidonet.org
+    FTN node: 2:240/5010.45
+Batch: message #26 size 1334
     Name:     
     Address:  
     Name:     Jens_Benecke
-    Address:  funclub.fido.de
-    FTN node: 242:1000/207.0
+    Address:  p45.f5010.n240.z2.fidonet.org
+    FTN node: 2:240/5010.45
 RFC Newsgroups: fido.ger.linux
-Batch: message #27 size 1815
+    Name:     Jens_Benecke
+    Address:  p45.f5010.n240.z2.fidonet.org
+    FTN node: 2:240/5010.45
+Batch: message #27 size 1848
     Name:     
     Address:  
     Name:     Jens_Benecke
-    Address:  funclub.fido.de
-    FTN node: 242:1000/207.0
+    Address:  p45.f5010.n240.z2.fidonet.org
+    FTN node: 2:240/5010.45
 RFC Newsgroups: fido.ger.linux
-Batch: message #28 size 1400
+    Name:     Jens_Benecke
+    Address:  p45.f5010.n240.z2.fidonet.org
+    FTN node: 2:240/5010.45
+Batch: message #28 size 1433
     Name:     
     Address:  
     Name:     Jens_Benecke
-    Address:  funclub.fido.de
-    FTN node: 242:1000/207.0
+    Address:  p45.f5010.n240.z2.fidonet.org
+    FTN node: 2:240/5010.45
 RFC Newsgroups: fido.ger.linux
-Batch: message #29 size 1313
+    Name:     Jens_Benecke
+    Address:  p45.f5010.n240.z2.fidonet.org
+    FTN node: 2:240/5010.45
+Batch: message #29 size 1322
     Name:     
     Address:  
     Name:     Sven_Mueller
     Address:  p128.f1280.n2444.z2.fidonet.org
     FTN node: 2:2444/1280.128
 RFC Newsgroups: fido.ger.linux
-Batch: message #30 size 1393
+    Name:     Sven_Mueller
+    Address:  p128.f1280.n2444.z2.fidonet.org
+    FTN node: 2:2444/1280.128
+Batch: message #30 size 1402
     Name:     
     Address:  
     Name:     Sven_Mueller
     Address:  p128.f1280.n2444.z2.fidonet.org
     FTN node: 2:2444/1280.128
 RFC Newsgroups: fido.ger.linux
+    Name:     Sven_Mueller
+    Address:  p128.f1280.n2444.z2.fidonet.org
+    FTN node: 2:2444/1280.128
