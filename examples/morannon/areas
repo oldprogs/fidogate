@@ -1,6 +1,6 @@
 #:ts=8
 #
-# $Id: areas,v 4.4 1997/03/30 16:54:58 mj Exp $
+# $Id: areas,v 4.5 1999/11/21 17:25:29 mj Exp $
 #
 # Echomail area <-> News newsgroup conversion
 #
@@ -35,7 +35,7 @@ HIPPO.TEST              hippo.test              -d local  -o "TEST from morannon
 #
 # Fido.DE
 #
-FIDO.DE                 fido.de                 -z 242    -o "Fido.DE Domain-Administration" -8
+FIDO.DE                 fido.de                 -H -z 242    -o "Fido.DE Domain-Administration" -8
 #
 # RWTH
 #
@@ -47,7 +47,6 @@ RWTH.DIALUP		rwth.dialup		-z 242 -8
 # Areas gated between Usenet and FIDO groups
 # These areas must be placed *BEFORE* the Z242 Usenet areas!
 #
-DE.COMP.TEXT.TEX		de.comp.text.tex -8
 OECHER				oecher.talk -8         
 OECHER.FLOHMARKT		oecher.flohmarkt -8    
 OECHER.KOMMERZ			oecher.kommerz -8       

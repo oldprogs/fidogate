@@ -1,17 +1,17 @@
 #
-# $Id: redhat6-morannon.mc,v 4.3 1999/10/17 11:49:29 mj Exp $
+# $Id: redhat6-morannon.mc,v 4.4 1999/11/21 17:25:34 mj Exp $
 #
-# orodruin.Fido.DE
+# Fido.DE (morannon.fido.de)
 #
 
 include(`../m4/cf.m4')
 
-VERSIONID(`$Id: redhat6-morannon.mc,v 4.3 1999/10/17 11:49:29 mj Exp $')
+VERSIONID(`$Id: redhat6-morannon.mc,v 4.4 1999/11/21 17:25:34 mj Exp $')
 
 dnl #
 dnl # Configuration
 dnl #
-define(`confCF_VERSION', `redhat6-morannon-4.3')
+define(`confCF_VERSION', `redhat6-morannon-4.4')
 define(`confMIME_FORMAT_ERRORS', `False')
 define(`confUSE_ERRORS_TO', `True')
 define(`confMAX_HOP', `30')
@@ -19,6 +19,10 @@ define(`confMESSAGE_TIMEOUT', `5d/2d')
 define(`confAUTO_REBUILD',true)
 define(`confTO_CONNECT', `1m')
 define(`confDOMAIN_NAME', `morannon.fido.de')
+dnl # we're sending bounce mails not postmaster to avoid flooding the
+dnl # postmaster mailbox, postmaster-errors points to /dev/null
+define(`confDOUBLE_BOUNCE_ADDRESS', `postmaster-errors')
+define(`confCOPY_ERRORS_TO', `postmaster-errors')
 
 dnl # RedHat specific
 define(`confDEF_USER_ID',``8:12'')
@@ -39,6 +43,15 @@ FEATURE(`access_db')
 FEATURE(`blacklist_recipients')
 FEATURE(mailertable,hash /etc/mail/mailertable.db)
 
+dnl # RBL
+dnl # To use multiple rbl's, you *must* apply mrbl.p3 to the original
+dnl # sendmail-cf files in /usr/lib/sendmail-cf
+dnl # See also http://www.sendmail.org/~ca/email/chk-89n.html
+FEATURE(rbl, `rbl.maps.vix.com', `Rejected - see http://www.mail-abuse.org/rbl/')
+FEATURE(rbl, `dul.maps.vix.com', `Dialup - see http://www.mail-abuse.org/dul/')
+FEATURE(rbl, `relays.mail-abuse.org', `Open spam relay - see http://www.mail-abuse.org/rss')
+
+
 MAILER(procmail)
 MAILER(smtp)
 MAILER(ftn)
@@ -55,6 +68,7 @@ Cwmorannon.fido.de morannon
 Cwwww.fido.de www
 Cwftp.fido.de ftp
 Cwgate.fido.de gate
+Cwm-j-s.net
 
 LOCAL_CONFIG
 # More trusted users

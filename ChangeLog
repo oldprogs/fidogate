@@ -1,4 +1,61 @@
+1999-11-21  Martin Junius  <mj@fido.de>
+
+	======= Release 4.3.6 ================================================
+	------- CVS tag R436 -------------------------------------------------
+	------- CVS ci -------------------------------------------------------
+
+	* examples/README: updated.
+
+	* fidogate.lsm: updated.
+
+	* ANNOUNCE: updated.
+
+	* scripts/maintenance/logcheck.pl: some clean-ups, now logs
+	  separately mail-abuse.org RBL, DUL, RSS rejects.
+
+	* scripts/Makefile (install): "make install" now recurses into
+	  subdirs. 
+
+	* scripts/run/Makefile: standard "make install" installs nothing,
+	  "make install-point" installs standard runpoll, "make
+	  install-orodruin" the special runpoll/runpolli for orodruin.
+
+	* sendmail/cf/: updated some example files.
+
+	* examples/nevyn/: removed.
+
+	* examples/morannon/: updated example files.
+
+	* examples/orodruin/: updated example files.
+
+1999-11-09  Martin Junius  <mj@fido.de>
+
+	* scripts/maintenance/logcheck.pl: always show relay for RBL
+	  reject summary.
+
+1999-11-07  Martin Junius  <mj@fido.de>
+
+	* scripts/www/gate.cgi.pl: changed to NEWSPOOLDIR/outgoing,
+	  removed <SPOOLDIR>.
+
+1999-10-20  Martin Junius  <mj@fido.de>
+
+	* scripts/maintenance/logcheck.pl: added processing of RBL rejects.
+
+	* sendmail/cf/mrbl.p3: sendmail config file patch required for new 
+	  RBL settings in redhat6-morannon.mc
+
+	* sendmail/cf/redhat6-morannon.mc: added RBL feature, see
+	  http://www.mail-abuse.org/ 
+
+1999-10-18  Martin Junius  <mj@fido.de>
+
+	* scripts/maintenance/logcheck.pl: check for "ruleset=check_xxx".
+
 1999-10-17  Martin Junius  <mj@fido.de>
+
+	* sendmail/cf/redhat6-morannon.mc: error messages will be send to
+	  postmaster-errors.
 
 	------- CVS ci -------------------------------------------------------
 

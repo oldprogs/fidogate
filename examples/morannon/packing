@@ -11,9 +11,9 @@
 #     fpack  NAME  TARGET NODES
 #
 
-arc     zip     "/usr/local/bin/zip -9gkjq %s %s"
-arc     arc     "/usr/local/bin/arc an %s %s"
-#arc	lha	"/usr/bin/lha -aiq %s %s"
+arc     zip     "/usr/bin/zip -9gkjq %s %s"
+arc     arc     "/usr/bin/arc an %s %s"
+arc	lha	"/usr/bin/lha -aiq %s %s"
 
 prog    gate    "/usr/local/lib/fidonet/ftn2rfc %s"
 
@@ -22,25 +22,22 @@ prog    gate    "/usr/local/lib/fidonet/ftn2rfc %s"
 
 pack    noarc   2:2452/110.1 242:4900/99
 pack    noarc   242:9999/9999
-##so
+
 pack	noarc	124:1249/9999.1
 
 pack	noarc	2:2/242 242:242/2
 
-pack	noarc	242:1000/4
-
 fpack	zip	2:2452/108 242:1000/7
 fpack	zip	2:2452/121
-fpack	zip	2:2452/151 242:3001/0 51
-fpack	zip	2:2452/180 2:2452/0
+fpack	zip	2:2452/250 2:2452/0
 
-rpack   zip     2:2452/110.7 2:2452/110.999 242:1000/1.7 49:305/1.200
-fpack	zip	2:2452/110.348 242:1000/1.348
+rpack   zip     2:2452/110.7 242:1000/1.7 44:4932/605.7
+fpack	zip	2:2452/110.4 242:1000/1.4 44:4932/605.4
+fpack	zip	2:2452/110.18 242:1000/1.18 44:4932/605.18
+fpack	zip	2:2452/110.21 242:1000/1.21 44:4932/605.21
+fpack	zip	2:2452/110.31 242:1000/1.31 44:4932/605.31
+fpack	zip	2:2452/110.348 242:1000/1.348 44:4932/605.348
 
-pack	noarc	2:49/15
+fpack	zip	2:249/6010 242:8000/5
 
 pack    zip     *
-
-
-
-

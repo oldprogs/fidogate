@@ -1,10 +1,10 @@
 X-Emacs-Mode: -*- indented-text -*-
-Subject: FIDOGATE 4.3.5 --- Fido-Internet Gateway and Tosser
+Subject: FIDOGATE 4.3.6 --- Fido-Internet Gateway and Tosser
 Keywords: fido ftn netmail echomail tosser areafix mail news gateway
 Followup-To: comp.os.linux.misc
 
   =================================================================
-  FIDOGATE 4.3.5, a development version of the new FIDOGATE release
+  FIDOGATE 4.3.6, a development version of the new FIDOGATE release
   =================================================================
 
 			   FIDOGATE Version 4
@@ -29,14 +29,14 @@ Followup-To: comp.os.linux.misc
     (probably still in .../pub/Linux/Incoming)
 ...]
 
-    fidogate-4.3.5.tar.gz	1250 Kbyte
+    fidogate-4.3.6.tar.gz	1250 Kbyte
 
   Fido File Request:
   ==================
     2:2452/110, 111  +49-241-876604  (V.34, ISDN V.110/X.75)
     
     Magic FIDOGATE or
-    fgate435.tgz		1250 Kbyte
+    fgate436.tgz		1250 Kbyte
 
 
 ======================================================================
@@ -49,6 +49,19 @@ Up-to-date example configurations:
 * examples/node/      (new and incomplete)
 
 ======================================================================
+
+Changes in 4.3.6:
+
+* Updates to various scripts.
+
+* Interface to INN and Sendmail updated for RedHat 6.x.
+
+* ftn2rfc: new config option MessageLineLength for formatting long
+  lines from Fido messages.
+
+* Examples updated.
+
+
 
 Changes in 4.3.5:
 
@@ -241,6 +254,6 @@ Needed:
 
 ======================================================================
 
-$Date: 1999/10/04 08:18:10 $
+$Date: 1999/11/21 17:25:28 $
 Martin Junius
 mailto:mj@fido.de

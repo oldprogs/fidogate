@@ -1,15 +1,11 @@
 -*- Indented-Text -*-
 
-$Id: README,v 1.5 1998/02/25 09:15:20 mj Exp $
+$Id: README,v 1.6 1999/11/21 17:25:29 mj Exp $
 
 
-WARNING!!!
-Only the stuff in orodruin/ and abis.abra.de/ is up-to-date for
-version 4.3!!!
-
-
-This directory contains example configurations, using the FIDOGATE
+This directory contains example configurations for using the FIDOGATE
 gateway and tosser:
+
 
 morannon/	morannon.fido.de, 2:2452/110, 242:1000/1
 		node configuration for main Fido.DE gateway
@@ -17,11 +13,11 @@ morannon/	morannon.fido.de, 2:2452/110, 242:1000/1
 orodruin/	orodruin.fido.de, 2:2452/110.2, 242:1000/5
 		point configuration
 
-abis.abra.de/	Example configurations provided by
-namib.north.de/	Andreas Braukmann <andy@Abra.DE> in his fgatecfg.tgz
-		package. See README.fgate in the sub-directories.
-
 win32/		Configuration examples for GNU-WIN32 environment.
+
+point/		examples for "standard" Fido point configuration.
+
+node/		examples for "standard" Fido node configuration.
 
 
 See also the sendmail configuration files in ../sendmail/cf/.

@@ -1,6 +1,6 @@
 #:ts=8
 #
-#    $Id: Makefile,v 4.6 1999/04/03 13:28:58 mj Exp $
+#    $Id: Makefile,v 4.7 1999/11/21 17:25:32 mj Exp $
 #
 #    Makefile for FIDOGATE scripts/
 #
@@ -19,12 +19,8 @@ include $(TOPDIR)/rules.make
 SUBDIRS		= cnews filebase inn maintenance misc nodelist outbound run
 
 
-all clean depend::
+all clean veryclean depend install::
 	for d in $(SUBDIRS); do $(MAKE) -C $$d $@; done 
-
-install::
-	@echo "***** make install NOT done for scripts subdirs *****"
-	@echo "Use make install in the individual subdirs!"
 
 clean veryclean::
 	rm -f *~ *.bak *.o tags TAGS core paths.tmp

@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# $Id: runpoll-binkd.sh,v 4.4 1999/10/04 08:18:17 mj Exp $
+# $Id: runpoll-binkd.sh,v 4.5 1999/11/21 17:25:34 mj Exp $
 #
 # Poll uplink
 #
@@ -31,6 +31,7 @@ set -x
 mail -s "POLL" $DUMMYADDR <<EOF
 POLL
 EOF
+sleep 2
 
 # Batch ffx news
 $NEWS/send-ffx

@@ -11,10 +11,9 @@ $ENV{"CDPATH"} = "";
 
 my @DIRS = (
 	    "<NEWSVARDIR>",
-	    "<NEWSSPOOLDIR>/out.going",
+	    "<NEWSSPOOLDIR>/outgoing",
 	    "<VARDIR>",
 	    "<LOCKDIR>",
-	    "<SPOOLDIR>",
 	    "<SPOOLDIR>/outpkt -R",
 	    "<BTBASEDIR>/in -R",
 	    "<BTBASEDIR>/pin -R",
@@ -137,7 +136,7 @@ for (@DIRS) {
 print
   $q->hr, "\n",
   $q->p, "\n",
-  '<font size=-2>FIDOGATE $Id: gate.cgi.pl,v 1.3 1999/10/17 11:49:29 mj Exp $ <br>',
+  '<font size=-2>FIDOGATE $Id: gate.cgi.pl,v 1.4 1999/11/21 17:25:34 mj Exp $ <br>',
   '&copy; Copyright 1996-1999 ',
   '<a href="mailto:mj@fido.de">Martin Junius</a></font>',
   $q->end_html, "\n";
