@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway software UNIX <-> FIDO
  *
- * $Id: rfc2ftn.c,v 4.6 1996/08/25 10:16:07 mj Exp $
+ * $Id: rfc2ftn.c,v 4.7 1996/08/25 11:25:55 mj Exp $
  *
  * Read mail or news from standard input and convert it to a FIDO packet.
  *
@@ -39,7 +39,7 @@
 
 
 #define PROGRAM 	"rfc2ftn"
-#define VERSION 	"$Revision: 4.6 $"
+#define VERSION 	"$Revision: 4.7 $"
 #define CONFIG		CONFIG_GATE
 
 
@@ -731,7 +731,7 @@ char *mail_sender(RFCAddr *rfc, Node *node)
 
     *name = 0;
     *node = cf_n_addr();
-    ret = rfc_parse(rfc, name, &n)!=ERROR && rfc_isfido();
+    ret = rfc_parse(rfc, name, &n);
     
 #ifdef PASSTHRU_NETMAIL
     /*
@@ -739,11 +739,8 @@ char *mail_sender(RFCAddr *rfc, Node *node)
      * parameter node. This may cause problems when operating different
      * FTNs.
      */
-    if(ret == OK)
-    {
+    if(ret==OK && rfc_isfido())
 	*node = n;
-	debug(5, "              is FTN address %s", znfp(node));
-    }
 #endif /**PASSTHRU_NETMAIL**/
 
     /*

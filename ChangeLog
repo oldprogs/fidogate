@@ -2,6 +2,19 @@ Sun Aug 25 10:59:36 1996  Martin Junius  <mj@fido.de>
 
 	------- CVS commit ---------------------------------------------------
 
+	* config.h (RFC_LVL_1_HEADERS): added "Date". ^ARFC-Date should be
+	  added because the standard FTN date field doesn't transport any
+	  time zone information.
+
+	* src/gate/rfc2ftn.c (mail_sender): check for rfc_isfido().
+	  (mail_sender): removed debug() message.
+	  (mail_sender): removed extra check after rfc_parse().
+
+	* test/tc.gate7/run: new test case for user name conversion,
+	  From/Reply-To, PASSTHRU_NETMAIL.
+
+	------- CVS commit ---------------------------------------------------
+
 	* src/gate/rfc2ftn.c (rfc_parse): reformatted debug() messages.
 	  (rfc_parse): initialize ret=OK.
 	  (mail_sender): check for return code of rfc_parse() == OK.

@@ -1,0 +1,96 @@
+#!/bin/sh
+
+../tr.init
+
+T="../../src/gate/rfc2ftn -L../cf -vvvvvvv -i"
+
+echo "tc: running"
+
+$T test@f123.n2499.z2.fidonet.org <<EOF
+Subject: Test tc.gate7 / 00000001
+From: abc@fido.de
+
+TEST ;-)
+EOF
+
+$T test_user@f123.n2499.z2.fidonet.org <<EOF
+Subject: Test tc.gate7 / 00000002
+From: abc@fido.de
+
+TEST ;-)
+EOF
+
+$T test.user@f123.n2499.z2.fidonet.org <<EOF
+Subject: Test tc.gate7 / 00000003
+From: abc@fido.de
+
+TEST ;-)
+EOF
+
+
+$T test_user@abc.def.org <<EOF
+Subject: Test tc.gate7 / no output
+From: abc@fido.de
+
+TEST ;-)
+EOF
+
+$T test_user@f123.n2499.z2.fidonet.org <<EOF
+Subject: Test tc.gate7 / 00000004
+From: abc@fido.de (Test User)
+
+TEST ;-)
+EOF
+
+$T test_user@f123.n2499.z2.fidonet.org <<EOF
+Subject: Test tc.gate7 / 00000005
+From: abc@fido.de (_Test_ _User_)
+
+TEST ;-)
+EOF
+
+$T test_user@f123.n2499.z2.fidonet.org <<EOF
+Subject: Test tc.gate7 / 00000006
+From: abc@fido.de (Test.User)
+
+TEST ;-)
+EOF
+
+$T test_user@f123.n2499.z2.fidonet.org <<EOF
+Subject: Test tc.gate7 / 00000007
+From: abc@f678.n9999.z242.fido.de (Test User)
+
+TEST ;-)
+EOF
+
+$T test_user@f123.n2499.z2.fidonet.org <<EOF
+Subject: Test tc.gate7 / 00000008
+From: abc@fido.de (Test User)
+Reply-To: abc@f678.n9999.z242.fido.de (Test User)
+
+TEST ;-)
+EOF
+
+$T test_user@f123.n2499.z2.fidonet.org <<EOF
+Subject: Test tc.gate7 / 00000009
+From: abc@fido.de (Test User X)
+Reply-To: test_user@f678.n9999.z242.fido.de
+
+TEST ;-)
+EOF
+
+$T test_user@f123.n2499.z2.fidonet.org <<EOF
+Subject: Test tc.gate7 / 00000010
+From: abc@fido.de (Test User X)
+Reply-To: abc@f678.n9999.z242.fido.de
+
+TEST ;-)
+EOF
+
+$T test_user@f123.n2499.z2.fidonet.org <<EOF
+Subject: Test tc.gate7 / 00000011
+From: abc@f678.n9999.z242.fido.de (Test User X)
+Reply-To: abc@f678.n9999.z242.fido.de
+
+TEST ;-)
+EOF
