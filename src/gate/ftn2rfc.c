@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftn2rfc.c,v 4.40 1998/07/11 21:04:38 mj Exp $
+ * $Id: ftn2rfc.c,v 4.41 1998/07/12 13:12:11 mj Exp $
  *
  * Convert FTN mail packets to RFC mail and news batches
  *
@@ -40,7 +40,7 @@
 
 
 #define PROGRAM 	"ftn2rfc"
-#define VERSION 	"$Revision: 4.40 $"
+#define VERSION 	"$Revision: 4.41 $"
 #define CONFIG		DEFAULT_CONFIG_GATE
 
 
@@ -313,6 +313,7 @@ int unpack(FILE *pkt_file, Packet *pkt)
     char *split_line;
     int cvt8 = 0;			/* AREA_8BIT | AREA_QP */
     char *cs_def, *cs_in, *cs_out;	/* Charset def, in(=FTN), out(=RFC) */
+    char *cs_save;
 
 
     /*
@@ -518,19 +519,36 @@ int unpack(FILE *pkt_file, Packet *pkt)
 	 */
 
 	/* charset input (=FTN message) and output (=RFC message) */
-	cs_in  = NULL;
-	cs_def = area ? /**area->charset_def**/ NULL : netmail_charset_def;
+	cs_save = NULL;
+	cs_def  = NULL;
+	cs_in   = NULL;
+	cs_out  = NULL;
+	
+	if(area)				/* EchoMail -> News */
+	{
+	    if(area->charset)
+	    {
+		cs_save = strsave(area->charset);
+		cs_def  = strtok(cs_save, ":");
+		s       = strtok(NULL, ":");
+		cs_out  = strtok(NULL, ":");
+	    }
+	}
+	else					/* NetMail -> Mail */
+	{
+	    cs_def  = netmail_charset_def;
+	    cs_out  = netmail_charset_out;
+	}
+	/* defaults */
 	if(!cs_def)
 	    cs_def = default_charset_def;
 	if(!cs_def)
 	    cs_def = CHARSET_STDFTN;
-	cs_out = area ? /**area->charset_out**/ NULL : netmail_charset_out;
 	if(!cs_out)
 	    cs_out = default_charset_out;
 	if(cvt8==0 || !cs_out)
 	    cs_out = CHARSET_STD7BIT;
 	
-	lines = 0;
 	if( (p = kludge_get(&body.kludge, "CHRS", NULL)) )
 	    cs_in = charset_chrs_name(p);
 	else if( (p = kludge_get(&body.kludge, "CHARSET", NULL)) )
@@ -539,6 +557,9 @@ int unpack(FILE *pkt_file, Packet *pkt)
 	    cs_in = cs_def;
 	charset_set_in_out(cs_in, cs_out);
 
+	if(cs_save)
+	    xfree(cs_save);
+	
 	/* ^ARFC level and line break flag */
 	rfc_lvl   = 0;
 	rfc_lines = FALSE;
@@ -554,6 +575,7 @@ int unpack(FILE *pkt_file, Packet *pkt)
 		rfc_lines = TRUE;
 	}
 	    
+	lines = 0;
 	for(pl=body.body.first; pl; pl=pl->next)
 	{
 	    p = pl->line;

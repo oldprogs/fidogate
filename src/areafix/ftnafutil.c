@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: ftnafutil.c,v 1.3 1998/04/28 19:02:25 mj Exp $
+ * $Id: ftnafutil.c,v 1.4 1998/07/12 13:12:10 mj Exp $
  *
  * Utility program for Areafix.
  *
@@ -36,7 +36,7 @@
 
 
 #define PROGRAM		"ftnafutil"
-#define VERSION		"$Revision: 1.3 $"
+#define VERSION		"$Revision: 1.4 $"
 #define CONFIG		DEFAULT_CONFIG_MAIN
 
 
@@ -160,7 +160,7 @@ int do_areasbbs(int cmd)
 	    break;
 	    
 	case DO_UNSUBSCRIBE:
-	    if(uplink && n<=0 && !strchr(state, 'U'))
+	    if(uplink && n<=0 && strchr(state, 'S'))
 	    {
 		if(! (pwd = passwd_lookup("uplink", uplink)) )
 		    break;

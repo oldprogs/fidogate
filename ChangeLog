@@ -1,3 +1,17 @@
+Sun Jul 12 13:07:58 1998  Martin Junius  <mj@fido.de>
+
+	------- CVS ci -------------------------------------------------------
+
+	* src/gate/ftn2rfc.c (unpack): implemented processing of
+ 	  area->charset field containing charset mapping for the current
+ 	  area.
+
+	* src/areafix/ftnafutil.c (do_areasbbs): only unsubscribe, if
+	  state contains "S"; areas which should processed by ftnafutil
+	  must either be marked with state "S" or "U".
+
+	* src/charset/russian.map: new charset mapping from ai.
+
 Sat Jul 11 21:58:34 1998  Martin Junius  <mj@fido.de>
 
 	------- CVS ci -------------------------------------------------------

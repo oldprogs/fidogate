@@ -1,18 +1,19 @@
 #
-# $Id: russian.map,v 1.2 1998/07/11 21:04:34 mj Exp $
+# $Id: russian.map,v 1.3 1998/07/12 13:12:11 mj Exp $
 #
 # Character set mapping table (to be compiled by charsetc)
 #
 
 #
-# Russian
+# Russian, contributed by Andy Igoshin <ai@vsu.ru>
 #
-alias	x-cp866		cp866
-alias	x-cp1251	cp1251
-alias	koi8-u		koi8-r
 alias	alt		cp866
 alias	x-alt		cp866
-
+alias	x-cp866		cp866
+alias	koi8-u		koi8-r
+alias	ibm-878		koi8-r
+alias	ibm-915		iso-8859-5
+alias	x-cp1251	cp1251
 
 # ----------------------------------------------------------------------------
 #       Channel map for translation CP866 codes to KOI8-R codes
@@ -67,53 +68,54 @@ map     \xAC    \xCD
 map     \xAD    \xCE
 map     \xAE    \xCF
 map     \xAF    \xD0
-map     \xB0    \x80
-map     \xB1    \x81
-map     \xB2    \x82
-map     \xB3    \x83
-map     \xB4    \x84
-map     \xB5    \x85
-map     \xB6    \x86
-map     \xB7    \x87
-map     \xB8    \x88
-map     \xB9    \x89
-map     \xBB    \x8B
-map     \xBC    \x8C
-map     \xBD    \x8D
-map     \xBE    \x8E
-map     \xBF    \x8F
-map     \xC0    \x90
-map     \xC1    \x91
-map     \xC2    \x92
-map     \xC3    \x93
-map     \xC4    \x94
-map     \xC5    \x95
-map     \xC6    \x96
-map     \xC7    \x97
-map     \xC8    \x98
-map     \xC9    \x99
-map     \xCA    \x9A
-map     \xCB    \xBF
-map     \xCC    \x9C
-map     \xCD    \x9D
-map     \xCE    \x9E
-map     \xCF    \x9F
-map     \xD0    \xB9
-map     \xD1    \xA1
-map     \xD2    \xA2
-map     \xD3    \xB0
-map     \xD4    \xA4
-map     \xD5    \xA5
-map     \xD6    \xA6
-map     \xD7    \xA7
-map     \xD8    \xA8
-map     \xD9    \xA9
-map     \xDA    \xAA
-map     \xDB    \xAB
-map     \xDC    \xAC
-map     \xDD    \xAD
-map     \xDE    \xAE
-map     \xDF    \xAF
+map     \xB0    \x90
+map     \xB1    \x91
+map     \xB2    \x92
+map     \xB3    \x81
+map     \xB4    \x87
+map     \xB5    \xB2
+map     \xB6    \xB4
+map     \xB7    \xA7
+map     \xB8    \xA6
+map     \xB9    \xB5
+map     \xBA    \xA1
+map     \xBB    \xA8
+map     \xBC    \xAE
+map     \xBD    \xAD
+map     \xBE    \xAC
+map     \xBF    \x83
+map     \xC0    \x84
+map     \xC1    \x89
+map     \xC2    \x88
+map     \xC3    \x86
+map     \xC4    \x80
+map     \xC5    \x8A
+map     \xC6    \xAF
+map     \xC7    \xB0
+map     \xC8    \xAB
+map     \xC9    \xA5
+map     \xCA    \xBB
+map     \xCB    \xB8
+map     \xCC    \xB1
+map     \xCD    \xA0
+map     \xCE    \xBE
+map     \xCF    \xB9
+map     \xD0    \xBA
+map     \xD1    \xB6
+map     \xD2    \xB7
+map     \xD3    \xAA
+map     \xD4    \xA9
+map     \xD5    \xA2
+map     \xD6    \xA4
+map     \xD7    \xBD
+map     \xD8    \xBC
+map     \xD9    \x85
+map     \xDA    \x82
+map     \xDB    \x8D
+map     \xDC    \x8C
+map     \xDD    \x8E
+map     \xDE    \x8F
+map     \xDF    \x8B
 map     \xE0    \xD2
 map     \xE1    \xD3
 map     \xE2    \xD4
@@ -132,20 +134,20 @@ map     \xEE    \xC0
 map     \xEF    \xD1
 map     \xF0    \xB3
 map     \xF1    \xA3
-map     \xF2    \xB2
-map     \xF3    \xB1
-map     \xF4    \xB4
-map     \xF5    \xB5
-map     \xF6    \xB6
-map     \xF7    \xB7
-map     \xF8    \xB8
-map     \xF9    \xA0
-map     \xFA    \x8A
-map     \xFB    \xBB
-map     \xFC    \xBC
-map     \xFD    \xBD
-map     \xFE    \xBE
-map     \xFF    \x9B
+map     \xF2    \x20    # Undefined for this mapping
+map     \xF3    \x20    # Undefined for this mapping
+map     \xF4    \x20    # Undefined for this mapping
+map     \xF5    \x20    # Undefined for this mapping
+map     \xF6    \x20    # Undefined for this mapping
+map     \xF7    \x20    # Undefined for this mapping
+map     \xF8    \x9C
+map     \xF9    \x95
+map     \xFA    \x9E
+map     \xFB    \x96
+map     \xFC    \x20    # Undefined for this mapping
+map     \xFD    \x20    # Undefined for this mapping
+map     \xFE    \x94
+map     \xFF    \x9A
 
 
 # ----------------------------------------------------------------------------
@@ -155,6 +157,143 @@ map     \xFF    \x9B
 #	latin 'H'.
 #
 table	koi8-r	cp866
+map     \x80    \xC4
+map     \x81    \xB3
+map     \x82    \xDA
+map     \x83    \xBF
+map     \x84    \xC0
+map     \x85    \xD9
+map     \x86    \xC3
+map     \x87    \xB4
+map     \x88    \xC2
+map     \x89    \xC1
+map     \x8A    \xC5
+map     \x8B    \xDF
+map     \x8C    \xDC
+map     \x8D    \xDB
+map     \x8E    \xDD
+map     \x8F    \xDE
+map     \x90    \xB0
+map     \x91    \xB1
+map     \x92    \xB2
+map     \x93    \x20    # Undefined for this mapping
+map     \x94    \xFE
+map     \x95    \xF9
+map     \x96    \xFB
+map     \x97    \x20    # Undefined for this mapping
+map     \x98    \x20    # Undefined for this mapping
+map     \x99    \x20    # Undefined for this mapping
+map     \x9A    \xFF
+map     \x9B    \x20    # Undefined for this mapping
+map     \x9C    \xF8
+map     \x9D    \x20    # Undefined for this mapping
+map     \x9E    \xFA
+map     \x9F    \x20    # Undefined for this mapping
+map     \xA0    \xCD
+map     \xA1    \xBA
+map     \xA2    \xD5
+map     \xA3    \xF1
+map     \xA4    \xD6
+map     \xA5    \xC9
+map     \xA6    \xB8
+map     \xA7    \xB7
+map     \xA8    \xBB
+map     \xA9    \xD4
+map     \xAA    \xD3
+map     \xAB    \xC8
+map     \xAC    \xBE
+map     \xAD    \xBD
+map     \xAE    \xBC
+map     \xAF    \xC6
+map     \xB0    \xC7
+map     \xB1    \xCC
+map     \xB2    \xB5
+map     \xB3    \xF0
+map     \xB4    \xB6
+map     \xB5    \xB9
+map     \xB6    \xD1
+map     \xB7    \xD2
+map     \xB8    \xCB
+map     \xB9    \xCF
+map     \xBA    \xD0
+map     \xBB    \xCA
+map     \xBC    \xD8
+map     \xBD    \xD7
+map     \xBE    \xCE
+map     \xBF    \x20    # Undefined for this mapping
+map     \xC0    \xEE
+map     \xC1    \xA0
+map     \xC2    \xA1
+map     \xC3    \xE6
+map     \xC4    \xA4
+map     \xC5    \xA5
+map     \xC6    \xE4
+map     \xC7    \xA3
+map     \xC8    \xE5
+map     \xC9    \xA8
+map     \xCA    \xA9
+map     \xCB    \xAA
+map     \xCC    \xAB
+map     \xCD    \xAC
+map     \xCE    \xAD
+map     \xCF    \xAE
+map     \xD0    \xAF
+map     \xD1    \xEF
+map     \xD2    \xE0
+map     \xD3    \xE1
+map     \xD4    \xE2
+map     \xD5    \xE3
+map     \xD6    \xA6
+map     \xD7    \xA2
+map     \xD8    \xEC
+map     \xD9    \xEB
+map     \xDA    \xA7
+map     \xDB    \xE8
+map     \xDC    \xED
+map     \xDD    \xE9
+map     \xDE    \xE7
+map     \xDF    \xEA
+map     \xE0    \x9E
+map     \xE1    \x80
+map     \xE2    \x81
+map     \xE3    \x96
+map     \xE4    \x84
+map     \xE5    \x85
+map     \xE6    \x94
+map     \xE7    \x83
+map     \xE8    \x95
+map     \xE9    \x88
+map     \xEA    \x89
+map     \xEB    \x8A
+map     \xEC    \x8B
+map     \xED    \x8C
+#map     \xEE    \x8D
+map     \xEE    \x48    # Changed for Fidonet \x8D    # N
+map     \xEF    \x8E
+map     \xF0    \x8F
+map     \xF1    \x9F
+map     \xF2    \x90
+map     \xF3    \x91
+map     \xF4    \x92
+map     \xF5    \x93
+map     \xF6    \x86
+map     \xF7    \x82
+map     \xF8    \x9C
+map     \xF9    \x9B
+map     \xFA    \x87
+map     \xFB    \x98
+map     \xFC    \x9D
+map     \xFD    \x99
+map     \xFE    \x97
+map     \xFF    \x9A
+
+
+
+# ----------------------------------------------------------------------------
+#       Channel map for translation CP866 codes to ISO-8859-5 codes
+#	(Russian language)
+#
+table	cp866	iso-8859-5
 map     \x80    \xB0
 map     \x81    \xB1
 map     \x82    \xB2
@@ -165,7 +304,7 @@ map     \x86    \xB6
 map     \x87    \xB7
 map     \x88    \xB8
 map     \x89    \xB9
-map     \x8A    \xFA
+map     \x8A    \xBA
 map     \x8B    \xBB
 map     \x8C    \xBC
 map     \x8D    \xBD
@@ -182,7 +321,7 @@ map     \x97    \xC7
 map     \x98    \xC8
 map     \x99    \xC9
 map     \x9A    \xCA
-map     \x9B    \xFF    # High-bit Escape to Rubout
+map     \x9B    \xCB
 map     \x9C    \xCC
 map     \x9D    \xCD
 map     \x9E    \xCE
@@ -190,7 +329,7 @@ map     \x9F    \xCF
 map     \xA0    \xD0
 map     \xA1    \xD1
 map     \xA2    \xD2
-map     \xA3    \xF1    # yo
+map     \xA3    \xD3
 map     \xA4    \xD4
 map     \xA5    \xD5
 map     \xA6    \xD6
@@ -203,141 +342,143 @@ map     \xAC    \xDC
 map     \xAD    \xDD
 map     \xAE    \xDE
 map     \xAF    \xDF
-map     \xB0    \xD3    # Changed, because yo
-map     \xB1    \xF3    #
-map     \xB2    \xF2
-map     \xB3    \xF0    # YO
-map     \xB4    \xF4
-map     \xB5    \xF5
-map     \xB6    \xF6
-map     \xB7    \xF7
-map     \xB8    \xF8
-map     \xB9    \xD0
-#map    \xBA    \xFA
-map     \xBB    \xFB
-map     \xBC    \xFC
-map     \xBD    \xFD
-map     \xBE    \xFE
-map     \xBF    \xCB    #
-map     \xC0    \xEE    # yu
-map     \xC1    \xA0    # a
-map     \xC2    \xA1    # b
-map     \xC3    \xE6    # c
-map     \xC4    \xA4    # d
-map     \xC5    \xA5    # e
-map     \xC6    \xE4    # f
-map     \xC7    \xA3    # g
-map     \xC8    \xE5    # h
-map     \xC9    \xA8    # i
-map     \xCA    \xA9    # iy
-map     \xCB    \xAA    # k
-map     \xCC    \xAB    # l
-map     \xCD    \xAC    # m
-map     \xCE    \xAD    # n
-map     \xCF    \xAE    # o
-map     \xD0    \xAF    # p
-map     \xD1    \xEF    # ya
-map     \xD2    \xE0    # r
-map     \xD3    \xE1    # s
-map     \xD4    \xE2    # t
-map     \xD5    \xE3    # u
-map     \xD6    \xA6    # zh
-map     \xD7    \xA2    # v
-map     \xD8    \xEC    # m znak
-map     \xD9    \xEB    # y
-map     \xDA    \xA7    # z
-map     \xDB    \xE8    # sh
-map     \xDC    \xED    # ae
-map     \xDD    \xE9    # sch
-map     \xDE    \xE7    # ch
-map     \xDF    \xEA    # t znak
-map     \xE0    \x9E    # YU
-map     \xE1    \x80    # A
-map     \xE2    \x81    # B
-map     \xE3    \x96    # C
-map     \xE4    \x84    # D
-map     \xE5    \x85    # E
-map     \xE6    \x94    # F
-map     \xE7    \x83    # G
-map     \xE8    \x95    # H
-map     \xE9    \x88    # I
-map     \xEA    \x89    # IY
-map     \xEB    \x8A    # K
-map     \xEC    \x8B    # L
-map     \xED    \x8C    # M
-map     \xEE    \x48    #  changed for Fidonet \x8D    # N
-map     \xEF    \x8E    # O
-map     \xF0    \x8F    # P
-map     \xF1    \x9F    # YA
-map     \xF2    \x90    # R
-map     \xF3    \x91    # S
-map     \xF4    \x92    # T
-map     \xF5    \x93    # U
-map     \xF6    \x86    # ZH
-map     \xF7    \x82    # V
-map     \xF8    \x9C    # M znak
-map     \xF9    \x9B    # Y
-map     \xFA    \x87    # Z
-map     \xFB    \x98    # SH
-map     \xFC    \x9D    # AE
-map     \xFD    \x99    # SCH
-map     \xFE    \x97    # CH
-map     \xFF    \x9A    # T znak
+map     \xB0    \x20    # Undefined for this mapping
+map     \xB1    \x20    # Undefined for this mapping
+map     \xB2    \x20    # Undefined for this mapping
+map     \xB3    \x20    # Undefined for this mapping
+map     \xB4    \x20    # Undefined for this mapping
+map     \xB5    \x20    # Undefined for this mapping
+map     \xB6    \x20    # Undefined for this mapping
+map     \xB7    \x20    # Undefined for this mapping
+map     \xB8    \x20    # Undefined for this mapping
+map     \xB9    \x20    # Undefined for this mapping
+map     \xBA    \x20    # Undefined for this mapping
+map     \xBB    \x20    # Undefined for this mapping
+map     \xBC    \x20    # Undefined for this mapping
+map     \xBD    \x20    # Undefined for this mapping
+map     \xBE    \x20    # Undefined for this mapping
+map     \xBF    \x20    # Undefined for this mapping
+map     \xC0    \x20    # Undefined for this mapping
+map     \xC1    \x20    # Undefined for this mapping
+map     \xC2    \x20    # Undefined for this mapping
+map     \xC3    \x20    # Undefined for this mapping
+map     \xC4    \x20    # Undefined for this mapping
+map     \xC5    \x20    # Undefined for this mapping
+map     \xC6    \x20    # Undefined for this mapping
+map     \xC7    \x20    # Undefined for this mapping
+map     \xC8    \x20    # Undefined for this mapping
+map     \xC9    \x20    # Undefined for this mapping
+map     \xCA    \x20    # Undefined for this mapping
+map     \xCB    \x20    # Undefined for this mapping
+map     \xCC    \x20    # Undefined for this mapping
+map     \xCD    \x20    # Undefined for this mapping
+map     \xCE    \x20    # Undefined for this mapping
+map     \xCF    \x20    # Undefined for this mapping
+map     \xD0    \x20    # Undefined for this mapping
+map     \xD1    \x20    # Undefined for this mapping
+map     \xD2    \x20    # Undefined for this mapping
+map     \xD3    \x20    # Undefined for this mapping
+map     \xD4    \x20    # Undefined for this mapping
+map     \xD5    \x20    # Undefined for this mapping
+map     \xD6    \x20    # Undefined for this mapping
+map     \xD7    \x20    # Undefined for this mapping
+map     \xD8    \x20    # Undefined for this mapping
+map     \xD9    \x20    # Undefined for this mapping
+map     \xDA    \x20    # Undefined for this mapping
+map     \xDB    \x20    # Undefined for this mapping
+map     \xDC    \x20    # Undefined for this mapping
+map     \xDD    \x20    # Undefined for this mapping
+map     \xDE    \x20    # Undefined for this mapping
+map     \xDF    \x20    # Undefined for this mapping
+map     \xE0    \xE0
+map     \xE1    \xE1
+map     \xE2    \xE2
+map     \xE3    \xE3
+map     \xE4    \xE4
+map     \xE5    \xE5
+map     \xE6    \xE6
+map     \xE7    \xE7
+map     \xE8    \xE8
+map     \xE9    \xE9
+map     \xEA    \xEA
+map     \xEB    \xEB
+map     \xEC    \xEC
+map     \xED    \xED
+map     \xEE    \xEE
+map     \xEF    \xEF
+map     \xF0    \xA1
+map     \xF1    \xF1
+map     \xF2    \xA4
+map     \xF3    \xF4
+map     \xF4    \xA7
+map     \xF5    \xF7
+map     \xF6    \xAE
+map     \xF7    \xFE
+map     \xF8    \x20    # Undefined for this mapping
+map     \xF9    \x20    # Undefined for this mapping
+map     \xFA    \x20    # Undefined for this mapping
+map     \xFB    \x20    # Undefined for this mapping
+map     \xFC    \xF0
+map     \xFD    \x20    # Undefined for this mapping
+map     \xFE    \x20    # Undefined for this mapping
+map     \xFF    \xA0
 
 
 # ----------------------------------------------------------------------------
-#       Channel map for translation CP866 codes to ISO-8859-5 codes
+#       Channel map for translation ISO-8859-5 codes to CP866 codes
 #	(Russian language)
+#	Due to fidonet wieredness, capital Russian EN translates to 
+#	latin 'H'.
 #
-table	cp866	iso-8859-5
-map     \x80    \xF4
-map     \x81    \xC3
-map     \x82    \xF0
-map     \x83    \xF6
-map     \x84    \xF1
-map     \x85    \xF5
-map     \x86    \xF3
-map     \x87    \xF2
-map     \x88    \xB0
-map     \x89    \xB1
-map     \x8A    \xB2
-map     \x8B    \xB3
-map     \x8C    \xB4
-map     \x8D    \xB5
-map     \x8E    \xB6
-map     \x8F    \xB7
-map     \x90    \xB8
-map     \x91    \xB9
-map     \x92    \xBA
-map     \x93    \xBB
-map     \x94    \xBC
-map     \x95    \xBD
-map     \x96    \xBE
-map     \x97    \xBF
-map     \x98    \xC0
-map     \x99    \xC1
-map     \x9A    \xC2
-map     \x9B    \xF7
-map     \x9C    \xC4
-map     \x9D    \xC5
-map     \x9E    \xC6
-map     \x9F    \xC7
-map     \xA0    \xC8
-map     \xA1    \xC9
-map     \xA2    \xCA
-map     \xA3    \xCB
-map     \xA4    \xCC
-map     \xA5    \xCD
-map     \xA6    \xCE
-map     \xA7    \xCF
-map     \xA8    \xD0
-map     \xA9    \xD1
-map     \xAA    \xD2
-map     \xAB    \xD3
-map     \xAC    \xD4
-map     \xAD    \xD5
-map     \xAE    \xD6
-map     \xAF    \xD7
+table	iso-8859-5	cp866
+map     \x80    \x20    # Undefined for this mapping
+map     \x81    \x20    # Undefined for this mapping
+map     \x82    \x20    # Undefined for this mapping
+map     \x83    \x20    # Undefined for this mapping
+map     \x84    \x20    # Undefined for this mapping
+map     \x85    \x20    # Undefined for this mapping
+map     \x86    \x20    # Undefined for this mapping
+map     \x87    \x20    # Undefined for this mapping
+map     \x88    \x20    # Undefined for this mapping
+map     \x89    \x20    # Undefined for this mapping
+map     \x8A    \x20    # Undefined for this mapping
+map     \x8B    \x20    # Undefined for this mapping
+map     \x8C    \x20    # Undefined for this mapping
+map     \x8D    \x20    # Undefined for this mapping
+map     \x8E    \x20    # Undefined for this mapping
+map     \x8F    \x20    # Undefined for this mapping
+map     \x90    \x20    # Undefined for this mapping
+map     \x91    \x20    # Undefined for this mapping
+map     \x92    \x20    # Undefined for this mapping
+map     \x93    \x20    # Undefined for this mapping
+map     \x94    \x20    # Undefined for this mapping
+map     \x95    \x20    # Undefined for this mapping
+map     \x96    \x20    # Undefined for this mapping
+map     \x97    \x20    # Undefined for this mapping
+map     \x98    \x20    # Undefined for this mapping
+map     \x99    \x20    # Undefined for this mapping
+map     \x9A    \x20    # Undefined for this mapping
+map     \x9B    \x20    # Undefined for this mapping
+map     \x9C    \x20    # Undefined for this mapping
+map     \x9D    \x20    # Undefined for this mapping
+map     \x9E    \x20    # Undefined for this mapping
+map     \x9F    \x20    # Undefined for this mapping
+map     \xA0    \xFF
+map     \xA1    \xF0
+map     \xA2    \x20    # Undefined for this mapping
+map     \xA3    \x20    # Undefined for this mapping
+map     \xA4    \xF2
+map     \xA5    \x20    # Undefined for this mapping
+map     \xA6    \x20    # Undefined for this mapping
+map     \xA7    \xF4
+map     \xA8    \x20    # Undefined for this mapping
+map     \xA9    \x20    # Undefined for this mapping
+map     \xAA    \x20    # Undefined for this mapping
+map     \xAB    \x20    # Undefined for this mapping
+map     \xAC    \x20    # Undefined for this mapping
+map     \xAD    \x20    # Undefined for this mapping
+map     \xAE    \xF6
+map     \xAF    \x20    # Undefined for this mapping
 map     \xB0    \x80
 map     \xB1    \x81
 map     \xB2    \x82
@@ -351,7 +492,8 @@ map     \xB9    \x89
 map     \xBA    \x8A
 map     \xBB    \x8B
 map     \xBC    \x8C
-map     \xBD    \x8D
+#map     \xBD    \x8D
+map     \xBD    \x48    # Changed for Fidonet \x8D    # N
 map     \xBE    \x8E
 map     \xBF    \x8F
 map     \xC0    \x90
@@ -402,159 +544,22 @@ map     \xEC    \xEC
 map     \xED    \xED
 map     \xEE    \xEE
 map     \xEF    \xEF
-map     \xF0    \xD8
-map     \xF1    \xD9
-map     \xF2    \xDA
-map     \xF3    \xDB
-map     \xF4    \xDC
-map     \xF5    \xDD
-map     \xF6    \xDE
-map     \xF7    \xDF
-map     \xF8    \xF8
-map     \xF9    \xF9
-map     \xFA    \xFA
-map     \xFB    \xFB
-map     \xFC    \xFC
-map     \xFD    \xFD
-map     \xFE    \xFE
-map     \xFF    \xFF
-
-
-# ----------------------------------------------------------------------------
-#       Channel map for translation ISO-8859-5 codes to CP866 codes
-#	(Russian language)
-#	Due to fidonet wieredness, capital Russian EN translates to 
-#	latin 'H'.
-#
-table	iso-8859-5	cp866
-map     \x80    \xB0
-map     \x81    \xB1
-map     \x82    \xB2
-map     \x83    \xB3
-map     \x84    \xB4
-map     \x85    \xB5
-map     \x86    \xB6
-map     \x87    \xB7
-map     \x88    \xB8
-map     \x89    \xB9
-map     \x8A    \xBA
-map     \x8B    \xBB
-map     \x8C    \xBC
-map     \x8D    \xBD
-map     \x8E    \xBE
-map     \x8F    \xBF
-map     \x90    \xC0
-map     \x91    \xC1
-map     \x92    \xC2
-map     \x93    \xC3
-map     \x94    \xC4
-map     \x95    \xC5
-map     \x96    \xC6
-map     \x97    \xC7
-map     \x98    \xC8
-map     \x99    \xC9
-map     \x9A    \xCA
-map     \x9B    \xCB
-map     \x9C    \xCC
-map     \x9D    \xCD
-map     \x9E    \xCE
-map     \x9F    \xCF
-map     \xA0    \xD0
-map     \xA1    \xD1
-map     \xA2    \xD2
-map     \xA3    \xD3
-map     \xA4    \xD4
-map     \xA5    \xD5
-map     \xA6    \xD6
-map     \xA7    \xD7
-map     \xA8    \xD8
-map     \xA9    \xD9
-map     \xAA    \xDA
-map     \xAB    \xDB
-map     \xAC    \xDC
-map     \xAD    \xDD
-map     \xAE    \xDE
-map     \xAF    \xDF
-map     \xB0    \x88
-map     \xB1    \x89
-map     \xB2    \x8A
-map     \xB3    \x8B
-map     \xB4    \x8C
-map     \xB5    \x48    #  changed for Fidonet \x8D    # N
-map     \xB6    \x8E
-map     \xB7    \x8F
-map     \xB8    \x90
-map     \xB9    \x91
-map     \xBA    \x92
-map     \xBB    \x93
-map     \xBC    \x94
-map     \xBD    \x95
-map     \xBE    \x96
-map     \xBF    \x97
-map     \xC0    \x98
-map     \xC1    \x99
-map     \xC2    \x9A
-map     \xC3    \x81
-map     \xC4    \x9C
-map     \xC5    \x9D
-map     \xC6    \x9E
-map     \xC7    \x9F
-map     \xC8    \xA0
-map     \xC9    \xA1
-map     \xCA    \xA2
-map     \xCB    \xA3
-map     \xCC    \xA4
-map     \xCD    \xA5
-map     \xCE    \xA6
-map     \xCF    \xA7
-map     \xD0    \xA8
-map     \xD1    \xA9
-map     \xD2    \xAA
-map     \xD3    \xAB
-map     \xD4    \xAC
-map     \xD5    \xAD
-map     \xD6    \xAE
-map     \xD7    \xAF
-map     \xD8    \xF0
-map     \xD9    \xF1
-map     \xDA    \xF2
-map     \xDB    \xF3
-map     \xDC    \xF4
-map     \xDD    \xF5
-map     \xDE    \xF6
-map     \xDF    \xF7
-map     \xE0    \xE0
-map     \xE1    \xE1
-map     \xE2    \xE2
-map     \xE3    \xE3
-map     \xE4    \xE4
-map     \xE5    \xE5
-map     \xE6    \xE6
-map     \xE7    \xE7
-map     \xE8    \xE8
-map     \xE9    \xE9
-map     \xEA    \xEA
-map     \xEB    \xEB
-map     \xEC    \xEC
-map     \xED    \xED
-map     \xEE    \xEE
-map     \xEF    \xEF
-map     \xF0    \x82
-map     \xF1    \x84
-map     \xF2    \x87
-map     \xF3    \x86
-map     \xF4    \x80
-map     \xF5    \x85
-map     \xF6    \x83
-map     \xF7    \x9B
-map     \xF8    \xF8
-map     \xF9    \xF9
-map     \xFA    \xFA
-map     \xFB    \xFB
-map     \xFC    \xFC
-map     \xFD    \xFD
-map     \xFE    \xFE
-map     \xFF    \xFF
+map     \xF0    \xFC
+map     \xF1    \xF1
+map     \xF2    \x20    # Undefined for this mapping
+map     \xF3    \x20    # Undefined for this mapping
+map     \xF4    \xF3
+map     \xF5    \x20    # Undefined for this mapping
+map     \xF6    \x20    # Undefined for this mapping
+map     \xF7    \xF5
+map     \xF8    \x20    # Undefined for this mapping
+map     \xF9    \x20    # Undefined for this mapping
+map     \xFA    \x20    # Undefined for this mapping
+map     \xFB    \x20    # Undefined for this mapping
+map     \xFC    \x20    # Undefined for this mapping
+map     \xFD    \x20    # Undefined for this mapping
+map     \xFE    \xF7
+map     \xFF    \x20    # Undefined for this mapping
 
 
 # ----------------------------------------------------------------------------
@@ -562,70 +567,207 @@ map     \xFF    \xFF
 #	(Russian language)
 #
 table	cp866	cp1251
-map     \x80    \xF4
-map     \x81    \xC3
-map     \x82    \xF0
-map     \x83    \xF6
-map     \x84    \xF1
-map     \x85    \xF5
-map     \x86    \xF3
-map     \x87    \xF2
-map     \x88    \xB0
-map     \x89    \xB1
-map     \x8A    \xB2
-map     \x8B    \xB3
-map     \x8C    \xB4
-map     \x8D    \xB5
-map     \x8E    \xB6
-map     \x8F    \xB7
-map     \x90    \xB8
-map     \x91    \xB9
-map     \x92    \xBA
-map     \x93    \xBB
-map     \x94    \xBC
-map     \x95    \xBD
-map     \x96    \xBE
-map     \x97    \xBF
-map     \x98    \xC0
-map     \x99    \xC1
-map     \x9A    \xC2
-map     \x9B    \xF7
-map     \x9C    \xC4
-map     \x9D    \xC5
-map     \x9E    \xC6
-map     \x9F    \xC7
-map     \xA0    \xC8
-map     \xA1    \xC9
-map     \xA2    \xCA
-map     \xA3    \xCB
-map     \xA4    \xCC
-map     \xA5    \xCD
-map     \xA6    \xCE
-map     \xA7    \xCF
-map     \xA8    \xD0
-map     \xA9    \xD1
-map     \xAA    \xD2
-map     \xAB    \xD3
-map     \xAC    \xD4
-map     \xAD    \xD5
-map     \xAE    \xD6
-map     \xAF    \xD7
-map     \xB0    \xD8
-map     \xB1    \xD9
-map     \xB2    \xDA
-map     \xB3    \xDB
-map     \xB4    \xDC
-map     \xB5    \xDD
-map     \xB6    \xDE
-map     \xB7    \xDF
-map     \xB8    \xF8
-map     \xB9    \xF9
-map     \xBA    \xFA
-map     \xBB    \xFB
-map     \xBC    \xFC
-map     \xBD    \xFD
-map     \xBE    \xFE
-map     \xBF    \xFF
+map     \x80    \xC0
+map     \x81    \xC1
+map     \x82    \xC2
+map     \x83    \xC3
+map     \x84    \xC4
+map     \x85    \xC5
+map     \x86    \xC6
+map     \x87    \xC7
+map     \x88    \xC8
+map     \x89    \xC9
+map     \x8A    \xCA
+map     \x8B    \xCB
+map     \x8C    \xCC
+map     \x8D    \xCD
+map     \x8E    \xCE
+map     \x8F    \xCF
+map     \x90    \xD0
+map     \x91    \xD1
+map     \x92    \xD2
+map     \x93    \xD3
+map     \x94    \xD4
+map     \x95    \xD5
+map     \x96    \xD6
+map     \x97    \xD7
+map     \x98    \xD8
+map     \x99    \xD9
+map     \x9A    \xDA
+map     \x9B    \xDB
+map     \x9C    \xDC
+map     \x9D    \xDD
+map     \x9E    \xDE
+map     \x9F    \xDF
+map     \xA0    \xE0
+map     \xA1    \xE1
+map     \xA2    \xE2
+map     \xA3    \xE3
+map     \xA4    \xE4
+map     \xA5    \xE5
+map     \xA6    \xE6
+map     \xA7    \xE7
+map     \xA8    \xE8
+map     \xA9    \xE9
+map     \xAA    \xEA
+map     \xAB    \xEB
+map     \xAC    \xEC
+map     \xAD    \xED
+map     \xAE    \xEE
+map     \xAF    \xEF
+map     \xB0    \x20    # Undefined for this mapping
+map     \xB1    \x20    # Undefined for this mapping
+map     \xB2    \x20    # Undefined for this mapping
+map     \xB3    \x20    # Undefined for this mapping
+map     \xB4    \x20    # Undefined for this mapping
+map     \xB5    \x20    # Undefined for this mapping
+map     \xB6    \x20    # Undefined for this mapping
+map     \xB7    \x20    # Undefined for this mapping
+map     \xB8    \x20    # Undefined for this mapping
+map     \xB9    \x20    # Undefined for this mapping
+map     \xBA    \x20    # Undefined for this mapping
+map     \xBB    \x20    # Undefined for this mapping
+map     \xBC    \x20    # Undefined for this mapping
+map     \xBD    \x20    # Undefined for this mapping
+map     \xBE    \x20    # Undefined for this mapping
+map     \xBF    \x20    # Undefined for this mapping
+map     \xC0    \x20    # Undefined for this mapping
+map     \xC1    \x20    # Undefined for this mapping
+map     \xC2    \x20    # Undefined for this mapping
+map     \xC3    \x20    # Undefined for this mapping
+map     \xC4    \x20    # Undefined for this mapping
+map     \xC5    \x20    # Undefined for this mapping
+map     \xC6    \x20    # Undefined for this mapping
+map     \xC7    \x20    # Undefined for this mapping
+map     \xC8    \x20    # Undefined for this mapping
+map     \xC9    \x20    # Undefined for this mapping
+map     \xCA    \x20    # Undefined for this mapping
+map     \xCB    \x20    # Undefined for this mapping
+map     \xCC    \x20    # Undefined for this mapping
+map     \xCD    \x20    # Undefined for this mapping
+map     \xCE    \x20    # Undefined for this mapping
+map     \xCF    \x20    # Undefined for this mapping
+map     \xD0    \x20    # Undefined for this mapping
+map     \xD1    \x20    # Undefined for this mapping
+map     \xD2    \x20    # Undefined for this mapping
+map     \xD3    \x20    # Undefined for this mapping
+map     \xD4    \x20    # Undefined for this mapping
+map     \xD5    \x20    # Undefined for this mapping
+map     \xD6    \x20    # Undefined for this mapping
+map     \xD7    \x20    # Undefined for this mapping
+map     \xD8    \x20    # Undefined for this mapping
+map     \xD9    \x20    # Undefined for this mapping
+map     \xDA    \x20    # Undefined for this mapping
+map     \xDB    \x20    # Undefined for this mapping
+map     \xDC    \x20    # Undefined for this mapping
+map     \xDD    \x20    # Undefined for this mapping
+map     \xDE    \x20    # Undefined for this mapping
+map     \xDF    \x20    # Undefined for this mapping
+map     \xE0    \xF0
+map     \xE1    \xF1
+map     \xE2    \xF2
+map     \xE3    \xF3
+map     \xE4    \xF4
+map     \xE5    \xF5
+map     \xE6    \xF6
+map     \xE7    \xF7
+map     \xE8    \xF8
+map     \xE9    \xF9
+map     \xEA    \xFA
+map     \xEB    \xFB
+map     \xEC    \xFC
+map     \xED    \xFD
+map     \xEE    \xFE
+map     \xEF    \xFF
+map     \xF0    \xA8
+map     \xF1    \xB8
+map     \xF2    \xAA
+map     \xF3    \xBA
+map     \xF4    \xAF
+map     \xF5    \xBF
+map     \xF6    \xA1
+map     \xF7    \xA2
+map     \xF8    \xB0
+map     \xF9    \x20    # Undefined for this mapping
+map     \xFA    \xB7
+map     \xFB    \x20    # Undefined for this mapping
+map     \xFC    \xB9
+map     \xFD    \xA4
+map     \xFE    \x20    # Undefined for this mapping
+map     \xFF    \xA0
+
+
+# ----------------------------------------------------------------------------
+#       Channel map for translation CP1251 codes to CP866 codes
+#	(Russian language)
+#	Due to fidonet wieredness, capital Russian EN translates to 
+#	latin 'H'.
+#
+table	cp1251	cp866
+map     \x80    \x20    # Undefined for this mapping
+map     \x81    \x20    # Undefined for this mapping
+map     \x82    \x20    # Undefined for this mapping
+map     \x83    \x20    # Undefined for this mapping
+map     \x84    \x20    # Undefined for this mapping
+map     \x85    \x20    # Undefined for this mapping
+map     \x86    \x20    # Undefined for this mapping
+map     \x87    \x20    # Undefined for this mapping
+map     \x88    \x20    # Undefined for this mapping
+map     \x89    \x20    # Undefined for this mapping
+map     \x8A    \x20    # Undefined for this mapping
+map     \x8B    \x20    # Undefined for this mapping
+map     \x8C    \x20    # Undefined for this mapping
+map     \x8D    \x20    # Undefined for this mapping
+map     \x8E    \x20    # Undefined for this mapping
+map     \x8F    \x20    # Undefined for this mapping
+map     \x90    \x20    # Undefined for this mapping
+map     \x91    \x20    # Undefined for this mapping
+map     \x92    \x20    # Undefined for this mapping
+map     \x93    \x20    # Undefined for this mapping
+map     \x94    \x20    # Undefined for this mapping
+map     \x95    \x20    # Undefined for this mapping
+map     \x96    \x20    # Undefined for this mapping
+map     \x97    \x20    # Undefined for this mapping
+map     \x98    \x20    # Undefined for this mapping
+map     \x99    \x20    # Undefined for this mapping
+map     \x9A    \x20    # Undefined for this mapping
+map     \x9B    \x20    # Undefined for this mapping
+map     \x9C    \x20    # Undefined for this mapping
+map     \x9D    \x20    # Undefined for this mapping
+map     \x9E    \x20    # Undefined for this mapping
+map     \x9F    \x20    # Undefined for this mapping
+map     \xA0    \xFF
+map     \xA1    \xF6
+map     \xA2    \xF7
+map     \xA3    \x20    # Undefined for this mapping
+map     \xA4    \xFD
+map     \xA5    \x20    # Undefined for this mapping
+map     \xA6    \x20    # Undefined for this mapping
+map     \xA7    \x20    # Undefined for this mapping
+map     \xA8    \xF0
+map     \xA9    \x20    # Undefined for this mapping
+map     \xAA    \xF2
+map     \xAB    \x20    # Undefined for this mapping
+map     \xAC    \x20    # Undefined for this mapping
+map     \xAD    \x20    # Undefined for this mapping
+map     \xAE    \x20    # Undefined for this mapping
+map     \xAF    \xF4
+map     \xB0    \xF8
+map     \xB1    \x20    # Undefined for this mapping
+map     \xB2    \x20    # Undefined for this mapping
+map     \xB3    \x20    # Undefined for this mapping
+map     \xB4    \x20    # Undefined for this mapping
+map     \xB5    \x20    # Undefined for this mapping
+map     \xB6    \x20    # Undefined for this mapping
+map     \xB7    \xFA
+map     \xB8    \xF1
+map     \xB9    \xFC
+map     \xBA    \xF3
+map     \xBB    \x20    # Undefined for this mapping
+map     \xBC    \x20    # Undefined for this mapping
+map     \xBD    \x20    # Undefined for this mapping
+map     \xBE    \x20    # Undefined for this mapping
+map     \xBF    \xF5
 map     \xC0    \x80
 map     \xC1    \x81
 map     \xC2    \x82
@@ -639,7 +781,8 @@ map     \xC9    \x89
 map     \xCA    \x8A
 map     \xCB    \x8B
 map     \xCC    \x8C
-map     \xCD    \x8D
+#map     \xCD    \x8D
+map     \xCD    \x48    # Changed for Fidonet \x8D    # N
 map     \xCE    \x8E
 map     \xCF    \x8F
 map     \xD0    \x90
@@ -693,44 +836,42 @@ map     \xFF    \xEF
 
 
 # ----------------------------------------------------------------------------
-#       Channel map for translation CP1251 codes to CP866 codes
+#       Channel map for translation CP866 codes to MAC codes
 #	(Russian language)
-#	Due to fidonet wieredness, capital Russian EN translates to 
-#	latin 'H'.
 #
-table	cp1251	cp866
-map     \x80    \xC0
-map     \x81    \xC1
-map     \x82    \xC2
-map     \x83    \xC3
-map     \x84    \xC4
-map     \x85    \xC5
-map     \x86    \xC6
-map     \x87    \xC7
-map     \x88    \xC8
-map     \x89    \xC9
-map     \x8A    \xCA
-map     \x8B    \xCB
-map     \x8C    \xCC
-map     \x8D    \xCD
-map     \x8E    \xCE
-map     \x8F    \xCF
-map     \x90    \xD0
-map     \x91    \xD1
-map     \x92    \xD2
-map     \x93    \xD3
-map     \x94    \xD4
-map     \x95    \xD5
-map     \x96    \xD6
-map     \x97    \xD7
-map     \x98    \xD8
-map     \x99    \xD9
-map     \x9A    \xDA
-map     \x9B    \xDB
-map     \x9C    \xDC
-map     \x9D    \xDD
-map     \x9E    \xDE
-map     \x9F    \xDF
+table	cp866	x-mac
+map     \x80    \x80
+map     \x81    \x81
+map     \x82    \x82
+map     \x83    \x83
+map     \x84    \x84
+map     \x85    \x85
+map     \x86    \x86
+map     \x87    \x87
+map     \x88    \x88
+map     \x89    \x89
+map     \x8A    \x8A
+map     \x8B    \x8B
+map     \x8C    \x8C
+map     \x8D    \x8D
+map     \x8E    \x8E
+map     \x8F    \x8F
+map     \x90    \x90
+map     \x91    \x91
+map     \x92    \x92
+map     \x93    \x93
+map     \x94    \x94
+map     \x95    \x95
+map     \x96    \x96
+map     \x97    \x97
+map     \x98    \x98
+map     \x99    \x99
+map     \x9A    \x9A
+map     \x9B    \x9B
+map     \x9C    \x9C
+map     \x9D    \x9D
+map     \x9E    \x9E
+map     \x9F    \x9F
 map     \xA0    \xE0
 map     \xA1    \xE1
 map     \xA2    \xE2
@@ -747,54 +888,54 @@ map     \xAC    \xEC
 map     \xAD    \xED
 map     \xAE    \xEE
 map     \xAF    \xEF
-map     \xB0    \x88
-map     \xB1    \x89
-map     \xB2    \x8A
-map     \xB3    \x8B
-map     \xB4    \x8C
-map     \xB5    \x48    #  changed for Fidonet \x8D    # N
-map     \xB6    \x8E
-map     \xB7    \x8F
-map     \xB8    \x90
-map     \xB9    \x91
-map     \xBA    \x92
-map     \xBB    \x93
-map     \xBC    \x94
-map     \xBD    \x95
-map     \xBE    \x96
-map     \xBF    \x97
-map     \xC0    \x98
-map     \xC1    \x99
-map     \xC2    \x9A
-map     \xC3    \x81
-map     \xC4    \x9C
-map     \xC5    \x9D
-map     \xC6    \x9E
-map     \xC7    \x9F
-map     \xC8    \xA0
-map     \xC9    \xA1
-map     \xCA    \xA2
-map     \xCB    \xA3
-map     \xCC    \xA4
-map     \xCD    \xA5
-map     \xCE    \xA6
-map     \xCF    \xA7
-map     \xD0    \xA8
-map     \xD1    \xA9
-map     \xD2    \xAA
-map     \xD3    \xAB
-map     \xD4    \xAC
-map     \xD5    \xAD
-map     \xD6    \xAE
-map     \xD7    \xAF
-map     \xD8    \xB0
-map     \xD9    \xB1
-map     \xDA    \xB2
-map     \xDB    \xB3
-map     \xDC    \xB4
-map     \xDD    \xB5
-map     \xDE    \xB6
-map     \xDF    \xB7
+map     \xB0    \x20    # Undefined for this mapping
+map     \xB1    \x20    # Undefined for this mapping
+map     \xB2    \x20    # Undefined for this mapping
+map     \xB3    \x20    # Undefined for this mapping
+map     \xB4    \x20    # Undefined for this mapping
+map     \xB5    \x20    # Undefined for this mapping
+map     \xB6    \x20    # Undefined for this mapping
+map     \xB7    \x20    # Undefined for this mapping
+map     \xB8    \x20    # Undefined for this mapping
+map     \xB9    \x20    # Undefined for this mapping
+map     \xBA    \x20    # Undefined for this mapping
+map     \xBB    \x20    # Undefined for this mapping
+map     \xBC    \x20    # Undefined for this mapping
+map     \xBD    \x20    # Undefined for this mapping
+map     \xBE    \x20    # Undefined for this mapping
+map     \xBF    \x20    # Undefined for this mapping
+map     \xC0    \x20    # Undefined for this mapping
+map     \xC1    \x20    # Undefined for this mapping
+map     \xC2    \x20    # Undefined for this mapping
+map     \xC3    \x20    # Undefined for this mapping
+map     \xC4    \x20    # Undefined for this mapping
+map     \xC5    \x20    # Undefined for this mapping
+map     \xC6    \x20    # Undefined for this mapping
+map     \xC7    \x20    # Undefined for this mapping
+map     \xC8    \x20    # Undefined for this mapping
+map     \xC9    \x20    # Undefined for this mapping
+map     \xCA    \x20    # Undefined for this mapping
+map     \xCB    \x20    # Undefined for this mapping
+map     \xCC    \x20    # Undefined for this mapping
+map     \xCD    \x20    # Undefined for this mapping
+map     \xCE    \x20    # Undefined for this mapping
+map     \xCF    \x20    # Undefined for this mapping
+map     \xD0    \x20    # Undefined for this mapping
+map     \xD1    \x20    # Undefined for this mapping
+map     \xD2    \x20    # Undefined for this mapping
+map     \xD3    \x20    # Undefined for this mapping
+map     \xD4    \x20    # Undefined for this mapping
+map     \xD5    \x20    # Undefined for this mapping
+map     \xD6    \x20    # Undefined for this mapping
+map     \xD7    \x20    # Undefined for this mapping
+map     \xD8    \x20    # Undefined for this mapping
+map     \xD9    \x20    # Undefined for this mapping
+map     \xDA    \x20    # Undefined for this mapping
+map     \xDB    \x20    # Undefined for this mapping
+map     \xDC    \x20    # Undefined for this mapping
+map     \xDD    \x20    # Undefined for this mapping
+map     \xDE    \x20    # Undefined for this mapping
+map     \xDF    \x20    # Undefined for this mapping
 map     \xE0    \xF0
 map     \xE1    \xF1
 map     \xE2    \xF2
@@ -810,20 +951,158 @@ map     \xEB    \xFB
 map     \xEC    \xFC
 map     \xED    \xFD
 map     \xEE    \xFE
-map     \xEF    \xFF
-map     \xF0    \x82
-map     \xF1    \x84
-map     \xF2    \x87
-map     \xF3    \x86
-map     \xF4    \x80
-map     \xF5    \x85
-map     \xF6    \x83
-map     \xF7    \x9B
-map     \xF8    \xB8
-map     \xF9    \xB9
-map     \xFA    \xBA
-map     \xFB    \xBB
-map     \xFC    \xBC
-map     \xFD    \xBD
-map     \xFE    \xBE
-map     \xFF    \xBF
+map     \xEF    \xDF
+map     \xF0    \xDD
+map     \xF1    \xDE
+map     \xF2    \xB8
+map     \xF3    \xB9
+map     \xF4    \xBA
+map     \xF5    \xBB
+map     \xF6    \xD8
+map     \xF7    \xD9
+map     \xF8    \xA1
+map     \xF9    \x20    # Undefined for this mapping
+map     \xFA    \x20    # Undefined for this mapping
+map     \xFB    \xC3
+map     \xFC    \xDC
+map     \xFD    \xFF
+map     \xFE    \x20    # Undefined for this mapping
+map     \xFF    \xCA
+
+
+# ----------------------------------------------------------------------------
+#       Channel map for translation MAC codes to CP866 codes
+#	(Russian language)
+#	Due to fidonet wieredness, capital Russian EN translates to 
+#	latin 'H'.
+#
+table	x-mac	cp866
+map     \x80    \x80
+map     \x81    \x81
+map     \x82    \x82
+map     \x83    \x83
+map     \x84    \x84
+map     \x85    \x85
+map     \x86    \x86
+map     \x87    \x87
+map     \x88    \x88
+map     \x89    \x89
+map     \x8A    \x8A
+map     \x8B    \x8B
+map     \x8C    \x8C
+#map     \x8D    \x8D
+map     \x8D    \x48    # Changed for Fidonet \x8D    # N
+map     \x8E    \x8E
+map     \x8F    \x8F
+map     \x90    \x90
+map     \x91    \x91
+map     \x92    \x92
+map     \x93    \x93
+map     \x94    \x94
+map     \x95    \x95
+map     \x96    \x96
+map     \x97    \x97
+map     \x98    \x98
+map     \x99    \x99
+map     \x9A    \x9A
+map     \x9B    \x9B
+map     \x9C    \x9C
+map     \x9D    \x9D
+map     \x9E    \x9E
+map     \x9F    \x9F
+map     \xA0    \x20    # Undefined for this mapping
+map     \xA1    \xF8
+map     \xA2    \x20    # Undefined for this mapping
+map     \xA3    \x20    # Undefined for this mapping
+map     \xA4    \x20    # Undefined for this mapping
+map     \xA5    \x20    # Undefined for this mapping
+map     \xA6    \x20    # Undefined for this mapping
+map     \xA7    \x20    # Undefined for this mapping
+map     \xA8    \x20    # Undefined for this mapping
+map     \xA9    \x20    # Undefined for this mapping
+map     \xAA    \x20    # Undefined for this mapping
+map     \xAB    \x20    # Undefined for this mapping
+map     \xAC    \x20    # Undefined for this mapping
+map     \xAD    \x20    # Undefined for this mapping
+map     \xAE    \x20    # Undefined for this mapping
+map     \xAF    \x20    # Undefined for this mapping
+map     \xB0    \x20    # Undefined for this mapping
+map     \xB1    \x20    # Undefined for this mapping
+map     \xB2    \x20    # Undefined for this mapping
+map     \xB3    \x20    # Undefined for this mapping
+map     \xB4    \x20    # Undefined for this mapping
+map     \xB5    \x20    # Undefined for this mapping
+map     \xB6    \x20    # Undefined for this mapping
+map     \xB7    \x20    # Undefined for this mapping
+map     \xB8    \xF2
+map     \xB9    \xF3
+map     \xBA    \xF4
+map     \xBB    \xF5
+map     \xBC    \x20    # Undefined for this mapping
+map     \xBD    \x20    # Undefined for this mapping
+map     \xBE    \x20    # Undefined for this mapping
+map     \xBF    \x20    # Undefined for this mapping
+map     \xC0    \x20    # Undefined for this mapping
+map     \xC1    \x20    # Undefined for this mapping
+map     \xC2    \x20    # Undefined for this mapping
+map     \xC3    \xFB
+map     \xC4    \x20    # Undefined for this mapping
+map     \xC5    \x20    # Undefined for this mapping
+map     \xC6    \x20    # Undefined for this mapping
+map     \xC7    \x20    # Undefined for this mapping
+map     \xC8    \x20    # Undefined for this mapping
+map     \xC9    \x20    # Undefined for this mapping
+map     \xCA    \xFF
+map     \xCB    \x20    # Undefined for this mapping
+map     \xCC    \x20    # Undefined for this mapping
+map     \xCD    \x20    # Undefined for this mapping
+map     \xCE    \x20    # Undefined for this mapping
+map     \xCF    \x20    # Undefined for this mapping
+map     \xD0    \x20    # Undefined for this mapping
+map     \xD1    \x20    # Undefined for this mapping
+map     \xD2    \x20    # Undefined for this mapping
+map     \xD3    \x20    # Undefined for this mapping
+map     \xD4    \x20    # Undefined for this mapping
+map     \xD5    \x20    # Undefined for this mapping
+map     \xD6    \x20    # Undefined for this mapping
+map     \xD7    \x20    # Undefined for this mapping
+map     \xD8    \xF6
+map     \xD9    \xF7
+map     \xDA    \x20    # Undefined for this mapping
+map     \xDB    \x20    # Undefined for this mapping
+map     \xDC    \xFC
+map     \xDD    \xF0
+map     \xDE    \xF1
+map     \xDF    \xEF
+map     \xE0    \xA0
+map     \xE1    \xA1
+map     \xE2    \xA2
+map     \xE3    \xA3
+map     \xE4    \xA4
+map     \xE5    \xA5
+map     \xE6    \xA6
+map     \xE7    \xA7
+map     \xE8    \xA8
+map     \xE9    \xA9
+map     \xEA    \xAA
+map     \xEB    \xAB
+map     \xEC    \xAC
+map     \xED    \xAD
+map     \xEE    \xAE
+map     \xEF    \xAF
+map     \xF0    \xE0
+map     \xF1    \xE1
+map     \xF2    \xE2
+map     \xF3    \xE3
+map     \xF4    \xE4
+map     \xF5    \xE5
+map     \xF6    \xE6
+map     \xF7    \xE7
+map     \xF8    \xE8
+map     \xF9    \xE9
+map     \xFA    \xEA
+map     \xFB    \xEB
+map     \xFC    \xEC
+map     \xFD    \xED
+map     \xFE    \xEE
+map     \xFF    \xFD
