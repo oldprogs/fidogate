@@ -1,4 +1,31 @@
+Sun Apr 27 09:56:05 1997  Martin Junius  <mj@fido.de>
+
+	------- CVS ci -------------------------------------------------------
+
+	* ANNOUNCE: updated.
+
+	* src/common/log.c (strerror): added new #ifndef __FreeBSD__ for
+	  sys_errlist[] declaration.
+
+	* config.h: added new #ifdef __FreeBSD__ section.
+
+	* config.make (INSTALL_*): added -c to make old BSD install happy.
+
+	* src/toss/ftntoss.c (do_echomail): add message sender/recipient
+	  to SEEN-BY if not already there. Hopefully avoids problems with
+	  EchoMail if sender doesn't do SEEN-BYs as we expect them.
+	  (do_echomail): message from current AKA is not insecure.
+
+	* version.h (PATCHLEVEL): set to 2 (version 4.2.2).
+
+	* ANNOUNCE: "Changes in ..." moved to README.
+
 Sat Apr 19 10:38:58 1997  Martin Junius  <mj@fido.de>
+
+	* doc/fidogate.texi (Example Point 2): areas.bbs must have an
+	  entry in the 1st col.
+
+	* Makefile (install): install ANNOUNCE into HTMLDIR.
 
 	======= Release 4.2.1 ================================================
 	------- CVS ci, tag R421 ---------------------------------------------

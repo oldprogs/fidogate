@@ -1,6 +1,6 @@
 -*- Indented-Text -*-
 
-$Id: README,v 4.17 1997/02/09 21:16:52 mj Exp $
+$Id: README,v 4.18 1997/04/27 11:19:03 mj Exp $
 
 ======================================================================
 				   
@@ -17,6 +17,135 @@ $Id: README,v 4.17 1997/02/09 21:16:52 mj Exp $
 		     ============================
 
 ======================================================================
+
+Changes in 4.2.1:
+
+* New #define AMIGADOS_4D_OUTBOUND.
+
+* ftnpack: new command line option -f --ffx to process ffx -b files.
+
+* New directory abbreviations: %G = LogDir, %O = Outbound, %I =
+  Inbound, %P = PInbound, %U = UUInbound 
+
+* rununpack: now processes all files in ArcMail file, improved dupe file
+  rename loop.
+
+* sendmail configuration updated to 8.8.5.
+
+* system() calls fixed for MSDOS and OS2.
+
+* rfc2ftn: fixed Message-ID: <NOMSGID_...@...> conversion, avoiding
+  ^AMSGID: <NOMSGID_...@...> abcd1234 as it always should have been
+  according to the MSGID.DOC specs.
+
+* Various small bugfixes.
+
+
+
+Changes in 4.2.0:
+
+* ftn2rfc: new KillSplit option, don't gate messages with ^ASPLIT.
+
+* ftntoss: new KillOld option, don't toss messages older than
+  MaxHistory days.
+
+* ftntoss: new statistics, msgs/s, pkts/s, KB/s.
+
+* ftntoss: better handling of 4D EchoMail from points, point tosser
+  now works without EchoMail4D.
+
+* ftntoss: new NoEmptyPath option, avoiding empty ^APATH line (for
+  point tosser).
+
+* ftntoss: new EchoMail4D option, generating 4D EchoMail control
+  lines.
+
+* ftntick: fixed Replaces handling when new and replaced file are the
+  same. 
+
+* newsyslog script: compress old log files.
+
+* ftn2rfc: new Content-Transfer-Encoding: 7bit|8bit|quoted-printable
+  header for controlling encoding.
+
+* ftn2rfc: don't use 8bit or quoted-printable if message contains no
+  8bit characters.
+
+* ftn2rfc: only do Cc lines, if there is a To line. Avoids problems
+  with Fido-style CC lines.
+
+* rfc2ftn: new message size limit, config option LimitMsgSize, areas
+  option -L.
+
+* New example configurations provided by Andreas Braukmann's
+  <andy@Abra.DE>.
+
+* pktdebug: new -s --short command line option.
+
+* Various small bugfixes.
+
+
+
+Changes in 4.1.6:
+
+* Bugfix for rfc2ftn in parsing References / In-Reply-To continuation
+  headers.
+
+* New "UseFTNToAddress" config option for ftn2rfc.
+
+
+
+Changes in 4.1.5:
+
+* Bugfix in sendmail ftn mailer.
+
+* Bugfix for make install.
+
+
+
+Changes in 4.1.4:
+
+* Fixed Gateway Z:N/F.P and X-Comment-To problems.
+
+* Revised msgid.doc, now a LyX / LinuxDoc SGML document.
+
+* Updated sendmail configuration, added some documentation.
+
+
+
+Changes in 4.1.3:
+
+* Dupe check performance problems fixed.
+
+* Improved ^AREPLYADDR parsing.
+
+* File attachments interwork rfc2ftn / ftnpack fixed.
+
+* Sender text line added to FTN messages for mailing lists etc.
+
+* Improved runtime configuration of Inbound, PInbound, UUInbound.
+
+* Several minor bug fixes.
+
+
+
+Changes in 4.1.2:
+
+* Bugfix for QUOTED-PRINTABLE encoding.
+
+
+
+Changes in 4.1.1:
+
+* Support for ISO-8859-1 8BIT and QUOTED-PRINTABLE character set when
+  gating Fido -> Internet.
+
+* Important security fixes for setuid installed programs.
+  (New ftnafmail frontend for ftnaf)
+
+* Several bug fixes.
+
+
 
 Major changes in FIDOGATE 4:
 
@@ -100,8 +229,6 @@ The latest version of FIDOGATE can be found at:
     ftp://ftp.fido.de/pub/fidogate/
     http://www.fido.de/pub/fidogate/
 
-    ftp://ftp.comnets.rwth-aachen.de/pub/mail+news/fidogate/
-
     ftp://sunsite.unc.edu/pub/Linux/system/Fido/
     http://sunsite.unc.edu/pub/Linux/system/Fido/
           (not always up-to-date!)
@@ -124,6 +251,6 @@ but is no longer maintaining it.]
 
 ======================================================================
 
-$Date: 1997/02/09 21:16:52 $
+$Date: 1997/04/27 11:19:03 $
 Martin Junius
 mailto:mj@fido.de

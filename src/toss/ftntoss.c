@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftntoss.c,v 4.16 1997/03/30 16:25:20 mj Exp $
+ * $Id: ftntoss.c,v 4.17 1997/04/27 11:19:16 mj Exp $
  *
  * Toss FTN NetMail/EchoMail
  *
@@ -39,7 +39,7 @@
 
 
 #define PROGRAM 	"ftntoss"
-#define VERSION 	"$Revision: 4.16 $"
+#define VERSION 	"$Revision: 4.17 $"
 #define CONFIG		CONFIG_MAIN
 
 
@@ -800,7 +800,8 @@ int do_echomail(Packet *pkt, Message *msg, MsgBody *body)
      */
     if(!t_flag)
     {
-	if(! lon_search(&area->nodes, &msg->node_from) )
+	if( ! node_eq(cf_addr(), &msg->node_from)       && 
+	    ! lon_search(&area->nodes, &msg->node_from)   )
 	{
 	    /* Insecure EchoMail */
 	    log("insecure echomail area %s from %s", area->area,
@@ -813,7 +814,7 @@ int do_echomail(Packet *pkt, Message *msg, MsgBody *body)
     }
     
     /*
-     * Convert SEEN-BY and ^APATH to LON
+     * SEEN-BY / ^APATH processing
      */
     lon_init(&seenby);
     lon_init(&path);
@@ -821,39 +822,40 @@ int do_echomail(Packet *pkt, Message *msg, MsgBody *body)
     kludge_to_lon(&body->seenby, &seenby);
     kludge_to_lon(&body->path  , &path);
 
-    /*
-     * Do special processing if message is from a 4d point
-     */
+    /* Before */
+    lon_debug(9, "SEEN-BY: ", &seenby, FALSE);
+    lon_debug(9, "Path   : ", &path,   FALSE);
+
+    /* Special processing if message is from a 4d point */
     do_4dpoint(&seenby, &path, &msg->node_from, cf_addr());
     
-    lon_debug(9, "SEEN-BY: ", &seenby, TRUE);
-    lon_debug(9, "Path   : ", &path,   TRUE);
-    
-    /*
-     * Add nodes not already in SEEN-BY to seenby and new.
-     */
+    /* Make sure that sender/recipient are in SEEN-BY */
+    if( !lon_search_echo(&seenby, &msg->node_from) )
+	lon_add(&seenby, &msg->node_from);
+    if( !lon_search_echo(&seenby, &msg->node_to  ) )
+	lon_add(&seenby, &msg->node_to);
+
+    /* Add nodes not already in SEEN-BY to seenby and new */
     do_seenby(&seenby, &area->nodes, &new);
-    /*
-     * Add extra nodes to SEEN-BY
-     */
+
+    /* Add extra nodes to SEEN-BY */
     if(addto)
 	do_seenby(&seenby, &addto->add, NULL);
-    /*
-     * If not passthru area and not from our own address (point gateway
-     * setup with Address==Uplink), add our own address to new
-     */
+
+    /* If not passthru area and not from our own address (point gateway
+     * setup with Address==Uplink), add our own address to new          */
     if(! p_flag                               &&
        ! (area->flags & AREASBBS_PASSTHRU)    &&
        ! node_eq(&msg->node_from, cf_addr())    )
 	lon_add(&new, cf_addr());
-    /*
-     * Add our address to end of ^APATH, if not already there.
-     */
+
+    /* Add our address to end of ^APATH, if not already there */
     do_path(&path);
 
-    lon_debug(9, "SEEN-BY: ", &seenby, TRUE);
-    lon_debug(9, "Path   : ", &path,   TRUE);
-    lon_debug(9, "New    : ", &new,    TRUE);
+    /* After */
+    lon_debug(9, "SEEN-BY: ", &seenby, FALSE);
+    lon_debug(9, "Path   : ", &path,   FALSE);
+    lon_debug(9, "New    : ", &new,    FALSE);
 
     /*
      * Check for circular ^APATH

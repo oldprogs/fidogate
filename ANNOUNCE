@@ -1,7 +1,7 @@
-Subject: FIDOGATE 4.2.1 --- Fido-Internet Gateway and Tosser
+Subject: FIDOGATE 4.2.2 --- Fido-Internet Gateway and Tosser
 Keywords: fido ftn netmail echomail tosser areafix mail news gateway
 
-FIDOGATE 4.2.1, an update to version 4 of the FIDOGATE package is
+FIDOGATE 4.2.2, an update to version 4 of the FIDOGATE package is
 available.
 
 			   FIDOGATE Version 4
@@ -24,145 +24,24 @@ Internet:
     http://sunsite.unc.edu/pub/Linux/system/Fido/
     (probably still in .../pub/Linux/Incoming)
 
-    fidogate-4.2.1.tar.gz	740 Kbyte
+    fidogate-4.2.2.tar.gz	740 Kbyte
 
 Fido File Request:
 ==================
     2:2452/110, 111  +49-241-876604  (V.34, ISDN V.110/X.75)
     
-    fgate421.tgz		740 Kbyte
+    fgate422.tgz		740 Kbyte
 
 
 
 ======================================================================
 
-Changes in 4.2.1:
+Changes in 4.2.2:
 
-* New #define AMIGADOS_4D_OUTBOUND.
+* ftntoss: additionally checks SEENBYs for message sender/recipient,
+  messages from local AKA are no longer insecure.
 
-* ftnpack: new command line option -f --ffx to process ffx -b files.
-
-* New directory abbreviations: %G = LogDir, %O = Outbound, %I =
-  Inbound, %P = PInbound, %U = UUInbound 
-
-* rununpack: now processes all files in ArcMail file, improved dupe file
-  rename loop.
-
-* sendmail configuration updated to 8.8.5.
-
-* system() calls fixed for MSDOS and OS2.
-
-* rfc2ftn: fixed Message-ID: <NOMSGID_...@...> conversion, avoiding
-  ^AMSGID: <NOMSGID_...@...> abcd1234 as it always should have been
-  according to the MSGID.DOC specs.
-
-* Various small bugfixes.
-
-
-
-Changes in 4.2.0:
-
-* ftn2rfc: new KillSplit option, don't gate messages with ^ASPLIT.
-
-* ftntoss: new KillOld option, don't toss messages older than
-  MaxHistory days.
-
-* ftntoss: new statistics, msgs/s, pkts/s, KB/s.
-
-* ftntoss: better handling of 4D EchoMail from points, point tosser
-  now works without EchoMail4D.
-
-* ftntoss: new NoEmptyPath option, avoiding empty ^APATH line (for
-  point tosser).
-
-* ftntoss: new EchoMail4D option, generating 4D EchoMail control
-  lines.
-
-* ftntick: fixed Replaces handling when new and replaced file are the
-  same. 
-
-* newsyslog script: compress old log files.
-
-* ftn2rfc: new Content-Transfer-Encoding: 7bit|8bit|quoted-printable
-  header for controlling encoding.
-
-* ftn2rfc: don't use 8bit or quoted-printable if message contains no
-  8bit characters.
-
-* ftn2rfc: only do Cc lines, if there is a To line. Avoids problems
-  with Fido-style CC lines.
-
-* rfc2ftn: new message size limit, config option LimitMsgSize, areas
-  option -L.
-
-* New example configurations provided by Andreas Braukmann's
-  <andy@Abra.DE>.
-
-* pktdebug: new -s --short command line option.
-
-* Various small bugfixes.
-
-
-
-Changes in 4.1.6:
-
-* Bugfix for rfc2ftn in parsing References / In-Reply-To continuation
-  headers.
-
-* New "UseFTNToAddress" config option for ftn2rfc.
-
-
-
-Changes in 4.1.5:
-
-* Bugfix in sendmail ftn mailer.
-
-* Bugfix for make install.
-
-
-
-Changes in 4.1.4:
-
-* Fixed Gateway Z:N/F.P and X-Comment-To problems.
-
-* Revised msgid.doc, now a LyX / LinuxDoc SGML document.
-
-* Updated sendmail configuration, added some documentation.
-
-
-
-Changes in 4.1.3:
-
-* Dupe check performance problems fixed.
-
-* Improved ^AREPLYADDR parsing.
-
-* File attachments interwork rfc2ftn / ftnpack fixed.
-
-* Sender text line added to FTN messages for mailing lists etc.
-
-* Improved runtime configuration of Inbound, PInbound, UUInbound.
-
-* Several minor bug fixes.
-
-
-
-Changes in 4.1.2:
-
-* Bugfix for QUOTED-PRINTABLE encoding.
-
-
-
-Changes in 4.1.1:
-
-* Support for ISO-8859-1 8BIT and QUOTED-PRINTABLE character set when
-  gating Fido -> Internet.
-
-* Important security fixes for setuid installed programs.
-  (New ftnafmail frontend for ftnaf)
-
-* Several bug fixes.
-
+* Ported to FreeBSD.
 
 ======================================================================
 
@@ -216,6 +95,6 @@ End
 
 ======================================================================
 
-$Date: 1997/04/19 11:41:38 $
+$Date: 1997/04/27 11:19:00 $
 Martin Junius
 mailto:mj@fido.de

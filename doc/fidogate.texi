@@ -2,7 +2,7 @@
 @c
 @c FIDOGATE documentation
 @c
-@c $Id: fidogate.texi,v 4.23 1997/04/18 15:36:02 mj Exp $
+@c $Id: fidogate.texi,v 4.24 1997/04/27 11:19:06 mj Exp $
 @c
 
 @setfilename fidogate.info
@@ -3903,7 +3903,7 @@ Likewise, areas send to the secondary boss must have the @code{-a
 2:2498/120.2} option in @code{areas.bbs} and the secondary boss as the
 uplink, e.g.
 @example
-LINUX.GER    -a 2:2498/120.2    2:2498/120
+X LINUX.GER    -a 2:2498/120.2    2:2498/120
 @end example
 
 @item Routing

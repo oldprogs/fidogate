@@ -1,5 +1,5 @@
 #
-# $Id: Makefile,v 4.4 1996/05/05 12:26:52 mj Exp $
+# $Id: Makefile,v 4.5 1997/04/27 11:19:03 mj Exp $
 #
 # Makefile FIDOGATE TOPDIR
 #
@@ -42,3 +42,6 @@ install-dirs:
 	$(INSTALL_DIR)    $(INBOUND)
 	$(INSTALL_DIR)    $(PINBOUND)
 	$(INSTALL_DIR)    $(UUINBOUND)
+
+install::
+	cp ANNOUNCE $(HTMLDIR)

@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: log.c,v 4.3 1997/02/16 13:57:27 mj Exp $
+ * $Id: log.c,v 4.4 1997/04/27 11:19:15 mj Exp $
  *
  * Log and debug functions
  *
@@ -74,7 +74,9 @@ char *strerror(int errnum)
 {
 #ifndef OS2
     extern int sys_nerr;
+# ifndef __FreeBSD__
     extern char *sys_errlist[];
+# endif
 #endif
 
     if (errnum > 0 && errnum < sys_nerr)

@@ -1,6 +1,6 @@
 # -*- Makefile -*-
 #
-# $Id: config.make,v 4.6 1997/04/18 14:12:21 mj Exp $
+# $Id: config.make,v 4.7 1997/04/27 11:19:04 mj Exp $
 #
 # FIDOGATE Makefile configuration
 #
@@ -90,9 +90,9 @@ PERL		= /usr/bin/perl
 
 # installation program
 # ISC 3.x: use bsdinst
- INSTALL_PROG	= install -g $(GROUP) -o $(OWNER) -m $(PERM_PROG)
- INSTALL_DATA	= install -g $(GROUP) -o $(OWNER) -m $(PERM_DATA)
- INSTALL_SETUID	= install -g $(GROUP) -o $(OWNER) -m $(PERM_SETUID)
+ INSTALL_PROG	= install -c -g $(GROUP) -o $(OWNER) -m $(PERM_PROG)
+ INSTALL_DATA	= install -c -g $(GROUP) -o $(OWNER) -m $(PERM_DATA)
+ INSTALL_SETUID	= install -c -g $(GROUP) -o $(OWNER) -m $(PERM_SETUID)
  INSTALL_DIR	= install -g $(GROUP) -o $(OWNER) -m $(PERM_DIR) -d
 
 # library name

@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway software UNIX <-> FIDO
  *
- * $Id: config.h,v 4.17 1997/04/12 07:55:30 mj Exp $
+ * $Id: config.h,v 4.18 1997/04/27 11:19:04 mj Exp $
  *
  * Configuration header file
  *
@@ -154,6 +154,17 @@
 # undef  DO_HAVE_TM_GMTOFF
 # define DO_HAVE_SYSEXISTS_H
 # undef  DO_HAVE_TM_ZONE
+# define DO_HAVE_STRFTIME
+# undef  DO_HAVE_TZNAME
+# define DO_HAVE_STRCASECMP
+# undef  DO_HAVE_STRICMP
+# undef  DO_BINARY
+#endif
+
+#ifdef __FreeBSD__			/* FreeBSD 2.1.6., GNU gcc */
+# define DO_HAVE_GETTIMEOFDAY
+# define DO_HAVE_TM_GMTOFF
+# define DO_HAVE_TM_ZONE
 # define DO_HAVE_STRFTIME
 # undef  DO_HAVE_TZNAME
 # define DO_HAVE_STRCASECMP

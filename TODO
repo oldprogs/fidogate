@@ -2,6 +2,16 @@
 
 X = for next release
 
+	* areas.bbs: read-only/vacation flag for downlinks.
+	  ftnaf: commands for vacation flag.
+
+	* ffxqt: ignore case for data files.
+
+	* rfc2ftn: check for multiple entries of the same groups in
+	  the Newsgroups header.
+
+	* ftnexpire: some statistics.
+
 	* ftn2rfc: send bounce mails directly as FTN messages, not via
 	  the mail system.
 
