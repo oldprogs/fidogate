@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftntick.c,v 4.20 1999/06/01 20:59:08 mj Exp $
+ * $Id: ftntick.c,v 4.21 1999/06/27 19:18:13 mj Exp $
  *
  * Process incoming TIC files
  *
@@ -37,7 +37,7 @@
 
 
 #define PROGRAM		"ftntick"
-#define VERSION		"$Revision: 4.20 $"
+#define VERSION		"$Revision: 4.21 $"
 #define CONFIG		DEFAULT_CONFIG_MAIN
 
 
@@ -52,6 +52,8 @@
 static char *unknown_tick_area = NULL;	/* config.main: UnknownTickArea */
 
 static char in_dir[MAXPATH];		/* Input directory */
+
+static char *exec_script = NULL;	/* -x --exec option */
 
 
 
@@ -171,6 +173,20 @@ int do_tic(int t_flag)
 	}
 	else 
 	{
+	    /* Run -x script, if any */
+	    if(exec_script)
+	    {
+		int ret;
+		
+		BUF_EXPAND(buffer, exec_script);
+		BUF_APPEND(buffer, " ");
+		BUF_APPEND(buffer, name);
+		
+		debug(4, "Command: %s", buffer);
+		ret = run_system(buffer);
+		debug(4, "Exit code=%d", ret);
+	    }
+	    
 	    /* o.k., remove the TIC file */
 	    if(unlink(name) == ERROR)
 		log("$ERROR: can't remove %s", name);
@@ -569,6 +585,8 @@ void usage(void)
 options:  -b --fareas-bbs NAME         use alternate FAREAS.BBS\n\
           -I --inbound DIR             set inbound dir (default: PINBOUND)\n\
           -t --insecure                process TIC files without password\n\
+          -x --exec SCRIPT             exec script for incoming TICs,\n\
+                                       called as SCRIPT FILE.TIC\n\
 \n\
           -v --verbose                 more verbose\n\
 	  -h --help                    this help\n\
@@ -599,6 +617,7 @@ int main(int argc, char **argv)
         { "fareas-bbs",	  1, 0, 'b'},
 	{ "insecure",     0, 0, 't'},	/* Insecure */
 	{ "inbound",      1, 0, 'I'},	/* Set tick inbound */
+	{ "exec",         1, 0, 'x'},	/* Run script */
 
 	{ "verbose",      0, 0, 'v'},	/* More verbose */
 	{ "help",         0, 0, 'h'},	/* Help */
@@ -614,7 +633,7 @@ int main(int argc, char **argv)
     cf_initialize();
 
 
-    while ((c = getopt_long(argc, argv, "b:tI:vhc:a:u:",
+    while ((c = getopt_long(argc, argv, "b:tI:x:vhc:a:u:",
 			    long_options, &option_index     )) != EOF)
 	switch (c) {
 	/***** ftntick options *****/
@@ -626,6 +645,9 @@ int main(int argc, char **argv)
 	    break;
 	case 'I':
 	    I_flag = optarg;
+	    break;
+	case 'x':
+	    exec_script = optarg;
 	    break;
 	    
 	/***** Common options *****/

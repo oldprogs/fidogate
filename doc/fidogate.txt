@@ -80,6 +80,7 @@ Gateway programs and scripts:
 Ticker programs:
 * ftnhatch::    Hatch new file into file area
 * ftntick::     Process incoming TIC files
+* ftntickpost:: `ftntick' post-processing script
 
 Tosser programs and scripts:
 * ftn2ftn::     FTN-FTN NetMail gateway
@@ -848,6 +849,7 @@ Gateway programs and scripts:
 Ticker programs:
 * ftnhatch::    Hatch new file into file area
 * ftntick::     Process incoming TIC files
+* ftntickpost:: `ftntick' post-processing script
 
 Tosser programs and scripts:
 * ftn2ftn::     FTN-FTN NetMail gateway
@@ -1484,6 +1486,24 @@ Options:
 
 `-t --insecure'
      Insecure processing, allow TIC files without password.
+
+`-x --exec script'
+     Run script after sucessfully processing the TIC file. The one and
+     only argument to script is the full path name of the TIC file.
+
+
+ftntickpost -- ftntick Post-processing Script
+=============================================
+
+Usage:
+
+     ftntickpost  [-options]  file.tic
+
+Options:
+
+   NOT YET COMPLETELY IMPLEMENTED! Currently the script is only a
+skeleton with features such as announcement postings and mails to be
+added in the future.
 
 
 ftn2ftn -- FTN-FTN NetMail Gateway Program
@@ -3761,6 +3781,7 @@ Index
 * ftnroute:                              ftnroute.
 * ftnseq:                                ftnseq.
 * ftntick:                               ftntick.
+* ftntickpost:                           ftntickpost.
 * ftntoss:                               ftntoss.
 * pktdebug:                              pktdebug.
 * pktmore:                               pktmore.

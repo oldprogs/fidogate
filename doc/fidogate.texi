@@ -2,7 +2,7 @@
 @c
 @c FIDOGATE documentation for 4.3
 @c
-@c $Id: fidogate.texi,v 4.45 1999/06/20 13:49:45 mj Exp $
+@c $Id: fidogate.texi,v 4.46 1999/06/27 19:18:08 mj Exp $
 @c
 
 @setfilename fidogate.info
@@ -134,6 +134,7 @@ Gateway programs and scripts:
 Ticker programs:
 * ftnhatch::    Hatch new file into file area
 * ftntick::     Process incoming TIC files
+* ftntickpost:: @code{ftntick} post-processing script
 
 Tosser programs and scripts:
 * ftn2ftn::     FTN-FTN NetMail gateway
@@ -1108,6 +1109,7 @@ Gateway programs and scripts:
 Ticker programs:
 * ftnhatch::    Hatch new file into file area
 * ftntick::     Process incoming TIC files
+* ftntickpost:: @code{ftntick} post-processing script
 
 Tosser programs and scripts:
 * ftn2ftn::     FTN-FTN NetMail gateway
@@ -1929,7 +1931,7 @@ yet implemented.
 
 
 @c ***************************************************************************
-@node ftntick, ftn2ftn, ftnhatch, Programs
+@node ftntick, ftntickpost, ftnhatch, Programs
 
 @section ftntick --- Process incoming TIC files
 @cindex ftntick
@@ -1953,13 +1955,42 @@ Use alternate inbound directory.
 @item -t --insecure
 Insecure processing, allow TIC files without password.
 
+@item -x --exec @i{script}
+Run @i{script} after sucessfully processing the TIC file. The one and
+only argument to @i{script} is the full path name of the TIC file.
+
 @end table
 
 
 
+@c ***************************************************************************
+@node ftntickpost, ftn2ftn, ftntick, Programs
+
+@section ftntickpost --- ftntick Post-processing Script
+@cindex ftntickpost
+
+
+@noindent Usage:
+
+@example
+ftntickpost  @r{[}@i{-options}@r{]}  @i{file.tic}
+@end example
+
+@noindent Options:
+
+@table @code
+
+
+@end table
+
+NOT YET COMPLETELY IMPLEMENTED! Currently the script is only a skeleton
+with features such as announcement postings and mails to be added in the 
+future.
+
+
 
 @c ***************************************************************************
-@node ftn2ftn, ftnexpire, ftntick, Programs
+@node ftn2ftn, ftnexpire, ftntickpost, Programs
 
 @section ftn2ftn --- FTN-FTN NetMail Gateway Program
 @cindex ftn2ftn

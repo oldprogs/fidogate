@@ -207,6 +207,7 @@ Index
 * ftnroute:                              ftnroute.
 * ftnseq:                                ftnseq.
 * ftntick:                               ftntick.
+* ftntickpost:                           ftntickpost.
 * ftntoss:                               ftntoss.
 * pktdebug:                              pktdebug.
 * pktmore:                               pktmore.

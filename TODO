@@ -1,11 +1,11 @@
 							 -*- Indented-Text -*-
 ===== TODO list for FIDOGATE development =====================================
 
-=== 4.3aX development snapshots
+4.3.5!!	* ftnpack/bink_attach(): check that FLO file contains entry
+	  for ArcMail archive, always call bink_attach().
 
-    Priority 1
-    
-    Features
+	* Areafix: if %from is used for address, send reply *both* to
+	  original sender and %from address.
 
 	* routing.c/ftntoss.c: implement RemapX.
 
@@ -13,13 +13,6 @@
 	  LogFacility/LogLevel, parse at run-time.
 
 	* ftnafutil: option to sort areas.bbs, including zone/keys.
-
-DONE	* ftn2rfc: integrate new charset mapping
-
-DONE	* rfc2ftn: implement new charset mapping
-	* charset translation for RFC -> Fido.
-
-DONE	* ^ACHRS default configurable per area
 
 	* Different Message-ID and sender Internet domain
 	  configuration (extended Zone config).
@@ -39,16 +32,7 @@ NOT NOW	* ftn2rfc: ^ARFC-<mime> import.
 
 	* ftnpack: error message if packet can't be moved to outbound?
 
-
-    Code rewrite
-
 	* config.make/subst.pl: configuration macro if syslog is available.
-
-
-
-    Priority 2
-
-    Features
 
 	* rfc2ftn: mail split limit configurable per host.
 
@@ -65,40 +49,12 @@ NOT NOW	* ftn2rfc: process ^ARFC headers. If RFC level 1, import
 	  important headers such as Date, Message-ID. If RFC level 2,
 	  import all headers present.
 
-    Code rewrite
-
-DONE	* new implementation of strtok(), xstrtok() function, using
-	  reentrant common routine.
-
 	* rfcheader.c: rewrite all *header_get* functions using the
 	  new rfcheader_geth().
 
 MOSTLY	* ftnpack: better file attach processing, -F DIR option. Don't
 DONE	  copy netmail packets (do_noarc()), use rename(). If archiver
 	  fails, move packets back to toss/out directory.
-
-
-
-    Priority 3
-
-    Features
-
-DONE	* Generic alias matching: name@Z:N/F.P <-> user@do.main (Name),
-	  recipient *and* sender
-
-DONE	* rfc2ftn: improve parser for 1st line. Use regexp library?
-
-
-
-=== 4.3bX pre-release
-
-	* Update documentation.
-
-
-
-=== 4.3.X release
-
-
 
 
 ===== Later ==================================================================
@@ -108,9 +64,6 @@ DONE	* rfc2ftn: improve parser for 1st line. Use regexp library?
 	* packing: different packing for NetMail/EchoMail
 
 	* packing: MaxArc configurable per node
-
-DONE	* config.*: common address settings, e.g. Address for main
-	  AKA, GateAddress for gateway???
 
 	* Allow config parameters on command line for all programs.
 

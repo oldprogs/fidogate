@@ -9,11 +9,11 @@ Followup-To: comp.os.linux.misc
 
 			   FIDOGATE Version 4
 		      ===========================
-		        * Fido-Internet Gateway
-			* Fido FTN-FTN Gateway
-			* Fido Mail Processor
-			* Fido File Processor
-			* Fido Areafix/Filefix
+		       * Fido Internet Gateway
+		       * Fido Zone Gateway
+		       * Fido Tosser
+		       * Fido Ticker
+		       * Fido Areafix and Filefix
 		      ===========================
 
 
@@ -42,18 +42,12 @@ Followup-To: comp.os.linux.misc
 
 ======================================================================
 
-WARNING:
-* Documentation not completely up-to-date !!!
-  Up-to-date chapters in doc/fidogate.*, doc/html/: Compilation and
-  Installation, Config Files, Examples.
-
-* Some examples not up-to-date !!!
-  Up-to-date examples include:
-    o  examples/orodruin/
-    o  examples/win32/
-    o  examples/morannon/  (not that much up-to-date ;-)
-    o  examples/point/     (new and incomplete)
-    o  examples/node/      (new and incomplete)
+Up-to-date example configurations:
+* examples/orodruin/
+* examples/win32/
+* examples/morannon/  (not that much up-to-date ;-)
+* examples/point/     (new)
+* examples/node/      (new and incomplete)
 
 ======================================================================
 
@@ -231,6 +225,6 @@ Needed:
 
 ======================================================================
 
-$Date: 1999/06/20 13:49:44 $
+$Date: 1999/06/27 19:18:07 $
 Martin Junius
 mailto:mj@fido.de

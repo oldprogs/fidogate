@@ -1,4 +1,24 @@
+1999-06-27  Martin Junius  <mj@fido.de>
+
+	------- CVS ci -------------------------------------------------------
+
+	* doc/fidogate.texi (ftntickpost): new section.
+
+	* src/tick/ftntickpost.pl: new postprocessor skeleton script for
+	  ftntick. 
+
+	* doc/fidogate.texi (ftntick): add -x --exec SCRIPT.
+
+	* version.h (PATCHLEVEL): set to 5, version 4.3.5
+
+	* src/tick/ftntick.c (usage): new -x --exec SCRIPT option.
+	  (main): implemented -x --exec SCRIPT option.
+	  (do_tic): if -x option is set, run script after sucessfully
+ 	  processing TIC file.
+
 1999-06-20  Martin Junius  <mj@fido.de>
+
+	* ANNOUNCE: updated.
 
 	======= Release 4.3.4 ================================================
 	------- CVS tag R434a ------------------------------------------------
