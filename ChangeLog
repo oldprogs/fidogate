@@ -2,6 +2,12 @@ Sun Oct 26 11:07:42 1997  Martin Junius  <mj@fido.de>
 
 	------- CVS ci -------------------------------------------------------
 
+	* ANNOUNCE: updated.
+
+	* version.h (PATCHLEVEL): set to 8 (version 4.2.8)
+
+	------- CVS ci -------------------------------------------------------
+
 	* test/tc.bounce2/run: new test case, bounces by ftn2rfc.
 
 	* src/common/bounce.c (bounce_header): must use mail_file('m') for

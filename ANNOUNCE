@@ -1,7 +1,7 @@
-Subject: FIDOGATE 4.2.7 --- Fido-Internet Gateway and Tosser
+Subject: FIDOGATE 4.2.8 --- Fido-Internet Gateway and Tosser
 Keywords: fido ftn netmail echomail tosser areafix mail news gateway
 
-FIDOGATE 4.2.7, an update to version 4 of the FIDOGATE package is
+FIDOGATE 4.2.8, an update to version 4 of the FIDOGATE package is
 available.
 
 			   FIDOGATE Version 4
@@ -24,17 +24,30 @@ Internet:
     http://sunsite.unc.edu/pub/Linux/system/Fido/
     (probably still in .../pub/Linux/Incoming)
 
-    fidogate-4.2.7.tar.gz	1150 Kbyte
+    fidogate-4.2.8.tar.gz	1150 Kbyte
 
 Fido File Request:
 ==================
     2:2452/110, 111  +49-241-876604  (V.34, ISDN V.110/X.75)
     
-    fgate427.tgz		1150 Kbyte
+    fgate428.tgz		1150 Kbyte
 
 
 
 ======================================================================
+
+Changes in 4.2.8:
+
+* rfc2ftn: new ReplyAddrIfmailTX option for compatibility with
+  (broken) ifmail-TX.
+
+* logcheck: new script for analyzing sendmail rejects.
+
+* rfc2ftn/ftn2rfc: improved ^AGATEWAY, X-Gateway processing.
+
+* ftn2rfc: fixed BounceCCMail (messed up in 4.2.6).
+
+
 
 Changes in 4.2.7:
 
@@ -73,7 +86,7 @@ Changes in 4.2.6:
 
 * nl-diff: fixed CRC comparison bug.
 
-WARNING!!! directories for temporary files created by ftn2rfc were
+WARNING!!! directories for temporary files created by ftn2rfc are
 renamed to SPOOLDIR/in/tmpmail and SPOOLDIR/in/tmpnews.
 
 * ftn2rfc: new -1 --single-articles option, forces ftn2rfc to single
@@ -191,6 +204,6 @@ End
 
 ======================================================================
 
-$Date: 1997/10/14 17:59:15 $
+$Date: 1997/10/26 17:50:05 $
 Martin Junius
 mailto:mj@fido.de
