@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# $Id: runpoll-binkd.sh,v 4.2 1999/03/06 17:51:24 mj Exp $
+# $Id: runpoll-binkd.sh,v 4.3 1999/05/24 12:06:00 mj Exp $
 #
 # Poll uplink
 #
@@ -19,7 +19,7 @@ BOSSNODE="242:1000/2"
 
 # -xterm: run in XTerm window
 if [ "$1" = "-xterm" ]; then
-  exec $XTERM -display :0 -g 80x20 -title "FIDOGATE runpoll (BinkD)" -e $0
+  exec $XTERM -display :0 -g 100x20 -title "FIDOGATE runpoll (BinkD)" -e $0
   exit 0
 fi
 

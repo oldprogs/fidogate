@@ -1,2 +1,2 @@
 #!/bin/sh
-cvs ci -m "See ChangeLog"
+cvs ci -m "See ChangeLog" $*

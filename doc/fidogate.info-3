@@ -32,7 +32,6 @@ Index
 * Areafix <1>:                           ftnafmail.
 * Areafix:                               ftnaf.
 * Areas:                                 Areas.
-* Bounce:                                ftnbounce.
 * Bounce messages:                       Bounce.
 * Busy files:                            ftnbsy.
 * CRC:                                   sumcrc.
@@ -53,9 +52,9 @@ Index
 * Example:                               Example Point.
 * FIDONET:                               Connecting.
 * File attach:                           ftnfattach.
-* Gateway <1>:                           rfc2ftn.
-* Gateway <2>:                           ftn2rfc.
-* Gateway:                               ftn2ftn.
+* Gateway <1>:                           ftn2ftn.
+* Gateway <2>:                           rfc2ftn.
+* Gateway:                               ftn2rfc.
 * Header <1>:                            X Headers.
 * Header:                                RFC Headers.
 * Hosts:                                 Hosts.
@@ -67,6 +66,7 @@ Index
 * Lock files:                            ftnlock.
 * Log file:                              ftnlog.
 * Logging:                               ftnlog.
+* Mail <1>:                              ffxnews.
 * Mail:                                  ffxmail.
 * Node:                                  Example Node.
 * Packing:                               Packing.
@@ -76,7 +76,6 @@ Index
 * Programs:                              Programs.
 * RFC header:                            RFC Headers.
 * Remote Execution:                      ffxqt.
-* Remote execution <1>:                  ffxbatch.
 * Remote execution:                      ffx.
 * Routing <1>:                           Routing.
 * Routing:                               ftnroute.
@@ -84,48 +83,59 @@ Index
 * Tossing <1>:                           rununpack.
 * Tossing <2>:                           runtoss.
 * Tossing <3>:                           runout.
-* Tossing <4>:                           runin.
-* Tossing <5>:                           rundf.
+* Tossing <4>:                           runnews.
+* Tossing <5>:                           runmail.
+* Tossing <6>:                           runin.
 * Tossing:                               ftntoss.
 * Usage:                                 Usage.
 * X header:                              X Headers.
 * areas.bbs:                             Areas.bbs.
 * ffx:                                   ffx.
-* ffxbatch:                              ffxbatch.
+* ffxmail <1>:                           ffxnews.
 * ffxmail:                               ffxmail.
-* ffxqt <1>:                             ffxrun.
+* ffxqt <1>:                             runffx.
 * ffxqt <2>:                             ffxrmail.
 * ffxqt:                                 ffxqt.
 * ffxrmail:                              ffxrmail.
-* ffxrun:                                ffxrun.
 * fidogate.conf:                         Config.
 * ftn2ftn:                               ftn2ftn.
 * ftn2rfc <1>:                           ftnin.
 * ftn2rfc:                               ftn2rfc.
 * ftnaf <1>:                             ftnafmail.
 * ftnaf:                                 ftnaf.
-* ftnbounce:                             ftnbounce.
+* ftnafpkt:                              ftnafpkt.
+* ftnafutil:                             ftnafutil.
 * ftnbsy:                                ftnbsy.
 * ftnconfig:                             ftnconfig.
+* ftnexpire:                             ftnexpire.
 * ftnfattach:                            ftnfattach.
+* ftnflo:                                ftnflo.
 * ftnhatch:                              ftnhatch.
 * ftnin:                                 ftnin.
 * ftninpost:                             ftninpost.
 * ftninrecomb:                           ftninrecomb.
 * ftnlock:                               ftnlock.
 * ftnlog:                                ftnlog.
+* ftnmail:                               ftnmail.
+* ftnoutpkt:                             ftnoutpkt.
 * ftnpack:                               ftnpack.
 * ftnroute:                              ftnroute.
 * ftnseq:                                ftnseq.
 * ftntick:                               ftntick.
 * ftntoss:                               ftntoss.
 * pktdebug:                              pktdebug.
+* pktmore:                               pktmore.
 * rfc2ftn:                               rfc2ftn.
-* rundf:                                 rundf.
+* runffx:                                runffx.
+* rungate:                               rungate.
 * runin:                                 runin.
-* runout:                                runout.
+* runout <1>:                            runout.
+* runout <2>:                            runnews.
+* runout:                                runmail.
 * runtoss:                               runtoss.
 * rununpack:                             rununpack.
+* send-ffx:                              send-ffx.
+* send-fidogate:                         send-fidogate.
 * sendmail:                              Sendmail.
 * sumcrc:                                sumcrc.
 

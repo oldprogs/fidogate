@@ -1,4 +1,25 @@
+1999-05-24  Martin Junius  <mj@fido.de>
+
+	------- CVS ci -------------------------------------------------------
+
+	* doc/fidogate.texi (Programs): updated, now lists all programs
+ 	  from the src/ directory.
+	  (Programs): updated sequence of all following nodes with the
+ 	  program descriptions, added nodes for new programs. The
+	  individual description are not yet up-to-date.
+
+1999-05-23  Martin Junius  <mj@fido.de>
+
+	* doc/fidogate.texi (config.h): added HAS_POSIX_REGEX description.
+	  (Routing): added description of new "RemapX" command, not yet
+	  implemented.
+
 1999-05-22  Martin Junius  <mj@fido.de>
+
+	* config.h (HAS_SNPRINTF): set for OS2.
+	  (HAS_POSIX_REGEX): new #define for support of POSIX regex
+	  functions regcomp(), regexec(), regerror(), regfree(); currently 
+	  only set for Linux.
 
 	------- CVS ci -------------------------------------------------------
 

@@ -20,6 +20,70 @@ manual into other languages, under the above conditions for modified
 versions.
 
 
+File: fidogate.info,  Node: Config files,  Next: Config,  Prev: sumcrc,  Up: Top
+
+FIDOGATE Config Files
+*********************
+
+FIDOGATE uses the following config files:
+
+* Menu:
+
+* Config::      Main configuration file
+* Hosts::       hosts FTN address to host name conversion
+* Aliases::     aliases user aliases
+* Areas::       areas FTN area to newsgroup conversion
+* Bounce::      Bounce messages of `ftn2rfc'
+* Passwd::      passwd password config file
+* Routing::     routing file for `ftntoss' and `ftnroute'
+* Packing::     packing file for `ftnpack'
+* Areas.bbs::   areas.bbs EchoMail distribution
+
+   For all config files, a line starting with (some white space and)
+`#' character is a comment and as well as an empty line completely
+ignored.
+
+   All config files (with the execption of `areas.bbs' support an
+`include' command for reading in other config files. `include' must be
+the first keyword on the line, the filename is the next argument.
+
+   All options and config statements which take file or directory names
+as arguments accept the following `%' abbreviations:
+
+`%C'
+     CONFIGDIR
+
+`%L'
+     LIBDIR
+
+`%N'
+     BINDIR
+
+`%G'
+     LOGDIR
+
+`%V'
+     VARDIR
+
+`%K'
+     LOCKDIR
+
+`%S'
+     SPOOLDIR
+
+`%B'
+     BTBASEDIR
+
+`%I'
+     INBOUND
+
+`%P'
+     PINBOUND
+
+`%U'
+     UUINBOUND
+
+
 File: fidogate.info,  Node: Config,  Next: Hosts,  Prev: Config files,  Up: Config files
 
 Main Configuration File
@@ -925,6 +989,7 @@ The format of this file is:
 
      remap      src-node  dest-node  name
      remapto    src-node  dest-node  name
+     remapx     src-node  prog       name
      remapfrom  src-node  dest-node  name
      rewrite    src-node  dest-node
      
@@ -948,9 +1013,15 @@ Commands:
 
 `remapto'
      Remaps NetMail addressed to name at src-node to the new address
-     dest-node. Most usefull for remapping to points based on their
-     name.  name supports shell-style wildcard patterns. Remapping to
-     0:0/0.0 means killing the message.
+     dest-node. Most useful for remapping to points based on their name.
+     name supports shell-style wildcard patterns. Remapping to 0:0/0.0
+     means killing the message.
+
+`remapx'
+     Remaps NetMail addressed to name at src-node to special processing
+     with prog (actually writing it to a packet in `%S/toss/'prog. Most
+     useful for processing areafix messages. name supports shell-style
+     wildcard patterns.  NOT YET IMPLEMENTED.
 
 `remapfrom'
      Remaps NetMail from name at src-node to the new address dest-node.

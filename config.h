@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway software UNIX <-> FIDO
  *
- * $Id: config.h,v 4.43 1999/05/22 12:04:54 mj Exp $
+ * $Id: config.h,v 4.44 1999/05/24 12:05:58 mj Exp $
  *
  * Configuration header file
  *
@@ -203,6 +203,8 @@
  *   HAS_SNPRINTF               snprintf(), vsnprintf() supported
  *
  *   HAS_HARDLINKS		hardlinks supported by link() and filesystem
+ *
+ *   HAS_POSIX_REGEX		POSIX regcomp(), regexec() etc. supported
  */
 
 /***** Unix and derivates ***************************************************/
@@ -222,6 +224,7 @@
 # undef  HAS_SYSLOG		/* syslog(), vsyslog() not supported */
 # undef  HAS_SNPRINTF		/* snprintf(), vsnprintf() not supported */
 # define HAS_HARDLINKS
+# undef  HAS_POSIX_REGEX
 
 #ifdef __sun__			/* SUNOS 4.1.x, GNU gcc */
 # define HAS_FCNTL_LOCK
@@ -239,6 +242,7 @@
 # define HAS_SYSLOG
 # undef  HAS_SNPRINTF
 # define HAS_HARDLINKS
+# undef  HAS_POSIX_REGEX
 #endif
 
 #ifdef __linux__		/* Linux */
@@ -257,6 +261,7 @@
 # define HAS_SYSLOG
 # define HAS_SNPRINTF
 # define HAS_HARDLINKS
+# define HAS_POSIX_REGEX
 #endif
 
 #ifdef __FreeBSD__		/* FreeBSD 2.1.6., GNU gcc */
@@ -275,6 +280,7 @@
 # define HAS_SYSLOG
 # define HAS_SNPRINTF		/* ? */
 # define HAS_HARDLINKS
+# undef  HAS_POSIX_REGEX	/* ? */
 #endif
 
 #ifdef ISC			/* ISC 3.x, GNU gcc, -DISC necessary */
@@ -293,6 +299,7 @@
 # define HAS_SYSLOG
 # undef  HAS_SNPRINTF
 # define HAS_HARDLINKS
+# undef  HAS_POSIX_REGEX
 #endif
 
 #ifdef __NeXT__                 /* NEXTSTEP 3.3 (Intel only?) */
@@ -311,6 +318,7 @@
 # define HAS_SYSLOG
 # undef  HAS_SNPRINTF
 # define HAS_HARDLINKS
+# undef  HAS_POSIX_REGEX
 #endif /* __NeXT__ */
 
 
@@ -330,6 +338,7 @@
 # undef  HAS_SYSLOG		/* syslog(), vsyslog() not supported */
 # undef  HAS_SNPRINTF
 # undef  HAS_HARDLINKS
+# undef  HAS_POSIX_REGEX
 #endif
 
 #ifdef __EMX__			/* OS/2, EMX GNU gcc */
@@ -348,8 +357,9 @@
 # define DO_BINARY
 # define DO_DOSIFY
 # undef  HAS_SYSLOG		/* syslog(), vsyslog() not supported */
-# undef  HAS_SNPRINTF
+# define HAS_SNPRINTF
 # undef  HAS_HARDLINKS
+# undef  HAS_POSIX_REGEX
 #endif
 
 #ifdef __CYGWIN32__		/* GNU-Win32 Beta 20.1 */
@@ -368,6 +378,7 @@
 # undef  HAS_SYSLOG		/* syslog(), vsyslog() not supported */
 # undef  HAS_SNPRINTF		/* in stdio.h, but not in libraries */
 # undef  HAS_HARDLINKS
+# undef  HAS_POSIX_REGEX
 #endif
 
 /* Reset some #define's based on system config */

@@ -7,6 +7,8 @@
     
     Features
 
+	* routing.c/ftntoss.c: implement RemapX.
+
 	* log.c/config.h: get syslog facility/level from
 	  LogFacility/LogLevel, parse at run-time.
 
