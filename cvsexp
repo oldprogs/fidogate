@@ -15,10 +15,13 @@ TAG="R"`echo $REL | tr -d .`"$2"
 
 echo "Exporting release $REL (tag $TAG)"
 
+rm -rf /var/tmp/fidogate-$REL
+rm -rf /var/tmp/fidogate-*$REL.tar*
+
 cvs export -r $TAG -d /var/tmp/fidogate-$REL fidogate
 
 cd /var/tmp
-tar cvf fidogate-$REL-test.tar fidogate-$REL/test/
+tar cvf fidogate-test-$REL.tar fidogate-$REL/test/
 rm -rf fidogate-$REL/test
 tar cvf fidogate-$REL.tar fidogate-$REL/
-gzip -v9 fidogate-$REL*.tar
+gzip -v9 fidogate-*.tar

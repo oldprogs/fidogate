@@ -1,6 +1,27 @@
+2000-01-30  Martin Junius  <mj@fido.de>
+
+	------- CVS tag R440test2 for rpm building test ----------------------
+	------- CVS ci -------------------------------------------------------
+
+	* cvsexp: remove old stuff from previous csvexp first.
+
+	* Makefile (INSTALLDIRS): replace HTMLDIR/log with HTMLLOGDIR.
+
+	* config.make (HTMLDIR): changed to /html/mj/fidogate.
+
+	* Makefile (install-dirs): add PREFIX when checking -d.
+	  (INSTALLDIRS): added HTMLDIR/log.
+
+	* cvsexp: archive for tests renamed to fidogate-test-x.x.x.tar.gz
+
+	* Makefile (install-spec-src): tar renamed, includes copying
+	  source .tar.gz to RPMSOURCESDIR. Run "make install-spec-src"
+	  after running "cvsexp 4.4.0", then "rpm -ba
+	  RPMSPECSDIR/fidogate.spec" to build rpms.
+
 2000-01-29  Martin Junius  <mj@fido.de>
 
-	------- CVS R440test1 for rpm building test --------------------------
+	------- CVS tag R440test1 for rpm building test ----------------------
 	------- CVS ci -------------------------------------------------------
 
 	* Makefile (install-spec): new target for installing fidogate.spec.

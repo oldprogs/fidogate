@@ -1,5 +1,5 @@
 #
-# $Id: Makefile,v 4.17 2000/01/30 18:40:03 mj Exp $
+# $Id: Makefile,v 4.18 2000/01/30 19:24:55 mj Exp $
 #
 # Makefile FIDOGATE TOPDIR
 #
@@ -37,7 +37,8 @@ INSTALLDIRS	= $(DEFAULT_V_CONFIGDIR) \
 		  $(DEFAULT_V_PINBOUND) \
 		  $(DEFAULT_V_UUINBOUND) \
 		  $(DEFAULT_V_FTPINBOUND) \
-		  $(INFODIR) $(HTMLDIR)
+		  $(INFODIR) \
+		  $(HTMLDIR) $(HTMLLOGDIR)
 
 
 
@@ -50,7 +51,7 @@ clean veryclean::
 	rm -f *~ *.bak *.o tags TAGS core
 
 install-dirs:
-	for d in $(INSTALLDIRS); do if [ ! -d $$d ]; then \
+	for d in $(INSTALLDIRS); do if [ ! -d $(PREFIX)$$d ]; then \
 	    echo "Creating $$d ..."; $(INSTALL_DIR) $(PREFIX)$$d; \
 	fi; done
 
@@ -64,9 +65,10 @@ install-uuin:
 install::
 	cp ANNOUNCE $(PREFIX)$(HTMLDIR)
 
-install-spec:
-	if [ -d $(RPMSPECDIR) ]; then \
-	  cp fidogate.spec RPMSPECDIR; \
+install-spec-src:
+	if [ -d $(RPMSPECSDIR) ]; then \
+	  cp fidogate.spec $(RPMSPECSDIR); \
+	  cp /var/tmp/fidogate-[0-9].*.tar.gz $(RPMSOURCESDIR); \
 	fi
 
 tags:
