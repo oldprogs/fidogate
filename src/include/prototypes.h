@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: prototypes.h,v 4.53 1999/03/07 16:11:51 mj Exp $
+ * $Id: prototypes.h,v 4.54 1999/03/07 17:37:13 mj Exp $
  *
  * Prototypes for functions in libfidogate.a
  *
@@ -44,7 +44,8 @@ int	list_match		(register int, char **, char **);
 
 /* address.c */
 extern int i_flag;
-extern char address_error[];
+#define ADDRESS_ERROR_SIZE	256
+extern char address_error[ADDRESS_ERROR_SIZE];
 
 void	addr_restricted		(int);
 int	addr_is_restricted	(void);

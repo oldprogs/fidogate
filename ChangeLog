@@ -2,6 +2,80 @@
 
 	------- CVS ci -------------------------------------------------------
 
+	* src/toss/ftntoss.c: dito.
+
+	* src/toss/ftnroute.c (main): dito.
+
+	* src/toss/ftn2ftn.c (do_message): dito.
+
+	* src/ffx/ffx.c (ffx): dito.
+
+	* src/common/rfcaddr.c (rfcaddr_from_ftn): dito.
+	  (rfcaddr_from_rfc): dito.
+
+	* src/common/packet.c (pkt_create): dito.
+	  (pkt_open_node): dito.
+
+	* src/common/misc.c (strncpy0): removed, obsoleted by str_copy().
+	  (strncat0): removed, obsoleted by str_append().
+
+	* src/common/message.c (pkt_get_body): dito.
+	  (msg_format_buffer): dito.
+
+	* src/common/binkley.c (bink_bsy_name): dito.
+	  (bink_find_flo): dito.
+	  (bink_find_out): dito.
+
+	* src/common/address.c (try_pfnz): dito.
+	  (inet_to_ftn): dito.
+
+	* src/areafix/ftnafpkt.c (rename_bad): use BUF_COPY() / BUF_APPEND().
+
+	* src/util/ftnflo.c (do_flo): dito.
+
+	* src/toss/ftntoss.c (do_echomail): dito.
+
+	* src/toss/ftnpack.c (arcmail_name): dito.
+	  (packing_pkt_name): dito.
+	  (do_arcmail): dito.
+	  (do_prog): dito.
+
+	* src/gate/rfc2ftn.c (rfc_parse): dito.
+	  (snd_message): dito.
+
+	* src/ffx/ffxqt.c (exec_ffx): dito.
+
+	* src/ffx/ffx.c (ffx): dito.
+
+	* src/common/tick.c (tick_send): use str_printf().
+
+	* src/common/textlist.c (tl_appendf): added check for buf[] overflow.
+
+	* src/common/parsenode.c (znfp_put_number): dito.
+
+	* src/common/packet.c (pkt_newname): dito.
+
+	* src/common/outpkt.c (outpkt_outputname): dito.
+
+	* src/common/node.c (node_to_asc_diff): dito.
+	  (node_to_pfnz): dito.
+
+	* src/common/mail.c (mail_open): dito.
+
+	* src/common/lock.c (lock_lockfile_nfs): dito.
+
+	* src/common/flo.c (main): dito.
+
+	* src/common/binkley.c (bink_out_name): dito.
+	  (bink_mkdir): dito.
+
+	* src/charset/charset.c (charset_qpen): use str_printf().
+
+	* src/areafix/areafix.c (areafix_tlprintf): check vsprintf()
+	  returned length, fatal error if buf[] overflows.
+
+	------- CVS ci -------------------------------------------------------
+
 	* src/include/shuffle.h: removed, obsoleted by new TmpS temporary
 	  strings used throughout FIDOGATE.
 

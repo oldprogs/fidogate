@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: binkley.c,v 4.7 1999/01/02 16:34:57 mj Exp $
+ * $Id: binkley.c,v 4.8 1999/03/07 17:37:08 mj Exp $
  *
  * BinkleyTerm-style outbound directory functions
  *
@@ -109,15 +109,16 @@ char *bink_out_name(Node *node)
 	return NULL;
 
 #ifdef AMIGADOS_4D_OUTBOUND
-    sprintf(buf,"%s/%s/%d.%d.%d.%d.", outbound, out, node->zone,
-            node->net, node->node, node->point);
+    str_printf(buf, sizeof(buf), "%s/%s/%d.%d.%d.%d.",
+	       outbound, out, node->zone,
+	       node->net, node->node, node->point);
 #else    
     if(node->point)
-	sprintf(buf, "%s/%s/%04x%04x.pnt/0000%04x.",
-		outbound, out, node->net, node->node, node->point);
+	str_printf(buf, sizeof(buf), "%s/%s/%04x%04x.pnt/0000%04x.",
+		   outbound, out, node->net, node->node, node->point);
     else
-	sprintf(buf, "%s/%s/%04x%04x.",
-		outbound, out, node->net, node->node);
+	str_printf(buf, sizeof(buf), "%s/%s/%04x%04x.",
+		   outbound, out, node->net, node->node);
 #endif /**AMIGADOS_4D_OUTBOUND**/
 
     return buf;
@@ -137,8 +138,8 @@ char *bink_bsy_name(Node *node)
     if(!out)
 	return NULL;
 
-    strncpy0(buf, out,   sizeof(buf));
-    strncat0(buf, "bsy", sizeof(buf));
+    BUF_COPY(buf, out);
+    BUF_APPEND(buf, "bsy");
     debug(6, "node=%s bsy file=%s", node_to_asc(node, TRUE), buf);
     return buf;
 }
@@ -234,8 +235,8 @@ char *bink_find_flo(Node *node, char *flav)
      */
     for(i=1; i<NOUTB; i++)
     {
-	strncpy0(buf, outb,              sizeof(buf));
-	strncat0(buf, outb_types[i].flo, sizeof(buf));
+	BUF_COPY(buf, outb);
+	BUF_APPEND(buf, outb_types[i].flo);
 	if(access(buf, F_OK) == 0)
 	{
 	    /* FLO file exists */
@@ -260,8 +261,8 @@ char *bink_find_flo(Node *node, char *flav)
     if(!flo)
 	return NULL;
 
-    strncpy0(buf, outb, sizeof(buf));
-    strncat0(buf, flo , sizeof(buf));
+    BUF_COPY(buf, outb);
+    BUF_APPEND(buf, flo);
     debug(5, "new FLO file %s", buf);
     return buf;
 }
@@ -290,8 +291,8 @@ char *bink_find_out(Node *node, char *flav)
      */
     for(i=1; i<NOUTB; i++)
     {
-	strncpy0(buf, outb,              sizeof(buf));
-	strncat0(buf, outb_types[i].out, sizeof(buf));
+	BUF_COPY(buf, outb);
+	BUF_APPEND(buf, outb_types[i].out);
 	if(access(buf, F_OK) == 0)
 	{
 	    /* OUT file exists */
@@ -316,8 +317,8 @@ char *bink_find_out(Node *node, char *flav)
     if(!out)
 	return NULL;
 
-    strncpy0(buf, outb, sizeof(buf));
-    strncat0(buf, out , sizeof(buf));
+    BUF_COPY(buf, outb);
+    BUF_APPEND(buf, out);
     debug(5, "new OUT file %s", buf);
     return buf;
 }
@@ -460,16 +461,18 @@ int bink_mkdir(Node *node)
 {
     char buf[MAXPATH];
     char *base;
+    size_t rest;
     
     /*
      * Outbound dir + zone dir
      */
-    strncpy0(buf, cf_p_btbasedir(), sizeof(buf));
-    strncat0(buf, "/"          , sizeof(buf));
+    BUF_COPY(buf, cf_p_btbasedir());
+    BUF_APPEND(buf, "/");
     if((base = cf_zones_out(node->zone)) == NULL)
 	return ERROR;
-    strncat0(buf, base         , sizeof(buf));
+    BUF_APPEND(buf, base);
     base = buf + strlen(buf);
+    rest = sizeof(buf) - strlen(buf);
 
     if(check_access(buf, CHECK_DIR) == ERROR)
     {
@@ -483,7 +486,7 @@ int bink_mkdir(Node *node)
      */
     if(node->point)
     {
-	sprintf(base, "/%04x%04x.pnt", node->net, node->node);
+	str_printf(base, rest, "/%04x%04x.pnt", node->net, node->node);
 	if(check_access(buf, CHECK_DIR) == ERROR)
 	{
 	    if(mkdir(buf, DIR_MODE) == -1)

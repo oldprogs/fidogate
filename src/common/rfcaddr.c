@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: rfcaddr.c,v 4.7 1999/03/07 16:11:48 mj Exp $
+ * $Id: rfcaddr.c,v 4.8 1999/03/07 17:37:10 mj Exp $
  *
  * RFCAddr struct handling
  *
@@ -82,7 +82,7 @@ RFCAddr rfcaddr_from_ftn(char *name, Node *node)
      */
 #ifdef LOCAL_FTN_ADDRESSES
     if( ! hosts_lookup(node, NULL) )
-	strncpy0(rfc.addr, cf_fqdn(), sizeof(rfc.addr));
+	BUF_COPY(rfc.addr, cf_fqdn());
     else
 #endif
 	if(node->zone == -1)
@@ -137,8 +137,8 @@ RFCAddr rfcaddr_from_ftn(char *name, Node *node)
     if( ! hosts_lookup(node, NULL) )
     {
 	/* Add "%p.f.n.z" to user name */
-	strncat0(rfc.user, "%"                      , sizeof(rfc.user));
-	strncat0(rfc.user, node_to_pfnz(node, FALSE), sizeof(rfc.user));
+	BUF_APPEND(rfc.user, "%");
+	BUF_APPEND(rfc.user, node_to_pfnz(node, FALSE));
     }
 #endif
     
@@ -239,7 +239,7 @@ RFCAddr rfcaddr_from_rfc(char *addr)
 	p[i--] = 0;
     while(i>=0 && p[i]==' ')
 	p[i--] = 0;
-    strncpy0(rfc.real, p, sizeof(rfc.real));
+    BUF_COPY(rfc.real, p);
 
     /*
      * Removed leading/trailing spaces from address
@@ -295,7 +295,7 @@ RFCAddr rfcaddr_from_rfc(char *addr)
     else
     {
 	/* User name */
-	strncpy0(rfc.user, p, sizeof(rfc.user));
+	BUF_COPY(rfc.user, p);
 	/* Internet address */
 	rfc.addr[0] = 0;
     }

@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway software UNIX <-> FIDO
  *
- * $Id: address.c,v 4.13 1999/03/07 16:11:47 mj Exp $
+ * $Id: address.c,v 4.14 1999/03/07 17:37:07 mj Exp $
  *
  * Parsing and conversion for FIDO and RFC addresses
  *
@@ -52,7 +52,7 @@ static int hosts_restricted = FALSE;
 /*
  * Address parsing error message
  */
-char address_error[256];
+char address_error[ADDRESS_ERROR_SIZE];
 
 
 #ifdef AI_6
@@ -169,9 +169,9 @@ static int try_pfnz(Node *node, char *addr, char *dot, char *domain)
     int len  = strlen(addr);
     int dlen = strlen(dot) + strlen(domain);
     
-    strncpy0(adr, addr  , sizeof(adr));
-    strncpy0(dom, dot   , sizeof(dom));
-    strncat0(dom, domain, sizeof(dom));
+    BUF_COPY(adr, addr);
+    BUF_COPY(dom, dot);
+    BUF_APPEND(dom, domain);
     
     if(len > dlen  &&  !stricmp(adr+len-dlen, dom))
     {
@@ -223,8 +223,8 @@ Node *inet_to_ftn(char *addr)
     /*
      * 2. Add domainname and lookup in HOSTS
      */
-    strncpy0(buf, p              , sizeof(buf));
-    strncat0(buf, cf_domainname(), sizeof(buf));
+    BUF_COPY(buf, p);
+    BUF_APPEND(buf, cf_domainname());
     if( (host = hosts_lookup(NULL, buf)) )
     {
 	node = host->node;
@@ -236,8 +236,8 @@ Node *inet_to_ftn(char *addr)
     /*
      * 2a. Add hosts domainname and lookup in HOSTS
      */
-    strncpy0(buf, p               , sizeof(buf));
-    strncat0(buf, cf_hostsdomain(), sizeof(buf));
+    BUF_COPY(buf, p);
+    BUF_APPEND(buf, cf_hostsdomain());
     if( (host = hosts_lookup(NULL, buf)) )
     {
 	node = host->node;
@@ -246,7 +246,7 @@ Node *inet_to_ftn(char *addr)
 	return &node;
     }
 
-    strncpy0(buf, addr, sizeof(buf));
+    BUF_COPY(buf, addr);
     
     /*
      * 3. Try p.f.n.z

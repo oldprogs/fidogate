@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway software UNIX <-> FIDO
  *
- * $Id: rfc2ftn.c,v 4.44 1999/03/07 16:11:50 mj Exp $
+ * $Id: rfc2ftn.c,v 4.45 1999/03/07 17:37:11 mj Exp $
  *
  * Read mail or news from standard input and convert it to a FIDO packet.
  *
@@ -39,7 +39,7 @@
 
 
 #define PROGRAM 	"rfc2ftn"
-#define VERSION 	"$Revision: 4.44 $"
+#define VERSION 	"$Revision: 4.45 $"
 #define CONFIG		DEFAULT_CONFIG_GATE
 
 
@@ -528,9 +528,9 @@ int rfc_parse(RFCAddr *rfc, char *name, Node *node, int gw)
 		if(!rfc_is_domain())
 		{
 		    /* Node is down, bounce mail */
-		    sprintf(address_error,
-			    "FTN address %s: currently down, unreachable",
-			    node_to_asc(n, TRUE));
+		    str_printf(address_error, sizeof(address_error),
+			       "FTN address %s: currently down, unreachable",
+			       node_to_asc(n, TRUE));
 		    ret = ERROR;
 		}
 	    }
@@ -540,9 +540,9 @@ int rfc_parse(RFCAddr *rfc, char *name, Node *node, int gw)
 	 */
 	else if(addr_is_restricted() && !i_flag)
 	{
-	    sprintf(address_error,
-		    "FTN address %s: not registered for this domain",
-		    node_to_asc(n, TRUE));
+	    str_printf(address_error, sizeof(address_error),
+		       "FTN address %s: not registered for this domain",
+		       node_to_asc(n, TRUE));
 	    ret = ERROR;
 	}
 
@@ -551,9 +551,9 @@ int rfc_parse(RFCAddr *rfc, char *name, Node *node, int gw)
 	 */
 	if(!cf_zones_check(n->zone))
 	{
-	    sprintf(address_error,
-		    "FTN address %s: zone %d not supported",
-		    node_to_asc(n, TRUE), n->zone);
+	    str_printf(address_error, sizeof(address_error),
+		       "FTN address %s: zone %d not supported",
+		       node_to_asc(n, TRUE), n->zone);
 	    ret = ERROR;
 	}
 	
@@ -1312,7 +1312,7 @@ int snd_message(Message *msg, Area *parea,
     /* Subject with split part indication */
     if(split && part>1)
     {
-	sprintf(msg->subject, "%02d: ", part);
+	str_printf(msg->subject, sizeof(msg->subject), "%02d: ", part);
 	BUF_APPEND(msg->subject, subj);
     }
     else
@@ -1493,7 +1493,8 @@ int snd_message(Message *msg, Area *parea,
 		seq        = sequencer(DEFAULT_SEQ_SPLIT) % 100000;/* Max. 5 digits */
 	    }
 	    
-	    sprintf(buf, "%d/%d", cf_addr()->net, cf_addr()->node);
+	    str_printf(buf, sizeof(buf),
+		       "%d/%d", cf_addr()->net, cf_addr()->node);
 	    
 	    fprintf(sf,
 		"\001SPLIT: %-18s @%-11.11s %-5ld %02d/%02d +++++++++++\r\n",

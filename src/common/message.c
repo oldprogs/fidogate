@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: message.c,v 4.13 1999/01/02 16:34:59 mj Exp $
+ * $Id: message.c,v 4.14 1999/03/07 17:37:08 mj Exp $
  *
  * Reading and processing FTN text body
  *
@@ -188,7 +188,7 @@ int pkt_get_body(FILE *fp, Textlist *tl)
     if( (type==MSG_END || type==MSG_TYPE) && buffer[0] )
     {
 	/* Make sure that this line is terminated by \r\n */
-	strncat0(buffer, "\r\n", sizeof(buffer));
+	BUF_APPEND(buffer, "\r\n");
 
 	tl_append(tl, buffer);
     }
@@ -731,8 +731,7 @@ int msg_format_buffer(char *buffer, Textlist *tlist)
 	     */
 	    np = p + i;
 	    *np++ = 0;
-	    strncpy0(localbuffer, p, MAX_LINELEN+8);
-	    strcat(localbuffer, "\n");
+	    BUF_COPY2(localbuffer, p, "\n");
 	    tl_append(tlist, localbuffer);
 	    lines++;
 	    

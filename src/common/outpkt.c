@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: outpkt.c,v 4.5 1999/01/02 16:35:00 mj Exp $
+ * $Id: outpkt.c,v 4.6 1999/03/07 17:37:10 mj Exp $
  *
  * Output packet handling for ftntoss and ftroute.
  *
@@ -110,7 +110,8 @@ char *outpkt_outputname(char *buf,
 			char *dir, int grade, int type, int flav,
 			long n, char *ext)
 {
-    sprintf(buf, "%s/%c%c%c%05lx.%s", dir, grade, type, flav, n, ext);
+    str_printf(buf, BUFFERSIZE, "%s/%c%c%c%05lx.%s",
+	       dir, grade, type, flav, n, ext);
     return buf;
 }
 

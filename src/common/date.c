@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: date.c,v 4.4 1999/01/02 16:34:58 mj Exp $
+ * $Id: date.c,v 4.5 1999/03/07 17:37:08 mj Exp $
  *
  * date() date/time print function
  *
@@ -76,6 +76,8 @@ char *date(char *fmt, time_t *t)
 
 char *date_buf(char *buf, char *fmt, time_t *t)
 {
+    /**FIXME: buf[] should be checked for overflow**/
+
     TIMEINFO ti;
     struct tm *tm;
 

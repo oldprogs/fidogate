@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: flo.c,v 4.4 1999/01/02 16:34:58 mj Exp $
+ * $Id: flo.c,v 4.5 1999/03/07 17:37:08 mj Exp $
  *
  * Functions for handling BinkleyTerm-style FLO files
  *
@@ -310,7 +310,7 @@ int main(int argc, char *argv[])
     }
 
     printf("Contents of FLO file:\n");
-    sprintf(buffer, "cat -v %s", flo_name);
+    str_printf(buffer, sizeof(buffer), "cat -v %s", flo_name);
     system(buffer);
     
     while( (line = flo_gets(buffer, sizeof(buffer))) )
@@ -326,7 +326,7 @@ int main(int argc, char *argv[])
     }
 
     printf("Modified contents of FLO file:\n");
-    sprintf(buffer, "cat -v %s", flo_name);
+    str_printf(buffer, sizeof(buffer), "cat -v %s", flo_name);
     system(buffer);
     
     flo_close(&node, TRUE, TRUE);

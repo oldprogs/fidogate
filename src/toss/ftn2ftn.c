@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: ftn2ftn.c,v 4.7 1999/03/06 18:53:31 mj Exp $
+ * $Id: ftn2ftn.c,v 4.8 1999/03/07 17:37:13 mj Exp $
  *
  * FTN-FTN gateway for NetMail, using the %Z:N/F.P addressing in the
  * from/to fields.
@@ -35,7 +35,7 @@
 
 
 #define PROGRAM 	"ftn2ftn"
-#define VERSION 	"$Revision: 4.7 $"
+#define VERSION 	"$Revision: 4.8 $"
 #define CONFIG		DEFAULT_CONFIG_MAIN
 
 
@@ -123,11 +123,11 @@ int do_message(Node *gate, Message *msg, MsgBody *body)
 	/* Strip % addressing */
 	*p = 0;
 	/* Add sender address to from name */
-	strncpy0(buffer, "%", sizeof(buffer));
-	strncat0(buffer, node_to_asc(&msg->node_from, FALSE), sizeof(buffer));
+	BUF_COPY(buffer, "%");
+	BUF_APPEND(buffer, node_to_asc(&msg->node_from, FALSE));
 	if( strlen(from)+strlen(buffer) > MSG_MAXNAME-1 )
 	    from[MSG_MAXNAME-1-strlen(buffer)] = 0;
-	strncat0(from, buffer, MSG_MAXNAME);
+	str_append(from, MSG_MAXNAME, buffer);
 	/* Readdress */
 	msg->node_from = *gate;
 	msg->node_to   = node;

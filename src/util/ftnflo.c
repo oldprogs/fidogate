@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftnflo.c,v 4.9 1999/01/02 16:35:07 mj Exp $
+ * $Id: ftnflo.c,v 4.10 1999/03/07 17:37:14 mj Exp $
  *
  * Run script for every entry in FLO file for node
  *
@@ -38,7 +38,7 @@
 
 
 #define PROGRAM		"ftnflo"
-#define VERSION		"$Revision: 4.9 $"
+#define VERSION		"$Revision: 4.10 $"
 #define CONFIG		DEFAULT_CONFIG_MAIN
 
 
@@ -95,7 +95,7 @@ int do_flo(Node *node)
 	if(x_flag)
 	{
 	    /* Command */
-	    sprintf(buf, script, line);
+	    str_printf(buf, sizeof(buf), script, line);
 	    debug(2, "Command: %s", buf);
 
 	    if(!n_flag)

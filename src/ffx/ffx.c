@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ffx.c,v 4.9 1999/03/06 17:51:28 mj Exp $
+ * $Id: ffx.c,v 4.10 1999/03/07 17:37:11 mj Exp $
  *
  * ffx FIDO-FIDO execution
  *
@@ -38,7 +38,7 @@
 
 
 #define PROGRAM		"ffx"
-#define VERSION		"$Revision: 4.9 $"
+#define VERSION		"$Revision: 4.10 $"
 #define CONFIG		DEFAULT_CONFIG_FFX
 
 
@@ -107,7 +107,7 @@ char *new_job_id(int f)
     if(!f)
 	f = 'f';
   
-    sprintf(buf, "f%c%06ld", f, seq);
+    str_printf(buf, sizeof(buf), "f%c%06ld", f, seq);
     return buf;
 }
 
@@ -116,7 +116,9 @@ char *new_job_id(int f)
 /*
  * Do the remote execution
  */
-int ffx(Node *node, int cmdc, char **cmdv, char *cmprprog, char *cmprext, char *cmprdecmpr, char *flav, int grade, char *batch)
+int ffx(Node *node, int cmdc, char **cmdv,
+	char *cmprprog, char *cmprext, char *cmprdecmpr,
+	char *flav, int grade, char *batch)
 {
     int i, ret;
     char *seq;
@@ -128,11 +130,11 @@ int ffx(Node *node, int cmdc, char **cmdv, char *cmprprog, char *cmprext, char *
     
     for(i=0; i<cmdc; i++)
 	if(i == 0)
-	    strncpy0(buffer, cmdv[i], BUFFERSIZE);
+	    BUF_COPY(buffer, cmdv[i]);
 	else
 	{
-	    strncat0(buffer, " "    , BUFFERSIZE);
-	    strncat0(buffer, cmdv[i], BUFFERSIZE);
+	    BUF_APPEND(buffer, " ");
+	    BUF_APPEND(buffer, cmdv[i]);
 	}
 
     seq = new_job_id(grade);
@@ -148,7 +150,8 @@ int ffx(Node *node, int cmdc, char **cmdv, char *cmprprog, char *cmprext, char *
 
     if(batch)
     {
-	sprintf(ctrlname, "%s/%s/%s", cf_p_btbasedir(), out, batch);
+	str_printf(ctrlname, sizeof(ctrlname),
+		"%s/%s/%s", cf_p_btbasedir(), out, batch);
 	if( mkdir(ctrlname, DIR_MODE) == -1 )
 	    if(errno != EEXIST)
 	    {
@@ -156,15 +159,18 @@ int ffx(Node *node, int cmdc, char **cmdv, char *cmprprog, char *cmprext, char *
 		return EX_OSERR;
 	    }
 	
-	sprintf(ctrlname, "%s/%s/%s/%s.ffx",
-		cf_p_btbasedir(), out, batch, seq);
-	sprintf(dataname, "%s/%s/%s/%s%s" ,
-		cf_p_btbasedir(), out, batch, seq, cmprext);
+	str_printf(ctrlname, sizeof(ctrlname),
+		   "%s/%s/%s/%s.ffx", cf_p_btbasedir(), out, batch, seq);
+	str_printf(dataname, sizeof(dataname),
+		   "%s/%s/%s/%s%s",
+		   cf_p_btbasedir(), out, batch, seq, cmprext);
     }
     else
     {
-	sprintf(ctrlname, "%s/%s/%s.ffx", cf_p_btbasedir(), out, seq);
-	sprintf(dataname, "%s/%s/%s%s" , cf_p_btbasedir(), out, seq, cmprext);
+	str_printf(ctrlname, sizeof(ctrlname),
+		   "%s/%s/%s.ffx", cf_p_btbasedir(), out, seq);
+	str_printf(dataname, sizeof(dataname),
+		   "%s/%s/%s%s" , cf_p_btbasedir(), out, seq, cmprext);
     }
     
     debug(2, "ffx: job=%s", seq);
@@ -220,7 +226,7 @@ int ffx(Node *node, int cmdc, char **cmdv, char *cmprprog, char *cmprext, char *
 	chmod(dataname, DATA_MODE);
 	fclose(data);
 	
-	sprintf(buffer, "%s >%s", cmprprog, dataname);
+	str_printf(buffer, sizeof(buffer), "%s >%s", cmprprog, dataname);
 	debug(2, "Command: %s", buffer);
 	ret = run_system(buffer);
 	debug(2, "Exit code=%d", ret);

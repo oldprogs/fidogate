@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: pkttmpl.c,v 1.4 1999/03/06 17:51:27 mj Exp $
+ * $Id: pkttmpl.c,v 1.5 1999/03/07 17:37:07 mj Exp $
  *
  * Template for utility processing FTN packets
  *
@@ -37,7 +37,7 @@
 
 
 #define PROGRAM 	"ftnxxx"
-#define VERSION 	"$Revision: 1.4 $"
+#define VERSION 	"$Revision: 1.5 $"
 #define CONFIG		DEFAULT_CONFIG_MAIN
 
 
@@ -191,7 +191,7 @@ int rename_bad(char *name)
     char bad[MAXPATH];
     int len;
     
-    strncpy0(bad, name, sizeof(bad));
+    BUF_COPY(bad, name);
     len = strlen(bad) - 4;
     if(len < 0)
 	len = 0;

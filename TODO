@@ -7,20 +7,8 @@
     
     Features
 
-DONE	* ftnin: support for FLO files with *.pkt
-
-DONE	* logcheck: fix list for output without relay (addresses only
-	  once).
-
-DONE	* ftnafutil: only process areas with uplink entry in passwd?
-
 	* log.c/config.h: get syslog facility/level from
 	  LogFacility/LogLevel, parse at run-time.
-
-	* rfc2ftn: add config option ForceFMPT0 (pkt_set_forcefmpt0(TRUE))
-
-DONE	* packet.c:pkt_put_msg_hdr(): add run-time configuration for
-	  ^AFMPT 0, normally none.
 
 	* ftnafutil: option to sort areas.bbs, including zone/keys.
 
@@ -28,8 +16,6 @@ MOSTLY	* ftn2rfc: integrate new charset mapping
 
 	* rfc2ftn: implement new charset mapping
 	* charset translation for RFC -> Fido.
-
-DONE	* charset.c: use new mapping tables
 
 	* ^ACHRS default configurable per area
 
@@ -55,8 +41,6 @@ DONE	* charset.c: use new mapping tables
     Code rewrite
 
 	* config.make/subst.pl: configuration macro if syslog is available.
-
-	* config.h: NFS_SAFE_LOCK_FILES not for DOS, WIN32 etc.
 
 
 
@@ -86,8 +70,6 @@ STARTED	* areas.bbs: read-only/vacation flag for downlinks,
 
 	* rfcheader.c: rewrite all *header_get* functions using the
 	  new rfcheader_geth().
-
-STARTED * Replace calls to strncpy0/strncat0 with str_copy/str_append.
 
 MOSTLY	* ftnpack: better file attach processing, -F DIR option. Don't
 DONE	  copy netmail packets (do_noarc()), use rename(). If archiver

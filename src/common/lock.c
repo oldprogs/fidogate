@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: lock.c,v 4.10 1999/01/02 16:34:58 mj Exp $
+ * $Id: lock.c,v 4.11 1999/03/07 17:37:08 mj Exp $
  *
  * File locking
  *
@@ -125,7 +125,9 @@ int lock_lockfile_nfs(char *name, int wait, char *id)
     struct stat st;
     
     BUF_COPY(uniq_name, name);
-    sprintf(uniq_name+strlen(uniq_name), ".L%d", (int)getpid());
+    str_printf(uniq_name+strlen(uniq_name),
+	       sizeof(uniq_name)-strlen(uniq_name),
+	       ".L%d", (int)getpid());
 
     /* create unique file */
     debug(7, "About to create unique %s (for lock %s)", uniq_name, name);

@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftnpack.c,v 4.22 1999/03/06 18:53:31 mj Exp $
+ * $Id: ftnpack.c,v 4.23 1999/03/07 17:37:13 mj Exp $
  *
  * Pack output packets of ftnroute for Binkley outbound (ArcMail)
  *
@@ -40,7 +40,7 @@
 
 
 #define PROGRAM 	"ftnpack"
-#define VERSION 	"$Revision: 4.22 $"
+#define VERSION 	"$Revision: 4.23 $"
 #define CONFIG		DEFAULT_CONFIG_MAIN
 
 
@@ -344,6 +344,7 @@ char *arcmail_name(Node *node, char *dir)
 #ifndef AMIGADOS_4D_OUTBOUND
     int d1, d2;
 #endif
+    size_t rest;
 
     cf_set_zone(node->zone);
 
@@ -364,6 +365,7 @@ char *arcmail_name(Node *node, char *dir)
 	BUF_APPEND(buf, "/");
     }
     base = buf + strlen(buf);
+    rest = sizeof(buf) - strlen(buf);
 
     /*
      * Get weekday archive extension
@@ -376,8 +378,8 @@ char *arcmail_name(Node *node, char *dir)
      * Create name of archive file
      */
 #ifdef AMIGADOS_4D_OUTBOUND
-    sprintf(base, "%d.%d.%d.%d.%s", node->zone, node->net,
-	    node->node, node->point, wk);
+    str_printf(base, rest, "%d.%d.%d.%d.%s", node->zone, node->net,
+	       node->node, node->point, wk);
 #else    
     if(node->point)
     {
@@ -385,17 +387,17 @@ char *arcmail_name(Node *node, char *dir)
 	d2 = (cf_main_addr()->point - node->point) & 0xffff;
 
 	if(dir)
-	    sprintf(base, "%04x%04x.%s", d1, d2, wk );
+	    str_printf(base, rest, "%04x%04x.%s", d1, d2, wk );
 	else
-	    sprintf(base, "%04x%04x.pnt/%04x%04x.%s",
-		    node->net, node->node, d1, d2, wk );
+	    str_printf(base, rest, "%04x%04x.pnt/%04x%04x.%s",
+		       node->net, node->node, d1, d2, wk );
     }
     else
     {
 	d1 = (cf_main_addr()->net  - node->net ) & 0xffff;
 	d2 = (cf_main_addr()->node - node->node) & 0xffff;
 	
-	sprintf(base, "%04x%04x.%s", d1, d2, wk);
+	str_printf(base, rest, "%04x%04x.%s", d1, d2, wk);
     }
 #endif /**AMIGADOS_4D_OUTBOUND**/
     
@@ -414,8 +416,8 @@ char *packing_pkt_name(char *dir, char *name)
     
 #if 0
     /* Return nnnnnnnn.pkt in dir */
-    sprintf(buf, "%s/%08ld.pkt",
-	    (dir ? dir : out_dir), sequencer(DEFAULT_SEQ_PACK));
+    str_printf(buf, sizeof(buf), "%s/%08ld.pkt",
+	       (dir ? dir : out_dir), sequencer(DEFAULT_SEQ_PACK));
 #endif
 
     /* Same base name in dir */
@@ -540,7 +542,7 @@ int do_arcmail(char *name, Node *arcnode, Node *flonode,
 	}
     }
     
-    sprintf(buffer, prog, arcn, pktn);
+    str_printf(buffer, sizeof(buffer), prog, arcn, pktn);
     debug(4, "Command: %s", buffer);
     ret = run_system(buffer);
     debug(4, "Exit code=%d", ret);
@@ -711,7 +713,7 @@ int do_prog(char *name, PktDesc *desc, Packing *pack)
     
     debug(4, "Processing %s", name);
 
-    sprintf(buffer, pack->arc->prog, name);
+    str_printf(buffer, sizeof(buffer), pack->arc->prog, name);
     debug(4, "Command: %s", buffer);
     ret = run_system(buffer);
     debug(4, "Exit code=%d", ret);

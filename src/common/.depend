@@ -7,7 +7,7 @@ address.o: address.c ../../src/include/fidogate.h ../../config.h \
  ../../src/include/paths.h ../../src/include/declare.h \
  ../../src/include/node.h ../../src/include/packet.h \
  ../../src/include/structs.h ../../src/include/prototypes.h \
- ../../src/include/cf_funcs.h ../../src/include/shuffle.h
+ ../../src/include/cf_funcs.h
 aliases.o: aliases.c ../../src/include/fidogate.h ../../config.h \
  ../../src/include/paths.h ../../src/include/declare.h \
  ../../src/include/node.h ../../src/include/packet.h \
@@ -132,12 +132,12 @@ msgid.o: msgid.c ../../src/include/fidogate.h ../../config.h \
  ../../src/include/paths.h ../../src/include/declare.h \
  ../../src/include/node.h ../../src/include/packet.h \
  ../../src/include/structs.h ../../src/include/prototypes.h \
- ../../src/include/cf_funcs.h ../../src/include/shuffle.h
+ ../../src/include/cf_funcs.h
 node.o: node.c ../../src/include/fidogate.h ../../config.h \
  ../../src/include/paths.h ../../src/include/declare.h \
  ../../src/include/node.h ../../src/include/packet.h \
  ../../src/include/structs.h ../../src/include/prototypes.h \
- ../../src/include/cf_funcs.h ../../src/include/shuffle.h
+ ../../src/include/cf_funcs.h
 outpkt.o: outpkt.c ../../src/include/fidogate.h ../../config.h \
  ../../src/include/paths.h ../../src/include/declare.h \
  ../../src/include/node.h ../../src/include/packet.h \
@@ -157,7 +157,7 @@ parsenode.o: parsenode.c ../../src/include/fidogate.h ../../config.h \
  ../../src/include/paths.h ../../src/include/declare.h \
  ../../src/include/node.h ../../src/include/packet.h \
  ../../src/include/structs.h ../../src/include/prototypes.h \
- ../../src/include/cf_funcs.h ../../src/include/shuffle.h
+ ../../src/include/cf_funcs.h
 passwd.o: passwd.c ../../src/include/fidogate.h ../../config.h \
  ../../src/include/paths.h ../../src/include/declare.h \
  ../../src/include/node.h ../../src/include/packet.h \
@@ -172,12 +172,12 @@ rfcaddr.o: rfcaddr.c ../../src/include/fidogate.h ../../config.h \
  ../../src/include/paths.h ../../src/include/declare.h \
  ../../src/include/node.h ../../src/include/packet.h \
  ../../src/include/structs.h ../../src/include/prototypes.h \
- ../../src/include/cf_funcs.h ../../src/include/shuffle.h
+ ../../src/include/cf_funcs.h
 rfcheader.o: rfcheader.c ../../src/include/fidogate.h ../../config.h \
  ../../src/include/paths.h ../../src/include/declare.h \
  ../../src/include/node.h ../../src/include/packet.h \
  ../../src/include/structs.h ../../src/include/prototypes.h \
- ../../src/include/cf_funcs.h ../../src/include/shuffle.h
+ ../../src/include/cf_funcs.h
 routing.o: routing.c ../../src/include/fidogate.h ../../config.h \
  ../../src/include/paths.h ../../src/include/declare.h \
  ../../src/include/node.h ../../src/include/packet.h \

@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: node.c,v 4.8 1999/03/07 16:11:47 mj Exp $
+ * $Id: node.c,v 4.9 1999/03/07 17:37:10 mj Exp $
  *
  * Conversion Node structure <-> Z:N/F.P / pP.fF.nN.zZ
  *
@@ -161,10 +161,11 @@ char *node_to_pfnz(Node *node, int point_flag)
     static char buf[MAXINETADDR];
 
     if(node->point!=-1 && (node->point!=0 || point_flag))
-	sprintf(buf, "p%d.f%d.n%d.z%d",
-		node->point, node->node, node->net, node->zone );
+	str_printf(buf, sizeof(buf), "p%d.f%d.n%d.z%d",
+		   node->point, node->node, node->net, node->zone );
     else
-	sprintf(buf, "f%d.n%d.z%d", node->node, node->net, node->zone);
+	str_printf(buf, sizeof(buf), "f%d.n%d.z%d",
+		   node->node, node->net, node->zone);
 
     return buf;
 }
@@ -249,19 +250,19 @@ char *node_to_asc_diff(Node *node, Node *oldnode)
 	if(node->net == oldnode->net)
 	{
 	    if(node->node == oldnode->node)
-		sprintf(buf, node->point ? ".%d" : "",
-			node->point                      );
+		str_printf(buf, sizeof(buf), node->point ? ".%d" : "",
+			   node->point                      );
 	    else
-		sprintf(buf, node->point ? "%d.%d" : "%d",
+		str_printf(buf, sizeof(buf), node->point ? "%d.%d" : "%d",
 			node->node, node->point              );
 	}
 	else
-	    sprintf(buf, node->point ? "%d/%d.%d" : "%d/%d",
-		    node->net, node->node, node->point         );
+	    str_printf(buf, sizeof(buf), node->point ? "%d/%d.%d" : "%d/%d",
+		       node->net, node->node, node->point         );
     }
     else
-	sprintf(buf, node->point ? "%d:%d/%d.%d" : "%d:%d/%d",
-		node->zone, node->net, node->node, node->point   );
+	str_printf(buf, sizeof(buf), node->point ? "%d:%d/%d.%d" : "%d:%d/%d",
+		   node->zone, node->net, node->node, node->point   );
     
     return buf;
 }

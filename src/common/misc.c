@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: misc.c,v 4.13 1999/03/06 17:51:28 mj Exp $
+ * $Id: misc.c,v 4.14 1999/03/07 17:37:09 mj Exp $
  *
  * Miscellaneous functions
  *
@@ -212,32 +212,6 @@ char *str_copy_range(char *d, size_t n, char *s, char *lim)
 
 
 
-/*
- * strncpy0() --- strncpy() with terminating '\0' char
- */
-char *strncpy0(char *d, char *s, int n)
-{
-    strncpy(d, s, n);
-    d[n-1] = 0;
-    return d;
-}
-
-
-
-/*
- * strncat0() --- strncat() with terminating '\0' char and
- *                n == destination buffer size
- */
-char *strncat0(char *d, char *s, int n)
-{
-    int max = n - strlen(d) - 1;
-    strncat(d, s, max);
-    d[n-1] = 0;
-    return d;
-}    
-
-
-    
 #if !defined(HAS_STRCASECMP) && !defined(HAS_STRICMP)
 /***** strnicmp() --- compare n chars of strings ignoring case ***************/
 

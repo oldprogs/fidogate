@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftntoss.c,v 4.32 1999/03/06 18:53:32 mj Exp $
+ * $Id: ftntoss.c,v 4.33 1999/03/07 17:37:14 mj Exp $
  *
  * Toss FTN NetMail/EchoMail
  *
@@ -39,7 +39,7 @@
 
 
 #define PROGRAM 	"ftntoss"
-#define VERSION 	"$Revision: 4.32 $"
+#define VERSION 	"$Revision: 4.33 $"
 #define CONFIG		DEFAULT_CONFIG_MAIN
 
 
@@ -420,7 +420,7 @@ int lon_to_kludge_sorted(Textlist *tl, char *text, LON *lon)
 	    
 	    if(strlen(buffer)+strlen(s)+1 > MAX_LENGTH)
 	    {
-		strncat0(buffer, "\r\n", sizeof(buffer));
+		BUF_APPEND(buffer, "\r\n");
 		tl_append(tl, buffer);
 		
 		node_invalid(&old);
@@ -533,7 +533,7 @@ int kludge_to_lon(Textlist *tl, LON *lon)
 	    p++;
 	while(*p && is_space(*p))
 	    p++;
-	strncpy0(buffer, p, sizeof(buffer));
+	BUF_COPY(buffer, p);
 	strip_crlf(buffer);
 	/* Tokenize and convert to node addresses */
 	node_invalid(&old);
@@ -801,7 +801,7 @@ int do_echomail(Packet *pkt, Message *msg, MsgBody *body)
     /*
      * Lookup area and set zone
      */
-    strncpy0(buffer, body->area + strlen("AREA:"), sizeof(buffer));
+    BUF_COPY(buffer, body->area + strlen("AREA:"));
     strip_crlf(buffer);
     debug(5, "EchoMail AREA: %s", buffer);
     
@@ -875,9 +875,9 @@ int do_echomail(Packet *pkt, Message *msg, MsgBody *body)
 	    crc32_compute(msg->name_to  , strlen(msg->name_to  ));
 	    crc32_compute(msg->subject  , strlen(msg->subject  ));
 
-	    sprintf(buffer, "%s NOMSGID: %s %s %08lx",
-		    area->area, node_to_asc(&msg->node_orig, TRUE),
-		    date("%y%m%d %H%M%S", &msg->date), crc32_value() );
+	    str_printf(buffer, sizeof(buffer), "%s NOMSGID: %s %s %08lx",
+		       area->area, node_to_asc(&msg->node_orig, TRUE),
+		       date("%y%m%d %H%M%S", &msg->date), crc32_value() );
 	    msgid = buffer;
 	}
 
@@ -1432,7 +1432,7 @@ int rename_bad(char *name)
     char bad[MAXPATH];
     int len;
     
-    strncpy0(bad, name, sizeof(bad));
+    BUF_COPY(bad, name);
     len = strlen(bad) - 4;
     if(len < 0)
 	len = 0;

@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftnroute.c,v 4.20 1999/03/07 16:11:51 mj Exp $
+ * $Id: ftnroute.c,v 4.21 1999/03/07 17:37:13 mj Exp $
  *
  * Route FTN NetMail/EchoMail
  *
@@ -40,7 +40,7 @@
 
 
 #define PROGRAM 	"ftnroute"
-#define VERSION 	"$Revision: 4.20 $"
+#define VERSION 	"$Revision: 4.21 $"
 #define CONFIG		DEFAULT_CONFIG_MAIN
 
 
@@ -649,7 +649,7 @@ int main(int argc, char **argv)
     
     if(optind >= argc)
     {
-	strncpy0(pattern, "????????.pkt", sizeof(pattern));
+	BUF_COPY(pattern, "????????.pkt");
 	if(g_flag)
 	    pattern[0] = g_flag;
 	

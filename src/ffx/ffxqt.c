@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ffxqt.c,v 4.13 1999/03/06 17:51:29 mj Exp $
+ * $Id: ffxqt.c,v 4.14 1999/03/07 17:37:11 mj Exp $
  *
  * Process incoming ffx control and data files
  *
@@ -38,7 +38,7 @@
 
 
 #define PROGRAM		"ffxqt"
-#define VERSION		"$Revision: 4.13 $"
+#define VERSION		"$Revision: 4.14 $"
 #define CONFIG		DEFAULT_CONFIG_FFX
 
 
@@ -497,14 +497,16 @@ int exec_ffx(FFX *ffx)
 	}
 	/* Feed data file as stdin to command, optionally decompressing */
 	if(ffx->decompr)		/* Data file with compression */
-	    sprintf(buffer, "%s %s | %s %s", cmd_u, ffx->in, cmd_c, args);
+	    str_printf(buffer, sizeof(buffer),
+		       "%s %s | %s %s", cmd_u, ffx->in, cmd_c, args);
 	else				/* No compression */
-	    sprintf(buffer, "%s %s <%s", cmd_c, args, ffx->in);
+	    str_printf(buffer, sizeof(buffer),
+		       "%s %s <%s", cmd_c, args, ffx->in);
     }
     else
     {
 	/* Execute command without data file */
-	sprintf(buffer, "%s %s", cmd_c, args);
+	str_printf(buffer, sizeof(buffer), "%s %s", cmd_c, args);
     }
 
     /*

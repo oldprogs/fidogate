@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: packet.c,v 4.9 1999/01/02 16:35:00 mj Exp $
+ * $Id: packet.c,v 4.10 1999/03/07 17:37:10 mj Exp $
  *
  * Functions to read/write packets and messages
  *
@@ -128,14 +128,16 @@ static char *pkt_newname(char *name)
 {
     if(name)
     {
-	strncpy0(packet_name, name, sizeof(packet_name));
-	strncpy0(packet_tmp , name, sizeof(packet_tmp ));
+	BUF_COPY(packet_name, name);
+	BUF_COPY(packet_tmp , name);
     }
     else
     {
 	long n = sequencer(DEFAULT_SEQ_PKT);
-	sprintf(packet_name, "%s/%08ld.pkt", packet_dir, n);
-	sprintf(packet_tmp , "%s/%08ld.tmp", packet_dir, n);
+	str_printf(packet_name, sizeof(packet_name),
+		   "%s/%08ld.pkt", packet_dir, n);
+	str_printf(packet_tmp , sizeof(packet_tmp),
+		   "%s/%08ld.tmp", packet_dir, n);
     }
 
     return packet_name;
@@ -277,7 +279,7 @@ static FILE *pkt_open_node(Node *node, char *flav, int bsy)
 	pkt.time = time(NULL);
 	/* Password */
 	pwd = passwd_lookup("packet", node);
-	strncpy0(pkt.passwd, pwd ? pwd->passwd : "", sizeof(pkt.passwd));
+	BUF_COPY(pkt.passwd, pwd ? pwd->passwd : "");
 
 	/* Rest is filled in by pkt_put_hdr() */
 	if(pkt_put_hdr(fp, &pkt) == ERROR)
@@ -363,7 +365,7 @@ static FILE *pkt_create(Node *to)
     pkt.time = time(NULL);
     /* Password */
     pwd = passwd_lookup("packet", to);
-    strncpy0(pkt.passwd, pwd ? pwd->passwd : "", sizeof(pkt.passwd));
+    BUF_COPY(pkt.passwd, pwd ? pwd->passwd : "");
 
     /* Rest is filled in by pkt_put_hdr() */
     if(pkt_put_hdr(packet_file, &pkt) == ERROR)

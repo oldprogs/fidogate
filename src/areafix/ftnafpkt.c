@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftnafpkt.c,v 1.7 1999/03/06 17:51:26 mj Exp $
+ * $Id: ftnafpkt.c,v 1.8 1999/03/07 17:37:07 mj Exp $
  *
  * Areafix processing FTN packets
  *
@@ -37,7 +37,7 @@
 
 
 #define PROGRAM 	"ftnafpkt"
-#define VERSION 	"$Revision: 1.7 $"
+#define VERSION 	"$Revision: 1.8 $"
 #define CONFIG		DEFAULT_CONFIG_MAIN
 
 
@@ -233,7 +233,7 @@ int rename_bad(char *name)
     char bad[MAXPATH];
     int len;
     
-    strncpy0(bad, name, sizeof(bad));
+    BUF_COPY(bad, name);
     len = strlen(bad) - 4;
     if(len < 0)
 	len = 0;

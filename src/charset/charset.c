@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: charset.c,v 1.3 1999/01/02 16:34:55 mj Exp $
+ * $Id: charset.c,v 1.4 1999/03/07 17:37:07 mj Exp $
  *
  * NEW charset.c code using charset.bin mapping file
  *
@@ -203,7 +203,7 @@ char *charset_qpen(int c, int qp)
     c &= 0xff;
     
     if( qp && (c == '=' || c >= 0x80) )
-	sprintf(buf, "=%02.2X", c & 0xff);
+	str_printf(buf, sizeof(buf), "=%02.2X", c & 0xff);
     else
     {
 	buf[0] = c;
