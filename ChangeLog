@@ -1,3 +1,21 @@
+Sun Oct 26 11:07:42 1997  Martin Junius  <mj@fido.de>
+
+	------- CVS ci -------------------------------------------------------
+
+	* test/tc.bounce2/run: new test case, bounces by ftn2rfc.
+
+	* src/common/bounce.c (bounce_header): must use mail_file('m') for
+	  bounce_cc_mail.
+
+	* test/tc.gateway/run: new test case for ^AGATEWAY, X-Gateway.
+
+	* src/gate/rfc2ftn.c (snd_message): output ^AGATEWAY kludge, using
+	  X-Gateway header if present.
+
+	* src/gate/ftn2rfc.c (unpack): if ^AGATEWAY is present in FTN
+	  message, add FIDOGATE entry in front and output as X-Gateway
+	  header. Removed ".." from X-Gateway header.
+
 Wed Oct 22 21:14:20 1997  Martin Junius  <mj@fido.de>
 
 	------- CVS ci -------------------------------------------------------

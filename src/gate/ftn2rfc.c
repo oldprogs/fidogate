@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftn2rfc.c,v 4.27 1997/10/14 17:59:31 mj Exp $
+ * $Id: ftn2rfc.c,v 4.28 1997/10/26 10:42:32 mj Exp $
  *
  * Convert FTN mail packets to RFC mail and news batches
  *
@@ -40,7 +40,7 @@
 
 
 #define PROGRAM 	"ftn2rfc"
-#define VERSION 	"$Revision: 4.27 $"
+#define VERSION 	"$Revision: 4.28 $"
 #define CONFIG		CONFIG_GATE
 
 
@@ -305,6 +305,7 @@ int unpack(FILE *pkt_file, Packet *pkt)
     char *cc_line, *bcc_line;		/* Cc:, Bcc: */
     char *thisdomain, *uplinkdomain;	/* FQDN addr this node, uplink,  */
     char *origindomain;			/*           node in Origin line */
+    char *gateway;			/* ^AGATEWAY */
     Textlist theader;			/* RFC headers */
     Textlist tbody;    			/* RFC message body */
     int uucp_flag;			/* To == UUCP or GATEWAY */
@@ -880,6 +881,9 @@ int unpack(FILE *pkt_file, Packet *pkt)
 	    if( (p = kludge_get(&body.kludge, "REPLY", NULL)) )
 		ref_line = msgid_fido_to_rfc(p, NULL);
 
+	/* ^AGATEWAY */
+	gateway = kludge_get(&body.kludge, "GATEWAY", NULL);
+
 
 	/*
 	 * Output RFC mail/news header
@@ -971,9 +975,12 @@ int unpack(FILE *pkt_file, Packet *pkt)
 	    tl_appendf(&theader, "Organization: %s\n", cf_organization() );
 	}
 	tl_appendf(&theader, "Lines: %d\n", lines);
-	/**FIXME: convert ^AGATEWAY kludges, too**/
-	tl_appendf(&theader, "X-Gateway: FIDO .. %s [FIDOGATE %s]\n",
-		   cf_fqdn(), version_global()                       );
+	if(gateway)
+	    tl_appendf(&theader, "X-Gateway: FIDO %s [FIDOGATE %s], %s\n",
+		       cf_fqdn(), version_global(), gateway               );
+	else
+	    tl_appendf(&theader, "X-Gateway: FIDO %s [FIDOGATE %s]\n",
+		       cf_fqdn(), version_global()                       );
 
 	if(area==NULL)
 	{

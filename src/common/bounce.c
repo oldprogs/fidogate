@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: bounce.c,v 4.2 1997/08/10 18:01:57 mj Exp $
+ * $Id: bounce.c,v 4.3 1997/10/26 10:42:31 mj Exp $
  *
  * Bounce mails for various reasons, using LIBDIR/bounce.XXX messages
  *
@@ -112,7 +112,7 @@ int bounce_header(char *to)
 	    "From: Mailer-Daemon@%s (Mail Delivery Subsystem)\n", cf_fqdn() );
     fprintf(mail_file('m'), "To: %s\n", to);
     if(bounce_ccmail)
-	fprintf(mail_file('n'), "Cc: %s\n", bounce_ccmail);
+	fprintf(mail_file('m'), "Cc: %s\n", bounce_ccmail);
     /* Additional header may follow in message file */
 
     return OK;

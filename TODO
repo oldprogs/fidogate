@@ -135,7 +135,7 @@ STARTED * Replace calls to strncpy0/strncat0 with str_copy/str_append.
 
 	* ftn2rfc: restrict gateway to certain *Internet* addresses.
 
-	* X-Gateway / ^AGATEWAY processing.
+DONE	* X-Gateway / ^AGATEWAY processing.
 
 MOSTLY	* ftnpack: better file attach processing, -F DIR option. Don't
 DONE	  copy netmail packets (do_noarc()), use rename(). If archiver

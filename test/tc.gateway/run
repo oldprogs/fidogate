@@ -1,0 +1,31 @@
+#!/bin/sh
+
+../tr.init
+
+R="../../src/gate/rfc2ftn -L../cf -vvv"
+F="../../src/gate/ftn2rfc -L../cf -vvv"
+
+echo "tc: running"
+
+# Generate EchoMail
+$R -n <<EOF
+Subject: Test Gateway
+From: Test User <test@blah.org>
+Newsgroups: test
+
+TEST
+EOF
+
+# Move to SPOOLDIR/in and run ftn2rfc
+mv out/*.pkt in
+$F
+
+# Run rfc2ftn on output
+for f in in/tmpnews/*.msg; do
+    $R -n <$f && rm -f $f;
+done
+
+# Move to SPOOLDIR/in and run ftn2rfc
+mv out/*.pkt in
+$F
+

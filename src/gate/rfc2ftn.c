@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway software UNIX <-> FIDO
  *
- * $Id: rfc2ftn.c,v 4.31 1997/10/19 17:00:48 mj Exp $
+ * $Id: rfc2ftn.c,v 4.32 1997/10/26 10:42:32 mj Exp $
  *
  * Read mail or news from standard input and convert it to a FIDO packet.
  *
@@ -39,7 +39,7 @@
 
 
 #define PROGRAM 	"rfc2ftn"
-#define VERSION 	"$Revision: 4.31 $"
+#define VERSION 	"$Revision: 4.32 $"
 #define CONFIG		CONFIG_GATE
 
 
@@ -1237,9 +1237,16 @@ int snd_message(Message *msg, Area *parea,
 
     if(!x_flags_n)
     {
-	/* Add ^ARFC header lines according to FIDO-Gatebau '94 specs */
+	/* Add ^ARFC header lines */
 	fprintf(sf, "\001RFC: %d 0\r\n", rfc_level);
 	header_ca_rfc(sf, rfc_level);
+	/* Add ^AGATEWAY header */
+	if( (header = header_getcomplete("X-Gateway")) )
+	    fprintf(sf, "\001GATEWAY: RFC1036/822 %s [FIDOGATE %s], %s\r\n",
+		    cf_fqdn(), version_global(), header                     );
+	else	
+	    fprintf(sf, "\001GATEWAY: RFC1036/822 %s [FIDOGATE %s]\r\n",
+		    cf_fqdn(), version_global()                         );
     }
     
     add_empty = FALSE;
