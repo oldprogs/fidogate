@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: bounce.c,v 4.1 1996/12/17 17:19:39 mj Exp $
+ * $Id: bounce.c,v 4.2 1997/08/10 18:01:57 mj Exp $
  *
  * Bounce mails for various reasons, using LIBDIR/bounce.XXX messages
  *
@@ -98,21 +98,21 @@ int bounce_header(char *to)
     /*
      * Open new mail
      */
-    if(mail_open() == ERROR)
+    if(mail_open('m') == ERROR)
 	return ERROR;
 
     /*
      * Create RFC header
      */
-    fprintf(mail_file(),
+    fprintf(mail_file('m'),
 	    "From Mailer-Daemon %s\n", date("%a %b %d %H:%M:%S %Y", NULL) );
-    fprintf(mail_file(),
+    fprintf(mail_file('m'),
 	    "Date: %s\n", date(NULL, NULL) );
-    fprintf(mail_file(),
+    fprintf(mail_file('m'),
 	    "From: Mailer-Daemon@%s (Mail Delivery Subsystem)\n", cf_fqdn() );
-    fprintf(mail_file(), "To: %s\n", to);
+    fprintf(mail_file('m'), "To: %s\n", to);
     if(bounce_ccmail)
-	fprintf(mail_file(), "Cc: %s\n", bounce_ccmail);
+	fprintf(mail_file('n'), "Cc: %s\n", bounce_ccmail);
     /* Additional header may follow in message file */
 
     return OK;
@@ -136,10 +136,10 @@ int bounce_mail(char *reason, RFCAddr *addr_from, Message *msg, char *rfc_to, Te
     BUF_COPY2(buffer, "bounce.", reason);
     
     in = libfopen(buffer, R_MODE);
-    print_file_subst(in, mail_file(), msg, rfc_to, body);
+    print_file_subst(in, mail_file('m'), msg, rfc_to, body);
     fclose(in);
     
-    return mail_close();
+    return mail_close('m');
 }
 
 

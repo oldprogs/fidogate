@@ -2,6 +2,19 @@ Sun Aug 10 18:18:41 1997  Martin Junius  <mj@fido.de>
 
 	------- CVS ci -------------------------------------------------------
 
+	* src/gate/ftn2rfc.c (unpack): pass 'm' / 'n' to mail_*().
+
+	* src/common/bounce.c (bounce_mail): pass 'm' to mail_*().
+
+	* src/common/mail.c (mail_kill): removed.
+	  (mail_name): added sel argument.
+	  (mail_file): same.
+	  (mail_close): same.
+
+	* src/common/bounce.c (bounce_header): pass 'm' to mail_*().
+
+	------- CVS ci -------------------------------------------------------
+
 	* src/gate/ftninrecomb.pl: same.
 
 	* src/gate/ftninpost.pl: use new in/tmpmail, in/tmpnews.

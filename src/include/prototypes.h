@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: prototypes.h,v 4.29 1997/08/10 17:34:24 mj Exp $
+ * $Id: prototypes.h,v 4.30 1997/08/10 18:01:58 mj Exp $
  *
  * Prototypes for functions in libfidogate.a
  *
@@ -263,10 +263,9 @@ extern char mail_dir[MAXPATH];
 extern char news_dir[MAXPATH];
 
 int	mail_open		(int);
-char   *mail_name		(void);
-FILE   *mail_file		(void);
-int	mail_kill		(void);
-int	mail_close		(void);
+char   *mail_name		(int);
+FILE   *mail_file		(int);
+int	mail_close		(int);
 
 /* maus.c */
 void	maus_init		(void);

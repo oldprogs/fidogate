@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: mail.c,v 4.2 1997/08/10 17:34:22 mj Exp $
+ * $Id: mail.c,v 4.3 1997/08/10 18:01:57 mj Exp $
  *
  * Create RFC messages in mail/news dir
  *
@@ -41,6 +41,10 @@ static char m_name[MAXPATH];
 static char m_tmp [MAXPATH];
 static FILE *m_file = NULL;
 
+static char n_name[MAXPATH];
+static char n_tmp [MAXPATH];
+static FILE *n_file = NULL;
+
 
 
 /*
@@ -57,26 +61,29 @@ int mail_open(int sel)
 	n = sequencer(SEQ_MAIL);
 	sprintf(m_tmp,  "%s/%08ld.tmp", mail_dir, n);
 	sprintf(m_name, "%s/%08ld.msg", mail_dir, n);
+	m_file = fopen(m_tmp, W_MODE);
+	if(!m_file) {
+	    log("$Can't create mail file %s", m_tmp);
+	    return ERROR;
+	}
 	break;
 	
     case 'n':
     case 'N':
 	n = sequencer(SEQ_NEWS);
-	sprintf(m_tmp,  "%s/%08ld.tmp", news_dir, n);
-	sprintf(m_name, "%s/%08ld.msg", news_dir, n);
+	sprintf(n_tmp,  "%s/%08ld.tmp", news_dir, n);
+	sprintf(n_name, "%s/%08ld.msg", news_dir, n);
+	n_file = fopen(n_tmp, W_MODE);
+	if(!n_file) {
+	    log("$Can't create mail file %s", n_tmp);
+	    return ERROR;
+	}
 	break;
 
     default:
 	log("mail_open(%d): illegal value", sel);
 	return ERROR;
 	break;
-    }
-
-    
-    m_file = fopen(m_tmp, W_MODE);
-    if(!m_file) {
-	log("$Can't create mail file %s", m_tmp);
-	return ERROR;
     }
 
     return OK;
@@ -87,9 +94,21 @@ int mail_open(int sel)
 /*
  * Return mail tmp name
  */
-char *mail_name(void)
+char *mail_name(int sel)
 {
-    return m_tmp;
+    switch(sel)
+    {
+    case 'm':
+    case 'M':
+	return m_tmp;
+	break;
+    case 'n':
+    case 'N':
+	return n_tmp;
+	break;
+    }
+
+    return NULL;
 }
 
 
@@ -97,30 +116,21 @@ char *mail_name(void)
 /*
  * Return mail file pointer
  */
-FILE *mail_file(void)
+FILE *mail_file(int sel)
 {
-    return m_file;
-}
+    switch(sel)
+    {
+    case 'm':
+    case 'M':
+	return m_file;
+	break;
+    case 'n':
+    case 'N':
+	return n_file;
+	break;
+    }
 
-
-
-/*
- * Kill mail file
- */
-int mail_kill(void)
-{
-    int err;
-    
-    fclose(m_file);
-    err = unlink(m_tmp);
-    if(err == ERROR) 
-	log("$Can't unlink mail file %s", m_tmp);
-    
-    m_tmp[0]  = 0;
-    m_name[0] = 0;
-    m_file    = NULL;
-
-    return err;
+    return NULL;
 }
 
 
@@ -128,18 +138,36 @@ int mail_kill(void)
 /*
  * Close mail file
  */
-int mail_close(void)
+int mail_close(int sel)
 {
-    int err;
+    int err=ERROR;
     
-    fclose(m_file);
-    err = rename(m_tmp, m_name);
-    if(err == ERROR)
-	log("$Can't rename mail file %s to %s", m_tmp, m_name);
-    
-    m_tmp[0]  = 0;
-    m_name[0] = 0;
-    m_file    = NULL;
+    switch(sel)
+    {
+    case 'm':
+    case 'M':
+	fclose(m_file);
+	err = rename(m_tmp, m_name);
+	if(err == ERROR)
+	    log("$Can't rename mail file %s to %s", m_tmp, m_name);
+
+	m_tmp[0]  = 0;
+	m_name[0] = 0;
+	m_file    = NULL;
+	break;
+
+    case 'n':
+    case 'N':
+	fclose(n_file);
+	err = rename(n_tmp, n_name);
+	if(err == ERROR)
+	    log("$Can't rename mail file %s to %s", n_tmp, n_name);
+
+	n_tmp[0]  = 0;
+	n_name[0] = 0;
+	n_file    = NULL;
+	break;
+    }
 
     return err;
 }

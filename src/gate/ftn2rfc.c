@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftn2rfc.c,v 4.24 1997/08/10 17:34:23 mj Exp $
+ * $Id: ftn2rfc.c,v 4.25 1997/08/10 18:01:57 mj Exp $
  *
  * Convert FTN mail packets to RFC mail and news batches
  *
@@ -40,7 +40,7 @@
 
 
 #define PROGRAM 	"ftn2rfc"
-#define VERSION 	"$Revision: 4.24 $"
+#define VERSION 	"$Revision: 4.25 $"
 #define CONFIG		CONFIG_GATE
 
 
@@ -1052,7 +1052,7 @@ int unpack(FILE *pkt_file, Packet *pkt)
 	 * Write header and message body to output file
 	 */
 	if(area) {
-	    if(!mail_file())
+	    if(!mail_file('n'))
 		if(mail_open('n') == ERROR)
 		{
 		    ret = ERROR;
@@ -1061,13 +1061,13 @@ int unpack(FILE *pkt_file, Packet *pkt)
 
 	    if(!single_articles)
 		/* News batch */
-		fprintf(mail_file(), "#! rnews %ld\n",
+		fprintf(mail_file('n'), "#! rnews %ld\n",
 			tl_size(&theader) + tl_size(&tbody) );
-	    tl_print(&theader, mail_file());
-	    tl_print(&tbody,   mail_file());
+	    tl_print(&theader, mail_file('n'));
+	    tl_print(&tbody,   mail_file('n'));
 
 	    if(single_articles)
-		mail_close();
+		mail_close('n');
 	}
 	else
 	{
@@ -1078,16 +1078,16 @@ int unpack(FILE *pkt_file, Packet *pkt)
 	    }
 
 	    /* Mail message */
-	    tl_print(&theader, mail_file());
-	    tl_print(&tbody,   mail_file());
+	    tl_print(&theader, mail_file('m'));
+	    tl_print(&tbody,   mail_file('m'));
 	    /* Close mail */
-	    mail_close();
+	    mail_close('m');
 	}
 
     } /**while(type == MSG_TYPE)**/
 
-    if(mail_file()) 
-	mail_close();
+    if(mail_file('n')) 
+	mail_close('n');
     
     return ret;
 }
