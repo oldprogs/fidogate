@@ -1,5 +1,14 @@
 Tue Jul  8 20:14:14 1997  Martin Junius  <mj@fido.de>
 
+	======= Release 4.2.5 ================================================
+	------- CVS ci, tag R425 ---------------------------------------------
+
+	* ANNOUNCE: updated.
+
+	* fidogate.lsm: updated.
+
+	* scripts/run/runpoll.sh: run ffxqt directly, not ffxrun.
+
 	------- CVS ci -------------------------------------------------------
 
 	* examples/orodruin/config.gate: changed FTNInSendmail.

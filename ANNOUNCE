@@ -44,6 +44,8 @@ Changes in 4.2.5:
 
 * MSDOS/OS2 port: fixed typo in prototypes.h.
 
+* Some sendmail related fixes.
+
 
 
 Changes in 4.2.4:
@@ -119,6 +121,6 @@ End
 
 ======================================================================
 
-$Date: 1997/07/01 19:34:39 $
+$Date: 1997/07/08 19:24:02 $
 Martin Junius
 mailto:mj@fido.de

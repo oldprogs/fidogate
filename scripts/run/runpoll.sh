@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# $Id: runpoll.sh,v 4.7 1997/06/28 16:26:31 mj Exp $
+# $Id: runpoll.sh,v 4.8 1997/07/08 19:24:11 mj Exp $
 #
 # Poll uplink
 #
@@ -47,7 +47,7 @@ $FIDOGATE/rununpack pin
 $FIDOGATE/runtoss   pin
 
 # Unbatch and process ffx files
-$FIDOGATE/ffxrun
+$FIDOGATE/ffxqt
 
 # Process tic files
 $FIDOGATE/ftntick
