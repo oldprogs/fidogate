@@ -1,12 +1,15 @@
 #:ts=8
 #
-# $Id: morannon.mc,v 4.0 1996/04/17 18:17:32 mj Exp $
+# $Id: morannon.mc,v 4.1 1996/08/25 12:11:15 mj Exp $
 #
 # Fido.DE domain gateway sendmail V8 configuration
 #
 # $Log: morannon.mc,v $
-# Revision 4.0  1996/04/17 18:17:32  mj
-# Initial revision
+# Revision 4.1  1996/08/25 12:11:15  mj
+# See ChangeLog
+#
+# Revision 4.0.0.1  1996/04/17 18:17:32  mj
+# FIDOGATE 4.0 import
 #
 # Revision 1.5  1995/08/01  08:01:28  mj
 # Set MAX_HOP to 30, MESSAGE_TIMEOUT to 5d/2d
@@ -29,8 +32,10 @@
 #
 
 include(`../m4/cf.m4')
-VERSIONID(`$Id: morannon.mc,v 4.0 1996/04/17 18:17:32 mj Exp $')
+VERSIONID(`$Id: morannon.mc,v 4.1 1996/08/25 12:11:15 mj Exp $')
 OSTYPE(linux)dnl
+
+define(`VERSION_NUMBER', `Fido.DE-4.1')
 
 define(`confMIME_FORMAT_ERRORS', `False')
 define(`confUSE_ERRORS_TO', `True')
@@ -106,6 +111,6 @@ R$* <@ $=S . $m . > $*		$#smtp $@$2. $:$1<@$2.$m.>$3
 # Fido mail to class I via ftni
 R$* <@ $* . $=I . > $*		$#ftni $@$F $:$1<@$2.$3.>$4
 
-# Fido mail to class N via ftni
+# Fido mail to class N via ftn
 R$* <@ $* . $=N . > $*		$#ftn $@$F $:$1<@$2.$3.>$4
 

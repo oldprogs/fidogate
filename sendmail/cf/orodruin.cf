@@ -1,6 +1,6 @@
 #:ts=8
 #
-# $Id: orodruin.cf,v 4.0 1996/04/17 18:17:32 mj Exp $
+# $Id: orodruin.cf,v 4.1 1996/08/25 12:13:02 mj Exp $
 #
 # orodruin.Fido.DE
 #
@@ -45,17 +45,18 @@
 #####
 #####		SENDMAIL CONFIGURATION FILE
 #####
-##### built by mj@orodruin on Sun Feb 11 14:29:33 MET 1996
-##### in /u2/mj/src/fidogate/config/sendmail/cf
+##### built by mj@orodruin.fido.de on Sun Aug 25 14:11:54 MET DST 1996
+##### in /home/mj/src/fidogate/sendmail/cf
 #####
 ######################################################################
 ######################################################################
 
 #####  @(#)cf.m4	8.4 (Berkeley) 12/24/93  #####
 
-#####  $Id: orodruin.cf,v 4.0 1996/04/17 18:17:32 mj Exp $  #####
+#####  $Id: orodruin.cf,v 4.1 1996/08/25 12:13:02 mj Exp $  #####
 
 #####  @(#)linux.m4	8.2 (Berkeley) 8/21/93  #####
+# changed for RedHat 3.0.3 / procmail
 
 
 
@@ -76,6 +77,16 @@
 
 # Smart host and mailer
 
+
+
+# Gateway for FIDO mail (warning: conflicts with FAX relay!)
+DForodruin-ftn.fido.de
+
+# FIDO domains via mailer ftni (no leading "."!)
+CIz2.fidonet.org
+
+# FIDO domains via mailer ftn (no leading "."!)
+CN
 
 
 
@@ -125,6 +136,8 @@ Kdequote dequote
 # More trusted users
 Tnews
 
+
+
 ######################
 #   Special macros   #
 ######################
@@ -145,7 +158,7 @@ Do.:%@!^/[]
 Dq$?x$x <$g>$|$g$.
 
 # Configuration version number
-DZorodruin-1.0
+DZorodruin-4.1
 
 
 ###############
@@ -408,6 +421,12 @@ R$* < @ [ $+ ] > $*		$: $1 < @@ [ $2 ] > $3		mark [a.b.c.d]
 R$* < @@ $=w > $*		$: $1 < @ $j . > $3		self-literal
 R$* < @@ $+ > $*		$@ $1 < @ $2 > $3		canon IP addr
 
+# class I/N domains are canonical
+R$* < @ $* .$=I > $*		$: $1 < @ $2 .$3. > $4
+R$* < @ $* .$=N > $*		$: $1 < @ $2 .$3. > $4
+
+
+
 # if really UUCP, handle it immediately
 
 # try UUCP traffic as a local address
@@ -489,6 +508,13 @@ R$+ < @ $=w . >		$#local $: $1			dispose directly
 # resolve fake top level domains by forwarding to other hosts
 
 
+# figure out what should stay in our local mail system
+
+# Fido mail to class I via ftni
+R$* <@ $* . $=I . > $*		$#ftni $@$F $:$1<@$2.$3.>$4
+# Fido mail to class N via ftn
+R$* <@ $* . $=N . > $*		$#ftn $@$F $:$1<@$2.$3.>$4
+
 
 # pass names that still have a host to a smarthost (if defined)
 R$* < @ $* > $*		$: $>95 < $S > $1 < @ $2 > $3	glue on smarthost name
@@ -549,9 +575,9 @@ S98
 
 #####  @(#)local.m4	8.6 (Berkeley) 10/24/93  #####
 
-Mlocal,		P=/usr/bin/deliver, F=lsDFMShP, S=10, R=20/40,
-		A=deliver $u
-Mprog,		P=/bin/sh, F=lsDFMeu, S=10, R=20/40, D=$z:/,
+Mlocal,		P=/usr/bin/procmail, F=lsDFMAw5:/|@ShPfn, S=10, R=20/40,
+		A=procmail -a $h -d $u
+Mprog,		P=/bin/sh, F=lsDFMoeu, S=10, R=20/40, D=$z:/,
 		A=sh -c $u
 
 S10
@@ -655,7 +681,7 @@ R$+ <@>			$: $1 < @ $j >			in case $M undefined
 ###    FTN Mailer specification   ###
 #####################################
 
-#####  $Revision: 4.0 $  #####
+#####  $Revision: 4.1 $  #####
 
 # FIDOGATE mailer
 Mftn,	P=/usr/local/lib/fidogate/rfc2ftn, F=mDFMhu, S=52/31, R=21,
@@ -668,7 +694,7 @@ Mftni,	P=/usr/local/lib/fidogate/rfc2ftn, F=mDFMhu, S=52/31, R=21,
 ###    FFX Mailer specification   ###
 #####################################
 
-#####  $Revision: 4.0 $  #####
+#####  $Revision: 4.1 $  #####
 
 # FIDOGATE mailer
 Mffx,	P=/usr/local/lib/fidogate/ffxmail, F=mDFMhu, S=52/31, R=21,
