@@ -1,18 +1,20 @@
 #!/bin/sh
 
-FIDOGATE_CONFIGDIR=../cf
-export FIDOGATE_CONFIGDIR
-
 ../tr.init
 
-T1="../../src/gate/rfc2ftn -vvvvv"
-T2="../../src/gate/ftn2rfc -vvvvv"
+T1="../../src/gate/rfc2ftn -vvvvv -c../cf/fidogate.conf"
+T2="../../src/gate/ftn2rfc -vvvvv -c../cf/fidogate.conf"
+D="../../src/util/pktdebug"
 
 echo "tc: running"
 
+echo "------------------------------------------------------------------------"
 $T1 Martin_Junius@f110.n2452.z2.fidonet.org <body1
 $T1 Martin_Junius@f110.n2452.z2.fidonet.org <body2
+echo "------------------------------------------------------------------------"
+$D -t outpkt/*/*.pkt
 
+echo "------------------------------------------------------------------------"
 cp ../ti.8bit/*.pkt pin
 $T2 -c config1
 cp ../ti.8bit/*.pkt pin
@@ -20,4 +22,9 @@ $T2 -c config2
 cp ../ti.8bit/*.pkt pin
 $T2 -c config3
 
+echo "------------------------------------------------------------------------"
+cat outrfc/*/*.rfc
+echo "------------------------------------------------------------------------"
 grep ^Content outrfc/mail/*.rfc
+
+echo "------------------------------------------------------------------------"

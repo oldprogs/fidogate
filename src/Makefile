@@ -1,6 +1,6 @@
 #:ts=8
 #
-#    $Id: Makefile,v 4.11 1998/05/03 12:46:29 mj Exp $
+#    $Id: Makefile,v 4.12 1999/04/03 13:29:01 mj Exp $
 #
 #    Makefile for FIDOGATE src/
 #
@@ -31,6 +31,8 @@ clean::
 	rm -f *~ *.bak *.o tags TAGS core config.pl
 
 check::
+verify:	check
+test:	check
 
 tags:
 	etags */*.[hcy] */*.pl *.pl

@@ -78,7 +78,7 @@ FTN message header:
     Attr: 0000
 ------------------------------------------------------------------------------
 ^AINTL 2:2499/1 2:1234/5678
-^AMSGID: 2:1234/5678.0 00000001
+^AMSGID: 2:1234/5678 00000001
 ------------------------------------------------------------------------------
 %+*.GER
 %+TEST1
@@ -108,7 +108,7 @@ FTN message header:
     Attr: 0000
 ------------------------------------------------------------------------------
 ^AINTL 2:2499/1 2:1234/5678
-^AMSGID: 2:1234/5678.0 00000002
+^AMSGID: 2:1234/5678 00000002
 ------------------------------------------------------------------------------
 vacation *.ger
 -TEST1
@@ -225,7 +225,7 @@ Reading FTN packet header:
     Rev : 4.3
     Pass: ""
     Capw: 0001
-ftnafpkt packet ./pin/00000001.pkt (332b) from 2:1234/5678.0 to 2:2499/1.0
+ftnafpkt packet ./pin/00000001.pkt (331b) from 2:1234/5678.0 to 2:2499/1.0
 Reading FTN message header:
     From: Sysop                                @ 2:1234/5678.0
     To  : Areafix                              @ 2:2499/1.0
@@ -292,7 +292,7 @@ Reading FTN packet header:
     Rev : 4.3
     Pass: ""
     Capw: 0001
-ftnafpkt packet ./pin/00000002.pkt (301b) from 2:1234/5678.0 to 2:2499/1.0
+ftnafpkt packet ./pin/00000002.pkt (300b) from 2:1234/5678.0 to 2:2499/1.0
 Reading FTN message header:
     From: Sysop                                @ 2:1234/5678.0
     To  : Areafix                              @ 2:2499/1.0
@@ -341,7 +341,7 @@ Reading FTN packet header:
     Rev : 4.3
     Pass: ""
     Capw: 0001
-ftnafpkt packet ./pin/00000003.pkt (290b) from 2:2452/110.2 to 2:2499/1.0
+ftnafpkt packet ./pin/00000003.pkt (291b) from 2:2452/110.2 to 2:2499/1.0
 Reading FTN message header:
     From: mj                                   @ 2:2452/110.2
     To  : Areafix                              @ 2:2499/1.0
@@ -378,7 +378,7 @@ Reading FTN packet header:
     Rev : 4.3
     Pass: ""
     Capw: 0001
-ftnafpkt packet ./pin/00000004.pkt (324b) from 2:2452/110.2 to 2:2499/1.0
+ftnafpkt packet ./pin/00000004.pkt (325b) from 2:2452/110.2 to 2:2499/1.0
 Reading FTN message header:
     From: mj                                   @ 2:2452/110.2
     To  : Areafix                              @ 2:2499/1.0
@@ -429,7 +429,7 @@ Reading FTN packet header:
     Rev : 4.3
     Pass: ""
     Capw: 0001
-ftnafpkt packet ./pin/00000005.pkt (590b) from 2:2452/110.2 to 2:2499/1.0
+ftnafpkt packet ./pin/00000005.pkt (591b) from 2:2452/110.2 to 2:2499/1.0
 Reading FTN message header:
     From: Sysop                                @ 2:2452/110.2
     To  : Areafix                              @ 2:2499/1.0
@@ -586,10 +586,10 @@ FTN message header:
     Attr: 0000
 ------------------------------------------------------------------------------
 ^AINTL 2:1234/5678 2:2499/1
-^AMSGID: 2:2499/1.0 00000006
+^AMSGID: 2:2499/1 00000006
 ------------------------------------------------------------------------------
 BLAH.GER                                 : subscribed
-        (this area is currently not subscribed at uplink 2:2499/99.0)
+        (this area is currently not subscribed at uplink 2:2499/99)
 AAAA.GER: no uplink, dead area
 LINUX.GER                                : subscribed
 TOLKIEN.GER                              : subscribed
@@ -607,7 +607,7 @@ Areas available to 2:1234/5678:
 * = linked to this area
 
 
-2:1234/5678.0 is linked to the following areas:
+2:1234/5678 is linked to the following areas:
 
   BLAH.GER
   LINUX.GER
@@ -615,7 +615,7 @@ Areas available to 2:1234/5678:
   TEST1
 
 
-2:1234/5678.0 is not linked to the following available areas:
+2:1234/5678 is not linked to the following available areas:
 
   AAAA.GER
   TEST2
@@ -642,7 +642,7 @@ FTN message header:
     Attr: 0000
 ------------------------------------------------------------------------------
 ^AINTL 2:1234/5678 2:2499/1
-^AMSGID: 2:2499/1.0 00000007
+^AMSGID: 2:2499/1 00000007
 ------------------------------------------------------------------------------
 Command VACATION: sorry, not yet implemented.
 TEST1                                    : unsubscribed
@@ -669,7 +669,7 @@ FTN message header:
 ------------------------------------------------------------------------------
 ^AINTL 2:2452/110 2:2499/1
 ^ATOPT 2
-^AMSGID: 2:2499/1.0 00000008
+^AMSGID: 2:2499/1 00000008
 ------------------------------------------------------------------------------
 Command SUBSCRIBE: not authorized.
 
@@ -693,7 +693,7 @@ FTN message header:
     Attr: 0000
 ------------------------------------------------------------------------------
 ^AINTL 2:1234/5678 2:2499/1
-^AMSGID: 2:2499/1.0 00000009
+^AMSGID: 2:2499/1 00000009
 ------------------------------------------------------------------------------
 #*.GER: no such area, or no area matching pattern
 
@@ -728,7 +728,7 @@ FTN message header:
     Attr: 0000
 ------------------------------------------------------------------------------
 ^AINTL 2:1234/5678 2:2499/1
-^AMSGID: 2:2499/1.0 00000010
+^AMSGID: 2:2499/1 00000010
 ------------------------------------------------------------------------------
 Command LISTALL: not authorized.
 Command LIST: not authorized.
@@ -764,14 +764,14 @@ Areas available to 2:1234/5678:
 * = linked to this area
 
 
-2:1234/5678.0 is linked to the following areas:
+2:1234/5678 is linked to the following areas:
 
   BLAH.GER
   LINUX.GER
   TOLKIEN.GER
 
 
-2:1234/5678.0 is not linked to the following available areas:
+2:1234/5678 is not linked to the following available areas:
 
   AAAA.GER
   TEST1

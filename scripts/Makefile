@@ -1,6 +1,6 @@
 #:ts=8
 #
-#    $Id: Makefile,v 4.5 1997/08/20 21:05:01 mj Exp $
+#    $Id: Makefile,v 4.6 1999/04/03 13:28:58 mj Exp $
 #
 #    Makefile for FIDOGATE scripts/
 #
@@ -30,3 +30,5 @@ clean veryclean::
 	rm -f *~ *.bak *.o tags TAGS core paths.tmp
 
 check:
+verify:	check
+test:	check

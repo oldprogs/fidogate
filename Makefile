@@ -1,5 +1,5 @@
 #
-# $Id: Makefile,v 4.13 1998/01/28 22:00:09 mj Exp $
+# $Id: Makefile,v 4.14 1999/04/03 13:28:56 mj Exp $
 #
 # Makefile FIDOGATE TOPDIR
 #
@@ -38,7 +38,7 @@ INSTALLDIRS	= $(DEFAULT_V_CONFIGDIR) \
 
 
 
-all clean veryclean check depend install::
+all clean veryclean check test verify depend install::
 	for d in $(SUBDIRS); do \
 	  if [ -f $$d/Makefile ]; then $(MAKE) -C $$d $@ || exit 1; fi; \
 	done

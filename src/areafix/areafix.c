@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: areafix.c,v 1.12 1999/04/03 12:13:20 mj Exp $
+ * $Id: areafix.c,v 1.13 1999/04/03 13:29:01 mj Exp $
  *
  * Common Areafix functions
  *
@@ -814,7 +814,7 @@ int cmd_list(Node *node)
     }
     
     areafix_printf("");
-    areafix_printf("Areas available to %s:", znfp1(node));
+    areafix_printf("Areas available to %s:", znf1(node));
     areafix_printf("");
     
     for(p=areasbbs_first(); p; p=p->next)
@@ -876,7 +876,7 @@ int cmd_query(Node *node)
     }
     
     areafix_printf("");
-    areafix_printf("%s is linked to the following areas:", znfp1(node));
+    areafix_printf("%s is linked to the following areas:", znf1(node));
     areafix_printf("");
     
     for(p=areasbbs_first(); p; p=p->next)
@@ -912,7 +912,7 @@ int cmd_unlinked(Node *node)
     
     areafix_printf("");
     areafix_printf("%s is not linked to the following available areas:",
-		   znfp1(node));
+		   znf1(node));
     areafix_printf("");
     
     for(p=areasbbs_first(); p; p=p->next)
@@ -1015,7 +1015,7 @@ int cmd_sub(Node *node, char *area)
 		    if(p->state && strchr(p->state, 'U'))
 		    {
 			/* Not subscribed at uplink, print note */
-			areafix_printf("        (this area is currently not subscribed at uplink %s)", znfp1(&l->first->node));
+			areafix_printf("        (this area is currently not subscribed at uplink %s)", znf1(&l->first->node));
 			log("%s: +%s (not subscribed at uplink)",
 			    znfp1(node), p->area);
 		    }

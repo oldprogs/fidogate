@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftntoss.c,v 4.35 1999/04/03 12:13:24 mj Exp $
+ * $Id: ftntoss.c,v 4.36 1999/04/03 13:29:04 mj Exp $
  *
  * Toss FTN NetMail/EchoMail
  *
@@ -39,7 +39,7 @@
 
 
 #define PROGRAM 	"ftntoss"
-#define VERSION 	"$Revision: 4.35 $"
+#define VERSION 	"$Revision: 4.36 $"
 #define CONFIG		DEFAULT_CONFIG_MAIN
 
 
@@ -1390,7 +1390,7 @@ int unpack(FILE *pkt_file, Packet *pkt)
 
 	    debug(5, "EchoMail: %s -> %s",
 		  znfp1(&msg.node_from),
-		  znfp1(&msg.node_to) );
+		  znfp2(&msg.node_to) );
 	    if(do_echomail(pkt, &msg, &body) == ERROR)
 		TMPS_RETURN(ERROR);
 	}

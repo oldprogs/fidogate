@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: parsenode.c,v 4.9 1999/04/03 12:13:22 mj Exp $
+ * $Id: parsenode.c,v 4.10 1999/04/03 13:29:02 mj Exp $
  *
  * Parse FTN address strings (Z:N/F.P)
  *
@@ -219,6 +219,9 @@ char *s_znfp_print(Node *node, int point0, int wildcards)
 char *str_znfp_print(char *s, size_t len, 
 		     Node *node, int point0, int wildcards)
 {
+    /* Clear */
+    s[0] = 0;
+
     /* Always display point address if wildcards==TRUE */
     if(wildcards)
 	point0 = TRUE;

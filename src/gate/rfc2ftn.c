@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway software UNIX <-> FIDO
  *
- * $Id: rfc2ftn.c,v 4.49 1999/04/03 12:13:24 mj Exp $
+ * $Id: rfc2ftn.c,v 4.50 1999/04/03 13:29:02 mj Exp $
  *
  * Read mail or news from standard input and convert it to a FIDO packet.
  *
@@ -39,7 +39,7 @@
 
 
 #define PROGRAM 	"rfc2ftn"
-#define VERSION 	"$Revision: 4.49 $"
+#define VERSION 	"$Revision: 4.50 $"
 #define CONFIG		DEFAULT_CONFIG_GATE
 
 
@@ -1700,13 +1700,13 @@ int print_local_msgid(FILE *fp)
 #endif
     )
 	fprintf(fp, "\001MSGID: %s %08ld\r\n",
-		znfp1(&ftn_from), msgid);
+		znf1(&ftn_from), msgid);
  else
 	fprintf(fp, "\001MSGID: %s %08ld\r\n",
-		znfp1(cf_addr()), msgid);
+		znf1(cf_addr()), msgid);
 #else
 	fprintf(fp, "\001MSGID: %s %08ld\r\n",
-		znfp1(cf_addr()), msgid);
+		znf1(cf_addr()), msgid);
 #endif
 
     return ferror(fp);

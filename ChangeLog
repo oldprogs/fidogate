@@ -1,3 +1,49 @@
+1999-04-03  Martin Junius  <mj@fido.de>
+
+	------- CVS ci -------------------------------------------------------
+
+	* scripts/maintenance/logsendmail.pl: don't output $unaccounted,
+ 	  caused by from/to entries in different log files due to log file
+ 	  cycling.
+
+	* test/tc.*/run.verify: diffs seems to be OK, updated all.
+
+	* test/Makefile (all-mk-verify): added target for updating
+	  run.verify for all test cases.
+
+	* test/tc.8bit/run: output outpkt/outrfc.
+
+	* src/*/*.c: fixed various small problems resulting from the
+	  node_to_asc() replacement.
+
+	* scripts/Makefile: dito.
+
+	* Makefile: dito.
+
+	* src/Makefile (test): targets verify, test are the same as check.
+
+	* src/common/parsenode.c (str_znfp_print): must initialize s[] to
+	  empty string first.
+
+	------- CVS ci -------------------------------------------------------
+
+	* version.h (PATCHLEVEL): set to 2 (version 4.3.2).
+
+	* src/common/parsenode.c (znfp): renamed to s_znfp().
+
+	* src/common/node.c (node_to_asc): removed.
+
+	* src/*/*.c: replaced all calls to node_to_asc() with znfp1(),
+	  znfp2(), znf1(), znf2().
+
+	* src/common/parsenode.c (str_znfp_print): new function, writes
+	  Z:N/F.P to s[len], based on old s_znfp_print().
+	  (s_znfp_print): new function now calling str_znfp_print().
+	  (znfp1): same as znfp() but returning a static buf[].
+	  (znfp2): same as znfp() but returning a static buf[],
+	  independent of znfp1() for printf etc.
+	  (znf1): new function for output with point0=FALSE, wildcards=FALSE.
+
 1999-03-28  Martin Junius  <mj@fido.de>
 
 	------- CVS ci -------------------------------------------------------

@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: pkttmpl.c,v 1.6 1999/04/03 12:13:20 mj Exp $
+ * $Id: pkttmpl.c,v 1.7 1999/04/03 13:29:01 mj Exp $
  *
  * Template for utility processing FTN packets
  *
@@ -37,7 +37,7 @@
 
 
 #define PROGRAM 	"ftnxxx"
-#define VERSION 	"$Revision: 1.6 $"
+#define VERSION 	"$Revision: 1.7 $"
 #define CONFIG		DEFAULT_CONFIG_MAIN
 
 
@@ -234,7 +234,7 @@ int do_file(char *pkt_name)
     /* Process it */
     pkt_size = check_size(pkt_name);
     log("packet %s (%ldb) from %s to %s", pkt_name, pkt_size,
-	znfp1(&pkt.from), znfp2(&pkt.to, TRUE) );
+	znfp1(&pkt.from), znfp2(&pkt.to) );
     
     if(do_packet(pkt_file, &pkt) == ERROR) 
     {
