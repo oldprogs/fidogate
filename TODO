@@ -2,28 +2,23 @@
 
 X = for next release
 
+	* ftn2rfc/rfc2ftn: mail log + size / message date
+
 	* doc: add areas -L, LimitMsgSize, #define DO_HAVE_SYSEXITS_H
 
 	* ftnpack: special option to process ffx control and data
 	  files.
 
 	* doc: add RFC header in Fido message body documentation
-	  (From, To, Cc, ...)
+	  (From, To, Cc, ..., Content-Transfer-Encoding)
 
 	* doc: add X-Flags documentation.
 
 	* ftn2rfc: improve processing of RFC address user%do.main and
 	  user@do.main in FTN to field.
 
-DONE.	* ftn2rfc: if 7bit text, do not use MIME quoted-printable.
-
-DONE.	* ftn2rfc: process MIME Content-Transfer-Encoding header in
-	  FTN message.
-
 	* rfc2ftn: configuration option for mail RFC level *per*
 	  *host*, e.g. option in HOSTS.
-
-DONE.	* ftn2rfc: option to kill split messages (^ASPLIT).
 
 	* rfcaddr.c: using quotes for "som(e)thing%special"@host
 	  causes problems with news reading. Son-of-rfc1036 saiz that
@@ -34,14 +29,6 @@ STARTED.* DOS/OS2: use \ for path names when running commands via system()
 
 	* ftntick: call script for incoming TICs, passing file area,
 	  name, ...
-
-DONE.	* ftn2rfc:702: config option, instead of @FQDN, add @addr_to.addr
-	  (domain part of recipient's FTN address).
-
-DONE.	* rfc2ftn: limit max. message size
-
-DONE.	* areas: option -M MAXSIZE, limit maximum RFC message size to
-(-L)	  MAXSIZE bytes, larger messages won't be gated.
 
 	* ftnaf: marker in areas.bbs to show if an area is subscribed
 	  at the uplink (option or using directory), regularly check
@@ -54,10 +41,6 @@ STARTED.* Replace calls to strncpy0/strncat0 with str_copy/str_append.
 
 	* Generic alias matching: name@Z:N/F.P <-> user@do.main (Name),
 	  recipient *and* sender
-
-DONE.	* ftntoss: NoEmptyPath, EchoMail4D für 4D-Points mit Tosser.
-
-DONE.	* ftntoss: make point tosser work without EchoMail4D
 
 	* rfc2ftn: improve parser for 1st line. Use regexp library?
 
@@ -120,11 +103,6 @@ DONE.	  copy netmail packets (do_noarc()), use rename(). If archiver
 	* Check packet passwords of incoming packets.
 
 	* ftntoss: check # of ^AVia lines
-
-DONE.	* ftntoss: kill old messages (older than 2 weeks?)
-
-OS2	* MSDOS, OS/2 port: switch stdin to binary mode. Command line option?
-DONE.	  Problems with news batches (GD030V)?
 
 	* ftn2rfc, rfc2ftn: passthru operation for FTN messages, in
 	  particular EchoMail control information.

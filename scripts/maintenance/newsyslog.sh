@@ -1,8 +1,11 @@
 #!/bin/sh
 #
-# $Id: newsyslog.sh,v 4.3 1997/03/26 20:46:42 mj Exp $
+# $Id: newsyslog.sh,v 4.4 1997/04/10 18:55:58 mj Exp $
 #
 # Cycle syslog files
+#
+# WARNING! There are some buggy crond out in Linux land which get killed
+#          by the *second* SIGHUP!
 #
 
 # Permissions for new log files
@@ -10,7 +13,7 @@ PERM=644
 # Directory with syslog files
 SYSLOGDIR=/var/log
 # Compression program
-COMPR="gzip -9"
+COMPR="gzip -f9"
 EXT=".gz"
 
 # Renamed and compress
@@ -68,10 +71,10 @@ compr () {
 }
 
 # Cycle files
-cycle $SYSLOGDIR/cron
+cycle $SYSLOGDIR/maillog  6 5 4 3 2 1 0
 cycle $SYSLOGDIR/syslog         3 2 1 0
 cycle $SYSLOGDIR/messages       3 2 1 0
-cycle $SYSLOGDIR/maillog  6 5 4 3 2 1 0
+cycle $SYSLOGDIR/cron
 
 # # Run sendmailstat
 # PRG=/usr/local/bin/sendmailstat
@@ -91,7 +94,7 @@ test -f /etc/crond.pid      && kill -HUP `cat /etc/crond.pid`
 test -f /var/run/crond.pid  && kill -HUP `cat /var/run/crond.pid`
 
 # Compress old log files
-compr $SYSLOGDIR/cron
+compr $SYSLOGDIR/maillog
 compr $SYSLOGDIR/syslog
 compr $SYSLOGDIR/messages
-compr $SYSLOGDIR/maillog
+compr $SYSLOGDIR/cron
