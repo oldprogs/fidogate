@@ -5,26 +5,26 @@ cp: ../ti.pkt-z2/CVS: omitting directory
 tc: running
 ftntoss creating MSGID history ./history.dir
 ftntoss creating MSGID history ./history.pag
-ftntoss packet ./pin/01165017.PKT (7930b) from 2:2452/110.0 for 2:2452/110.2
-ftntoss packet ./pin/01168917.PKT (55625b) from 2:2452/110.0 for 2:2452/110.2
-ftntoss packet ./pin/01168920.PKT (34949b) from 2:2452/110.0 for 2:2452/110.2
-ftntoss packet ./pin/01172288.PKT (48806b) from 2:2452/110.0 for 2:2452/110.2
-ftntoss packet ./pin/01172292.PKT (11198b) from 2:2452/110.0 for 2:2452/110.2
-ftntoss packet ./pin/01172299.PKT (44435b) from 2:2452/110.0 for 2:2452/110.2
-ftntoss packet ./pin/01173105.PKT (3080b) from 2:2452/110.0 for 2:2452/110.2
-ftntoss packet ./pin/01173858.PKT (75317b) from 2:2452/110.0 for 2:2452/110.2
-ftntoss packet ./pin/01173886.PKT (1482b) from 2:2452/110.0 for 2:2452/110.2
-ftntoss packet ./pin/01175557.PKT (1287b) from 2:2452/110.0 for 2:2452/110.2
-ftntoss packet ./pin/01176267.PKT (48136b) from 2:2452/110.0 for 2:2452/110.2
-ftntoss packet ./pin/01178414.PKT (53798b) from 2:2452/110.0 for 2:2452/110.2
-ftntoss packet ./pin/01179147.PKT (1962b) from 2:2452/110.0 for 2:2452/110.2
-ftntoss packet ./pin/01179662.PKT (5032b) from 2:2452/110.0 for 2:2452/110.2
-ftntoss packet ./pin/01179667.PKT (30950b) from 2:2452/110.0 for 2:2452/110.2
-ftntoss packet ./pin/01181937.PKT (44354b) from 2:2452/110.0 for 2:2452/110.2
-ftntoss packet ./pin/01182344.PKT (8917b) from 2:2452/110.0 for 2:2452/110.2
-ftntoss packet ./pin/01182740.PKT (5844b) from 2:2452/110.0 for 2:2452/110.2
-ftntoss packet ./pin/01184390.PKT (71064b) from 2:2452/110.0 for 2:2452/110.2
-ftntoss packet ./pin/01186013.PKT (33334b) from 2:2452/110.0 for 2:2452/110.2
+ftntoss packet ./pin/01165017.PKT (7930b) from 2:2452/110.0 to 2:2452/110.2
+ftntoss packet ./pin/01168917.PKT (55625b) from 2:2452/110.0 to 2:2452/110.2
+ftntoss packet ./pin/01168920.PKT (34949b) from 2:2452/110.0 to 2:2452/110.2
+ftntoss packet ./pin/01172288.PKT (48806b) from 2:2452/110.0 to 2:2452/110.2
+ftntoss packet ./pin/01172292.PKT (11198b) from 2:2452/110.0 to 2:2452/110.2
+ftntoss packet ./pin/01172299.PKT (44435b) from 2:2452/110.0 to 2:2452/110.2
+ftntoss packet ./pin/01173105.PKT (3080b) from 2:2452/110.0 to 2:2452/110.2
+ftntoss packet ./pin/01173858.PKT (75317b) from 2:2452/110.0 to 2:2452/110.2
+ftntoss packet ./pin/01173886.PKT (1482b) from 2:2452/110.0 to 2:2452/110.2
+ftntoss packet ./pin/01175557.PKT (1287b) from 2:2452/110.0 to 2:2452/110.2
+ftntoss packet ./pin/01176267.PKT (48136b) from 2:2452/110.0 to 2:2452/110.2
+ftntoss packet ./pin/01178414.PKT (53798b) from 2:2452/110.0 to 2:2452/110.2
+ftntoss packet ./pin/01179147.PKT (1962b) from 2:2452/110.0 to 2:2452/110.2
+ftntoss packet ./pin/01179662.PKT (5032b) from 2:2452/110.0 to 2:2452/110.2
+ftntoss packet ./pin/01179667.PKT (30950b) from 2:2452/110.0 to 2:2452/110.2
+ftntoss packet ./pin/01181937.PKT (44354b) from 2:2452/110.0 to 2:2452/110.2
+ftntoss packet ./pin/01182344.PKT (8917b) from 2:2452/110.0 to 2:2452/110.2
+ftntoss packet ./pin/01182740.PKT (5844b) from 2:2452/110.0 to 2:2452/110.2
+ftntoss packet ./pin/01184390.PKT (71064b) from 2:2452/110.0 to 2:2452/110.2
+ftntoss packet ./pin/01186013.PKT (33334b) from 2:2452/110.0 to 2:2452/110.2
 ftntoss msgs processed: 316 in, 316 out (0 mail, 316 echo)
 ftnroute packet for 2:2452/110.2 (Hold)
 ftnpack archiving packet (586360b) for 2:2452/110.2 (zip) in ./tmp_pack

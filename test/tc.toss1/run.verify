@@ -4,26 +4,26 @@ tc: copying input packets
 tc: running
 ftntoss creating MSGID history ./history.dir
 ftntoss creating MSGID history ./history.pag
-ftntoss packet ./pin/01165017.PKT (7930b) from 2:2452/110.0 for 2:2452/110.2
-ftntoss packet ./pin/01168917.PKT (55625b) from 2:2452/110.0 for 2:2452/110.2
-ftntoss packet ./pin/01168920.PKT (34949b) from 2:2452/110.0 for 2:2452/110.2
-ftntoss packet ./pin/01172288.PKT (48806b) from 2:2452/110.0 for 2:2452/110.2
-ftntoss packet ./pin/01172292.PKT (11198b) from 2:2452/110.0 for 2:2452/110.2
-ftntoss packet ./pin/01172299.PKT (44435b) from 2:2452/110.0 for 2:2452/110.2
-ftntoss packet ./pin/01173105.PKT (3080b) from 2:2452/110.0 for 2:2452/110.2
-ftntoss packet ./pin/01173858.PKT (75317b) from 2:2452/110.0 for 2:2452/110.2
-ftntoss packet ./pin/01173886.PKT (1482b) from 2:2452/110.0 for 2:2452/110.2
-ftntoss packet ./pin/01175557.PKT (1287b) from 2:2452/110.0 for 2:2452/110.2
-ftntoss packet ./pin/01176267.PKT (48136b) from 2:2452/110.0 for 2:2452/110.2
-ftntoss packet ./pin/01178414.PKT (53798b) from 2:2452/110.0 for 2:2452/110.2
-ftntoss packet ./pin/01179147.PKT (1962b) from 2:2452/110.0 for 2:2452/110.2
-ftntoss packet ./pin/01179662.PKT (5032b) from 2:2452/110.0 for 2:2452/110.2
-ftntoss packet ./pin/01179667.PKT (30950b) from 2:2452/110.0 for 2:2452/110.2
-ftntoss packet ./pin/01181937.PKT (44354b) from 2:2452/110.0 for 2:2452/110.2
-ftntoss packet ./pin/01182344.PKT (8917b) from 2:2452/110.0 for 2:2452/110.2
-ftntoss packet ./pin/01182740.PKT (5844b) from 2:2452/110.0 for 2:2452/110.2
-ftntoss packet ./pin/01184390.PKT (71064b) from 2:2452/110.0 for 2:2452/110.2
-ftntoss packet ./pin/01186013.PKT (33334b) from 2:2452/110.0 for 2:2452/110.2
+ftntoss packet ./pin/01165017.PKT (7930b) from 2:2452/110.0 to 2:2452/110.2
+ftntoss packet ./pin/01168917.PKT (55625b) from 2:2452/110.0 to 2:2452/110.2
+ftntoss packet ./pin/01168920.PKT (34949b) from 2:2452/110.0 to 2:2452/110.2
+ftntoss packet ./pin/01172288.PKT (48806b) from 2:2452/110.0 to 2:2452/110.2
+ftntoss packet ./pin/01172292.PKT (11198b) from 2:2452/110.0 to 2:2452/110.2
+ftntoss packet ./pin/01172299.PKT (44435b) from 2:2452/110.0 to 2:2452/110.2
+ftntoss packet ./pin/01173105.PKT (3080b) from 2:2452/110.0 to 2:2452/110.2
+ftntoss packet ./pin/01173858.PKT (75317b) from 2:2452/110.0 to 2:2452/110.2
+ftntoss packet ./pin/01173886.PKT (1482b) from 2:2452/110.0 to 2:2452/110.2
+ftntoss packet ./pin/01175557.PKT (1287b) from 2:2452/110.0 to 2:2452/110.2
+ftntoss packet ./pin/01176267.PKT (48136b) from 2:2452/110.0 to 2:2452/110.2
+ftntoss packet ./pin/01178414.PKT (53798b) from 2:2452/110.0 to 2:2452/110.2
+ftntoss packet ./pin/01179147.PKT (1962b) from 2:2452/110.0 to 2:2452/110.2
+ftntoss packet ./pin/01179662.PKT (5032b) from 2:2452/110.0 to 2:2452/110.2
+ftntoss packet ./pin/01179667.PKT (30950b) from 2:2452/110.0 to 2:2452/110.2
+ftntoss packet ./pin/01181937.PKT (44354b) from 2:2452/110.0 to 2:2452/110.2
+ftntoss packet ./pin/01182344.PKT (8917b) from 2:2452/110.0 to 2:2452/110.2
+ftntoss packet ./pin/01182740.PKT (5844b) from 2:2452/110.0 to 2:2452/110.2
+ftntoss packet ./pin/01184390.PKT (71064b) from 2:2452/110.0 to 2:2452/110.2
+ftntoss packet ./pin/01186013.PKT (33334b) from 2:2452/110.0 to 2:2452/110.2
 ftntoss msgs processed: 316 in, 316 out (0 mail, 316 echo)
 ftnroute packet for 2:2452/110.99 (Normal)
 ftnroute packet for 2:2452/110.2 (Hold)
@@ -34,26 +34,26 @@ tc: copying input packets
 tc: running with EchoMail4D
 ftntoss creating MSGID history ./history.dir
 ftntoss creating MSGID history ./history.pag
-ftntoss packet ./pin/01165017.PKT (7930b) from 2:2452/110.0 for 2:2452/110.2
-ftntoss packet ./pin/01168917.PKT (55625b) from 2:2452/110.0 for 2:2452/110.2
-ftntoss packet ./pin/01168920.PKT (34949b) from 2:2452/110.0 for 2:2452/110.2
-ftntoss packet ./pin/01172288.PKT (48806b) from 2:2452/110.0 for 2:2452/110.2
-ftntoss packet ./pin/01172292.PKT (11198b) from 2:2452/110.0 for 2:2452/110.2
-ftntoss packet ./pin/01172299.PKT (44435b) from 2:2452/110.0 for 2:2452/110.2
-ftntoss packet ./pin/01173105.PKT (3080b) from 2:2452/110.0 for 2:2452/110.2
-ftntoss packet ./pin/01173858.PKT (75317b) from 2:2452/110.0 for 2:2452/110.2
-ftntoss packet ./pin/01173886.PKT (1482b) from 2:2452/110.0 for 2:2452/110.2
-ftntoss packet ./pin/01175557.PKT (1287b) from 2:2452/110.0 for 2:2452/110.2
-ftntoss packet ./pin/01176267.PKT (48136b) from 2:2452/110.0 for 2:2452/110.2
-ftntoss packet ./pin/01178414.PKT (53798b) from 2:2452/110.0 for 2:2452/110.2
-ftntoss packet ./pin/01179147.PKT (1962b) from 2:2452/110.0 for 2:2452/110.2
-ftntoss packet ./pin/01179662.PKT (5032b) from 2:2452/110.0 for 2:2452/110.2
-ftntoss packet ./pin/01179667.PKT (30950b) from 2:2452/110.0 for 2:2452/110.2
-ftntoss packet ./pin/01181937.PKT (44354b) from 2:2452/110.0 for 2:2452/110.2
-ftntoss packet ./pin/01182344.PKT (8917b) from 2:2452/110.0 for 2:2452/110.2
-ftntoss packet ./pin/01182740.PKT (5844b) from 2:2452/110.0 for 2:2452/110.2
-ftntoss packet ./pin/01184390.PKT (71064b) from 2:2452/110.0 for 2:2452/110.2
-ftntoss packet ./pin/01186013.PKT (33334b) from 2:2452/110.0 for 2:2452/110.2
+ftntoss packet ./pin/01165017.PKT (7930b) from 2:2452/110.0 to 2:2452/110.2
+ftntoss packet ./pin/01168917.PKT (55625b) from 2:2452/110.0 to 2:2452/110.2
+ftntoss packet ./pin/01168920.PKT (34949b) from 2:2452/110.0 to 2:2452/110.2
+ftntoss packet ./pin/01172288.PKT (48806b) from 2:2452/110.0 to 2:2452/110.2
+ftntoss packet ./pin/01172292.PKT (11198b) from 2:2452/110.0 to 2:2452/110.2
+ftntoss packet ./pin/01172299.PKT (44435b) from 2:2452/110.0 to 2:2452/110.2
+ftntoss packet ./pin/01173105.PKT (3080b) from 2:2452/110.0 to 2:2452/110.2
+ftntoss packet ./pin/01173858.PKT (75317b) from 2:2452/110.0 to 2:2452/110.2
+ftntoss packet ./pin/01173886.PKT (1482b) from 2:2452/110.0 to 2:2452/110.2
+ftntoss packet ./pin/01175557.PKT (1287b) from 2:2452/110.0 to 2:2452/110.2
+ftntoss packet ./pin/01176267.PKT (48136b) from 2:2452/110.0 to 2:2452/110.2
+ftntoss packet ./pin/01178414.PKT (53798b) from 2:2452/110.0 to 2:2452/110.2
+ftntoss packet ./pin/01179147.PKT (1962b) from 2:2452/110.0 to 2:2452/110.2
+ftntoss packet ./pin/01179662.PKT (5032b) from 2:2452/110.0 to 2:2452/110.2
+ftntoss packet ./pin/01179667.PKT (30950b) from 2:2452/110.0 to 2:2452/110.2
+ftntoss packet ./pin/01181937.PKT (44354b) from 2:2452/110.0 to 2:2452/110.2
+ftntoss packet ./pin/01182344.PKT (8917b) from 2:2452/110.0 to 2:2452/110.2
+ftntoss packet ./pin/01182740.PKT (5844b) from 2:2452/110.0 to 2:2452/110.2
+ftntoss packet ./pin/01184390.PKT (71064b) from 2:2452/110.0 to 2:2452/110.2
+ftntoss packet ./pin/01186013.PKT (33334b) from 2:2452/110.0 to 2:2452/110.2
 ftntoss msgs processed: 316 in, 316 out (0 mail, 316 echo)
 ftnroute packet for 2:2452/110.99 (Normal)
 ftnroute packet for 2:2452/110.2 (Hold)
@@ -61,11 +61,11 @@ ftnpack archiving packet (33995b) for 2:2452/110.99 (zip)
 ftnpack packet (554112b) for 2:2452/110.2 (noarc)
 tc: copying input packets
 tc: running with KillOld
-ftntoss packet ./pin/01165017.PKT (7930b) from 2:2452/110.0 for 2:2452/110.2
+ftntoss packet ./pin/01165017.PKT (7930b) from 2:2452/110.0 to 2:2452/110.2
 ftntoss message too old, treated as dupe: LINUX.GER origin 2:2450/111.13 date 14 Mar 96  21:25:03
 ftntoss message too old, treated as dupe: LINUX.GER origin 2:2450/111.13 date 15 Mar 96  01:45:04
 ftntoss message too old, treated as dupe: LINUX.GER origin 2:2450/111.13 date 15 Mar 96  01:51:05
-ftntoss packet ./pin/01168917.PKT (55625b) from 2:2452/110.0 for 2:2452/110.2
+ftntoss packet ./pin/01168917.PKT (55625b) from 2:2452/110.0 to 2:2452/110.2
 ftntoss message too old, treated as dupe: LINUX.GER origin 2:240/5889.0 date 12 Mar 96  21:12:00
 ftntoss message too old, treated as dupe: LINUX.GER origin 2:2474/140.6 date 13 Mar 96  02:10:42
 ftntoss message too old, treated as dupe: LINUX.GER origin 2:2474/140.6 date 13 Mar 96  15:42:40
@@ -100,7 +100,7 @@ ftntoss message too old, treated as dupe: LINUX.GER origin 2:2444/8001.14 date 1
 ftntoss message too old, treated as dupe: LINUX.GER origin 2:246/1808.0 date 15 Mar 96  15:40:01
 ftntoss message too old, treated as dupe: LINUX.GER origin 2:248/1100.12 date 15 Mar 96  20:22:00
 ftntoss message too old, treated as dupe: LINUX.GER origin 2:246/3001.0 date 15 Mar 96  22:28:00
-ftntoss packet ./pin/01168920.PKT (34949b) from 2:2452/110.0 for 2:2452/110.2
+ftntoss packet ./pin/01168920.PKT (34949b) from 2:2452/110.0 to 2:2452/110.2
 ftntoss message too old, treated as dupe: LINUX.GER origin 2:240/5010.45 date 14 Mar 96  12:48:00
 ftntoss message too old, treated as dupe: LINUX.GER origin 2:240/5010.45 date 14 Mar 96  13:01:00
 ftntoss message too old, treated as dupe: LINUX.GER origin 2:240/5010.45 date 14 Mar 96  13:06:00
@@ -114,7 +114,7 @@ ftntoss message too old, treated as dupe: LINUX.GER origin 2:2410/407.20 date 15
 ftntoss message too old, treated as dupe: LINUX.GER origin 2:2437/130.34 date 09 Mar 96  16:46:00
 ftntoss message too old, treated as dupe: LINUX.GER origin 2:246/1401.7 date 16 Mar 96  11:35:20
 ftntoss message too old, treated as dupe: LINUX.GER origin 2:246/1401.82 date 16 Mar 96  12:27:24
-ftntoss packet ./pin/01172288.PKT (48806b) from 2:2452/110.0 for 2:2452/110.2
+ftntoss packet ./pin/01172288.PKT (48806b) from 2:2452/110.0 to 2:2452/110.2
 ftntoss message too old, treated as dupe: LINUX.GER origin 2:301/138.0 date 14 Mar 96  10:02:00
 ftntoss message too old, treated as dupe: LINUX.GER origin 2:2476/2.24 date 15 Mar 96  16:51:00
 ftntoss message too old, treated as dupe: LINUX.GER origin 2:316/777.77 date 15 Mar 96  21:51:14
@@ -145,14 +145,14 @@ ftntoss message too old, treated as dupe: LINUX.GER origin 2:240/5010.45 date 16
 ftntoss message too old, treated as dupe: LINUX.GER origin 2:240/5010.45 date 16 Mar 96  14:31:00
 ftntoss message too old, treated as dupe: LINUX.GER origin 2:2444/1280.128 date 16 Mar 96  17:33:14
 ftntoss message too old, treated as dupe: LINUX.GER origin 2:2444/1280.128 date 16 Mar 96  20:54:22
-ftntoss packet ./pin/01172292.PKT (11198b) from 2:2452/110.0 for 2:2452/110.2
+ftntoss packet ./pin/01172292.PKT (11198b) from 2:2452/110.0 to 2:2452/110.2
 ftntoss message too old, treated as dupe: LINUX.GER origin 2:2450/111.13 date 16 Mar 96  11:45:04
 ftntoss message too old, treated as dupe: LINUX.GER origin 2:2450/111.13 date 16 Mar 96  19:46:11
 ftntoss message too old, treated as dupe: LINUX.GER origin 2:245/6666.66 date 16 Mar 96  06:25:33
 ftntoss message too old, treated as dupe: LINUX.GER origin 2:2487/5001.11 date 16 Mar 96  15:33:06
 ftntoss message too old, treated as dupe: LINUX.GER origin 2:2487/5001.11 date 16 Mar 96  15:58:55
 ftntoss message too old, treated as dupe: LINUX.GER origin 2:2487/5001.11 date 16 Mar 96  17:45:03
-ftntoss packet ./pin/01172299.PKT (44435b) from 2:2452/110.0 for 2:2452/110.2
+ftntoss packet ./pin/01172299.PKT (44435b) from 2:2452/110.0 to 2:2452/110.2
 ftntoss message too old, treated as dupe: LINUX.GER origin 2:240/4141.0 date 04 Mar 96  00:56:00
 ftntoss message too old, treated as dupe: LINUX.GER origin 2:246/1401.0 date 06 Mar 96  20:06:02
 ftntoss message too old, treated as dupe: LINUX.GER origin 2:240/4141.0 date 11 Mar 96  03:51:00
@@ -177,10 +177,10 @@ ftntoss message too old, treated as dupe: LINUX.GER origin 2:310/81.81 date 16 M
 ftntoss message too old, treated as dupe: LINUX.GER origin 2:2487/5001.11 date 16 Mar 96  19:37:18
 ftntoss message too old, treated as dupe: LINUX.GER origin 2:2487/5001.11 date 16 Mar 96  19:46:43
 ftntoss message too old, treated as dupe: LINUX.GER origin 2:2426/2030.8 date 17 Mar 96  02:17:34
-ftntoss packet ./pin/01173105.PKT (3080b) from 2:2452/110.0 for 2:2452/110.2
+ftntoss packet ./pin/01173105.PKT (3080b) from 2:2452/110.0 to 2:2452/110.2
 ftntoss message too old, treated as dupe: LINUX.GER origin 2:2450/111.13 date 16 Mar 96  23:30:17
 ftntoss message too old, treated as dupe: LINUX.GER origin 2:2450/111.13 date 16 Mar 96  23:37:17
-ftntoss packet ./pin/01173858.PKT (75317b) from 2:2452/110.0 for 2:2452/110.2
+ftntoss packet ./pin/01173858.PKT (75317b) from 2:2452/110.0 to 2:2452/110.2
 ftntoss message too old, treated as dupe: LINUX.GER origin 2:2433/920.947 date 15 Mar 96  17:26:22
 ftntoss message too old, treated as dupe: LINUX.GER origin 2:2480/13.145 date 15 Mar 96  19:29:00
 ftntoss message too old, treated as dupe: LINUX.GER origin 2:2480/13.102 date 15 Mar 96  21:12:00
@@ -222,11 +222,11 @@ ftntoss message too old, treated as dupe: LINUX.GER origin 2:310/81.81 date 18 M
 ftntoss message too old, treated as dupe: LINUX.GER origin 2:310/81.81 date 18 Mar 96  00:41:00
 ftntoss message too old, treated as dupe: LINUX.GER origin 2:310/81.81 date 18 Mar 96  00:43:00
 ftntoss message too old, treated as dupe: LINUX.GER origin 2:310/81.81 date 18 Mar 96  00:49:00
-ftntoss packet ./pin/01173886.PKT (1482b) from 2:2452/110.0 for 2:2452/110.2
+ftntoss packet ./pin/01173886.PKT (1482b) from 2:2452/110.0 to 2:2452/110.2
 ftntoss message too old, treated as dupe: TOLKIEN.GER origin 2:2432/223.17 date 10 Mar 96  14:00:00
-ftntoss packet ./pin/01175557.PKT (1287b) from 2:2452/110.0 for 2:2452/110.2
+ftntoss packet ./pin/01175557.PKT (1287b) from 2:2452/110.0 to 2:2452/110.2
 ftntoss message too old, treated as dupe: LINUX.GER origin 2:2450/111.13 date 17 Mar 96  22:33:47
-ftntoss packet ./pin/01176267.PKT (48136b) from 2:2452/110.0 for 2:2452/110.2
+ftntoss packet ./pin/01176267.PKT (48136b) from 2:2452/110.0 to 2:2452/110.2
 ftntoss message too old, treated as dupe: LINUX.GER origin 2:240/5033.32 date 14 Mar 96  22:21:40
 ftntoss message too old, treated as dupe: LINUX.GER origin 2:2444/4517.5 date 15 Mar 96  00:00:00
 ftntoss message too old, treated as dupe: LINUX.GER origin 2:244/6414.0 date 16 Mar 96  19:58:50
@@ -252,7 +252,7 @@ ftntoss message too old, treated as dupe: LINUX.GER origin 2:240/5068.5 date 17 
 ftntoss message too old, treated as dupe: LINUX.GER origin 2:241/250.7 date 17 Mar 96  22:21:00
 ftntoss message too old, treated as dupe: LINUX.GER origin 2:240/5068.5 date 18 Mar 96  00:35:00
 ftntoss message too old, treated as dupe: LINUX.GER origin 2:2453/30.191 date 18 Mar 96  21:18:00
-ftntoss packet ./pin/01178414.PKT (53798b) from 2:2452/110.0 for 2:2452/110.2
+ftntoss packet ./pin/01178414.PKT (53798b) from 2:2452/110.0 to 2:2452/110.2
 ftntoss message too old, treated as dupe: LINUX.GER origin 2:2452/117.66 date 19 Mar 96  00:00:00
 ftntoss message too old, treated as dupe: LINUX.GER origin 2:245/5560.0 date 17 Mar 96  10:55:00
 ftntoss message too old, treated as dupe: LINUX.GER origin 2:245/5560.0 date 17 Mar 96  11:03:00
@@ -280,12 +280,12 @@ ftntoss message too old, treated as dupe: LINUX.GER origin 2:240/5889.0 date 16 
 ftntoss message too old, treated as dupe: LINUX.GER origin 2:2433/1401.6 date 18 Mar 96  19:04:00
 ftntoss message too old, treated as dupe: LINUX.GER origin 2:244/1121.14 date 18 Mar 96  21:08:00
 ftntoss message too old, treated as dupe: TOLKIEN.GER origin 2:2450/502.45 date 19 Mar 96  00:40:00
-ftntoss packet ./pin/01179147.PKT (1962b) from 2:2452/110.0 for 2:2452/110.2
+ftntoss packet ./pin/01179147.PKT (1962b) from 2:2452/110.0 to 2:2452/110.2
 ftntoss message too old, treated as dupe: LINUX.GER origin 2:2450/111.13 date 18 Mar 96  22:27:17
-ftntoss packet ./pin/01179662.PKT (5032b) from 2:2452/110.0 for 2:2452/110.2
+ftntoss packet ./pin/01179662.PKT (5032b) from 2:2452/110.0 to 2:2452/110.2
 ftntoss message too old, treated as dupe: LINUX.GER origin 2:2452/112.14 date 17 Mar 96  18:06:00
 ftntoss message too old, treated as dupe: LINUX.GER origin 2:2452/112.14 date 17 Mar 96  18:17:00
-ftntoss packet ./pin/01179667.PKT (30950b) from 2:2452/110.0 for 2:2452/110.2
+ftntoss packet ./pin/01179667.PKT (30950b) from 2:2452/110.0 to 2:2452/110.2
 ftntoss message too old, treated as dupe: LINUX.GER origin 2:318/5.1 date 18 Mar 96  22:04:01
 ftntoss message too old, treated as dupe: TOLKIEN.GER origin 2:2444/4508.7 date 17 Mar 96  15:45:00
 ftntoss message too old, treated as dupe: TOLKIEN.GER origin 2:2444/4508.7 date 17 Mar 96  15:47:00
@@ -304,7 +304,7 @@ ftntoss message too old, treated as dupe: LINUX.GER origin 2:2461/336.23 date 19
 ftntoss message too old, treated as dupe: LINUX.GER origin 2:2461/336.23 date 19 Mar 96  18:35:00
 ftntoss message too old, treated as dupe: LINUX.GER origin 2:2461/336.23 date 19 Mar 96  18:40:00
 ftntoss message too old, treated as dupe: TOLKIEN.GER origin 2:2452/401.20 date 19 Mar 96  14:51:00
-ftntoss packet ./pin/01181937.PKT (44354b) from 2:2452/110.0 for 2:2452/110.2
+ftntoss packet ./pin/01181937.PKT (44354b) from 2:2452/110.0 to 2:2452/110.2
 ftntoss message too old, treated as dupe: LINUX.GER origin 2:2468/6002.2 date 17 Mar 96  19:39:00
 ftntoss message too old, treated as dupe: LINUX.GER origin 2:2468/6002.2 date 17 Mar 96  19:44:00
 ftntoss message too old, treated as dupe: LINUX.GER origin 2:2437/901.65 date 17 Mar 96  23:54:00
@@ -330,19 +330,19 @@ ftntoss message too old, treated as dupe: LINUX.GER origin 2:249/5080.27 date 18
 ftntoss message too old, treated as dupe: LINUX.GER origin 2:2480/89.3 date 19 Mar 96  20:01:12
 ftntoss message too old, treated as dupe: LINUX.GER origin 2:2448/330.5 date 19 Mar 96  03:11:00
 ftntoss message too old, treated as dupe: LINUX.GER origin 2:2410/301.9 date 19 Mar 96  10:08:00
-ftntoss packet ./pin/01182344.PKT (8917b) from 2:2452/110.0 for 2:2452/110.2
+ftntoss packet ./pin/01182344.PKT (8917b) from 2:2452/110.0 to 2:2452/110.2
 ftntoss message too old, treated as dupe: LINUX.GER origin 2:245/6849.5 date 18 Mar 96  22:07:00
 ftntoss message too old, treated as dupe: LINUX.GER origin 2:240/6111.25 date 19 Mar 96  03:03:00
 ftntoss message too old, treated as dupe: LINUX.GER origin 2:245/6849.5 date 19 Mar 96  14:33:00
 ftntoss message too old, treated as dupe: LINUX.GER origin 2:241/575.11 date 19 Mar 96  20:58:00
 ftntoss message too old, treated as dupe: LINUX.GER origin 2:2450/111.13 date 19 Mar 96  23:40:25
 ftntoss message too old, treated as dupe: LINUX.GER origin 2:2450/111.13 date 20 Mar 96  01:06:43
-ftntoss packet ./pin/01182740.PKT (5844b) from 2:2452/110.0 for 2:2452/110.2
+ftntoss packet ./pin/01182740.PKT (5844b) from 2:2452/110.0 to 2:2452/110.2
 ftntoss message too old, treated as dupe: LINUX.GER origin 2:244/6301.18 date 19 Mar 96  21:59:00
 ftntoss message too old, treated as dupe: LINUX.GER origin 2:2461/336.23 date 20 Mar 96  20:30:00
 ftntoss message too old, treated as dupe: LINUX.GER origin 2:2448/448.7 date 01 Mar 96  21:13:00
 ftntoss message too old, treated as dupe: LINUX.GER origin 2:2444/4528.14 date 19 Mar 96  21:04:00
-ftntoss packet ./pin/01184390.PKT (71064b) from 2:2452/110.0 for 2:2452/110.2
+ftntoss packet ./pin/01184390.PKT (71064b) from 2:2452/110.0 to 2:2452/110.2
 ftntoss message too old, treated as dupe: LINUX.GER origin 2:2471/6017.2 date 11 Mar 96  12:55:03
 ftntoss message too old, treated as dupe: LINUX.GER origin 2:2471/6017.2 date 11 Mar 96  13:02:04
 ftntoss message too old, treated as dupe: LINUX.GER origin 2:2471/6017.2 date 11 Mar 96  13:19:05
@@ -381,7 +381,7 @@ ftntoss message too old, treated as dupe: LINUX.GER origin 2:2487/5001.11 date 2
 ftntoss message too old, treated as dupe: LINUX.GER origin 2:2453/690.12 date 20 Mar 96  16:56:00
 ftntoss message too old, treated as dupe: LINUX.GER origin 2:246/8722.38 date 20 Mar 96  19:50:00
 ftntoss message too old, treated as dupe: LINUX.GER origin 2:2410/212.0 date 21 Mar 96  00:35:42
-ftntoss packet ./pin/01186013.PKT (33334b) from 2:2452/110.0 for 2:2452/110.2
+ftntoss packet ./pin/01186013.PKT (33334b) from 2:2452/110.0 to 2:2452/110.2
 ftntoss message too old, treated as dupe: LINUX.GER origin 2:310/102.264 date 19 Mar 96  21:13:36
 ftntoss message too old, treated as dupe: LINUX.GER origin 2:2444/2010.0 date 20 Mar 96  23:36:00
 ftntoss message too old, treated as dupe: LINUX.GER origin 2:2480/13.102 date 18 Mar 96  16:13:00

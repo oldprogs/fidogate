@@ -2,28 +2,28 @@ tc: clean-up
 tc: init
 tc: copying input packets
 tc: running (killing bad)
-ftntoss packet ./pin/circular.pkt (538b) from 2:2499/1.0 for 2:2452/110.0
+ftntoss packet ./pin/circular.pkt (538b) from 2:2499/1.0 to 2:2452/110.0
 ftntoss insecure echomail area TEST from 2:2499/1.0
-ftntoss packet ./pin/insecure.pkt (464b) from 2:2499/2.0 for 2:2452/110.0
+ftntoss packet ./pin/insecure.pkt (464b) from 2:2499/2.0 to 2:2452/110.0
 ftntoss insecure echomail area TEST from 2:2499/2.0
-ftntoss packet ./pin/routed.pkt (464b) from 2:2499/1.0 for 2:2452/100.0
+ftntoss packet ./pin/routed.pkt (464b) from 2:2499/1.0 to 2:2452/100.0
 ftntoss routed echomail area TEST from 2:2499/1.0 to 2:2452/100.0
-ftntoss packet ./pin/unknown.pkt (467b) from 2:2499/1.0 for 2:2452/110.0
+ftntoss packet ./pin/unknown.pkt (467b) from 2:2499/1.0 to 2:2452/110.0
 ftntoss unknown area UNKNOWN from 2:2499/1.0
 ftntoss msgs processed: 4 in, 0 out (0 mail, 0 echo)
 ftntoss msgs killed:    0 empty, 1 unknown, 1 routed, 2 insecure
 tc: copying input packets
 tc: running (saving bad)
-ftntoss packet ./pin/circular.pkt (538b) from 2:2499/1.0 for 2:2452/110.0
+ftntoss packet ./pin/circular.pkt (538b) from 2:2499/1.0 to 2:2452/110.0
 ftntoss insecure echomail area TEST from 2:2499/1.0
 New packet ./toss/bad/bad00001.pkt (./toss/bad/bad00001.tmp): 2:2499/1.0 -> 2:2452/110.0
-ftntoss packet ./pin/insecure.pkt (464b) from 2:2499/2.0 for 2:2452/110.0
+ftntoss packet ./pin/insecure.pkt (464b) from 2:2499/2.0 to 2:2452/110.0
 ftntoss insecure echomail area TEST from 2:2499/2.0
 New packet ./toss/bad/bad00002.pkt (./toss/bad/bad00002.tmp): 2:2499/2.0 -> 2:2452/110.0
-ftntoss packet ./pin/routed.pkt (464b) from 2:2499/1.0 for 2:2452/100.0
+ftntoss packet ./pin/routed.pkt (464b) from 2:2499/1.0 to 2:2452/100.0
 ftntoss routed echomail area TEST from 2:2499/1.0 to 2:2452/100.0
 New packet ./toss/bad/bad00003.pkt (./toss/bad/bad00003.tmp): 2:2499/1.0 -> 2:2452/100.0
-ftntoss packet ./pin/unknown.pkt (467b) from 2:2499/1.0 for 2:2452/110.0
+ftntoss packet ./pin/unknown.pkt (467b) from 2:2499/1.0 to 2:2452/110.0
 ftntoss unknown area UNKNOWN from 2:2499/1.0
 ftntoss msgs processed: 4 in, 0 out (0 mail, 0 echo)
 ftntoss msgs killed:    0 empty, 1 unknown, 1 routed, 2 insecure

@@ -1,6 +1,6 @@
 #:ts=8
 #
-#    $Id: Makefile,v 4.5 1998/03/07 16:53:32 mj Exp $
+#    $Id: Makefile,v 4.6 1998/07/06 21:32:06 mj Exp $
 #
 #    Makefile for FIDOGATE test/
 #
@@ -35,5 +35,5 @@ verify::
 	for d in tc.*; do \
 	  if [ -f $$d/run.verify ]; then \
 	    (cd $$d; ../tr.verify $$d) \
-          fi; \
+	  fi; \
 	done 

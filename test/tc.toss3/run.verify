@@ -4,7 +4,7 @@ tc: copying input packets
 tc: running
 ftntoss creating MSGID history ./history.dir
 ftntoss creating MSGID history ./history.pag
-ftntoss packet ./pin/t-bad.pkt (8924b) from 2:2452/110.0 for 2:2452/110.2
+ftntoss packet ./pin/t-bad.pkt (8924b) from 2:2452/110.0 to 2:2452/110.2
 ftntoss unknown area XXX.GER from 2:2452/110.0
 New packet ./toss/bad/bad00001.pkt (./toss/bad/bad00001.tmp): 2:2452/110.0 -> 2:2452/110.2
 ftntoss unknown area YYY.GER from 2:2452/110.0
@@ -15,7 +15,7 @@ ftntoss msgs killed:    0 empty, 2 unknown, 0 routed, 0 insecure
 ftntoss msgs killed:    1 circular path
 tc: copying input packets
 tc: running
-ftntoss packet ./pin/t-bad.pkt (8924b) from 2:2452/110.0 for 2:2452/110.2
+ftntoss packet ./pin/t-bad.pkt (8924b) from 2:2452/110.0 to 2:2452/110.2
 ftntoss unknown area XXX.GER from 2:2452/110.0
 New packet ./toss/bad/bad00003.pkt (./toss/bad/bad00003.tmp): 2:2452/110.0 -> 2:2452/110.2
 ftntoss unknown area YYY.GER from 2:2452/110.0
@@ -28,7 +28,7 @@ ftntoss msgs killed:    0 empty, 2 unknown, 0 routed, 0 insecure
 ftntoss msgs killed:    4 dupe
 tc: copying input packets
 tc: running
-ftntoss packet ./pin/t-bad.pkt (8924b) from 2:2452/110.0 for 2:2452/110.2
+ftntoss packet ./pin/t-bad.pkt (8924b) from 2:2452/110.0 to 2:2452/110.2
 ftntoss unknown area XXX.GER from 2:2452/110.0
 New packet ./toss/bad/bad00004.pkt (./toss/bad/bad00004.tmp): 2:2452/110.0 -> 2:2452/110.2
 ftntoss unknown area YYY.GER from 2:2452/110.0

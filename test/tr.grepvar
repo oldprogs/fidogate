@@ -1,0 +1,19 @@
+#!/usr/bin/perl
+#
+# Remove strings with variable contents (date, time, version number,
+# stats) from test case output
+#
+
+while(<>) {
+    next if( /^ *Date:/ );
+    next if( /^now=/ );
+    next if( /^\^AVia / );
+    next if( /msgs\/s/ );
+    next if( /Kbyte\/s/ );
+    next if( /Internet -> FIDO gateway \/ FIDOGATE/ );
+    next if( /^--- FIDOGATE/ );
+    next if( /^\^AGATEWAY:/ );
+    next if( /^Free disk space/ );
+
+    print;
+}

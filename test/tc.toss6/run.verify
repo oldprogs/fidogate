@@ -6,16 +6,16 @@ rfc2ftn MAIL: IMAIL Arealink@2:2476/2 -> Test_User@2:2452/110
 rfc2ftn MAIL: IMAIL Arealink@2:2476/2 -> Test_User@2:2452/110
 ftntoss creating MSGID history ./history.dir
 ftntoss creating MSGID history ./history.pag
-ftntoss packet ./pin/00000001.pkt (542b) from 2:2499/123.0 for 2:2452/110.0
+ftntoss packet ./pin/00000001.pkt (533b) from 2:2499/123.0 to 2:2452/110.0
 ftntoss MAIL: Test User @ 2:2499/123.0 -> Test User 1 @ 2:2452/110.0
 ftntoss remapto: Test User 1 @ 2:2452/110.0 -> 2:2499/1.1
-ftntoss packet ./pin/00000002.pkt (542b) from 2:2499/123.0 for 2:2452/110.0
+ftntoss packet ./pin/00000002.pkt (533b) from 2:2499/123.0 to 2:2452/110.0
 ftntoss MAIL: Test User @ 2:2499/123.0 -> Test User 2 @ 2:2452/110.0
 ftntoss remapto: Test User 2 @ 2:2452/110.0 -> 2:2499/1.0
-ftntoss packet ./pin/00000003.pkt (549b) from 2:2476/2.0 for 2:2452/110.0
+ftntoss packet ./pin/00000003.pkt (540b) from 2:2476/2.0 to 2:2452/110.0
 ftntoss MAIL: IMAIL Arealink @ 2:2476/2.0 -> Test User @ 2:2452/110.0
 ftntoss remapfrom: IMAIL Arealink @ 2:2476/2.0 -> KILLED
-ftntoss packet ./pin/00000004.pkt (547b) from 2:2476/2.0 for 2:2452/110.0
+ftntoss packet ./pin/00000004.pkt (538b) from 2:2476/2.0 to 2:2452/110.0
 ftntoss MAIL: IMAIL Arealink @ 2:2476/2.0 -> Test User @ 2:2452/110.0
 ftntoss remapfrom: IMAIL Arealink @ 2:2476/2.0 -> KILLED
 ftntoss msgs processed: 4 in, 2 out (2 mail, 0 echo)

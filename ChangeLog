@@ -1,3 +1,23 @@
+Mon Jul  6 22:20:00 1998  Martin Junius  <mj@fido.de>
+
+	------- CVS ci -------------------------------------------------------
+
+	* version.h (ALPHA): set to 4 (version 4.3a4).
+
+	* test/tc.*: check all test case to yield "OK" with tr.verify.
+
+	* test/mk.verify: use tr.grepvar.
+
+	* test/tr.verify: use tr.grepvar.
+
+	* test/tr.grepvar: new perl script to unify test case verification.
+
+Sun May 24 22:11:29 1998  Martin Junius  <mj@fido.de>
+
+	* src/gate/ftn2rfc.c (unpack): if area charset or
+	  NetMailCharsetDefault is not defined, use default_charset_def as
+	  the value for cs_def.
+
 Sat May 23 21:02:18 1998  Martin Junius  <mj@fido.de>
 
 	======= Release 4.3a3 ================================================

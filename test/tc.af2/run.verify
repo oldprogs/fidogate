@@ -70,7 +70,7 @@ Reading FTN packet header:
     Rev : 4.3
     Pass: ""
     Capw: 0001
-ftnafpkt packet ./pin/00000001.pkt (342b) from 2:1234/5678.0 for 2:2499/1.0
+ftnafpkt packet ./pin/00000001.pkt (333b) from 2:1234/5678.0 to 2:2499/1.0
 Reading FTN message header:
     From: Sysop                                @ 2:1234/5678.0
     To  : Areafix                              @ 2:2499/1.0
@@ -137,7 +137,7 @@ Reading FTN packet header:
     Rev : 4.3
     Pass: ""
     Capw: 0001
-ftnafpkt packet ./pin/00000002.pkt (311b) from 2:1234/5678.0 for 2:2499/1.0
+ftnafpkt packet ./pin/00000002.pkt (302b) from 2:1234/5678.0 to 2:2499/1.0
 Reading FTN message header:
     From: Sysop                                @ 2:1234/5678.0
     To  : Areafix                              @ 2:2499/1.0
@@ -186,7 +186,7 @@ Reading FTN packet header:
     Rev : 4.3
     Pass: ""
     Capw: 0001
-ftnafpkt packet ./pin/00000003.pkt (291b) from 2:2452/110.2 for 2:2499/1.0
+ftnafpkt packet ./pin/00000003.pkt (291b) from 2:2452/110.2 to 2:2499/1.0
 Reading FTN message header:
     From: mj                                   @ 2:2452/110.2
     To  : Areafix                              @ 2:2499/1.0
@@ -223,7 +223,7 @@ Reading FTN packet header:
     Rev : 4.3
     Pass: ""
     Capw: 0001
-ftnafpkt packet ./pin/00000004.pkt (325b) from 2:2452/110.2 for 2:2499/1.0
+ftnafpkt packet ./pin/00000004.pkt (325b) from 2:2452/110.2 to 2:2499/1.0
 Reading FTN message header:
     From: mj                                   @ 2:2452/110.2
     To  : Areafix                              @ 2:2499/1.0
@@ -274,7 +274,7 @@ Reading FTN packet header:
     Rev : 4.3
     Pass: ""
     Capw: 0001
-ftnafpkt packet ./pin/00000005.pkt (591b) from 2:2452/110.2 for 2:2499/1.0
+ftnafpkt packet ./pin/00000005.pkt (591b) from 2:2452/110.2 to 2:2499/1.0
 Reading FTN message header:
     From: Sysop                                @ 2:2452/110.2
     To  : Areafix                              @ 2:2499/1.0
@@ -431,7 +431,6 @@ FTN message header:
     Attr: 0000
 ------------------------------------------------------------------------------
 ^AINTL 2:1234/5678 2:2499/1
-^AFMPT 0
 ^AMSGID: 2:2499/1.0 00000006
 ------------------------------------------------------------------------------
 BLAH.GER                                 : subscribed
@@ -469,7 +468,6 @@ Areas available to 2:1234/5678:
 Command NEW: not authorized.
 
 ------------------------------------------------------------------------------
---- FIDOGATE 4.3a2
 ==============================================================================
 ==============================================================================
 FTN packet header:
@@ -488,7 +486,6 @@ FTN message header:
     Attr: 0000
 ------------------------------------------------------------------------------
 ^AINTL 2:1234/5678 2:2499/1
-^AFMPT 0
 ^AMSGID: 2:2499/1.0 00000007
 ------------------------------------------------------------------------------
 Command VACATION: sorry, not yet implemented.
@@ -496,7 +493,6 @@ TEST1                                    : unsubscribed
 TEST2                                    : not active
 
 ------------------------------------------------------------------------------
---- FIDOGATE 4.3a2
 ==============================================================================
 ==============================================================================
 FTN packet header:
@@ -515,14 +511,12 @@ FTN message header:
     Attr: 0000
 ------------------------------------------------------------------------------
 ^AINTL 2:2452/110 2:2499/1
-^AFMPT 0
 ^ATOPT 2
 ^AMSGID: 2:2499/1.0 00000008
 ------------------------------------------------------------------------------
 Command SUBSCRIBE: not authorized.
 
 ------------------------------------------------------------------------------
---- FIDOGATE 4.3a2
 ==============================================================================
 ==============================================================================
 FTN packet header:
@@ -541,7 +535,6 @@ FTN message header:
     Attr: 0000
 ------------------------------------------------------------------------------
 ^AINTL 2:1234/5678 2:2499/1
-^AFMPT 0
 ^AMSGID: 2:2499/1.0 00000009
 ------------------------------------------------------------------------------
 #*.GER: no such area, or no area matching pattern
@@ -558,7 +551,6 @@ Areas available to 2:1234/5678:
 
 
 ------------------------------------------------------------------------------
---- FIDOGATE 4.3a2
 ==============================================================================
 ==============================================================================
 FTN packet header:
@@ -577,7 +569,6 @@ FTN message header:
     Attr: 0000
 ------------------------------------------------------------------------------
 ^AINTL 2:1234/5678 2:2499/1
-^AFMPT 0
 ^AMSGID: 2:2499/1.0 00000010
 ------------------------------------------------------------------------------
 Command LISTALL: not authorized.
@@ -671,6 +662,7 @@ Commands in message body, optional prefix % allowed:
   vacation AREA                set vacation flag for AREA
   &AREA [-options]             create new AREA
   new AREA [-options]
+  create AREA [-options]
   ~AREA                        delete AREA
   delete AREA
   comment TEXT                 arbitrary comment (ignored)
@@ -680,5 +672,4 @@ AREA names are not case-sensitive and support shell-style wildcards
   * ? [a-z] [abc], e.g. COMP.OS.*, [A-D]*.GER
 
 ------------------------------------------------------------------------------
---- FIDOGATE 4.3a2
 ==============================================================================

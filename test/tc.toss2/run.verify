@@ -4,7 +4,7 @@ tc: copying input packets
 tc: running
 ftntoss creating MSGID history ./history.dir
 ftntoss creating MSGID history ./history.pag
-ftntoss packet ./pin/t-fattach.pkt (360b) from 2:2452/999.0 for 2:2452/110.2
+ftntoss packet ./pin/t-fattach.pkt (360b) from 2:2452/999.0 to 2:2452/110.2
 ftntoss MAIL: Martin Junius @ 2:2452/999.0 -> Test User @ 2:2452/110.2
 ftntoss file attach testfile.zip
 New packet ./toss/toss/nnn00001.pkt (./toss/toss/nnn00001.tmp): 2:2452/110.2 -> 2:2452/110.2
@@ -14,11 +14,11 @@ Target packet: from=2:2452/110.2 to=2:2452/110.2 grade=n type=n flav=h
 ftnroute packet for 2:2452/110.2 (Hold)
 New packet ./toss/route/nnh00002.pkt (./toss/route/nnh00002.tmp): 2:2452/110.2 -> 2:2452/110.2
 Packet: from=2:2452/110.2 to=2:2452/110.2 grade=n type=n flav=h
-ftnpack packet (430b) for 2:2452/110.2 (noarc)
+ftnpack packet (421b) for 2:2452/110.2 (noarc)
 ftnpack file attach testfile.zip (2447b) for 2:2452/110.2
 tc: copying input packets
 tc: running
-ftntoss packet ./pin/t-fattach.pkt (360b) from 2:2452/999.0 for 2:2452/110.2
+ftntoss packet ./pin/t-fattach.pkt (360b) from 2:2452/999.0 to 2:2452/110.2
 ftntoss MAIL: Martin Junius @ 2:2452/999.0 -> Test User @ 2:2452/110.2
 ftntoss file attach testfile.zip
 New packet ./toss/toss/nnn00003.pkt (./toss/toss/nnn00003.tmp): 2:2452/110.2 -> 2:2452/110.2
@@ -37,7 +37,7 @@ Reading FTN packet header:
     Capw: 0001
 Packet: from=2:2452/110.2 to=2:2452/110.2 grade=n type=n flav=h
 packing: pack=n dir= arc=noarc
-ftnpack packet (430b) for 2:2452/110.2 (noarc)
+ftnpack packet (421b) for 2:2452/110.2 (noarc)
 Open OUT file in append mode
 Reopen OUT file in read/write mode
 Locking OUT file

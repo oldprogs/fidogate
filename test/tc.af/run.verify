@@ -97,11 +97,11 @@ TEST2                                    : not active
 output via stdout
 node=2:99/99.0 command=new LINUX.GER
 cmd=9 node=2:99/99.0 arg=LINUX.GER
-LINUX.GER: area already exists, can't create.
+LINUX.GER: area already exists, can't create new one.
 output via stdout
 node=2:99/99.0 command=new LINUX.GER -#
 cmd=9 node=2:99/99.0 arg=LINUX.GER -#
-LINUX.GER: area already exists, can't create.
+LINUX.GER: area already exists, can't create new one.
 output via stdout
 node=2:99/99.0 command=new AREA.NEW -d New-Test-Area
 cmd=9 node=2:99/99.0 arg=AREA.NEW -d New-Test-Area
@@ -110,7 +110,7 @@ ftnaf tmp_areas.bbs changed
 output via stdout
 node=2:99/99.0 command=new AREA.NEW -#
 cmd=9 node=2:99/99.0 arg=AREA.NEW -#
-AREA.NEW: area already exists, can't create.
+AREA.NEW: area already exists, can't create new one.
 output via stdout
 node=2:99/99.0 command=new AREA.NEW1 -p -r
 cmd=9 node=2:99/99.0 arg=AREA.NEW1 -p -r
@@ -393,6 +393,7 @@ Commands in message body, optional prefix % allowed:
   vacation AREA                set vacation flag for AREA
   &AREA [-options]             create new AREA
   new AREA [-options]
+  create AREA [-options]
   ~AREA                        delete AREA
   delete AREA
   comment TEXT                 arbitrary comment (ignored)

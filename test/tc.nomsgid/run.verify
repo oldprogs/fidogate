@@ -28,7 +28,7 @@ Reading FTN packet header:
     Pass: ""
     Capw: 0001
 ftn2rfc packet ./pin/t-nomsgid.pkt (47066b) from 2:2452/110.0 to 2:2452/110.2
-Batch: message #1 size 1085
+Batch: message #1 size 1083
     Name:     
     Address:  
     Name:     Andreas_Kunst
@@ -44,7 +44,7 @@ Writing FTN packet header:
     Rev : 4.3
     Pass: ""
     Capw: 0001
-Batch: message #2 size 1825
+Batch: message #2 size 1817
     Name:     
     Address:  
     Name:     Daniel_Kroening
@@ -79,7 +79,7 @@ Batch: message #6 size 1038
     Address:  chaos.fido.de
     FTN node: 242:2000/161.0
 RFC Newsgroups: fido.ger.linux
-Batch: message #7 size 1646
+Batch: message #7 size 1637
     Name:     Oliver_Much
     Address:  p12.f690.n2453.z2.fidonet.org
     FTN node: 2:2453/690.12

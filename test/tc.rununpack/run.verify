@@ -110,21 +110,21 @@ rununpack packet 01184390.PKT renamed to 1.01184390.PKT
 rununpack packet 01186013.PKT renamed to 1.01186013.PKT
 ftntoss creating MSGID history ./history.dir
 ftntoss creating MSGID history ./history.pag
-ftntoss packet /home/mj/src/fidogate/test/tc.rununpack/pin/01168917.pkt (55625b) from 2:2452/110.0 for 2:2452/110.2
-ftntoss packet /home/mj/src/fidogate/test/tc.rununpack/pin/01168920.pkt (34949b) from 2:2452/110.0 for 2:2452/110.2
-ftntoss packet /home/mj/src/fidogate/test/tc.rununpack/pin/01172288.pkt (48806b) from 2:2452/110.0 for 2:2452/110.2
-ftntoss packet /home/mj/src/fidogate/test/tc.rununpack/pin/01172292.pkt (11198b) from 2:2452/110.0 for 2:2452/110.2
-ftntoss packet /home/mj/src/fidogate/test/tc.rununpack/pin/01172299.pkt (44435b) from 2:2452/110.0 for 2:2452/110.2
-ftntoss packet /home/mj/src/fidogate/test/tc.rununpack/pin/01173105.pkt (3080b) from 2:2452/110.0 for 2:2452/110.2
-ftntoss packet /home/mj/src/fidogate/test/tc.rununpack/pin/01173858.pkt (75317b) from 2:2452/110.0 for 2:2452/110.2
-ftntoss packet /home/mj/src/fidogate/test/tc.rununpack/pin/01173886.pkt (1482b) from 2:2452/110.0 for 2:2452/110.2
-ftntoss packet /home/mj/src/fidogate/test/tc.rununpack/pin/01175557.pkt (1287b) from 2:2452/110.0 for 2:2452/110.2
-ftntoss packet /home/mj/src/fidogate/test/tc.rununpack/pin/01176267.pkt (48136b) from 2:2452/110.0 for 2:2452/110.2
-ftntoss packet /home/mj/src/fidogate/test/tc.rununpack/pin/01178414.pkt (53798b) from 2:2452/110.0 for 2:2452/110.2
-ftntoss packet /home/mj/src/fidogate/test/tc.rununpack/pin/01179147.pkt (1962b) from 2:2452/110.0 for 2:2452/110.2
-ftntoss packet /home/mj/src/fidogate/test/tc.rununpack/pin/01179662.pkt (5032b) from 2:2452/110.0 for 2:2452/110.2
-ftntoss packet /home/mj/src/fidogate/test/tc.rununpack/pin/01179667.pkt (30950b) from 2:2452/110.0 for 2:2452/110.2
-ftntoss packet /home/mj/src/fidogate/test/tc.rununpack/pin/1.01168917.PKT (55625b) from 2:2452/110.0 for 2:2452/110.2
+ftntoss packet /home/mj/src/fidogate/test/tc.rununpack/pin/01168917.pkt (55625b) from 2:2452/110.0 to 2:2452/110.2
+ftntoss packet /home/mj/src/fidogate/test/tc.rununpack/pin/01168920.pkt (34949b) from 2:2452/110.0 to 2:2452/110.2
+ftntoss packet /home/mj/src/fidogate/test/tc.rununpack/pin/01172288.pkt (48806b) from 2:2452/110.0 to 2:2452/110.2
+ftntoss packet /home/mj/src/fidogate/test/tc.rununpack/pin/01172292.pkt (11198b) from 2:2452/110.0 to 2:2452/110.2
+ftntoss packet /home/mj/src/fidogate/test/tc.rununpack/pin/01172299.pkt (44435b) from 2:2452/110.0 to 2:2452/110.2
+ftntoss packet /home/mj/src/fidogate/test/tc.rununpack/pin/01173105.pkt (3080b) from 2:2452/110.0 to 2:2452/110.2
+ftntoss packet /home/mj/src/fidogate/test/tc.rununpack/pin/01173858.pkt (75317b) from 2:2452/110.0 to 2:2452/110.2
+ftntoss packet /home/mj/src/fidogate/test/tc.rununpack/pin/01173886.pkt (1482b) from 2:2452/110.0 to 2:2452/110.2
+ftntoss packet /home/mj/src/fidogate/test/tc.rununpack/pin/01175557.pkt (1287b) from 2:2452/110.0 to 2:2452/110.2
+ftntoss packet /home/mj/src/fidogate/test/tc.rununpack/pin/01176267.pkt (48136b) from 2:2452/110.0 to 2:2452/110.2
+ftntoss packet /home/mj/src/fidogate/test/tc.rununpack/pin/01178414.pkt (53798b) from 2:2452/110.0 to 2:2452/110.2
+ftntoss packet /home/mj/src/fidogate/test/tc.rununpack/pin/01179147.pkt (1962b) from 2:2452/110.0 to 2:2452/110.2
+ftntoss packet /home/mj/src/fidogate/test/tc.rununpack/pin/01179662.pkt (5032b) from 2:2452/110.0 to 2:2452/110.2
+ftntoss packet /home/mj/src/fidogate/test/tc.rununpack/pin/01179667.pkt (30950b) from 2:2452/110.0 to 2:2452/110.2
+ftntoss packet /home/mj/src/fidogate/test/tc.rununpack/pin/1.01168917.PKT (55625b) from 2:2452/110.0 to 2:2452/110.2
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: <4i4su9$c87@suncom.rz.hu-berlin.de> dbd5b35b
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2474/140.6 1477e121
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2474/140.6 1476d0c5
@@ -159,7 +159,7 @@ ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2444/8001.14 c270e4bf
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:246/1808 378fa5cf
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:248/1100.12@fidonet.org c27170c1
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:246/3001@fidonet.org 2595fc96
-ftntoss packet /home/mj/src/fidogate/test/tc.rununpack/pin/1.01168920.PKT (34949b) from 2:2452/110.0 for 2:2452/110.2
+ftntoss packet /home/mj/src/fidogate/test/tc.rununpack/pin/1.01168920.PKT (34949b) from 2:2452/110.0 to 2:2452/110.2
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:240/5010.45 c26a21e5
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:240/5010.45 c26a21ed
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:240/5010.45 c26a21f0
@@ -173,7 +173,7 @@ ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2410/407.20 314a3288
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2437/130.34 c24506c4
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:246/1401.7 14a70b96
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: <m0hgvpqnvn.fsf@cygnus.stuttgart.netsurf.de> 874ff623
-ftntoss packet /home/mj/src/fidogate/test/tc.rununpack/pin/1.01172288.PKT (48806b) from 2:2452/110.0 for 2:2452/110.2
+ftntoss packet /home/mj/src/fidogate/test/tc.rununpack/pin/1.01172288.PKT (48806b) from 2:2452/110.0 to 2:2452/110.2
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:301/138 000d9872
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: <64tNgFC11tB@hit43.hit.handshake.de> 55128ad7
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:316/777.77@FidoNet 3149e66f
@@ -204,14 +204,14 @@ ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:240/5010.45 c27a3562
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:240/5010.45 c27a356c
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2444/1280.128 14b3e472
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2444/1280.128 14b3e47a
-ftntoss packet /home/mj/src/fidogate/test/tc.rununpack/pin/1.01172292.PKT (11198b) from 2:2452/110.0 for 2:2452/110.2
+ftntoss packet /home/mj/src/fidogate/test/tc.rununpack/pin/1.01172292.PKT (11198b) from 2:2452/110.0 to 2:2452/110.2
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: <4ie63g$25f@spinnaker.rhein.de> 633859b6
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: <4if29j$4ta@spinnaker.rhein.de> 3b7b429e
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:245/6666.66 314a5fe5
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: <DoD737.368@ghostr.rz.fh-augsburg.de> 051087e2
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: <DoD8A8.3Gs@ghostr.rz.fh-augsburg.de> 5be013b0
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: <DoDD73.46q@ghostr.rz.fh-augsburg.de> 42fa0227
-ftntoss packet /home/mj/src/fidogate/test/tc.rununpack/pin/1.01172299.PKT (44435b) from 2:2452/110.0 for 2:2452/110.2
+ftntoss packet /home/mj/src/fidogate/test/tc.rununpack/pin/1.01172299.PKT (44435b) from 2:2452/110.0 to 2:2452/110.2
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:240/4141@fidonet.org 2000c825
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:246/1401.0 314c3ca2
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:240/4141@fidonet.org 2383b04a
@@ -236,10 +236,10 @@ ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:310/81.81 14afd8e8
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: <DoDIE8.4z9@ghostr.rz.fh-augsburg.de> a528a8d0
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: <DoDItv.52M@ghostr.rz.fh-augsburg.de> 19f3ca25
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2426/2030.8 314b7693
-ftntoss packet /home/mj/src/fidogate/test/tc.rununpack/pin/1.01173105.PKT (3080b) from 2:2452/110.0 for 2:2452/110.2
+ftntoss packet /home/mj/src/fidogate/test/tc.rununpack/pin/1.01173105.PKT (3080b) from 2:2452/110.0 to 2:2452/110.2
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: <4iffdp$6tk@spinnaker.rhein.de> 1c0daad4
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: <4iffqt$6u8@spinnaker.rhein.de> a491e9af
-ftntoss packet /home/mj/src/fidogate/test/tc.rununpack/pin/1.01173858.PKT (75317b) from 2:2452/110.0 for 2:2452/110.2
+ftntoss packet /home/mj/src/fidogate/test/tc.rununpack/pin/1.01173858.PKT (75317b) from 2:2452/110.0 to 2:2452/110.2
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2433/920.947 149eec10
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2480/13.145@fidonet 25930fd3
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2480/13.102@fidonet c2774162
@@ -281,11 +281,11 @@ ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:310/81.81 14cba864
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:310/81.81 14cba865
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:310/81.81 14cba866
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:310/81.81 14cba867
-ftntoss packet /home/mj/src/fidogate/test/tc.rununpack/pin/1.01173886.PKT (1482b) from 2:2452/110.0 for 2:2452/110.2
+ftntoss packet /home/mj/src/fidogate/test/tc.rununpack/pin/1.01173886.PKT (1482b) from 2:2452/110.0 to 2:2452/110.2
 ftntoss dupe from 2:2452/110.0: TOLKIEN.GER MSGID: 2:2432/223.17@fidonet c249659d
-ftntoss packet /home/mj/src/fidogate/test/tc.rununpack/pin/1.01175557.PKT (1287b) from 2:2452/110.0 for 2:2452/110.2
+ftntoss packet /home/mj/src/fidogate/test/tc.rununpack/pin/1.01175557.PKT (1287b) from 2:2452/110.0 to 2:2452/110.2
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: <4ii0fr$7on@spinnaker.rhein.de> 54e66df3
-ftntoss packet /home/mj/src/fidogate/test/tc.rununpack/pin/1.01176267.PKT (48136b) from 2:2452/110.0 for 2:2452/110.2
+ftntoss packet /home/mj/src/fidogate/test/tc.rununpack/pin/1.01176267.PKT (48136b) from 2:2452/110.0 to 2:2452/110.2
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:240/5033.32@FidoNet a2b7c06f
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2444/4517.5@fidonet c276583d
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: <1996Mar16.195850.8084@lionel.rhoen.de> 1f5b0c18
@@ -315,7 +315,7 @@ ftntoss msgs processed: 402 in, 225 out (0 mail, 225 echo)
 ftntoss msgs killed:    177 dupe
 ftnroute packet for 2:2452/110.2 (Hold)
 ftnpack packet (415277b) for 2:2452/110.2 (noarc)
-ftntoss packet /home/mj/src/fidogate/test/tc.rununpack/pin/1.01178414.PKT (53798b) from 2:2452/110.0 for 2:2452/110.2
+ftntoss packet /home/mj/src/fidogate/test/tc.rununpack/pin/1.01178414.PKT (53798b) from 2:2452/110.0 to 2:2452/110.2
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2452/117.66 c2927d69
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: <651OZWPZazB@sysop.tramp.domino.de> 10b55f74
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: <651OZ-DZazB@sysop.tramp.domino.de> d52586e4
@@ -343,12 +343,12 @@ ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: <4iffl3$9po@news.rrz.uni-koeln.
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2433/1401.6@fidonet c28f4932
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:244/1121.14@fidonet c28dd34c
 ftntoss dupe from 2:2452/110.0: TOLKIEN.GER MSGID: 2:2450/502.45 c29530b6
-ftntoss packet /home/mj/src/fidogate/test/tc.rununpack/pin/1.01179147.PKT (1962b) from 2:2452/110.0 for 2:2452/110.2
+ftntoss packet /home/mj/src/fidogate/test/tc.rununpack/pin/1.01179147.PKT (1962b) from 2:2452/110.0 to 2:2452/110.2
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: <4ikkfl$7t9@spinnaker.rhein.de> 1e2f898c
-ftntoss packet /home/mj/src/fidogate/test/tc.rununpack/pin/1.01179662.PKT (5032b) from 2:2452/110.0 for 2:2452/110.2
+ftntoss packet /home/mj/src/fidogate/test/tc.rununpack/pin/1.01179662.PKT (5032b) from 2:2452/110.0 to 2:2452/110.2
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2452/112.14 314c5720
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2452/112.14 314c57f3
-ftntoss packet /home/mj/src/fidogate/test/tc.rununpack/pin/1.01179667.PKT (30950b) from 2:2452/110.0 for 2:2452/110.2
+ftntoss packet /home/mj/src/fidogate/test/tc.rununpack/pin/1.01179667.PKT (30950b) from 2:2452/110.0 to 2:2452/110.2
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:318/5.1 14e1fee3
 ftntoss dupe from 2:2452/110.0: TOLKIEN.GER MSGID: 2:2444/4508.7 314c342a
 ftntoss dupe from 2:2452/110.0: TOLKIEN.GER MSGID: 2:2444/4508.7 314c349c
@@ -367,12 +367,12 @@ ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2461/336.23@fidonet c293189b
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2461/336.23@fidonet c29318a3
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2461/336.23@fidonet c29318aa
 ftntoss dupe from 2:2452/110.0: TOLKIEN.GER MSGID: 2:2452/401.20@fidonet c295c0be
-ftntoss packet /home/mj/src/fidogate/test/tc.rununpack/pin/01181937.pkt (44354b) from 2:2452/110.0 for 2:2452/110.2
-ftntoss packet /home/mj/src/fidogate/test/tc.rununpack/pin/01182344.pkt (8917b) from 2:2452/110.0 for 2:2452/110.2
-ftntoss packet /home/mj/src/fidogate/test/tc.rununpack/pin/01182740.pkt (5844b) from 2:2452/110.0 for 2:2452/110.2
-ftntoss packet /home/mj/src/fidogate/test/tc.rununpack/pin/01184390.pkt (71064b) from 2:2452/110.0 for 2:2452/110.2
-ftntoss packet /home/mj/src/fidogate/test/tc.rununpack/pin/01186013.pkt (33334b) from 2:2452/110.0 for 2:2452/110.2
-ftntoss packet /home/mj/src/fidogate/test/tc.rununpack/pin/1.01181937.PKT (44354b) from 2:2452/110.0 for 2:2452/110.2
+ftntoss packet /home/mj/src/fidogate/test/tc.rununpack/pin/01181937.pkt (44354b) from 2:2452/110.0 to 2:2452/110.2
+ftntoss packet /home/mj/src/fidogate/test/tc.rununpack/pin/01182344.pkt (8917b) from 2:2452/110.0 to 2:2452/110.2
+ftntoss packet /home/mj/src/fidogate/test/tc.rununpack/pin/01182740.pkt (5844b) from 2:2452/110.0 to 2:2452/110.2
+ftntoss packet /home/mj/src/fidogate/test/tc.rununpack/pin/01184390.pkt (71064b) from 2:2452/110.0 to 2:2452/110.2
+ftntoss packet /home/mj/src/fidogate/test/tc.rununpack/pin/01186013.pkt (33334b) from 2:2452/110.0 to 2:2452/110.2
+ftntoss packet /home/mj/src/fidogate/test/tc.rununpack/pin/1.01181937.PKT (44354b) from 2:2452/110.0 to 2:2452/110.2
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2468/6002.2 c2874683
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2468/6002.2 c2874694
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2437/901.65 c280dab5
@@ -398,19 +398,19 @@ ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:249/5080.27@fidonet c28a4340
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2480/89.3 3b949cee
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2448/330.5@fidonet c2919044
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2410/301.9@fidonet c291413a
-ftntoss packet /home/mj/src/fidogate/test/tc.rununpack/pin/1.01182344.PKT (8917b) from 2:2452/110.0 for 2:2452/110.2
+ftntoss packet /home/mj/src/fidogate/test/tc.rununpack/pin/1.01182344.PKT (8917b) from 2:2452/110.0 to 2:2452/110.2
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:245/6849.5 c28a6e99
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:240/6111.25@FidoNet c293cc0d
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:245/6849.5 c2926ea7
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:241/575.11 c296ad56
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: <4ind4p$638@spinnaker.rhein.de> 917ab641
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: <4ini6j$77k@spinnaker.rhein.de> 7dafdf3f
-ftntoss packet /home/mj/src/fidogate/test/tc.rununpack/pin/1.01182740.PKT (5844b) from 2:2452/110.0 for 2:2452/110.2
+ftntoss packet /home/mj/src/fidogate/test/tc.rununpack/pin/1.01182740.PKT (5844b) from 2:2452/110.0 to 2:2452/110.2
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:244/6301.18@fidonet c29303d1
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2461/336.23@fidonet c29b2982
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2448/448.7@fidonet c2064eff
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2444/4528.14@fidonet c291d721
-ftntoss packet /home/mj/src/fidogate/test/tc.rununpack/pin/1.01184390.PKT (71064b) from 2:2452/110.0 for 2:2452/110.2
+ftntoss packet /home/mj/src/fidogate/test/tc.rununpack/pin/1.01184390.PKT (71064b) from 2:2452/110.0 to 2:2452/110.2
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2471/6017.2@fidonet 238b1c57
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2471/6017.2@fidonet 238b1c59
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2471/6017.2@fidonet 238b1c5a
@@ -449,7 +449,7 @@ ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: <DoKp5r.2JK@ghostr.rz.fh-augsbu
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2453/690.12@fidonet.org c29b8ecf
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:246/8722.38@fidonet c298faa2
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2410/212.0 15088800
-ftntoss packet /home/mj/src/fidogate/test/tc.rununpack/pin/1.01186013.PKT (33334b) from 2:2452/110.0 for 2:2452/110.2
+ftntoss packet /home/mj/src/fidogate/test/tc.rununpack/pin/1.01186013.PKT (33334b) from 2:2452/110.0 to 2:2452/110.2
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:310/102.264 314f23c8
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2444/2010@FIDONet 315097f6
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2480/13.102@fidonet c28f5522
@@ -465,7 +465,7 @@ ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2480/13.145@fidonet 2880e493
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2480/13.129 3ba0a41d
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2480/13.129 3ba0a41e
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2480/13.145@fidonet 2890da49
-ftntoss packet /home/mj/src/fidogate/test/tc.rununpack/pin/01168917.PKT (55625b) from 2:2452/110.0 for 2:2452/110.2
+ftntoss packet /home/mj/src/fidogate/test/tc.rununpack/pin/01168917.PKT (55625b) from 2:2452/110.0 to 2:2452/110.2
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: <4i4su9$c87@suncom.rz.hu-berlin.de> dbd5b35b
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2474/140.6 1477e121
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2474/140.6 1476d0c5
@@ -500,7 +500,7 @@ ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2444/8001.14 c270e4bf
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:246/1808 378fa5cf
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:248/1100.12@fidonet.org c27170c1
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:246/3001@fidonet.org 2595fc96
-ftntoss packet /home/mj/src/fidogate/test/tc.rununpack/pin/01168920.PKT (34949b) from 2:2452/110.0 for 2:2452/110.2
+ftntoss packet /home/mj/src/fidogate/test/tc.rununpack/pin/01168920.PKT (34949b) from 2:2452/110.0 to 2:2452/110.2
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:240/5010.45 c26a21e5
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:240/5010.45 c26a21ed
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:240/5010.45 c26a21f0
@@ -514,7 +514,7 @@ ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2410/407.20 314a3288
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2437/130.34 c24506c4
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:246/1401.7 14a70b96
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: <m0hgvpqnvn.fsf@cygnus.stuttgart.netsurf.de> 874ff623
-ftntoss packet /home/mj/src/fidogate/test/tc.rununpack/pin/01172288.PKT (48806b) from 2:2452/110.0 for 2:2452/110.2
+ftntoss packet /home/mj/src/fidogate/test/tc.rununpack/pin/01172288.PKT (48806b) from 2:2452/110.0 to 2:2452/110.2
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:301/138 000d9872
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: <64tNgFC11tB@hit43.hit.handshake.de> 55128ad7
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:316/777.77@FidoNet 3149e66f
@@ -545,14 +545,14 @@ ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:240/5010.45 c27a3562
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:240/5010.45 c27a356c
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2444/1280.128 14b3e472
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2444/1280.128 14b3e47a
-ftntoss packet /home/mj/src/fidogate/test/tc.rununpack/pin/01172292.PKT (11198b) from 2:2452/110.0 for 2:2452/110.2
+ftntoss packet /home/mj/src/fidogate/test/tc.rununpack/pin/01172292.PKT (11198b) from 2:2452/110.0 to 2:2452/110.2
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: <4ie63g$25f@spinnaker.rhein.de> 633859b6
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: <4if29j$4ta@spinnaker.rhein.de> 3b7b429e
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:245/6666.66 314a5fe5
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: <DoD737.368@ghostr.rz.fh-augsburg.de> 051087e2
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: <DoD8A8.3Gs@ghostr.rz.fh-augsburg.de> 5be013b0
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: <DoDD73.46q@ghostr.rz.fh-augsburg.de> 42fa0227
-ftntoss packet /home/mj/src/fidogate/test/tc.rununpack/pin/01172299.PKT (44435b) from 2:2452/110.0 for 2:2452/110.2
+ftntoss packet /home/mj/src/fidogate/test/tc.rununpack/pin/01172299.PKT (44435b) from 2:2452/110.0 to 2:2452/110.2
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:240/4141@fidonet.org 2000c825
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:246/1401.0 314c3ca2
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:240/4141@fidonet.org 2383b04a
@@ -577,10 +577,10 @@ ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:310/81.81 14afd8e8
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: <DoDIE8.4z9@ghostr.rz.fh-augsburg.de> a528a8d0
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: <DoDItv.52M@ghostr.rz.fh-augsburg.de> 19f3ca25
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2426/2030.8 314b7693
-ftntoss packet /home/mj/src/fidogate/test/tc.rununpack/pin/01173105.PKT (3080b) from 2:2452/110.0 for 2:2452/110.2
+ftntoss packet /home/mj/src/fidogate/test/tc.rununpack/pin/01173105.PKT (3080b) from 2:2452/110.0 to 2:2452/110.2
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: <4iffdp$6tk@spinnaker.rhein.de> 1c0daad4
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: <4iffqt$6u8@spinnaker.rhein.de> a491e9af
-ftntoss packet /home/mj/src/fidogate/test/tc.rununpack/pin/01173858.PKT (75317b) from 2:2452/110.0 for 2:2452/110.2
+ftntoss packet /home/mj/src/fidogate/test/tc.rununpack/pin/01173858.PKT (75317b) from 2:2452/110.0 to 2:2452/110.2
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2433/920.947 149eec10
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2480/13.145@fidonet 25930fd3
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2480/13.102@fidonet c2774162
@@ -622,11 +622,11 @@ ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:310/81.81 14cba864
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:310/81.81 14cba865
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:310/81.81 14cba866
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:310/81.81 14cba867
-ftntoss packet /home/mj/src/fidogate/test/tc.rununpack/pin/01173886.PKT (1482b) from 2:2452/110.0 for 2:2452/110.2
+ftntoss packet /home/mj/src/fidogate/test/tc.rununpack/pin/01173886.PKT (1482b) from 2:2452/110.0 to 2:2452/110.2
 ftntoss dupe from 2:2452/110.0: TOLKIEN.GER MSGID: 2:2432/223.17@fidonet c249659d
-ftntoss packet /home/mj/src/fidogate/test/tc.rununpack/pin/01175557.PKT (1287b) from 2:2452/110.0 for 2:2452/110.2
+ftntoss packet /home/mj/src/fidogate/test/tc.rununpack/pin/01175557.PKT (1287b) from 2:2452/110.0 to 2:2452/110.2
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: <4ii0fr$7on@spinnaker.rhein.de> 54e66df3
-ftntoss packet /home/mj/src/fidogate/test/tc.rununpack/pin/01176267.PKT (48136b) from 2:2452/110.0 for 2:2452/110.2
+ftntoss packet /home/mj/src/fidogate/test/tc.rununpack/pin/01176267.PKT (48136b) from 2:2452/110.0 to 2:2452/110.2
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:240/5033.32@FidoNet a2b7c06f
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2444/4517.5@fidonet c276583d
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: <1996Mar16.195850.8084@lionel.rhoen.de> 1f5b0c18
@@ -656,7 +656,7 @@ ftntoss msgs processed: 401 in, 88 out (0 mail, 88 echo)
 ftntoss msgs killed:    313 dupe
 ftnroute packet for 2:2452/110.2 (Hold)
 ftnpack packet (163273b) for 2:2452/110.2 (noarc)
-ftntoss packet /home/mj/src/fidogate/test/tc.rununpack/pin/01178414.PKT (53798b) from 2:2452/110.0 for 2:2452/110.2
+ftntoss packet /home/mj/src/fidogate/test/tc.rununpack/pin/01178414.PKT (53798b) from 2:2452/110.0 to 2:2452/110.2
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2452/117.66 c2927d69
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: <651OZWPZazB@sysop.tramp.domino.de> 10b55f74
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: <651OZ-DZazB@sysop.tramp.domino.de> d52586e4
@@ -684,12 +684,12 @@ ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: <4iffl3$9po@news.rrz.uni-koeln.
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2433/1401.6@fidonet c28f4932
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:244/1121.14@fidonet c28dd34c
 ftntoss dupe from 2:2452/110.0: TOLKIEN.GER MSGID: 2:2450/502.45 c29530b6
-ftntoss packet /home/mj/src/fidogate/test/tc.rununpack/pin/01179147.PKT (1962b) from 2:2452/110.0 for 2:2452/110.2
+ftntoss packet /home/mj/src/fidogate/test/tc.rununpack/pin/01179147.PKT (1962b) from 2:2452/110.0 to 2:2452/110.2
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: <4ikkfl$7t9@spinnaker.rhein.de> 1e2f898c
-ftntoss packet /home/mj/src/fidogate/test/tc.rununpack/pin/01179662.PKT (5032b) from 2:2452/110.0 for 2:2452/110.2
+ftntoss packet /home/mj/src/fidogate/test/tc.rununpack/pin/01179662.PKT (5032b) from 2:2452/110.0 to 2:2452/110.2
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2452/112.14 314c5720
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2452/112.14 314c57f3
-ftntoss packet /home/mj/src/fidogate/test/tc.rununpack/pin/01179667.PKT (30950b) from 2:2452/110.0 for 2:2452/110.2
+ftntoss packet /home/mj/src/fidogate/test/tc.rununpack/pin/01179667.PKT (30950b) from 2:2452/110.0 to 2:2452/110.2
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:318/5.1 14e1fee3
 ftntoss dupe from 2:2452/110.0: TOLKIEN.GER MSGID: 2:2444/4508.7 314c342a
 ftntoss dupe from 2:2452/110.0: TOLKIEN.GER MSGID: 2:2444/4508.7 314c349c
@@ -708,7 +708,7 @@ ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2461/336.23@fidonet c293189b
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2461/336.23@fidonet c29318a3
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2461/336.23@fidonet c29318aa
 ftntoss dupe from 2:2452/110.0: TOLKIEN.GER MSGID: 2:2452/401.20@fidonet c295c0be
-ftntoss packet /home/mj/src/fidogate/test/tc.rununpack/pin/01181937.PKT (44354b) from 2:2452/110.0 for 2:2452/110.2
+ftntoss packet /home/mj/src/fidogate/test/tc.rununpack/pin/01181937.PKT (44354b) from 2:2452/110.0 to 2:2452/110.2
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2468/6002.2 c2874683
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2468/6002.2 c2874694
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2437/901.65 c280dab5
@@ -734,19 +734,19 @@ ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:249/5080.27@fidonet c28a4340
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2480/89.3 3b949cee
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2448/330.5@fidonet c2919044
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2410/301.9@fidonet c291413a
-ftntoss packet /home/mj/src/fidogate/test/tc.rununpack/pin/01182344.PKT (8917b) from 2:2452/110.0 for 2:2452/110.2
+ftntoss packet /home/mj/src/fidogate/test/tc.rununpack/pin/01182344.PKT (8917b) from 2:2452/110.0 to 2:2452/110.2
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:245/6849.5 c28a6e99
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:240/6111.25@FidoNet c293cc0d
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:245/6849.5 c2926ea7
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:241/575.11 c296ad56
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: <4ind4p$638@spinnaker.rhein.de> 917ab641
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: <4ini6j$77k@spinnaker.rhein.de> 7dafdf3f
-ftntoss packet /home/mj/src/fidogate/test/tc.rununpack/pin/01182740.PKT (5844b) from 2:2452/110.0 for 2:2452/110.2
+ftntoss packet /home/mj/src/fidogate/test/tc.rununpack/pin/01182740.PKT (5844b) from 2:2452/110.0 to 2:2452/110.2
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:244/6301.18@fidonet c29303d1
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2461/336.23@fidonet c29b2982
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2448/448.7@fidonet c2064eff
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2444/4528.14@fidonet c291d721
-ftntoss packet /home/mj/src/fidogate/test/tc.rununpack/pin/01184390.PKT (71064b) from 2:2452/110.0 for 2:2452/110.2
+ftntoss packet /home/mj/src/fidogate/test/tc.rununpack/pin/01184390.PKT (71064b) from 2:2452/110.0 to 2:2452/110.2
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2471/6017.2@fidonet 238b1c57
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2471/6017.2@fidonet 238b1c59
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2471/6017.2@fidonet 238b1c5a
@@ -785,7 +785,7 @@ ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: <DoKp5r.2JK@ghostr.rz.fh-augsbu
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2453/690.12@fidonet.org c29b8ecf
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:246/8722.38@fidonet c298faa2
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2410/212.0 15088800
-ftntoss packet /home/mj/src/fidogate/test/tc.rununpack/pin/01186013.PKT (33334b) from 2:2452/110.0 for 2:2452/110.2
+ftntoss packet /home/mj/src/fidogate/test/tc.rununpack/pin/01186013.PKT (33334b) from 2:2452/110.0 to 2:2452/110.2
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:310/102.264 314f23c8
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2444/2010@FIDONet 315097f6
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2480/13.102@fidonet c28f5522
@@ -801,12 +801,12 @@ ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2480/13.145@fidonet 2880e493
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2480/13.129 3ba0a41d
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2480/13.129 3ba0a41e
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2480/13.145@fidonet 2890da49
-ftntoss packet /home/mj/src/fidogate/test/tc.rununpack/pin/01165017.pkt (7930b) from 2:2452/110.0 for 2:2452/110.2
-ftntoss packet /home/mj/src/fidogate/test/tc.rununpack/pin/1.01165017.PKT (7930b) from 2:2452/110.0 for 2:2452/110.2
+ftntoss packet /home/mj/src/fidogate/test/tc.rununpack/pin/01165017.pkt (7930b) from 2:2452/110.0 to 2:2452/110.2
+ftntoss packet /home/mj/src/fidogate/test/tc.rununpack/pin/1.01165017.PKT (7930b) from 2:2452/110.0 to 2:2452/110.2
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: <4i9vav$6mf@spinnaker.rhein.de> da5ed49f
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: <4iaeig$89f@spinnaker.rhein.de> 09369426
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: <4iaetp$8af@spinnaker.rhein.de> 87ed6879
-ftntoss packet /home/mj/src/fidogate/test/tc.rununpack/pin/01165017.PKT (7930b) from 2:2452/110.0 for 2:2452/110.2
+ftntoss packet /home/mj/src/fidogate/test/tc.rununpack/pin/01165017.PKT (7930b) from 2:2452/110.0 to 2:2452/110.2
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: <4i9vav$6mf@spinnaker.rhein.de> da5ed49f
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: <4iaeig$89f@spinnaker.rhein.de> 09369426
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: <4iaetp$8af@spinnaker.rhein.de> 87ed6879
@@ -815,9 +815,7 @@ ftntoss msgs killed:    142 dupe
 ftnroute packet for 2:2452/110.2 (Hold)
 ftnpack packet (7930b) for 2:2452/110.2 (noarc)
 Running df -P .
-Free disk space in . is 250936 K
 Running df -P ./bt
-Free disk space in ./bt is 250936 K
 Running ftntoss -x -I /home/mj/src/fidogate/test/tc.rununpack/pin -s -c ../cf/toss.conf -v
 Status 3
 Running ftnroute -c ../cf/toss.conf -v
@@ -825,7 +823,6 @@ Status 0
 Running ftnpack -F/home/mj/src/fidogate/test/tc.rununpack/pin -c ../cf/toss.conf -v
 Status 0
 Running df -P ./bt
-Free disk space in ./bt is 250447 K
 Running ftntoss -x -I /home/mj/src/fidogate/test/tc.rununpack/pin -s -c ../cf/toss.conf -v
 Status 3
 Running ftnroute -c ../cf/toss.conf -v
@@ -833,7 +830,6 @@ Status 0
 Running ftnpack -F/home/mj/src/fidogate/test/tc.rununpack/pin -c ../cf/toss.conf -v
 Status 0
 Running df -P ./bt
-Free disk space in ./bt is 250401 K
 Running ftntoss -x -I /home/mj/src/fidogate/test/tc.rununpack/pin -s -c ../cf/toss.conf -v
 Status 0
 Running ftnroute -c ../cf/toss.conf -v

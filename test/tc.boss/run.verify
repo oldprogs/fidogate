@@ -37,7 +37,7 @@ Reading FTN packet header:
     Capw: 0001
 config: LOGFILE %G/log
 config: LOGDIR .
-ftntoss packet ./pin/00000001.pkt (396b) from 2:2452/123.1 for 2:2452/123.0
+ftntoss packet ./pin/00000001.pkt (396b) from 2:2452/123.1 to 2:2452/123.0
 Reading FTN message header:
     From: Martin Junius                        @ 2:2452/123.1
     To  : All                                  @ 2:2452/123.0
@@ -157,7 +157,7 @@ Reading FTN packet header:
     Rev : 4.3
     Pass: ""
     Capw: 0001
-ftntoss packet ./pin/00000002.pkt (396b) from 2:2452/123.2 for 2:2452/123.0
+ftntoss packet ./pin/00000002.pkt (396b) from 2:2452/123.2 to 2:2452/123.0
 Reading FTN message header:
     From: Martin Junius                        @ 2:2452/123.2
     To  : All                                  @ 2:2452/123.0
@@ -226,7 +226,7 @@ Reading FTN packet header:
     Rev : 4.3
     Pass: ""
     Capw: 0001
-ftntoss packet ./pin/00000003.pkt (396b) from 2:2452/123.3 for 2:2452/123.0
+ftntoss packet ./pin/00000003.pkt (396b) from 2:2452/123.3 to 2:2452/123.0
 Reading FTN message header:
     From: Martin Junius                        @ 2:2452/123.3
     To  : All                                  @ 2:2452/123.0
@@ -285,7 +285,7 @@ Reading FTN packet header:
     Rev : 4.3
     Pass: ""
     Capw: 0001
-ftntoss packet ./pin/00000004.pkt (396b) from 2:2452/123.4 for 2:2452/123.0
+ftntoss packet ./pin/00000004.pkt (396b) from 2:2452/123.4 to 2:2452/123.0
 Reading FTN message header:
     From: Martin Junius                        @ 2:2452/123.4
     To  : All                                  @ 2:2452/123.0
@@ -344,7 +344,7 @@ Reading FTN packet header:
     Rev : 4.3
     Pass: ""
     Capw: 0001
-ftntoss packet ./pin/00000005.pkt (396b) from 2:2452/123.5 for 2:2452/123.0
+ftntoss packet ./pin/00000005.pkt (396b) from 2:2452/123.5 to 2:2452/123.0
 Reading FTN message header:
     From: Martin Junius                        @ 2:2452/123.5
     To  : All                                  @ 2:2452/123.0
@@ -403,7 +403,7 @@ Reading FTN packet header:
     Rev : 4.3
     Pass: ""
     Capw: 0001
-ftntoss packet ./pin/00000006.pkt (398b) from 2:2452/999.0 for 2:2452/123.0
+ftntoss packet ./pin/00000006.pkt (398b) from 2:2452/999.0 to 2:2452/123.0
 Reading FTN message header:
     From: Martin Junius                        @ 2:2452/999.0
     To  : All                                  @ 2:2452/123.0
@@ -462,7 +462,7 @@ Reading FTN packet header:
     Rev : 4.3
     Pass: ""
     Capw: 0001
-ftntoss packet ./pin/00000007.pkt (394b) from 2:2452/123.0 for 2:2452/123.0
+ftntoss packet ./pin/00000007.pkt (394b) from 2:2452/123.0 to 2:2452/123.0
 Reading FTN message header:
     From: Martin Junius                        @ 2:2452/123.0
     To  : All                                  @ 2:2452/123.0
