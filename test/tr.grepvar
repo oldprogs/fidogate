@@ -19,6 +19,7 @@ while(<>) {
     s/FIDOGATE \d+\.\d+\.\d+/FIDOGATE x.x.x/g;
     s/Rev *: *\d+\.\d+/Rev : x.x/;
     s/\d+$/123456789/ if( /^history:/ );
+    s/ffx \d+\.\d+$/ffx x.xx/;
 
     print;
 }

@@ -1,6 +1,6 @@
 #:ts=8
 #
-#    $Id: Makefile,v 4.4 2002/08/04 02:27:32 dyff Exp $
+#    $Id: Makefile,v 4.5 2004/08/27 14:20:02 n0ll Exp $
 #
 #    Makefile for FIDOGATE sendmail/
 #
@@ -27,6 +27,8 @@ README:		$(SENDMAIL_CF_DIR)/README
 make-cf:
 
 install::
+
+test::
 
 clean::
 	./mkclean

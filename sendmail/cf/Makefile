@@ -1,6 +1,6 @@
 #:ts=8
 #
-#    $Id: Makefile,v 4.18 2003/06/18 18:45:54 n0ll Exp $
+#    $Id: Makefile,v 4.19 2004/08/27 14:20:02 n0ll Exp $
 #
 #    Makefile for FIDOGATE sendmail/cf/
 #
@@ -61,7 +61,7 @@ clean:
 	rm -f *.cf
 	rm -f *~ *.bak *.o tags TAGS core paths.tmp
 
-check verify:
+test check verify:
 
 
 #

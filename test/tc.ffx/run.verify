@@ -32,7 +32,7 @@ To: mj@fido.de
 ----
 TEST
 ----
-# ffx 4.17
+# ffx x.xx
 U mj 242:1000/5.0 242:1/1.0 orodruin.fido.de
 Z
 J ff000001
@@ -47,7 +47,7 @@ To: mj@fido.de
 ----
 TEST
 ----
-# ffx 4.17
+# ffx x.xx
 U mj 242:1000/5.0 242:1/1.0 orodruin.fido.de
 Z
 J ff000002
@@ -62,7 +62,7 @@ To: mj@fido.de
 ----
 TEST
 ----
-# ffx 4.17
+# ffx x.xx
 U mj 242:1000/5.0 242:1/1.0 orodruin.fido.de
 Z
 J ff000003
@@ -77,7 +77,7 @@ To: mj@fido.de
 ----
 TEST
 ----
-# ffx 4.17
+# ffx x.xx
 U mj 242:1000/5.0 242:1/1.0 orodruin.fido.de
 Z
 J ff000004

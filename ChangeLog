@@ -1,3 +1,12 @@
+2004-08-27  Martin Junius  <mj.at.n0ll.dot.net>
+
+	======= Release 4.4.10 ===============================================
+	------- CVS tag R4410 ------------------------------------------------
+	------- CVS ci -------------------------------------------------------
+
+	* test/tc.*: all test seem to run OK, with the usual +/-1 packet
+	  size difference due to DST.
+
 2004-08-26  Martin Junius  <mj.at.n0ll.dot.net>
 
 	------- CVS ci -------------------------------------------------------
