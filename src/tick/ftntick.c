@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftntick.c,v 4.14 1998/01/18 15:33:14 mj Exp $
+ * $Id: ftntick.c,v 4.15 1998/01/18 17:49:13 mj Exp $
  *
  * Process incoming TIC files
  *
@@ -37,7 +37,7 @@
 
 
 #define PROGRAM		"ftntick"
-#define VERSION		"$Revision: 4.14 $"
+#define VERSION		"$Revision: 4.15 $"
 #define CONFIG		DEFAULT_CONFIG_MAIN
 
 
@@ -50,6 +50,8 @@
 
 
 static char *unknown_tick_area = NULL;	/* config.main: UnknownTickArea */
+
+static char in_dir[MAXPATH];		/* Input directory */
 
 
 
@@ -86,9 +88,9 @@ int do_tic(int t_flag)
     BUF_COPY(pattern, "*.tic");
 
     dir_sortmode(DIR_SORTMTIME);
-    if(dir_open(cf_p_pinbound(), pattern, TRUE) == ERROR)
+    if(dir_open(in_dir, pattern, TRUE) == ERROR)
     {
-	log("$ERROR: can't open directory %s", cf_p_pinbound());
+	log("$ERROR: can't open directory %s", in_dir);
 	return ERROR;
     }
     
@@ -272,7 +274,7 @@ int process_tic(Tick *tic)
     /*
      * Move file from inbound to file area, add description to FILES.BBS
      */
-    BUF_COPY3(old_name, cf_p_pinbound(), "/", tic->file);
+    BUF_COPY3(old_name, in_dir, "/", tic->file);
     BUF_COPY3(new_name, bbs->dir    , "/", tic->file);
     debug(1, "%s -> %s", old_name, new_name);
     if(move(tic, old_name, new_name) == ERROR)
@@ -448,9 +450,6 @@ int add_files_bbs(Tick *tic, char *dir)
  * Add nodes to SEEN-BY (4D)
  */
 int do_seenby(LON *seenby, LON *nodes, LON *new)
-                				/* Nodes in SEENBY */
-               					/* Nodes in FAREAS.BBS */
-             					/* New nodes added */
 {
     LNode *p;
     
@@ -483,14 +482,14 @@ int check_file(Tick *tic)
     }
 
     /* Search file */
-    if(dir_search(cf_p_pinbound(), tic->file) == NULL)
+    if(dir_search(in_dir, tic->file) == NULL)
     {
 	log("ERROR: can't find file %s", tic->file);
 	return ERROR;
     }
 
     /* Full path name */
-    BUF_COPY3(name, cf_p_pinbound(), "/", tic->file);
+    BUF_COPY3(name, in_dir, "/", tic->file);
     if(stat(name, &st) == ERROR)
     {
 	log("$ERROR: can't stat() file %s", name);
@@ -559,7 +558,7 @@ void usage(void)
     fprintf(stderr, "usage:   %s [-options]\n\n", PROGRAM);
     fprintf(stderr, "\
 options:  -b --fareas-bbs NAME         use alternate FAREAS.BBS\n\
-          -I --inbound dir             set inbound dir (default: PINBOUND)\n\
+          -I --inbound DIR             set inbound dir (default: PINBOUND)\n\
           -t --insecure                process TIC files without password\n\
 \n\
           -v --verbose                 more verbose\n\
@@ -656,8 +655,7 @@ int main(int argc, char **argv)
 
     cf_debug();
 
-    if(I_flag)
-	cf_s_pinbound(I_flag);
+    BUF_EXPAND(in_dir, I_flag ? I_flag : cf_p_pinbound());
 
     /*
      * Process optional config statements

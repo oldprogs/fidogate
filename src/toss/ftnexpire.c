@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: ftnexpire.c,v 4.8 1998/01/18 09:48:12 mj Exp $
+ * $Id: ftnexpire.c,v 4.9 1998/01/18 17:49:13 mj Exp $
  *
  * Expire MSGID history database
  *
@@ -36,7 +36,7 @@
 
 
 #define PROGRAM 	"ftnexpire"
-#define VERSION 	"$Revision: 4.8 $"
+#define VERSION 	"$Revision: 4.9 $"
 #define CONFIG		DEFAULT_CONFIG_MAIN
 
 
@@ -284,9 +284,7 @@ options: -m --maxhistory DAYS         set max number of days in history\n\
 \n\
          -v --verbose                 more verbose\n\
 	 -h --help                    this help\n\
-         -c --config name             read config file (\"\" = none)\n\
-	 -L --lib-dir name            set lib directory\n\
-	 -S --spool-dir name          set spool directory\n");
+         -c --config name             read config file (\"\" = none)\n");
     
     exit(0);
 }
@@ -302,7 +300,6 @@ int main(int argc, char **argv)
     char *m_flag=NULL;
     int   w_flag=NOWAIT;
     char *c_flag=NULL;
-    char *S_flag=NULL, *L_flag=NULL;
     time_t expire_start, expire_delta;
     
     int option_index;
@@ -314,8 +311,6 @@ int main(int argc, char **argv)
 	{ "verbose",      0, 0, 'v'},	/* More verbose */
 	{ "help",         0, 0, 'h'},	/* Help */
 	{ "config",       1, 0, 'c'},	/* Config file */
-	{ "spool-dir",    1, 0, 'S'},	/* Set FIDOGATE spool directory */
-	{ "lib-dir",      1, 0, 'L'},	/* Set FIDOGATE lib directory */
 	{ 0,              0, 0, 0  }
     };
 
@@ -325,7 +320,7 @@ int main(int argc, char **argv)
     cf_initialize();
 
 
-    while ((c = getopt_long(argc, argv, "m:wvhc:S:L:",
+    while ((c = getopt_long(argc, argv, "m:wvhc:",
 			    long_options, &option_index     )) != EOF)
 	switch (c) {
 	/***** ftnexpire options *****/
@@ -347,12 +342,6 @@ int main(int argc, char **argv)
 	case 'c':
 	    c_flag = optarg;
 	    break;
-	case 'S':
-	    S_flag = optarg;
-	    break;
-	case 'L':
-	    L_flag = optarg;
-	    break;
 	default:
 	    short_usage();
 	    exit(EX_USAGE);
@@ -362,17 +351,7 @@ int main(int argc, char **argv)
     /*
      * Read config file
      */
-    if(L_flag)				/* Must set libdir beforehand */
-	cf_s_libdir(L_flag);
     cf_read_config_file(c_flag ? c_flag : CONFIG);
-
-    /*
-     * Process config options
-     */
-    if(L_flag)
-	cf_s_libdir(L_flag);
-    if(S_flag)
-	cf_s_spooldir(S_flag);
 
     cf_debug();
     

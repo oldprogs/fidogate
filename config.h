@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway software UNIX <-> FIDO
  *
- * $Id: config.h,v 4.29 1998/01/18 15:33:01 mj Exp $
+ * $Id: config.h,v 4.30 1998/01/18 17:49:06 mj Exp $
  *
  * Configuration header file
  *
@@ -329,14 +329,6 @@
  *                                                                          *
  ****************************************************************************/
 
-/* Values retrieved from config */
-#define ALIASES		cf_p_aliases()
-#define AREAS		cf_p_areas()
-#define HOSTS		cf_p_hosts()
-#define PASSWD		cf_p_passwd()
-#define PACKING		cf_p_packing()
-#define ROUTING		cf_p_routing()
-
 /* Sequencer files */
 #define SEQ_MAIL	"%V/seq/mail"	/* ftn2rfc: temp mail files */
 #define SEQ_NEWS	"%V/seq/news"	/* ftn2rfc: temp news files */
@@ -351,22 +343,20 @@
 /* Program lock files */
 #define LOCK_HISTORY	"history"	/* Access to MSGID history database */
 
-
 /* Directories in SPOOLDIR */
-#define OUTRFC_MAIL	"%S/outrfc/mail"	/* ftn2rfc: RFC mail output */
-#define OUTRFC_NEWS	"%S/outrfc/news"	/* ftn2rfc: RFC news output */
-#define OUTPKT_MAIL	"%S/outpkt/mail"	/* rfc2ftn: PKT mail output */
-#define OUTPKT_NEWS	"%S/outpkt/news"	/* rfc2ftn: PKT news output */
+#define OUTRFC_MAIL	"%S/outrfc/mail"/* ftn2rfc RFC mail output */
+#define OUTRFC_NEWS	"%S/outrfc/news"/* ftn2rfc RFC news output */
+#define OUTPKT		"%S/outpkt"	/* common PKT output */
+#define OUTPKT_MAIL	"%S/outpkt/mail"/* rfc2ftn PKT mail output */
+#define OUTPKT_NEWS	"%S/outpkt/news"/* rfc2ftn PKT news output */
 
+#define TOSS_TOSS	"%S/toss/toss"	/* ftntoss temp output */
+#define TOSS_ROUTE	"%S/toss/route"	/* ftnroute temp output */
+#define TOSS_PACK	"%S/toss/pack"	/* ftnpack temp output */
+#define TOSS_BAD	"%S/toss/bad"	/* ftntoss bad packets */
 
-#define TOSS_IN		"toss/in"	/* ftntoss in */
-#define TOSS_TMP	"toss/tmp"	/* ftntoss out, ftnroute in */
-#define TOSS_OUT	"toss/out"	/* ftnroute out, ftnpack in */
-#define TOSS_PACK	"toss/pack"	/* ftnpack .pkts */
-#define TOSS_BAD	"toss/bad"	/* bad .pkts */
-#define QUEUE		"queue"		/* queuemail: queued messages */
-
-#define TICK_HOLD	"tick"		/* Relative to cf_outbound() */
+/* Misc */
+#define TICK_HOLD	"%B/tick"	/* ftnhatch/ftntick .TIC files */
 
 
 /*

@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftnpack.c,v 4.17 1998/01/18 09:48:12 mj Exp $
+ * $Id: ftnpack.c,v 4.18 1998/01/18 17:49:14 mj Exp $
  *
  * Pack output packets of ftnroute for Binkley outbound (ArcMail)
  *
@@ -40,7 +40,7 @@
 
 
 #define PROGRAM 	"ftnpack"
-#define VERSION 	"$Revision: 4.17 $"
+#define VERSION 	"$Revision: 4.18 $"
 #define CONFIG		DEFAULT_CONFIG_MAIN
 
 
@@ -1039,8 +1039,6 @@ options: -B --binkley NAME            set Binkley outbound directory\n\
 	 -v --verbose                 more verbose\n\
 	 -h --help                    this help\n\
          -c --config NAME             read config file (\"\" = none)\n\
-	 -L --lib-dir NAME            set lib directory\n\
-	 -S --spool-dir NAME          set spool directory\n\
 	 -a --addr Z:N/F.P            set FTN address\n\
 	 -u --uplink-addr Z:N/F.P     set FTN uplink address\n");
     
@@ -1058,7 +1056,6 @@ int main(int argc, char **argv)
     int l_flag = FALSE;
     char *I_flag=NULL, *O_flag=NULL, *B_flag=NULL, *p_flag=NULL;
     char *c_flag=NULL;
-    char *S_flag=NULL, *L_flag=NULL;
     char *a_flag=NULL, *u_flag=NULL;
     char *pkt_name;
     char pattern[16];
@@ -1080,8 +1077,6 @@ int main(int argc, char **argv)
 	{ "verbose",      0, 0, 'v'},	/* More verbose */
 	{ "help",         0, 0, 'h'},	/* Help */
 	{ "config",       1, 0, 'c'},	/* Config file */
-	{ "spool-dir",    1, 0, 'S'},	/* Set FIDOGATE spool directory */
-	{ "lib-dir",      1, 0, 'L'},	/* Set FIDOGATE lib directory */
 	{ "addr",         1, 0, 'a'},	/* Set FIDO address */
 	{ "uplink-addr",  1, 0, 'u'},	/* Set FIDO uplink address */
 	{ 0,              0, 0, 0  }
@@ -1093,7 +1088,7 @@ int main(int argc, char **argv)
     cf_initialize();
 
 
-    while ((c = getopt_long(argc, argv, "B:f:F:g:I:O:lp:m:Pvhc:S:L:a:u:",
+    while ((c = getopt_long(argc, argv, "B:f:F:g:I:O:lp:m:Pvhc:a:u:",
 			    long_options, &option_index     )) != EOF)
 	switch (c) {
 	/***** ftnpack options *****/
@@ -1144,12 +1139,6 @@ int main(int argc, char **argv)
 	case 'c':
 	    c_flag = optarg;
 	    break;
-	case 'S':
-	    S_flag = optarg;
-	    break;
-	case 'L':
-	    L_flag = optarg;
-	    break;
 	case 'a':
 	    a_flag = optarg;
 	    break;
@@ -1165,8 +1154,6 @@ int main(int argc, char **argv)
     /*
      * Read config file
      */
-    if(L_flag)				/* Must set libdir beforehand */
-	cf_s_libdir(L_flag);
     cf_read_config_file(c_flag ? c_flag : CONFIG);
 
     /*
@@ -1174,10 +1161,6 @@ int main(int argc, char **argv)
      */
     if(B_flag)
 	cf_s_btbasedir(B_flag);
-    if(L_flag)
-	cf_s_libdir(L_flag);
-    if(S_flag)
-	cf_s_spooldir(S_flag);
     if(a_flag)
 	cf_set_addr(a_flag);
     if(u_flag)
@@ -1197,16 +1180,10 @@ int main(int argc, char **argv)
     /*
      * Process local options
      */
-    if(I_flag)
-	BUF_EXPAND(in_dir, I_flag);
-    else 
-	BUF_COPY3(in_dir, cf_p_spooldir(), "/", TOSS_OUT);
-    if(O_flag)
-	BUF_EXPAND(out_dir, O_flag);
-    else
-	BUF_COPY3(out_dir, cf_p_spooldir(), "/", TOSS_PACK);
+    BUF_EXPAND(in_dir , I_flag ? I_flag : TOSS_ROUTE);
+    BUF_EXPAND(out_dir, O_flag ? O_flag : TOSS_PACK);
 
-    packing_init(p_flag ? p_flag : PACKING);
+    packing_init(p_flag ? p_flag : cf_p_packing() );
     passwd_init();
 
     /* Install signal/exit handlers */

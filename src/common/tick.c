@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: tick.c,v 4.9 1998/01/18 09:47:55 mj Exp $
+ * $Id: tick.c,v 4.10 1998/01/18 17:49:10 mj Exp $
  *
  * TIC file processing
  *
@@ -325,7 +325,7 @@ int tick_send(Tick *tic, Node *node, char *name)
     /*
      * Make sure tick dir exists
      */
-    sprintf(buffer, "%s/%s", cf_p_btbasedir(), TICK_HOLD);
+    BUF_EXPAND(buffer, TICK_HOLD);
     if(check_access(buffer, CHECK_DIR) == ERROR)
     {
 	if(mkdir(buffer, DIR_MODE) == -1)
@@ -336,8 +336,8 @@ int tick_send(Tick *tic, Node *node, char *name)
     /*
      * Create TIC
      */
-    sprintf(buffer, "%s/%s/tk%06ld.tic",
-	    cf_p_btbasedir(), TICK_HOLD, sequencer(SEQ_TICK) % 1000000);
+    sprintf(buffer+strlen(buffer), "/tk%06ld.tic",
+	    sequencer(SEQ_TICK) % 1000000);
     debug(4, "creating %s", buffer);
     if(tick_put(tic, buffer) == ERROR)
 	return ERROR;

@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway software UNIX <-> FIDO
  *
- * $Id: rfc2ftn.c,v 4.34 1998/01/18 15:33:11 mj Exp $
+ * $Id: rfc2ftn.c,v 4.35 1998/01/18 17:49:12 mj Exp $
  *
  * Read mail or news from standard input and convert it to a FIDO packet.
  *
@@ -39,7 +39,7 @@
 
 
 #define PROGRAM 	"rfc2ftn"
-#define VERSION 	"$Revision: 4.34 $"
+#define VERSION 	"$Revision: 4.35 $"
 #define CONFIG		DEFAULT_CONFIG_GATE
 
 
@@ -853,6 +853,9 @@ int snd_mail(RFCAddr rfc_to, long size)
 
 	if(x_flags_policy > 0) 
 	{
+	    char *hf = header_getcomplete("From");
+	    char *hr = header_getcomplete("Reply-To");
+		
 	    if(x_flags_policy == 1) 
 	    {
 		/* Allow only local users to use the X-Flags header */
@@ -862,15 +865,13 @@ int snd_mail(RFCAddr rfc_to, long size)
 		{
 		    if(flags)
 			log("NON-LOCAL From: %s, Reply-To: %s, X-Flags: %s",
-			    header_getcomplete("From"),
-			    header_getcomplete("Reply-To"), flags           );
+			    hf ? hf : "<>", hr ? hr : "<>", flags           );
 		    flags = p = NULL;
 		}
 	    }
 	    /* Let's at least log what's going on ... */
 	    if(flags)
-		log("X-Flags: %s, From: %s", flags,
-		    header_getcomplete("From"));
+		log("X-Flags: %s, From: %s", flags, hf ? hf : "<>");
 	    
 	    p = flags;
 	    if(p)
@@ -898,10 +899,11 @@ int snd_mail(RFCAddr rfc_to, long size)
 	}
 	else
 	{
+	    char *hf = header_getcomplete("From");
+
 	    /* Log what's going on ... */
 	    if(flags)
-		log("FORBIDDEN X-Flags: %s, From: %s", flags,
-		    header_getcomplete("From"));
+		log("FORBIDDEN X-Flags: %s, From: %s", flags, hf ? hf : "<>");
 	    flags = NULL;
 	}
 	

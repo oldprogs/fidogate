@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: ftn2ftn.c,v 4.3 1998/01/18 09:48:10 mj Exp $
+ * $Id: ftn2ftn.c,v 4.4 1998/01/18 17:49:13 mj Exp $
  *
  * FTN-FTN gateway for NetMail, using the %Z:N/F.P addressing in the
  * from/to fields.
@@ -35,7 +35,7 @@
 
 
 #define PROGRAM 	"ftn2ftn"
-#define VERSION 	"$Revision: 4.3 $"
+#define VERSION 	"$Revision: 4.4 $"
 #define CONFIG		DEFAULT_CONFIG_MAIN
 
 
@@ -305,8 +305,6 @@ options: -A --address-a Z:N/F.P       FTN address in network A\n\
          -v --verbose                 more verbose\n\
 	 -h --help                    this help\n\
          -c --config name             read config file (\"\" = none)\n\
-	 -L --lib-dir name            set lib directory\n\
-	 -S --spool-dir name          set spool directory\n\
 	 -a --addr Z:N/F.P            set FTN address\n\
 	 -u --uplink-addr Z:N/F.P     set FTN uplink address\n");
     
@@ -322,7 +320,6 @@ int main(int argc, char **argv)
     int c;
     char *O_flag=NULL;
     char *c_flag=NULL;
-    char *S_flag=NULL, *L_flag=NULL;
     char *a_flag=NULL, *u_flag=NULL;
 
     int option_index;
@@ -336,8 +333,6 @@ int main(int argc, char **argv)
 	{ "verbose",      0, 0, 'v'},	/* More verbose */
 	{ "help",         0, 0, 'h'},	/* Help */
 	{ "config",       1, 0, 'c'},	/* Config file */
-	{ "spool-dir",    1, 0, 'S'},	/* Set FIDOGATE spool directory */
-	{ "lib-dir",      1, 0, 'L'},	/* Set FIDOGATE lib directory */
 	{ "addr",         1, 0, 'a'},	/* Set FIDO address */
 	{ "uplink-addr",  1, 0, 'u'},	/* Set FIDO uplink address */
 	{ 0,              0, 0, 0  }
@@ -349,7 +344,7 @@ int main(int argc, char **argv)
     cf_initialize();
 
 
-    while ((c = getopt_long(argc, argv, "A:B:o:O:vhc:S:L:a:u:",
+    while ((c = getopt_long(argc, argv, "A:B:o:O:vhc:a:u:",
 			    long_options, &option_index     )) != EOF)
 	switch (c) {
 	/***** ftn2ftn options *****/
@@ -389,12 +384,6 @@ int main(int argc, char **argv)
 	case 'c':
 	    c_flag = optarg;
 	    break;
-	case 'S':
-	    S_flag = optarg;
-	    break;
-	case 'L':
-	    L_flag = optarg;
-	    break;
 	case 'a':
 	    a_flag = optarg;
 	    break;
@@ -410,17 +399,11 @@ int main(int argc, char **argv)
     /*
      * Read config file
      */
-    if(L_flag)				/* Must set libdir beforehand */
-	cf_s_libdir(L_flag);
     cf_read_config_file(c_flag ? c_flag : CONFIG);
 
     /*
      * Process config options
      */
-    if(L_flag)
-	cf_s_libdir(L_flag);
-    if(S_flag)
-	cf_s_spooldir(S_flag);
     if(a_flag)
 	cf_set_addr(a_flag);
     if(u_flag)
@@ -437,7 +420,7 @@ int main(int argc, char **argv)
     if(O_flag)
 	pkt_outdir(O_flag, NULL);
     else
-	pkt_outdir(cf_p_spooldir(), OUTDIR);
+	pkt_outdir(OUTPKT, NULL);
 
     passwd_init();
 

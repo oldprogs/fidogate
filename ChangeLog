@@ -2,6 +2,53 @@ Sun Jan 18 09:31:56 1998  Martin Junius  <mj@fido.de>
 
 	------- CVS ci -------------------------------------------------------
 
+	* src/gate/rfc2ftn.c (snd_mail): From, Reply-To header may be
+	  empty, use "<>" instead of NULL pointer for log() messages.
+
+	* config.h (ALIASES...ROUTING): obsolete, removed.
+
+	* src/toss/ftntoss.c (main): use cf_p_routing().
+
+	* src/toss/ftnroute.c (main): use cf_p_routing().
+
+	* src/toss/ftnpack.c (main): use cf_p_packing().
+
+	* src/common/passwd.c (passwd_init): use cf_p_passwd().
+
+	* src/common/hosts.c (hosts_init): use cf_p_hosts().
+
+	* src/common/areas.c (areas_init): use cf_p_areas().
+
+	* src/common/aliases.c (alias_init): use cf_p_aliases().
+
+	* src/toss/ftnexpire.c (main): removed -L, -S options.
+
+	* src/toss/ftnpack.c (main): removed -L, -S options, default input
+	  directory is TOSS_ROUTE, default output directory is TOSS_PACK.
+
+	* src/toss/ftnroute.c (main): removed -L, -S options, default
+	  input directory is TOSS_TOSS, default output directory is
+	  TOSS_ROUTE. 
+
+	* src/tick/ftntick.c (main): new in_dir[], default is PINBOUND.
+	  (do_tic): use in_dir[].
+	  (process_tic): dito.
+
+	* src/toss/ftntoss.c (main): removed -L, -S options.
+	  (main): default inbound directory is PINBOUND, default output
+	  directory is TOSS_TOSS (SPOOLDIR/toss/toss).
+
+	* src/common/tick.c (tick_send): BUF_EXPAND TICK_HOLD.
+
+	* config.h (TOSS_*): changed for new directory structure.
+
+	* src/toss/ftn2ftn.c (main): default pkt_outdir() is OUTPKT.
+	  (main): removed -L, -S options.
+
+	* config.h (OUTPKT): common PKT output directory for various programs.
+
+	------- CVS ci -------------------------------------------------------
+
 	* Makefile (INSTALLDIRS): new directories.
 
 	* src/gate/rfc2ftn.c (main): removed -L, -S options.

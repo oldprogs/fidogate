@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: hosts.c,v 4.5 1998/01/18 09:47:48 mj Exp $
+ * $Id: hosts.c,v 4.6 1998/01/18 17:49:09 mj Exp $
  *
  * Process hostname <-> node aliases from hosts file
  *
@@ -168,7 +168,7 @@ static int hosts_do_file(char *name)
 
 void hosts_init(void)
 {
-    hosts_do_file(HOSTS);
+    hosts_do_file( cf_p_hosts() );
 }
 
 

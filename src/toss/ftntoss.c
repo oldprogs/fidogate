@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftntoss.c,v 4.23 1998/01/18 15:33:15 mj Exp $
+ * $Id: ftntoss.c,v 4.24 1998/01/18 17:49:14 mj Exp $
  *
  * Toss FTN NetMail/EchoMail
  *
@@ -39,7 +39,7 @@
 
 
 #define PROGRAM 	"ftntoss"
-#define VERSION 	"$Revision: 4.23 $"
+#define VERSION 	"$Revision: 4.24 $"
 #define CONFIG		DEFAULT_CONFIG_MAIN
 
 
@@ -1385,8 +1385,8 @@ void usage(void)
     fprintf(stderr, "\
 options: -d --no-dupecheck            disable dupe check\n\
          -g --grade G                 processing grade\n\
-         -I --in-dir name             set input packet directory\n\
-         -O --out-dir name            set output packet directory\n\
+         -I --in-dir DIR              set input packet directory\n\
+         -O --out-dir DIR             set output packet directory\n\
          -l --lock-file               create lock file while processing\n\
          -t --insecure                insecure tossing (no AREAS.BBS check)\n\
          -n --toss-all                toss all EchoMail messages\n\
@@ -1400,9 +1400,7 @@ options: -d --no-dupecheck            disable dupe check\n\
 \n\
 	 -v --verbose                 more verbose\n\
 	 -h --help                    this help\n\
-         -c --config name             read config file (\"\" = none)\n\
-	 -L --lib-dir name            set lib directory\n\
-	 -S --spool-dir name          set spool directory\n\
+         -c --config NAME             read config file (\"\" = none)\n\
 	 -a --addr Z:N/F.P            set FTN address\n\
 	 -u --uplink-addr Z:N/F.P     set FTN uplink address\n");
     
@@ -1419,7 +1417,6 @@ int main(int argc, char **argv)
     char *p;
     char *I_flag=NULL, *O_flag=NULL, *r_flag=NULL, *M_flag=NULL;
     char *c_flag=NULL;
-    char *S_flag=NULL, *L_flag=NULL;
     char *a_flag=NULL, *u_flag=NULL;
     int d_flag = FALSE;
     char *pkt_name;
@@ -1447,8 +1444,6 @@ int main(int argc, char **argv)
 	{ "verbose",      0, 0, 'v'},	/* More verbose */
 	{ "help",         0, 0, 'h'},	/* Help */
 	{ "config",       1, 0, 'c'},	/* Config file */
-	{ "spool-dir",    1, 0, 'S'},	/* Set FIDOGATE spool directory */
-	{ "lib-dir",      1, 0, 'L'},	/* Set FIDOGATE lib directory */
 	{ "addr",         1, 0, 'a'},	/* Set FIDO address */
 	{ "uplink-addr",  1, 0, 'u'},	/* Set FIDO uplink address */
 	{ 0,              0, 0, 0  }
@@ -1461,7 +1456,7 @@ int main(int argc, char **argv)
     cf_initialize();
 
     /* Parse options */
-    while ((c = getopt_long(argc, argv, "dg:O:I:ltnr:sm:xM:b:pvhc:S:L:a:u:",
+    while ((c = getopt_long(argc, argv, "dg:O:I:ltnr:sm:xM:b:pvhc:a:u:",
 			    long_options, &option_index     )) != EOF)
 	switch (c) {
 	/***** ftntoss options *****/
@@ -1519,12 +1514,6 @@ int main(int argc, char **argv)
 	case 'c':
 	    c_flag = optarg;
 	    break;
-	case 'S':
-	    S_flag = optarg;
-	    break;
-	case 'L':
-	    L_flag = optarg;
-	    break;
 	case 'a':
 	    a_flag = optarg;
 	    break;
@@ -1540,17 +1529,11 @@ int main(int argc, char **argv)
     /*
      * Read config file
      */
-    if(L_flag)				/* Must set libdir beforehand */
-	cf_s_libdir(L_flag);
     cf_read_config_file(c_flag ? c_flag : CONFIG);
 
     /*
      * Process config options
      */
-    if(L_flag)
-	cf_s_libdir(L_flag);
-    if(S_flag)
-	cf_s_spooldir(S_flag);
     if(a_flag)
 	cf_set_addr(a_flag);
     if(u_flag)
@@ -1659,20 +1642,9 @@ int main(int argc, char **argv)
     /*
      * Process local options
      */
-    if(I_flag)
-	BUF_EXPAND(in_dir, I_flag);
-    else 
-	BUF_COPY3(in_dir, cf_p_spooldir(), "/", TOSS_IN);
-    if(O_flag)
-    {
-	pkt_outdir(O_flag, NULL);
-	pkt_baddir(O_flag, NULL);
-    }
-    else
-    {
-	pkt_outdir(cf_p_spooldir(), TOSS_TMP);
-	pkt_baddir(cf_p_spooldir(), TOSS_BAD);
-    }
+    BUF_EXPAND(in_dir, I_flag ? I_flag : cf_p_pinbound());
+    pkt_outdir(O_flag ? O_flag : TOSS_TOSS, NULL);
+    pkt_baddir(O_flag ? O_flag : TOSS_BAD , NULL);
     
     /*
      * Get name of areas.bbs file from config file
@@ -1688,7 +1660,7 @@ int main(int argc, char **argv)
 	exit(EX_USAGE);
     }
     
-    routing_init(r_flag ? r_flag : ROUTING);
+    routing_init(r_flag ? r_flag : cf_p_routing() );
     areasbbs_init(areas_bbs);
     passwd_init();
 

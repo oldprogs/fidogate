@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: areas.c,v 4.8 1998/01/18 09:47:38 mj Exp $
+ * $Id: areas.c,v 4.9 1998/01/18 17:49:09 mj Exp $
  *
  * Area <-> newsgroups conversion
  *
@@ -277,7 +277,7 @@ static int areas_do_file(char *name)
 void areas_init(void)
 {
     areas_init_xlate();
-    areas_do_file(AREAS);
+    areas_do_file( cf_p_areas() );
 }
 
 

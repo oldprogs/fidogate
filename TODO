@@ -2,7 +2,8 @@
 
 	************** TODO list for FIDOGATE development **************
 
-	* dir.c, ftntick: allow %X as directory name.
+	* dir.c,
+DONE	  ftntick: allow %X as directory name.
 
 DONE	* bounce.c: read from CONFIGDIR.
 

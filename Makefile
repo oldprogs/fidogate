@@ -1,5 +1,5 @@
 #
-# $Id: Makefile,v 4.11 1998/01/18 15:33:01 mj Exp $
+# $Id: Makefile,v 4.12 1998/01/18 17:49:05 mj Exp $
 #
 # Makefile FIDOGATE TOPDIR
 #
@@ -56,4 +56,4 @@ install::
 
 tags:
 	etags *.[hcy] *.pl *.make Makefile */Makefile doc/*.texi doc/*.html \
-	  */*/*.[hcy] */*/*.pl */*/*.sh */*/Makefile
+	  */*/*.[hcy] */*/*.pl */*/Makefile
