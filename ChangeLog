@@ -1,8 +1,12 @@
 Wed Apr 17 12:12:08 1996  Martin Junius  <mj@fido.de>
 
-	* src/util/Makefile: added pktmore script.
+	* src/include/version.h (VERSION): fixed text for VERSION, no RCS
+	  substitution.
 
-	* ----- CVS ci forced to revision 4.1 -----
+	* CVS: due to problems with old version imported again
+	  ----- FIDOGATE 4.0.0 (alpha0) -----
+
+	* src/util/Makefile: added pktmore script.
 
 	* src/toss/ftntoss.c (do_echomail): for messages without ^MSGID
 	  use the id string "NOMSGID: Z:N/F.P YYMMDD HHMMSS abcd1234",
@@ -37,8 +41,6 @@ Wed Apr 17 12:12:08 1996  Martin Junius  <mj@fido.de>
 
 Mon Apr  8 10:57:06 1996  Martin Junius  <mj@fido.de>
 
-	* ----- CVS ci -r 4.0.0 -----
-
 	* src/toss/ftntoss.c (main): use BUF_COPY(), BUF_COPY3().
 	  (main): set pkt_baddir to O_flag if -O option is given.
 
@@ -60,8 +62,6 @@ Mon Apr  8 10:57:06 1996  Martin Junius  <mj@fido.de>
 
 Sun Apr  7 19:08:52 1996  Martin Junius  <mj@fido.de>
 
-	* ----- CVS ci -r 4.0.0 -----
-
 	* src/toss/ftntoss.c (do_bad_msg): new function saving bad message
 	  to TOSS_BAD/badxxxxx.pkt.
 	  (do_echomail): if kill_unknown is FALSE, save message for
@@ -80,9 +80,6 @@ Sun Apr  7 19:08:52 1996  Martin Junius  <mj@fido.de>
 	* src/common/outpkt.c (outpkt_open): removed, obsolete.
 
 Sat Apr  6 13:26:49 1996  Martin Junius  <mj@fido.de>
-
-	* Problems with CVS: current src/ restored from backup and
-	  re-imported as 4.0.0, changes commited as revision 4.0.0.2.
 
 	* src/gate/ftn2rfc.c (unpack): if no_messages_without_msgid is
 	  set, don't gate messages without a valid MSGID (or ORIGID,
@@ -231,9 +228,6 @@ Fri Mar 29 15:04:16 1996  Martin Junius  <mj@fido.de>
 	  hex digits packet sequence number.
 	  (outpkt_open): function changed to use new outpkt_new(),
 	  outpkt_names(), some other small changes.
-
-	* src/: imported entire source directory as revision 4.0.0 to CVS,
-	  checkout as working version 4.0.0.1
 
 Tue Mar 26 20:38:20 1996  Martin Junius  <mj@fido.de>
 
