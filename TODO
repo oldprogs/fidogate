@@ -24,7 +24,7 @@ DONE	* ^ACHRS default configurable per area
 	* Different Message-ID and sender Internet domain
 	  configuration (extended Zone config).
 
-	* ftn2rfc: ^ARFC-<mime> import.
+NOT NOW	* ftn2rfc: ^ARFC-<mime> import.
 
 	* ftn2rfc: send bounce mails directly as FTN messages, not via
 	  the mail system.
@@ -61,7 +61,7 @@ STARTED	* areas.bbs: read-only/vacation flag for downlinks,
 	* rfc2ftn: option to use node address, not gateway point
 	  address for local users.
 
-	* ftn2rfc: process ^ARFC headers. If RFC level 1, import
+NOT NOW	* ftn2rfc: process ^ARFC headers. If RFC level 1, import
 	  important headers such as Date, Message-ID. If RFC level 2,
 	  import all headers present.
 
@@ -86,7 +86,7 @@ DONE	  copy netmail packets (do_noarc()), use rename(). If archiver
 DONE	* Generic alias matching: name@Z:N/F.P <-> user@do.main (Name),
 	  recipient *and* sender
 
-	* rfc2ftn: improve parser for 1st line. Use regexp library?
+DONE	* rfc2ftn: improve parser for 1st line. Use regexp library?
 
 
 

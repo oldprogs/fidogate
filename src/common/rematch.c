@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: rematch.c,v 4.1 1999/06/17 21:42:50 mj Exp $
+ * $Id: rematch.c,v 4.2 1999/06/20 13:49:51 mj Exp $
  *
  * Regular expression (POSIX functions) handling for FIDOGATE
  *
@@ -180,22 +180,8 @@ char *str_regex_match_sub(char *buf, size_t len, int idx, const char *s)
  */
 void regex_init(void)
 {
-    /**FIXME: entirely move to fidogate.conf?**/
-    static char *list[] =
-    {
-    "^([a-z0-9_.\\-]*@[a-z0-9_.\\-]* \\(.*\\)) (writes|wrote):$",
-    "^(.* <[a-z0-9_.\\-]*@[a-z0-9_.\\-]*>) (writes|wrote):$",
-    "^([a-z0-9_.\\-]*@[a-z0-9_.\\-]*) (writes|wrote):$",
-    "^In article <?[a-z0-9_.\\-]*@[a-z0-9_.\\-]*>?,? (.*) (writes|wrote):$",
-    NULL
-    };
-    int i;
     char *s;
     
-    /* initial regex patterns */
-    for(i=0; list[i]; i++)
-	regex_do_entry(list[i]);
-
     /* regex patterns from fidogate.conf */
     for(s = cf_get_string("Regex1stLine",TRUE);
 	s;

@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway software UNIX <-> FIDO
  *
- * $Id: rfc2ftn.c,v 4.54 1999/06/17 21:42:50 mj Exp $
+ * $Id: rfc2ftn.c,v 4.55 1999/06/20 13:49:51 mj Exp $
  *
  * Read mail or news from standard input and convert it to a FIDO packet.
  *
@@ -39,7 +39,7 @@
 
 
 #define PROGRAM 	"rfc2ftn"
-#define VERSION 	"$Revision: 4.54 $"
+#define VERSION 	"$Revision: 4.55 $"
 #define CONFIG		DEFAULT_CONFIG_GATE
 
 
@@ -154,8 +154,8 @@ char *get_name_from_body(void)
     static char line1[2*MAXINETADDR];
     static char buf[MAXINETADDR];
     Textline *tl;
-#if 0
     char *p;
+#if 0
     int found = FALSE;
     int i;
 #endif
@@ -171,9 +171,15 @@ char *get_name_from_body(void)
     /* Concatenate next line */
     if(tl && tl->line)
     {
-	BUF_APPEND(line1, " ");
-	BUF_APPEND(line1, tl->line);
-	strip_space(line1);
+	p = tl->line;
+	while(*p && is_space(*p))
+	    p++;
+	if(!strchr(">|:", *p))
+	{
+	    BUF_APPEND(line1, " ");
+	    BUF_APPEND(line1, tl->line);
+	    strip_space(line1);
+	}
     }
     debug(9, "body 1st line: %s", line1);
 

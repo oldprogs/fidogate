@@ -1,10 +1,10 @@
 X-Emacs-Mode: -*- indented-text -*-
-Subject: FIDOGATE 4.3.3 --- Fido-Internet Gateway and Tosser
+Subject: FIDOGATE 4.3.4 --- Fido-Internet Gateway and Tosser
 Keywords: fido ftn netmail echomail tosser areafix mail news gateway
 Followup-To: comp.os.linux.misc
 
   ==================================================================
-  FIDOGATE 4.3.3, a development snapshot of the new FIDOGATE release
+  FIDOGATE 4.3.4, a development snapshot of the new FIDOGATE release
   ==================================================================
 
 			   FIDOGATE Version 4
@@ -29,7 +29,7 @@ Followup-To: comp.os.linux.misc
     (probably still in .../pub/Linux/Incoming)
 ...]
 
-    fidogate-4.3.3.tar.gz	1250 Kbyte
+    fidogate-4.3.4.tar.gz	1250 Kbyte
 
 [NOT FOR DEVELOPMENT SNAPSHOTS! ...
   Fido File Request:
@@ -56,6 +56,24 @@ WARNING:
     o  examples/node/      (new and incomplete)
 
 ======================================================================
+
+Changes in 4.3.4:
+
+* Removed out-dated examples.
+
+* New module strtok_r.c, re-implementing old strtok(), xstrtok()
+  functions. 
+
+* New module rematch.c, regular expression handling for 1st line.
+
+* rfc2ftn: new config option Regex1stLine, regular expressions for
+  finding addresses in the first (and second) line of the message body
+  for replies.
+
+* Documentation doc/fidogate.* now completely up-to-date for this
+  release. New examples for point configuration in examples/point/
+
+
 
 Changes in 4.3.3:
 
@@ -213,6 +231,6 @@ Needed:
 
 ======================================================================
 
-$Date: 1999/05/29 17:59:54 $
+$Date: 1999/06/20 13:49:44 $
 Martin Junius
 mailto:mj@fido.de

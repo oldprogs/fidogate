@@ -1,3 +1,29 @@
+1999-06-20  Martin Junius  <mj@fido.de>
+
+	------- CVS ci -------------------------------------------------------
+
+	* ANNOUNCE (WARNING): updated.
+
+	* fidogate.lsm: updated.
+
+	* examples/point/newsfeeds: example newsfeeds entry for INN 1.x
+
+	* version.h (PATCHLEVEL): changed to 4, version 4.3.4.
+
+	* examples/point/*: added more example files for the configuration 
+	  as described in fidogate.texi.
+
+	* doc/fidogate.texi (Config): added description of Regex1stLine.
+
+	* examples/*/fidogate.conf: updated with regex patterns from test
+	  cases. 
+
+	* src/common/rematch.c (regex_init): removed default
+	  initialization with compiled-in regex patterns.
+
+	* src/gate/rfc2ftn.c (get_name_from_body): append 2nd line only if 
+	  2nd line doesn't start with '>', '|', ':'.
+
 1999-06-17  Martin Junius  <mj@fido.de>
 
 	------- CVS ci -------------------------------------------------------
