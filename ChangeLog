@@ -1,3 +1,28 @@
+2001-12-27  Martin Junius  <mj@m-j-s.net>
+
+	======= Release 4.4.5 ================================================
+	------- CVS tag R445 -------------------------------------------------
+	------- CVS ci -------------------------------------------------------
+
+	* build-rpms: dito.
+
+	* cvsexp: use version script.
+
+	* version: new script, print version number from version.h
+
+	* README: moved important stuff to top ;-)
+
+	* ANNOUNCE: updated.
+
+	* fidogate.lsm: updated.
+
+	* fidogate.spec: changed to 4.4.5-1.7x
+
+2001-11-27  Martin Junius  <mj@m-j-s.net>
+
+	* sendmail/cf/redhat6-morannon.mc: orbl.org dnsbl removed, seems
+	  to have ceased working. Timeout.ident set to 0 = off.
+
 2001-10-30  Martin Junius  <mj@m-j-s.net>
 
 	------- CVS ci -------------------------------------------------------

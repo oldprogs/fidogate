@@ -1,13 +1,6 @@
 #!/bin/sh
 
-if [ $# -lt 1 ]; then
-    echo "usage:   build-rpms MAJ.MIN.PL"
-    echo " "
-    echo "example: build-rpms 4.4.2"
-    exit 1
-fi
-
-REL="$1"
+REL=$(./version)
 TAG=`echo $REL | tr -d .`
 
 tarfile=fidogate-$REL.tar.gz

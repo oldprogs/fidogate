@@ -1,6 +1,6 @@
 -*- Indented-Text -*-
 
-$Id: README,v 4.33 2000/11/18 17:57:56 mj Exp $
+$Id: README,v 4.34 2001/12/27 19:51:20 mj Exp $
 
 ======================================================================
 				   
@@ -31,6 +31,77 @@ note the following *MAJOR* changes:
 
 
 Please subscribe to the FIDOGATE mailing list!!!
+
+======================================================================
+
+[ For detailed instructions see doc/fidogate.txt ]
+
+Needed:
+
+* GNU CC or ANSI C compiler
+* GNU make
+* GNU flex/bison or lex/yacc
+* Perl5
+* sendmail m4 configuration files
+* GNU m4 for the sendmail m4 configuration
+
+Compiling:
+
+1.  Edit config.make
+2.  Edit config.h if needed
+3.  Run "make depend"
+4.  Run "make"
+
+Installing:
+
+5.  Run "make install-dirs" to create the installation directories
+    (only if needed)
+6.  Run "make install" to install the programs
+7.  Create the various config files and put them into CONFIGDIR
+    (see examples/... to get started)
+
+See also doc/fidogate.txt (PostScript documentation can be compiled by
+running "make doc" in the doc/ subdirectory) for a detailed
+description of the FIDOGATE installation.
+
+======================================================================
+
+There is a *NEW* mailing list for FIDOGATE discussions and
+announcements:
+
+    mailto:fidogate@fidogate.org
+
+To SUBSCRIBE to this mailing list, send a message to
+
+    mailto:majordomo@fidogate.org
+or
+    Majordomo @ 2:2452/110
+
+with the command 
+
+    subscribe fidogate
+
+in the message *body* (not subject!). This will not immediately put
+your email address into the mailing list. A confirmation mail with an
+authentication code will be send to you, which must be returned to
+majordomo to finally enable your subscription.
+
+To UNSUBSCRIBE from this mailing list, send the command
+
+    unsubscribe fidogate
+
+======================================================================
+
+Latest version:
+
+The latest version of FIDOGATE can be found at:
+
+    ftp://ftp.fidogate.org/pub/fidogate/
+    http://www.fidogate.org/pub/fidogate/
+
+See also the FIDOGATE home page at:
+
+    http://www.fidogate.org/
 
 ======================================================================
 
@@ -745,77 +816,6 @@ In particular, Roland's fgpack script (see doc/Fido-Point-HOWTO) does
 
 ======================================================================
 
-[ For detailed instructions see doc/fidogate.txt ]
-
-Needed:
-
-* GNU CC or ANSI C compiler
-* GNU make
-* GNU flex/bison or lex/yacc
-* Perl5
-* sendmail m4 configuration files
-* GNU m4 for the sendmail m4 configuration
-
-Compiling:
-
-1.  Edit config.make
-2.  Edit config.h if needed
-3.  Run "make depend"
-4.  Run "make"
-
-Installing:
-
-5.  Run "make install-dirs" to create the installation directories
-    (only if needed)
-6.  Run "make install" to install the programs
-7.  Create the various config files and put them into CONFIGDIR
-    (see examples/... to get started)
-
-See also doc/fidogate.txt (PostScript documentation can be compiled by
-running "make doc" in the doc/ subdirectory) for a detailed
-description of the FIDOGATE installation.
-
-======================================================================
-
-There is a *NEW* mailing list for FIDOGATE discussions and
-announcements:
-
-    mailto:fidogate@fidogate.org
-
-To SUBSCRIBE to this mailing list, send a message to
-
-    mailto:majordomo@fidogate.org
-or
-    Majordomo @ 2:2452/110
-
-with the command 
-
-    subscribe fidogate
-
-in the message *body* (not subject!). This will not immediately put
-your email address into the mailing list. A confirmation mail with an
-authentication code will be send to you, which must be returned to
-majordomo to finally enable your subscription.
-
-To UNSUBSCRIBE from this mailing list, send the command
-
-    unsubscribe fidogate
-
-======================================================================
-
-Latest version:
-
-The latest version of FIDOGATE can be found at:
-
-    ftp://ftp.fidogate.org/pub/fidogate/
-    http://www.fidogate.org/pub/fidogate/
-
-See also the FIDOGATE home page at:
-
-    http://www.fidogate.org/
-
-======================================================================
-
 OS/2 version:
 
 For an OS/2 version of FIDOGATE contact:
@@ -868,6 +868,6 @@ not integrate your patches.
 
 ======================================================================
 
-$Date: 2000/11/18 17:57:56 $
+$Date: 2001/12/27 19:51:20 $
 Martin Junius
 mailto:mj@fido.de

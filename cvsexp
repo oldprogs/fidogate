@@ -1,16 +1,6 @@
 #!/bin/sh
 
-if [ $# -lt 1 ]; then
-    echo "usage:   cvsexp MAJ.MIN.PL [tag]"
-    echo " "
-    echo "example: cvsexp 4.4.0"
-    echo "             tag R440     -> fidogate-4.4.0.tar.gz"
-    echo "         cvsexp 4.4.0 pre1"
-    echo "             tag R440pre1 -> fidogate-4.4.0.tar.gz"
-    exit 1
-fi
-
-REL="$1"
+REL=$(./version)
 TAG="R"`echo $REL | tr -d .`"$2"
 
 echo "Exporting release $REL (tag $TAG)"
@@ -18,7 +8,7 @@ echo "Exporting release $REL (tag $TAG)"
 rm -rf /var/tmp/fidogate-$REL
 rm -rf /var/tmp/fidogate-*$REL.tar*
 
-cvs export -r $TAG -d /var/tmp/fidogate-$REL fidogate
+cvs export -r $TAG -d /var/tmp/fidogate-$REL fidogate || exit 1;
 
 cd /var/tmp
 tar cvf fidogate-test-$REL.tar fidogate-$REL/test/
