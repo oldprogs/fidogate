@@ -1,3 +1,15 @@
+2002-07-15  Martin Junius  <mj@m-j-s.net>
+
+	------- CVS ci -------------------------------------------------------
+
+	* src/common/message.c (msg_ignore_0x8d): flag for ignoring 0x8d,
+	  soft-CR, default true = remove 0x8d when it occurs in a message
+	  line.
+	  (msg_xlate_line): use msg_ignore_0x8d flag with c==0x8d.
+
+	* *: updated copyright years to 1990-2002, email address to
+	  mj@fidogate.org, removed Fido address.
+
 2002-07-10  Martin Junius  <mj@m-j-s.net>
 
 	------- CVS ci -------------------------------------------------------

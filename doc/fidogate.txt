@@ -1,4 +1,4 @@
-This is fidogate.info, produced by Makeinfo version 3.12f from
+Dies ist fidogate.info, hergestellt von Makeinfo Version 4.1 aus
 fidogate.texi.
 
    This file documents the installation and usage of FIDOGATE version
@@ -1868,7 +1868,7 @@ Special parameters:
 `=hostsdomain'
      Domain for entries in `hosts' config files.
 
-This is fidogate.info, produced by Makeinfo version 3.12f from
+Dies ist fidogate.info, hergestellt von Makeinfo Version 4.1 aus
 fidogate.texi.
 
    This file documents the installation and usage of FIDOGATE version
@@ -3490,7 +3490,7 @@ Packing
 
    Otherwise see the standard point configuration with a single address.
 
-This is fidogate.info, produced by Makeinfo version 3.12f from
+Dies ist fidogate.info, hergestellt von Makeinfo Version 4.1 aus
 fidogate.texi.
 
    This file documents the installation and usage of FIDOGATE version
@@ -3703,9 +3703,9 @@ Index
 * Areafix <1>:                           ftnafmail.
 * Areafix:                               ftnaf.
 * Areas:                                 Areas.
+* areas.bbs:                             Areas.bbs.
 * Bounce messages:                       Bounce.
 * Busy files:                            ftnbsy.
-* CRC:                                   sumcrc.
 * Checksum:                              sumcrc.
 * Compiling:                             Compiling.
 * Config <1>:                            Config.
@@ -3717,50 +3717,11 @@ Index
 * Configuration <4>:                     Sendmail.
 * Configuration:                         Basic.
 * Connecting:                            Connecting.
+* CRC:                                   sumcrc.
 * EchoMail:                              Areas.bbs.
 * Example <1>:                           Example Node.
 * Example <2>:                           Example Point 2.
 * Example:                               Example Point.
-* FIDONET:                               Connecting.
-* File attach:                           ftnfattach.
-* Gateway <1>:                           ftn2ftn.
-* Gateway <2>:                           rfc2ftn.
-* Gateway:                               ftn2rfc.
-* Header <1>:                            X Headers.
-* Header:                                RFC Headers.
-* Hosts:                                 Hosts.
-* Installation <1>:                      Compiling.
-* Installation:                          Installation.
-* Integration:                           Integration.
-* Introduction <1>:                      Introduction.
-* Introduction:                          Top.
-* Lock files:                            ftnlock.
-* Log file:                              ftnlog.
-* Logging:                               ftnlog.
-* Mail <1>:                              ffxnews.
-* Mail:                                  ffxmail.
-* Node:                                  Example Node.
-* Packing:                               Packing.
-* Password:                              Passwd.
-* Point <1>:                             Example Point 2.
-* Point:                                 Example Point.
-* Programs:                              Programs.
-* RFC header:                            RFC Headers.
-* Remote Execution:                      ffxqt.
-* Remote execution:                      ffx.
-* Routing <1>:                           Routing.
-* Routing:                               ftnroute.
-* Testing:                               Testing.
-* Tossing <1>:                           rununpack.
-* Tossing <2>:                           runtoss.
-* Tossing <3>:                           runout.
-* Tossing <4>:                           runnews.
-* Tossing <5>:                           runmail.
-* Tossing <6>:                           runin.
-* Tossing:                               ftntoss.
-* Usage:                                 Usage.
-* X header:                              X Headers.
-* areas.bbs:                             Areas.bbs.
 * ffx:                                   ffx.
 * ffxmail <1>:                           ffxnews.
 * ffxmail:                               ffxmail.
@@ -3769,6 +3730,8 @@ Index
 * ffxqt:                                 ffxqt.
 * ffxrmail:                              ffxrmail.
 * fidogate.conf:                         Config.
+* FIDONET:                               Connecting.
+* File attach:                           ftnfattach.
 * ftn2ftn:                               ftn2ftn.
 * ftn2rfc <1>:                           ftnin.
 * ftn2rfc:                               ftn2rfc.
@@ -3795,9 +3758,36 @@ Index
 * ftntick:                               ftntick.
 * ftntickpost:                           ftntickpost.
 * ftntoss:                               ftntoss.
+* Gateway <1>:                           ftn2ftn.
+* Gateway <2>:                           rfc2ftn.
+* Gateway:                               ftn2rfc.
+* Header <1>:                            X Headers.
+* Header:                                RFC Headers.
+* Hosts:                                 Hosts.
+* Installation <1>:                      Compiling.
+* Installation:                          Installation.
+* Integration:                           Integration.
+* Introduction <1>:                      Introduction.
+* Introduction:                          Top.
+* Lock files:                            ftnlock.
+* Log file:                              ftnlog.
+* Logging:                               ftnlog.
+* Mail <1>:                              ffxnews.
+* Mail:                                  ffxmail.
+* Node:                                  Example Node.
+* Packing:                               Packing.
+* Password:                              Passwd.
 * pktdebug:                              pktdebug.
 * pktmore:                               pktmore.
+* Point <1>:                             Example Point 2.
+* Point:                                 Example Point.
+* Programs:                              Programs.
+* Remote Execution:                      ffxqt.
+* Remote execution:                      ffx.
+* RFC header:                            RFC Headers.
 * rfc2ftn:                               rfc2ftn.
+* Routing <1>:                           Routing.
+* Routing:                               ftnroute.
 * runffx:                                runffx.
 * rungate:                               rungate.
 * runin:                                 runin.
@@ -3810,5 +3800,15 @@ Index
 * send-fidogate:                         send-fidogate.
 * sendmail:                              Sendmail.
 * sumcrc:                                sumcrc.
+* Testing:                               Testing.
+* Tossing <1>:                           rununpack.
+* Tossing <2>:                           runtoss.
+* Tossing <3>:                           runout.
+* Tossing <4>:                           runnews.
+* Tossing <5>:                           runmail.
+* Tossing <6>:                           runin.
+* Tossing:                               ftntoss.
+* Usage:                                 Usage.
+* X header:                              X Headers.
 
 

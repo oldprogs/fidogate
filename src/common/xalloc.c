@@ -2,15 +2,15 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: xalloc.c,v 4.6 2001/05/28 18:00:27 mj Exp $
+ * $Id: xalloc.c,v 4.7 2002/07/15 20:21:58 n0ll Exp $
  *
  * Safe memory allocation functions
  *
  *****************************************************************************
- * Copyright (C) 1990-2001
+ * Copyright (C) 1990-2002
  *  _____ _____
  * |	 |___  |   Martin Junius	     FIDO:	2:2452/110
- * | | | |   | |   Radiumstr. 18  	     Internet:	mj@fido.de
+ * | | | |   | |   Radiumstr. 18  	     Internet:	mj@fidogate.org
  * |_|_|_|@home|   D-51069 Koeln, Germany
  *
  * This file is part of FIDOGATE.

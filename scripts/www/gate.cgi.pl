@@ -34,7 +34,7 @@ my $font = 'n';
 print
   $q->header,
   $q->start_html(-title   => "morannon.fido.de Gateway Status",
-		 -author  => 'mj@fido.de',
+		 -author  => 'mj@fidogate.org',
 		 -bgcolor => '#ffffff'    ), "\n\n",
   $q->h1("morannon.fido.de Gateway Status"), "\n",
   $q->b("Date: " . localtime(time)), $q->br, $q->br, $q->br,
@@ -136,9 +136,9 @@ for (@DIRS) {
 print
   $q->hr, "\n",
   $q->p, "\n",
-  '<font size=-2>FIDOGATE $Id: gate.cgi.pl,v 1.5 2000/01/28 22:01:08 mj Exp $ <br>',
-  '&copy; Copyright 1990-2000 ',
-  '<a href="mailto:mj@fido.de">Martin Junius</a></font>',
+  '<font size=-2>FIDOGATE $Id: gate.cgi.pl,v 1.6 2002/07/15 20:21:56 n0ll Exp $ <br>',
+  '&copy; Copyright 1990-2002 ',
+  '<a href="mailto:mj@fidogate.org">Martin Junius</a></font>',
   $q->end_html, "\n";
 
 exit 0;

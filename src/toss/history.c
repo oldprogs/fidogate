@@ -2,15 +2,15 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: history.c,v 4.10 2001/05/28 18:00:28 mj Exp $
+ * $Id: history.c,v 4.11 2002/07/15 20:22:01 n0ll Exp $
  *
  * MSGID history functions and dupe checking
  *
  *****************************************************************************
- * Copyright (C) 1990-2001
+ * Copyright (C) 1990-2002
  *  _____ _____
- * |     |___  |   Martin Junius             FIDO:      2:2452/110
- * | | | |   | |   Radiumstr. 18             Internet:  mj@fido.de
+ * |     |___  |   Martin Junius             <mj@fidogate.org>
+ * | | | |   | |   Radiumstr. 18
  * |_|_|_|@home|   D-51069 Koeln, Germany
  *
  * This file is part of FIDOGATE.

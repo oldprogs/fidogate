@@ -2,16 +2,16 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: ftnaf.c,v 1.10 2001/05/28 18:00:27 mj Exp $
+ * $Id: ftnaf.c,v 1.11 2002/07/15 20:21:56 n0ll Exp $
  *
  * Areafix-like AREAS.BBS EchoMail distribution manager. Commands somewhat
  * conforming to FSC-0057.
  *
  *****************************************************************************
- * Copyright (C) 1990-2001
+ * Copyright (C) 1990-2002
  *  _____ _____
- * |     |___  |   Martin Junius             FIDO:      2:2452/110
- * | | | |   | |   Radiumstr. 18             Internet:  mj@fido.de
+ * |     |___  |   Martin Junius             <mj@fidogate.org>
+ * | | | |   | |   Radiumstr. 18
  * |_|_|_|@home|   D-51069 Koeln, Germany
  *
  * This file is part of FIDOGATE.
@@ -39,7 +39,7 @@
 
 
 #define PROGRAM		"ftnaf"
-#define VERSION		"$Revision: 1.10 $"
+#define VERSION		"$Revision: 1.11 $"
 #define CONFIG		DEFAULT_CONFIG_MAIN
 
 

@@ -2,7 +2,7 @@
 @c
 @c FIDOGATE documentation for 4.4
 @c
-@c $Id: fidogate.texi,v 4.50 2000/03/07 10:50:06 mj Exp $
+@c $Id: fidogate.texi,v 4.51 2002/07/15 20:21:55 n0ll Exp $
 @c
 
 @setfilename fidogate.info
@@ -54,7 +54,7 @@ into other languages, under the above conditions for modified versions.
 
 @page
 
-Copyright @copyright{} 1990-2000 Martin Junius
+Copyright @copyright{} 1990-2002 Martin Junius
 
 Permission is granted to make and distribute verbatim copies of
 this manual provided the copyright notice and this permission notice

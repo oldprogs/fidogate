@@ -2,15 +2,15 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: message.c,v 4.19 2001/05/28 18:00:27 mj Exp $
+ * $Id: message.c,v 4.20 2002/07/15 20:21:57 n0ll Exp $
  *
  * Reading and processing FTN text body
  *
  *****************************************************************************
- * Copyright (C) 1990-2001
+ * Copyright (C) 1990-2002
  *  _____ _____
- * |     |___  |   Martin Junius             FIDO:      2:2452/110
- * | | | |   | |   Radiumstr. 18             Internet:  mj@fido.de
+ * |     |___  |   Martin Junius             <mj@fidogate.org>
+ * | | | |   | |   Radiumstr. 18
  * |_|_|_|@home|   D-51069 Koeln, Germany
  *
  * This file is part of FIDOGATE.
@@ -31,6 +31,13 @@
  *****************************************************************************/
 
 #include "fidogate.h"
+
+
+
+/*
+ * Global flag for ignoring (removing) 0x8d (Soft-CR)
+ */
+int msg_ignore_0x8d = 1;
 
 
 
@@ -624,7 +631,9 @@ char *msg_xlate_line(char *buf, int n, char *line, int qp)
 	/*
 	 * Special chars require special treatment ...
 	 */
-	if(c=='\n' || c==0x8d)		/* Ignore \n and soft \r */
+	if(c=='\n')			/* Ignore \n */
+	    continue;
+	if(msg_ignore_0x8d && c==0x8d)	/* Ignore soft \r */
 	    continue;
 	if(c == '\r')
 	    c = '\n';
