@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: areasbbs.c,v 4.11 1998/01/18 09:47:40 mj Exp $
+ * $Id: areasbbs.c,v 4.12 1998/04/10 17:49:15 mj Exp $
  *
  * Function for processing AREAS.BBS EchoMail distribution file.
  *
@@ -41,6 +41,33 @@ static AreasBBS *areasbbs_last    = NULL;
 
 
 /*
+ * Alloc and init new AreasBBS struct
+ */
+AreasBBS *areasbbs_new(void)
+{
+    AreasBBS *p;
+    
+    p = (AreasBBS *)xmalloc(sizeof(AreasBBS));
+
+    /* Init */
+    p->next  = NULL;
+    p->flags = 0;
+    p->dir   = NULL;
+    p->area  = NULL;
+    p->zone  = -1;
+    node_invalid(&p->addr);
+    p->lvl   = -1;
+    p->key   = NULL;
+    p->desc  = NULL;
+    p->state = NULL;
+    lon_init(&p->nodes);
+
+    return p;
+}
+
+
+
+/*
  * Add nodes from string to list of nodes
  */
 static int areasbbs_add_string(LON *lon, char *p)
@@ -73,7 +100,7 @@ static int areasbbs_add_string(LON *lon, char *p)
 /*
  * Create new AreasBBS struct for line from AREAS.BBS
  */
-static AreasBBS *areasbbs_new(char *line)
+static AreasBBS *areasbbs_parse_line(char *line)
 {
     AreasBBS *p;
     char *dir, *tag, *nl, *o2;
@@ -82,11 +109,10 @@ static AreasBBS *areasbbs_new(char *line)
     tag = xstrtok(NULL, " \t\r\n");
     if(!dir || !tag)
 	return NULL;
-    
-    p = (AreasBBS *)xmalloc(sizeof(AreasBBS));
-    
-    p->next  = NULL;
-    p->flags = 0;
+
+    /* New areas.bbs entry */
+    p = areasbbs_new();
+
     if(*dir == '#')
     {
 	p->flags |= AREASBBS_PASSTHRU;
@@ -94,12 +120,6 @@ static AreasBBS *areasbbs_new(char *line)
     }
     p->dir   = strsave(dir);
     p->area  = strsave(tag);
-    p->zone  = -1;
-    node_invalid(&p->addr);
-    p->lvl   = -1;
-    p->key   = NULL;
-    p->desc  = NULL;
-    lon_init(&p->nodes);
     
     /*
      * Options:
@@ -145,12 +165,18 @@ static AreasBBS *areasbbs_new(char *line)
 	    p->desc = strsave(o2);
 	}
 	
+	if(streq(nl, "-s"))		/* -s STATE */
+	{
+	    o2 = xstrtok(NULL, " \t\r\n");
+	    p->state = strsave(o2);
+	}
+	
 	if(streq(nl, "-#"))		/* -# */
 	{
 	    p->flags |= AREASBBS_PASSTHRU;
 	}
 	
-	if(streq(nl, "-r"))		/* -# */
+	if(streq(nl, "-r"))		/* -r */
 	{
 	    p->flags |= AREASBBS_READONLY;
 	}
@@ -203,7 +229,7 @@ int areasbbs_init(char *name)
     while(fgets(buffer, BUFFERSIZE, fp))
     {
 	strip_crlf(buffer);
-	p = areasbbs_new(buffer);
+	p = areasbbs_parse_line(buffer);
 	if(!p)
 	    continue;
 	

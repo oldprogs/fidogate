@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: prototypes.h,v 4.42 1998/04/07 12:21:59 mj Exp $
+ * $Id: prototypes.h,v 4.43 1998/04/10 17:49:16 mj Exp $
  *
  * Prototypes for functions in libfidogate.a
  *
@@ -56,6 +56,7 @@ void    areas_init		(void);
 Area   *areas_lookup		(char *, char *);
 
 /* areasbbs.c */
+AreasBBS *areasbbs_new		(void);
 int	areasbbs_init		(char *);
 int	areasbbs_print		(FILE *);
 AreasBBS *areasbbs_first	(void);

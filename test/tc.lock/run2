@@ -1,0 +1,33 @@
+#!/bin/sh
+
+../tr.init
+
+./run2-1 &
+./run2-1 &
+./run2-1 &
+./run2-2 &
+./run2-2 &
+./run2-2 &
+
+echo "---- Press RETURN to stop ----"
+read xx
+
+for f in locks/test.R*; do
+    if [ -f $f ]; then
+	pid=`echo $f | sed -e 's/^.*test\..//'`
+	kill $pid
+	echo "kill $pid"
+    fi
+done
+
+for f in bt/out/*.bsy; do
+    if [ -f $f ]; then
+	pid=`cat $f`
+	kill $pid
+	echo "kill $pid"
+    fi
+done
+
+rm -f locks/*
+rm -f bt/*/*.bsy*
+

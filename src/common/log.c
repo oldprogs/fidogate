@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: log.c,v 4.11 1998/04/03 20:15:35 mj Exp $
+ * $Id: log.c,v 4.12 1998/04/10 17:49:15 mj Exp $
  *
  * Log and debug functions
  *
@@ -58,7 +58,6 @@ static int use_syslog   = FALSE;
 static int must_openlog = TRUE;
 
 #include <syslog.h>
-#define FACILITY	LOG_LOCAL0
 #endif
 
 

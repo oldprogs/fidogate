@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: areafix.c,v 1.5 1998/03/22 17:57:36 mj Exp $
+ * $Id: areafix.c,v 1.6 1998/04/10 17:49:14 mj Exp $
  *
  * Common Areafix functions
  *
@@ -644,17 +644,11 @@ int cmd_new(Node *node, char *line)
     }
 
     /* Create new areas.bbs entry */
-    p = (AreasBBS *)xmalloc(sizeof(AreasBBS));
+    p = areasbbs_new();
     
-    p->next  = NULL;
-    p->flags = 0;
     p->dir   = "-";
     p->area  = strsave(name);
     p->zone  = node->zone;
-    node_invalid(&p->addr);
-    p->lvl   = -1;
-    p->key   = NULL;
-    p->desc  = NULL;
 
     /* Parse options:
      *

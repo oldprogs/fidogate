@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: structs.h,v 4.13 1998/04/03 20:15:37 mj Exp $
+ * $Id: structs.h,v 4.14 1998/04/10 17:49:16 mj Exp $
  *
  * An assortment of FIDOGATE data structure definitions
  *
@@ -101,6 +101,7 @@ typedef struct st_areasbbs	/* AREAS.BBS entry */
     LON   nodes;		    /* Nodes linked to this area */
     int   flags;		    /* Area flags, see AREASBBS_xx defines */
     char *desc;			    /* Area description */
+    char *state;		    /* Area state flags */
     struct st_areasbbs *next;	    /* For linked list */
 }
 AreasBBS;

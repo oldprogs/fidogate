@@ -2,13 +2,18 @@
 
 	************** TODO list for FIDOGATE development **************
 
+	* ftnaf*: add flag to areas.bbs if area is not subscribed at
+	  uplink, issue appropiate message to user. 
+
+DONE	* areas.bbs: new -s STATE option.
+
 DONE	* rfc2ftn: directly process batch file in
 	  /var/spool/news/out.going.
 
 DONE	* rfc2ftn: check areas.bbs in news mode, only gate if area has
 	  downlinks.
 
-	* ftnin: process address by address, don't try to create bsy
+DONE	* ftnin: process address by address, don't try to create bsy
 	  files for all addresses at once.
 
 	* ftnpack: allow %X in programs (pack, prog, progn)

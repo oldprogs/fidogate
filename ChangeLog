@@ -1,4 +1,24 @@
+Fri Apr 10 19:23:46 1998  Martin Junius  <mj@fido.de>
+
+	------- CVS ci -------------------------------------------------------
+
+	* src/areafix/areafix.c (cmd_new): use new areasbbs_new().
+
+	* src/common/areasbbs.c (areasbbs_new): renamed to
+	  areasbbs_parse_line(). 
+	  (areasbbs_new): new function allocating and initializing
+	  AreasBBS struct.
+	  (areasbbs_parse_line): use new areasbbs_new(), implemented
+	  -s STATE option.
+
+	* src/include/structs.h (AreasBBS): added new state field to
+	  struct to be used by Areafix.
+
+	* src/common/log.c (FACILITY): #define moved to config.h
+
 Tue Apr  7 12:39:49 1998  Martin Junius  <mj@fido.de>
+
+	* test/tc.lock/run2: new test for ftnbsy.
 
 	------- CVS ci -------------------------------------------------------
 

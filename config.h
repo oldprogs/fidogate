@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway software UNIX <-> FIDO
  *
- * $Id: config.h,v 4.33 1998/01/31 20:22:29 mj Exp $
+ * $Id: config.h,v 4.34 1998/04/10 17:49:10 mj Exp $
  *
  * Configuration header file
  *
@@ -76,6 +76,12 @@
  * Domain for invalid FTN addresses
  */
 #define FTN_INVALID_DOMAIN "INVALID_FTN_ADDRESS"
+
+/*
+ * syslog facility using for logging if logfile == "syslog"
+ * (only for HAS_SYSLOG defined)
+ */
+#define FACILITY	LOG_LOCAL0
 
 
 
