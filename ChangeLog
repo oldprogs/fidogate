@@ -1,6 +1,12 @@
 1999-06-20  Martin Junius  <mj@fido.de>
 
 	======= Release 4.3.4 ================================================
+
+	------- CVS ci -------------------------------------------------------
+
+	* src/include/prototypes.h: #undef strtok(), strtok_r, may be
+	  defined as inline code when compiling with -O on Linux.
+
 	------- CVS tag R434 -------------------------------------------------
 	------- CVS ci -------------------------------------------------------
 

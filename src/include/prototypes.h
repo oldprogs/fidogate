@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: prototypes.h,v 4.58 1999/06/17 21:42:50 mj Exp $
+ * $Id: prototypes.h,v 4.59 1999/06/20 17:37:24 mj Exp $
  *
  * Prototypes for functions in libfidogate.a
  *
@@ -509,6 +509,9 @@ long	sequencer_nx		(char *, int);
 #define QUOTE		'\"'
 #define DQUOTE		'\"'
 #define SQUOTE		'\''
+
+#undef strtok
+#undef strtok_r
 
 char   *strtok			(char *, const char *);
 char   *xstrtok                 (char *, const char *);
