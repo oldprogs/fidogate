@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: ftnaf.c,v 4.13 1997/11/09 16:37:46 mj Exp $
+ * $Id: ftnaf.c,v 4.14 1997/11/09 17:46:25 mj Exp $
  *
  * Areafix-like AREAS.BBS EchoMail distribution manager. Commands somewhat
  * conforming to FSC-0057.
@@ -39,7 +39,7 @@
 
 
 #define PROGRAM		"ftnaf"
-#define VERSION		"$Revision: 4.13 $"
+#define VERSION		"$Revision: 4.14 $"
 #define CONFIG		CONFIG_MAIN
 
 
@@ -706,8 +706,10 @@ int cmd_listall(Node *node)
 	l = &p->nodes;
 
 	fprintf(output, lon_search(l, node) ? "* " : "  ");
-	fprintf(output, "Z%-3d %-39s%s%s\n", p->zone, p->area,
-		p->desc ? ": " : "", p->desc ? p->desc : ""   );
+	if(p->desc)
+	    fprintf(output, "Z%-3d %-39s: %s\n", p->zone, p->area, p->desc);
+	else
+	    fprintf(output, "Z%-3d %s\n", p->zone, p->area);
     }
     
     fprintf(output, "\n* = linked to this area\n\n");
@@ -760,8 +762,10 @@ int cmd_list(Node *node)
 	    continue;
 	
 	fprintf(output, lon_search(l, node) ? "* " : "  ");
-	fprintf(output, "%-39s%s%s\n", p->area,
-		p->desc ? ": " : "", p->desc ? p->desc : ""   );
+	if(p->desc)
+	    fprintf(output, "%-39s: %s\n", p->area, p->desc);
+	else
+	    fprintf(output, "%s\n", p->area);
     }
     
     fprintf(output, "\n* = linked to this area\n\n");

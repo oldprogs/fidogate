@@ -2,6 +2,19 @@ Sun Nov  9 12:41:23 1997  Martin Junius  <mj@fido.de>
 
 	------- CVS ci -------------------------------------------------------
 
+	* src/common/areasbbs.c (areasbbs_new): back to strtok(),
+	  xstrtok() is not yet working properly.
+	  (areasbbs_print): currently don't output -d DESC.
+
+	* src/toss/ftnaf.c (cmd_listall): improved description output.
+	  (cmd_list): improved description output.
+
+	* src/util/ftnflo.c (do_flo): commented log() info message.
+
+	* scripts/maintenance/logcheck.pl: first digit of day may be space.
+
+	------- CVS ci -------------------------------------------------------
+
 	* src/toss/ftnaf.c (cmd_create): added new -d DESC option, using
 	  xstrtok() to allow "text".
 	  (cmd_listall): add area description to output.

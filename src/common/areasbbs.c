@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: areasbbs.c,v 4.8 1997/11/09 16:37:43 mj Exp $
+ * $Id: areasbbs.c,v 4.9 1997/11/09 17:46:25 mj Exp $
  *
  * Function for processing AREAS.BBS EchoMail distribution file.
  *
@@ -50,9 +50,9 @@ static AreasBBS *areasbbs_new(char *line)
     AreasBBS *p;
     char *dir, *tag, *nl, *o1, *o2;
    
-    dir = xstrtok(line, " \t");
-    tag = xstrtok(NULL, " \t");
-    nl  = xstrtok(NULL, "\r\n");
+    dir = strtok(line, " \t");
+    tag = strtok(NULL, " \t");
+    nl  = strtok(NULL, "\r\n");
     if(!dir || !tag)
 	return NULL;
     
@@ -87,9 +87,9 @@ static AreasBBS *areasbbs_new(char *line)
      */
     while(nl && *nl=='-')
     {
-	o1 = xstrtok(nl  , " \t");
-	o2 = xstrtok(NULL, " \t");
-	nl = xstrtok(NULL, "");
+	o1 = strtok(nl  , " \t");
+	o2 = strtok(NULL, " \t");
+	nl = strtok(NULL, "");
  	while(nl && is_space(*nl))
 	    nl++;
 
@@ -196,8 +196,10 @@ int areasbbs_print(FILE *fp)
 	    fprintf(fp, "-l %d ", p->lvl);
 	if(p->key)
 	    fprintf(fp, "-k %s ", p->key);
+/*
 	if(p->desc)
 	    fprintf(fp, "-d \"%s\" ", p->desc);
+*/
 	lon_print_sorted(&p->nodes, fp, 1);
 	fprintf(fp, "\r\n");
     }

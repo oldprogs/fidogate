@@ -2,7 +2,8 @@
 	************** TODO list for FIDOGATE development **************
 
 
-	* areas.bbs: option for area description.
+STARTED	* areas.bbs: option for area description.
+4.3.x	  Better parser for areas.bbs entries and options needed!
 	
 DONE	* tests: ftntoss echomail problems and Kill* config.
 

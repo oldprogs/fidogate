@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftnflo.c,v 4.5 1997/06/28 16:26:37 mj Exp $
+ * $Id: ftnflo.c,v 4.6 1997/11/09 17:46:26 mj Exp $
  *
  * Run script for every entry in FLO file for node
  *
@@ -38,7 +38,7 @@
 
 
 #define PROGRAM		"ftnflo"
-#define VERSION		"$Revision: 4.5 $"
+#define VERSION		"$Revision: 4.6 $"
 #define CONFIG		CONFIG_MAIN
 
 
@@ -71,7 +71,7 @@ int do_flo(Node *node)
     /* Open FLO file */
     if(flo_open(node, TRUE) == ERROR)
     {
-	log("nothing on hold for %s", znfp(node));
+/*	log("nothing on hold for %s", znfp(node)); */
 	return OK;
     }
 

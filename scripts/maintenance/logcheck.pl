@@ -1,6 +1,6 @@
 #!/usr/local/bin/perl
 #
-# $Id: logcheck.pl,v 4.1 1997/10/22 19:18:47 mj Exp $
+# $Id: logcheck.pl,v 4.2 1997/11/09 17:46:23 mj Exp $
 #
 # Create report for sendmail chech_mail rule
 #
@@ -42,7 +42,7 @@ print "\n" if($opt_m || $opt_n);
 
 # Read sendmail log
 while(<>) {
-    if( /^(... \d\d \d\d:\d\d:\d\d) / ) {
+    if( /^(... .\d \d\d:\d\d:\d\d) / ) {
 	$first_date = $1 if(!$first_date);
 	$last_date  = $1;
     }
