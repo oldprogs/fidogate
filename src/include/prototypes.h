@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: prototypes.h,v 4.15 1996/11/09 18:02:14 mj Exp $
+ * $Id: prototypes.h,v 4.16 1996/11/17 12:03:24 mj Exp $
  *
  * Prototypes for functions in libfidogate.a
  *
@@ -221,8 +221,9 @@ void	hosts_init		(void);
 Host   *hosts_lookup		(Node *, char *);
 
 /* kludge.c */
-char   *kludge_get		(Textlist *, char *, Textline **);
 void    kludge_pt_intl		(MsgBody *, Message *, int);
+char   *kludge_getn		(Textlist *, char *, Textline **, int);
+char   *kludge_get		(Textlist *, char *, Textline **);
 
 /* lock.c */
 int	lock_fd			(int);
