@@ -13,7 +13,7 @@ cp -av \
     /u2/archive/fidogate
 
 cp -av \
-    README ANNOUNCE ChangeLog \
+    README ANNOUNCE ChangeLog doc/html/*.html \
     /html/fidogate
 
 # morannon

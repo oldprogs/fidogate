@@ -1,10 +1,8 @@
 PUSHDIVERT(-1)
 #
-# $Id: ftn.m4,v 4.12 2002/08/04 02:27:32 dyff Exp $
+# $Id: ftn.m4,v 4.13 2003/04/15 18:45:24 n0ll Exp $
 #
 # FIDOGATE FTN mailer for sendmail V8
-#
-# MAILER(smtp) must be included!
 #
 
 ifdef(`confFIDOGATE_LIBDIR',,
@@ -28,10 +26,9 @@ POPDIVERT
 ###    FTN Mailer specification   ###
 #####################################
 
-VERSIONID(`$Revision: 4.12 $')
+VERSIONID(`$Revision: 4.13 $')
 
-ifdef(`_MAILER_smtp_',
-`# FIDOGATE mailer
+# FIDOGATE mailer
 Mftn,	P=FTN_MAILER_PATH, F=CONCAT(mDFMuX8, FTN_MAILER_FLAGS), S=11/31, R=ifdef(`_ALL_MASQUERADE_', `21/31', `21'),
 	A=FTN_MAILER_ARGS
 
@@ -42,4 +39,4 @@ Mftna,	P=FTN_MAILER_PATH, F=CONCAT(mDFMuX8, FTN_MAILER_FLAGS), S=11/31, R=ifdef(
 	A=FTN_MAILER_ARGSA
 
 Mftno,	P=FTN_MAILER_PATH, F=CONCAT(mDFMuX8, FTN_MAILER_FLAGS), S=11/31, R=ifdef(`_ALL_MASQUERADE_', `21/31', `21'),
-	A=FTN_MAILER_ARGSO')
+	A=FTN_MAILER_ARGSO

@@ -1,6 +1,6 @@
 #:ts=8
 #
-#    $Id: Makefile,v 4.14 2002/12/16 20:20:42 n0ll Exp $
+#    $Id: Makefile,v 4.15 2003/04/15 18:45:22 n0ll Exp $
 #
 #    Makefile for FIDOGATE sendmail/cf/
 #
@@ -31,6 +31,7 @@ all:
 
 redhat6:	redhat6-morannon.cf
 redhat7:	redhat7-orodruin.cf
+redhat9:	redhat9-orodruin.cf
 
 
 install:

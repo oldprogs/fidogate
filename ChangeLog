@@ -1,4 +1,31 @@
+2003-04-15  Martin Junius  <mj@m-j-s.net>
+
+	------- CVS ci -------------------------------------------------------
+
+	* fidogate.spec: updated, release 1.rh9x
+
+	* config.make (DEFAULT_F_NEWSLIBDIR): set to /usr/lib/news/lib for
+	  inn 2.3.4 / RedHat 9.
+
+	* version.h (PATCHLEVEL): set to 8, version 4.4.8, this will be
+	  the build for RedHat 9.
+
+2003-04-12  Martin Junius  <mj@m-j-s.net>
+
+	* sendmail/mailer/ffx.m4: dito.
+
+	* sendmail/mailer/ftn.m4: removed "MAILER(smtp)" in comment.
+
+	* sendmail/mailer/ffx.m4: removed ifdef.
+
+	* sendmail/mailer/ftn.m4: removed ifdef.
+
+	* sendmail/cf/redhat9-orodruin.mc: new sendmail config file for
+	  RedHat 9 with FIDOGATE.
+
 2003-04-11  Martin Junius  <mj@m-j-s.net>
+
+	* update-morannon: copy html docs to local fidogate web site.
 
 	======= Release 4.4.7 ================================================
 	------- CVS tag R447 -------------------------------------------------

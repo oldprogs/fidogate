@@ -1,6 +1,6 @@
 # -*- Makefile -*-
 #
-# $Id: config.make,v 4.31 2001/08/20 05:23:53 mj Exp $
+# $Id: config.make,v 4.32 2003/04/15 18:45:20 n0ll Exp $
 #
 # FIDOGATE main configuration
 #
@@ -89,7 +89,10 @@ DEFAULT_F_NEWSVARDIR	= /var/lib/news
 #DEFAULT_F_NEWSLIBDIR	= /usr/lib/news
 #DEFAULT_F_NEWSSPOOLDIR	= /var/spool/news
 # INN 2.2
-DEFAULT_F_NEWSLIBDIR	= /usr/lib
+#DEFAULT_F_NEWSLIBDIR	= /usr/lib
+#DEFAULT_F_NEWSSPOOLDIR	= /var/spool/news/articles
+# INN 2.3.4 on RedHat 9
+DEFAULT_F_NEWSLIBDIR	= /usr/lib/news/lib
 DEFAULT_F_NEWSSPOOLDIR	= /var/spool/news/articles
 # ifcico-3.0.cm.alpha-4.1
 #DEFAULT_F_IFMAILDIR     = /usr/lib/ifmail

@@ -3,17 +3,17 @@
 /*
  * FIDOGATE
  *
- * $Id: cf_abbrev.c,v 4.18 2001/10/21 20:17:22 mj Exp $
+ * $Id: cf_abbrev.c,v 4.19 2003/04/15 18:45:24 n0ll Exp $
  */
 
-{ 'I', cf_p_inbound },
-{ 'S', cf_p_spooldir },
 { 'K', cf_p_lockdir },
+{ 'V', cf_p_vardir },
 { 'U', cf_p_uuinbound },
 { 'P', cf_p_pinbound },
 { 'L', cf_p_libdir },
-{ 'B', cf_p_btbasedir },
-{ 'G', cf_p_logdir },
+{ 'I', cf_p_inbound },
 { 'N', cf_p_bindir },
 { 'C', cf_p_configdir },
-{ 'V', cf_p_vardir },
+{ 'B', cf_p_btbasedir },
+{ 'S', cf_p_spooldir },
+{ 'G', cf_p_logdir },
