@@ -537,14 +537,17 @@ The following definitions must start in the first column.
 `LIBDIR'
      The directory for FIDOGATE's programs and config files.
 
-`INFODIR'
-     The directory for installing info files.
-
 `SPOOLDIR'
      FIDOGATE's spool directory.
 
 `LOGDIR'
      Directory for FIDOGATE log files.
+
+`INFODIR'
+     Directory for installing info documentation files.
+
+`HTMLDIR'
+     Directory for installing HTML documentation files.
 
 `OUTBOUND'
      BinkleyTerm-style outbound base directory. Used by the perl and

@@ -1,4 +1,26 @@
+Sun Oct  6 11:18:04 1996  Martin Junius  <mj@fido.de>
+
+	------- CVS ci -------------------------------------------------------
+
+	* doc/html/: new subdirectory with HTML documentation, converted
+	  by texi2html.
+
+	* config.make (HTMLDIR): added directory for installing HTML docs.
+
+	* version.h (BETA): set to 3.
+
+	* src/gate/ftn2rfc.c (unpack): put "MAIL: " in front of gateway
+	  mail log().
+
+	* src/toss/rununpack.sh: improved lookup of unpacker programs, now
+	  searches for unarj, arc, unzip, lharc, lha, zoo in the
+	  directories /bin, /usr/bin, /usr/local/bin.
+
 Thu Oct  3 11:24:09 1996  Martin Junius  <mj@fido.de>
+
+	------- CVS ci -------------------------------------------------------
+
+	* doc/fidogate.info: resurrected fidogate.info* files in CVS.
 
 	======= Release 4.0 beta 2 ===========================================
 	------- CVS tag R40b2 ------------------------------------------------

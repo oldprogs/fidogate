@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftn2rfc.c,v 4.7 1996/09/15 11:55:12 mj Exp $
+ * $Id: ftn2rfc.c,v 4.8 1996/10/06 15:18:22 mj Exp $
  *
  * Convert FTN mail packet to RFC messages (mail and news batches)
  *
@@ -40,7 +40,7 @@
 
 
 #define PROGRAM 	"ftn2rfc"
-#define VERSION 	"$Revision: 4.7 $"
+#define VERSION 	"$Revision: 4.8 $"
 #define CONFIG		CONFIG_GATE
 
 
@@ -804,7 +804,7 @@ int unpack(FILE *pkt_file, Packet *pkt)
 
 	/* Different header for mail and news */
 	if(area==NULL) {			/* Mail */
-	    log("%s -> %s", from_line, to_line);
+	    log("MAIL: %s -> %s", from_line, to_line);
 	    
 	    if(mail_open() == ERROR)
 	    {

@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# $Id: rununpack.sh,v 4.2 1996/06/16 08:41:27 mj Exp $
+# $Id: rununpack.sh,v 4.3 1996/10/06 15:18:23 mj Exp $
 #
 # Unpack ArcMail archives
 #
@@ -17,10 +17,9 @@
 #  0	short		0x60ea		ARJ Archive
 #
 
+# Programs are searched in: /bin, /usr/bin, /usr/local/bin
+
 PRG=<LIBDIR>
-# Directory with unpacking programs (arc, unzip, lha, unarj)
-#BIN=<BINDIR>
-BIN=/usr/bin
 SPOOLDIR=<SPOOLDIR>
 INBOUND=<INBOUND>
 PINBOUND=<PINBOUND>
@@ -82,24 +81,42 @@ if [ -f $arc ]; then
 	type=`file -m $PRG/magic $arc | awk '{print $2}'`
 	case $type in
 	ARJ | Arj | arj)
-		xcmd="$BIN/unarj e   $arc"
-		lcmd="$BIN/unarj l   $arc"
+		[ -x /bin/unarj           ] && cmd=/bin/unarj
+		[ -x /usr/bin/unarj       ] && cmd=/usr/bin/unarj
+		[ -x /usr/local/bin/unarj ] && cmd=/usr/local/bin/unarj
+		xcmd="$cmd e $arc"
+		lcmd="$cmd l $arc"
 		;;
 	ARC | Arc | arc)
-		xcmd="$BIN/arc   e   $arc"
-		lcmd="$BIN/arc   l   $arc"
+		[ -x /bin/arc             ] && cmd=/bin/arc
+		[ -x /usr/bin/arc         ] && cmd=/usr/bin/arc
+		[ -x /usr/local/bin/arc   ] && cmd=/usr/local/bin/arc
+		xcmd="$cmd e $arc"
+		lcmd="$cmd l $arc"
 		;;
 	ZIP | Zip | zip)
-		xcmd="$BIN/unzip -xj $arc"
-		lcmd="$BIN/unzip -l  $arc"
+		[ -x /bin/unzip           ] && cmd=/bin/unzip
+		[ -x /usr/bin/unzip       ] && cmd=/usr/bin/unzip
+		[ -x /usr/local/bin/unzip ] && cmd=/usr/local/bin/unzip
+		xcmd="$cmd -xj $arc"
+		lcmd="$cmd -l  $arc"
 		;;
 	LHA | Lha | lha)
-		xcmd="$BIN/lharc ei  $arc"
-		lcmd="$BIN/lharc l   $arc"
+		[ -x /bin/lharc           ] && cmd=/bin/lharc
+		[ -x /usr/bin/lharc       ] && cmd=/usr/bin/lharc
+		[ -x /usr/local/bin/lharc ] && cmd=/usr/local/bin/lharc
+		[ -x /bin/lha             ] && cmd=/bin/lha
+		[ -x /usr/bin/lha         ] && cmd=/usr/bin/lha
+		[ -x /usr/local/bin/lha   ] && cmd=/usr/local/bin/lha
+		xcmd="$cmd ei $arc"
+		lcmd="$cmd l  $arc"
 		;;
 	ZOO | Zoo | zoo)
-		xcmd="$BIN/zoo   e:  $arc"
-		lcmd="$BIN/zoo   l   $arc"
+		[ -x /bin/zoo             ] && cmd=/bin/zoo
+		[ -x /usr/bin/zoo         ] && cmd=/usr/bin/zoo
+		[ -x /usr/local/bin/zoo   ] && cmd=/usr/local/bin/zoo
+		xcmd="$cmd e: $arc"
+		lcmd="$cmd l  $arc"
 		;;
 	*)
 		echo    "rununpack: unknown archive type"

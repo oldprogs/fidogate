@@ -1,6 +1,6 @@
 # -*- Makefile -*-
 #
-# $Id: config.make,v 4.4 1996/10/02 19:09:38 mj Exp $
+# $Id: config.make,v 4.5 1996/10/06 15:18:15 mj Exp $
 #
 # FIDOGATE Makefile configuration
 #
@@ -16,9 +16,12 @@
 # FIDOGATE Directories
 BINDIR		= /usr/local/bin
 LIBDIR		= /usr/local/lib/fidogate
-INFODIR		= /usr/local/info
 SPOOLDIR	= /var/spool/fido
 LOGDIR		= /var/log/fido
+
+# Doc directories
+INFODIR		= /usr/local/info
+HTMLDIR		= /home/mj/public_html/fidogate
 
 # Outbound *base* directory, i.e. outbound is OUTBOUND/out.xxx
 OUTBOUND	= /var/spool/bt

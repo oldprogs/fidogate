@@ -2,7 +2,7 @@
 @c
 @c FIDOGATE documentation
 @c
-@c $Id: fidogate.texi,v 4.4 1996/10/03 09:48:34 mj Exp $
+@c $Id: fidogate.texi,v 4.5 1996/10/06 15:18:18 mj Exp $
 @c
 
 @setfilename fidogate.info
@@ -703,14 +703,17 @@ The directory for user programs.
 @item LIBDIR
 The directory for FIDOGATE's programs and config files.
 
-@item INFODIR
-The directory for installing info files.
-
 @item SPOOLDIR
 FIDOGATE's spool directory.
 
 @item LOGDIR
 Directory for FIDOGATE log files.
+
+@item INFODIR
+Directory for installing info documentation files.
+
+@item HTMLDIR
+Directory for installing HTML documentation files.
 
 @item OUTBOUND
 BinkleyTerm-style outbound base directory. Used by the perl and shell

@@ -1,0 +1,182 @@
+<HTML>
+<HEAD>
+<!-- This HTML file has been created by texi2html 1.51
+     from ../fidogate.texi on 6 October 1996 -->
+
+<TITLE>FIDOGATE
+ - Basic Configuration</TITLE>
+</HEAD>
+<BODY>
+Go to the <A HREF="fidogate_1.html">first</A>, <A HREF="fidogate_4.html">previous</A>, <A HREF="fidogate_6.html">next</A>, <A HREF="fidogate_6.html">last</A> section, <A HREF="fidogate_toc.html">table of contents</A>.
+<P><HR><P>
+
+
+<H1><A NAME="SEC58" HREF="fidogate_toc.html#TOC58">Basic Configuration</A></H1>
+
+<P>
+<A NAME="IDX80"></A>
+
+</P>
+<P>
+There seems to be some confusion about how to configure the gateway and
+the tosser, so a added this chapter. Hopefully this will help ...
+
+</P>
+<P>
+The following applies to a simple Fido node setup with one uplink,
+several points and the gateway.
+
+</P>
+<P>
+Most important, the <I>gateway</I> and the <I>node</I> (main aka) need
+<I>different</I> addresses!!! The gateway is some sort of a "sysop
+point", so normally you must assign one of your point addresses to the
+gateway. The <CODE>Uplink</CODE> in <CODE>config.gate</CODE> is your node address.
+
+</P>
+
+<UL>
+<LI><A HREF="fidogate_5.html#SEC59">Example</A>: Example leaf node configuration
+</UL>
+
+
+
+<H2><A NAME="SEC59" HREF="fidogate_toc.html#TOC59">Example Leaf Node configuration</A></H2>
+<P>
+<A NAME="IDX81"></A>
+<A NAME="IDX82"></A>
+
+</P>
+
+<P>
+Let's assume the following addresses:
+
+</P>
+<P>
+Fido main address 2:2499/123
+
+</P>
+<P>
+Uplink (NetMail and EchoMail) 2:2499/100
+
+</P>
+<P>
+Local gateway address 2:2499/123.1
+
+</P>
+<P>
+Two points, Max Mueller @ 2:2499/123.10, Sabine Meier @ 2:2499/123.11
+
+</P>
+
+<P>
+Address configuration <CODE>config.gate</CODE> (uplink is node address!):
+
+</P>
+
+<PRE>
+Address 2:2499/123.1
+Uplink  2:2499/123
+</PRE>
+
+<P>
+Address configuration <CODE>config.main</CODE> (no uplink here!):
+
+</P>
+
+<PRE>
+Address 2:2499/123
+</PRE>
+
+<P>
+Routing configuration <CODE>routing</CODE>: NetMail for the two points will be
+remapped to their point addresses, everything else to the gateway (where
+you will be reading your mail). NetMail for all points is <CODE>send</CODE>
+onto hold, everything else <CODE>route</CODE>d to your uplink. EchoMail is
+alway put onto hold.
+
+</P>
+
+<PRE>
+remap 2:2499/123.0 2:2499/123.10 "Max Mueller"
+remap 2:2499/123.0 2:2499/123.11 "Sabine Meier"
+remap 2:2499/123.0 2:2499/123.1  "*"
+
+NetMail
+send  hold 2:2499/123.*
+route hold 2:2499/100 1:* 2:* 3:* 4:* 5:* 6:*
+
+EchoMail
+sendmove hold *
+</PRE>
+
+<P>
+Packer configuration <CODE>packing</CODE>: no packing for the gateway address,
+<CODE>zip</CODE> is the default archiver for everything else.
+
+</P>
+
+<PRE>
+arc zip "/usr/local/bin/zip -gkjq %s %s"
+
+pack noarch 2:2499/123.1
+pack zip    *
+</PRE>
+
+<P>
+Next, the EchoMail areas must be listed in the <CODE>areas.bbs</CODE> file. Do
+<I>not</I> put your node address into <CODE>areas.bbs</CODE>! Example with two
+areas, both subscribed by the gateway and your points (the directory
+<CODE>X</CODE> is not used for EchoMail areas):
+
+</P>
+
+<PRE>
+Your system name!sysop name
+X LINUX.GER 2:2499/100 123.1 .10 .11
+X UNIX.GER  2:2499/100 123.1 .11
+</PRE>
+
+<P>
+In the gateway configuration, these areas must be listed in the
+<CODE>areas</CODE> config file:
+
+</P>
+
+<PRE>
+LINUX.GER fido.ger.linux
+UNIX.GER  fido.ger.unix
+</PRE>
+
+<P>
+Now the gateway is able to process EchoMail. The program <CODE>ftnin</CODE>
+should be run to gate any (unpacked) FTN outbound mail packet for
+2:2499/123.1. The scripts <CODE>runin</CODE> and <CODE>runout</CODE> run the tosser
+for processing the inbound and the gateway output, respectively.
+
+</P>
+<P>
+To use the <CODE>ftnaf</CODE> areafix, the gateway and the mail system must be
+working. You can then install suitable aliases in <CODE>/etc/aliases</CODE>:
+
+</P>
+
+<PRE>
+# Areafix/Filefix - FIDOGATE ftnaf
+areafix: "|/usr/local/lib/fidonet/ftnaf -m", admin
+areamgr: areafix
+filefix: "|/usr/local/lib/fidonet/ftnaf -F -m", admin
+filemgr: filefix
+</PRE>
+
+<P>
+That's it. Hope that this short chapter on basic configuration clarifies
+some of the darker point of the FIDOGATE configuration. Anyway, please
+help to improve the FIDOGATE documentation.
+
+</P>
+
+<P><HR><P>
+Go to the <A HREF="fidogate_1.html">first</A>, <A HREF="fidogate_4.html">previous</A>, <A HREF="fidogate_6.html">next</A>, <A HREF="fidogate_6.html">last</A> section, <A HREF="fidogate_toc.html">table of contents</A>.
+</BODY>
+</HTML>
