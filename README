@@ -1,14 +1,20 @@
 -*- Indented-Text -*-
 
-$Id: README,v 4.11 1996/10/16 19:35:10 mj Exp $
+$Id: README,v 4.12 1996/10/18 19:48:37 mj Exp $
 
 ----------------------------------------------------------------------
 				   
 			F  I  D  O  G  A  T  E
-				 ----
-	     Fidonet-Internet Gateway and Fidonet Tosser
-				   
+
 			      Version 4
+
+		       ------------------------
+		        * Fido-Internet Gateway
+		        * Fido FTN-FTN Gateway
+		        * Fido Mail Processor
+		        * Fido File Processor
+		        * Fido Areafix/Filefix
+		       ------------------------
 
 ----------------------------------------------------------------------
 
@@ -101,4 +107,4 @@ For an OS/2 version of FIDOGATE contact:
 
 ----------------------------------------------------------------------
 
-Martin Junius <mj@fido.de>, $Date: 1996/10/16 19:35:10 $
+Martin Junius <mj@fido.de>, $Date: 1996/10/18 19:48:37 $

@@ -1,8 +1,19 @@
 Fri Oct 18 18:31:45 1996  Martin Junius  <mj@fido.de>
 
-	------- CVS tag pre410 -----------------------------------------------
+	======= Release 4.1.0 ================================================
+	------- CVS ci, tag R410 ---------------------------------------------
 
-	------- CVS ci -------------------------------------------------------
+	* ANNOUNCE (Internet): updated for release.
+
+	* version.h (BETA): set to 0 (commented).
+
+	* fidogate.lsm: updated.
+
+	* doc/fidogate.texi (Introduction): updated WWW FIDOGATE home page.
+
+	* README: some changes.
+
+	------- CVS ci, tag pre410 -------------------------------------------
 
 	* ANNOUNCE: some changes.
 

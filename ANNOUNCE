@@ -22,19 +22,19 @@ Internet:
     ftp://sunsite.unc.edu/pub/Linux/system/Fido/
     (maybe still in /pub/Linux/Incoming)
 
-    fidogate-4.1.0.tar.gz
+    fidogate-4.1.0.tar.gz	651 Kbyte
 
 Fido File Request:
 ------------------
     2:2452/110, 111  +49-241-876604  (V.34, ISDN V.110, X.75)
     
-    fgate410.tgz
+    fgate410.tgz		651 Kbyte
 
 
 
 ----------------------------------------------------------------------
 
-Major changes in FIDOGATE 4.0:
+Major changes in FIDOGATE 4:
 
 * Areas in AREAS.BBS must now explicitly be marked as passthru (dir
   entry must start with `#'), otherwise ftntoss will create packets
@@ -61,6 +61,7 @@ Needed:
 -   GNU make
 -   GNU flex/bison or lex/yacc
 -   Perl 4.036+
+-   GNU m4 for the sendmail m4 configuration
 
 ----------------------------------------------------------------------
 
@@ -79,4 +80,4 @@ for subscription requests.
 
 ----------------------------------------------------------------------
 
-Martin Junius <mj@fido.de>, $Date: 1996/10/18 19:29:49 $
+Martin Junius <mj@fido.de>, $Date: 1996/10/18 19:48:35 $

@@ -2,7 +2,7 @@
 @c
 @c FIDOGATE documentation
 @c
-@c $Id: fidogate.texi,v 4.8 1996/10/18 16:57:51 mj Exp $
+@c $Id: fidogate.texi,v 4.9 1996/10/18 19:48:39 mj Exp $
 @c
 
 @setfilename fidogate.info
@@ -186,7 +186,7 @@ The latest version of FIDOGATE is available at the locations.
 @noindent
 Internet WWW FIDOGATE home page:
 @example
-http://www.fido.de/~mj/fidogate/
+http://www.fido.de/fidogate/
 @end example
 
 @noindent
