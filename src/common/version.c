@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway software UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: version.c,v 4.6 1999/01/02 16:35:01 mj Exp $
+ * $Id: version.c,v 4.7 1999/03/07 16:11:48 mj Exp $
  *
  * FIDOGATE version number handling stuff
  *
@@ -36,46 +36,16 @@
 
 
 
-static char global_id[]    = { VERSION };
-/* static char global_state[] = { STATE   }; */
-    
-    
-static char *get_keyword_arg (char *);
-
-
-
 /*
  * version_global() --- Get global FIDOGATE version string
  */
-
 char *version_global(void)
 {
-    static char id[128];
+    static char id[16];
 
-#if   defined(ALPHA)
-    sprintf(id, "%sa%d", get_keyword_arg(global_id), ALPHA     );
-#elif defined(BETA)
-    sprintf(id, "%sb%d", get_keyword_arg(global_id), BETA      );
-#else
-    sprintf(id, "%s.%d", get_keyword_arg(global_id), PATCHLEVEL);
-#endif
-
+    str_printf(id, sizeof(id), "%d.%d.%d",
+	       VERSION_MAJOR, VERSION_MINOR, PATCHLEVEL);
     return id;
-}
-
-
-
-/*
- * version_local() --- Get local version from passed RCS Revision string
- */
-
-char *version_local(char *rev)
-{
-    static char id[128];
-    
-    strncpy0(id, rev, 128);
-    
-    return get_keyword_arg(id);
 }
 
 
@@ -83,7 +53,6 @@ char *version_local(char *rev)
 /*
  * get_keyword_arg()
  */
-
 static char *get_keyword_arg(char *s)
 {
     char *p;
@@ -104,24 +73,28 @@ static char *get_keyword_arg(char *s)
 
 
 /*
+ * version_local() --- Get local version from passed RCS/CVS Revision string
+ */
+char *version_local(char *rev)
+{
+    static char id[128];
+    
+    BUF_COPY(id, rev);
+    
+    return get_keyword_arg(id);
+}
+
+
+
+/*
  * Get major/minor version number
  */
 int version_major(void)
 {
-    int major=ERROR, minor=ERROR;
-    
-    strcpy(buffer, version_global());
-    sscanf(buffer, "%d.%d", &major, &minor);
-    
-    return major;
+    return VERSION_MAJOR;
 }
 
 int version_minor(void)
 {
-    int major=ERROR, minor=ERROR;
-    
-    strcpy(buffer, version_global());
-    sscanf(buffer, "%d.%d", &major, &minor);
-    
-    return minor;
+    return VERSION_MINOR;
 }

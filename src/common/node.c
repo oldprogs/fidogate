@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: node.c,v 4.7 1999/01/02 16:35:00 mj Exp $
+ * $Id: node.c,v 4.8 1999/03/07 16:11:47 mj Exp $
  *
  * Conversion Node structure <-> Z:N/F.P / pP.fF.nN.zZ
  *
@@ -148,7 +148,7 @@ int asc_to_node(char *asc, Node *node, int point_flag)
  */
 char *node_to_asc(Node *node, int point_flag)
 {
-    return znfp_print(node, point_flag, FALSE);
+    return s_znfp_print(node, point_flag, FALSE);
 }
 
 

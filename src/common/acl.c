@@ -1,7 +1,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: acl.c,v 4.1 1998/07/11 21:04:34 mj Exp $
+ * $Id: acl.c,v 4.2 1999/03/07 16:11:47 mj Exp $
  *
  *****************************************************************************/
 
@@ -127,7 +127,7 @@ void acl_ngrp(RFCAddr rfc_from)
 {
     char  email[MAXINETADDR];
 
-    strcpy(email, rfcaddr_to_asc(&rfc_from, FALSE));
+    strcpy(email, s_rfcaddr_to_asc(&rfc_from, FALSE));
     list_init(&ngrp_pat_list, acl_lookup(email));
 }
 

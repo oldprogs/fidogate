@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftnroute.c,v 4.19 1999/03/06 18:53:32 mj Exp $
+ * $Id: ftnroute.c,v 4.20 1999/03/07 16:11:51 mj Exp $
  *
  * Route FTN NetMail/EchoMail
  *
@@ -40,7 +40,7 @@
 
 
 #define PROGRAM 	"ftnroute"
-#define VERSION 	"$Revision: 4.19 $"
+#define VERSION 	"$Revision: 4.20 $"
 #define CONFIG		DEFAULT_CONFIG_MAIN
 
 
@@ -103,7 +103,7 @@ int do_routing(char *name, FILE *fp, Packet *pkt)
 		    debug(4, "routing: type=%c cmd=%c flav=%c flav_new=%c "
 			  "match=%s",
 			  r->type, r->cmd, r->flav, r->flav_new,
-			  znfp_print(&match, TRUE, TRUE)                   );
+			  s_znfp_print(&match, TRUE, TRUE)                   );
 		    
 		    if(do_cmd(desc, r, &match))
 			goto ready;

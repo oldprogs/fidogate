@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: rfcheader.c,v 4.7 1999/01/02 16:35:01 mj Exp $
+ * $Id: rfcheader.c,v 4.8 1999/03/07 16:11:48 mj Exp $
  *
  * Functions to process RFC822 header lines from messages
  *
@@ -31,8 +31,6 @@
  *****************************************************************************/
 
 #include "fidogate.h"
-
-#include "shuffle.h"
 
 
 
@@ -298,39 +296,26 @@ char *header_getnext(void)
 /*
  * Return complete header line, concat continuation lines if necessary.
  */
-char *header_getcomplete(char *name)
+#define TMPS_LEN_GETCOMPLETE 256
+
+char *s_header_getcomplete(char *name)
 {
     char *p;
-    int len, rest, l;
-    
+    TmpS *s;
+
     if((p = header_get(name)))
     {
-	SHUFFLEBUFFERS;
-	rest = MAX_CONVERT_BUFLEN;
-	len  = 0;
+	s = tmps_alloc(TMPS_LEN_GETCOMPLETE);
+	str_copy(s->s, s->len, p);
 
-	do 
+	while( (p = header_getnext()) )
 	{
-	    l    = strlen(p);
-	    if(l > rest)
-		l = rest - 1;
-	    strncpy0(tcharp+len, p, rest);
-	    len  += l;
-	    rest -= l;
-
-	    if((p = header_getnext()))
-	    {
-		if(rest > 1)
-		{
-		    tcharp[len++] = ' ';
-		    tcharp[len]   = 0;
-		    rest--;
-		}
-	    }
+	    str_append(s->s, s->len, " ");
+	    str_append(s->s, s->len, p);
 	}
-	while(p);
-
-	return tcharp;
+	
+	tmps_stripsize(s);
+	return s->s;
     }
 
     return NULL;

@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway software UNIX <-> FIDO
  *
- * $Id: address.c,v 4.12 1999/03/06 17:51:28 mj Exp $
+ * $Id: address.c,v 4.13 1999/03/07 16:11:47 mj Exp $
  *
  * Parsing and conversion for FIDO and RFC addresses
  *
@@ -307,7 +307,7 @@ int addr_is_local(char *addr)
     rfc = rfcaddr_from_rfc(addr);
     
     debug(7, "addr_is_local(): From=%s FQDN=%s",
-	  rfcaddr_to_asc(&rfc, TRUE), cf_fqdn());
+	  s_rfcaddr_to_asc(&rfc, TRUE), cf_fqdn());
     return  rfc.addr[0] == '\0'  ||  stricmp(rfc.addr, cf_fqdn()) == 0;
 }
 
@@ -330,7 +330,7 @@ int addr_is_local_xpost(char *addr)
     rfc = rfcaddr_from_rfc(addr);
     
     debug(7, "addr_is_local_xpost(): From=%s FQDN=%s",
-	  rfcaddr_to_asc(&rfc, TRUE), cf_fqdn());
+	  s_rfcaddr_to_asc(&rfc, TRUE), cf_fqdn());
     ailx = rfc.addr[0] == '\0'  ||  stricmp(rfc.addr, cf_fqdn()) == 0;
     if (!ailx) {
 	list_init(&addr_list, addr);
@@ -361,7 +361,7 @@ int addr_is_domain(char *addr)
     l  = strlen(rfc.addr);
 
     debug(7, "addr_is_domain(): From=%s domain=%s",
-	  rfcaddr_to_asc(&rfc, TRUE), d           );
+	  s_rfcaddr_to_asc(&rfc, TRUE), d           );
 
     if(rfc.addr[0] == '\0')
 	return TRUE;

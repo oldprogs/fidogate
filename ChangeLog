@@ -1,3 +1,43 @@
+1999-03-07  Martin Junius  <mj@fido.de>
+
+	------- CVS ci -------------------------------------------------------
+
+	* src/include/shuffle.h: removed, obsoleted by new TmpS temporary
+	  strings used throughout FIDOGATE.
+
+	* src/common/parsenode.c (znfp_print): renamed to s_znfp_print().
+	  (s_znfp_print): rewritten to use TmpS and str_copy(), str_append().
+
+	* src/common/rfcheader.c (header_getcomplete): renamed to
+	  s_header_getcomplete().
+	  (s_header_getcomplete): completely rewritten to use TmpS and
+	  str_copy(), str_append().
+
+	* src/common/rfcaddr.c (rfcaddr_to_asc): renamed to s_rfcaddr_to_asc().
+	  (s_rfcaddr_to_asc): got rid of SHUFFLEBUFFER, use s_printf().
+
+	* src/common/version.c (version_global): removed #ifdef's, simply
+ 	  return "MAJOR.MINOR.PATCHLEVEL".
+	  (version_major, minor): simply return VERSION_MAJOR, _MINOR.
+
+	* version.h: completely changed, now 4 #define's:
+	  VERSION_MAJOR		major version number
+	  VERSION_MINOR		minor version number
+	  PATCHLEVEL		patchlevel
+	  STATE			development ./. stable
+	  Current version: 4.3.1 (development)
+
+	* src/common/version.c (version_local): changed to use BUF_COPY().
+
+	* version.h (PATCHLEVEL): changed to 1, version 4.3.1
+	  (ALPHA, BETA): removed.
+	  (STATE): change to "development".
+
+	* src/gate/rfc2ftn.c (snd_mail): more TMPS_RETURN(), fixed missing 
+	  if(status) in newsgroups for loop.
+
+	* src/gate/ftn2rfc.c (unpack): changed log() message, 
+
 1999-03-06  Martin Junius  <mj@fido.de>
 
 	------- CVS ci -------------------------------------------------------

@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: ftnaddr.c,v 4.2 1999/01/02 16:34:58 mj Exp $
+ * $Id: ftnaddr.c,v 4.3 1999/03/07 16:11:47 mj Exp $
  *
  * Function for handling FTN addresses
  *
@@ -102,7 +102,7 @@ FTNAddr ftnaddr_parse(char *s)
  */
 char *s_ftnaddr_print(FTNAddr *ftn)
 {
-    return s_printf("%s @ %s", ftn->name, znfp_print(&ftn->node, TRUE, FALSE));
+    return s_printf("%s @ %s", ftn->name, s_znfp_print(&ftn->node, TRUE, FALSE));
 }
 
 

@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: parsenode.c,v 4.6 1999/01/02 16:35:01 mj Exp $
+ * $Id: parsenode.c,v 4.7 1999/03/07 16:11:47 mj Exp $
  *
  * Parse FTN address strings (Z:N/F.P)
  *
@@ -31,7 +31,6 @@
  *****************************************************************************/
 
 #include "fidogate.h"
-#include "shuffle.h"
 
 
 
@@ -207,12 +206,13 @@ char *znfp_put_number(int val, int wildcards)
 /*
  * Output Node struct
  */
-char *znfp_print(Node *node, int point0, int wildcards)
-{
-    SHUFFLEBUFFERS;
+#define TMPS_LEN_ZNFP 256
 
-    /* Initialize to empty string */
-    tcharp[0] = 0;
+char *s_znfp_print(Node *node, int point0, int wildcards)
+{
+    TmpS *s;
+
+    s = tmps_alloc(TMPS_LEN_ZNFP);
     
     /* Always display point address if wildcards==TRUE */
     if(wildcards)
@@ -222,8 +222,10 @@ char *znfp_print(Node *node, int point0, int wildcards)
     if(node->zone==INVALID && node->net==INVALID &&
        node->node==INVALID && node->point==INVALID  )
     {
-	str_copy(tcharp, MAX_CONVERT_BUFLEN, "INVALID");
-	return tcharp;
+	str_copy(s->s, s->len, "INVALID");
+
+	tmps_stripsize(s);
+	return s->s;
     }
 
     /* Global wildcard */
@@ -231,48 +233,47 @@ char *znfp_print(Node *node, int point0, int wildcards)
        node->zone==WILDCARD && node->net==WILDCARD &&
        node->node==WILDCARD && node->point==WILDCARD  )
     {
-	str_copy(tcharp, MAX_CONVERT_BUFLEN, "*");
-	return tcharp;
+	str_copy(s->s, s->len, "*");
+
+	tmps_stripsize(s);
+	return s->s;
     }
 
     
     /* Zone */
     if(node->zone != EMPTY)
     {
-	str_append(tcharp, MAX_CONVERT_BUFLEN,
-		   znfp_put_number(node->zone, wildcards));
-	str_append(tcharp, MAX_CONVERT_BUFLEN, ":");
+	str_append(s->s, s->len, znfp_put_number(node->zone, wildcards));
+	str_append(s->s, s->len, ":");
     }
     /* Net */
     if(node->net != EMPTY)
     {
-	str_append(tcharp, MAX_CONVERT_BUFLEN,
-		   znfp_put_number(node->net, wildcards));
+	str_append(s->s, s->len, znfp_put_number(node->net, wildcards));
 	if(node->node != EMPTY)
-	    str_append(tcharp, MAX_CONVERT_BUFLEN, "/");
+	    str_append(s->s, s->len, "/");
     }
     /* Node */
     if(node->node != EMPTY)
     {
-	str_append(tcharp, MAX_CONVERT_BUFLEN,
-		   znfp_put_number(node->node, wildcards));
+	str_append(s->s, s->len, znfp_put_number(node->node, wildcards));
     }
     /* Point */
     if(! (node->point==EMPTY || (node->point==0 && !point0)) )
     {
-	str_append(tcharp, MAX_CONVERT_BUFLEN, ".");
-	str_append(tcharp, MAX_CONVERT_BUFLEN,
-		   znfp_put_number(node->point, wildcards));
+	str_append(s->s, s->len, ".");
+	str_append(s->s, s->len, znfp_put_number(node->point, wildcards));
     }
 
     /* Domain */
     if(node->domain[0])
     {
-	str_append(tcharp,  MAX_CONVERT_BUFLEN, "@");
-	str_append(tcharp, MAX_CONVERT_BUFLEN, node->domain);
+	str_append(s->s, s->len, "@");
+	str_append(s->s, s->len, node->domain);
     }
 
-    return tcharp;
+    tmps_stripsize(s);
+    return s->s;
 }
 
 
@@ -282,7 +283,7 @@ char *znfp_print(Node *node, int point0, int wildcards)
  */
 char *znfp(Node *node)
 {
-    return znfp_print(node, TRUE, TRUE);
+    return s_znfp_print(node, TRUE, TRUE);
 }
 
 

@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftn2rfc.c,v 4.46 1999/03/06 17:51:29 mj Exp $
+ * $Id: ftn2rfc.c,v 4.47 1999/03/07 16:11:50 mj Exp $
  *
  * Convert FTN mail packets to RFC mail and news batches
  *
@@ -40,7 +40,7 @@
 
 
 #define PROGRAM 	"ftn2rfc"
-#define VERSION 	"$Revision: 4.46 $"
+#define VERSION 	"$Revision: 4.47 $"
 #define CONFIG		DEFAULT_CONFIG_GATE
 
 
@@ -682,7 +682,7 @@ int unpack(FILE *pkt_file, Packet *pkt)
 	    Alias *a;
 
 	    debug(7, "Checking for alias: %s",
-		  rfcaddr_to_asc(&addr_from, TRUE));
+		  s_rfcaddr_to_asc(&addr_from, TRUE));
 #ifndef AI_2
 	    a = alias_lookup(&msg.node_orig, NULL, addr_from.real);
 #else
@@ -715,7 +715,7 @@ int unpack(FILE *pkt_file, Packet *pkt)
 	    Alias *a;
 	    
 	    debug(7, "Checking for alias: %s",
-		  rfcaddr_to_asc(&addr_to, TRUE));
+		  s_rfcaddr_to_asc(&addr_to, TRUE));
 #ifdef AI_2
 	    a = alias_lookup_strict(&msg.node_to, NULL, addr_to.real);
 #else
@@ -753,7 +753,7 @@ int unpack(FILE *pkt_file, Packet *pkt)
 	{
 	    debug(1, "Insecure message with To line");
 	    log("BOUNCE: insecure mail from %s",
-		rfcaddr_to_asc(&addr_from, TRUE));
+		s_rfcaddr_to_asc(&addr_from, TRUE));
 	    bounce_mail("insecure", &addr_from, &msg, msgbody_rfc_to, &tbody);
 	    continue;
 	}
@@ -796,7 +796,7 @@ int unpack(FILE *pkt_file, Packet *pkt)
 		debug(1, "Not a registered node: %s",
 		      node_to_asc(&msg.node_orig, FALSE));
 		log("BOUNCE: mail from unregistered %s",
-		    rfcaddr_to_asc(&addr_from, TRUE));
+		    s_rfcaddr_to_asc(&addr_from, TRUE));
 		bounce_mail("restricted", &addr_from, &msg,
 			    msgbody_rfc_to, &tbody);
 		continue;
@@ -808,7 +808,7 @@ int unpack(FILE *pkt_file, Packet *pkt)
 		debug(1, "Registered node is down: %s",
 		      node_to_asc(&msg.node_orig, FALSE));
 		log("BOUNCE: mail from down %s",
-		    rfcaddr_to_asc(&addr_from, TRUE));
+		    s_rfcaddr_to_asc(&addr_from, TRUE));
 		bounce_mail("down", &addr_from, &msg,
 			    msgbody_rfc_to, &tbody);
 		continue;
@@ -827,7 +827,7 @@ int unpack(FILE *pkt_file, Packet *pkt)
 		{
 		    debug(1, "Message with address in mail_to: %s", mail_to);
 		    log("BOUNCE: mail from %s with address in to field: %s",
-			rfcaddr_to_asc(&addr_from, TRUE), mail_to           );
+			s_rfcaddr_to_asc(&addr_from, TRUE), mail_to           );
 		    bounce_mail("addrinto",
 				&addr_from, &msg, msgbody_rfc_to, &tbody);
 		    continue;
@@ -853,7 +853,7 @@ int unpack(FILE *pkt_file, Packet *pkt)
 		/* Addressed to `UUCP' or `GATEWAY', but no To: line */
 		debug(1, "Message to `UUCP' or `GATEWAY' without To line");
 		log("BOUNCE: mail from %s without To line",
-		    rfcaddr_to_asc(&addr_from, TRUE));
+		    s_rfcaddr_to_asc(&addr_from, TRUE));
 		bounce_mail("noto", &addr_from, &msg, msgbody_rfc_to, &tbody);
 		continue;
 	    }
@@ -877,7 +877,7 @@ int unpack(FILE *pkt_file, Packet *pkt)
 	    
 	    addr_from = rfc;
 	}
-	from_line = rfcaddr_to_asc(&addr_from, TRUE);
+	from_line = s_rfcaddr_to_asc(&addr_from, TRUE);
 
 	/* Construct Reply-To line */
 	reply_to_line = msgbody_rfc_reply_to;
@@ -934,7 +934,7 @@ int unpack(FILE *pkt_file, Packet *pkt)
 		if(no_unknown_msgid_zones)
 		    if(id_zone>=-1 && !cf_zones_check(id_zone))
 		    {
-			log("MSGID %s: unknown zone, not gated", p);
+			log("MSGID %s: malformed or unknown zone, not gated", p);
 			continue;
 		    }
 	    }
@@ -974,7 +974,7 @@ int unpack(FILE *pkt_file, Packet *pkt)
 	    log("MAIL: %s -> %s", from_line, to_line);
 	    
 	    tl_appendf(&theader,
-			     "From %s %s\n", rfcaddr_to_asc(&addr_from, FALSE),
+			     "From %s %s\n", s_rfcaddr_to_asc(&addr_from, FALSE),
 			     date("%a %b %d %H:%M:%S %Y", NULL) );
 	    tl_appendf(&theader,
 		"Received: by %s (FIDOGATE %s)\n",
@@ -1025,7 +1025,7 @@ int unpack(FILE *pkt_file, Packet *pkt)
 	    /* FTN ReturnReceiptRequest -> Return-Receipt-To */
 	    if(msg.attr & MSG_RRREQ)
 		tl_appendf(&theader, "Return-Receipt-To: %s\n",
-				 rfcaddr_to_asc(&addr_from, FALSE)   );
+				 s_rfcaddr_to_asc(&addr_from, FALSE)   );
 	}
 	else 					/* News */
 	{

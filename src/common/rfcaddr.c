@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: rfcaddr.c,v 4.6 1999/01/02 16:35:01 mj Exp $
+ * $Id: rfcaddr.c,v 4.7 1999/03/07 16:11:48 mj Exp $
  *
  * RFCAddr struct handling
  *
@@ -31,8 +31,6 @@
  *****************************************************************************/
 
 #include "fidogate.h"
-
-#include "shuffle.h"
 
 
 
@@ -309,38 +307,33 @@ RFCAddr rfcaddr_from_rfc(char *addr)
 
 
 /*
- * rfcaddr_to_asc() --- Text representation of RFCAddr
+ * s_rfcaddr_to_asc() --- Text representation of RFCAddr
  */
-char *rfcaddr_to_asc(RFCAddr *rfc, int real_flag)
-                 
-                  			/* TRUE=with real name, FALSE=without*/
+char *s_rfcaddr_to_asc(RFCAddr *rfc, int real_flag)
+    /* TRUE=with real name, FALSE=without*/
 {
-    SHUFFLEBUFFERS;
-    
     if(real_flag && rfc->real[0])
     {
 	if(addr_mode == 0) 
 	{
 	    /* user@do.main (Real Name) */
-	    sprintf(tcharp, "%s%s%s (%s)",
-		    rfc->user, rfc->addr[0] ? "@" : "", rfc->addr, rfc->real );
-	    return tcharp;
+	    return s_printf("%s%s%s (%s)",
+			    rfc->user, rfc->addr[0] ? "@" : "",
+			    rfc->addr, rfc->real               );
 	}
 	if(addr_mode == 1) 
 	{
 	    /* Real Name <user@do.main> */
-	    sprintf(tcharp, "%s <%s%s%s>",
-		    rfc->real, rfc->user, rfc->addr[0] ? "@" : "", rfc->addr );
-	    return tcharp;
+	    return s_printf("%s <%s%s%s>",
+			    rfc->real,
+			    rfc->user, rfc->addr[0] ? "@" : "",
+			    rfc->addr                          );
 	}
     }
     
-    /* Default, no real name:
-     * user@do.main           */
-    sprintf(tcharp, "%s%s%s",
-	    rfc->user, rfc->addr[0] ? "@" : "", rfc->addr );
-
-    return tcharp;
+    /* Default, no real name: user@do.main */
+    return s_printf("%s%s%s",
+		    rfc->user, rfc->addr[0] ? "@" : "", rfc->addr );
 }
 
 

@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: bounce.c,v 4.6 1999/01/02 16:34:57 mj Exp $
+ * $Id: bounce.c,v 4.7 1999/03/07 16:11:47 mj Exp $
  *
  * Bounce mails for various reasons, using LIBDIR/bounce.XXX messages
  *
@@ -83,7 +83,7 @@ int print_file_subst(FILE *in, FILE *out, Message *msg, char *rfc_to, Textlist *
 		tl_print(body, out);				break;
 #ifdef AI_8
 	    case 'A':			/* RFC From: */
-		if((hg = header_getcomplete("From")))
+		if((hg = s_header_getcomplete("From")))
 		    fputs( hg, out);					break;
 	    case 'D':			/* RFC Date: */
 	    	if((hg = header_get("Date")))
@@ -145,7 +145,7 @@ int bounce_mail(char *reason, RFCAddr *addr_from, Message *msg, char *rfc_to, Te
     char *to;
     FILE *in;
     
-    to = rfcaddr_to_asc(addr_from, TRUE);
+    to = s_rfcaddr_to_asc(addr_from, TRUE);
 
     if(bounce_header(to) == ERROR)
 	return ERROR;

@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: prototypes.h,v 4.52 1999/03/06 17:51:31 mj Exp $
+ * $Id: prototypes.h,v 4.53 1999/03/07 16:11:51 mj Exp $
  *
  * Prototypes for functions in libfidogate.a
  *
@@ -439,8 +439,11 @@ int	znfp_get_number		(char **);
 int	znfp_parse_partial	(char *, Node *);
 int	znfp_parse_diff		(char *, Node *, Node *);
 char   *znfp_put_number		(int, int);
-char   *znfp_print		(Node *, int, int);
+char   *s_znfp_print		(Node *, int, int);
+char   *str_znfp_print		(char *, size_t, Node *, int, int);
 char   *znfp			(Node *);
+char   *znfp1			(Node *);
+char   *znfp2			(Node *);
 
 /* passwd.c */
 void	passwd_init		(void);
@@ -455,7 +458,7 @@ void	rfcaddr_dot_names	(int);
 void	rfcaddr_mode		(int);
 RFCAddr	rfcaddr_from_ftn	(char *, Node *);
 RFCAddr	rfcaddr_from_rfc	(char *);
-char   *rfcaddr_to_asc		(RFCAddr *, int);
+char   *s_rfcaddr_to_asc	(RFCAddr *, int);
 
 /* rfcheader.c */
 int	header_ca_rfc		(FILE *, int);
@@ -467,7 +470,7 @@ char   *header_get		(char *);
 char   *rfcheader_geth		(Textlist *, char *, int);
 char   *header_geth		(char *, int);
 char   *header_getnext		(void);
-char   *header_getcomplete	(char *);
+char   *s_header_getcomplete	(char *);
 char   *addr_token		(char *);
 
 /* routing.c */
