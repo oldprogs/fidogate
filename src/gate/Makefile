@@ -1,6 +1,6 @@
 #:ts=8
 #
-#    $Id: Makefile,v 4.1 1996/05/03 19:18:44 mj Exp $
+#    $Id: Makefile,v 4.2 1996/09/22 12:27:13 mj Exp $
 #
 #    Makefile for FIDOGATE src/gate/
 #
@@ -49,7 +49,7 @@ depend:
 
 depend-all:
 	$(CC) $(CFLAGS) -M *.c >.depend
-		
+
 ifeq (.depend,$(wildcard .depend))
 include .depend
 endif

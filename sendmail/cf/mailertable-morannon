@@ -1,0 +1,12 @@
+# via FIDOGATE/rfc2ftn
+.z242.fido.de		ftni:morannon-ftn.fido.de
+.z2.fidonet.org		ftni:morannon-ftn.fido.de
+.fido.de		ftn:morannon-ftn.fido.de
+
+# via FIDOGATE/ffx
+orodruin		ffx:orodruin.fido.de
+orodruin.fido.de	ffx:orodruin.fido.de
+
+# special routes via SMTP
+.westf.fido.de		smtp:muenster.Westfalen.DE
+.berlin.fido.de		smtp:ki1.chemie.FU-Berlin.DE

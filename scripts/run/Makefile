@@ -1,6 +1,6 @@
 #:ts=8
 #
-#    $Id: Makefile,v 4.0 1996/04/17 18:17:38 mj Exp $
+#    $Id: Makefile,v 4.1 1996/09/22 12:26:47 mj Exp $
 #
 #    Makefile for FIDOGATE scripts/filebase/
 #
@@ -24,6 +24,9 @@ all:		$(PROGS)
 
 
 install:
+	$(INSTALL_PROG)   run1        $(LIBDIR)
+	$(INSTALL_PROG)   run2        $(LIBDIR)
+	$(INSTALL_PROG)   runpoll     $(LIBDIR)
 
 
 clean:
@@ -37,7 +40,7 @@ clean:
 depend:
 
 depend-all:
-		
+
 ifeq (.depend,$(wildcard .depend))
 include .depend
 endif

@@ -1,8 +1,12 @@
-This directory contains sample sendmail m4 configuration files
-(see cf/*.mc) for a setup with FIDOGATE.
+-*- Indented-Text -*-
 
-To create a sendmail.cf file from any of these:
+$Id: README,v 4.1 1996/09/22 12:23:28 mj Exp $
 
-	cd cf
-	m4 xxxx.mc >sendmail.cf
+This directory contains the sendmail m4 configuration files from the
+RedHat 3.0.4 (Rembrandt) beta release with some additional config
+files for FIDOGATE support.
 
+See cf/*.mc for a sample setup with FIDOGATE.
+
+README.ORIG	is the original README describing the m4 config in detail
+cf.ORIG/	is the original cf/ subdirectory

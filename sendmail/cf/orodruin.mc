@@ -1,15 +1,15 @@
 #:ts=8
 #
-# $Id: orodruin.mc,v 4.2 1996/09/16 20:13:22 mj Exp $
+# $Id: orodruin.mc,v 4.3 1996/09/22 12:23:49 mj Exp $
 #
 # orodruin.Fido.DE
 #
 
 include(`../m4/cf.m4')
-VERSIONID(`$Id: orodruin.mc,v 4.2 1996/09/16 20:13:22 mj Exp $')
+VERSIONID(`$Id: orodruin.mc,v 4.3 1996/09/22 12:23:49 mj Exp $')
 OSTYPE(linux)dnl
 
-define(`VERSION_NUMBER', `orodruin-4.1')
+define(`confCF_VERSION', `orodruin-4.1')
 
 define(`confMIME_FORMAT_ERRORS', `False')
 define(`confUSE_ERRORS_TO', `True')
@@ -31,7 +31,7 @@ MAILER(ffx)dnl
 define(`SMART_HOST', ffx:morannon.fido.de)
 
 # Map for `LOCAL_RULE_3' rewrite rules
-Krewrite hash -o /etc/mail/rewrite
+Krewrite hash -o /etc/mail/rewrite.db
 
 
 LOCAL_CONFIG

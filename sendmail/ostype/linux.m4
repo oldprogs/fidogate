@@ -33,13 +33,9 @@ divert(-1)
 # SUCH DAMAGE.
 #
 
-divert(0)
+divert(-1)
 VERSIONID(`@(#)linux.m4	8.2 (Berkeley) 8/21/93')
-# changed for RedHat 3.0.3 / procmail
-define(`LOCAL_MAILER_PATH',`/usr/bin/procmail')dnl
-define(`LOCAL_MAILER_FLAGS',`Aw5:/|@ShPfn')dnl
-define(`LOCAL_MAILER_ARGS',`procmail -a $h -d $u')dnl
-define(`QUEUE_DIR', /var/spool/mqueue)dnl
-define(`LOCAL_SHELL_PATH',`/bin/sh')dnl
-define(`LOCAL_SHELL_FLAGS',`oeu')dnl
-define(`LOCAL_SHELL_ARGS',`sh -c $u')dnl
+define(`LOCAL_MAILER_PATH', `/usr/bin/procmail')dnl
+define(`LOCAL_MAILER_FLAGS', `ShPfn')dnl
+define(`LOCAL_MAILER_ARGS', `procmail -a $h -d $u')dnl
+define(`STATUS_FILE', `/var/log/sendmail.st')dnl

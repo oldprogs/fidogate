@@ -1,7 +1,14 @@
 #!/bin/sh
 #
+# $Id: mkmaildb,v 4.2 1996/09/22 12:23:31 mj Exp $
+#
 # Update db maps in /etc/mail
 #
+MAILDIR=/etc/mail
 
-makemap hash /etc/mail/rewrite     < /etc/mail/rewrite
-makemap hash /etc/mail/mailertable < /etc/mail/mailertable
+if [ -f MAILDIR/rewrite ] ; then
+  makemap hash $MAILDIR/rewrite     < $MAILDIR/rewrite
+fi
+if [ -f MAILDIR/mailertable ] ; then
+  makemap hash $MAILDIR/mailertable < $MAILDIR/mailertable
+fi

@@ -1,6 +1,6 @@
 #:ts=8
 #
-# $Id: config.make,v 4.1 1996/08/26 19:10:26 mj Exp $
+# $Id: config.make,v 4.2 1996/09/22 12:26:44 mj Exp $
 #
 # FIDOGATE Makefile configuration
 #
@@ -22,8 +22,11 @@ INBOUND		= /var/spool/bt/in
 PINBOUND	= /var/spool/bt/pin
 UUINBOUND	= /var/spool/bt/uuin
 
-# perl binary
+# perl
 PERL		= /usr/bin/perl
+
+# m4
+M4		= m4
 
 # owner / group
 OWNER		= news

@@ -1,11 +1,11 @@
 #:ts=8
 #
-# $Id: rules.make,v 4.0 1996/04/17 18:17:32 mj Exp $
+# $Id: rules.make,v 4.1 1996/09/22 12:26:44 mj Exp $
 #
 # Common rules for all FIDOGATE Makefiles
 #
 
-.SUFFIXES: .pl .sh
+.SUFFIXES: .pl .sh .mc .cf
 
 %.o:		%.c
 	$(CC) $(CFLAGS) $(LOCAL_CFLAGS) -c $<
@@ -20,6 +20,9 @@
 %:		%.sh
 	$(PERL) $(TOPDIR)/mksubst.pl -c$(TOPDIR)/config.make $< >$*
 	chmod +x $*
+
+%.cf:		%.mc
+	$(M4) $< >$*.cf
 
 #$(LIB)(%.o):	%.o
 #	$(AR) r $(LIB) $<

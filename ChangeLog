@@ -1,3 +1,48 @@
+Sun Sep 22 13:00:06 1996  Martin Junius  <mj@fido.de>
+
+	------- CVS ci -------------------------------------------------------
+
+	* sendmail/cf/Makefile (install-orodruin): added target for
+	  installing files and restarting sendmail at orodruin.fido.de.
+	  (install-morannon): same for morannon.fido.de.
+
+	* sendmail/cf/mkmaildb: check for existence of input files before
+	  running makemap.
+
+	* rules.make: added .mc .cf suffixes, added rule .mc -> .cf.
+
+	* config.make (PERL): added M4 macro.
+
+	* sendmail/mailer/ffx.m4: same.
+
+	* sendmail/mailer/ftn.m4: changed mailer flags, S and R rules
+	  according to smtp8 mailer definitions.
+
+	* sendmail/cf/morannon.mc: SMART_HOST removed.
+	  Added mailertable feature.
+	  Removed several rules from LOCAL_RULE_3 and LOCAL_NET_CONFIG,
+	  replaced by mailertable entries.
+	  Removed CF, CI.
+	  Removed nodns, nocanonify features.
+
+	* sendmail/cf/mailertable-morannon: new mailertable for morannon.
+
+	* sendmail/cf/morannon.mc: added confCF_VERSION.
+	  Added more addresses to Cw.
+	  Removed CS, DF.
+
+	* sendmail/cf/orodruin.mc: changed VERSION_NUMBER to
+	  confCF_VERSION as used by new config files.
+
+	* sendmail/cf/orodruin-smtp.mc: set confCF_VERSION to version number.
+
+	* sendmail/README.linux: removed.
+
+	* sendmail/README: changed to describe new config files.
+
+	* sendmail/: imported new config files from RedHat 3.0.4
+	  (Rembrandt) beta release sendmail-cf package.
+
 Fri Sep 20 17:48:40 1996  Martin Junius  <mj@fido.de>
 
 	------- CVS ci -------------------------------------------------------
