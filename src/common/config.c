@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: config.c,v 4.2 1996/06/09 10:49:02 mj Exp $
+ * $Id: config.c,v 4.3 1996/08/26 19:10:30 mj Exp $
  *
  * Configuration data and functions
  *
@@ -1072,3 +1072,112 @@ char *cf_get_string(char *name, int first)
 
     return NULL;
 }
+
+
+
+/*
+ * Get config values for Aliases, Areas, Hosts, Passwd, Packing, Routing
+ * config files.
+ */
+char *cf_p_aliases(void)
+{
+    static char buf[MAXPATH];
+    char *p;
+
+    if(!*buf)
+    {
+	if( (p = cf_get_string("Aliases", TRUE)) )
+	    BUF_COPY(buf, p);
+	else
+	    BUF_COPY(buf, DEF_ALIASES);
+	debug(8, "config: Aliases %s", buf);
+    }
+
+    return buf;
+}
+
+char *cf_p_areas(void)
+{
+    static char buf[MAXPATH];
+    char *p;
+
+    if(!*buf)
+    {
+	if( (p = cf_get_string("Areas", TRUE)) )
+	    BUF_COPY(buf, p);
+	else
+	    BUF_COPY(buf, DEF_AREAS);
+	debug(8, "config: Areas %s", buf);
+    }
+
+    return buf;
+}
+
+char *cf_p_hosts(void)
+{
+    static char buf[MAXPATH];
+    char *p;
+
+    if(!*buf)
+    {
+	if( (p = cf_get_string("Hosts", TRUE)) )
+	    BUF_COPY(buf, p);
+	else
+	    BUF_COPY(buf, DEF_HOSTS);
+	debug(8, "config: Hosts %s", buf);
+    }
+
+    return buf;
+}
+
+char *cf_p_passwd(void)
+{
+    static char buf[MAXPATH];
+    char *p;
+
+    if(!*buf)
+    {
+	if( (p = cf_get_string("Passwd", TRUE)) )
+	    BUF_COPY(buf, p);
+	else
+	    BUF_COPY(buf, DEF_PASSWD);
+	debug(8, "config: Passwd %s", buf);
+    }
+
+    return buf;
+}
+
+char *cf_p_packing(void)
+{
+    static char buf[MAXPATH];
+    char *p;
+
+    if(!*buf)
+    {
+	if( (p = cf_get_string("Packing", TRUE)) )
+	    BUF_COPY(buf, p);
+	else
+	    BUF_COPY(buf, DEF_PACKING);
+	debug(8, "config: Packing %s", buf);
+    }
+
+    return buf;
+}
+
+char *cf_p_routing(void)
+{
+    static char buf[MAXPATH];
+    char *p;
+
+    if(!*buf)
+    {
+	if( (p = cf_get_string("Routing", TRUE)) )
+	    BUF_COPY(buf, p);
+	else
+	    BUF_COPY(buf, DEF_ROUTING);
+	debug(8, "config: Routing %s", buf);
+    }
+
+    return buf;
+}
+    

@@ -1,6 +1,6 @@
 #:ts=8
 #
-# $Id: config.make,v 4.0 1996/04/17 18:17:32 mj Exp $
+# $Id: config.make,v 4.1 1996/08/26 19:10:26 mj Exp $
 #
 # FIDOGATE Makefile configuration
 #
@@ -47,13 +47,13 @@ RANLIB		= ranlib
 #DEBUG		= -O2
 DEBUG		= -g
 
-INCLUDE		= -I$(TOPDIR)/src/include
+INCLUDE		= -I$(TOPDIR) -I$(TOPDIR)/src/include
 
 # ISC 3.x
-#CFLAGS		= $(DEBUG) -I$(TOPDIR)/src/include -Wall -posix -DISC
+#CFLAGS		= $(DEBUG) $(INCLUDE) -Wall -posix -DISC
 # OS2			   
-#CFLAGS		= $(DEBUG) -I$(TOPDIR)/src/include -Wall -DOS2
-CFLAGS		= $(DEBUG) -I$(TOPDIR)/src/include -Wall
+#CFLAGS		= $(DEBUG) $(INCLUDE) -Wall -DOS2
+CFLAGS		= $(DEBUG) $(INCLUDE) -Wall
 
 # OS2
 #LFLAGS		= -Zexe $(DEBUG) -L$(TOPDIR)/src/common

@@ -1,48 +1,40 @@
-ftnbsy.o: ftnbsy.c ../../src/include/fidogate.h \
- ../../src/include/../../config.h ../../src/include/paths.h \
- ../../src/include/sysexits.h ../../src/include/declare.h \
- ../../src/include/node.h ../../src/include/packet.h \
- ../../src/include/structs.h ../../src/include/prototypes.h \
- ../../src/include/getopt.h
-ftnfattach.o: ftnfattach.c ../../src/include/fidogate.h \
- ../../src/include/../../config.h ../../src/include/paths.h \
- ../../src/include/sysexits.h ../../src/include/declare.h \
- ../../src/include/node.h ../../src/include/packet.h \
- ../../src/include/structs.h ../../src/include/prototypes.h \
- ../../src/include/getopt.h
-ftnflo.o: ftnflo.c ../../src/include/fidogate.h \
- ../../src/include/../../config.h ../../src/include/paths.h \
- ../../src/include/sysexits.h ../../src/include/declare.h \
- ../../src/include/node.h ../../src/include/packet.h \
- ../../src/include/structs.h ../../src/include/prototypes.h \
- ../../src/include/getopt.h
-ftnlock.o: ftnlock.c ../../src/include/fidogate.h \
- ../../src/include/../../config.h ../../src/include/paths.h \
- ../../src/include/sysexits.h ../../src/include/declare.h \
- ../../src/include/node.h ../../src/include/packet.h \
- ../../src/include/structs.h ../../src/include/prototypes.h \
- ../../src/include/getopt.h
-ftnlog.o: ftnlog.c ../../src/include/fidogate.h \
- ../../src/include/../../config.h ../../src/include/paths.h \
- ../../src/include/sysexits.h ../../src/include/declare.h \
- ../../src/include/node.h ../../src/include/packet.h \
- ../../src/include/structs.h ../../src/include/prototypes.h \
- ../../src/include/getopt.h
-ftnseq.o: ftnseq.c ../../src/include/fidogate.h \
- ../../src/include/../../config.h ../../src/include/paths.h \
- ../../src/include/sysexits.h ../../src/include/declare.h \
- ../../src/include/node.h ../../src/include/packet.h \
- ../../src/include/structs.h ../../src/include/prototypes.h \
- ../../src/include/getopt.h
-pktdebug.o: pktdebug.c ../../src/include/fidogate.h \
- ../../src/include/../../config.h ../../src/include/paths.h \
- ../../src/include/sysexits.h ../../src/include/declare.h \
- ../../src/include/node.h ../../src/include/packet.h \
- ../../src/include/structs.h ../../src/include/prototypes.h \
- ../../src/include/getopt.h
-sumcrc.o: sumcrc.c ../../src/include/fidogate.h \
- ../../src/include/../../config.h ../../src/include/paths.h \
- ../../src/include/sysexits.h ../../src/include/declare.h \
- ../../src/include/node.h ../../src/include/packet.h \
- ../../src/include/structs.h ../../src/include/prototypes.h \
- ../../src/include/getopt.h
+ftnbsy.o: ftnbsy.c ../../src/include/fidogate.h ../../config.h \
+ ../../src/include/paths.h ../../src/include/sysexits.h \
+ ../../src/include/declare.h ../../src/include/node.h \
+ ../../src/include/packet.h ../../src/include/structs.h \
+ ../../src/include/prototypes.h ../../src/include/getopt.h
+ftnfattach.o: ftnfattach.c ../../src/include/fidogate.h ../../config.h \
+ ../../src/include/paths.h ../../src/include/sysexits.h \
+ ../../src/include/declare.h ../../src/include/node.h \
+ ../../src/include/packet.h ../../src/include/structs.h \
+ ../../src/include/prototypes.h ../../src/include/getopt.h
+ftnflo.o: ftnflo.c ../../src/include/fidogate.h ../../config.h \
+ ../../src/include/paths.h ../../src/include/sysexits.h \
+ ../../src/include/declare.h ../../src/include/node.h \
+ ../../src/include/packet.h ../../src/include/structs.h \
+ ../../src/include/prototypes.h ../../src/include/getopt.h
+ftnlock.o: ftnlock.c ../../src/include/fidogate.h ../../config.h \
+ ../../src/include/paths.h ../../src/include/sysexits.h \
+ ../../src/include/declare.h ../../src/include/node.h \
+ ../../src/include/packet.h ../../src/include/structs.h \
+ ../../src/include/prototypes.h ../../src/include/getopt.h
+ftnlog.o: ftnlog.c ../../src/include/fidogate.h ../../config.h \
+ ../../src/include/paths.h ../../src/include/sysexits.h \
+ ../../src/include/declare.h ../../src/include/node.h \
+ ../../src/include/packet.h ../../src/include/structs.h \
+ ../../src/include/prototypes.h ../../src/include/getopt.h
+ftnseq.o: ftnseq.c ../../src/include/fidogate.h ../../config.h \
+ ../../src/include/paths.h ../../src/include/sysexits.h \
+ ../../src/include/declare.h ../../src/include/node.h \
+ ../../src/include/packet.h ../../src/include/structs.h \
+ ../../src/include/prototypes.h ../../src/include/getopt.h
+pktdebug.o: pktdebug.c ../../src/include/fidogate.h ../../config.h \
+ ../../src/include/paths.h ../../src/include/sysexits.h \
+ ../../src/include/declare.h ../../src/include/node.h \
+ ../../src/include/packet.h ../../src/include/structs.h \
+ ../../src/include/prototypes.h ../../src/include/getopt.h
+sumcrc.o: sumcrc.c ../../src/include/fidogate.h ../../config.h \
+ ../../src/include/paths.h ../../src/include/sysexits.h \
+ ../../src/include/declare.h ../../src/include/node.h \
+ ../../src/include/packet.h ../../src/include/structs.h \
+ ../../src/include/prototypes.h ../../src/include/getopt.h

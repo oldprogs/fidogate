@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: prototypes.h,v 4.10 1996/08/25 17:16:18 mj Exp $
+ * $Id: prototypes.h,v 4.11 1996/08/26 19:10:32 mj Exp $
  *
  * Prototypes for functions in libfidogate.a
  *
@@ -144,6 +144,12 @@ void	cf_set_inbound		(char *);
 char   *cf_inbound		(void);
 Node    cf_gateway		(void);
 char   *cf_get_string		(char *, int);
+char   *cf_p_aliases		(void);
+char   *cf_p_areas		(void);
+char   *cf_p_hosts		(void);
+char   *cf_p_passwd		(void);
+char   *cf_p_packing		(void);
+char   *cf_p_routing		(void);
 
 /* crc16.c */
 void	crc16_init		(void);

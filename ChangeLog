@@ -1,3 +1,47 @@
+Mon Aug 26 19:36:03 1996  Martin Junius  <mj@fido.de>
+
+	------- CVS commit ---------------------------------------------------
+
+	* test/tc.gate4/config.2: set UseOrganizationForOrigin.
+
+	* test/tc.gate1/config: new local config file (setting
+	  UseOriginForOrganization). 
+
+	* test/tc.gate1/run: added another test run with local config file
+	  (setting UseOriginForOrganization).
+
+	* examples/morannon/config.gate: same.
+
+	* examples/orodruin/config.gate: new "UseOrganizationForOrigin".
+
+	* src/gate/rfc2ftn.c (main): new config parameter
+	  "UseOrganizationForOrigin". 
+	  (main): set organization to contents of Organization header line.
+	  (snd_message): new * Origin line handling: if parea->origin is
+	  set, use this one. If UseOrganizationForOrigin is set, use the
+	  RFC Organization header. Else use the default origin from config.
+
+	* config.make (INCLUDE): added -I$(TOPDIR).
+	  (CFLAGS): use $(INCLUDE).
+
+	* src/include/fidogate.h: changed to #include "config.h", omitting
+	  "../..".
+
+	* patchlevel.h: moved src/include/patchlevel.h to top-level dir.
+
+	* version.h: moved src/include/version.h to top-level dir.
+
+	* src/common/config.c (cf_p_aliases, cf_p_areas, cf_p_hosts,
+	  cf_p_passwd, cf_p_packing, cf_p_routing): new functions return
+	  config setting for ALIASES, AREAS, HOSTS, PASSWD, PACKING,
+	  ROUTING.
+
+	* config.h (DEF_ALIASES, DEF_AREAS, DEF_HOSTS, DEF_PASSWD,
+	  DEF_PACKING, DEF_ROUTING): renamed default values for config
+	  files.
+	  (ALIASES, AREAS, HOSTS, PASSWD, PACKING, ROUTING): new
+	  replacements getting value from cf_p_xxx() functions.
+
 Sun Aug 25 10:59:36 1996  Martin Junius  <mj@fido.de>
 
 	------- CVS commit ---------------------------------------------------
@@ -5,7 +49,7 @@ Sun Aug 25 10:59:36 1996  Martin Junius  <mj@fido.de>
 	* config.h (MSGID_NEW_MSGID, MSGID_NEW_FTNID): removed.
 
 	* src/common/msgid.c: removed #ifdef MSGID_NEW_MSGID, #ifdef
-	  MSGID_NEW_FTNIN, old code is not totally obsolete.
+	  MSGID_NEW_FTNIN, old code is now totally obsolete.
 
 	* src/gate/rfc2ftn.c (rfc_parse): use new mime_deheader() for
 	  copying real name from rfc to name[].

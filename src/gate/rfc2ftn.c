@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway software UNIX <-> FIDO
  *
- * $Id: rfc2ftn.c,v 4.8 1996/08/25 17:16:18 mj Exp $
+ * $Id: rfc2ftn.c,v 4.9 1996/08/26 19:10:31 mj Exp $
  *
  * Read mail or news from standard input and convert it to a FIDO packet.
  *
@@ -39,7 +39,7 @@
 
 
 #define PROGRAM 	"rfc2ftn"
-#define VERSION 	"$Revision: 4.8 $"
+#define VERSION 	"$Revision: 4.9 $"
 #define CONFIG		CONFIG_GATE
 
 
@@ -94,6 +94,14 @@ static int no_fsc_0035 = FALSE;		/* config: NoFSC0035 */
 static int no_fsc_0047 = FALSE;		/* config: NoFSC0047 */
 static int echomail4d = FALSE;		/* config.gate: EchoMail4d */ 
  
+
+
+/*
+ * Use Organization header for * Origin line
+ */
+static int use_organization_for_origin = FALSE;
+static char *organization = NULL;
+
 
 
 /* Private mail (default) */
@@ -388,7 +396,6 @@ int rfc_is_domain(RFCAddr *rfc)
 
 
 
-char *mime_deheader(char *d, size_t n, char *s, int flags);
 /*
  * Parse RFCAddr as FTN address, return name and node
  */
@@ -1234,9 +1241,17 @@ int snd_message(Message *msg, Area *parea,
 	if(split && lsize > maxsize) {
 	    print_tear_line(sf);
 	    if(newsmode)
-		print_origin(sf,
-			     parea && parea->origin ? parea->origin
-			     : cf_origin() );
+	    {
+		char *origin;
+
+		if(parea && parea->origin)
+		    origin = parea->origin;
+		else if(use_organization_for_origin && organization)
+		    origin = organization;
+		else
+		    origin = cf_origin();
+		print_origin(sf, origin);
+	    }
 	    /* End of message */
 	    putc(0, sf);
 	    part++;
@@ -1253,8 +1268,17 @@ int snd_message(Message *msg, Area *parea,
      */
     print_tear_line(sf);
     if(newsmode)
-	print_origin(sf,
-		     parea && parea->origin ? parea->origin : cf_origin() );
+    {
+	char *origin;
+	
+	if(parea && parea->origin)
+	    origin = parea->origin;
+	else if(use_organization_for_origin && organization)
+	    origin = organization;
+	else
+	    origin = cf_origin();
+	print_origin(sf, origin);
+    }
     else
 	print_via(sf);
 
@@ -1656,6 +1680,11 @@ int main(int argc, char **argv)
 	debug(8, "config: RFCLevel %s", p);
 	default_rfc_level = atoi(p);
     }
+    if(cf_get_string("UseOrganizationForOrigin", TRUE))
+    {
+	debug(8, "config: UseOrganizationForOrigin");
+	use_organization_for_origin = TRUE;
+    }
     
 
     /*
@@ -1709,7 +1738,15 @@ int main(int argc, char **argv)
 	 */
 	header_delete();
 	header_read(stdin);
-    
+
+	/*
+	 * Get Organization header
+	 */
+	if(use_organization_for_origin)
+	{
+	    organization = header_getcomplete("Organization");
+	}
+	
 	/*
 	 * Read message body from stdin and count size
 	 */

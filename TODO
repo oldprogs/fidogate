@@ -5,14 +5,14 @@ X = for release 4.0alpha4
 ALPHA4	* ftn2rfc: config "NoAddressInTo", inhibit '%', '!', '@' char
 	  in Fido to field.
 
-ALPHA4	* rfc2ftn: config "UseOrganizationForOrigin", putting
+DONE.	* rfc2ftn: config "UseOrganizationForOrigin", putting
 	  Organization header line into Fido * Origin.
 
 	* ftn2rfc: process ^ARFC headers. If RFC level 1, import
 	  important headers such as Date, Message-ID. If RFC level 2,
 	  import all headers present.
 
-ALPHA4	* Remove old MSGID processing code.
+DONE.	* Remove old MSGID processing code.
 
 	* ftnflo: pipe to program processing the entries (e.g. send
  	  with FTP)
@@ -20,7 +20,7 @@ ALPHA4	* Remove old MSGID processing code.
 	* rfc2ftn: better parsing of first line, don't use RFCAddr
 	  parser.
 
-ALPHA4	* rfc2ftn: handle MIME RFC1523 header
+DONE.	* rfc2ftn: handle MIME RFC1523 header
 
 	* ftntick: remove FILES.BBS entry for old replaced file.
 
@@ -42,7 +42,7 @@ ALPHA4	* rfc2ftn: handle MIME RFC1523 header
 	* ftn2rfc: bounce messages should include the complete FTN
 	  message with all kludges etc. to ease debugging.
 
-ALPHA4	* config.h: ALIASES, AREAS, HOSTS, PASSWD, PACKING, ROUTING
+DONE.	* config.h: ALIASES, AREAS, HOSTS, PASSWD, PACKING, ROUTING
 	  configurable in config.common
 
 	* kludge.c: handling traversing multiple kludges of the same

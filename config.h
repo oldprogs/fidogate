@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway software UNIX <-> FIDO
  *
- * $Id: config.h,v 4.6 1996/08/25 17:16:14 mj Exp $
+ * $Id: config.h,v 4.7 1996/08/26 19:10:26 mj Exp $
  *
  * Configuration header file
  *
@@ -229,12 +229,21 @@
 #define CONFIG_MAIN	"%L/config.main"/* FIDOGATE main AKA config file */
 #define CONFIG_FFX	"%L/config.ffx"	/* FIDOGATE ffx progs config file */
 
-#define ALIASES		"%L/aliases"	/* Gateway user aliases config file */
-#define AREAS		"%L/areas"	/* Gateway Areas <-> Newsgroups */
-#define HOSTS		"%L/hosts"	/* Gateway registered host file */
-#define PASSWD		"%L/passwd"	/* Password config file */
-#define PACKING		"%L/packing"	/* Tosser packing config file */
-#define ROUTING		"%L/routing"	/* Tosser routing config file */
+/* Default values, if not set in config */
+#define DEF_ALIASES	"%L/aliases"	/* Gateway user aliases config file */
+#define DEF_AREAS	"%L/areas"	/* Gateway Areas <-> Newsgroups */
+#define DEF_HOSTS	"%L/hosts"	/* Gateway registered host file */
+#define DEF_PASSWD	"%L/passwd"	/* Password config file */
+#define DEF_PACKING	"%L/packing"	/* Tosser packing config file */
+#define DEF_ROUTING	"%L/routing"	/* Tosser routing config file */
+
+/* Values retrieved from config */
+#define ALIASES		cf_p_aliases()
+#define AREAS		cf_p_areas()
+#define HOSTS		cf_p_hosts()
+#define PASSWD		cf_p_passwd()
+#define PACKING		cf_p_packing()
+#define ROUTING		cf_p_routing()
 
 #define HISTORY		"history"	/* MSGID history in SPOOLDIR */
 

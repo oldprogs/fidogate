@@ -1,6 +1,6 @@
 #:ts=8
 #
-# $Id: config.gate,v 4.7 1996/04/26 13:24:09 mj Exp $
+# $Id: config.gate,v 4.8 1996/08/26 19:10:29 mj Exp $
 #
 # FIDOGATE config file gateway programs
 #
@@ -45,6 +45,11 @@ Organization	"Martin Junius' orodruin.fido.de"
 # Use text from * Origin line for Organization header
 #
 #UseOriginForOrganization
+
+#
+# Use text from Organization header for * Origin line
+#
+#UseOrganizationForOrigin
 
 
 #

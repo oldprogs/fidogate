@@ -46,6 +46,11 @@ Organization	"Fido.DE domain gateway (IN e.V.)"
 #
 #UseOriginForOrganization
 
+#
+# Use text from Organization header for * Origin line
+#
+#UseOrganizationForOrigin
+
 
 #
 # Type of 4D EchoMail control lines.

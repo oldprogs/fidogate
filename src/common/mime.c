@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: mime.c,v 4.1 1996/08/25 17:16:16 mj Exp $
+ * $Id: mime.c,v 4.2 1996/08/26 19:10:30 mj Exp $
  *
  * MIME stuff
  *
@@ -103,7 +103,7 @@ char *mime_dequote(char *d, size_t n, char *s, int flags)
 
 
 /*
- * Decode MIME RFC1522 header
+ * Decode MIME RFC1523 header
  *
  **FIXME: currently always assumes ISO-8859-1 char set
  **FIXME: optional flag for conversion to 7bit ASCII replacements
