@@ -2,8 +2,6 @@ Wed Nov 13 22:14:55 1996  Martin Junius  <mj@fido.de>
 
 	------- CVS ci -------------------------------------------------------
 
-	* version.h (PATCHLEVEL): set to 2.
-
 	* src/common/message.c (msg_xlate_line): must translate '=' to
 	  '=3D' if using the MIME quoted-printable encoding.
 	  (msg_xlate_line): AREA_QP has priority over AREA_8BIT.
