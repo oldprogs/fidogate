@@ -1,4 +1,35 @@
+Wed Oct 16 21:11:42 1996  Martin Junius  <mj@fido.de>
+
+	------- CVS ci -------------------------------------------------------
+
+	* version.h (VERSION): changed to 4.1
+	  (STATE): changed to release.
+	  (BETA): commented.
+
+	* doc/fidogate.texi (Example Point): some changes.
+
+Tue Oct 15 20:27:34 1996  Martin Junius  <mj@fido.de>
+
+	* fidogate.lsm: updated for released 4.1.0
+
+	* README: updated for release 4.1.0
+
+	* ANNOUNCE: announcement for FIDOGATE 4.1.0
+
 Sun Oct 13 13:55:57 1996  Martin Junius  <mj@fido.de>
+
+	* doc/fidogate.texi (Areas.bbs): update to reflect new areas.bbs
+	  features. 
+	  (Example Point): added section with example point configuration.
+	  (Example Node): updated section with example node configuration.
+	  (Point): updated.
+	  (Config): added documentation for ffxbatch parameters.
+	  (Introduction): updated.
+	  (Installation): updated.
+	  (Integration): added scripts/CNews.
+	  (ftnconfig): new section documenting ftnconfig.
+	  (Config): added list of %L, %S, %O specials.
+	  (Packing): added dirpack.
 
 	------- CVS ci -------------------------------------------------------
 

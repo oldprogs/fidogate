@@ -2,7 +2,7 @@
 @c
 @c FIDOGATE documentation
 @c
-@c $Id: fidogate.texi,v 4.6 1996/10/13 15:08:37 mj Exp $
+@c $Id: fidogate.texi,v 4.7 1996/10/16 19:35:14 mj Exp $
 @c
 
 @setfilename fidogate.info
@@ -15,7 +15,7 @@
 
 
 @ifinfo
-This file documents the usage of FIDOGATE version 4.0
+This file documents the usage of FIDOGATE version 4
 
 Copyright (C) 1994-1996, Martin Junius
 
@@ -44,14 +44,17 @@ into other languages, under the above conditions for modified versions.
 
 @titlepage
 @title FIDOGATE
-@subtitle FIDO - Internet Gateway
-@subtitle FIDO mail processor
-@subtitle Version 4.0 beta
+@subtitle Fido-Internet Gateway
+@subtitle Fido FTN-FTN Gateway
+@subtitle Fido Mail Processor
+@subtitle Fido File Processor
+@subtitle Fido Areafix/Filefix
+@subtitle Version 4
 @author by Martin Junius
 
 @page
 
-Copyright @copyright{} 1994-1995 Martin Junius
+Copyright @copyright{} 1994-1996 Martin Junius
 
 Permission is granted to make and distribute verbatim copies of
 this manual provided the copyright notice and this permission notice
@@ -78,8 +81,6 @@ This manual documents how to install and use FIDOGATE. It is the first
 step toward a concise documentation. Alas, writing documentation is a
 somewhat tedious business, so this manual is far from complete.
 
-@noindent
-@b{THIS MANUAL IS NOT COMPLETELY UP-TO-DATE FOR THE NEW FIDOGATE RELEASE 4.0 !!!}
 
 @menu
 * Introduction::Introduction to FIDOGATE
@@ -115,6 +116,7 @@ FIDOGATE Programs
 * ftnaf::       Areafix
 * ftnbounce::   Bounce mail to unknown FTN address
 * ftnbsy::      Create/delete Binkley busy files
+* ftnconfig::   Retrieve information from FIDOGATE config files
 * ftnhatch::    Hatch new file into file
 * ftnin::       Frontend for @code{ftn2rfc}
 * ftninpost::   Mail/news processing script
@@ -150,7 +152,8 @@ FIDOGATE Config Files
 
 Basic Configuration
 
-* Example::       Example leaf node configuration
+* Example Point::      Example point configuration
+* Example Node::       Example leaf node configuration
 @end menu
 
 @c ***************************************************************************
@@ -162,24 +165,26 @@ Basic Configuration
 
 
 @noindent
-FIDOGATE is a gateway software between the worlds of FIDO NetMail/EchoMail
-(or FTNs, Fido Technology Networks in general) and the UNIX mail/news
-system. FIDOGATE will convert FIDO mail packets to RFC822-style messages
-and vice versa.  It is placed under the GNU General Public License, see
-file COPYING for details.
+FIDOGATE is a Fido-Internet gateway and a Fido tosser.  It is placed
+under the GNU General Public License, see COPYING for details.
 
-This version of FIDOGATE also includes a complete passthru FIDO mail
-processor (NetMail/EchoMail scanner and tosser) and an Areafix-like
-utility.
+The gateway converts between the worlds of Fido NetMail/EchoMail
+(or FTNs, Fido Technology Networks in general) and the UNIX mail/news
+system. FIDOGATE will convert Fido mail packets to RFC822-style messages
+and vice versa.
+
+FIDOGATE also includes a complete FIDO mail processor (NetMail/EchoMail
+scanner and tosser), a file processor (TIC file areas) and an
+Areafix/Filefix.
 
 
 @section How to Get FIDOGATE
 
 @noindent
-The latest version of FIDOGATE is available at the following sites.
+The latest version of FIDOGATE is available at the locations.
 
 @noindent
-Internet WWW FIDOGATE page:
+Internet WWW FIDOGATE home page:
 @example
 http://www.fido.de/~mj/fidogate/
 @end example
@@ -204,20 +209,23 @@ BBS and FIDO frequest:
 @itemize @bullet
 
 @item
-Something that gets you FIDONET mail. If you want a FIDO mailer, I
-recommend using ifcico from Eugene Crosser's ifmail package.
+Something that gets you FIDONET mail. If you want a UNIX-based FIDO
+mailer, I recommend using ifcico from Eugene Crosser's ifmail package.
 
 @item
-Installed news system. (CNews or INN)
+Installed news system. (CNews, INN)
 
 @item
-A new reader. (nn, tin, Emacs GNUS)
+A news reader. (nn, tin, Emacs GNUS, netscape)
 
 @item
-A mail transport agent. (sendmail or smail)
+A mail transport agent. (sendmail, smail)
 
 @item
-A mail user agent. (mail, elm, pine, Emacs)
+A mail user agent. (mail, elm, pine, Emacs VM, netscape)
+
+@item
+Perl. (version 4.036 or 5.000+)
 
 @end itemize
 
@@ -291,13 +299,12 @@ The wildmat() function from GNU tar, modified and adopted for FIDOGATE.
 @end menu
 
 @noindent
-This chapter describes the FIDOGATE program configuration and
-installation.  You must also edit the config files to be installed in
-the LIBDIR directory. Change @code{config.common}, @code{config.gate},
+This chapter describes the FIDOGATE configuration and installation.  You
+must also edit the config files to be installed in the LIBDIR
+directory. Create @code{config.common}, @code{config.gate},
 @code{config.main}, @code{config.ffx}, @code{areas}, @code{hosts},
 @code{passwd}, @code{routing}, @code{packing}, @code{aliases} according
-to your setup (examples from my configuration contained in the lib
-subdirectory).
+to your setup (examples in the examples subdirectory).
 
 The chapter on config files describes them in detail.
 
@@ -328,27 +335,17 @@ Comment out @code{PASSTHRU_NETMAIL} and @code{PASSTHRU_ECHOMAIL} in
 and may cause trouble.
 
 @item
-If you want to send Internet mail via a FIDO-Internet gateway, set it's
+If you want to send Internet mail via a Fido-Internet gateway, set its
 address with @code{Gateway} in @code{config.gate}. FIDOGATE can then be
-used as your default mailer, delivering all non-FIDO mail to this
+used as your default mailer, delivering all non-Fido mail to this
 gateway.
 
 @end itemize
 
-Sample @code{lib/config.gate} settings for a point:
-
-@example
-hostname  mordor
-domain    .middle.earth
-address   2:2499/666.42
-uplink    2:2499/666
-nofromeline
-gateway   2:2476/2
-@end example
-
 See also @code{doc/Fido-Point-HOWTO} (German) and
 @code{doc/Fido-Point-eng-HOWT} (English) for a complete description how
-to install a point system.
+to install a point system. Furthermore, there is a section on point
+configuration at the end of this document.
 
 
 
@@ -883,6 +880,9 @@ written in German, though.
 @item scripts/inn
 Scripts for INN.
 
+@item scripts/cnews
+Scripts for CNews.
+
 @item sendmail/cf
 Sendmail V8 configuration files (m4) and example .mc files for
 FIDOGATE: Fido.DE domain gateway morannon, orodruin, point setup.
@@ -1007,6 +1007,8 @@ Areafix
 Bounce mail to unknown FTN address, NOT YET IMPLEMENTED.
 @item ftnbsy
 Create/delete Binkley busy files
+@item ftnconfig
+Retrieve information from FIDOGATE config files
 @item ftnhatch
 Hatch new file into file echo
 @item ftnin
@@ -1063,6 +1065,7 @@ CRC checksum utility
 * ftnaf::       Areafix
 * ftnbounce::   Bounce mail to unknown FTN address
 * ftnbsy::      Create/delete Binkley busy files
+* ftnconfig::   Retrieve information from FIDOGATE config files
 * ftnhatch::    Hatch new file into file
 * ftnin::       Frontend for @code{ftn2rfc}
 * ftninpost::   Mail/news processing script
@@ -1491,7 +1494,7 @@ NOT YET IMPLEMENTED. (Only program skeleton is there.)
 
 
 @c ***************************************************************************
-@node ftnbsy, ftnhatch, ftnbounce, Programs
+@node ftnbsy, ftnconfig, ftnbounce, Programs
 
 @section ftnbsy --- Create/delete Binkley Busy Filess
 @cindex ftnbsy
@@ -1524,7 +1527,52 @@ Wait for busy file to be released (when @code{-l} option is given).
 
 
 @c ***************************************************************************
-@node ftnhatch, ftnin, ftnbsy, Programs
+@node ftnconfig, ftnhatch, ftnbsy, Programs
+
+@section ftnconfig --- Retrieve information from FIDOGATE config files
+@cindex ftnconfig
+@cindex Config
+
+@noindent Usage:
+
+@example
+ftnconfig  @r{[}@i{-options}@r{]}  @i{parameter}
+@end example
+
+@noindent Options:
+
+@table @code
+
+@item -l --no-newline
+No output of newline after the parameter value.
+
+@item -n --no-output
+No output, exit code only.
+
+@end table
+
+@noindent Special parameters:
+
+@table @code
+
+@item =fqdn
+Fully qualified domain name.
+
+@item =hostname
+Hostname.
+
+@item =domainname
+Domainname.
+
+@item =hostsdomain
+Domain for entries in @code{hosts} config files.
+
+@end table
+
+
+
+@c ***************************************************************************
+@node ftnhatch, ftnin, ftnconfig, Programs
 
 @section ftnhatch --- Hatch new file into file echo
 @cindex ftnhatch
@@ -2284,9 +2332,10 @@ The config file for the gateway related programs @code{ftn2rfc},
 @code{ftnin}, @code{rfc2ftn}.
 @item config.main
 The config file for the tosser related programs @code{ftn2ftn},
-@code{ftnaf}, @code{ftnbounce}, @code{ftnbsy}, @code{ftnhatch,}
-@code{ftnlock}, @code{ftnlog}, @code{ftnpack}, @code{ftnroute},
-@code{ftnseq}, @code{ftntick}, @code{ftntoss}, @code{ftnfattach}.
+@code{ftnaf}, @code{ftnbounce}, @code{ftnbsy}, @code{ftnconfig},
+@code{ftnhatch}, @code{ftnlock}, @code{ftnlog}, @code{ftnpack},
+@code{ftnroute}, @code{ftnseq}, @code{ftntick}, @code{ftntoss},
+@code{ftnfattach}.
 @item config.ffx
 The config file for the ffx programs @code{ffx}, @code{ffxbatch},
 @code{ffxqt}
@@ -2300,6 +2349,23 @@ The format of these files is
 
 Keywords and arguments may be quoted in @code{""}, keywords are
 case-insensitive.
+
+Almost all file and program names may start with the following %X
+specials:
+
+@table @code
+
+@item %L
+Replaced with LIBDIR.
+
+@item %S
+Replaced with SPOOLDIR.
+
+@item %O
+Replaced with LOGDIR.
+
+@end table
+
 
 
 @c ---------------------------------------------------------------------------
@@ -2404,13 +2470,12 @@ Use @i{file} instead of the default @code{routing} config file.
 
 @c ---------------------------------------------------------------------------
 
-@noindent Special configuration @code{ffx}, @code{ffxbatch},
-@code{ffxqt} (config file @code{config.ffx}):
+@noindent Special configuration @code{ffx} (config file @code{config.ffx}):
 
 @table @code
 
 @item FFXDataFlav @i{flavour}
-Flavour to be used for file attachments created by the ffx programs.
+Flavour to be used for file attachments created by the @code{ffx} program.
 
 @item FFXDataCompr @i{command ...}
 Program to be used for creating compressed @code{ffx} data files.
@@ -2434,6 +2499,38 @@ File name extension to be used for uncompressed @code{ffx} data files
 Uncompressor name for uncompressed @code{ffx} data files (option
 @code{-n}, will be run by @code{ffxqt}).
 
+@noindent Special configuration @code{ffx} (config file @code{config.ffx}):
+
+@end table
+
+
+@noindent Special configuration @code{ffxbatch} (config file @code{config.ffx}):
+
+@table @code
+
+@item FFXBatchArc @i{command ...}
+Command for creating archive of batched @code{ffx} files.
+
+@item FFXBatchArcV @i{command ...}
+Command for creating archive of batched @code{ffx} files if option
+@code{-v} is given.
+
+@item FFXBatchArcExt @i{parameter}
+File name extension for archive.
+
+@item FFXBatchArcCmd @i{parameter}
+Command name for unbatching archive by @code{ffxqt}.
+
+@item FFXDataFlav @i{parameter}
+Flavour to be used for file attachments created by the @code{ffxqt} program.
+
+@end table
+
+
+@noindent Special configuration @code{ffxqt} (config file @code{config.ffx}):
+
+@table @code
+
 @item FFXCommand @i{name} @i{command ...}
 List of command names and corresponding commands to be used by
 @code{ffxqt}. Only the commands listed can be executed. This replaces
@@ -2443,23 +2540,6 @@ versions.
 @item FFXUncompress @i{name} @i{command ...}
 List of uncompressor names and corresponding commands to be used by
 @code{ffxqt}.
-
-@end table
-
-
-@noindent Special configuration @code{ffxbatch} (config file @code{config.ffx}):
-
-@table @code
-
-@item FFXBatchArc @i{parameter}
-
-@item FFXBatchArcV @i{parameter}
-
-@item FFXBatchArcExt @i{parameter}
-
-@item FFXBatchArcCmd @i{parameter}
-
-@item FFXDataFlav @i{parameter}
 
 @end table
 
@@ -2475,24 +2555,24 @@ types.
 
 @item X-FTN @i{header}
 Include the various X-FTN header in the output of @code{ftn2rfc}:
-        @table @code
-        @item f
-        @code{X-FTN-From}
-        @item t
-        @code{X-FTN-To}
-        @item T
-        @code{X-FTN-Tearline}
-        @item O
-        @code{X-FTN-Origin}
-        @item V
-        @code{X-FTN-Via}
-        @item D
-        @code{X-FTN-Domain}
-        @item S
-        @code{X-FTN-Seen-By}
-        @item P
-        @code{X-FTN-Path}
-        @end table
+@table @code
+@item f
+@code{X-FTN-From}
+@item t
+@code{X-FTN-To}
+@item T
+@code{X-FTN-Tearline}
+@item O
+@code{X-FTN-Origin}
+@item V
+@code{X-FTN-Via}
+@item D
+@code{X-FTN-Domain}
+@item S
+@code{X-FTN-Seen-By}
+@item P
+@code{X-FTN-Path}
+@end table
 @code{X-FTN-From} is required for the proper operation of @code{ftnaf}.
 
 @item BounceCCMail @i{user@@do.main}
@@ -2750,7 +2830,7 @@ Default flavour for file attaches created by @code{ftnfattach}.
 
 @noindent
 This file contains the FTN addresses and host names for registered FTN
-nodes. If @code{HOSTS_RESTRICTED} is defined in @code{config.h}, this
+nodes. If @code{HostsRestricted} is defined in @code{config.gate}, this
 file controls the access to the gateway.
 
 @noindent The format of this file is
@@ -2787,8 +2867,8 @@ translation, using the standard @i{p.f.n.z} address.
 
 @table @code
 @item -p
-Generate addresses with point, e.g. @code{p99.hippo.fido.de}.
-Default is omitting the point.
+Generate addresses with point part, e.g. @code{p99.hippo.fido.de}.
+Default is omitting the point part.
 @item -d
 Mark the node as down, mail to this address will be bounced with
 an appropiate error message.
@@ -2929,7 +3009,7 @@ FTN area.
 Usenet newsgroup.
 
 @item options
-IMPORTANT: there must be spaces between the option and its arguments!
+IMPORTANT: there must be spaces between the option and its argument!
 
 @table @code
 
@@ -2963,8 +3043,7 @@ IMPLEMENTED.
 @item -H
 Area/newsgroup matches entire hierarchy. Names are converted
 automatically, using upper case for area names and lower case for
-newsgroups. @code{_} in area names is converted to @code{-} in newsgroup
-names, and vice versa.
+newsgroups.
 
 Example:
 @example
@@ -2990,14 +3069,14 @@ placed before the @code{-H} hierarchy definition.
 @item -R @i{level}
 Select level of @code{^ARFC-}Header put into FIDO messages for this
 area. Level:
-        @table @r
-        @item 0
-        No @code{^ARFC-}header at all.
-        @item 1
-        Only important @code{^ARFC-}header.
-        @item 2
-        All @code{^ARFC-}header.
-        @end table
+@table @r
+@item 0
+No @code{^ARFC-}header at all.
+@item 1
+Only important @code{^ARFC-}header.
+@item 2
+All @code{^ARFC-}header.
+@end table
 
 @item -m @i{bytes}
 Sets @code{MaxMsgSize} for this area (0 = no limit).
@@ -3011,8 +3090,8 @@ options are possible.
 @end table
 
 Only newsgroups listed in this file will be gated from Internet to FTN.
-FTN area not listed in this file will be gated into the @code{FTN_JUNK}
-newsgroup specified in @code{config.h}.
+FTN area not listed in this file will be gated into the
+@code{FTNJunkGroup} newsgroup specified in @code{config.gate}.
 
 
 
@@ -3274,6 +3353,7 @@ prog       @i{name}  @code{"}@i{program}@code{"}
 pack       @i{name}  @i{nodes}
 rpack      @i{name}  @i{dest-node}  @i{nodes}
 fpack      @i{name}  @i{dest-node}  @i{nodes}
+dirpack    @i{dir}  @i{name}  @i{nodes}
 @end example
 
 @noindent Packer/program definitions:
@@ -3311,6 +3391,10 @@ Similar to @code{rpack}, but the packet is archived for the normal
 arcmail packet for each node. This archive is then attached to the FLO
 file of @i{dest-node}.
 
+@item dirpack
+Archive packets for @i{nodes} in special directory @i{dir}, not the
+standard outbound.
+
 @end table
 
 Example:
@@ -3340,10 +3424,14 @@ The format of this file is as follows, the first line being ignored for
 compatibility with the standard DOS AREAS.BBS.
 
 @example
-@i{directory}  @i{area}  @r{[}@i{options}@r{]}  @i{nodes}
+@r{[}#@r{]}@i{directory}  @i{area}  @r{[}@i{options}@r{]}  @i{nodes}
 @end example
 
 @table @i
+
+@item @t{#}
+Marks area as pass-through, i.e. no packets for the own address (zone
+AKA or set by @code{-a}) will be created.
 
 @item directory
 The directory where the message base/file base for this area is located.
@@ -3370,19 +3458,17 @@ Set Areafix/Filefix access key for this area.
 @item nodes
 The list of downlink nodes. This is a sorted short list of nodes as in
 FIDO EchoMail SEEN-BYs and PATH. The first node in @i{nodes} stays at
-this place, though.
+this place, though. Do @i{not} put your own address into the @i{nodes}
+list.
 
 @end table
 
-Do @i{not} put your own address into @code{areas.bbs}. FIDOGATE will
-select the AKA corresponding to the zone of the first node listed in
-@i{nodes}.
 
 
 
 @c ***************************************************************************
 @page
-@node Basic, Example, Areas.bbs, Top
+@node Basic, Example Point, Areas.bbs, Top
 @chapter Basic Configuration
 
 @cindex Configuration
@@ -3390,26 +3476,107 @@ select the AKA corresponding to the zone of the first node listed in
 There seems to be some confusion about how to configure the gateway and
 the tosser, so a added this chapter. Hopefully this will help ...
 
-The following applies to a simple Fido node setup with one uplink,
-several points and the gateway.
-
-Most important, the @i{gateway} and the @i{node} (main aka) need
-@i{different} addresses!!! The gateway is some sort of a ``sysop
-point'', so normally you must assign one of your point addresses to the
-gateway. The @code{Uplink} in @code{config.gate} is your node address.
-
 @menu
-* Example::       Example leaf node configuration
+* Example Point::      Example point configuration
+* Example Node::       Example leaf node configuration
 @end menu
 
 
 
 @c ***************************************************************************
-@node Example, Index, Basic, Basic
+@node Example Point, Example Node, Basic, Basic
+
+@section Example Point Configuration
+@cindex Configuration
+@cindex Example
+@cindex Point
+
+
+@noindent
+Let's assume the following addresses:
+
+Fido point address 2:2499/123.9
+
+Uplink (NetMail and EchoMail) 2:2499/123
+
+
+@noindent
+Address configuration @code{config.gate} (uplink is the same as the
+point address!):
+
+@example
+Address 2:2499/123.9
+Uplink  2:2499/123.9
+@end example
+
+@noindent
+Address configuration @code{config.main} (no uplink here!):
+
+@example
+Address 2:2499/123.9
+@end example
+
+
+@noindent
+Routing configuration @code{routing}: mail for the local address on
+hold, everything else is send to the boss node.
+
+@example
+NetMail
+route    hold   2:2499/123.9
+route    normal 2:2499/123 1:* 2:* 3:* 4:* 5:* 6:*
+
+EchoMail
+sendmove hold   2:2499/123.9
+sendmove normal *
+@end example
+
+
+@noindent
+Packer configuration @code{packing}: no packing for own address,
+@code{zip} is the default archiver for everything else.
+
+@example
+arc  zip    "/usr/bin/zip -gkjq %s %s"
+
+pack noarc  2:2499/123.9
+pack zip    *
+@end example
+
+@noindent
+Next, the EchoMail areas must be listed in the @code{areas.bbs} file. Do
+@i{not} put your node address into @code{areas.bbs}! Example with two
+areas (the directory @code{X} is not used for EchoMail areas), which are
+non-passthrough:
+
+@example
+Your system name!sysop name
+X LINUX.GER 2:2499/123
+X UNIX.GER  2:2499/123
+@end example
+
+In the gateway configuration, these areas must be listed in the
+@code{areas} config file:
+
+@example
+LINUX.GER fido.ger.linux
+UNIX.GER  fido.ger.unix
+@end example
+
+Now the gateway is able to process EchoMail. The program @code{ftnin}
+should be run to gate any (unpacked) FTN outbound mail packet for
+2:2499/123.9. The script @code{scripts/run/runpoll} runs everything
+needed for a point polling its mail at the boss node.
+
+
+
+@c ***************************************************************************
+@node Example Node, Index, Example Point, Basic
 
 @section Example Leaf Node configuration
 @cindex Configuration
 @cindex Example
+@cindex Node
 
 
 @noindent
@@ -3453,11 +3620,12 @@ remap 2:2499/123.0 2:2499/123.11 "Sabine Meier"
 remap 2:2499/123.0 2:2499/123.1  "*"
 
 NetMail
-send  hold 2:2499/123.*
-route hold 2:2499/100 1:* 2:* 3:* 4:* 5:* 6:*
+send  hold   2:2499/123.*
+route normal 2:2499/100 1:* 2:* 3:* 4:* 5:* 6:*
 
 EchoMail
-sendmove hold *
+sendmove hold   2:2499/123.*
+sendmove normal *
 @end example
 
 
@@ -3466,9 +3634,9 @@ Packer configuration @code{packing}: no packing for the gateway address,
 @code{zip} is the default archiver for everything else.
 
 @example
-arc zip "/usr/local/bin/zip -gkjq %s %s"
+arc zip "/usr/bin/zip -gkjq %s %s"
 
-pack noarch 2:2499/123.1
+pack noarc  2:2499/123.1
 pack zip    *
 @end example
 
@@ -3480,8 +3648,8 @@ areas, both subscribed by the gateway and your points (the directory
 
 @example
 Your system name!sysop name
-X LINUX.GER 2:2499/100 123.1 .10 .11
-X UNIX.GER  2:2499/100 123.1 .11
+#X LINUX.GER 2:2499/100 123.1 .10 .11
+#X UNIX.GER  2:2499/100 123.1 .11
 @end example
 
 In the gateway configuration, these areas must be listed in the
@@ -3502,9 +3670,9 @@ working. You can then install suitable aliases in @code{/etc/aliases}:
 
 @example
 # Areafix/Filefix - FIDOGATE ftnaf
-areafix: "|/usr/local/lib/fidonet/ftnaf -m", admin
+areafix: "|/usr/local/lib/fidonet/ftnaf -m"
 areamgr: areafix
-filefix: "|/usr/local/lib/fidonet/ftnaf -F -m", admin
+filefix: "|/usr/local/lib/fidonet/ftnaf -F -m"
 filemgr: filefix
 @end example
 
@@ -3516,7 +3684,7 @@ help to improve the FIDOGATE documentation.
 
 @c ***************************************************************************
 @page
-@node Index, , Example, Top
+@node Index, , Example Node, Top
 @unnumbered Index
 
 @printindex cp

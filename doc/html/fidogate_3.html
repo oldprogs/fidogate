@@ -1,7 +1,7 @@
 <HTML>
 <HEAD>
 <!-- This HTML file has been created by texi2html 1.51
-     from ../fidogate.texi on 13 October 1996 -->
+     from ../fidogate.texi on 16 October 1996 -->
 
 <TITLE>FIDOGATE
  - FIDOGATE Programs</TITLE>
@@ -56,6 +56,9 @@ Bounce mail to unknown FTN address, NOT YET IMPLEMENTED.
 <DT><CODE>ftnbsy</CODE>
 <DD>
 Create/delete Binkley busy files
+<DT><CODE>ftnconfig</CODE>
+<DD>
+Retrieve information from FIDOGATE config files
 <DT><CODE>ftnhatch</CODE>
 <DD>
 Hatch new file into file echo
@@ -131,26 +134,27 @@ CRC checksum utility
 <LI><A HREF="fidogate_3.html#SEC25">ftnaf</A>: Areafix
 <LI><A HREF="fidogate_3.html#SEC26">ftnbounce</A>: Bounce mail to unknown FTN address
 <LI><A HREF="fidogate_3.html#SEC27">ftnbsy</A>: Create/delete Binkley busy files
-<LI><A HREF="fidogate_3.html#SEC28">ftnhatch</A>: Hatch new file into file
-<LI><A HREF="fidogate_3.html#SEC29">ftnin</A>: Frontend for <CODE>ftn2rfc</CODE>
-<LI><A HREF="fidogate_3.html#SEC30">ftninpost</A>: Mail/news processing script
-<LI><A HREF="fidogate_3.html#SEC31">ftninrecomb</A>: Mail/news recombining script
-<LI><A HREF="fidogate_3.html#SEC32">ftnlock</A>: Create/delete lock files
-<LI><A HREF="fidogate_3.html#SEC33">ftnlog</A>: Write message to log file
-<LI><A HREF="fidogate_3.html#SEC34">ftnpack</A>: Pack (ArcMail) FTN mail packets
-<LI><A HREF="fidogate_3.html#SEC35">ftnroute</A>: Route FTN mail packets
-<LI><A HREF="fidogate_3.html#SEC36">ftnseq</A>: Access sequencer file
-<LI><A HREF="fidogate_3.html#SEC37">ftntick</A>: Process incoming file echos
-<LI><A HREF="fidogate_3.html#SEC38">ftntoss</A>: Toss/remap/rewrite FTN mail packets
-<LI><A HREF="fidogate_3.html#SEC39">ftnfattach</A>: Binkley outbound file attach utility
-<LI><A HREF="fidogate_3.html#SEC40">pktdebug</A>: FTN mail packet debugger
-<LI><A HREF="fidogate_3.html#SEC41">rfc2ftn</A>: Internet-FTN gateway
-<LI><A HREF="fidogate_3.html#SEC42">rundf</A>: Script for checking free disk space
-<LI><A HREF="fidogate_3.html#SEC43">runin</A>: Script for processing inbound packets
-<LI><A HREF="fidogate_3.html#SEC44">runout</A>: Script for processing gateway output packets
-<LI><A HREF="fidogate_3.html#SEC45">runtoss</A>: Script for running tosser
-<LI><A HREF="fidogate_3.html#SEC46">rununpack</A>: Script for unpacking arcmail archives
-<LI><A HREF="fidogate_3.html#SEC47">sumcrc</A>: CRC checksum utility
+<LI><A HREF="fidogate_3.html#SEC28">ftnconfig</A>: Retrieve information from FIDOGATE config files
+<LI><A HREF="fidogate_3.html#SEC29">ftnhatch</A>: Hatch new file into file
+<LI><A HREF="fidogate_3.html#SEC30">ftnin</A>: Frontend for <CODE>ftn2rfc</CODE>
+<LI><A HREF="fidogate_3.html#SEC31">ftninpost</A>: Mail/news processing script
+<LI><A HREF="fidogate_3.html#SEC32">ftninrecomb</A>: Mail/news recombining script
+<LI><A HREF="fidogate_3.html#SEC33">ftnlock</A>: Create/delete lock files
+<LI><A HREF="fidogate_3.html#SEC34">ftnlog</A>: Write message to log file
+<LI><A HREF="fidogate_3.html#SEC35">ftnpack</A>: Pack (ArcMail) FTN mail packets
+<LI><A HREF="fidogate_3.html#SEC36">ftnroute</A>: Route FTN mail packets
+<LI><A HREF="fidogate_3.html#SEC37">ftnseq</A>: Access sequencer file
+<LI><A HREF="fidogate_3.html#SEC38">ftntick</A>: Process incoming file echos
+<LI><A HREF="fidogate_3.html#SEC39">ftntoss</A>: Toss/remap/rewrite FTN mail packets
+<LI><A HREF="fidogate_3.html#SEC40">ftnfattach</A>: Binkley outbound file attach utility
+<LI><A HREF="fidogate_3.html#SEC41">pktdebug</A>: FTN mail packet debugger
+<LI><A HREF="fidogate_3.html#SEC42">rfc2ftn</A>: Internet-FTN gateway
+<LI><A HREF="fidogate_3.html#SEC43">rundf</A>: Script for checking free disk space
+<LI><A HREF="fidogate_3.html#SEC44">runin</A>: Script for processing inbound packets
+<LI><A HREF="fidogate_3.html#SEC45">runout</A>: Script for processing gateway output packets
+<LI><A HREF="fidogate_3.html#SEC46">runtoss</A>: Script for running tosser
+<LI><A HREF="fidogate_3.html#SEC47">rununpack</A>: Script for unpacking arcmail archives
+<LI><A HREF="fidogate_3.html#SEC48">sumcrc</A>: CRC checksum utility
 </UL>
 
 <P>
@@ -729,9 +733,66 @@ Wait for busy file to be released (when <CODE>-l</CODE> option is given).
 
 
 
-<H2><A NAME="SEC28" HREF="fidogate_toc.html#TOC28">ftnhatch -- Hatch new file into file echo</A></H2>
+<H2><A NAME="SEC28" HREF="fidogate_toc.html#TOC28">ftnconfig -- Retrieve information from FIDOGATE config files</A></H2>
 <P>
 <A NAME="IDX33"></A>
+<A NAME="IDX34"></A>
+
+</P>
+<P>
+Usage:
+
+</P>
+
+<PRE>
+ftnconfig  [<I>-options</I>]  <I>parameter</I>
+</PRE>
+
+<P>
+Options:
+
+</P>
+<DL COMPACT>
+
+<DT><CODE>-l --no-newline</CODE>
+<DD>
+No output of newline after the parameter value.
+
+<DT><CODE>-n --no-output</CODE>
+<DD>
+No output, exit code only.
+
+</DL>
+
+<P>
+Special parameters:
+
+</P>
+<DL COMPACT>
+
+<DT><CODE>=fqdn</CODE>
+<DD>
+Fully qualified domain name.
+
+<DT><CODE>=hostname</CODE>
+<DD>
+Hostname.
+
+<DT><CODE>=domainname</CODE>
+<DD>
+Domainname.
+
+<DT><CODE>=hostsdomain</CODE>
+<DD>
+Domain for entries in <CODE>hosts</CODE> config files.
+
+</DL>
+
+
+
+<H2><A NAME="SEC29" HREF="fidogate_toc.html#TOC29">ftnhatch -- Hatch new file into file echo</A></H2>
+<P>
+<A NAME="IDX35"></A>
 
 </P>
 <P>
@@ -757,10 +818,10 @@ Use alternate FAREAS.BBS.
 
 
 
-<H2><A NAME="SEC29" HREF="fidogate_toc.html#TOC29">ftnin -- Frontend for <CODE>ftn2rfc</CODE></A></H2>
+<H2><A NAME="SEC30" HREF="fidogate_toc.html#TOC30">ftnin -- Frontend for <CODE>ftn2rfc</CODE></A></H2>
 <P>
-<A NAME="IDX34"></A>
-<A NAME="IDX35"></A>
+<A NAME="IDX36"></A>
+<A NAME="IDX37"></A>
 
 </P>
 <P>
@@ -802,9 +863,9 @@ for each packet.
 
 
 
-<H2><A NAME="SEC30" HREF="fidogate_toc.html#TOC30">ftninpost -- Mail/News Processing Script</A></H2>
+<H2><A NAME="SEC31" HREF="fidogate_toc.html#TOC31">ftninpost -- Mail/News Processing Script</A></H2>
 <P>
-<A NAME="IDX36"></A>
+<A NAME="IDX38"></A>
 
 </P>
 <P>
@@ -825,9 +886,9 @@ in SPOOLDIR/in/mail and SPOOLDIR/in/news to <CODE>sendmail</CODE> and
 
 
 
-<H2><A NAME="SEC31" HREF="fidogate_toc.html#TOC31">ftninrecomb -- Mail/News Recombining Script</A></H2>
+<H2><A NAME="SEC32" HREF="fidogate_toc.html#TOC32">ftninrecomb -- Mail/News Recombining Script</A></H2>
 <P>
-<A NAME="IDX37"></A>
+<A NAME="IDX39"></A>
 
 </P>
 <P>
@@ -848,10 +909,10 @@ messages. The default is that it is not run, you must edit
 
 
 
-<H2><A NAME="SEC32" HREF="fidogate_toc.html#TOC32">ftnlock -- Create/Remove Lock Files</A></H2>
+<H2><A NAME="SEC33" HREF="fidogate_toc.html#TOC33">ftnlock -- Create/Remove Lock Files</A></H2>
 <P>
-<A NAME="IDX38"></A>
-<A NAME="IDX39"></A>
+<A NAME="IDX40"></A>
+<A NAME="IDX41"></A>
 
 </P>
 <P>
@@ -886,11 +947,11 @@ Lock files are created as SPOOLDIR/locks/<I>NAME</I>.
 
 
 
-<H2><A NAME="SEC33" HREF="fidogate_toc.html#TOC33">ftnlog -- Write Message to Log File</A></H2>
+<H2><A NAME="SEC34" HREF="fidogate_toc.html#TOC34">ftnlog -- Write Message to Log File</A></H2>
 <P>
-<A NAME="IDX40"></A>
-<A NAME="IDX41"></A>
 <A NAME="IDX42"></A>
+<A NAME="IDX43"></A>
+<A NAME="IDX44"></A>
 
 </P>
 <P>
@@ -922,10 +983,10 @@ file name may be specified with the <CODE>LOGFILE</CODE> environment variable.
 
 
 
-<H2><A NAME="SEC34" HREF="fidogate_toc.html#TOC34">ftnpack -- Pack FTN ArcMail Packets</A></H2>
+<H2><A NAME="SEC35" HREF="fidogate_toc.html#TOC35">ftnpack -- Pack FTN ArcMail Packets</A></H2>
 <P>
-<A NAME="IDX43"></A>
-<A NAME="IDX44"></A>
+<A NAME="IDX45"></A>
+<A NAME="IDX46"></A>
 
 </P>
 <P>
@@ -983,10 +1044,10 @@ Process *.pkt files in the input directory. Default: output files of
 
 
 
-<H2><A NAME="SEC35" HREF="fidogate_toc.html#TOC35">ftnroute -- Route FTN Mail Packets</A></H2>
+<H2><A NAME="SEC36" HREF="fidogate_toc.html#TOC36">ftnroute -- Route FTN Mail Packets</A></H2>
 <P>
-<A NAME="IDX45"></A>
-<A NAME="IDX46"></A>
+<A NAME="IDX47"></A>
+<A NAME="IDX48"></A>
 
 </P>
 <P>
@@ -1033,9 +1094,9 @@ Set maximum number of concurrently open packet filess to
 
 
 
-<H2><A NAME="SEC36" HREF="fidogate_toc.html#TOC36">ftnseq -- Command Line Interface to Sequencer Files</A></H2>
+<H2><A NAME="SEC37" HREF="fidogate_toc.html#TOC37">ftnseq -- Command Line Interface to Sequencer Files</A></H2>
 <P>
-<A NAME="IDX47"></A>
+<A NAME="IDX49"></A>
 
 </P>
 <P>
@@ -1056,9 +1117,9 @@ sequencer files from perl and shell scripts.
 
 
 
-<H2><A NAME="SEC37" HREF="fidogate_toc.html#TOC37">ftntick -- Process incoming file echos</A></H2>
+<H2><A NAME="SEC38" HREF="fidogate_toc.html#TOC38">ftntick -- Process incoming file echos</A></H2>
 <P>
-<A NAME="IDX48"></A>
+<A NAME="IDX50"></A>
 
 </P>
 <P>
@@ -1092,10 +1153,10 @@ Insecure processing, do TIC files without password.
 
 
 
-<H2><A NAME="SEC38" HREF="fidogate_toc.html#TOC38">ftntoss -- Toss FTN Mail Packets</A></H2>
+<H2><A NAME="SEC39" HREF="fidogate_toc.html#TOC39">ftntoss -- Toss FTN Mail Packets</A></H2>
 <P>
-<A NAME="IDX49"></A>
-<A NAME="IDX50"></A>
+<A NAME="IDX51"></A>
+<A NAME="IDX52"></A>
 
 </P>
 <P>
@@ -1165,10 +1226,10 @@ Set maximum number of concurrently open packet filess to
 
 
 
-<H2><A NAME="SEC39" HREF="fidogate_toc.html#TOC39">ftnfattach -- Outbound file attaches</A></H2>
+<H2><A NAME="SEC40" HREF="fidogate_toc.html#TOC40">ftnfattach -- Outbound file attaches</A></H2>
 <P>
-<A NAME="IDX51"></A>
-<A NAME="IDX52"></A>
+<A NAME="IDX53"></A>
+<A NAME="IDX54"></A>
 
 </P>
 <P>
@@ -1205,9 +1266,9 @@ the file should be deleted or truncated, respectively, after sending.
 
 
 
-<H2><A NAME="SEC40" HREF="fidogate_toc.html#TOC40">pktdebug -- FTN mail packet debugger</A></H2>
+<H2><A NAME="SEC41" HREF="fidogate_toc.html#TOC41">pktdebug -- FTN mail packet debugger</A></H2>
 <P>
-<A NAME="IDX53"></A>
+<A NAME="IDX55"></A>
 
 </P>
 
@@ -1257,10 +1318,10 @@ See also the <CODE>util/pktmore</CODE> utitility, which pipes the output of
 
 
 
-<H2><A NAME="SEC41" HREF="fidogate_toc.html#TOC41">rfc2ftn -- Internet-FTN Gateway</A></H2>
+<H2><A NAME="SEC42" HREF="fidogate_toc.html#TOC42">rfc2ftn -- Internet-FTN Gateway</A></H2>
 <P>
-<A NAME="IDX54"></A>
-<A NAME="IDX55"></A>
+<A NAME="IDX56"></A>
+<A NAME="IDX57"></A>
 
 </P>
 
@@ -1320,10 +1381,10 @@ Write only crash mail directly to Binkley .CUT file.
 
 
 
-<H2><A NAME="SEC42" HREF="fidogate_toc.html#TOC42">rundf -- Script for Checking Free Disk Space</A></H2>
+<H2><A NAME="SEC43" HREF="fidogate_toc.html#TOC43">rundf -- Script for Checking Free Disk Space</A></H2>
 <P>
-<A NAME="IDX56"></A>
-<A NAME="IDX57"></A>
+<A NAME="IDX58"></A>
+<A NAME="IDX59"></A>
 
 </P>
 <P>
@@ -1354,10 +1415,10 @@ file utilities. If you don't have this one, you must adapt
 
 
 
-<H2><A NAME="SEC43" HREF="fidogate_toc.html#TOC43">runin -- Script for Processing Inbound Packets</A></H2>
+<H2><A NAME="SEC44" HREF="fidogate_toc.html#TOC44">runin -- Script for Processing Inbound Packets</A></H2>
 <P>
-<A NAME="IDX58"></A>
-<A NAME="IDX59"></A>
+<A NAME="IDX60"></A>
+<A NAME="IDX61"></A>
 
 </P>
 <P>
@@ -1410,10 +1471,10 @@ requirements.
 
 
 
-<H2><A NAME="SEC44" HREF="fidogate_toc.html#TOC44">runout -- Script for Processing Gateway Output Packets</A></H2>
+<H2><A NAME="SEC45" HREF="fidogate_toc.html#TOC45">runout -- Script for Processing Gateway Output Packets</A></H2>
 <P>
-<A NAME="IDX60"></A>
-<A NAME="IDX61"></A>
+<A NAME="IDX62"></A>
+<A NAME="IDX63"></A>
 
 </P>
 <P>
@@ -1442,10 +1503,10 @@ requirements.
 
 
 
-<H2><A NAME="SEC45" HREF="fidogate_toc.html#TOC45">runtoss -- Script for Running Tosser</A></H2>
+<H2><A NAME="SEC46" HREF="fidogate_toc.html#TOC46">runtoss -- Script for Running Tosser</A></H2>
 <P>
-<A NAME="IDX62"></A>
-<A NAME="IDX63"></A>
+<A NAME="IDX64"></A>
+<A NAME="IDX65"></A>
 
 </P>
 
@@ -1495,10 +1556,10 @@ archive size, minimum free disk space.
 
 
 
-<H2><A NAME="SEC46" HREF="fidogate_toc.html#TOC46">rununpack -- Script for Unpacking ArcMail Archives</A></H2>
+<H2><A NAME="SEC47" HREF="fidogate_toc.html#TOC47">rununpack -- Script for Unpacking ArcMail Archives</A></H2>
 <P>
-<A NAME="IDX64"></A>
-<A NAME="IDX65"></A>
+<A NAME="IDX66"></A>
+<A NAME="IDX67"></A>
 
 </P>
 <P>
@@ -1555,11 +1616,11 @@ unpacker names. The required programs are <CODE>unzip</CODE>, <CODE>unarj</CODE>
 
 
 
-<H2><A NAME="SEC47" HREF="fidogate_toc.html#TOC47">sumcrc -- CRC Checksum Utility</A></H2>
+<H2><A NAME="SEC48" HREF="fidogate_toc.html#TOC48">sumcrc -- CRC Checksum Utility</A></H2>
 <P>
-<A NAME="IDX66"></A>
-<A NAME="IDX67"></A>
 <A NAME="IDX68"></A>
+<A NAME="IDX69"></A>
+<A NAME="IDX70"></A>
 
 </P>
 

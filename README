@@ -1,6 +1,6 @@
 -*- Indented-Text -*-
 
-$Id: README,v 4.10 1996/10/03 09:48:34 mj Exp $
+$Id: README,v 4.11 1996/10/16 19:35:10 mj Exp $
 
 ----------------------------------------------------------------------
 				   
@@ -8,15 +8,7 @@ $Id: README,v 4.10 1996/10/03 09:48:34 mj Exp $
 				 ----
 	     Fidonet-Internet Gateway and Fidonet Tosser
 				   
-			  Version 4.0 alpha
-
-----------------------------------------------------------------------
-
-This is an experimental ALPHA release of the new FIDOGATE version
-4.0. It is intended to be used by people already familiar with
-FIDOGATE 3.9.7.
-
-The documentation in doc/ is currently NOT up-to-date!!!
+			      Version 4
 
 ----------------------------------------------------------------------
 
@@ -40,6 +32,8 @@ Major changes in FIDOGATE 4.0:
   examples/morannon/...
 
 ----------------------------------------------------------------------
+
+[ For detailed instructions see doc/fidogate.txt ]
 
 Needed:
 
@@ -66,8 +60,6 @@ Installing:
 See also doc/fidogate.txt (PostScript documentation can be compiled by
 running "make doc" in the doc/ subdirectory) for a detailed
 description of the FIDOGATE installation.
-
-PLEASE NOTE THAT THIS DOCUMENTATION IS NOT COMPLETELY UP-TO-DATE!!!
 
 ----------------------------------------------------------------------
 
@@ -96,7 +88,7 @@ The latest version of FIDOGATE can be found at:
 
 See also the FIDOGATE home page at:
 
-    http://www.fido.de/~mj/fidogate/
+    http://www.fido.de/fidogate/
 
 ----------------------------------------------------------------------
 
@@ -109,4 +101,4 @@ For an OS/2 version of FIDOGATE contact:
 
 ----------------------------------------------------------------------
 
-Martin Junius <mj@fido.de>, $Date: 1996/10/03 09:48:34 $
+Martin Junius <mj@fido.de>, $Date: 1996/10/16 19:35:10 $

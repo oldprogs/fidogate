@@ -1,7 +1,7 @@
 This is Info file fidogate.info, produced by Makeinfo-1.64 from the
 input file fidogate.texi.
 
-   This file documents the usage of FIDOGATE version 4.0
+   This file documents the usage of FIDOGATE version 4
 
    Copyright (C) 1994-1996, Martin Junius
 
@@ -27,9 +27,6 @@ Introduction
 This manual documents how to install and use FIDOGATE. It is the first
 step toward a concise documentation. Alas, writing documentation is a
 somewhat tedious business, so this manual is far from complete.
-
-THIS MANUAL IS NOT COMPLETELY UP-TO-DATE FOR THE NEW FIDOGATE RELEASE
-4.0 !!!
 
 * Menu:
 
@@ -66,6 +63,7 @@ FIDOGATE Programs
 * ftnaf::       Areafix
 * ftnbounce::   Bounce mail to unknown FTN address
 * ftnbsy::      Create/delete Binkley busy files
+* ftnconfig::   Retrieve information from FIDOGATE config files
 * ftnhatch::    Hatch new file into file
 * ftnin::       Frontend for `ftn2rfc'
 * ftninpost::   Mail/news processing script
@@ -101,7 +99,8 @@ FIDOGATE Config Files
 
 Basic Configuration
 
-* Example::       Example leaf node configuration
+* Example Point::      Example point configuration
+* Example Node::       Example leaf node configuration
 
 
 File: fidogate.info,  Node: Introduction,  Next: Installation,  Prev: Top,  Up: Top
@@ -109,22 +108,24 @@ File: fidogate.info,  Node: Introduction,  Next: Installation,  Prev: Top,  Up: 
 Introduction to FIDOGATE
 ************************
 
-FIDOGATE is a gateway software between the worlds of FIDO
-NetMail/EchoMail (or FTNs, Fido Technology Networks in general) and the
-UNIX mail/news system. FIDOGATE will convert FIDO mail packets to
-RFC822-style messages and vice versa.  It is placed under the GNU
-General Public License, see file COPYING for details.
+FIDOGATE is a Fido-Internet gateway and a Fido tosser.  It is placed
+under the GNU General Public License, see COPYING for details.
 
-   This version of FIDOGATE also includes a complete passthru FIDO mail
-processor (NetMail/EchoMail scanner and tosser) and an Areafix-like
-utility.
+   The gateway converts between the worlds of Fido NetMail/EchoMail (or
+FTNs, Fido Technology Networks in general) and the UNIX mail/news
+system. FIDOGATE will convert Fido mail packets to RFC822-style messages
+and vice versa.
+
+   FIDOGATE also includes a complete FIDO mail processor
+(NetMail/EchoMail scanner and tosser), a file processor (TIC file
+areas) and an Areafix/Filefix.
 
 How to Get FIDOGATE
 ===================
 
-The latest version of FIDOGATE is available at the following sites.
+The latest version of FIDOGATE is available at the locations.
 
-Internet WWW FIDOGATE page:
+Internet WWW FIDOGATE home page:
      http://www.fido.de/~mj/fidogate/
 
 Internet anonymous ftp:
@@ -138,16 +139,19 @@ BBS and FIDO frequest:
 Requirements for FIDOGATE:
 ==========================
 
-   * Something that gets you FIDONET mail. If you want a FIDO mailer, I
-     recommend using ifcico from Eugene Crosser's ifmail package.
+   * Something that gets you FIDONET mail. If you want a UNIX-based FIDO
+     mailer, I recommend using ifcico from Eugene Crosser's ifmail
+     package.
 
-   * Installed news system. (CNews or INN)
+   * Installed news system. (CNews, INN)
 
-   * A new reader. (nn, tin, Emacs GNUS)
+   * A news reader. (nn, tin, Emacs GNUS, netscape)
 
-   * A mail transport agent. (sendmail or smail)
+   * A mail transport agent. (sendmail, smail)
 
-   * A mail user agent. (mail, elm, pine, Emacs)
+   * A mail user agent. (mail, elm, pine, Emacs VM, netscape)
+
+   * Perl. (version 4.036 or 5.000+)
 
 FIDOGATE Mailing List
 =====================
@@ -203,12 +207,12 @@ Compiling and installing FIDOGATE
 * Testing::     Testing FIDOGATE operation
 * Connecting::  Connecting to FIDONET
 
-This chapter describes the FIDOGATE program configuration and
-installation.  You must also edit the config files to be installed in
-the LIBDIR directory. Change `config.common', `config.gate',
-`config.main', `config.ffx', `areas', `hosts', `passwd', `routing',
-`packing', `aliases' according to your setup (examples from my
-configuration contained in the lib subdirectory).
+This chapter describes the FIDOGATE configuration and installation.  You
+must also edit the config files to be installed in the LIBDIR
+directory. Create `config.common', `config.gate', `config.main',
+`config.ffx', `areas', `hosts', `passwd', `routing', `packing',
+`aliases' according to your setup (examples in the examples
+subdirectory).
 
    The chapter on config files describes them in detail.
 
@@ -230,23 +234,15 @@ connectivity:
      `src/config.h'. These functions are not necessary for a point
      system and may cause trouble.
 
-   * If you want to send Internet mail via a FIDO-Internet gateway, set
-     it's address with `Gateway' in `config.gate'. FIDOGATE can then be
-     used as your default mailer, delivering all non-FIDO mail to this
+   * If you want to send Internet mail via a Fido-Internet gateway, set
+     its address with `Gateway' in `config.gate'. FIDOGATE can then be
+     used as your default mailer, delivering all non-Fido mail to this
      gateway.
-
-   Sample `lib/config.gate' settings for a point:
-
-     hostname  mordor
-     domain    .middle.earth
-     address   2:2499/666.42
-     uplink    2:2499/666
-     nofromeline
-     gateway   2:2476/2
 
    See also `doc/Fido-Point-HOWTO' (German) and
 `doc/Fido-Point-eng-HOWT' (English) for a complete description how to
-install a point system.
+install a point system. Furthermore, there is a section on point
+configuration at the end of this document.
 
 
 File: fidogate.info,  Node: config.h,  Next: config.make,  Prev: Point,  Up: Installation
@@ -705,6 +701,9 @@ More documentation is included in the `doc' directory, especially the
 `scripts/inn'
      Scripts for INN.
 
+`scripts/cnews'
+     Scripts for CNews.
+
 `sendmail/cf'
      Sendmail V8 configuration files (m4) and example .mc files for
      FIDOGATE: Fido.DE domain gateway morannon, orodruin, point setup.
@@ -797,6 +796,7 @@ scripts:
 * ftnaf::       Areafix
 * ftnbounce::   Bounce mail to unknown FTN address
 * ftnbsy::      Create/delete Binkley busy files
+* ftnconfig::   Retrieve information from FIDOGATE config files
 * ftnhatch::    Hatch new file into file
 * ftnin::       Frontend for `ftn2rfc'
 * ftninpost::   Mail/news processing script
@@ -1143,7 +1143,7 @@ Options:
    NOT YET IMPLEMENTED. (Only program skeleton is there.)
 
 
-File: fidogate.info,  Node: ftnbsy,  Next: ftnhatch,  Prev: ftnbounce,  Up: Programs
+File: fidogate.info,  Node: ftnbsy,  Next: ftnconfig,  Prev: ftnbounce,  Up: Programs
 
 ftnbsy -- Create/delete Binkley Busy Filess
 ===========================================
@@ -1167,7 +1167,39 @@ Options:
      Wait for busy file to be released (when `-l' option is given).
 
 
-File: fidogate.info,  Node: ftnhatch,  Next: ftnin,  Prev: ftnbsy,  Up: Programs
+File: fidogate.info,  Node: ftnconfig,  Next: ftnhatch,  Prev: ftnbsy,  Up: Programs
+
+ftnconfig -- Retrieve information from FIDOGATE config files
+============================================================
+
+Usage:
+
+     ftnconfig  [-options]  parameter
+
+Options:
+
+`-l --no-newline'
+     No output of newline after the parameter value.
+
+`-n --no-output'
+     No output, exit code only.
+
+Special parameters:
+
+`=fqdn'
+     Fully qualified domain name.
+
+`=hostname'
+     Hostname.
+
+`=domainname'
+     Domainname.
+
+`=hostsdomain'
+     Domain for entries in `hosts' config files.
+
+
+File: fidogate.info,  Node: ftnhatch,  Next: ftnin,  Prev: ftnconfig,  Up: Programs
 
 ftnhatch -- Hatch new file into file echo
 =========================================

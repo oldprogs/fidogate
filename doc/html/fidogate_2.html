@@ -1,7 +1,7 @@
 <HTML>
 <HEAD>
 <!-- This HTML file has been created by texi2html 1.51
-     from ../fidogate.texi on 13 October 1996 -->
+     from ../fidogate.texi on 16 October 1996 -->
 
 <TITLE>FIDOGATE
  - Compiling and installing FIDOGATE</TITLE>
@@ -29,13 +29,12 @@ Go to the <A HREF="fidogate_1.html">first</A>, <A HREF="fidogate_1.html">previou
 </UL>
 
 <P>
-This chapter describes the FIDOGATE program configuration and
-installation.  You must also edit the config files to be installed in
-the LIBDIR directory. Change <CODE>config.common</CODE>, <CODE>config.gate</CODE>,
+This chapter describes the FIDOGATE configuration and installation.  You
+must also edit the config files to be installed in the LIBDIR
+directory. Create <CODE>config.common</CODE>, <CODE>config.gate</CODE>,
 <CODE>config.main</CODE>, <CODE>config.ffx</CODE>, <CODE>areas</CODE>, <CODE>hosts</CODE>,
 <CODE>passwd</CODE>, <CODE>routing</CODE>, <CODE>packing</CODE>, <CODE>aliases</CODE> according
-to your setup (examples from my configuration contained in the lib
-subdirectory).
+to your setup (examples in the examples subdirectory).
 
 </P>
 <P>
@@ -75,31 +74,18 @@ and may cause trouble.
 
 <LI>
 
-If you want to send Internet mail via a FIDO-Internet gateway, set it's
+If you want to send Internet mail via a Fido-Internet gateway, set its
 address with <CODE>Gateway</CODE> in <CODE>config.gate</CODE>. FIDOGATE can then be
-used as your default mailer, delivering all non-FIDO mail to this
+used as your default mailer, delivering all non-Fido mail to this
 gateway.
 
 </UL>
 
 <P>
-Sample <CODE>lib/config.gate</CODE> settings for a point:
-
-</P>
-
-<PRE>
-hostname  mordor
-domain    .middle.earth
-address   2:2499/666.42
-uplink    2:2499/666
-nofromeline
-gateway   2:2476/2
-</PRE>
-
-<P>
 See also <CODE>doc/Fido-Point-HOWTO</CODE> (German) and
 <CODE>doc/Fido-Point-eng-HOWT</CODE> (English) for a complete description how
-to install a point system.
+to install a point system. Furthermore, there is a section on point
+configuration at the end of this document.
 
 </P>
 
@@ -772,6 +758,10 @@ written in German, though.
 <DT><CODE>scripts/inn</CODE>
 <DD>
 Scripts for INN.
+
+<DT><CODE>scripts/cnews</CODE>
+<DD>
+Scripts for CNews.
 
 <DT><CODE>sendmail/cf</CODE>
 <DD>

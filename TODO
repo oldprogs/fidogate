@@ -2,6 +2,10 @@
 
 X = for next release
 
+	* "BestMatchAKA" parameter for all programs. Similar to
+	  setting AKA based on current zone, using the AKA with best
+	  fits the sender/receiver. For multi-point operation.
+
 	* config.c: make Origin/Organization normal cf_get_string()
 	  parameters.
 

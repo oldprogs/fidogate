@@ -1,7 +1,7 @@
 <HTML>
 <HEAD>
 <!-- This HTML file has been created by texi2html 1.51
-     from ../fidogate.texi on 13 October 1996 -->
+     from ../fidogate.texi on 16 October 1996 -->
 
 <TITLE>FIDOGATE
  - FIDOGATE Config Files</TITLE>
@@ -11,9 +11,9 @@ Go to the <A HREF="fidogate_1.html">first</A>, <A HREF="fidogate_3.html">previou
 <P><HR><P>
 
 
-<H1><A NAME="SEC48" HREF="fidogate_toc.html#TOC48">FIDOGATE Config Files</A></H1>
+<H1><A NAME="SEC49" HREF="fidogate_toc.html#TOC49">FIDOGATE Config Files</A></H1>
 <P>
-<A NAME="IDX69"></A>
+<A NAME="IDX71"></A>
 
 </P>
 <P>
@@ -65,15 +65,15 @@ EchoMail / file echo distribution
 
 
 <UL>
-<LI><A HREF="fidogate_4.html#SEC49">Config</A>: <CODE>config.*</CODE> configuration files
-<LI><A HREF="fidogate_4.html#SEC50">Hosts</A>: <CODE>hosts</CODE> FTN address to host name conversion
-<LI><A HREF="fidogate_4.html#SEC51">Aliases</A>: <CODE>aliases</CODE> user aliases
-<LI><A HREF="fidogate_4.html#SEC52">Areas</A>: <CODE>areas</CODE> FTN area to newsgroup conversion
-<LI><A HREF="fidogate_4.html#SEC53">Bounce</A>: Bounce messages of <CODE>ftn2rfc</CODE>
-<LI><A HREF="fidogate_4.html#SEC54">Passwd</A>: <CODE>passwd</CODE> password config file
-<LI><A HREF="fidogate_4.html#SEC55">Routing</A>: <CODE>routing</CODE> file for <CODE>ftntoss</CODE> and <CODE>ftnroute</CODE>
-<LI><A HREF="fidogate_4.html#SEC56">Packing</A>: <CODE>packing</CODE> file for <CODE>ftnpack</CODE>
-<LI><A HREF="fidogate_4.html#SEC57">Areas.bbs</A>: <CODE>areas.bbs</CODE> EchoMail distribution
+<LI><A HREF="fidogate_4.html#SEC50">Config</A>: <CODE>config.*</CODE> configuration files
+<LI><A HREF="fidogate_4.html#SEC51">Hosts</A>: <CODE>hosts</CODE> FTN address to host name conversion
+<LI><A HREF="fidogate_4.html#SEC52">Aliases</A>: <CODE>aliases</CODE> user aliases
+<LI><A HREF="fidogate_4.html#SEC53">Areas</A>: <CODE>areas</CODE> FTN area to newsgroup conversion
+<LI><A HREF="fidogate_4.html#SEC54">Bounce</A>: Bounce messages of <CODE>ftn2rfc</CODE>
+<LI><A HREF="fidogate_4.html#SEC55">Passwd</A>: <CODE>passwd</CODE> password config file
+<LI><A HREF="fidogate_4.html#SEC56">Routing</A>: <CODE>routing</CODE> file for <CODE>ftntoss</CODE> and <CODE>ftnroute</CODE>
+<LI><A HREF="fidogate_4.html#SEC57">Packing</A>: <CODE>packing</CODE> file for <CODE>ftnpack</CODE>
+<LI><A HREF="fidogate_4.html#SEC58">Areas.bbs</A>: <CODE>areas.bbs</CODE> EchoMail distribution
 </UL>
 
 <P>
@@ -84,9 +84,9 @@ and ignore empty lines. Keywords and commands are not case-sensitive.
 
 
 
-<H2><A NAME="SEC49" HREF="fidogate_toc.html#TOC49"><CODE>config.*</CODE> Configuration Files</A></H2>
+<H2><A NAME="SEC50" HREF="fidogate_toc.html#TOC50"><CODE>config.*</CODE> Configuration Files</A></H2>
 <P>
-<A NAME="IDX70"></A>
+<A NAME="IDX72"></A>
 
 </P>
 <P>
@@ -105,9 +105,10 @@ The config file for the gateway related programs <CODE>ftn2rfc</CODE>,
 <DT><CODE>config.main</CODE>
 <DD>
 The config file for the tosser related programs <CODE>ftn2ftn</CODE>,
-<CODE>ftnaf</CODE>, <CODE>ftnbounce</CODE>, <CODE>ftnbsy</CODE>, <CODE>ftnhatch,</CODE>
-<CODE>ftnlock</CODE>, <CODE>ftnlog</CODE>, <CODE>ftnpack</CODE>, <CODE>ftnroute</CODE>,
-<CODE>ftnseq</CODE>, <CODE>ftntick</CODE>, <CODE>ftntoss</CODE>, <CODE>ftnfattach</CODE>.
+<CODE>ftnaf</CODE>, <CODE>ftnbounce</CODE>, <CODE>ftnbsy</CODE>, <CODE>ftnconfig</CODE>,
+<CODE>ftnhatch</CODE>, <CODE>ftnlock</CODE>, <CODE>ftnlog</CODE>, <CODE>ftnpack</CODE>,
+<CODE>ftnroute</CODE>, <CODE>ftnseq</CODE>, <CODE>ftntick</CODE>, <CODE>ftntoss</CODE>,
+<CODE>ftnfattach</CODE>.
 <DT><CODE>config.ffx</CODE>
 <DD>
 The config file for the ffx programs <CODE>ffx</CODE>, <CODE>ffxbatch</CODE>,
@@ -128,6 +129,26 @@ Keywords and arguments may be quoted in <CODE>""</CODE>, keywords are
 case-insensitive.
 
 </P>
+<P>
+Almost all file and program names may start with the following %X
+specials:
+
+</P>
+<DL COMPACT>
+
+<DT><CODE>%L</CODE>
+<DD>
+Replaced with LIBDIR.
+
+<DT><CODE>%S</CODE>
+<DD>
+Replaced with SPOOLDIR.
+
+<DT><CODE>%O</CODE>
+<DD>
+Replaced with LOGDIR.
+
+</DL>
 
 <P>
 Common configuration:
@@ -252,15 +273,14 @@ Use <I>file</I> instead of the default <CODE>routing</CODE> config file.
 </DL>
 
 <P>
-Special configuration <CODE>ffx</CODE>, <CODE>ffxbatch</CODE>,
-<CODE>ffxqt</CODE> (config file <CODE>config.ffx</CODE>):
+Special configuration <CODE>ffx</CODE> (config file <CODE>config.ffx</CODE>):
 
 </P>
 <DL COMPACT>
 
 <DT><CODE>FFXDataFlav <I>flavour</I></CODE>
 <DD>
-Flavour to be used for file attachments created by the ffx programs.
+Flavour to be used for file attachments created by the <CODE>ffx</CODE> program.
 
 <DT><CODE>FFXDataCompr <I>command ...</I></CODE>
 <DD>
@@ -290,6 +310,45 @@ File name extension to be used for uncompressed <CODE>ffx</CODE> data files
 Uncompressor name for uncompressed <CODE>ffx</CODE> data files (option
 <CODE>-n</CODE>, will be run by <CODE>ffxqt</CODE>).
 
+Special configuration <CODE>ffx</CODE> (config file <CODE>config.ffx</CODE>):
+
+</DL>
+
+<P>
+Special configuration <CODE>ffxbatch</CODE> (config file <CODE>config.ffx</CODE>):
+
+</P>
+<DL COMPACT>
+
+<DT><CODE>FFXBatchArc <I>command ...</I></CODE>
+<DD>
+Command for creating archive of batched <CODE>ffx</CODE> files.
+
+<DT><CODE>FFXBatchArcV <I>command ...</I></CODE>
+<DD>
+Command for creating archive of batched <CODE>ffx</CODE> files if option
+<CODE>-v</CODE> is given.
+
+<DT><CODE>FFXBatchArcExt <I>parameter</I></CODE>
+<DD>
+File name extension for archive.
+
+<DT><CODE>FFXBatchArcCmd <I>parameter</I></CODE>
+<DD>
+Command name for unbatching archive by <CODE>ffxqt</CODE>.
+
+<DT><CODE>FFXDataFlav <I>parameter</I></CODE>
+<DD>
+Flavour to be used for file attachments created by the <CODE>ffxqt</CODE> program.
+
+</DL>
+
+<P>
+Special configuration <CODE>ffxqt</CODE> (config file <CODE>config.ffx</CODE>):
+
+</P>
+<DL COMPACT>
+
 <DT><CODE>FFXCommand <I>name</I> <I>command ...</I></CODE>
 <DD>
 List of command names and corresponding commands to be used by
@@ -302,24 +361,6 @@ versions.
 List of uncompressor names and corresponding commands to be used by
 <CODE>ffxqt</CODE>.
 
-</DL>
-
-<P>
-Special configuration <CODE>ffxbatch</CODE> (config file <CODE>config.ffx</CODE>):
-
-</P>
-<DL COMPACT>
-
-<DT><CODE>FFXBatchArc <I>parameter</I></CODE>
-<DD>
-<DT><CODE>FFXBatchArcV <I>parameter</I></CODE>
-<DD>
-<DT><CODE>FFXBatchArcExt <I>parameter</I></CODE>
-<DD>
-<DT><CODE>FFXBatchArcCmd <I>parameter</I></CODE>
-<DD>
-<DT><CODE>FFXDataFlav <I>parameter</I></CODE>
-<DD>
 </DL>
 
 <P>
@@ -337,24 +378,33 @@ types.
 <DT><CODE>X-FTN <I>header</I></CODE>
 <DD>
 Include the various X-FTN header in the output of <CODE>ftn2rfc</CODE>:
-        @table @code
-        @item f
-        <CODE>X-FTN-From</CODE>
-        @item t
-        <CODE>X-FTN-To</CODE>
-        @item T
-        <CODE>X-FTN-Tearline</CODE>
-        @item O
-        <CODE>X-FTN-Origin</CODE>
-        @item V
-        <CODE>X-FTN-Via</CODE>
-        @item D
-        <CODE>X-FTN-Domain</CODE>
-        @item S
-        <CODE>X-FTN-Seen-By</CODE>
-        @item P
-        <CODE>X-FTN-Path</CODE>
-        @end table
+<DL COMPACT>
+
+<DT><CODE>f</CODE>
+<DD>
+<CODE>X-FTN-From</CODE>
+<DT><CODE>t</CODE>
+<DD>
+<CODE>X-FTN-To</CODE>
+<DT><CODE>T</CODE>
+<DD>
+<CODE>X-FTN-Tearline</CODE>
+<DT><CODE>O</CODE>
+<DD>
+<CODE>X-FTN-Origin</CODE>
+<DT><CODE>V</CODE>
+<DD>
+<CODE>X-FTN-Via</CODE>
+<DT><CODE>D</CODE>
+<DD>
+<CODE>X-FTN-Domain</CODE>
+<DT><CODE>S</CODE>
+<DD>
+<CODE>X-FTN-Seen-By</CODE>
+<DT><CODE>P</CODE>
+<DD>
+<CODE>X-FTN-Path</CODE>
+</DL>
 <CODE>X-FTN-From</CODE> is required for the proper operation of <CODE>ftnaf</CODE>.
 
 <DT><CODE>BounceCCMail <I>user@do.main</I></CODE>
@@ -664,14 +714,14 @@ Default flavour for file attaches created by <CODE>ftnfattach</CODE>.
 
 
 
-<H2><A NAME="SEC50" HREF="fidogate_toc.html#TOC50"><CODE>hosts</CODE> FTN Address to Host Name Conversion</A></H2>
+<H2><A NAME="SEC51" HREF="fidogate_toc.html#TOC51"><CODE>hosts</CODE> FTN Address to Host Name Conversion</A></H2>
 <P>
-<A NAME="IDX71"></A>
+<A NAME="IDX73"></A>
 
 </P>
 <P>
 This file contains the FTN addresses and host names for registered FTN
-nodes. If <CODE>HOSTS_RESTRICTED</CODE> is defined in <CODE>config.h</CODE>, this
+nodes. If <CODE>HostsRestricted</CODE> is defined in <CODE>config.gate</CODE>, this
 file controls the access to the gateway.
 
 </P>
@@ -722,8 +772,8 @@ translation, using the standard <I>p.f.n.z</I> address.
 
 <DT><CODE>-p</CODE>
 <DD>
-Generate addresses with point, e.g. <CODE>p99.hippo.fido.de</CODE>.
-Default is omitting the point.
+Generate addresses with point part, e.g. <CODE>p99.hippo.fido.de</CODE>.
+Default is omitting the point part.
 <DT><CODE>-d</CODE>
 <DD>
 Mark the node as down, mail to this address will be bounced with
@@ -802,9 +852,9 @@ to Internet:
 
 
 
-<H2><A NAME="SEC51" HREF="fidogate_toc.html#TOC51"><CODE>aliases</CODE> User Aliases</A></H2>
+<H2><A NAME="SEC52" HREF="fidogate_toc.html#TOC52"><CODE>aliases</CODE> User Aliases</A></H2>
 <P>
-<A NAME="IDX72"></A>
+<A NAME="IDX74"></A>
 
 </P>
 <P>
@@ -872,9 +922,9 @@ Marc van.Rey @ 2:2452/110.6  &#60;-&#62;  mvr@hippo.Fido.DE
 
 
 
-<H2><A NAME="SEC52" HREF="fidogate_toc.html#TOC52"><CODE>areas</CODE> FTN Area to Newsgroup Conversion</A></H2>
+<H2><A NAME="SEC53" HREF="fidogate_toc.html#TOC53"><CODE>areas</CODE> FTN Area to Newsgroup Conversion</A></H2>
 <P>
-<A NAME="IDX73"></A>
+<A NAME="IDX75"></A>
 
 </P>
 <P>
@@ -906,7 +956,7 @@ Usenet newsgroup.
 
 <DT><I>options</I>
 <DD>
-IMPORTANT: there must be spaces between the option and its arguments!
+IMPORTANT: there must be spaces between the option and its argument!
 
 <DL COMPACT>
 
@@ -949,8 +999,7 @@ IMPLEMENTED.
 <DD>
 Area/newsgroup matches entire hierarchy. Names are converted
 automatically, using upper case for area names and lower case for
-newsgroups. <CODE>_</CODE> in area names is converted to <CODE>-</CODE> in newsgroup
-names, and vice versa.
+newsgroups.
 
 Example:
 
@@ -982,14 +1031,18 @@ placed before the <CODE>-H</CODE> hierarchy definition.
 <DD>
 Select level of <CODE>^ARFC-</CODE>Header put into FIDO messages for this
 area. Level:
-        @table @r
-        @item 0
-        No <CODE>^ARFC-</CODE>header at all.
-        @item 1
-        Only important <CODE>^ARFC-</CODE>header.
-        @item 2
-        All <CODE>^ARFC-</CODE>header.
-        @end table
+<DL COMPACT>
+
+<DT>0
+<DD>
+No <CODE>^ARFC-</CODE>header at all.
+<DT>1
+<DD>
+Only important <CODE>^ARFC-</CODE>header.
+<DT>2
+<DD>
+All <CODE>^ARFC-</CODE>header.
+</DL>
 
 <DT><CODE>-m <I>bytes</I></CODE>
 <DD>
@@ -1006,16 +1059,16 @@ options are possible.
 
 <P>
 Only newsgroups listed in this file will be gated from Internet to FTN.
-FTN area not listed in this file will be gated into the <CODE>FTN_JUNK</CODE>
-newsgroup specified in <CODE>config.h</CODE>.
+FTN area not listed in this file will be gated into the
+<CODE>FTNJunkGroup</CODE> newsgroup specified in <CODE>config.gate</CODE>.
 
 </P>
 
 
 
-<H2><A NAME="SEC53" HREF="fidogate_toc.html#TOC53">Bounce Messages of <CODE>ftn2rfc</CODE></A></H2>
+<H2><A NAME="SEC54" HREF="fidogate_toc.html#TOC54">Bounce Messages of <CODE>ftn2rfc</CODE></A></H2>
 <P>
-<A NAME="IDX74"></A>
+<A NAME="IDX76"></A>
 
 </P>
 <P>
@@ -1086,9 +1139,9 @@ The entire message body.
 
 
 
-<H2><A NAME="SEC54" HREF="fidogate_toc.html#TOC54"><CODE>passwd</CODE> Password Config File</A></H2>
+<H2><A NAME="SEC55" HREF="fidogate_toc.html#TOC55"><CODE>passwd</CODE> Password Config File</A></H2>
 <P>
-<A NAME="IDX75"></A>
+<A NAME="IDX77"></A>
 
 </P>
 <P>
@@ -1163,9 +1216,9 @@ ff          242:1234/5678   WUSEL       4   UQ    "Yet Another Sysop"
 
 
 
-<H2><A NAME="SEC55" HREF="fidogate_toc.html#TOC55"><CODE>routing</CODE> Config File</A></H2>
+<H2><A NAME="SEC56" HREF="fidogate_toc.html#TOC56"><CODE>routing</CODE> Config File</A></H2>
 <P>
-<A NAME="IDX76"></A>
+<A NAME="IDX78"></A>
 
 </P>
 <P>
@@ -1311,9 +1364,9 @@ route     hold         242:1000/50 51 52 53 54 55 56 57 58 59
 
 
 
-<H2><A NAME="SEC56" HREF="fidogate_toc.html#TOC56"><CODE>packing</CODE> Config File</A></H2>
+<H2><A NAME="SEC57" HREF="fidogate_toc.html#TOC57"><CODE>packing</CODE> Config File</A></H2>
 <P>
-<A NAME="IDX77"></A>
+<A NAME="IDX79"></A>
 
 </P>
 <P>
@@ -1333,6 +1386,7 @@ prog       <I>name</I>  <CODE>"</CODE><I>program</I><CODE>"</CODE>
 pack       <I>name</I>  <I>nodes</I>
 rpack      <I>name</I>  <I>dest-node</I>  <I>nodes</I>
 fpack      <I>name</I>  <I>dest-node</I>  <I>nodes</I>
+dirpack    <I>dir</I>  <I>name</I>  <I>nodes</I>
 </PRE>
 
 <P>
@@ -1378,6 +1432,11 @@ Similar to <CODE>rpack</CODE>, but the packet is archived for the normal
 arcmail packet for each node. This archive is then attached to the FLO
 file of <I>dest-node</I>.
 
+<DT><CODE>dirpack</CODE>
+<DD>
+Archive packets for <I>nodes</I> in special directory <I>dir</I>, not the
+standard outbound.
+
 </DL>
 
 <P>
@@ -1395,10 +1454,10 @@ pack    zip     *
 
 
 
-<H2><A NAME="SEC57" HREF="fidogate_toc.html#TOC57"><CODE>areas.bbs</CODE> EchoMail Distribution</A></H2>
+<H2><A NAME="SEC58" HREF="fidogate_toc.html#TOC58"><CODE>areas.bbs</CODE> EchoMail Distribution</A></H2>
 <P>
-<A NAME="IDX78"></A>
-<A NAME="IDX79"></A>
+<A NAME="IDX80"></A>
+<A NAME="IDX81"></A>
 
 </P>
 <P>
@@ -1413,10 +1472,15 @@ compatibility with the standard DOS AREAS.BBS.
 </P>
 
 <PRE>
-<I>directory</I>  <I>area</I>  [<I>options</I>]  <I>nodes</I>
+[#]<I>directory</I>  <I>area</I>  [<I>options</I>]  <I>nodes</I>
 </PRE>
 
 <DL COMPACT>
+
+<DT><I><TT>#</TT></I>
+<DD>
+Marks area as pass-through, i.e. no packets for the own address (zone
+AKA or set by <CODE>-a</CODE>) will be created.
 
 <DT><I>directory</I>
 <DD>
@@ -1452,16 +1516,10 @@ Set Areafix/Filefix access key for this area.
 <DD>
 The list of downlink nodes. This is a sorted short list of nodes as in
 FIDO EchoMail SEEN-BYs and PATH. The first node in <I>nodes</I> stays at
-this place, though.
+this place, though. Do <I>not</I> put your own address into the <I>nodes</I>
+list.
 
 </DL>
-
-<P>
-Do <I>not</I> put your own address into <CODE>areas.bbs</CODE>. FIDOGATE will
-select the AKA corresponding to the zone of the first node listed in
-<I>nodes</I>.
-
-</P>
 
 <P><HR><P>
 Go to the <A HREF="fidogate_1.html">first</A>, <A HREF="fidogate_3.html">previous</A>, <A HREF="fidogate_5.html">next</A>, <A HREF="fidogate_6.html">last</A> section, <A HREF="fidogate_toc.html">table of contents</A>.
