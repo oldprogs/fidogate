@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: charsetc.c,v 1.3 1998/04/07 12:21:54 mj Exp $
+ * $Id: charsetc.c,v 1.4 1998/05/01 15:16:43 mj Exp $
  *
  * Charset mapping table compiler
  *
@@ -36,79 +36,31 @@
 
 
 #define PROGRAM		"charsetc"
-#define VERSION		"$Revision: 1.3 $"
+#define VERSION		"$Revision: 1.4 $"
 
 
 
-/*-common--------------------------------------------------------------------*/
-/*
- * Alias linked list
- */
-static CharsetAlias *charset_alias_list = NULL;
-static CharsetAlias *charset_alias_last = NULL;
-
-/*
- * Table linked list
- */
-static CharsetTable *charset_table_list = NULL;
-static CharsetTable *charset_table_last = NULL;
-
-
-
-/*---------------------------------------------------------------------------*/
-
-
-/*->charset.c----------------------------------------------------------------*/
-/*
- * Alloc new CharsetTable and put into linked list
- */
-CharsetTable *charset_table_new(void)
-{
-    CharsetTable *p;
-
-    /* Alloc and clear */
-    p = (CharsetTable *)xmalloc(sizeof(CharsetTable));
-    memset(p, 0, sizeof(CharsetTable));
-    p->next = NULL;			/* Just to be sure */
-    
-    /* Put into linked list */
-    if(charset_table_list)
-	charset_table_last->next = p;
-    else
-	charset_table_list       = p;
-    charset_table_last       = p;
-
-    return p;
-}
+/*prototypes.h*/
+CharsetTable *charset_table_new	(void);
+CharsetAlias *charset_alias_new	(void);
+int	charset_write_bin	(char *);
+/**************/
 
 
 
 /*
- * Alloc new CharsetAlias and put into linked list
+ * Prototypes
  */
-CharsetAlias *charset_alias_new(void)
-{
-    CharsetAlias *p;
+int	charset_parse_c		(char *);
+int	charset_do_line		(char *);
+int	charset_do_file		(char *);
+int	charset_write_bin	(char *);
+int	compile_map		(char *, char *);
 
-    /* Alloc and clear */
-    p = (CharsetAlias *)xmalloc(sizeof(CharsetAlias));
-    memset(p, 0, sizeof(CharsetAlias));
-    p->next = NULL;			/* Just to be sure */
-    
-    /* Put into linked list */
-    if(charset_alias_list)
-	charset_alias_last->next = p;
-    else
-	charset_alias_list       = p;
-    charset_alias_last       = p;
-
-    return p;
-}
+void	short_usage		(void);
+void	usage			(void);
 
 
-
-
-/*---------------------------------------------------------------------------*/
 
 /*
  * Parse character
@@ -328,50 +280,6 @@ int charset_do_file(char *name)
     fclose(fp);
     cf_lineno_set(oldn);
     
-    return OK;
-}
-
-
-
-/*
- * Write binary mapping file
- */
-int charset_write_bin(char *name)
-{
-    FILE *fp;
-    CharsetTable *pt;
-    CharsetAlias *pa;
-    
-    debug(14, "Writing charset.bin file %s", name);
-    
-    fp = fopen_expand_name(name, W_MODE, FALSE);
-    if(!fp)
-	return ERROR;
-
-    /* Write aliases */
-    for(pa = charset_alias_list; pa; pa=pa->next)
-    {
-	fputc(CHARSET_FILE_ALIAS, fp);
-	fwrite(pa, sizeof(CharsetAlias), 1, fp);
-	if(ferror(fp))
-	{
-	    fclose(fp);
-	    return ERROR;
-	}
-    }
-    /* Write tables */
-    for(pt = charset_table_list; pt; pt=pt->next)
-    {
-	fputc(CHARSET_FILE_TABLE, fp);
-	fwrite(pt, sizeof(CharsetTable), 1, fp);
-	if(ferror(fp))
-	{
-	    fclose(fp);
-	    return ERROR;
-	}
-    }
-
-    fclose(fp);
     return OK;
 }
 

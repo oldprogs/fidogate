@@ -3,7 +3,7 @@
 /*
  * FIDOGATE
  *
- * $Id: cf_funcs.h,v 4.8 1998/03/08 21:07:38 mj Exp $
+ * $Id: cf_funcs.h,v 4.9 1998/05/01 15:16:46 mj Exp $
  */
 
 char *cf_p_logdir(void);
@@ -32,6 +32,8 @@ char *cf_p_lockdir(void);
 char *cf_s_lockdir(char *);
 char *cf_p_vardir(void);
 char *cf_s_vardir(char *);
+char *cf_p_charsetmap(void);
+char *cf_s_charsetmap(char *);
 char *cf_p_inbound(void);
 char *cf_s_inbound(char *);
 char *cf_p_btbasedir(void);

@@ -1,6 +1,6 @@
 #!/usr/bin/perl
 #
-# $Id: runtoss.pl,v 4.4 1998/04/28 19:02:26 mj Exp $
+# $Id: runtoss.pl,v 4.5 1998/05/01 15:16:47 mj Exp $
 #
 # Wrapper for ftntoss, ftnroute, ftnpack doing the toss process
 #
@@ -8,7 +8,7 @@
 #    or  runtoss /path/dir
 #
 
-$VERSION = '$Revision: 4.4 $ ';
+$VERSION = '$Revision: 4.5 $ ';
 $PROGRAM = "runtoss";
 
 
@@ -39,9 +39,11 @@ $UUINBOUND  = &CONFIG_get("uuinbound");
 $FTPINBOUND = &CONFIG_get("ftpinbound");
 $LOGFILE    = &CONFIG_get("logfile");
 
-# syslog facility
+# syslog facility, level
 $FACILITY   = &CONFIG_get("logfacility");
 $FACILITY   = "local0" if(!$FACILITY);
+$LEVEL      = &CONFIG_get("loglevel");
+$LEVEL      = "notice" if(!$LEVEL);
 
 # Minimum free disk space required for tossing
 $MINFREE    = &CONFIG_get("diskfreemin");
@@ -135,7 +137,7 @@ sub log {
     if($LOGFILE eq "syslog") {
 	# syslog logging
 ##	openlog($PROGRAM, 'pid', $FACILITY);
-##	syslog('notice', @text);
+##	syslog($LEVEL, @text);
 ##	closelog();
     } else {
 	# write to log file
@@ -153,7 +155,7 @@ sub log {
 	printf
 	    F "%s %02d %02d:%02d:%02d ",
 	    $month[$x[4]], $x[3], $x[2], $x[1], $x[0]; 
-	print F "$PROGRAM @text\n" if($opt_v);
+	print F "$PROGRAM @text\n";
 	
 	close(F);
     }
@@ -165,13 +167,12 @@ sub log {
 
 sub df_prog {
     local($path) = @_;
-    local(@args, *P, @f, $free);
+    local(@args, *P, @f, $free, $prog);
 
     # df command, %p is replaced with path name
-    @args = split(' ', $DFPROG);
-    for($i=0; $i<=$#args; $i++) {
-	$args[$i] =~ s/%p/$path/g;
-    }
+    $prog =  $DFPROG;
+    $prog =~ s/%p/$path/g;
+    @args =  split(' ', $prog);
 
     print "Running @args\n" if($opt_v);
 

@@ -3,7 +3,7 @@
 /*
  * FIDOGATE
  *
- * $Id: paths.h,v 4.8 1998/03/08 21:07:38 mj Exp $
+ * $Id: paths.h,v 4.9 1998/05/01 15:16:47 mj Exp $
  */
 
 #define DEFAULT_LOGDIR                  "/var/log/fidogate"
@@ -38,6 +38,7 @@
 #define DEFAULT_OUTPKT                  "%S/outpkt"
 #define DEFAULT_LOCKDIR                 "/var/lock/fidogate"
 #define DEFAULT_VARDIR                  "/var/lib/fidogate"
+#define DEFAULT_CHARSETMAP              "%L/charset.bin"
 #define DEFAULT_NEWSSPOOLDIR            "/var/spool/news"
 #define DEFAULT_SEQ_MAIL                "%V/seq/mail"
 #define DEFAULT_INBOUND                 "/var/spool/bt/in"

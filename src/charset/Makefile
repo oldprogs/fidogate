@@ -1,6 +1,6 @@
 #:ts=8
 #
-#    $Id: Makefile,v 1.1 1998/03/22 17:57:37 mj Exp $
+#    $Id: Makefile,v 1.2 1998/05/01 15:16:43 mj Exp $
 #
 #    Makefile for FIDOGATE src/charset/
 #
@@ -18,7 +18,7 @@ include $(TOPDIR)/rules.make
 
 PROGS		= charsetc
 
-OBJS_CHARSETC	= charsetc.o
+OBJS_CHARSETC	= charsetc.o new.o
 
 LOCAL_CFLAGS	=
 LOCAL_LFLAGS	=
@@ -30,6 +30,13 @@ all:		$(PROGS)
 
 charsetc:	$(TOPDIR)/src/common/$(LIB) $(OBJS_CHARSETC)
 	$(CC) $(LFLAGS) $(LOCAL_LFLAGS) -o charsetc $(OBJS_CHARSETC) $(LIBS)
+
+
+testcharset:	testcharset.o $(TOPDIR)/src/common/$(LIB)
+	$(CC) $(LFLAGS) -o testcharset testcharset.o $(LIBS)
+testcharset.o:	new.c
+	$(CC) $(CFLAGS) $(LOCAL_CFLAGS) -DTEST -c new.c -o testcharset.o
+
 
 
 install:

@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: packet.c,v 4.7 1998/04/28 19:02:25 mj Exp $
+ * $Id: packet.c,v 4.8 1998/05/01 15:20:58 mj Exp $
  *
  * Functions to read/write packets and messages
  *
@@ -611,12 +611,12 @@ int pkt_put_date(FILE *pkt, time_t t)
 static int force_fmpt0 = FALSE;
 static int force_intl  = TRUE;
 
-int pkt_set_forcefmpt0(int f)
+void pkt_set_forcefmpt0(int f)
 {
     force_fmpt0 = f;
 }
 
-int pkt_set_forceintl(int f)
+void pkt_set_forceintl(int f)
 {
     force_intl = f;
 }

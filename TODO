@@ -8,12 +8,14 @@
     Features
 
 	
-	* ftnafutil: only process areas with uplink entry in passwd?
+DONE	* ftnafutil: only process areas with uplink entry in passwd?
 
 	* log.c/config.h: get syslog facility from LogFacility, parse
 	  at run-time.
 
-	* packet.c:pkt_put_msg_hdr(): add run-time configuration for
+	* rfc2ftn: add config option ForceFMPT0 (pkt_set_forcefmpt0(TRUE))
+
+DONE	* packet.c:pkt_put_msg_hdr(): add run-time configuration for
 	  ^AFMPT 0, normally none.
 
 	* ftnafutil: option to sort areas.bbs, including zone/keys.
@@ -27,12 +29,7 @@
 	* Different Message-ID and sender Internet domain
 	  configuration (extended Zone config).
 
-	* rfc2ftn: mail split limit configurable per host.
-
 	* ftn2rfc: ^ARFC-<mime> import.
-
-	* ftn2rfc/rfc2ftn: MAIL-log messages configurable.
-	* ftn2rfc/rfc2ftn: mail log + size / message date
 
 	* ftn2rfc: send bounce mails directly as FTN messages, not via
 	  the mail system.
@@ -54,6 +51,8 @@
     Priority 2
 
     Features
+
+	* rfc2ftn: mail split limit configurable per host.
 
 STARTED	* areas.bbs: read-only/vacation flag for downlinks,
 	  e.g. Z:N/F.P=flags 
@@ -87,6 +86,9 @@ DONE	  copy netmail packets (do_noarc()), use rename(). If archiver
     Priority 3
 
     Features
+
+	* ftn2rfc/rfc2ftn: MAIL-log messages configurable.
+	* ftn2rfc/rfc2ftn: mail log + size / message date
 
 	* Generic alias matching: name@Z:N/F.P <-> user@do.main (Name),
 	  recipient *and* sender

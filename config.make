@@ -1,6 +1,6 @@
 # -*- Makefile -*-
 #
-# $Id: config.make,v 4.18 1998/03/07 16:53:25 mj Exp $
+# $Id: config.make,v 4.19 1998/05/01 15:16:41 mj Exp $
 #
 # FIDOGATE main configuration
 #
@@ -77,6 +77,7 @@ DEFAULT_V_PACKING	= %C/packing
 DEFAULT_V_ROUTING	= %C/routing
 DEFAULT_V_HISTORY	= %V/history
 DEFAULT_V_LOGFILE	= %G/log
+DEFAULT_V_CHARSETMAP	= %L/charset.bin
 
 
 # fixed parameters, DO NOT DELETE ANYTHING!!!

@@ -2,6 +2,12 @@ Fri May  1 14:17:28 1998  Martin Junius  <mj@fido.de>
 
 	------- CVS ci -------------------------------------------------------
 
+	* src/common/packet.c (pkt_set_forcefmpt0): return type changed to
+	  void.
+	  (pkt_set_forceintl): dito.
+
+	------- CVS ci -------------------------------------------------------
+
 	* config.make (DEFAULT_V_CHARSETMAP): added new config option.
 
 	* examples/orodruin/common.conf: added CHARSETMAP example.

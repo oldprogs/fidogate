@@ -3,7 +3,7 @@
 /*
  * FIDOGATE
  *
- * $Id: cf_funcs.mak,v 4.8 1998/03/08 21:07:37 mj Exp $
+ * $Id: cf_funcs.mak,v 4.9 1998/05/01 15:16:45 mj Exp $
  */
 
 #include "fidogate.h"
@@ -305,6 +305,29 @@ char *cf_p_vardir(void)
 char *cf_s_vardir(char *s)
 {
     return cf_p_s_vardir(s);
+}
+
+/***** CHARSETMAP *****/
+static char *cf_p_s_charsetmap(char *s)
+{
+    static char *pval = NULL;
+    if(s)
+        pval = strsave(s);
+    if(! pval)
+    {
+	if( ! (pval = cf_get_string("CHARSETMAP", TRUE)) )
+	    pval = DEFAULT_CHARSETMAP;
+	debug(8, "config: CHARSETMAP %s", pval);
+    }
+    return pval;
+}
+char *cf_p_charsetmap(void)
+{
+    return cf_p_s_charsetmap(NULL);
+}
+char *cf_s_charsetmap(char *s)
+{
+    return cf_p_s_charsetmap(s);
 }
 
 /***** INBOUND *****/

@@ -1,13 +1,13 @@
 #!/usr/bin/perl
 #
-# $Id: rununpack.pl,v 4.4 1998/04/28 19:02:26 mj Exp $
+# $Id: rununpack.pl,v 4.5 1998/05/01 15:16:47 mj Exp $
 #
 # Unpack ArcMail archives
 #
 # Usage: rununpack name
 #
 
-$VERSION = '$Revision: 4.4 $ ';
+$VERSION = '$Revision: 4.5 $ ';
 $PROGRAM = "rununpack";
 
 $BADDIR  = "bad";
@@ -54,9 +54,11 @@ $UUINBOUND  = &CONFIG_get("uuinbound");
 $FTPINBOUND = &CONFIG_get("ftpinbound");
 $LOGFILE    = &CONFIG_get("logfile");
 
-# syslog facility
+# syslog facility, level
 $FACILITY   = &CONFIG_get("logfacility");
 $FACILITY   = "local0" if(!$FACILITY);
+$LEVEL      = &CONFIG_get("loglevel");
+$LEVEL      = "notice" if(!$LEVEL);
 
 
 
@@ -103,7 +105,7 @@ sub log {
     if($LOGFILE eq "syslog") {
 	# syslog logging
 ##	openlog($PROGRAM, 'pid', $FACILITY);
-##	syslog('notice', @text);
+##	syslog($LEVEL, @text);
 ##	closelog();
     } else {
 	# write to log file
@@ -121,7 +123,7 @@ sub log {
 	printf
 	    F "%s %02d %02d:%02d:%02d ",
 	    $month[$x[4]], $x[3], $x[2], $x[1], $x[0]; 
-	print F "$PROGRAM @text\n" if($opt_v);
+	print F "$PROGRAM @text\n";
 	
 	close(F);
     }
@@ -188,10 +190,8 @@ sub run_arc {
     local($output, $cmd, $arc) = @_;
     local($prog, @args, $i, $d);
 
+    $cmd =~ s/%a/$arc/g;
     @args = split(' ', $cmd);
-    for($i=0; $i<=$#args; $i++) {
-	$args[$i] =~ s/%a/$arc/g;
-    }
 
     $prog = "";
     for $d (@arc_bindirs) {
