@@ -3,6 +3,7 @@
 ../tr.init
 
 T="../../src/gate/rfc2ftn -c../cf/fidogate.conf -v"
+T2="../../src/gate/rfc2ftn -cconfig2 -v"
 
 echo "tc: running"
 
@@ -37,6 +38,19 @@ EOF
 
 # Zone not supported
 $T test@p999.f999.n999.z999.fido.de <<EOF
+Subject: Test --------
+From: abc@blubber.fasel.org
+Message-ID: <Test--------@x.y.z>
+
+TEST ;-)
+EOF
+
+
+##### silent #####
+echo "----------SILENT----------"
+
+# Unknown
+$T2 test@unknown.fido.de <<EOF
 Subject: Test --------
 From: abc@blubber.fasel.org
 Message-ID: <Test--------@x.y.z>

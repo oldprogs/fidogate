@@ -1,3 +1,20 @@
+2004-02-11  Martin Junius  <mj@m-j-s.net>
+
+	------- CVS ci -------------------------------------------------------
+
+	* src/gate/rfc2ftn.c (mail_receiver): #if 0'ed BOUNCE log, already
+	  done in snd_mail().
+
+	* test/tc.bounce/run: added test case with SilentBounces.
+
+	* test/tc.bounce/config2: test config file for SilentBounces.
+
+	* src/gate/rfc2ftn.c (main): new option "SilentBounces" causes
+	  EX_NOHOST, EX_NOUSER errors to return OK without any message.
+	  Useful in the never ending fight against spam, when your gateway
+	  is flooded with messages to unknown adresses, such as Fido.DE :-(
+	  (snd_mail): check silent_bounces, if set return OK and log only.
+
 2003-12-13  Martin Junius  <mj@m-j-s.net>
 
 	------- CVS ci -------------------------------------------------------

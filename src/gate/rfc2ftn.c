@@ -2,12 +2,12 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway software UNIX <-> FIDO
  *
- * $Id: rfc2ftn.c,v 4.69 2003/02/16 15:36:22 n0ll Exp $
+ * $Id: rfc2ftn.c,v 4.71 2004/02/11 21:25:33 n0ll Exp $
  *
  * Read mail or news from standard input and convert it to a FIDO packet.
  *
  *****************************************************************************
- * Copyright (C) 1990-2002
+ * Copyright (C) 1990-2003
  *  _____ _____
  * |     |___  |   Martin Junius             <mj@fidogate.org>
  * | | | |   | |   Radiumstr. 18
@@ -39,7 +39,7 @@
 
 
 #define PROGRAM 	"rfc2ftn"
-#define VERSION 	"$Revision: 4.69 $"
+#define VERSION 	"$Revision: 4.71 $"
 #define CONFIG		DEFAULT_CONFIG_GATE
 
 
@@ -122,6 +122,7 @@ static int dont_process_return_receipt_to = FALSE;
 					/* DontProcessReturnReceiptTo */
 static int registered_hosts_only = FALSE;	/* RegisteredHostsOnly */
 static int registered_aliases_only = FALSE;	/* RegisteredAliasesOnly */
+static int silent_bounces = FALSE;	/* SilentBounces */
 
 
 /* Charset stuff */
@@ -731,8 +732,10 @@ char *mail_receiver(RFCAddr *rfc, Node *node)
 	 * Address is argument
 	 */
 	if(rfc_parse(rfc, name, node, TRUE) == ERROR) {
+#if 0
 	    log("BOUNCE: to=%s, reject=%s", s_rfcaddr_to_asc(rfc, TRUE),
 		(*address_error ? address_error : "unknown")  );
+#endif
 	    return NULL;
 	}
     }
@@ -909,12 +912,23 @@ int snd_mail(RFCAddr rfc_to, long size)
     p = mail_receiver(&rfc_to, &node_to);
     if(!p) {
 	char *msg = *address_error ? address_error : "address/host is unknown";
-	
-	sendback("Address %s:\n  %s", s_rfcaddr_to_asc(&rfc_to, TRUE), msg);
-	log("BOUNCE: from=%s, to=%s, reject=%s",
-	    s_rfcaddr_to_asc(&rfc_from, TRUE),
-	    s_rfcaddr_to_asc(&rfc_to, TRUE), msg);
-	TMPS_RETURN(address_exit ? address_exit : EX_NOHOST);
+
+	if(silent_bounces) 
+	{
+	    log("BOUNCE: from=%s, to=%s, reject=%s (SILENT!)",
+		s_rfcaddr_to_asc(&rfc_from, TRUE),
+		s_rfcaddr_to_asc(&rfc_to, TRUE), msg);
+	    TMPS_RETURN(OK);
+	}
+	else 
+	{
+	    sendback("Address %s:\n  %s",
+		     s_rfcaddr_to_asc(&rfc_to, TRUE), msg);
+	    log("BOUNCE: from=%s, to=%s, reject=%s",
+		s_rfcaddr_to_asc(&rfc_from, TRUE),
+		s_rfcaddr_to_asc(&rfc_to, TRUE), msg);
+	    TMPS_RETURN(address_exit ? address_exit : EX_NOHOST);
+	}
     }
     BUF_COPY(msg.name_to, p);
     fido = rfc_isfido();
@@ -2165,6 +2179,10 @@ int main(int argc, char **argv)
     if( (p = cf_get_string("RegisteredAliasesOnly", TRUE)) )
     {
 	registered_aliases_only = TRUE;
+    }
+    if( (p = cf_get_string("SilentBounces", TRUE)) )
+    {
+	silent_bounces = TRUE;
     }
 
 
