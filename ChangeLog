@@ -1,3 +1,20 @@
+Sun Nov  9 12:41:23 1997  Martin Junius  <mj@fido.de>
+
+	------- CVS ci -------------------------------------------------------
+
+	* examples/orodruin/: some updates.
+
+	* doc/fidogate.texi (ftn2rfc): documented -i and -n options.
+
+	* src/gate/ftn2rfc.c (usage): new option -n --no-remove.
+	  (main): implemented -n --no-remove.
+	  (main): if unpack_file() or run_system() fails, exit with
+	  EXIT_ERROR (1).
+	  (unpack_file): if n_flag is set, don't unlink() packet file,
+	  don't call rename_bad(), return ERROR instead.
+
+	* version.h (PATCHLEVEL): set to 9 (version 4.2.9).
+
 Sun Nov  2 15:40:37 1997  Martin Junius  <mj@fido.de>
 
 	======= Release 4.2.8 ================================================
