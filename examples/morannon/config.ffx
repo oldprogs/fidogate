@@ -23,9 +23,33 @@ include		%L/config.common
 Address		2:2452/110.1
 Address		2:242/6.1
 Address		242:4900/99
-Address		254:49/99
 
 Uplink		2:2452/110
 Uplink		2:242/6
 Uplink		242:1000/1
-Uplink		254:2410/6
+
+
+#
+# Outbound flavor for FFX files
+#
+FFXDataFlav	"Hold"
+
+#
+# Compression programs for ffx
+#
+# Compressed data files
+FFXDataCompr	"/usr/bin/gzip -c9"
+FFXDataExt	".gz"
+FFXDataDecompr	"gunzip"
+# Uncompressed data files
+FFXDataComprN	"/usr/bin/cat"
+FFXDataExtN	""
+FFXDataDecomprN	""
+
+#
+# Archiver or ffxbatch
+#
+FFXBatchArc	"/usr/bin/zip -j9q %s %s/* 2>/dev/null"
+FFXBatchArcV	"/usr/bin/zip -j9 %s %s/*"
+FFXBatchArcExt	".zip"
+FFXBatchArcCmd	"unbatchzip"

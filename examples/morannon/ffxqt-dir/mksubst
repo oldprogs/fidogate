@@ -1,5 +1,0 @@
-#!/bin/sh
-#
-# Run mksubst.pl
-#
-exec perl ../../mksubst.pl $*

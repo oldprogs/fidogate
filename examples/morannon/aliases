@@ -1,6 +1,6 @@
 #:ts=8
 #
-#   $Id: aliases,v 4.0 1996/04/17 18:17:33 mj Exp $
+#   $Id: aliases,v 4.1 1996/04/26 13:24:06 mj Exp $
 #
 # User name aliases
 #
@@ -8,20 +8,15 @@
 # --------	-----------		---------
 root		2:2452/110.1		"Super User"
 root		242:4900/99		"Super User"
-root		254:49/99		"Super User"
 
 postmaster	2:2452/110.1		"Mail Delivery Subsystem"
 postmaster	242:4900/99		"Mail Delivery Subsystem"
-postmaster	254:49/99		"Mail Delivery Subsystem"
 
 mj		2:2452/110.1		"Martin Junius"
 mj		2:2452/110.1		"Sysop"
 mj		242:1000/1		"Martin Junius"
 mj		242:4900/99		"Martin Junius"
 mj		242:4900/99		"Sysop"
-mj		254:2410/6		"Martin Junius"
-mj		254:49/99		"Martin Junius"
-mj		254:49/99		"Sysop"
 
 mk		242:1000/1.7		"Martin Koser"
 mk		2:2452/110.7		"Martin Koser"
@@ -46,10 +41,6 @@ freefall	242:1000/503		"Henning Moeller"
 
 tommy		242:1000/550		"Thomas Buhk"
 tommy		242:1000/551		"Thomas Buhk"
-
-gr		254:2000/0		"Guenter Reichelt"
-gr		254:2000/1		"Guenter Reichelt"
-gr		254:2000/2		"Guenter Reichelt"
 
 mudshark	242:5000/11		"Thomas Schlangen"
 rf		242:5000/10		"Rudi Ferrari"

@@ -1,5 +1,23 @@
 Fri Apr 26 08:27:37 1996  Martin Junius  <mj@fido.de>
 
+	------- CVS tag r40alpha1 --------------------------------------------
+
+	------- CVS commit ---------------------------------------------------
+
+	* examples/morannon/: updated for new FIDOGATE version, most old
+	  junk removed.
+
+	* examples/*/config.common: Zone list updated.
+
+	* README: some updates.
+
+	* doc/Makefile (all): removed fidogate.ps from "all" target, just
+	  create .info* and .txt. New target "doc" for all doc files.
+
+	* test/tc.gate[34]: some changes to run scripts.
+
+	------- CVS tag r40alpha1_test ---------------------------------------
+
 	------- CVS commit ---------------------------------------------------
 
 	* config.h (FSC_0047): removed, obsoleted by config option "NoFSC0047".

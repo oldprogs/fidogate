@@ -1,6 +1,6 @@
 #:ts=8
 #
-# $Id: config.gate,v 4.6 1996/04/26 08:41:39 mj Exp $
+# $Id: config.gate,v 4.7 1996/04/26 13:24:09 mj Exp $
 #
 # FIDOGATE config file gateway programs
 #
@@ -193,4 +193,3 @@ NoFromLine
 # Don't generate FSC-0047 kludges (^ASPLIT)
 #
 #NoFSC0047
-

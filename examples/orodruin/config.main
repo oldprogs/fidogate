@@ -1,6 +1,6 @@
 #:ts=8
 #
-# $Id: config.main,v 4.4 1996/04/24 12:15:28 mj Exp $
+# $Id: config.main,v 4.5 1996/04/26 13:24:10 mj Exp $
 #
 # FIDOGATE config file main AKA
 #
@@ -65,7 +65,7 @@ KillEmpty
 # Kill insecure EchoMail (sender not listed in areas.bbs)
 # (default: saved in bad packet)
 #
-#KillRouted
+#KillInsecure
 
 #
 # Log sender/recipient of all NetMail messages

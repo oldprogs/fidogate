@@ -1,6 +1,6 @@
 #:ts=8
 #
-# $Id: config.ffx,v 4.2 1996/04/23 10:24:56 mj Exp $
+# $Id: config.ffx,v 4.3 1996/04/26 13:24:09 mj Exp $
 #
 # FIDOGATE config file ffx programs
 #
@@ -51,4 +51,3 @@ FFXBatchArc	"/usr/bin/zip -j9q %s %s/* 2>/dev/null"
 FFXBatchArcV	"/usr/bin/zip -j9 %s %s/*"
 FFXBatchArcExt	".zip"
 FFXBatchArcCmd	"unbatchzip"
-

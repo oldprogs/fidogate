@@ -23,12 +23,10 @@ include		%L/config.common
 Address		2:2452/110.1
 Address		2:242/6.1
 Address		242:4900/99
-Address		254:49/99
 
 Uplink		2:2452/110
 Uplink		2:242/6
 Uplink		242:1000/1
-Uplink		254:2410/6
 
 
 #
@@ -44,10 +42,25 @@ Organization	"Fido.DE domain gateway (IN e.V.)"
 
 
 #
-# Don't generate From: line, FSC-0035 kludges
-# MUST be set for FIDOGATE points (no real gateway)
+# Use text from * Origin line for Organization header
 #
-#NoFromLine
+#UseOriginForOrganization
+
+
+#
+# Type of 4D EchoMail control lines.
+#
+# With this enabled FIDOGATE generates SEEN-BY and ^APATH like:
+#     SEEN-BY: 2452/110.2
+#     ^APATH: 2452/110.2
+# Else (undef'ed) only the boss node's address is used:
+#     SEEN-BY: 2452/110
+#     ^APATH: 2452/110
+# There seems to be no standard for 4D EchoMail addressing. If you run
+# into problems with this kind of EchoMail message, please change the
+# code in rfc2ftn.c:print_origin().
+#
+#EchoMail4D
 
 
 #
@@ -61,6 +74,18 @@ Organization	"Fido.DE domain gateway (IN e.V.)"
 # Generate `User.Name@do.main' instead of `User_Name@do.main'
 #
 #DotNames
+
+
+#
+# Don't gate messages with unknown zone in ^AMSGID (known zones are defined
+# in config.common).
+#
+KillUnknownMSGIDZone
+
+#
+# Don't gate messages without a valid ^AMSGID (or similar)
+#
+#KillNoMSGID
 
 
 #
@@ -105,3 +130,65 @@ BounceCCMail		postmaster@morannon.fido.de
 # Send mail from message trackers to
 #
 TrackerMail		postmaster@morannon.fido.de
+
+
+#
+# Restrict gateway usage to FTN nodes registered in HOSTS
+#
+HostsRestricted
+
+
+#
+# Newsgroup for unknown FTN areas
+#
+FTNJunkGroup		fido.junk
+
+
+#
+# Errors-To header
+#
+#Errors-To		postmaster@orodruin.fido.de
+
+
+#
+# Translation of chars for automatic areas <-> newsgroup conversion
+# (-H hierarchy option in AREAS)
+#
+#                       area chars	newsgroup chars
+#			----------	---------------
+AreasXlate		_		-
+
+
+#
+# NOTE 1: real gateways should *not* disable FSC0035/47 kludges, the
+#         From: line is obsoleted by both ^ARFC-Xxxx kludges and
+#         FSC0035 and not necessarily needed.
+#
+# NOTE 2: points without Internet connectivity (using FIDOGATE for
+#         Fido only) should set
+#             RFCLevel 0
+#             NoFromLine
+#             NoFSC0035
+#
+#
+# Default ^ARFC level
+#     0  -  no ^ARFC-Xxxx kludges
+#     1  -  ^ARFC-Xxxx kludges for some headers (config.h, RFC_LVL_1_HEADERS)
+#     2  -  ^ARFC-Xxxx kludges for all headers
+#
+RFCLevel		1
+
+#
+# Don't generate From: line at beginning of text body.
+#
+#NoFromLine
+
+#
+# Don't generate FSC-0035 kludges (^AREPLYADDR, ^AREPLYTO)
+#
+#NoFSC0035
+
+#
+# Don't generate FSC-0047 kludges (^ASPLIT)
+#
+#NoFSC0047

@@ -1,0 +1,5 @@
+#!/bin/sh
+#
+# ffxqt uncompressor for zip files
+#
+exec /usr/bin/unzip -pqq $1

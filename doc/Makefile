@@ -1,5 +1,5 @@
 #
-# $Id: Makefile,v 4.1 1996/04/24 12:15:28 mj Exp $
+# $Id: Makefile,v 4.2 1996/04/26 13:24:05 mj Exp $
 #
 # Makefile FIDOGATE doc/
 #
@@ -10,7 +10,10 @@ include $(TOPDIR)/config.make
 include $(TOPDIR)/rules.make
 
 
-all:		fidogate.info fidogate.txt fidogate.ps
+all:		fidogate.info fidogate.txt
+
+
+doc:		fidogate.info fidogate.txt fidogate.ps
 
 
 fidogate.info:	fidogate.texi

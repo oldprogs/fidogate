@@ -1,0 +1,52 @@
+Path: orodruin.fido.de!fido.de!comnets.rwth-aachen.de!news.rwth-aachen.de!news.ruhr-uni-bochum.de!news.uni-stuttgart.de!rz.uni-karlsruhe.de!not-for-mail
+From: uh5y@rz.uni-karlsruhe.de (Martin Schulte Moenting)
+Newsgroups: de.comm.misc
+Subject: Re: SINUS 42AB
+Date: Sat, 13 Apr 1996 19:30:42 GMT
+Organization: University of Karlsruhe, Germany
+Lines: 36
+Message-ID: <4kovcg$r15@nz12.rz.uni-karlsruhe.de>
+References: <66hsOX7CiRB@cae.muc.de>
+NNTP-Posting-Host: rzstud1.rz.uni-karlsruhe.de
+Mime-Version: 1.0
+Content-Type: text/plain; charset=iso-8859-1
+Content-Transfer-Encoding: 8bit
+NNTP-Posting-User: uh5y
+X-Newsreader: Forte Free Agent 1.0.82
+
+On 12 Apr 1996 08:24:00 +0100 Christian A. Eroes wrote:
+
+>Hi Leute!
+
+>Wie kann ich beim Sinus 42 AB an der Basisstation die Anzeige der  
+>Gebuehren/Einheiten einschalten?? Ich hab irgendwo die Anleitung  
+>verlegt...
+>Danke schonmal im Voraus!
+
+Wenn mich nicht alles taeuscht, ist dieses Telephon identisch mit dem
+Siemens megaset 960. Dann funktioniert es folgendermassen:
+
+SET-Taste  (Pfeil zeigt in Raute)
+1
+Systemcode
+Wahlwiederholungstaste
+9
+6
+	jetzt wird die aktuelle Einstellung angezeigt:
+	0  aus
+	1  Gespraechsdaueranzeige an
+	2  Gebuehrenanzeige an
+entsprechende Taste druecken
+Set-Taste
+
+Wenn es funktioniert und Du andere Dinge brauchst > eMail
+
+Ciao
+Martin
+
+************************************************************
+Martin Schulte Moenting       eMail uh5y@rz.uni-karlsruhe.de
+
+             Alle Geruechte auch zum Mitnehmen.
+
+

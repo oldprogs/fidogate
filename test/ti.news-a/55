@@ -1,0 +1,59 @@
+Path: orodruin.fido.de!fido.de!comnets.rwth-aachen.de!news.rwth-aachen.de!news.rhrz.uni-bonn.de!news.uni-stuttgart.de!uniol!uni-erlangen.de!rznews.rrze.uni-erlangen.de!news
+From: Maik Musall <maik@cape.de>
+Newsgroups: de.comm.misc,de.comm.mobil,de.comm.modem,ger.pc.hard
+Subject: Re: Modem an E-Plus-Handy???
+Date: Fri, 12 Apr 1996 03:22:22 +0200
+Organization: Institut f=?iso-8859-1?Q?=FCr Musikwissenschaft der FAU Erlangen?=
+Lines: 41
+Message-ID: <316DB04E.359FDEF9@cape.de>
+References: <656VVU5VD3B@rastaman.world.gun.de> <314E8705.1C9F6A08@cape.de>
+	 <VCphy*5ji1@caty.ol.sub.de> <31533685.77992920@cape.de> <dX3iy*Moi1@caty.ol.sub.de>
+	 <3168466B.239FF435@cape.de> <QSUny*t1j1@caty.ol.sub.de>
+NNTP-Posting-Host: pgmu00.dialin.rrze.uni-erlangen.de
+Mime-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Transfer-Encoding: 7bit
+X-Mailer: Mozilla 2.0 (X11; I; Linux 1.2.13 i486)
+Xref: orodruin.fido.de de.comm.misc:55 de.comm.mobil:141 de.comm.modem:83
+
+Holger Lubitz wrote:
+
+> > Die netto Datenrate in den digitalen Netzen (sprich D und E) ist 9.6
+> > und nicht 12 kbps. Nicht oft, sondern immer wird nur diese Rate von
+> > den Adaptern unterstuetzt, da hab ich nichts anderes behauptet.
+> 
+> Beleg fuer diese Aussage ? Meine Informationen besagen, dass der
+> Sprachkanal etwa 13 kbps hat (also Kompression um ca. Faktor 5) und im
+> Datenmodus bis zu 12 kbps davon fuer Daten nutzbar sind. Inwieweit schon
+
+Korrekt soweit. Aber tatsaechliche Nutzrate ist bislang immer nur 9600, kein
+vorhandener, mir bekannter Adapter kann mehr, und in den Infos der Netzbetreiber
+ist auch nur von 9600 die Rede. Wenn da was belegt werden muss, dann musst
+du belegen, wo mehr moeglich ist.
+
+> Ich haette an seiner Stelle lieber eine Loesung, mit der ich bei einer
+> normalen Mailbox pollen kann, und nicht nur bei einer, deren Sysop a) der
+> Box schon ISDN spendiert hat und b) seine ISDN-Treiber auch so gut im Griff
+> hat, dass er Polls aus den digitalen Funknetzen bedienen kann.
+
+Das spielt doch keine Rolle, man kann doch aus den digitalen Netzen auch normale
+V.32 Modems erreichen. Die Netze setzen das ja um.
+
+> Darueberhinaus haben die meisten Desktop-PCs keine PCMCIA-Slots fuer die
+> Adapterkarte zum Handy. Andere Loesungen sind rar und teuer.
+
+Erstens ging ich, so wie das bei ihm klang, eh von einem Notebok aus, und
+ausserdem gibts da ab 200 Mark Adapter, die den PCMCIA-Slot ersetzen.
+
+> Aber da der urspruengliche Fragesteller sich schon laengst aus der
+> Diskussion verabschiedet zu haben scheint, ist sie hiermit auch fuer mich
+> beendet.
+
+Einverstanden.
+
+Gruss
+-- 
+********************************** Maik Musall ************************
+* Fax/login V.17/V.32b/X.75   (+49 9131) 201326 (no BBS!)             *
+* Phone   (+49 9131) 205723   (+49 177) 2407502   email: maik@cape.de *
+***********************************************************************

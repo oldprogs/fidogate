@@ -1,0 +1,39 @@
+Newsgroups: de.comm.internet.misc,de.comm.gateways,de.comm.infosystems.misc,de.comm.internet.routing,de.comm.internet.zugang,de.comm.modem,de.comm.isdn,de.comm.misc
+Path: orodruin.fido.de!fido.de!comnets.rwth-aachen.de!news.rwth-aachen.de!newsserver.rrzn.uni-hannover.de!news.dkrz.de!news.rrz.uni-hamburg.de!zib-berlin.de!umn.edu!vixen.cso.uiuc.edu!newsfeed.internetmci.com!howland.reston.ans.net!Germany.EU.net!Frankfurt.Germany.EU.net!news.maz.net!news.ppp.net!sep.hamburg.com!hmo
+From: hmo@sep.hamburg.com (Helge Oldach)
+Subject: Re: Kosten einer Standleitung
+Content-Type: text/plain; charset=iso-8859-1
+Message-ID: <DpxBzF.4C1@sep.hamburg.com>
+X-Msn-Disclaimer: Distribution of this News article via Microsoft Network is explicitely *not* prohibited, as long as this article is read and honored by Bill Gates, President & CEO of Microsoft Corp.
+X-Disclaimer: Bei diesem News-Artikel handelt es sich um ein mit Bedacht und Sorgfalt formuliertes und liebevoll gesetztes Pamphlet. Ihn als "polemisch" zu bezeichnen, ist zweifelsohne =?iso-8859-1?Q?=FCrtrieben?=, nichtsdestotrotz ist er nicht immer g=?iso-8859-1?Q?=E4nzlich?= unernst gemeint.
+Sender: hmo@sep.hamburg.com (Helge Oldach)
+Content-Transfer-Encoding: 8bit
+Organization: Somebody Else's Problem
+References: <matthias.bolten-1104961354190001@bigapple.cologne.de> 	<4kj54f$1f98@info4.rus.uni-stuttgart.de> <66dsNxvSiRB@cae.muc.de>
+Mime-Version: 1.0
+Date: Mon, 15 Apr 1996 22:04:26 GMT
+Lines: 22
+Xref: orodruin.fido.de de.comm.internet.misc:133 de.comm.gateways:435 de.comm.infosystems.misc:24 de.comm.internet.routing:25 de.comm.internet.zugang:157 de.comm.modem:153 de.comm.isdn:2628 de.comm.misc:86
+
+chris@cae.muc.de (Christian A. Eroes) writes:
+| In article <4kj54f$1f98@info4.rus.uni-stuttgart.de>
+| on 11.04.96 usai1035 wrote:
+| > Eine ISDN-Standleitung im gleichen Bezirk (eine OVSt) kostete damals
+| > DM 250/Monat.
+| Es gibt keine ISDN-Standleitung. Es gibt nur eine Standleitung mit 64kbit/ 
+| s.
+
+Du willst uns verwirren, nicht? :-)
+
+Es gibt natürlich beides: Eine Standleitung, die auf S0-Basis einen
+festgeschalteten B-Kanal (oder zwei, eventuell auch einen D-Kanal)
+bereitstellt, und eine andere ("Datendirektverbindung"), die eine 64
+kbps-X.21- oder V.35-Schnittstelle bereitstellt und die Modems auf
+beiden Seiten beinhaltet. Die DDV ist logischerweise deutlich teurer als
+die ISDN-Standleitung mit S0-Schnittstelle.
+
+Helge
+-- 
+Bumper sticker seen on the Data SuperHighway:
+        Welcome to the Internet, now go home!
+                <carrel@cisco.com>

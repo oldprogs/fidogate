@@ -1,4 +1,4 @@
-Subject: Returned mail: Unsecure message
+Subject: Returned mail: Insecure message
 
    ----- Transcript of session follows -----
 
@@ -13,8 +13,8 @@ addressed to Internet
 
    To:   %R
 
-was received via an unsecure link (i.e. not password protected). The
-gateway does not forward unsecure messages. Please route your messages
+was received via an insecure link (i.e. not password protected). The
+gateway does not forward insecure messages. Please route your messages
 via your bossnode or uplink.
 
 If you want to send mail to a local user at sungate.fido.de please omit

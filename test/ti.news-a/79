@@ -1,0 +1,42 @@
+Path: orodruin.fido.de!fido.de!comnets.rwth-aachen.de!news.rwth-aachen.de!news.ruhr-uni-bochum.de!news.uni-stuttgart.de!rz.uni-karlsruhe.de!blackbush.xlink.net!tank.news.pipex.net!pipex!newsfeed.internetmci.com!newsserver.jvnc.net!nntp.basf-corp.com!kay
+From: kay@ula1b18.zhv.basf-ag.de (Kay Marquardt)
+Newsgroups: de.comm.misc
+Subject: Re: Modem / Telefon - Wer schmeisst wen aus der Leitung ?
+Date: 15 Apr 1996 13:50:30 GMT
+Organization: ?
+Lines: 31
+Message-ID: <4ktk76$4d3@basfigw.basf-corp.com>
+References: <4kri85$sep@news1.osn.de>
+NNTP-Posting-Host: ula1b18.zhv.basf-ag.de
+
+In article <4kri85$sep@news1.osn.de>, ben@osn.de (Ben) writes:
+[modem kapp telefon]
+
+> WER HAT NUN RECHT, bzw. WIE SOLLTE ES SEIN ???
+> 
+> Wenn bei meinem Anschluss etwas nicht stimmt - was ich persoenlich
+> annehme -, WORAN LIEGT ES ?
+
+Dein Modem verhaelt sich falsch.
+
+Das Modem wird normalerweise, wie bei Dir richtigt erfolgt, vor
+das Telefon geschaltet. Wenn das Telefon abhebt muss das Modem die
+Leitung zum Telefon weiter schalten. Wenn das Telefon bereits abgehoben
+ist, darf sich das Modem nicht ruehren.
+
+Elektrisch hat also das Modem Vorrang, logisch das Telefon.
+
+Klingt etwas kompliziert, muss aber so sein, da Telefone keine Ahnung
+von Modems haben :)
+
+Warum geht es nicht? Falls Dein Modem kein deutsches Modell ist kann das
+schon eine Ursache sein. Welches Telefon habt Ihr hinter dem Modem? Ein
+billiges, nicht den Vorschriften entsprechndes Telefon wird evtl. vom
+Modem nicht als abgehoben erkannt.
+
+Teste das mal mit einem anderen Modem und Telefon.
+
+-- 
+                                    __________________________________
+Kay, Worms, Germany                /E-Mail: K.Marquardt@zhv.basf-ag.de
+__________________________________/ #include <sig> <disclaimer> <etc>
