@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: prototypes.h,v 4.4 1996/05/03 19:18:45 mj Exp $
+ * $Id: prototypes.h,v 4.5 1996/05/11 15:05:38 mj Exp $
  *
  * Prototypes for functions in libfidogate.a
  *
@@ -414,9 +414,6 @@ extern Remap   *remap_last;
 extern Rewrite *rewrite_first;
 extern Rewrite *rewrite_last;
 
-int	get_rnumber		(char **);
-int	asc_to_rnode_partial	(char *, Node *);
-int	asc_to_rnode_diff	(char *, Node *, Node *);
 int	parse_cmd		(char *);
 int	parse_flav		(char *);
 void	routing_init		(char *);

@@ -39,8 +39,7 @@ charset.o: charset.c ../../src/include/fidogate.h \
  ../../src/include/../../config.h ../../src/include/paths.h \
  ../../src/include/sysexits.h ../../src/include/declare.h \
  ../../src/include/node.h ../../src/include/packet.h \
- ../../src/include/structs.h ../../src/include/prototypes.h \
- ../../src/include/charset.h
+ ../../src/include/structs.h ../../src/include/prototypes.h
 config.o: config.c ../../src/include/fidogate.h \
  ../../src/include/../../config.h ../../src/include/paths.h \
  ../../src/include/sysexits.h ../../src/include/declare.h \
@@ -146,6 +145,12 @@ parsedate.o: parsedate.c ../../src/include/fidogate.h \
  ../../src/include/sysexits.h ../../src/include/declare.h \
  ../../src/include/node.h ../../src/include/packet.h \
  ../../src/include/structs.h ../../src/include/prototypes.h
+parsenode.o: parsenode.c ../../src/include/fidogate.h \
+ ../../src/include/../../config.h ../../src/include/paths.h \
+ ../../src/include/sysexits.h ../../src/include/declare.h \
+ ../../src/include/node.h ../../src/include/packet.h \
+ ../../src/include/structs.h ../../src/include/prototypes.h \
+ ../../src/include/shuffle.h
 passwd.o: passwd.c ../../src/include/fidogate.h \
  ../../src/include/../../config.h ../../src/include/paths.h \
  ../../src/include/sysexits.h ../../src/include/declare.h \

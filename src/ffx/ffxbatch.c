@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ffxbatch.c,v 4.2 1996/05/05 12:26:55 mj Exp $
+ * $Id: ffxbatch.c,v 4.3 1996/05/11 15:05:36 mj Exp $
  *
  * ffx FIDO-FIDO execution batcher, packs batched (-b) ffx jobs.
  *
@@ -38,7 +38,7 @@
 
 
 #define PROGRAM		"ffxbatch"
-#define VERSION		"$Revision: 4.2 $"
+#define VERSION		"$Revision: 4.3 $"
 #define CONFIG		CONFIG_FFX
 
 
@@ -167,7 +167,7 @@ int ffx(Node *node, char *cmprprog, char *cmprext, char *cmprdecmpr,
     debug(2, "ffx: data=%s", dataname);
     debug(2, "ffx: batch=%s", batchdir);
     
-    log("job %s: %s %s %s%s",
+    log("job %s: to %s / %s %s%s",
 	seq, node_to_asc(node, TRUE), cmprdecmpr, seq, cmprext);
 
     /*

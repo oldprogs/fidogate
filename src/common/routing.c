@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: routing.c,v 4.1 1996/04/22 14:31:13 mj Exp $
+ * $Id: routing.c,v 4.2 1996/05/11 15:05:36 mj Exp $
  *
  * Routing config file reading for ftntoss and ftnroute.
  *
@@ -42,155 +42,6 @@ Remap   *remap_last    = NULL;
 
 Rewrite *rewrite_first = NULL;
 Rewrite *rewrite_last  = NULL;
-
-
-
-/*
- * Return: >=0 number, -1 error, -2 "*" or "All"
- */
-int get_rnumber(char **ps)
-{
-    char *s = *ps;
-    int val = 0;
-
-    if(*s == '*')
-    {
-	s++;
-	val = -2;
-    }
-    else if(!strnicmp(s, "all", 3))
-    {
-	s += 3;
-	val = -2;
-    }
-    else if(!isdigit(*s))
-	return ERROR;
-    else
-	while(isdigit(*s))
-	    val = val*10 + *s++ - '0';
-
-    *ps = s;
-    
-    return val;
-}
-
-
-
-/*
- * Convert partial Z:N/F.P address to Node, allowing "*" or "all" as wildcard
- */
-int asc_to_rnode_partial(char *asc, Node *node)
-{
-    Node n;
-    char *s = asc;
-    int val1, val;
-
-    val1    = -1;
-    node_invalid(&n);
-
-    if(!*s)
-	return ERROR;
-
-    if(*s != '.')
-	if( (val1 = get_rnumber(&s)) == ERROR )	/* First number first */
-	    return ERROR;
-
-    if(*s == ':')			/* zone followed by net */
-    {
-	s++;
-	if(val1 != -1)
-	{
-	    n.zone = val1;
-	    val1   = -1;
-	}
-	if( (val = get_rnumber(&s)) == ERROR )
-	    return ERROR;
-	n.net = val;
-    }
-    if(*s == '/')			/* net followed by node */
-    {
-	s++;
-	if(val1 != -1)
-	{
-	    n.net = val1;
-	    val1  = -1;
-	}
-	if( (val = get_rnumber(&s)) == ERROR )
-	    return ERROR;
-	n.node = val;
-    }
-    if(*s == '.')			/* node followed by point */
-    {
-	s++;
-	if(val1 != -1)
-	{
-	    n.node = val1;
-	    val1   = -1;
-	}
-	if( (val = get_rnumber(&s)) == ERROR )
-	    return ERROR;
-	n.point = val;
-    }
-    if(val1 != -1)			/* Single number is node */
-	n.node = val1;
-    
-    if(*s == '@')			/* Domain address may follow */
-    {
-	s++;
-	strncpy0(n.domain, s, sizeof(n.domain));
-    }
-    else if(*s)
-	return ERROR;
-
-    *node = n;
-    return OK;
-}
-
-
-
-/*
- * Convert partial Z:N/F.P address to Node, using previous node address
- */
-int asc_to_rnode_diff(char *asc, Node *node, Node *oldnode)
-{
-    if(asc_to_rnode_partial(asc, node) == ERROR)
-	return ERROR;
-
-    /*
-     * "*" alone means all'n'all
-     */
-    if(node->zone==-1 && node->net==-1 && node->node==-2 && node->point==-1)
-    {
-	node->node = -1;
-	return OK;
-    }
-    
-    if(node->zone == -1)
-    {
-	/* No zone, use old zone address */
-	node->zone = oldnode->zone;
-	if(node->net == -1)
-	{
-	    /* No net, use old net address */
-	    node ->net = oldnode->net;
-	    if(node->node == -1)
-	    {
-		node->node = oldnode->node;
-	    }
-	}
-    }
-    
-    if(node->zone==-2)
-	node->zone = -1;
-    if(node->net==-2)
-	node->net = -1;
-    if(node->node==-2)
-	node->node = -1;
-    if(node->point==-2)
-	node->point = -1;
-    
-    return OK;
-}
 
 
 
@@ -267,7 +118,7 @@ void routing_remap(void)
 	log("remap: source node address missing");
 	return;
     }
-    if(asc_to_rnode_diff(p, &src, &old) == ERROR)
+    if(znfp_parse_diff(p, &src, &old) == ERROR)
     {
 	log("remap: illegal node address %s", p);
 	return;
@@ -282,7 +133,7 @@ void routing_remap(void)
 	log("remap: dest node address missing");
 	return;
     }
-    if(asc_to_rnode_diff(p, &dest, &old) == ERROR)
+    if(znfp_parse_diff(p, &dest, &old) == ERROR)
     {
 	log("remap: illegal node address %s", p);
 	return;
@@ -336,7 +187,7 @@ void routing_rewrite(void)
 	log("rewrite: source node address missing");
 	return;
     }
-    if(asc_to_rnode_diff(p, &src, &old) == ERROR)
+    if(znfp_parse_diff(p, &src, &old) == ERROR)
     {
 	log("rewrite: illegal node address %s", p);
 	return;
@@ -351,7 +202,7 @@ void routing_rewrite(void)
 	log("rewrite: dest node address missing");
 	return;
     }
-    if(asc_to_rnode_diff(p, &dest, &old) == ERROR)
+    if(znfp_parse_diff(p, &dest, &old) == ERROR)
     {
 	log("rewrite: illegal node address %s", p);
 	return;
@@ -472,7 +323,7 @@ void routing_init(char *name)
 	}
 	while(p)
 	{
-	    if(asc_to_rnode_diff(p, &node, &old) == ERROR)
+	    if(znfp_parse_diff(p, &node, &old) == ERROR)
 	    {
 		log("routing: illegal node address %s", p);
 	    }
@@ -519,13 +370,13 @@ void routing_init(char *name)
  */
 int node_match(Node *node, Node *pat)
 {
-    if(pat->zone  != -1  &&  node->zone  != pat->zone )
-	return FALSE;
-    if(pat->net   != -1  &&  node->net   != pat->net  )
-	return FALSE;
-    if(pat->node  != -1  &&  node->node  != pat->node )
-	return FALSE;
-    if(pat->point != -1  &&  node->point != pat->point)
+    if(pat->zone !=EMPTY &&  pat->zone !=WILDCARD && node->zone !=pat->zone )
+	return FALSE;		       	 	     		  
+    if(pat->net  !=EMPTY &&  pat->net  !=WILDCARD && node->net  !=pat->net  )
+	return FALSE;		       	 	     		  
+    if(pat->node !=EMPTY &&  pat->node !=WILDCARD && node->node !=pat->node )
+	return FALSE;		       	 	     		  
+    if(pat->point!=EMPTY &&  pat->point!=WILDCARD && node->point!=pat->point)
 	return FALSE;
     return TRUE;
 }

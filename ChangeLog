@@ -1,3 +1,40 @@
+Sat May 11 16:25:51 1996  Martin Junius  <mj@fido.de>
+
+	------- CVS commit ---------------------------------------------------
+
+	* src/toss/ftnroute.c (do_cmd): set desc->to.zone/net/node/point 
+	  to 0 if EMPTY or WILDCARD.
+
+	* src/toss/ftnpack.c (packing_init): same.
+
+	* src/common/routing.c (node_match): wildcard match also for
+	  pat->zone/net/node/point == WILDCARD, use EMPTY constant instead
+	  of -1. 
+	  (get_rnumber): removed.
+	  (asc_to_rnode_partial): removed.
+	  (asc_to_rnode_diff): removed.
+	  (routing_init): replaced asc_to_rnode_diff() with znfp_parse_diff().
+
+	* src/include/: removed charset.h, charset.latin1.h.
+
+	* src/common/charset.c (xtab): directly included charset.h and
+	  charset.latin1.h using #ifdef CHARSET_8BIT.
+
+	* config.h (CHARSET_8BIT): new #define to enable charset.c's 8bit
+	  translation table.
+
+Fri May 10 22:09:36 1996  Martin Junius  <mj@fido.de>
+
+	* src/gate/ftn2rfc.c (unpack_file): added log() message for
+	  processed packets.
+
+	* src/ffx/ffxqt.c (do_ffx): combined 2 line log() messages to
+	  one line.
+
+	* src/ffx/ffxbatch.c (ffx): changed log() format.
+
+	* src/ffx/ffx.c (ffx): changed log() format.
+
 Wed May  8 20:22:12 1996  Martin Junius  <mj@fido.de>
 
 	------- CVS tag r40alpha2 --------------------------------------------

@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftnroute.c,v 4.5 1996/05/01 17:31:48 mj Exp $
+ * $Id: ftnroute.c,v 4.6 1996/05/11 15:05:39 mj Exp $
  *
  * Route FTN NetMail/EchoMail
  *
@@ -39,7 +39,7 @@
 
 
 #define PROGRAM 	"ftnroute"
-#define VERSION 	"$Revision: 4.5 $"
+#define VERSION 	"$Revision: 4.6 $"
 #define CONFIG		CONFIG_MAIN
 
 
@@ -235,13 +235,13 @@ int do_cmd(PktDesc *desc, Routing *r)
     /*
      * Set all -1 values to 0
      */
-    if(desc->to.zone  == -1)
+    if(desc->to.zone ==EMPTY || desc->to.zone ==WILDCARD)
 	desc->to.zone  = 0;
-    if(desc->to.net   == -1)
+    if(desc->to.net  ==EMPTY || desc->to.net  ==WILDCARD)
 	desc->to.net   = 0;
-    if(desc->to.node  == -1)
+    if(desc->to.node ==EMPTY || desc->to.node ==WILDCARD)
 	desc->to.node  = 0;
-    if(desc->to.point == -1)
+    if(desc->to.point==EMPTY || desc->to.point==WILDCARD)
 	desc->to.point = 0;
 
     return ret;

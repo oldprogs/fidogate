@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ffx.c,v 4.2 1996/05/05 12:26:55 mj Exp $
+ * $Id: ffx.c,v 4.3 1996/05/11 15:05:36 mj Exp $
  *
  * ffx FIDO-FIDO execution
  *
@@ -38,7 +38,7 @@
 
 
 #define PROGRAM		"ffx"
-#define VERSION		"$Revision: 4.2 $"
+#define VERSION		"$Revision: 4.3 $"
 #define CONFIG		CONFIG_FFX
 
 
@@ -171,7 +171,7 @@ int ffx(Node *node, int cmdc, char **cmdv, char *cmprprog, char *cmprext, char *
     debug(2, "ffx: ctrl=%s", ctrlname);
     debug(2, "ffx: data=%s", dataname);
     
-    log("job %s: %s %s", seq, node_to_asc(node, TRUE), buffer);
+    log("job %s: to %s / %s", seq, node_to_asc(node, TRUE), buffer);
 
     /*
      * Get password for node

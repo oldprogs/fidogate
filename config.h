@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway software UNIX <-> FIDO
  *
- * $Id: config.h,v 4.3 1996/04/26 08:41:38 mj Exp $
+ * $Id: config.h,v 4.4 1996/05/11 15:05:34 mj Exp $
  *
  * Configuration header file
  *
@@ -80,6 +80,13 @@
  * Make the IBMPC char set the default (no ^ACHRS kludge)
  */
 #define CHARSET_DEFAULT_IBMPC
+
+/*
+ * Use an 8bit char set translation table.
+ * USE WITH CARE!!! ftn2rfc doesn't generate proper MIME header yet and
+ * will simply put the 8bit chars into the output messages.
+ */
+/* #define CHARSET_8BIT */
 
 
 

@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftnpack.c,v 4.4 1996/05/07 19:50:45 mj Exp $
+ * $Id: ftnpack.c,v 4.5 1996/05/11 15:05:38 mj Exp $
  *
  * Pack output packets of ftnroute for Binkley outbound (ArcMail)
  *
@@ -39,7 +39,7 @@
 
 
 #define PROGRAM 	"ftnpack"
-#define VERSION 	"$Revision: 4.4 $"
+#define VERSION 	"$Revision: 4.5 $"
 #define CONFIG		CONFIG_MAIN
 
 
@@ -257,7 +257,7 @@ void packing_init(char *name)
 	}
 	while(p)
 	{
-	    if(asc_to_rnode_diff(p, &node, &old) == ERROR)
+	    if(znfp_parse_diff(p, &node, &old) == ERROR)
 	    {
 		log("packing: illegal node address %s", p);
 	    }
