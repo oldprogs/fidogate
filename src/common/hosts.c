@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: hosts.c,v 4.3 1996/12/17 17:19:42 mj Exp $
+ * $Id: hosts.c,v 4.4 1997/08/13 19:11:34 mj Exp $
  *
  * Process hostname <-> node aliases from hosts file
  *
@@ -35,6 +35,13 @@
 
 
 /*
+ * Local prototypes
+ */
+static Host *hosts_parse_line	(char *);
+static int   hosts_do_file	(char *);
+
+
+/*
  * Hosts list
  */
 static Host *host_list = NULL;
@@ -53,83 +60,99 @@ static Host *host_last = NULL;
  *     y	dito, old compatibility
  *     -d	Host down
  */
-void hosts_init(void)
+static Host *hosts_parse_line(char *buf)
+{
+    Host *p;
+
+    char *f, *n, *o;
+    Node node;
+	
+    f = strtok(buf,  " \t");	/* FTN address */
+    n = strtok(NULL, " \t");	/* Internet address */
+    if(f==NULL || n==NULL)
+	return NULL;
+    
+    if(strieq(f, "include"))
+    {
+	hosts_do_file(n);
+	return NULL;
+    }
+    
+    if( asc_to_node(f, &node, FALSE) == ERROR )
+    {
+	log("hosts: illegal FTN address %s", f);
+	return NULL;
+    }
+
+    p = (Host *)xmalloc(sizeof(Host));
+    p->next  = NULL;
+    p->node  = node;
+    p->flags = 0;
+    if(!strcmp(n, "-"))		/* "-" == registered, but no name */
+	p->name = NULL;
+    else
+    {
+	if(n[strlen(n)-1] == '.')	/* FQDN in HOSTS */
+	{
+	    n[strlen(n)-1] = 0;
+	    p->name = strsave(n);
+	}
+	else			/* Add domain */
+	{
+	    char *dom = cf_hostsdomain();
+	    int l = strlen(n) + strlen(dom);
+	    p->name = xmalloc(l + 1);
+	    strcpy(p->name, n);
+	    strcat(p->name, dom);
+	}
+    }
+	
+    for(o=strtok(NULL, " \t");	/* Options */
+	o;
+	o=strtok(NULL, " \t")  )
+    {
+	if(!strcmp(o, "y"))
+	{
+	    /* y == -p */
+	    p->flags |= HOST_POINT;
+	}
+	if(!strcmp(o, "-p"))
+	{
+	    /* -p */
+	    p->flags |= HOST_POINT;
+	}
+	if(!strcmp(o, "-d"))
+	{
+	    /* -d */
+	    p->flags |= HOST_DOWN;
+	}
+    }
+
+    debug(15, "hosts: %s %s %02x", node_to_asc(&p->node, TRUE),
+	  p->name ? p->name : "-", p->flags);
+
+    return p;
+}
+
+
+static int hosts_do_file(char *name)
 {
     FILE *fp;
     Host *p;
 
-    debug(14, "Reading hosts file");
+    debug(14, "Reading hosts file %s", name);
     
-    fp = fopen_expand_name(HOSTS, R_MODE_T);
+    fp = fopen_expand_name(name, R_MODE_T);
     if(!fp)
-	return;
+	return ERROR;
     
     while(cf_getline(buffer, BUFFERSIZE, fp))
     {
-	char *f, *n, *o;
-	Node node;
-	
-	f = strtok(buffer, " \t");	/* FTN address */
-	n = strtok(NULL,   " \t");	/* Internet address */
-	if(f==NULL || n==NULL)
+	p = hosts_parse_line(buffer);
+	if(!p)
 	    continue;
-
-	if( asc_to_node(f, &node, FALSE) == ERROR )
-	{
-	    log("hosts: illegal FTN address %s", f);
-	    continue;
-	}
-
-	p = (Host *)xmalloc(sizeof(Host));
-	p->next  = NULL;
-	p->node  = node;
-	p->flags = 0;
-	if(!strcmp(n, "-"))		/* "-" == registered, but no name */
-	    p->name = NULL;
-	else
-	{
-	    if(n[strlen(n)-1] == '.')	/* FQDN in HOSTS */
-	    {
-		n[strlen(n)-1] = 0;
-		p->name = strsave(n);
-	    }
-	    else			/* Add domain */
-	    {
-		char *dom = cf_hostsdomain();
-		int l = strlen(n) + strlen(dom);
-		p->name = xmalloc(l + 1);
-		strcpy(p->name, n);
-		strcat(p->name, dom);
-	    }
-	}
 	
-	for(o=strtok(NULL, " \t");	/* Options */
-	    o;
-	    o=strtok(NULL, " \t")  )
-	{
-	    if(!strcmp(o, "y"))
-	    {
-		/* y == -p */
-		p->flags |= HOST_POINT;
-	    }
-	    if(!strcmp(o, "-p"))
-	    {
-		/* -p */
-		p->flags |= HOST_POINT;
-	    }
-	    if(!strcmp(o, "-d"))
-	    {
-		/* -d */
-		p->flags |= HOST_DOWN;
-	    }
-	}
-
-	debug(15, "hosts: %s %s %02x", node_to_asc(&p->node, TRUE),
-	      p->name ? p->name : "-", p->flags);
-	
-	/*
-	 * Put into linked list
-	 */
+	/* Put into linked list */
 	if(host_list)
 	    host_last->next = p;
 	else
@@ -138,6 +161,14 @@ void hosts_init(void)
     }
     
     fclose(fp);
+
+    return OK;
+}
+
+
+void hosts_init(void)
+{
+    hosts_do_file(HOSTS);
 }
 
 

@@ -2,7 +2,7 @@
 
 X = for next release
 
-	* doc: add include command for areas file.
+	* doc: add include command for all config file.
 
 	* doc: add hints for setting up packing config files, in
 	  particular for 2 points configuration.
@@ -86,7 +86,7 @@ DONE.	* ftn2rfc: create single news message (not a news batch),
 
 STARTED.* Replace calls to strncpy0/strncat0 with str_copy/str_append.
 
-	* "include" for reading routing/packing config file.
+DONE.	* "include" for reading routing/packing config file.
 
 	* Generic alias matching: name@Z:N/F.P <-> user@do.main (Name),
 	  recipient *and* sender

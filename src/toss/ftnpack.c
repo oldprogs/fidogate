@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftnpack.c,v 4.14 1997/04/18 15:37:47 mj Exp $
+ * $Id: ftnpack.c,v 4.15 1997/08/13 19:11:37 mj Exp $
  *
  * Pack output packets of ftnroute for Binkley outbound (ArcMail)
  *
@@ -40,7 +40,7 @@
 
 
 #define PROGRAM 	"ftnpack"
-#define VERSION 	"$Revision: 4.14 $"
+#define VERSION 	"$Revision: 4.15 $"
 #define CONFIG		CONFIG_MAIN
 
 
@@ -86,6 +86,8 @@ static Packing *packing_last  = NULL;
 int	parse_pack		(char *);
 ArcProg*parse_arc		(char *);
 void	new_arc			(int, char *);
+Packing*packing_parse_line	(char *);
+int	packing_do_file		(char *);
 void	packing_init		(char *);
 char   *arcmail_name		(Node *, char *);
 char   *pkttime_name		(char *);
@@ -183,9 +185,8 @@ void new_arc(int cmd, char *name)
 /*
  * Read PACKING config file
  */
-void packing_init(char *name)
+Packing *packing_parse_line(char *buf)
 {
-    FILE *fp;
     Packing *r;
     ArcProg *a;
     char *p;
@@ -194,109 +195,137 @@ void packing_init(char *name)
     LON lon;
     int cmd;
 
+    /*
+     * Command
+     */
+    p = xstrtok(buf, " \t");
+    if(!p)
+    {
+	return NULL;
+    }
+    if(strieq(p, "include"))
+    {
+	p = xstrtok(NULL, " \t");
+	packing_do_file(p);
+	return NULL;
+    }
+    
+    if((cmd = parse_pack(p)) == ERROR)
+    {
+	log("packing: unknown command %s", p);
+	return NULL;
+    }
+
+    /*
+     * Packer name
+     */
+    p = xstrtok(NULL, " \t");
+    if(!p)
+    {
+	log("packing: packer name/directory argument missing");
+	return NULL;
+    }
+
+    if(cmd==PACK_ARC || cmd==PACK_PROG)
+    {
+	/* Definition of new archiver/program */
+	new_arc(cmd, p);
+	return NULL;
+    }
+    if(cmd == PACK_DIR)
+    {
+	/* Directory name for "dirpack" command */
+	dir = strsave(p);
+	p = xstrtok(NULL, " \t");
+    }
+    else
+	dir = NULL;
+
+    /* Archiver/program name */
+    if((a = parse_arc(p)) == NULL)
+    {
+	log("packing: unknown archiver/program %s", p);
+	return NULL;
+    }
+	
+    /*
+     * List of nodes follows, using "*" or "all" wildcard pattern
+     */
+    node_invalid(&old);
+    old.zone = cf_zone();
+    lon_init(&lon);
+	
+    p = xstrtok(NULL, " \t");
+    if(!p)
+    {
+	log("packing: node address argument missing");
+	return NULL;
+    }
+    while(p)
+    {
+	if(znfp_parse_diff(p, &node, &old) == ERROR)
+	{
+	    log("packing: illegal node address %s", p);
+	}
+	else
+	{
+	    old = node;
+	    lon_add(&lon, &node);
+	}
+	    
+	p = xstrtok(NULL, " \t");
+    }
+
+    /*
+     * Create new entry and put into list
+     */
+    r = (Packing *)xmalloc(sizeof(Packing));
+    r->pack  = cmd;
+    r->dir   = dir;
+    r->arc   = a;
+    r->nodes = lon;
+    r->next  = NULL;
+	
+    debug(15, "packing: pack=%c dir=%s arc=%s",
+	  r->pack, r->dir ? r->dir : "", r->arc->name);
+    lon_debug(15, "packing: nodes=", &r->nodes, TRUE);
+
+    return r;
+}
+
+
+int packing_do_file(char*name)
+{
+    FILE *fp;
+    Packing *r;
+
+    debug(14, "Reading packing file %s", name);
+
     fp = xfopen(name, R_MODE);
 
     while(cf_getline(buffer, BUFFERSIZE, fp))
     {
-	debug(16, "packing: %s", buffer);
+	r = packing_parse_line(buffer);
+	if(!r)
+	    continue;
 	
-	/*
-	 * Command
-	 */
-	p = xstrtok(buffer, " \t");
-	if(!p)
-	{
-	    log("packing: empty line, strange");
-	    continue;
-	}
-	if((cmd = parse_pack(p)) == ERROR)
-	{
-	    log("packing: unknown command %s", p);
-	    continue;
-	}
-
-	/*
-	 * Packer name
-	 */
-	p = xstrtok(NULL, " \t");
-	if(!p)
-	{
-	    log("packing: packer name/directory argument missing");
-	    continue;
-	}
-
-	if(cmd==PACK_ARC || cmd==PACK_PROG)
-	{
-	    /* Definition of new archiver/program */
-	    new_arc(cmd, p);
-	    continue;
-	}
-	if(cmd == PACK_DIR)
-	{
-	    /* Directory name for "dirpack" command */
-	    dir = strsave(p);
-	    p = xstrtok(NULL, " \t");
-	}
-	else
-	    dir = NULL;
-
-	/* Archiver/program name */
-	if((a = parse_arc(p)) == NULL)
-	{
-	    log("packing: unknown archiver/program %s", p);
-	    continue;
-	}
-	
-	/*
-	 * List of nodes follows, using "*" or "all" wildcard pattern
-	 */
-	node_invalid(&old);
-	old.zone = cf_zone();
-	lon_init(&lon);
-	
-	p = xstrtok(NULL, " \t");
-	if(!p)
-	{
-	    log("packing: node address argument missing");
-	    continue;
-	}
-	while(p)
-	{
-	    if(znfp_parse_diff(p, &node, &old) == ERROR)
-	    {
-		log("packing: illegal node address %s", p);
-	    }
-	    else
-	    {
-		old = node;
-		lon_add(&lon, &node);
-	    }
-	    
-	    p = xstrtok(NULL, " \t");
-	}
-
-	/*
-	 * Create new entry and put into list
-	 */
-	r = (Packing *)xmalloc(sizeof(Packing));
-	r->pack  = cmd;
-	r->dir   = dir;
-	r->arc   = a;
-	r->nodes = lon;
-	r->next  = NULL;
-	
+	/* Put into linked list */
 	if(packing_first)
 	    packing_last->next = r;
 	else
 	    packing_first      = r;
 	packing_last = r;
-	
-	debug(15, "packing: pack=%c dir=%s arc=%s",
-	      r->pack, r->dir ? r->dir : "", r->arc->name);
-	lon_debug(15, "packing: nodes=", &r->nodes, TRUE);
     }
 
     fclose(fp);
+
+    return OK;
+}
+
+
+void packing_init(char *name)
+{
+    packing_do_file(name);
 }
 
 

@@ -2,6 +2,32 @@ Wed Aug 13 19:23:47 1997  Martin Junius  <mj@fido.de>
 
 	------- CVS ci -------------------------------------------------------
 
+	* src/common/passwd.c (passwd_parse_line): same for passwd.
+	  (passwd_do_file): same for passwd.
+	  (passwd_init): same for passwd.
+
+	* src/common/hosts.c (hosts_parse_line): same for hosts.
+	  (hosts_do_file): same for hosts.
+	  (hosts_init): same for hosts.
+
+	* src/common/aliases.c (alias_parse_line): same for aliases.
+	  (alias_do_file): same for aliases.
+	  (alias_init): same for aliases.
+
+	* src/toss/ftnpack.c (packing_parse_line): same for packing.
+	  (packing_do_file): same for packing.
+	  (packing_init): same for packing.
+
+	* src/common/routing.c (routing_parse_line): new function parsing
+	  routing command line from file, additionally implementing the new
+	  "include" command.
+	  (routing_do_file): new function doing the file processing for
+	  the routing config file.
+	  (routing_init): changed to call new routing_do_file().
+	  debug() level changed to 15.
+
+	------- CVS ci -------------------------------------------------------
+
 	* src/common/areas.c (areas_parse_line): new function doing the
 	  line parsing part of the old areas_init() function, additionally
 	  implementing an "include" command.

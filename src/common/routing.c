@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: routing.c,v 4.5 1996/12/17 17:19:47 mj Exp $
+ * $Id: routing.c,v 4.6 1997/08/13 19:11:35 mj Exp $
  *
  * Routing config file reading for ftntoss and ftnroute.
  *
@@ -42,6 +42,14 @@ Remap   *remap_last    = NULL;
 
 Rewrite *rewrite_first = NULL;
 Rewrite *rewrite_last  = NULL;
+
+
+
+/*
+ * Prototypes
+ */
+static Routing *routing_parse_line	(char *);
+static int      routing_do_file		(char *);
 
 
 
@@ -166,7 +174,7 @@ void routing_remap(int cmd)
 	remap_first      = r;
     remap_last = r;
     
-    debug(9, "remap: from=%s to=%s name=%s",
+    debug(15, "remap: from=%s to=%s name=%s",
 	  node_to_asc(&r->from, TRUE), node_to_asc(&r->to, TRUE), r->name);
 }
 
@@ -224,7 +232,7 @@ void routing_rewrite(void)
 	rewrite_first      = r;
     rewrite_last = r;
     
-    debug(9, "rewrite: from=%s to=%s",
+    debug(15, "rewrite: from=%s to=%s",
 	  node_to_asc(&r->from, TRUE), node_to_asc(&r->to, TRUE) );
 }
 
@@ -233,9 +241,8 @@ void routing_rewrite(void)
 /*
  * Read ROUTING config file
  */
-void routing_init(char *name)
+static Routing *routing_parse_line(char *buf)
 {
-    FILE *fp;
     Routing *r;
     char *p;
     int type=TYPE_NETMAIL;
@@ -243,126 +250,153 @@ void routing_init(char *name)
     Node old, node;
     LON lon;
     
+    /*
+     * Command
+     */
+    p = xstrtok(buf, " \t");
+    if(!p)
+	return NULL;
+    /* Include command */
+    if(strieq(p, "include"))
+    {
+	p = xstrtok(NULL, " \t");
+	routing_do_file(p);
+	return NULL;
+    }
+    
+    if((cmd = parse_cmd(p)) == ERROR)
+    {
+	log("routing: unknown command %s", p);
+	return NULL;
+    }
+    if(cmd == TYPE_NETMAIL  ||  cmd == TYPE_ECHOMAIL)
+    {
+	type = cmd;
+	return NULL;
+    }
+    if(cmd==CMD_REMAP || cmd==CMD_REMAP_FROM || cmd==CMD_REMAP_TO)
+    {
+	routing_remap(cmd);
+	return NULL;
+    }
+    if(cmd == CMD_REWRITE)
+    {
+	routing_rewrite();
+	return NULL;
+    }
+	
+    /*
+     * Target flavor
+     */
+    p = xstrtok(NULL, " \t");
+    if(!p)
+    {
+	log("routing: flavor argument missing");
+	return NULL;
+    }
+    if((flav = parse_flav(p)) == ERROR)
+    {
+	log("routing: unknown flavor %s", p);
+	return NULL;
+    }
+
+    /*
+     * Second flavor arg for CHANGE command
+     */
+    if(cmd == CMD_CHANGE)
+    {
+	p = xstrtok(NULL, " \t");
+	if(!p)
+	{
+	    log("routing: second flavor argument missing");
+	    return NULL;
+	}
+	if((flav_new = parse_flav(p)) == ERROR)
+	{
+	    log("routing: unknown flavor %s", p);
+	    return NULL;
+	}
+    }
+
+    /*
+     * List of nodes follows, using "*" or "all" wildcard pattern
+     */
+    node_invalid(&old);
+    old.zone = cf_zone();
+    lon_init(&lon);
+	
+    p = xstrtok(NULL, " \t");
+    if(!p)
+    {
+	log("routing: node address argument missing");
+	return NULL;
+    }
+    while(p)
+    {
+	if(znfp_parse_diff(p, &node, &old) == ERROR)
+	{
+	    log("routing: illegal node address %s", p);
+	}
+	else
+	{
+	    old = node;
+	    lon_add(&lon, &node);
+	}
+	    
+	p = xstrtok(NULL, " \t");
+    }
+
+
+    /*
+     * Create new entry and put into list
+     */
+    r = (Routing *)xmalloc(sizeof(Routing));
+    r->type     = type;
+    r->cmd      = cmd;
+    r->flav     = flav;
+    r->flav_new = flav_new;
+    r->nodes    = lon;
+    r->next     = NULL;
+	
+    debug(15, "routing: type=%c cmd=%c flav=%c flav_new=%c",
+	  r->type, r->cmd, r->flav, r->flav_new            );
+    lon_debug(15, "         nodes=", &r->nodes, TRUE);
+
+    return r;
+}
+
+
+static int routing_do_file(char *name)
+{
+    FILE *fp;
+    Routing *r;
+
+    debug(14, "Reading routing file %s", name);
+
     fp = xfopen(name, R_MODE);
 
     while(cf_getline(buffer, BUFFERSIZE, fp))
     {
-	/*
-	 * Command
-	 */
-	p = xstrtok(buffer, " \t");
-	if(!p)
-	{
-	    log("routing: empty line, strange");
+	r = routing_parse_line(buffer);
+	if(!r)
 	    continue;
-	}
-	if((cmd = parse_cmd(p)) == ERROR)
-	{
-	    log("routing: unknown command %s", p);
-	    continue;
-	}
-	if(cmd == TYPE_NETMAIL  ||  cmd == TYPE_ECHOMAIL)
-	{
-	    type = cmd;
-	    continue;
-	}
-	if(cmd==CMD_REMAP || cmd==CMD_REMAP_FROM || cmd==CMD_REMAP_TO)
-	{
-	    routing_remap(cmd);
-	    continue;
-	}
-	if(cmd == CMD_REWRITE)
-	{
-	    routing_rewrite();
-	    continue;
-	}
 	
-	/*
-	 * Target flavor
-	 */
-	p = xstrtok(NULL, " \t");
-	if(!p)
-	{
-	    log("routing: flavor argument missing");
-	    continue;
-	}
-	if((flav = parse_flav(p)) == ERROR)
-	{
-	    log("routing: unknown flavor %s", p);
-	    continue;
-	}
-
-	/*
-	 * Second flavor arg for CHANGE command
-	 */
-	if(cmd == CMD_CHANGE)
-	{
-	    p = xstrtok(NULL, " \t");
-	    if(!p)
-	    {
-		log("routing: second flavor argument missing");
-		continue;
-	    }
-	    if((flav_new = parse_flav(p)) == ERROR)
-	    {
-		log("routing: unknown flavor %s", p);
-		continue;
-	    }
-	}
-
-	/*
-	 * List of nodes follows, using "*" or "all" wildcard pattern
-	 */
-	node_invalid(&old);
-	old.zone = cf_zone();
-	lon_init(&lon);
-	
-	p = xstrtok(NULL, " \t");
-	if(!p)
-	{
-	    log("routing: node address argument missing");
-	    continue;
-	}
-	while(p)
-	{
-	    if(znfp_parse_diff(p, &node, &old) == ERROR)
-	    {
-		log("routing: illegal node address %s", p);
-	    }
-	    else
-	    {
-		old = node;
-		lon_add(&lon, &node);
-	    }
-	    
-	    p = xstrtok(NULL, " \t");
-	}
-
-
-	/*
-	 * Create new entry and put into list
-	 */
-	r = (Routing *)xmalloc(sizeof(Routing));
-	r->type     = type;
-	r->cmd      = cmd;
-	r->flav     = flav;
-	r->flav_new = flav_new;
-	r->nodes    = lon;
-	r->next     = NULL;
-	
+	/* Put into linked list */
 	if(routing_first)
 	    routing_last->next = r;
 	else
 	    routing_first      = r;
 	routing_last = r;
-	
-	debug(9, "routing: type=%c cmd=%c flav=%c flav_new=%c",
-	      r->type, r->cmd, r->flav, r->flav_new            );
-	lon_debug(9, "routing: nodes=", &r->nodes, TRUE);
-
     }
 
     fclose(fp);
+
+    return OK;
+}
+
+void routing_init(char *name)
+{
+    routing_do_file(name);
 }
 
 

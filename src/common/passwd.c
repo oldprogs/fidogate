@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: passwd.c,v 4.2 1996/12/17 17:19:46 mj Exp $
+ * $Id: passwd.c,v 4.3 1997/08/13 19:11:35 mj Exp $
  *
  * Read PASSWD file for ffx, ffxqt, ftnaf and other programs
  *
@@ -34,6 +34,14 @@
 
 
 
+/*
+ * Local prototypes
+ */
+static Passwd *passwd_parse_line	(char *);
+static int     passwd_do_file		(char *);
+
+
+
 static Passwd *passwd_list = NULL;
 static Passwd *passwd_last = NULL;
 
@@ -44,40 +52,58 @@ static Passwd *passwd_last = NULL;
  * Format:
  *     CONTEXT  Z:N/F.P  PASSWORD  [ optional args ]
  */
-void passwd_init(void)
+static Passwd *passwd_parse_line(char *buf)
+{
+    Passwd *p;
+    char *c, *n, *w, *r;
+
+    c = strtok(buf,  " \t");
+    n = strtok(NULL, " \t");
+    w = strtok(NULL, " \t");
+    r = strtok(NULL, ""   );
+    while(r && *r && is_space(*r))
+	r++;
+    if(!c || !n)
+	return NULL;
+    if(strieq(c, "include"))
+    {
+	passwd_do_file(n);
+	return NULL;
+    }
+    if(!w)
+	return NULL;
+    
+    p = (Passwd *)xmalloc(sizeof(Passwd));
+    
+    p->context = strsave(c);
+    asc_to_node(n, &p->node, FALSE);
+    p->passwd  = strsave(w);
+    p->args    = r ? strsave(r) : NULL;
+    p->next    = NULL;
+    
+    debug(15, "passwd: %s %s %s", p->context,
+	  node_to_asc(&p->node, TRUE), p->passwd);
+
+    return p;
+}
+
+
+static int passwd_do_file(char *name)
 {
     FILE *fp;
     Passwd *p;
-    char *c, *n, *w, *r;
     
-    debug(14, "Reading passwd file");
+    debug(14, "Reading passwd file %s", name);
     
     fp = fopen_expand_name(PASSWD, R_MODE_T);
     if(!fp)
-	return;
+	return ERROR;
 
     while(cf_getline(buffer, BUFFERSIZE, fp))
     {
-	c = strtok(buffer, " \t");
-	n = strtok(NULL  , " \t");
-	w = strtok(NULL  , " \t");
-	r = strtok(NULL  , ""   );
-	while(r && *r && is_space(*r))
-	    r++;
-	
-	if(!c || !n || !w)
+	p = passwd_parse_line(buffer);
+	if(!p)
 	    continue;
-
-	p = (Passwd *)xmalloc(sizeof(Passwd));
-
-	p->context = strsave(c);
-	asc_to_node(n, &p->node, FALSE);
-	p->passwd  = strsave(w);
-	p->args    = r ? strsave(r) : NULL;
-	p->next    = NULL;
-	
-	debug(15, "passwd: %s %s %s", p->context,
-	      node_to_asc(&p->node, TRUE), p->passwd);
 	
 	/*
 	 * Put into linked list
@@ -90,6 +116,14 @@ void passwd_init(void)
     }
     
     fclose(fp);
+
+    return OK;
+}
+
+
+void passwd_init(void)
+{
+    passwd_do_file(PASSWD);
 }
 
 

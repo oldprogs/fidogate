@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: aliases.c,v 4.2 1996/12/17 17:19:38 mj Exp $
+ * $Id: aliases.c,v 4.3 1997/08/13 19:11:33 mj Exp $
  *
  * Read user name aliases from file. The alias.users format is as follows:
  *	username    Z:N/F.P    Full Name
@@ -38,7 +38,9 @@
 /*
  * Local prototypes
  */
-static int anodeeq	    (Node *, Node *);
+static int    anodeeq		(Node *, Node *);
+static Alias *alias_parse_line	(char *);
+static int    alias_do_file	(char *);
 
 
 /*
@@ -55,42 +57,60 @@ static Alias *alias_last = NULL;
  * Format:
  *     ALIAS	NODE	"FULL NAME"
  */
-void alias_init(void)
+static Alias *alias_parse_line(char *buf)
+{
+    Alias *p;
+    char *u, *n, *f;
+    Node node;
+    
+    u = xstrtok(buf,  " \t");	/* User name */
+    n = xstrtok(NULL, " \t");	/* FTN node */
+    f = xstrtok(NULL, " \t");	/* Full name */
+    if(u==NULL || n==NULL)
+	return NULL;
+    if(strieq(u, "include")) 
+    {
+	alias_do_file(n);
+	return NULL;
+    }
+    if(f==NULL)
+	return NULL;
+    
+    if( asc_to_node(n, &node, FALSE) == ERROR )
+    {
+	log("hosts: illegal FTN address %s", n);
+	return NULL;
+    }
+    
+    p = (Alias *)xmalloc(sizeof(Alias));
+    p->next     = NULL;
+    p->node     = node;
+    p->username = strsave(u);
+    p->fullname = strsave(f);
+    
+    debug(15, "aliases: %s %s %s", p->username, 
+	  node_to_asc(&p->node, TRUE), p->fullname);
+
+    return p;
+}
+
+
+static int alias_do_file(char *name)
 {
     FILE *fp;
     Alias *p;
 
-    debug(14, "Reading aliases file");
+    debug(14, "Reading aliases file %s", name);
     
-    fp = fopen_expand_name(ALIASES, R_MODE_T);
+    fp = fopen_expand_name(name, R_MODE_T);
     if(!fp)
-	return;
+	return ERROR;
     
     while(cf_getline(buffer, BUFFERSIZE, fp))
     {
-	char *u, *n, *f;
-	Node node;
-	
-	u = xstrtok(buffer, " \t");	/* User name */
-	n = xstrtok(NULL,   " \t");	/* FTN node */
-	f = xstrtok(NULL,   " \t");	/* Full name */
-	if(u==NULL || n==NULL || f==NULL)
+	p = alias_parse_line(buffer);
+	if(!p)
 	    continue;
-
-	if( asc_to_node(n, &node, FALSE) == ERROR )
-	{
-	    log("hosts: illegal FTN address %s", n);
-	    continue;
-	}
-
-	p = (Alias *)xmalloc(sizeof(Alias));
-	p->next     = NULL;
-	p->node     = node;
-	p->username = strsave(u);
-	p->fullname = strsave(f);
-	
-	debug(15, "aliases: %s %s %s", p->username, 
-	      node_to_asc(&p->node, TRUE), p->fullname);
 	
 	/*
 	 * Put into linked list
@@ -103,6 +123,14 @@ void alias_init(void)
     }
     
     fclose(fp);
+
+    return OK;
+}
+
+
+void alias_init(void)
+{
+    alias_do_file(ALIASES);
 }
 
 
