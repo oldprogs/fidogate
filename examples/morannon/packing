@@ -3,16 +3,15 @@
 #
 # Commands:
 #
-#     arc      NAME  "/PATH/PROG %s %s"
-#     prog     NAME  "/PATH/PROG %s"
-#  
-#     pack     NAME  NODES
-#     rpack    NAME  TARGET NODES
-#     fpack    NAME  TARGET NODES
-#     dirpack  DIRECTORY  NAME  NODES
+#     arc    NAME  "/PATH/PROG %s %s"
+#     prog   NAME  "/PATH/PROG %s"
+#
+#     pack   NAME  NODES
+#     rpack  NAME  TARGET NODES
+#     fpack  NAME  TARGET NODES
 #
 
-arc     zip     "/usr/local/bin/zip -gkjq %s %s"
+arc     zip     "/usr/local/bin/zip -9gkjq %s %s"
 arc     arc     "/usr/local/bin/arc an %s %s"
 
 prog    gate    "/usr/local/lib/fidonet/ftn2rfc %s"
@@ -20,18 +19,30 @@ prog    gate    "/usr/local/lib/fidonet/ftn2rfc %s"
 
 ######## P A C K I N G #######################################################
 
-pack    noarc   2:242/6.1 2:2452/110.1 242:4900/99
+pack    noarc   2:2452/110.1 242:4900/99
 pack    noarc   242:9999/9999
-# z.Z. kein Host 5000
-pack	noarc	242:5000/0
+##so
+pack	noarc	124:1249/9999.1
 
 pack	noarc	2:2/242 242:242/2
 
 pack	noarc	242:1000/4
 
-fpack	zip	242:1000/4 2:2454/91
-fpack   zip     242:1000/4 2:2476/2
+fpack   zip     2:2452/101 242:2000/0 1 2
+fpack	zip	2:2452/108 242:1000/7
+fpack	zip	2:2452/121 2:2452/0
+fpack	zip	2:2452/151 242:3001/0 51
 
-fpack   zip     2:2452/101 2:2452/0 242:2000/0 1 2
+#so
+rpack	zip	2:2433/225 124:1249/225
+rpack   zip     2:2452/110.7 2:2452/110.999 242:1000/1.7 77 49:305/1.200
+rpack   zip     2:2452/110.5 242:1000/1.5
+rpack   zip     2:2452/110.24 242:1000/1.24
+
+pack	noarc	2:49/15
 
 pack    zip     *
+
+
+
+

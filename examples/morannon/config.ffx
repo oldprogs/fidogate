@@ -21,13 +21,14 @@ include		%L/config.common
 #               real
 #               ----
 Address		2:2452/110.1
-Address		2:242/6.1
 Address		242:4900/99
+##so
+Address		124:1249/9999
 
 Uplink		2:2452/110
-Uplink		2:242/6
 Uplink		242:1000/1
-
+##so
+Uplink		124:1249/9999.1
 
 #
 # Outbound flavor for FFX files
@@ -38,11 +39,11 @@ FFXDataFlav	"Hold"
 # Compression programs for ffx
 #
 # Compressed data files
-FFXDataCompr	"/usr/bin/gzip -c9"
+FFXDataCompr	"/bin/gzip -c9"
 FFXDataExt	".gz"
 FFXDataDecompr	"gunzip"
 # Uncompressed data files
-FFXDataComprN	"/usr/bin/cat"
+FFXDataComprN	"/bin/cat"
 FFXDataExtN	""
 FFXDataDecomprN	""
 

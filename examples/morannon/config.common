@@ -59,7 +59,8 @@ Zone	152	.oopsnet.de		oopsnet		-
 Zone	193	.pressnet.infox.com	pressnet	-
 Zone	243	.dungeon.mbis.de	-		-
 Zone	244	.fido.blindnet.sub.de	-		-
-
+##so
+Zone	124	.cm.org			cm		out.07c
 
 #
 # OPTIONAL:
@@ -71,4 +72,5 @@ DosDrive	H:	/home
 DosDrive	I:	/var/spool
 DosDrive	I:	/usr/spool
 DosDrive	P:	/u1
-DosDrive	Q:	/u2
+
+

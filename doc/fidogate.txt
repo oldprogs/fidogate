@@ -659,6 +659,7 @@ command in `src/ftninpost.pl' to enabled the recombining of split FIDO
 messages to a single mail/posting.
 
    Then compile the beast by entering
+     make depend
      make
 
    Alternatively an optimized version can be compiled with

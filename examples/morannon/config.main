@@ -19,14 +19,16 @@ include		%L/config.common
 #
 Address		2:2452/110
 Address		2:2452/111
-Address		2:242/6
-Address		2:242/46
+
 Address		242:1000/1
 Address		242:1000/2
 Address		242:1000/0
 Address         242:242/0
 Address         242:4900/0
 
+Address		49:305/1.200
+##so
+Address		124:1249/9999
 
 #
 # AREAS.BBS EchoMail distribution list
@@ -92,7 +94,7 @@ KillCircular
 #
 # Enable dupe check using MSGID history database
 #
-DupeCheck
+#DupeCheck
 
 #
 # Number of days a MSGID entry stays in the history database
@@ -118,7 +120,7 @@ KillDupe
 #		----------	---------------
 #ZoneGate	2:123/456	123/456 2452/110
 #ZoneGate	2:789/999	789/999 2452/110
-ZoneGate	1:105/42	105/42 2452/110
+#ZoneGate	1:105/42	105/42 2452/110
 
 #
 # Add extra nodes to SEEN-BY

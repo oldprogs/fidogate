@@ -1,6 +1,6 @@
 #:ts=8
 #
-# $Id: areas,v 4.0 1996/04/17 18:17:33 mj Exp $
+# $Id: areas,v 4.1 1996/10/03 09:48:36 mj Exp $
 #
 # Echomail area <-> News newsgroup conversion
 #
@@ -31,8 +31,7 @@
 # Local
 #
 HIPPO.LOCAL                   hippo.local                   -d local
-HIPPO.TEST                    hippo.test                    -d local  -o "TEST from sungate.fido.de"
-HIPPO.SONNTAG                 hippo.sonntag                 -d local  -o "The Sonntag Gamers at"
+HIPPO.TEST                    hippo.test                    -d local  -o "TEST from morannon.fido.de"
 #
 # Fido.DE
 #
@@ -43,17 +42,6 @@ FIDO.DE                       fido.de                       -z 242    -o "Fido.D
 RWTH.GENERAL                  rwth.general                  -z 242
 RWTH.TEST                     rwth.test                     -z 242
 RWTH.VORTRAEGE                rwth.vortraege                -z 242
-#
-# c't
-#
-CT.GER                        ct.ger                        -x
-CT.PROJEKTE                   ct.projekte                   -x
-CT.PRUEFSTAND                 ct.pruefstand                 -x
-CT.SUPPORT                    ct.support                    -x
-#
-# Misc.
-#
-NOFLAMES                      local.noflames                -x
 #
 # FIDONET areas - OECHER - Aachen lokal
 #
@@ -66,8 +54,6 @@ OECHER.ISDN                             fido.oecher.isdn
 OECHER.KNEIPEN                          fido.oecher.kneipen
 OECHER.MUSIK                            fido.oecher.musik
 OECHER.NEWFILES                         fido.oecher.newfiles
-OECHER.ROT13                            fido.oecher.rot13
-OECHER.ZYXEL                            fido.oecher.zyxel
 #
 # Areas gated between Usenet and FIDO groups
 # These areas must be placed *BEFORE* the Z242 Usenet areas!
@@ -343,15 +329,19 @@ ALT.DRUGS.CAFFEINE            alt.drugs.caffeine            -z 242 -g
 ALT.EMULATORS.IBMPC.APPLE2    alt.emulators.ibmpc.apple2    -z 242 -g
 ALT.FAN.DOUGLAS_ADAMS         alt.fan.douglas-adams         -z 242 -g
 ALT.FAN.FRANK_ZAPPA           alt.fan.frank-zappa           -z 242 -g
+ALT.FAN.LETTERMAN             alt.fan.letterman	            -z 242 -g 
 ALT.FAN.MONTY_PYTHON          alt.fan.monty-python          -z 242 -g
 ALT.FAN.PRATCHETT             alt.fan.pratchett             -z 242 -g
 ALT.FAN.TOLKIEN               alt.fan.tolkien               -z 242 -g
 ALT.FOLKLORE.COMPUTERS        alt.folklore.computers        -z 242 -g
+ALT.GAMES.COMMAND_N_CONQUER   alt.games.command-n-conq	    -z 242 -g
+ALT.GAMES.DESCENT             alt.games.descent             -z 242 -g
 ALT.GAMES.VIDEO.CLASSIC       alt.games.video.classic       -z 242 -g
 ALT.GRAPHICS                  alt.graphics                  -z 242 -g
 ALT.GRAPHICS.CTL              alt.graphics.ctl              -z 242 -g
 ALT.GRAPHICS.PIXUTILS         alt.graphics.pixutils         -z 242 -g
 ALT.INTERNET.SERVICES         alt.internet.services         -z 242 -g
+ALT.MARRIAGE-MINDED.WOMEN     alt.marriage-minded.women	    -z 242 -g
 ALT.RELIGION.COMPUTERS        alt.religion.computers        -z 242 -g
 ALT.RELIGION.EMACS            alt.religion.emacs            -z 242 -g
 ALT.SECURITY                  alt.security                  -z 242 -g
@@ -364,12 +354,14 @@ ALT.STARTREK.CARDASSIAN       alt.startrek.cardassian  	    -z 242 -g
 ALT.STARTREK.CREATIVE	      alt.startrek.creative    	    -z 242 -g
 ALT.STARTREK.KLINGON	      alt.startrek.klingon     	    -z 242 -g
 ALT.STARTREK.USS_AMAGOSA      alt.startrek.uss-amagosa 	    -z 242 -g
+ALT.TALK.ESPERANTO            alt.talk.esperanto            -z 242 -g
 ALT.TASTELESS                 alt.tasteless                 -z 242 -g
 ALT.TASTELESS.JOKES           alt.tasteless.jokes           -z 242 -g
 ALT.TV.SIMPSONS               alt.tv.simpsons               -z 242 -g
 ALT.TV.SIMPSONS.ITCHY_SCRATCHY alt.tv.simpsons.itchy-scratchy -z 242 -g
 ALT.TV.STAR_TREK.VOYAGER      alt.tv.star-trek.voyager 	    -z 242 -g
 ALT.TV.TWIN_PEAKS             alt.tv.twin-peaks             -z 242 -g
+ALT.WEDDING                   alt.wedding		    -z 242 -g
 ALT.WINSOCK                   alt.winsock                   -z 242 -g
 #
 BIT.LISTSERV.WP50_L           bit.listserv.wp50-l           -z 242 -g
@@ -380,12 +372,10 @@ MISC.BOOKS.TECHNICAL          misc.books.technical          -z 242 -g
 #
 NEWS.ANSWERS                  news.answers                  -z 242 -g
 #
-REC.HUMOR.FUNNY               rec.humor.funny               -z 242 -g
-REC.PYROTECHNICS              rec.pyrotechnics              -z 242 -g
-#
 TALK.PHILOSOPHY.MISC          talk.philosophy.misc          -z 242 -g
 #:ts=8
 #
+ALT.2600		alt.2600		-z 242 -g -H
 ALT.CD_ROM 		alt.cd-rom 		-z 242 -g -H
 ALT.CULT_MOVIES 	alt.cult-movies 	-z 242 -g -H
 ALT.CYBERPUNK 		alt.cyberpunk 		-z 242 -g -H
@@ -402,19 +392,13 @@ COMP.			comp.			-z 242 -g -H
 GNU.			gnu.			-z 242 -g -H
 #
 MISC.JOBS.		misc.jobs.		-z 242 -g -H
+MISC.IMMIGRATION.	misc.immigration.	-z 242 -g -H
 #
 NEWS.ANNOUNCE		news.announce		-z 242 -g -H
 NEWS.LISTS		news.lists		-z 242 -g -H
 #
-REC.ARTS.		rec.arts.		-z 242 -g -H
-REC.AUDIO.		rec.audio.		-z 242 -g -H
-REC.AVIATION.		rec.aviation.		-z 242 -g -H
-REC.BICYCLES.		rec.bicycles.		-z 242 -g -H
-REC.GAMES.		rec.games.		-z 242 -g -H
-REC.MUSIC.		rec.music.		-z 242 -g -H
-REC.MODELS.		rec.models.		-z 242 -g -H
-REC.RADIO.		rec.radio.		-z 242 -g -H
-REC.TRAVEL.		rec.travel.		-z 242 -g -H
+# rec.*
+REC.			rec.			-z 242 -g -H
 #
 SCI.			sci.			-z 242 -g -H
 #
@@ -425,3 +409,15 @@ DE.ALT.BINARIES.	de.alt.binaries.	-H -!
 DE.			de.			-z 242 -g -H
 #
 LINUX.			linux.			-z 242 -g -H
+##so
+CM.			cm.			-z 124 -g -H
+
+
+
+
+
+
+
+
+
+

@@ -2,4 +2,4 @@
 #
 # unbatchzip - unpack zip archive with batched ffx jobs
 #
-exec /usr/bin/unzip -xjqq $*
+exec <BINDIR>/unzip -xjqq $*

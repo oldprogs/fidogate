@@ -2,4 +2,4 @@
 #
 # ffxqt uncompressor for zip files
 #
-exec /usr/bin/unzip -pqq $1
+exec <BINDIR>/unzip -pqq $1
