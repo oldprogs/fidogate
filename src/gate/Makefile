@@ -1,6 +1,6 @@
 #:ts=8
 #
-#    $Id: Makefile,v 4.6 1998/02/22 16:25:53 mj Exp $
+#    $Id: Makefile,v 4.7 1998/03/07 16:53:29 mj Exp $
 #
 #    Makefile for FIDOGATE src/gate/
 #
@@ -16,10 +16,13 @@ include $(TOPDIR)/config.make
 include $(TOPDIR)/rules.make
 
 
-PROGS		= ftn2rfc ftnin ftninpost ftninrecomb rfc2ftn ftnmail
+PROGS		= ftn2rfc ftnin rfc2ftn ftnmail
+SCRIPTS		= ftninpost ftninrecomb
 
 
-all:		$(PROGS)
+all:		$(PROGS) $(SCRIPTS)
+
+$(SCRIPTS):	$(TOPDIR)/config.pl
 
 ftn2rfc:	$(TOPDIR)/src/common/$(LIB)
 ftnin:		$(TOPDIR)/src/common/$(LIB)
@@ -46,6 +49,8 @@ check:
 #
 # Dependencies
 #
+*.pl:	$(TOPDIR)/config.pl
+
 depend:
 	$(CC) $(CFLAGS) -MM *.c >.depend
 

@@ -30,7 +30,7 @@ rnews     = ./rdummy
 recombine = ../../src/gate/ftninrecomb
 mail      = ./outrfc/mail
 news      = ./outrfc/news
-Running ../../src/gate/ftninrecomb -c config2 -v -L ../../src
+Running ../../src/gate/ftninrecomb -c config2 -v
 CMD: ./rdummy - SUCCESS
 CMD: ./rdummy - SUCCESS
 CMD: ./rdummy - SUCCESS

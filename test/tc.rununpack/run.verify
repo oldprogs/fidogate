@@ -1,0 +1,112 @@
+tc: clean-up
+tc: init
+  adding: 01165017.PKT (deflated 55%)
+  adding: 01168917.PKT (deflated 73%)
+  adding: 01168920.PKT (deflated 67%)
+  adding: 01172288.PKT (deflated 71%)
+  adding: 01172292.PKT (deflated 61%)
+  adding: 01172299.PKT (deflated 70%)
+  adding: 01173105.PKT (deflated 54%)
+  adding: 01173858.PKT (deflated 73%)
+  adding: 01173886.PKT (deflated 40%)
+  adding: 01175557.PKT (deflated 40%)
+  adding: 01176267.PKT (deflated 72%)
+  adding: 01178414.PKT (deflated 71%)
+  adding: 01179147.PKT (deflated 43%)
+  adding: 01179662.PKT (deflated 51%)
+  adding: 01179667.PKT (deflated 67%)
+  adding: 01181937.PKT (deflated 68%)
+  adding: 01182344.PKT (deflated 61%)
+  adding: 01182740.PKT (deflated 59%)
+  adding: 01184390.PKT (deflated 68%)
+  adding: 01186013.PKT (deflated 65%)
+Creating new archive: abcd1234.tu1
+Adding file:   01165017.PKT   analyzing, crunched, done. (38%)
+Adding file:   01168917.PKT   analyzing, crunched, done. (46%)
+Adding file:   01168920.PKT   analyzing, crunched, done. (44%)
+Adding file:   01172288.PKT   analyzing, crunched, done. (47%)
+Adding file:   01172292.PKT   analyzing, crunched, done. (40%)
+Adding file:   01172299.PKT   analyzing, crunched, done. (47%)
+Adding file:   01173105.PKT   analyzing, crunched, done. (32%)
+Adding file:   01173858.PKT   analyzing, crunched, done. (47%)
+Adding file:   01173886.PKT   analyzing, crunched, done. (28%)
+Adding file:   01175557.PKT   analyzing, crunched, done. (23%)
+Adding file:   01176267.PKT   analyzing, crunched, done. (45%)
+Adding file:   01178414.PKT   analyzing, crunched, done. (45%)
+Adding file:   01179147.PKT   analyzing, crunched, done. (25%)
+Adding file:   01179662.PKT   analyzing, crunched, done. (38%)
+Adding file:   01179667.PKT   analyzing, crunched, done. (45%)
+Adding file:   01181937.PKT   analyzing, crunched, done. (44%)
+Adding file:   01182344.PKT   analyzing, crunched, done. (41%)
+Adding file:   01182740.PKT   analyzing, crunched, done. (40%)
+Adding file:   01184390.PKT   analyzing, crunched, done. (44%)
+Adding file:   01186013.PKT   analyzing, crunched, done. (44%)
+../ti.pkt-z2/01165017.PKT	- Frozen
+../ti.pkt-z2/01168917.PKT	- Frozen
+../ti.pkt-z2/01168920.PKT	- Frozen
+../ti.pkt-z2/01172288.PKT	- Frozen
+../ti.pkt-z2/01172292.PKT	- Frozen
+../ti.pkt-z2/01172299.PKT	- Frozen
+../ti.pkt-z2/01173105.PKT	- Frozen
+../ti.pkt-z2/01173858.PKT	- Frozen
+../ti.pkt-z2/01173886.PKT	- Frozen
+../ti.pkt-z2/01175557.PKT	- Frozen
+../ti.pkt-z2/01176267.PKT	- Frozen
+../ti.pkt-z2/01178414.PKT	- Frozen
+../ti.pkt-z2/01179147.PKT	- Frozen
+../ti.pkt-z2/01179662.PKT	- Frozen
+../ti.pkt-z2/01179667.PKT	- Frozen
+../ti.pkt-z2/01181937.PKT	- Frozen
+../ti.pkt-z2/01182344.PKT	- Frozen
+../ti.pkt-z2/01182740.PKT	- Frozen
+../ti.pkt-z2/01184390.PKT	- Frozen
+../ti.pkt-z2/01186013.PKT	- Frozen
+New archive file is "abcd1234.lzh"
+rununpack archive /home/mj/src/fidogate/test/tc.rununpack/pin/abcd1234.fr9 (ZIP)
+Run arc: { /usr/bin/unzip } unzip -l /home/mj/src/fidogate/test/tc.rununpack/pin/abcd1234.fr9
+Status 9
+rununpack WARNING: skipping archive /home/mj/src/fidogate/test/tc.rununpack/pin/abcd1234.fr9
+rununpack archive /home/mj/src/fidogate/test/tc.rununpack/pin/abcd1234.mo0 (ZIP)
+Run arc: { /usr/bin/unzip } unzip -l /home/mj/src/fidogate/test/tc.rununpack/pin/abcd1234.mo0
+Status 0
+List arc returned OK
+Run arc: { /usr/bin/unzip } unzip -ojL /home/mj/src/fidogate/test/tc.rununpack/pin/abcd1234.mo0
+Status 0
+Extract arc returned OK
+rununpack unknown archive /home/mj/src/fidogate/test/tc.rununpack/pin/abcd1234.th9, moving archive to /home/mj/src/fidogate/test/tc.rununpack/pin/bad
+rununpack archive /home/mj/src/fidogate/test/tc.rununpack/pin/abcd1234.tu1 (ARC)
+Run arc: { /usr/local/bin/arc } arc l /home/mj/src/fidogate/test/tc.rununpack/pin/abcd1234.tu1
+Status 0
+List arc returned OK
+Run arc: { /usr/local/bin/arc } arc eo /home/mj/src/fidogate/test/tc.rununpack/pin/abcd1234.tu1
+Status 0
+Extract arc returned OK
+rununpack packet log renamed to 1.log
+rununpack archive /home/mj/src/fidogate/test/tc.rununpack/pin/abcd1234.we2 (LHA)
+Run arc: { /usr/bin/lha } lha l /home/mj/src/fidogate/test/tc.rununpack/pin/abcd1234.we2
+Status 0
+List arc returned OK
+Run arc: { /usr/bin/lha } lha eif /home/mj/src/fidogate/test/tc.rununpack/pin/abcd1234.we2
+Status 0
+Extract arc returned OK
+rununpack packet log renamed to 2.log
+rununpack packet 01165017.PKT renamed to 1.01165017.PKT
+rununpack packet 01168917.PKT renamed to 1.01168917.PKT
+rununpack packet 01168920.PKT renamed to 1.01168920.PKT
+rununpack packet 01172288.PKT renamed to 1.01172288.PKT
+rununpack packet 01172292.PKT renamed to 1.01172292.PKT
+rununpack packet 01172299.PKT renamed to 1.01172299.PKT
+rununpack packet 01173105.PKT renamed to 1.01173105.PKT
+rununpack packet 01173858.PKT renamed to 1.01173858.PKT
+rununpack packet 01173886.PKT renamed to 1.01173886.PKT
+rununpack packet 01175557.PKT renamed to 1.01175557.PKT
+rununpack packet 01176267.PKT renamed to 1.01176267.PKT
+rununpack packet 01178414.PKT renamed to 1.01178414.PKT
+rununpack packet 01179147.PKT renamed to 1.01179147.PKT
+rununpack packet 01179662.PKT renamed to 1.01179662.PKT
+rununpack packet 01179667.PKT renamed to 1.01179667.PKT
+rununpack packet 01181937.PKT renamed to 1.01181937.PKT
+rununpack packet 01182344.PKT renamed to 1.01182344.PKT
+rununpack packet 01182740.PKT renamed to 1.01182740.PKT
+rununpack packet 01184390.PKT renamed to 1.01184390.PKT
+rununpack packet 01186013.PKT renamed to 1.01186013.PKT

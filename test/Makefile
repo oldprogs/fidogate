@@ -1,6 +1,6 @@
 #:ts=8
 #
-#    $Id: Makefile,v 4.4 1998/01/24 14:07:38 mj Exp $
+#    $Id: Makefile,v 4.5 1998/03/07 16:53:32 mj Exp $
 #
 #    Makefile for FIDOGATE test/
 #
@@ -17,6 +17,9 @@ include $(TOPDIR)/rules.make
 
 
 all depend install::
+
+all::
+	(cd lib; ./mklinks)
 
 check run::
 	for d in tc.*; do (echo "$$d"; cd $$d; ./run) || exit 1; done 

@@ -1,6 +1,6 @@
 ##############################################################################
 #
-# $Id: config.pl,v 4.1 1998/02/25 09:15:19 mj Exp $
+# $Id: config.pl,v 4.2 1998/03/07 16:53:25 mj Exp $
 #
 # Perl functions to read FIDOGATE config file,
 # included by <INCLUDE config.pl> when running subst.pl
@@ -43,6 +43,11 @@ sub CONFIG_read {
 
 sub CONFIG_get1 {
     local($key) = @_;
+    local($ukey);
+
+    $ukey = $key;
+    $ukey =~ tr/a-z/A-Z/;
+    return $ENV{"FIDOGATE_$ukey"} if($ENV{"FIDOGATE_$ukey"});
 
     return $CONFIG{$key} if($CONFIG{$key});
     return $CONFIG_default{$key};

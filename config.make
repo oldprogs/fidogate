@@ -1,6 +1,6 @@
 # -*- Makefile -*-
 #
-# $Id: config.make,v 4.17 1998/01/24 15:45:49 mj Exp $
+# $Id: config.make,v 4.18 1998/03/07 16:53:25 mj Exp $
 #
 # FIDOGATE main configuration
 #
@@ -165,9 +165,6 @@ SHELL		= /bin/sh
 
 # GNU m4
 M4		= m4
-
-# GNU df (from fileutils)
-DF		= df
 
 # owner / group
 OWNER		= news

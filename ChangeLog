@@ -1,4 +1,36 @@
+Sat Mar  7 16:15:17 1998  Martin Junius  <mj@fido.de>
+
+	------- CVS ci -------------------------------------------------------
+
+	* config.make (DF): removed, obsoleted by new runtoss.
+
+	* config.pl (CONFIG_get1): check environment FIDOGATE_XXX first.
+
+	* test/tc.rununpack/run: added runtoss test.
+
+	* src/toss/Makefile (PROGS): rundf no longer needed.
+	  (install): dito.
+
+	* examples/orodruin/toss.conf: added example for new runtoss
+	  configuration. 
+
+	* src/toss/runtoss.pl: complete rewrite of runtoss.sh using perl,
+	  supports new DiskFreeMin, DiskFreeMethod, DiskFreeProgram
+	  configuration in toss.conf.
+
+Fri Mar  6 22:57:43 1998  Martin Junius  <mj@fido.de>
+
+	* test/tc.rununpack/run: new test case for new rununpack.
+
+	* src/toss/rununpack.pl: complete rewrite of rununpack.sh using
+	  perl with internal archive type recognition and improved error
+	  handling. 
+
+	* src/toss/Makefile (install): magic no longer needed.
+
 Wed Feb 25 09:45:16 1998  Martin Junius  <mj@fido.de>
+
+	* test/tc.gate1/run: removed -L option from ftninpost.
 
 	------- CVS ci -------------------------------------------------------
 
