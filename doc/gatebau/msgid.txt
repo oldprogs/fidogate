@@ -1,6 +1,6 @@
   MSGID / Message-ID Conversion for Fido-Internet Gateways
   Martin Junius <mj@fido.de>
-  Version $Revision: 1.2 $ of $Date: 1997/05/01 17:49:51 $
+  Version $Revision: 1.3 $ of $Date: 1997/05/01 17:57:15 $
   This version supersedes the MSGID.DOC document, version 4.1.
 
   This document describes the conversion between FIDO ^AMSGID/^AREPLY
