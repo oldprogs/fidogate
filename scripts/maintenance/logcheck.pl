@@ -1,6 +1,6 @@
 #!/usr/bin/perl
 #
-# $Id: logcheck.pl,v 4.10 2001/01/07 15:29:44 mj Exp $
+# $Id: logcheck.pl,v 4.11 2001/07/28 08:33:37 mj Exp $
 #
 # Create report for sendmail check_mail/rcpt/relay rejects
 #
@@ -11,7 +11,7 @@ use FileHandle;
 
 
 my $PROGRAM     = 'logcheck';
-my $VERSION     = '0.0 $Revision: 4.10 $ ';
+my $VERSION     = '1.0 $Revision: 4.11 $ ';
 
 
 my $NEWSGROUPS  = "fido.de.lists";
@@ -103,6 +103,9 @@ my %reject;
 my %nodns;
 my %relay;
 my %disabled;
+my %rbl_orxx;
+my $orxx;
+
 
 # Read sendmail log
 while(<>) {
@@ -142,6 +145,21 @@ while(<>) {
 	}
 	print "rbl rss: $addr\n" if($opt_v);
     }
+
+    # ORxx
+    elsif( /ruleset=check_relay, arg1=(.*), arg2=(.*), relay=(.*), reject=553 Open relay - see http:\/\/www\.(.*)\.org\/$/ ) {
+#	$addr = $1;
+#	$addr = "<$addr>" if(! $addr =~ /^<.*>$/);
+	$r    = $1;
+	$orxx = $4;
+	$k    = $opt_k ? $r : "$addr /// $r";
+	
+	$rbl_orxx{$orxx} = {} unless defined($rbl_orxx{$orxx});
+	$rbl_orxx{$orxx}->{$k}++;
+
+	print "rbl $orxx: $addr\n" if($opt_v);
+    }
+
     elsif( /ruleset=check_mail \(([^\)]*)\) rejection: 551/ ||
 	   /ruleset=check_mail, arg1=(.*), relay=(.*), reject=55\d/ ) {
 	$addr = $1;
@@ -150,6 +168,7 @@ while(<>) {
 	$reject{"$addr /// $r"}++;
 	print "reject: $addr\n" if($opt_v);
     }
+
     elsif( /ruleset=check_mail \(([^\)]*)\) rejection: 451/ ||
 	   /ruleset=check_mail, arg1=(.*), relay=(.*), reject=(451|501)/ ) {
 	$addr = $1;
@@ -158,6 +177,7 @@ while(<>) {
 	$nodns{"$addr /// $r"}++;
 	print "no DNS: $addr\n" if($opt_v);
     }
+
     # Local black list (To, "Mailbox disabled")
     elsif( /ruleset=check_rcpt, arg1=(.*),() relay=(.*), reject=550 .*Mailbox disabled/     ) {
 	$addr = $1;
@@ -171,6 +191,7 @@ while(<>) {
 	}
 	print "disabled: $addr\n" if($opt_v);
     }
+
     elsif( /ruleset=check_rcpt \(([^\)]*)\)()() rejection: 551/             ||
 	   /ruleset=check_mail, arg1=(.*),() relay=(.*), reject=551/        ||
 	   /ruleset=check_relay, arg1=(.*), arg2=(.*), relay=(.*), reject=550/ ||
@@ -181,6 +202,7 @@ while(<>) {
 	$relay{"$addr /// $r"}++;
 	print "relay : $addr\n" if($opt_v);
     }
+
     elsif(/check_/) {
 	print "NOT MATCHED: $_\n" if($opt_v);
     }
@@ -307,6 +329,22 @@ if(scalar(%rbl_rss)) {
 	print " relay: $r\n";
 	last if($MAX && $n++>$MAX);
     }
+}
+
+for $orxx (sort keys %rbl_orxx) {
+    print
+      "\n",
+      uc($orxx), " rejects:\n",
+      "-------------\n";
+    $n = 0;
+    for $k ( sort { $rbl_orxx{$orxx}->{$b} <=> $rbl_orxx{$orxx}->{$a} }
+	     keys %{$rbl_orxx{$orxx}} ) {
+	($addr, $r) = split(" /// ", $k);
+	printf "%5d", $rbl_orxx{$orxx}->{$k};
+	print " relay: $r\n";
+	last if($MAX && $n++>$MAX);
+    }
+
 }
 
 

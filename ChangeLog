@@ -1,3 +1,10 @@
+2001-07-28  Martin Junius  <mj@m-j-s.net>
+
+	------- CVS ci -------------------------------------------------------
+
+	* scripts/maintenance/logcheck.pl: added logging of new
+	  check_relay rejects for ORxx DNS blacklists.
+
 2001-07-27  Martin Junius  <mj@m-j-s.net>
 
 	------- CVS ci -------------------------------------------------------
