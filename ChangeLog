@@ -1,3 +1,10 @@
+2004-03-14  Martin Junius  <mj@m-j-s.net>
+
+	------- CVS ci -------------------------------------------------------
+
+	* scripts/maintenance/logsendmail2.pl: added stats for sendmail
+	  bounce messages.
+
 2004-03-08  Martin Junius  <mj@m-j-s.net>
 
 	------- CVS ci -------------------------------------------------------

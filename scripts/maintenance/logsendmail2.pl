@@ -1,13 +1,13 @@
 #!/usr/bin/perl
 #
-# $Id: logsendmail2.pl,v 4.1 2004/03/08 21:44:37 n0ll Exp $
+# $Id: logsendmail2.pl,v 4.2 2004/03/14 20:31:58 n0ll Exp $
 #
 # Gather statistics from sendmail V8 syslog output
 #
 
 use strict;
 
-my $VERSION    = '$Revision: 4.1 $ ';
+my $VERSION    = '$Revision: 4.2 $ ';
 my $PROGRAM    = "logsendmail2";
 
 our($opt_v, $opt_c, $opt_o, $opt_g, $opt_s, $opt_n, $opt_m);
@@ -94,6 +94,8 @@ my %id_size;
 my %domain_total;
 my %domain_count;
 
+my %bounce_msg;
+
 
 
 # collect from=, size= / to= data
@@ -128,6 +130,15 @@ while(<>) {
 #	    print "DSN: $1, $id, $2, $3\n" if($opt_v);
 	    next;
 	}
+
+	if($rest =~ /<.+?@.+?>\.\.\. (.*)$/) {
+	    $v = $1;
+#	    print "bounce=$v\n";
+	    $v =~ s/address .+?@.+? does not exist/address ... does not exist/;
+	    $v =~ s/\[?\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\]?/.../;
+	    $bounce_msg{$v}++;
+	}
+
 
 	undef %entry;
 	for $v (split(', ', $rest)) {
@@ -261,8 +272,17 @@ print
 printf "%-32s %5d %9d\n",
   "", $sum_count, $sum_total;
 
+print
+  "\n",
+  "Bounce messages\n",
+  "--------------------------------------------------------------------\n";
 
+for $v (sort keys %bounce_msg) {
+    printf "%-62.62s %5d\n", $v, $bounce_msg{$v};
+}
 
+print
+  "--------------------------------------------------------------------\n";
 
 
 close(OUT) if($out_flag);
