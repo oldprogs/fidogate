@@ -1,7 +1,7 @@
 <HTML>
 <HEAD>
 <!-- This HTML file has been created by texi2html 1.54
-     from ../fidogate.texi on 10 January 1999 -->
+     from ../fidogate.texi on 15 May 1999 -->
 
 <TITLE>FIDOGATE
  - Compiling and installing FIDOGATE</TITLE>
@@ -23,22 +23,20 @@
 </P>
 
 <UL>
-<LI><A HREF="fidogate_2.html#SEC7">Point</A>: Installing a FIDOGATE point system
-<LI><A HREF="fidogate_2.html#SEC8">config.h</A>: The <CODE>config.h</CODE> header file
-<LI><A HREF="fidogate_2.html#SEC9">config.make</A>: The <CODE>config.make</CODE> Makefile configuration
-<LI><A HREF="fidogate_2.html#SEC10">Compiling</A>: Compiling and installing FIDOGATE
-<LI><A HREF="fidogate_2.html#SEC11">Integration</A>: Integrating FIDOGATE and the mail/news system
-<LI><A HREF="fidogate_2.html#SEC12">Testing</A>: Testing FIDOGATE operation
-<LI><A HREF="fidogate_2.html#SEC15">Connecting</A>: Connecting to FIDONET
+<LI><A HREF="fidogate_2.html#SEC7">config.h</A>: The <CODE>config.h</CODE> header file
+<LI><A HREF="fidogate_2.html#SEC8">config.make</A>: The <CODE>config.make</CODE> Makefile configuration
+<LI><A HREF="fidogate_2.html#SEC9">Compiling</A>: Compiling and installing FIDOGATE
+<LI><A HREF="fidogate_2.html#SEC10">Integration</A>: Integrating FIDOGATE and the mail/news system
+<LI><A HREF="fidogate_2.html#SEC11">Testing</A>: Testing FIDOGATE operation
+<LI><A HREF="fidogate_2.html#SEC14">Connecting</A>: Connecting to FIDONET
 </UL>
 
 <P>
 This chapter describes the FIDOGATE configuration and installation.  You
-must also edit the config files to be installed in the LIBDIR
-directory. Create <CODE>config.common</CODE>, <CODE>config.gate</CODE>,
-<CODE>config.main</CODE>, <CODE>config.ffx</CODE>, <CODE>areas</CODE>, <CODE>hosts</CODE>,
+must also create and edit the config files to be installed in the
+CONFIGDIR directory, <CODE>fidogate.conf</CODE>, <CODE>areas</CODE>, <CODE>hosts</CODE>,
 <CODE>passwd</CODE>, <CODE>routing</CODE>, <CODE>packing</CODE>, <CODE>aliases</CODE> according
-to your setup (examples in the examples subdirectory).
+to your setup (see the examples subdirectory).
 
 </P>
 <P>
@@ -48,61 +46,17 @@ The chapter on config files describes them in detail.
 
 
 
-<H2><A NAME="SEC7" HREF="fidogate_toc.html#TOC7">Installing a FIDGATE Point System</A></H2>
+<H2><A NAME="SEC7" HREF="fidogate_toc.html#TOC7">The <CODE>config.h</CODE> Header File</A></H2>
+
 <P>
-<A NAME="IDX4"></A>
+Normally, if you want to compile a standard version of FIDOGATE on one
+of the supported platforms, it is <I>not</I> necessary to change anything
+in this file. Most things can be configured or overridden in
+<CODE>config.make</CODE> (compile-time) or <CODE>fidogate.conf</CODE> (run-time).
 
 </P>
 <P>
-Hints for setting up a FIDOGATE point system without Internet mail
-connectivity:
-
-</P>
-
-<UL>
-
-<LI>
-
-Choose a host name and a domain name. Since both won't be visible to the
-outside world, you may choose whatever you want.
-
-<LI>
-
-Put the <CODE>NoFromLine</CODE> keyword into <CODE>config</CODE>!!!
-
-<LI>
-
-Comment out <CODE>PASSTHRU_NETMAIL</CODE> and <CODE>PASSTHRU_ECHOMAIL</CODE> in
-<CODE>src/config.h</CODE>. These functions are not necessary for a point system
-and may cause trouble.
-
-<LI>
-
-If you want to send Internet mail via a Fido-Internet gateway, set its
-address with <CODE>Gateway</CODE> in <CODE>config.gate</CODE>. FIDOGATE can then be
-used as your default mailer, delivering all non-Fido mail to this
-gateway.
-
-</UL>
-
-<P>
-See also <CODE>doc/Fido-Point-HOWTO</CODE> (German) and
-<CODE>doc/Fido-Point-eng-HOWTO</CODE> (English) for a complete description how
-to install a point system. Furthermore, there is a section on point
-configuration at the end of this document.
-
-</P>
-
-
-
-<H2><A NAME="SEC8" HREF="fidogate_toc.html#TOC8">The <CODE>config.h</CODE> Header File</A></H2>
-
-<P>
-Comment/uncomment/change the <CODE>#define</CODE>s to suit your requirements.
-
-</P>
-<P>
-Common configuration:
+If you really want to edit <CODE>config.h</CODE>, here are the gory details:
 
 </P>
 <DL COMPACT>
@@ -116,9 +70,13 @@ instead of <I>User_name@p.f.n.z.domain</I>.
 <DD>
 Create Binkley-style busy files while accessing the Binkley outbound.
 
-<DT><CODE>SECURE</CODE>
+<DT><CODE>NFS_SAFE_LOCK_FILES</CODE>
 <DD>
-Enable secure permissions for packet and data files.
+Create lock / bsy files in an NFS-safe way.
+
+<DT><CODE>AMIGADOS_4D_OUTBOUND</CODE>
+<DD>
+Use AmigaDOS-style outbound file names.
 
 <DT><CODE>MAXMSGSIZE</CODE>
 <DD>
@@ -130,52 +88,54 @@ setting. This is the default value.
 <DD>
 Domain address to be used for invalid FTN addresses.
 
-</DL>
+<DT><CODE>FACILITY</CODE>
+<DD>
+syslog facility used if <CODE>Logfile</CODE> is set to "syslog".
 
-<P>
-<CODE>ftn2rfc</CODE> configuration:
+<DT><CODE>CHARSET_STDFTN</CODE>
+<DD>
+Default charset for Fido messages.
 
-</P>
-<DL COMPACT>
+<DT><CODE>CHARSET_STD7BIT</CODE>
+<DD>
+Default charset for RFC messages with 7bit encoding.
 
 <DT><CODE>ALIASES_ARE_LOCAL</CODE>
 <DD>
 Addresses found in the <CODE>aliases</CODE> config file are rewritten so
 that the sender's address is the gateway.
 
-<DT><CODE>CHARSET_DEFAULT_IBMPC</CODE>
-<DD>
-Make IBMPC the default char set (no <CODE>^ACHRS</CODE> kludge).
-
-</DL>
-
-<P>
-<CODE>rfc2ftn</CODE> configuration:
-
-</P>
-<DL COMPACT>
-
 <DT><CODE>PASSTHRU_NETMAIL</CODE>
 <DD>
 Passthru operation for NetMail: if the sender of the message is an FTN
 address, the origin address of the resulting FTN message will be that
-FTN address.
+FTN address. WARNING: enabled only if you really know what you're doing!
 
 <DT><CODE>PASSTHRU_ECHOMAIL</CODE>
 <DD>
 Passthru operation for EchoMail: X-FTN-Tearline, X-FTN-Origin,
-X-FTN-Seen-By, X-FTN-Path headers will be used for tear line, *
-Origin, SEEN-BY, ^APATH, when gating from Internet to FTN.
+X-FTN-Seen-By, X-FTN-Path headers will be used for tear line, * Origin,
+SEEN-BY, ^APATH, when gating from Internet to FTN. WARNING: enabled only
+if you really know what you're doing!
 
-<DT><CODE>FTN_FORCE_INTL</CODE>
+<DT><CODE>AI_1</CODE>
 <DD>
-Always generate a <CODE>^AINTL</CODE> kludge, even if sender and receiver are
-in the same default zone (first <CODE>Address</CODE> in <CODE>config</CODE>).
-
-<DT><CODE>NO_CONTROL</CODE>
+<DT><CODE>AI_2</CODE>
 <DD>
-Do not pass news control messages (newgroup, cancel, etc.) to the FTN
-side of the gateway.
+<DT><CODE>AI_3</CODE>
+<DD>
+<DT><CODE>AI_4</CODE>
+<DD>
+<DT><CODE>AI_5</CODE>
+<DD>
+<DT><CODE>AI_6</CODE>
+<DD>
+<DT><CODE>AI_7</CODE>
+<DD>
+<DT><CODE>AI_8</CODE>
+<DD>
+Configuration for Andy Igoshin's patches, see
+<CODE>contrib/fidogate-4.3a3-ai-pl9.1/README.ai</CODE> for details.
 
 </DL>
 
@@ -251,6 +211,25 @@ Define, if files must be opened in binary mode.
 <DD>
 Define, if filenames must be converted to DOS, OS2-style <CODE>\</CODE>.
 
+<DT><CODE>RECEIVED_BY_MAILER</CODE>
+<DD>
+Define, if extra Received lines are inserted by the mail system,
+currently only used for NeXT.
+
+<DT><CODE>HAS_SYSLOG</CODE>
+<DD>
+Define, if syslogd and the library function <CODE>syslog()</CODE>,
+<CODE>vsyslog()</CODE> are suppored.
+
+<DT><CODE>HAS_SNPRINTF</CODE>
+<DD>
+Define, if <CODE>snprintf()</CODE> and <CODE>vsnprintf()</CODE> are supported.
+
+<DT><CODE>HAS_HARDLINKS</CODE>
+<DD>
+Define, if the system supports file systems with hard links and the
+library function <CODE>link()</CODE>.
+
 </DL>
 
 <P>
@@ -261,192 +240,27 @@ Define only one of <CODE>HAS_TM_ZONE</CODE>, <CODE>HAS_STRFTIME</CODE>,
 </P>
 
 <P>
-<I>THE FOLLOWING DEFINES SHOULD NORMALLY LEFT AS IS!!!</I>
-
-</P>
-<P>
-Message ID configuration:
+<I>THE FOLLOWING DEFINES SHOULD REALLY BE LEFT AS IS!!!</I>
 
 </P>
 <DL COMPACT>
 
-<DT><CODE>FIDODOMAIN</CODE>
+<DT><CODE>MSGID_FIDONET_DOMAIN</CODE>
 <DD>
-Default Internet domain for standard FIDO addresses (zone 1--6). Used
-for Message-IDs only, so DO NOT CHANGE.
+Default domain for standard FIDO addresses (zone 1--6). Used for
+Message-IDs only, so DO NOT CHANGE.
 
-<DT><CODE>MSGID_ORIGID</CODE>
+<DT><CODE>PACKET_MODE</CODE>
 <DD>
-Generate Gatebau '93 <CODE>^AORIGID</CODE>, <CODE>^AORIGREF</CODE>
-kludges.
-
-</DL>
-
-<P>
-Files and directories used by FIDOGATE:
-
-</P>
-<DL COMPACT>
-
-<DT><CODE>DEFAULT_CONFIG_GATE</CODE>
+<DT><CODE>BSY_MODE</CODE>
 <DD>
-<DT><CODE>DEFAULT_CONFIG_MAIN</CODE>
+<DT><CODE>FLO_MODE</CODE>
 <DD>
-<DT><CODE>DEFAULT_CONFIG_FFX</CODE>
+<DT><CODE>DATA_MODE</CODE>
 <DD>
-Names of FIDOGATE config files.
-
-<DT><CODE>DEF_ALIASES</CODE>
+<DT><CODE>DIR_MODE</CODE>
 <DD>
-Default user aliases config file.
-
-<DT><CODE>DEF_AREAS</CODE>
-<DD>
-Default FTN area / newsgroup conversion config file.
-
-<DT><CODE>DEF_HOSTS</CODE>
-<DD>
-Default FTN addresses / host names registration config file.
-
-<DT><CODE>DEF_PASSWD</CODE>
-<DD>
-Default password config file.
-
-<DT><CODE>DEF_PACKING</CODE>
-<DD>
-Default packing config file.
-
-<DT><CODE>DEF_ROUTING</CODE>
-<DD>
-Default routing config file.
-
-<DT><CODE>DEF_HISTORY</CODE>
-<DD>
-Default database of <CODE>^AMSGID</CODE>s for dupe checking.
-
-<DT><CODE>HOSTS</CODE>
-<DD>
-<DT><CODE>ALIASES</CODE>
-<DD>
-<DT><CODE>AREAS</CODE>
-<DD>
-<DT><CODE>PASSWD</CODE>
-<DD>
-<DT><CODE>PACKING</CODE>
-<DD>
-<DT><CODE>ROUTING</CODE>
-<DD>
-Definitions from config file.
-
-<DT><CODE>LOG</CODE>
-<DD>
-Default log file.
-
-<DT><CODE>SEQ_MAIL</CODE>
-<DD>
-Sequencer file used by <CODE>ftn2rfc</CODE> for mail messages.
-
-<DT><CODE>SEQ_NEWS</CODE>
-<DD>
-Sequencer file used by <CODE>ftn2rfc</CODE> for news messages.
-
-<DT><CODE>SEQ_MSGID</CODE>
-<DD>
-Sequencer file used by <CODE>rfc2ftn</CODE> for <CODE>^AMSGID</CODE>s.
-
-<DT><CODE>SEQ_PKT</CODE>
-<DD>
-Sequencer file used by <CODE>rfc2ftn</CODE> for outbound packet names.
-
-<DT><CODE>SEQ_SPLIT</CODE>
-<DD>
-Sequencer file used by <CODE>rfc2ftn</CODE> for split messages number.
-
-<DT><CODE>SEQ_FF</CODE>
-<DD>
-Sequencer file used by <CODE>ffx</CODE> for control and data files.
-
-<DT><CODE>SEQ_TOSS</CODE>
-<DD>
-Sequencer file used by <CODE>ftntoss</CODE>, <CODE>ftnroute</CODE> for output
-packet files.
-
-<DT><CODE>SEQ_PACK</CODE>
-<DD>
-Sequencer file used by <CODE>ftnpack</CODE> for packet names in arcmail
-archives.
-
-<DT><CODE>SEQ_MQ</CODE>
-<DD>
-Sequencer file used by <CODE>queuemail</CODE>. NOT YET IMPLEMENTED.
-
-<DT><CODE>SEQ_TICK</CODE>
-<DD>
-Sequencer file used by <CODE>ftnhatch</CODE> and <CODE>ftntick</CODE>.
-
-<DT><CODE>LOCK_HISTORY</CODE>
-<DD>
-Name of lock file for history access.
-
-<DT><CODE>INDIR</CODE>
-<DD>
-Input directory for <CODE>ftn2rfc</CODE>, relative to <CODE>SPOOLDIR</CODE>.
-
-<DT><CODE>INSECUREDIR</CODE>
-<DD>
-Insecure input directory for <CODE>ftn2rfc</CODE>, relative to <CODE>SPOOLDIR</CODE>.
-
-<DT><CODE>INDIR_MAIL</CODE>
-<DD>
-Directory where <CODE>ftn2rfc</CODE> creates converted mail messages,
-relative to <CODE>SPOOLDIR/INDIR</CODE>.
-
-<DT><CODE>INDIR_NEWS</CODE>
-<DD>
-Directory where <CODE>ftn2rfc</CODE> creates converted news messages,
-relative to <CODE>SPOOLDIR/INDIR</CODE>.
-
-<DT><CODE>OUTDIR</CODE>
-<DD>
-Directory where <CODE>rfc2ftn</CODE> creates output packets, relative to
-<CODE>SPOOLDIR</CODE>. 
-
-<DT><CODE>SEQ</CODE>
-<DD>
-Directory where FIDOGATE creates its sequencer files, relative to
-<CODE>SPOOLDIR</CODE>.
-
-<DT><CODE>LOCKS</CODE>
-<DD>
-Directory where lock files are created, relativ to <CODE>SPOOLDIR</CODE>.
-
-<DT><CODE>TOSS_IN</CODE>
-<DD>
-<DT><CODE>TOSS_TMP</CODE>
-<DD>
-<DT><CODE>TOSS_OUT</CODE>
-<DD>
-<DT><CODE>TOSS_PACK</CODE>
-<DD>
-Tosser input, temporary, output, and arcmail packet directory, relative
-to <CODE>SPOOLDIR</CODE>. Used by <CODE>ftntoss</CODE>, <CODE>ftnroute</CODE>,
-<CODE>ftnpack</CODE>.
-
-<DT><CODE>TOSS_BAD</CODE>
-<DD>
-Directory where tosser puts packets with bad messages, e.g. insecure,
-dupes, etc.
-
-<DT><CODE>QUEUE</CODE>
-<DD>
-Directory for queueing. NOT YET IMPLEMENTED.
-
-<DT><CODE>TICK_HOLD</CODE>
-<DD>
-Hold directory for TIC files, relative to OUTBOUND. Used by
-<CODE>ftnhatch</CODE> and <CODE>ftntick</CODE>.
-
-<DT><CODE><I>xxxx</I>_MODE</CODE>
+<DT><CODE>CONF_MODE</CODE>
 <DD>
 Permissions for files processed by FIDOGATE.
 
@@ -458,38 +272,43 @@ RFC headers recognized at the beginning of FTN messages.
 <DD>
 RFC headers put into FTN messages for RFC level 1.
 
-</DL>
-
-<P>
-Program constants, increase the MAX values if needed.
-
-</P>
-<DL COMPACT>
-
-<DT><CODE><I>xx</I>_MODE</CODE>
+<DT><CODE>R_MODE</CODE>
 <DD>
-Modes (<CODE>fopen</CODE>) for opening files.
+<DT><CODE>W_MODE</CODE>
+<DD>
+<DT><CODE>A_MODE</CODE>
+<DD>
+<DT><CODE>RP_MODE</CODE>
+<DD>
+<DT><CODE>WP_MODE</CODE>
+<DD>
+<DT><CODE>AP_MODE</CODE>
+<DD>
+Modes (<CODE>fopen()</CODE>) for opening files.
 
+<DT><CODE>DATE_LOG</CODE>
+<DD>
 <DT><CODE>DATE_DEFAULT</CODE>
 <DD>
-Default date format string.
-
 <DT><CODE>DATE_NEWS</CODE>
 <DD>
-Date format string for news articles.
-
 <DT><CODE>DATE_MAIL</CODE>
 <DD>
-Date format string for mail.
-
-<DT><CODE>DATE_FIDO</CODE>
+<DT><CODE>DATE_FROM</CODE>
 <DD>
-Date format string for FTN messages.
+<DT><CODE>DATE_FTS_0002</CODE>
+<DD>
+<DT><CODE>DATE_TICK_PATH</CODE>
+<DD>
+<DT><CODE>DATE_VIA</CODE>
+<DD>
+<DT><CODE>DATE_SPLIT</CODE>
+<DD>
+Date format strings.
 
 <DT><CODE>PRODUCT_CODE</CODE>
 <DD>
-FIDO product code used by <CODE>rfc2ftn</CODE>. Should be left as is
-(<CODE>0xfe</CODE>). 
+FIDO product code used by <CODE>rfc2ftn</CODE>.
 
 <DT><CODE>MAX_LINELEN</CODE>
 <DD>
@@ -526,40 +345,245 @@ configuration dependent, see UNIX ulimits.
 
 
 
-<H2><A NAME="SEC9" HREF="fidogate_toc.html#TOC9">The <CODE>config.make</CODE> Makefile Configuration</A></H2>
+<H2><A NAME="SEC8" HREF="fidogate_toc.html#TOC8">The <CODE>config.make</CODE> Makefile Configuration</A></H2>
 
 <P>
 This file is included in all FIDOGATE Makefiles.
 
 </P>
 <P>
-A special convention is used for defining macros: a macros definition
-which starts in the first column (no leading white space) will be used
-by <CODE>subst.pl</CODE> to replace <I>&#60;something&#62;</I> in the various shell and
-perl scripts. Be careful and keep the formatting when editing this file.
-
-</P>
-<P>
-The following definitions <B>must</B> start in the first column.
+A special convention is used for defining FIDOGATE configuration macros: 
+macro name starting with <CODE>DEFAULT_</CODE> are used by the compilation
+process to automatically generate C code.
 
 </P>
 <DL COMPACT>
 
-<DT><CODE>BINDIR</CODE>
+<DT><CODE>DEFAULT_V_<I>option</I></CODE>
 <DD>
-The directory for user programs.
+Creates a Makefile macro definition, substitutes <I>&#60;option&#62;</I> in shell
+and perl scripts, creates a compile-time C <CODE>#define
+DEFAULT_</CODE><I>option</I> in <CODE>paths.h</CODE>, a run-time configuration option
+<I>option</I> in <CODE>fidogate.conf</CODE>, and makes FIDOGATE evaluate the
+environment variable <CODE>FIDOGATE_</CODE><I>option</I>.
 
-<DT><CODE>LIBDIR</CODE>
+<DT><CODE>DEFAULT_F_<I>option</I></CODE>
 <DD>
-The directory for FIDOGATE's programs and config files.
+Creates a Makefile macro definition, substitutes <I>&#60;option&#62;</I> in shell
+and perl scripts, creates a compile-time C <CODE>#define
+DEFAULT_</CODE><I>option</I> in <CODE>paths.h</CODE>. No run-time override!
 
-<DT><CODE>SPOOLDIR</CODE>
+<DT><CODE>DEFAULT_A_<I>option</I></CODE>
 <DD>
-FIDOGATE's spool directory.
+Creates a <I>%X</I> abbreviation (can be used at the start of file names)
+for <I>option</I>.
 
-<DT><CODE>LOGDIR</CODE>
+</DL>
+
+<P>
+Be very carefull not to <B>remove</B> any of the FIDOGATE standard macros
+and don't touch the standard abbreviations in this file!!!
+
+</P>
+
+<DL COMPACT>
+
+<DT><CODE>DEFAULT_V_CONFIGDIR</CODE>
 <DD>
-Directory for FIDOGATE log files.
+Directory for config files.
+
+<DT><CODE>DEFAULT_V_LIBDIR</CODE>
+<DD>
+Directory for FIDOGATE's internal programs.
+
+<DT><CODE>DEFAULT_V_BINDIR</CODE>
+<DD>
+Directory for user programs and scripts.
+
+<DT><CODE>DEFAULT_V_LOGDIR</CODE>
+<DD>
+Directory for log files.
+
+<DT><CODE>DEFAULT_V_VARDIR</CODE>
+<DD>
+Directory for <CODE>areas.bbs</CODE>, <CODE>history</CODE>.
+
+<DT><CODE>DEFAULT_V_LOCKDIR</CODE>
+<DD>
+Directory for lock files.
+
+<DT><CODE>DEFAULT_V_SPOOLDIR</CODE>
+<DD>
+Internal spool directory (temporary files).
+
+<DT><CODE>DEFAULT_V_BTBASEDIR</CODE>
+<DD>
+BinkleyTerm-style outbound base directory. This is the base directory,
+not the actual zone outbound directory.
+
+<DT><CODE>DEFAULT_V_INBOUND</CODE>
+<DD>
+BinkleyTerm-style inbound directory.
+
+<DT><CODE>DEFAULT_V_PINBOUND</CODE>
+<DD>
+BinkleyTerm-style protected inbound directory.
+
+<DT><CODE>DEFAULT_V_UUINBOUND</CODE>
+<DD>
+BinkleyTerm-style inbound directory for the <CODE>recvuu</CODE> script.
+
+<DT><CODE>DEFAULT_V_FTPINBOUND</CODE>
+<DD>
+BinkleyTerm-style FTP inbound directory.
+
+<DT><CODE>DEFAULT_V_ACL</CODE>
+<DD>
+Access configuration list for AI patches (not used for standard FIDOGATE 
+distribution).
+
+<DT><CODE>DEFAULT_V_ALIASES</CODE>
+<DD>
+Configuration file for aliases.
+
+<DT><CODE>DEFAULT_V_AREAS</CODE>
+<DD>
+Configuration file for areas/newsgroups gateway.
+
+<DT><CODE>DEFAULT_V_HOSTS</CODE>
+<DD>
+Configuration file for registered hosts.
+
+<DT><CODE>DEFAULT_V_PASSWD</CODE>
+<DD>
+Configuration file for passwords.
+
+<DT><CODE>DEFAULT_V_PACKING</CODE>
+<DD>
+Configuration file for ArcMail packer (<CODE>ftnpack</CODE>).
+
+<DT><CODE>DEFAULT_V_ROUTING</CODE>
+<DD>
+Configuration file for NetMail/EchoMail routing (<CODE>ftntoss</CODE>,
+<CODE>ftnroute</CODE>). 
+
+<DT><CODE>DEFAULT_V_HISTORY</CODE>
+<DD>
+MSGID history file for dupe check.
+
+<DT><CODE>DEFAULT_V_LOGFILE</CODE>
+<DD>
+Default log file.
+
+<DT><CODE>DEFAULT_V_CHARSETMAP</CODE>
+<DD>
+Character set mapping table.
+
+<DT><CODE>DEFAULT_F_NEWSETCDIR</CODE>
+<DD>
+INN directory: config files
+
+<DT><CODE>DEFAULT_F_NEWSVARDIR</CODE>
+<DD>
+INN directory: active, history files.
+
+<DT><CODE>DEFAULT_F_NEWSLIBDIR</CODE>
+<DD>
+INN directory: scripts.
+
+<DT><CODE>DEFAULT_F_NEWSSPOOLDIR</CODE>
+<DD>
+INN directory: news spool.
+
+<DT><CODE>DEFAULT_F_IFMAILDIR</CODE>
+<DD>
+Ifcico/ifmail directory.
+
+<DT><CODE>DEFAULT_F_CONFIG_GATE</CODE>
+<DD>
+<DT><CODE>DEFAULT_F_CONFIG_MAIN</CODE>
+<DD>
+<DT><CODE>DEFAULT_F_CONFIG_FFX</CODE>
+<DD>
+FIDOGATE main configuration file <CODE>fidogate.conf</CODE>.
+
+<DT><CODE>DEFAULT_F_SEQ_MAIL</CODE>
+<DD>
+<DT><CODE>DEFAULT_F_SEQ_NEWS</CODE>
+<DD>
+<DT><CODE>DEFAULT_F_SEQ_MSGID</CODE>
+<DD>
+<DT><CODE>DEFAULT_F_SEQ_PKT</CODE>
+<DD>
+<DT><CODE>DEFAULT_F_SEQ_SPLIT</CODE>
+<DD>
+<DT><CODE>DEFAULT_F_SEQ_FF</CODE>
+<DD>
+<DT><CODE>DEFAULT_F_SEQ_TOSS</CODE>
+<DD>
+<DT><CODE>DEFAULT_F_SEQ_PACK</CODE>
+<DD>
+<DT><CODE>DEFAULT_F_SEQ_TICK</CODE>
+<DD>
+Sequencer files.
+
+<DT><CODE>DEFAULT_F_LOCK_HISTORY</CODE>
+<DD>
+Lock file for history access.
+
+<DT><CODE>DEFAULT_F_OUTRFC_MAIL</CODE>
+<DD>
+<DT><CODE>DEFAULT_F_OUTRFC_NEWS</CODE>
+<DD>
+<DT><CODE>DEFAULT_F_OUTPKT</CODE>
+<DD>
+<DT><CODE>DEFAULT_F_OUTPKT_MAIL</CODE>
+<DD>
+<DT><CODE>DEFAULT_F_TOSS_TOSS</CODE>
+<DD>
+<DT><CODE>DEFAULT_F_TOSS_ROUTE</CODE>
+<DD>
+<DT><CODE>DEFAULT_F_TOSS_PACK</CODE>
+<DD>
+<DT><CODE>DEFAULT_F_TOSS_BAD</CODE>
+<DD>
+<DT><CODE>DEFAULT_F_OUTPKT_NEWS</CODE>
+<DD>
+Internal spool directories (temporary files).  If these directories are
+different from the default ones, the commands for the
+<CODE>install-dirs</CODE> target of <CODE>Makefile</CODE> must be changed as well.
+
+<DT><CODE>DEFAULT_F_TICK_HOLD	= %B/tick</CODE>
+<DD>
+Outbound hold directory for TIC files.
+
+<DT><CODE>DEFAULT_A_CONFIGDIR</CODE>
+<DD>
+<DT><CODE>DEFAULT_A_LIBDIR</CODE>
+<DD>
+<DT><CODE>DEFAULT_A_BINDIR</CODE>
+<DD>
+<DT><CODE>DEFAULT_A_LOGDIR</CODE>
+<DD>
+<DT><CODE>DEFAULT_A_VARDIR</CODE>
+<DD>
+<DT><CODE>DEFAULT_A_LOCKDIR</CODE>
+<DD>
+<DT><CODE>DEFAULT_A_SPOOLDIR</CODE>
+<DD>
+<DT><CODE>DEFAULT_A_BTBASEDIR</CODE>
+<DD>
+<DT><CODE>DEFAULT_A_INBOUND</CODE>
+<DD>
+<DT><CODE>DEFAULT_A_PINBOUND</CODE>
+<DD>
+<DT><CODE>DEFAULT_A_UUINBOUND</CODE>
+<DD>
+Abbreviations for configured directories.
+
+<DT><CODE>PERL</CODE>
+<DD>
+Full path name of perl executable.
 
 <DT><CODE>INFODIR</CODE>
 <DD>
@@ -569,54 +593,17 @@ Directory for installing info documentation files.
 <DD>
 Directory for installing HTML documentation files.
 
-<DT><CODE>OUTBOUND</CODE>
+<DT><CODE>HTMLLOGDIR</CODE>
 <DD>
-Default BinkleyTerm-style outbound base directory. This is the base
-directory, not the actual zone outbound directory.
-
-<DT><CODE>INBOUND</CODE>
-<DD>
-Default BinkleyTerm-style inbound directory.
-
-<DT><CODE>PINBOUND</CODE>
-<DD>
-Default BinkleyTerm-style protected inbound directory.
-
-<DT><CODE>UUINBOUND</CODE>
-<DD>
-Default BinkleyTerm-style inbound directory for the <CODE>recvuu</CODE> script.
-
-<DT><CODE>NEWSETCDIR</CODE>
-<DD>
-INN directory: config files
-
-<DT><CODE>NEWSVARDIR</CODE>
-<DD>
-INN directory: active, history files.
-
-<DT><CODE>NEWSLIBDIR</CODE>
-<DD>
-INN directory: scripts.
-
-<DT><CODE>NEWSSPOOLDIR</CODE>
-<DD>
-INN news spool.
-
-<DT><CODE>PERL</CODE>
-<DD>
-Full path name of perl executable.
+Directory for installing CGI files.
 
 </DL>
 
-<P>
-The following definitions should have leading white space.
-
-</P>
 <DL COMPACT>
 
-<DT><CODE>SHELL</CODE>
+<DT><CODE>M4</CODE>
 <DD>
-The shell for executing commands.
+m4 macro processor (for compiling sendmail cf files).
 
 <DT><CODE>OWNER</CODE>
 <DD>
@@ -662,6 +649,10 @@ Library utitility, if needed.
 <DD>
 Optimize or debugging flags for compiling.
 
+<DT><CODE>INCLUDE</CODE>
+<DD>
+C include (-I) options.
+
 <DT><CODE>CFLAGS</CODE>
 <DD>
 Flags for compiling FIDOGATE.
@@ -674,6 +665,14 @@ Flags for linking FIDOGATE.
 <DD>
 Libraries for linking FIDOGATE, including the FIDOGATE library
 <CODE>libfidogate.a</CODE>.
+
+<DT><CODE>INSTALL</CODE>
+<DD>
+Install program.
+
+<DT><CODE></CODE>
+<DD>
+Set to <CODE>.exe</CODE> for MSDOS, OS2, Win32.
 
 <DT><CODE>INSTALL_PROG</CODE>
 <DD>
@@ -691,25 +690,22 @@ Install command for installing setuid programs.
 <DD>
 Install command for installing directories.
 
+<DT><CODE>PREFIX</CODE>
+<DD>
+Extra prefix directory for <CODE>make install</CODE>.
+
 <DT><CODE>LIB</CODE>
 <DD>
 Name of the FIDOGATE library.
 
 </DL>
 
+
+
+<H2><A NAME="SEC9" HREF="fidogate_toc.html#TOC9">Compiling and Installing FIDOGATE</A></H2>
 <P>
-If the directories in <CODE>SPOOLDIR</CODE> are different from the default
-ones in <CODE>config.h</CODE>, the commands for the <CODE>install-dirs</CODE> target
-of <CODE>Makefile</CODE> must be changed as well.
-
-</P>
-
-
-
-<H2><A NAME="SEC10" HREF="fidogate_toc.html#TOC10">Compiling and Installing FIDOGATE</A></H2>
-<P>
+<A NAME="IDX4"></A>
 <A NAME="IDX5"></A>
-<A NAME="IDX6"></A>
 
 </P>
 <P>
@@ -742,23 +738,17 @@ make install
 </PRE>
 
 <P>
-Next you must create the configuration files. Have a look at the various
-configuration in directory <CODE>examples/</CODE> and use them to build your
-own configuration.
+Next you must create the configuration files in (default)
+<CODE>/etc/fidogate</CODE>. Have a look at the various configuration in
+directory <CODE>examples/</CODE> and use them to build your own configuration.
 
 </P>
 
 
 
-<H2><A NAME="SEC11" HREF="fidogate_toc.html#TOC11">Integrating FIDOGATE and the Mail/News System</A></H2>
+<H2><A NAME="SEC10" HREF="fidogate_toc.html#TOC10">Integrating FIDOGATE and the Mail/News System</A></H2>
 <P>
-<A NAME="IDX7"></A>
-
-</P>
-<P>
-More documentation is included in the <CODE>doc</CODE>
-directory, especially the <CODE>FIDOGATE-Point-HOWTO</CODE>. Most of it is
-written in German, though.
+<A NAME="IDX6"></A>
 
 </P>
 <DL COMPACT>
@@ -785,87 +775,35 @@ Much more concise instructions should be here!!! ;-)
 
 
 
-<H2><A NAME="SEC12" HREF="fidogate_toc.html#TOC12">Testing FIDOGATE Operation</A></H2>
+<H2><A NAME="SEC11" HREF="fidogate_toc.html#TOC11">Testing the FIDOGATE Installation</A></H2>
+<P>
+<A NAME="IDX7"></A>
+
+</P>
+
+
+<H3><A NAME="SEC12" HREF="fidogate_toc.html#TOC12"><CODE>Tosser</CODE></A></H3>
+
+<P>
+...
+
+</P>
+
+
+
+<H3><A NAME="SEC13" HREF="fidogate_toc.html#TOC13"><CODE>Gateway</CODE></A></H3>
+
+<P>
+...
+
+</P>
+
+
+
+<H2><A NAME="SEC14" HREF="fidogate_toc.html#TOC14">Connecting to FIDONET</A></H2>
 <P>
 <A NAME="IDX8"></A>
-
-</P>
-
-
-<H3><A NAME="SEC13" HREF="fidogate_toc.html#TOC13"><CODE>ftn2rfc</CODE></A></H3>
-
-<P>
-To verify proper operation of FIDOGATE, copy a FIDO mail packet to the
-directory SPOOLDIR/in, then execute LIBDIR/ftn2rfc as user
-<CODE>OWNER</CODE>. Add some <CODE>-v</CODE> options for verbose debug messages:
-
-<PRE>
-<I>libdir</I>/ftn2rfc -vvvvv
-</PRE>
-
-<P>
-This should result in one or more files named <CODE>nnnnnnnn.msg</CODE> in the
-directories SPOOLDIR/in/mail and SPOOLDIR/in/news. Check these files and
-verify that they at least look like RFC headers. ;-)
-
-</P>
-<P>
-Next execute
-
-<PRE>
-<I>libdir</I>/ftninpost
-</PRE>
-
-<P>
-this will feed those files to <CODE>rnews</CODE> and <CODE>sendmail</CODE>. After
-some processing you should find the messages in your mail folder and/or
-newsgroups.
-
-</P>
-
-
-
-<H3><A NAME="SEC14" HREF="fidogate_toc.html#TOC14"><CODE>rfc2ftn</CODE></A></H3>
-
-<P>
-Grab a single news posting in a FIDO linked newsgroup and feed
-it to <CODE>rfc2ftn</CODE>:
-
-<PRE>
-<I>libdir</I>/rfc2ftn -vvvvv -n &#60;ARTICLE
-</PRE>
-
-<P>
-This should result in a FIDO mail packet <CODE>nnnnnnnn.pkt</CODE> in the
-directory SPOOLDIR/out.
-
-</P>
-<P>
-Do the same with a mail message addressed to a FIDO recipient:
-
-<PRE>
-<I>libdir</I>/rfc2ftn -vvvvv USER_NAME@FIDO.ADDRESS &#60;MESSAGE
-</PRE>
-
-<P>
-Again you should get a packet <CODE>nnnnnnnn.pkt</CODE> in
-SPOOLDIR/out.
-
-</P>
-<P>
-If this is working and you have integrated FIDOGATE and mail/news, you can
-try posting an article to a FIDO linked newsgroups and/or mailing a
-message to a recipient on FIDONET.  The resulting packets should be in
-SPOOLDIR/out.
-
-</P>
-
-
-
-<H2><A NAME="SEC15" HREF="fidogate_toc.html#TOC15">Connecting to FIDONET</A></H2>
-<P>
 <A NAME="IDX9"></A>
-<A NAME="IDX10"></A>
 
 </P>
 <P>
@@ -875,15 +813,23 @@ mail to and from the UNIX system by some other means.
 </P>
 <P>
 If you want everything running on the UNIX system, you need a FIDO
-mailer for UNIX. To my knowledge there are two working FIDO mailers:
+mailer for UNIX. Currently, this choice is limited to
 
 <UL>
-<LI>BinkleyTerm 3.02pl10a
+<LI>BinkleyTerm
 
-<LI>ifcico 2.x from Eugene Crosser's ifmail package
+<LI>ifcico
+
+<LI>BinkD
 
 </UL>
 
+<P>
+I don't know what the current state of BinkleyTerm for Unix/Linux is,
+but ifcico and BinkD are working very well for me. See the FIDOGATE home 
+page at <CODE>http://www.fido.de/fidogate/</CODE> for links.
+
+</P>
 <P>
 Another solution is a separate PC running DOS or OS/2 and BinkleyTerm as
 a mailer. The Fido.DE gateway currently comprises a LINUX PC for the

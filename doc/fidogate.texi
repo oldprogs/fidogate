@@ -2,7 +2,7 @@
 @c
 @c FIDOGATE documentation
 @c
-@c $Id: fidogate.texi,v 4.39 1999/05/15 20:54:32 mj Exp $
+@c $Id: fidogate.texi,v 4.40 1999/05/15 21:44:45 mj Exp $
 @c
 
 @setfilename fidogate.info
@@ -510,13 +510,13 @@ RFC headers recognized at the beginning of FTN messages.
 @item RFC_LVL_1_HEADERS
 RFC headers put into FTN messages for RFC level 1.
 
-@item @R_MODE
-@item @W_MODE
-@item @A_MODE
-@item @RP_MODE
-@item @WP_MODE
-@item @AP_MODE
-Modes (@code{fopen}) for opening files.
+@item R_MODE
+@item W_MODE
+@item A_MODE
+@item RP_MODE
+@item WP_MODE
+@item AP_MODE
+Modes (@code{fopen()}) for opening files.
 
 @item DATE_LOG
 @item DATE_DEFAULT
@@ -568,27 +568,177 @@ configuration dependent, see UNIX ulimits.
 @noindent
 This file is included in all FIDOGATE Makefiles.
 
-A special convention is used for defining macros: a macros definition
-which starts in the first column (no leading white space) will be used
-by @code{subst.pl} to replace @i{<something>} in the various shell and
-perl scripts. Be careful and keep the formatting when editing this file.
-
-@noindent
-The following definitions @b{must} start in the first column.
+A special convention is used for defining FIDOGATE configuration macros: 
+macro name starting with @code{DEFAULT_} are used by the compilation
+process to automatically generate C code.
 
 @table @code
 
-@item BINDIR
-The directory for user programs.
+@item DEFAULT_V_@i{option}
+Creates a Makefile macro definition, substitutes @i{<option>} in shell
+and perl scripts, creates a compile-time C @code{#define
+DEFAULT_}@i{option} in @code{paths.h}, a run-time configuration option
+@i{option} in @code{fidogate.conf}, and makes FIDOGATE evaluate the
+environment variable @code{FIDOGATE_}@i{option}.
 
-@item LIBDIR
-The directory for FIDOGATE's programs and config files.
+@item DEFAULT_F_@i{option}
+Creates a Makefile macro definition, substitutes @i{<option>} in shell
+and perl scripts, creates a compile-time C @code{#define
+DEFAULT_}@i{option} in @code{paths.h}. No run-time override!
 
-@item SPOOLDIR
-FIDOGATE's spool directory.
+@item DEFAULT_A_@i{option} 
+Creates a @i{%X} abbreviation (can be used at the start of file names)
+for @i{option}.
 
-@item LOGDIR
-Directory for FIDOGATE log files.
+@end table
+
+Be very carefull not to @b{remove} any of the FIDOGATE standard macros
+and don't touch the standard abbreviations in this file!!!
+
+
+@table @code
+
+@item DEFAULT_V_CONFIGDIR
+Directory for config files.
+
+@item DEFAULT_V_LIBDIR
+Directory for FIDOGATE's internal programs.
+
+@item DEFAULT_V_BINDIR
+Directory for user programs and scripts.
+
+@item DEFAULT_V_LOGDIR
+Directory for log files.
+
+@item DEFAULT_V_VARDIR
+Directory for @code{areas.bbs}, @code{history}.
+
+@item DEFAULT_V_LOCKDIR
+Directory for lock files.
+
+@item DEFAULT_V_SPOOLDIR
+Internal spool directory (temporary files).
+
+@item DEFAULT_V_BTBASEDIR
+BinkleyTerm-style outbound base directory. This is the base directory,
+not the actual zone outbound directory.
+
+@item DEFAULT_V_INBOUND
+BinkleyTerm-style inbound directory.
+
+@item DEFAULT_V_PINBOUND
+BinkleyTerm-style protected inbound directory.
+
+@item DEFAULT_V_UUINBOUND
+BinkleyTerm-style inbound directory for the @code{recvuu} script.
+
+@item DEFAULT_V_FTPINBOUND
+BinkleyTerm-style FTP inbound directory.
+
+
+@item DEFAULT_V_ACL
+Access configuration list for AI patches (not used for standard FIDOGATE 
+distribution).
+
+@item DEFAULT_V_ALIASES
+Configuration file for aliases.
+
+@item DEFAULT_V_AREAS
+Configuration file for areas/newsgroups gateway.
+
+@item DEFAULT_V_HOSTS
+Configuration file for registered hosts.
+
+@item DEFAULT_V_PASSWD
+Configuration file for passwords.
+
+@item DEFAULT_V_PACKING
+Configuration file for ArcMail packer (@code{ftnpack}).
+
+@item DEFAULT_V_ROUTING
+Configuration file for NetMail/EchoMail routing (@code{ftntoss},
+@code{ftnroute}). 
+
+@item DEFAULT_V_HISTORY
+MSGID history file for dupe check.
+
+@item DEFAULT_V_LOGFILE
+Default log file.
+
+@item DEFAULT_V_CHARSETMAP
+Character set mapping table.
+
+
+@item DEFAULT_F_NEWSETCDIR
+INN directory: config files
+
+@item DEFAULT_F_NEWSVARDIR
+INN directory: active, history files.
+
+@item DEFAULT_F_NEWSLIBDIR
+INN directory: scripts.
+
+@item DEFAULT_F_NEWSSPOOLDIR
+INN directory: news spool.
+
+@item DEFAULT_F_IFMAILDIR
+Ifcico/ifmail directory.
+
+
+@item DEFAULT_F_CONFIG_GATE
+@item DEFAULT_F_CONFIG_MAIN
+@item DEFAULT_F_CONFIG_FFX
+FIDOGATE main configuration file @code{fidogate.conf}.
+
+
+@item DEFAULT_F_SEQ_MAIL
+@item DEFAULT_F_SEQ_NEWS
+@item DEFAULT_F_SEQ_MSGID
+@item DEFAULT_F_SEQ_PKT
+@item DEFAULT_F_SEQ_SPLIT
+@item DEFAULT_F_SEQ_FF
+@item DEFAULT_F_SEQ_TOSS
+@item DEFAULT_F_SEQ_PACK
+@item DEFAULT_F_SEQ_TICK
+Sequencer files.
+
+@item DEFAULT_F_LOCK_HISTORY
+Lock file for history access.
+
+@item DEFAULT_F_OUTRFC_MAIL
+@item DEFAULT_F_OUTRFC_NEWS
+@item DEFAULT_F_OUTPKT
+@item DEFAULT_F_OUTPKT_MAIL
+@item DEFAULT_F_TOSS_TOSS
+@item DEFAULT_F_TOSS_ROUTE
+@item DEFAULT_F_TOSS_PACK
+@item DEFAULT_F_TOSS_BAD
+@item DEFAULT_F_OUTPKT_NEWS
+Internal spool directories (temporary files).  If these directories are
+different from the default ones, the commands for the
+@code{install-dirs} target of @code{Makefile} must be changed as well.
+
+@item DEFAULT_F_TICK_HOLD	= %B/tick
+Outbound hold directory for TIC files.
+
+
+@item DEFAULT_A_CONFIGDIR
+@item DEFAULT_A_LIBDIR
+@item DEFAULT_A_BINDIR
+@item DEFAULT_A_LOGDIR
+@item DEFAULT_A_VARDIR
+@item DEFAULT_A_LOCKDIR
+@item DEFAULT_A_SPOOLDIR
+@item DEFAULT_A_BTBASEDIR
+@item DEFAULT_A_INBOUND
+@item DEFAULT_A_PINBOUND
+@item DEFAULT_A_UUINBOUND
+Abbreviations for configured directories.
+
+
+@item PERL
+Full path name of perl executable.
+
 
 @item INFODIR
 Directory for installing info documentation files.
@@ -596,44 +746,18 @@ Directory for installing info documentation files.
 @item HTMLDIR
 Directory for installing HTML documentation files.
 
-@item OUTBOUND
-Default BinkleyTerm-style outbound base directory. This is the base
-directory, not the actual zone outbound directory.
+@item HTMLLOGDIR
+Directory for installing CGI files.
 
-@item INBOUND
-Default BinkleyTerm-style inbound directory.
-
-@item PINBOUND
-Default BinkleyTerm-style protected inbound directory.
-
-@item UUINBOUND
-Default BinkleyTerm-style inbound directory for the @code{recvuu} script.
-
-@item NEWSETCDIR
-INN directory: config files
-
-@item NEWSVARDIR
-INN directory: active, history files.
-
-@item NEWSLIBDIR
-INN directory: scripts.
-
-@item NEWSSPOOLDIR
-INN news spool.
-
-@item PERL
-Full path name of perl executable.
 
 @end table
 
 
-@noindent
-The following definitions should have leading white space.
 
 @table @code
 
-@item SHELL
-The shell for executing commands.
+@item M4
+m4 macro processor (for compiling sendmail cf files).
 
 @item OWNER
 Owner of FIDOGATE files.
@@ -668,6 +792,9 @@ Library utitility, if needed.
 @item DEBUG
 Optimize or debugging flags for compiling.
 
+@item INCLUDE
+C include (-I) options.
+
 @item CFLAGS
 Flags for compiling FIDOGATE.
 
@@ -677,6 +804,12 @@ Flags for linking FIDOGATE.
 @item LIBS
 Libraries for linking FIDOGATE, including the FIDOGATE library
 @code{libfidogate.a}.
+
+@item INSTALL
+Install program.
+
+@item
+Set to @code{.exe} for MSDOS, OS2, Win32.
 
 @item INSTALL_PROG
 Install command for installing programs.
@@ -690,14 +823,13 @@ Install command for installing setuid programs.
 @item INSTALL_DIR
 Install command for installing directories.
 
+@item PREFIX
+Extra prefix directory for @code{make install}.
+
 @item LIB
 Name of the FIDOGATE library.
 
 @end table
-
-If the directories in @code{SPOOLDIR} are different from the default
-ones in @code{config.h}, the commands for the @code{install-dirs} target
-of @code{Makefile} must be changed as well.
 
 
 
@@ -730,9 +862,9 @@ Then install all FIDOGATE programs:
 make install
 @end example
 
-Next you must create the configuration files. Have a look at the various
-configuration in directory @code{examples/} and use them to build your
-own configuration.
+Next you must create the configuration files in (default)
+@code{/etc/fidogate}. Have a look at the various configuration in
+directory @code{examples/} and use them to build your own configuration.
 
 
 
@@ -741,11 +873,6 @@ own configuration.
 
 @section Integrating FIDOGATE and the Mail/News System
 @cindex Integration
-
-@noindent
-More documentation is included in the @code{doc}
-directory, especially the @code{FIDOGATE-Point-HOWTO}. Most of it is
-written in German, though.
 
 @table @code
 
@@ -768,54 +895,17 @@ Much more concise instructions should be here!!! ;-)
 @c ***************************************************************************
 @node Testing, Connecting, Integration, Installation
 
-@section Testing FIDOGATE Operation
+@section Testing the FIDOGATE Installation
 @cindex Testing
 
-@subsection @code{ftn2rfc}
+@subsection @code{Tosser}
 
-@noindent
-To verify proper operation of FIDOGATE, copy a FIDO mail packet to the
-directory SPOOLDIR/in, then execute LIBDIR/ftn2rfc as user
-@code{OWNER}. Add some @code{-v} options for verbose debug messages:
-@example
-@i{libdir}/ftn2rfc -vvvvv
-@end example
-
-This should result in one or more files named @code{nnnnnnnn.msg} in the
-directories SPOOLDIR/in/mail and SPOOLDIR/in/news. Check these files and
-verify that they at least look like RFC headers. ;-)
-
-Next execute
-@example
-@i{libdir}/ftninpost
-@end example
-this will feed those files to @code{rnews} and @code{sendmail}. After
-some processing you should find the messages in your mail folder and/or
-newsgroups.
+...
 
 
-@subsection @code{rfc2ftn}
+@subsection @code{Gateway}
 
-@noindent
-Grab a single news posting in a FIDO linked newsgroup and feed
-it to @code{rfc2ftn}:
-@example
-@i{libdir}/rfc2ftn -vvvvv -n <ARTICLE
-@end example
-This should result in a FIDO mail packet @code{nnnnnnnn.pkt} in the
-directory SPOOLDIR/out.
-
-Do the same with a mail message addressed to a FIDO recipient:
-@example
-@i{libdir}/rfc2ftn -vvvvv USER_NAME@@FIDO.ADDRESS <MESSAGE
-@end example
-Again you should get a packet @code{nnnnnnnn.pkt} in
-SPOOLDIR/out.
-
-If this is working and you have integrated FIDOGATE and mail/news, you can
-try posting an article to a FIDO linked newsgroups and/or mailing a
-message to a recipient on FIDONET.  The resulting packets should be in
-SPOOLDIR/out.
+...
 
 
 
@@ -831,11 +921,16 @@ FIDOGATE does NOT include a FIDO mailer, so you have to transfer FIDO
 mail to and from the UNIX system by some other means.
 
 If you want everything running on the UNIX system, you need a FIDO
-mailer for UNIX. To my knowledge there are two working FIDO mailers:
+mailer for UNIX. Currently, this choice is limited to
 @itemize @bullet
-@item BinkleyTerm 3.02pl10a
-@item ifcico 2.x from Eugene Crosser's ifmail package
+@item BinkleyTerm
+@item ifcico
+@item BinkD
 @end itemize
+
+I don't know what the current state of BinkleyTerm for Unix/Linux is,
+but ifcico and BinkD are working very well for me. See the FIDOGATE home 
+page at @code{http://www.fido.de/fidogate/} for links.
 
 Another solution is a separate PC running DOS or OS/2 and BinkleyTerm as
 a mailer. The Fido.DE gateway currently comprises a LINUX PC for the
@@ -850,6 +945,8 @@ LINUX server, so the OS/2 PC and the gateway have access to it.
 
 @chapter FIDOGATE Programs
 @cindex Programs
+
+@b{NOT UP-TO-DATE FOR VERSION 4.3.X !!!}
 
 @noindent
 The current FIDOGATE distribution includes the following programs and
@@ -977,12 +1074,6 @@ Help on usage and options.
 @item -c --config @i{name}
 Read an alternate config file. @code{""} means none. @i{name} may
 start with @code{%L/}, indicating a file relative to LIBDIR.
-
-@item -L --lib-dir @i{name}
-Set the FIDOGATE library directory (LIBDIR).
-
-@item -S --spool-dir @i{name}
-Set the FIDOGATE spool directory (SPOOLDIR).
 
 @item -a --addr @i{Z:N/F.P}
 Set the main address of this system.
@@ -2325,6 +2416,12 @@ The value of @code{UUInbound}
 @c ***************************************************************************
 @node Config, Hosts, Config files, Config files
 
+@b{NOT UP-TO-DATE FOR VERSION 4.3.X !!!}
+
+SEE examples/orodruin/fidogate.conf FOR A COMMENTED VERSION OF THE NEW
+CONFIG FILE!!!
+
+
 @section @code{config.*} Configuration Files
 @cindex Config
 
@@ -3075,6 +3172,8 @@ to Internet:
 @c ***************************************************************************
 @node Aliases, Areas, Hosts, Config files
 
+@b{NOT UP-TO-DATE FOR VERSION 4.3.X !!!}
+
 @section @code{aliases} User Aliases
 @cindex Aliases
 
@@ -3126,6 +3225,8 @@ Marc van.Rey @@ 2:2452/110.6  <->  mvr@@hippo.Fido.DE
 
 @c ***************************************************************************
 @node Areas, Bounce, Aliases, Config files
+
+@b{NOT UP-TO-DATE FOR VERSION 4.3.X !!!}
 
 @section @code{areas} FTN Area to Newsgroup Conversion
 @cindex Areas
@@ -3718,6 +3819,8 @@ Mailer for sending via the FIDOGATE ffx sub-system.
 @cindex Example
 @cindex Point
 
+@b{NOT UP-TO-DATE FOR VERSION 4.3.X !!!}
+
 @noindent
 @i{Please note that this point configuration uses the FIDOGATE
 tosser. Thus, it's different from the point configuration described in
@@ -3813,6 +3916,8 @@ needed for a point polling its mail at the boss node.
 @cindex Configuration
 @cindex Example
 @cindex Point
+
+@b{NOT UP-TO-DATE FOR VERSION 4.3.X !!!}
 
 @noindent
 This section describes a point setup with 2 different point addresses
@@ -3914,6 +4019,8 @@ pack zip    *
 @cindex Example
 @cindex Node
 
+
+@b{NOT UP-TO-DATE FOR VERSION 4.3.X !!!}
 
 @noindent
 Let's assume the following addresses:

@@ -1,9 +1,10 @@
 This is Info file fidogate.info, produced by Makeinfo version 1.68 from
 the input file fidogate.texi.
 
-   This file documents the usage of FIDOGATE version 4
+   This file documents the installation and usage of FIDOGATE version
+4.3
 
-   Copyright (C) 1994-1996, Martin Junius
+   Copyright (C) 1994-1999, Martin Junius
 
    Permission is granted to make and distribute verbatim copies of this
 manual provided the copyright notice and this permission notice are
@@ -20,6 +21,11 @@ versions.
 
 
 File: fidogate.info,  Node: Config,  Next: Hosts,  Prev: Config files,  Up: Config files
+
+   NOT UP-TO-DATE FOR VERSION 4.3.X !!!
+
+   SEE examples/orodruin/fidogate.conf FOR A COMMENTED VERSION OF THE
+NEW CONFIG FILE!!!
 
 `config.*' Configuration Files
 ==============================
@@ -637,6 +643,8 @@ Internet:
 
 File: fidogate.info,  Node: Aliases,  Next: Areas,  Prev: Hosts,  Up: Config files
 
+   NOT UP-TO-DATE FOR VERSION 4.3.X !!!
+
 `aliases' User Aliases
 ======================
 
@@ -675,6 +683,8 @@ the following address conversion:
 
 
 File: fidogate.info,  Node: Areas,  Next: Bounce,  Prev: Aliases,  Up: Config files
+
+   NOT UP-TO-DATE FOR VERSION 4.3.X !!!
 
 `areas' FTN Area to Newsgroup Conversion
 ========================================
@@ -1181,6 +1191,8 @@ File: fidogate.info,  Node: Example Point,  Next: Example Point 2,  Prev: Sendma
 Example Point Configuration
 ===========================
 
+   NOT UP-TO-DATE FOR VERSION 4.3.X !!!
+
 Please note that this point configuration uses the FIDOGATE tosser.
 Thus, it's different from the point configuration described in Roland
 Rosenfeld's Point HOWTO!!!
@@ -1251,6 +1263,8 @@ File: fidogate.info,  Node: Example Point 2,  Next: Example Node,  Prev: Example
 
 Example Configuration with 2 Point Addresses
 ============================================
+
+   NOT UP-TO-DATE FOR VERSION 4.3.X !!!
 
 This section describes a point setup with 2 different point addresses
 and 2 different boss nodes (uplinks). Thanks to Stephan Zellerhoff
@@ -1323,6 +1337,8 @@ File: fidogate.info,  Node: Example Node,  Next: Usage,  Prev: Example Point 2, 
 
 Example Leaf Node configuration
 ===============================
+
+   NOT UP-TO-DATE FOR VERSION 4.3.X !!!
 
 Let's assume the following addresses:
 
@@ -1584,8 +1600,7 @@ Index
 * Password:                              Passwd.
 * pktdebug:                              pktdebug.
 * Point <1>:                             Example Point 2.
-* Point <2>:                             Example Point.
-* Point:                                 Point.
+* Point:                                 Example Point.
 * Programs:                              Programs.
 * Remote Execution:                      ffxqt.
 * Remote execution <1>:                  ffxbatch.
