@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# $Id: runffx.sh,v 4.1 1998/11/08 18:28:00 mj Exp $
+# $Id: runffx.sh,v 4.2 2000/04/11 11:32:43 mj Exp $
 #
 # Run ffx programs
 #
@@ -25,8 +25,9 @@ fi
 <NEWSETCDIR>/send-ffx orodruin
 
 # batch ffx
-# CUSTOMIZE! ----vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-<LIBDIR>/ftnpack -f 242:1000/5 -I %B/out.0f2/orodruin
+# CUSTOMIZE! ----vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+<LIBDIR>/ftnpack -f 242:1000/5    -I %B/out.0f2/orodruin
+<LIBDIR>/ftnpack -f 242:1000/1.20 -I %B/out.0f2/tux
 
 # process inbound ffx files
 <LIBDIR>/ffxqt

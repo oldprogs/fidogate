@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# $Id: ffxmail.sh,v 4.1 1996/04/22 20:02:04 mj Exp $
+# $Id: ffxmail.sh,v 4.2 2000/04/11 11:32:43 mj Exp $
 #
 # Frontend for delivering mail via ffx/ffxqt
 #
@@ -16,23 +16,22 @@ node="$1"
 shift
 addr="$*"
 
-nocmpr="-n";
 
 case $node in
 
-	242:1000/4 | *.dfv.rwth-aachen.de | *.comnets.rwth-aachen.de)
-		batch="-b tweety"
-		faddr="242:1000/4"
+	242:4900/99 | 242:1000/1 | morannon.fido.de)
+		batch="-b morannon"
+		faddr="242:1000/1"
 		;;
 
-	242:1000/5 | orodruin.fido.de | orodruin.fido.de.)
+	242:1000/5 | orodruin.fido.de)
 		batch="-b orodruin"
 		faddr="242:1000/5"
 		;;
 
-	242:4900/99 | fido.de | morannon.fido.de)
-		batch="-b morannon"
-		faddr="242:4900/99"
+	242:1000/1.20 | tux.fido.de)
+		batch="-b tux"
+		faddr="242:1000/1.20"
 		;;
 
 ##### Insert other nodes here ... #####
@@ -50,4 +49,4 @@ case $node in
 
 esac
 
-exec <LIBDIR>/ffx $nocmpr $batch -- $faddr rmail $addr
+exec <LIBDIR>/ffx -n $batch -- $faddr rmail $addr

@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# $Id: send-ffx.sh,v 4.1 1998/11/08 18:28:00 mj Exp $
+# $Id: send-ffx.sh,v 4.2 2000/04/11 11:32:43 mj Exp $
 #
 # SH script to send batches via FIDOGATE ffx
 #
@@ -31,7 +31,6 @@ shlock -p $$ -f ${LOCK} || {
 if [ -n "$1" ] ; then
     LIST="$*"
 else
-#    LIST="sungate zruty"
     LIST="morannon"
 fi
 

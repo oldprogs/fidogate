@@ -2,6 +2,14 @@
 
 	------- CVS ci -------------------------------------------------------
 
+	* src/ffx/ffxnews.sh: added tux.
+
+	* src/ffx/runffx.sh: added ftnpack for tux.
+
+	* src/ffx/ffxmail.sh: added tux.fido.de, clean-up.
+
+	------- CVS ci -------------------------------------------------------
+
 	* README: updated.
 
 	* fidogate.lsm: updated.

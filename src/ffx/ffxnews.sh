@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# $Id: ffxnews.sh,v 4.1 1998/11/08 18:28:00 mj Exp $
+# $Id: ffxnews.sh,v 4.2 2000/04/11 11:32:43 mj Exp $
 #
 # Transmit batch to $1, using a Fido mailer and the ffx remote execution
 # protocol. See case statement for a translation of hostnames to Fido
@@ -18,6 +18,10 @@ case $1 in
 		;;
 	orodruin)
 		ftn="242:1000/5"
+		batch="-b $1"
+		;;
+	tux)
+		ftn="242:1000/1.20"
 		batch="-b $1"
 		;;
 	*)
