@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: ftnaf.c,v 1.1 1998/02/07 18:35:19 mj Exp $
+ * $Id: ftnaf.c,v 1.2 1998/02/14 17:13:57 mj Exp $
  *
  * Areafix-like AREAS.BBS EchoMail distribution manager. Commands somewhat
  * conforming to FSC-0057.
@@ -39,7 +39,7 @@
 
 
 #define PROGRAM		"ftnaf"
-#define VERSION		"$Revision: 1.1 $"
+#define VERSION		"$Revision: 1.2 $"
 #define CONFIG		DEFAULT_CONFIG_MAIN
 
 
@@ -60,26 +60,13 @@ void	areafix_auth_cmd	(void);
 char   *areafix_areasbbs	(void);
 void	areafix_set_areasbbs	(char *name);
 char   *areafix_name		(void);
-void	areafix_output		(FILE *);
-int	areafix_do		(Node *node, char *subj);
+int	areafix_do		(Node *node, char *subj, Textlist*, Textlist*);
+int	rewrite_areas_bbs	(void);
+int	areafix_do_cmd		(Node *, char *, Textlist *);
 
-int	is_wildcard		(char *);
 FILE   *mailer_open		(char *);
 int     mailer_close		(FILE *);
-int	rewrite_areas_bbs	(void);
 int	do_mail			(void);
-int	do_command		(Node *, char *);
-int	cmd_create		(Node *, char *);
-int	cmd_vacation		(Node *, char *);
-int	cmd_list		(Node *);
-int	cmd_listall		(Node *);
-int	cmd_query		(Node *);
-int	cmd_unlinked		(Node *);
-int	cmd_add			(Node *, char *);
-int	cmd_remove		(Node *, char *);
-int	cmd_help		(Node *);
-int	cmd_passwd		(Node *, char *);
-
 void	short_usage		(void);
 void	usage			(void);
 
@@ -132,32 +119,24 @@ int do_mail(void)
     char *pfrom, *subj, *p;
     Node node, *n;
     FILE *output;
+    Textlist tl, out;
 
     node_invalid(&node);
-    
-    /*
-     * Read message header from stdin
-     */
+    tl_init(&tl);
+    tl_init(&out);
+
+    /* Read message header and body from stdin */
     header_delete();
     header_read(stdin);
+    while(fgets(buffer, BUFFERSIZE, stdin)) {
+	strip_crlf(buffer);
+	tl_append(&tl, buffer);
+    }
 
     pfrom = header_get("From");
     if(!pfrom)
 	return EX_UNAVAILABLE;
     debug(3, "From: %s", pfrom);
-
-    /*
-     * Open mailer
-     */
-    if(r_flag)
-    {
-	output = mailer_open(pfrom);
-	if(!output)
-	    return EX_OSERR;
-    }
-    else
-        output = stdout;
-    areafix_output(output);
 
     /*
      * Check From / X-FTN-From for FTN address
@@ -192,9 +171,19 @@ int do_mail(void)
 
     /* Run Areafix */
     subj = header_get("Subject");
-    areafix_do(&node, subj);
+    areafix_do(&node, subj, &tl, (r_flag ? NULL : &out) );
     
-    return r_flag ? mailer_close(output) : EX_OK;
+    /* Send output to mailer */
+    if(!r_flag)
+    {
+	output = mailer_open(pfrom);
+	if(!output)
+	    return EX_OSERR;
+	tl_print_x(&out, output, "\n");
+	return mailer_close(output);
+    }
+
+    return EX_OK;
 }
 
 
@@ -280,10 +269,9 @@ int main(int argc, char **argv)
 	/***** ftnaf options *****/
 	case 'm':
 	    m_flag = TRUE;
-	    r_flag = TRUE;
 	    break;
 	case 'r':
-	    r_flag = FALSE;
+	    r_flag = TRUE;
 	    break;
 	case 'n':
 	    n_flag = TRUE;
@@ -292,7 +280,7 @@ int main(int argc, char **argv)
 	    areafix_set_areasbbs(optarg);
 	    break;
 	case 'F':
-	    areafix     = FALSE;
+	    areafix = FALSE;
 	    break;
 	    
 	/***** Common options *****/
@@ -396,8 +384,7 @@ int main(int argc, char **argv)
 		BUF_APPEND(buffer, " ");
 	}
 	
-	areafix_output(stdout);
-	if(do_command(&node, buffer) == ERROR)
+	if(areafix_do_cmd(&node, buffer, NULL) == ERROR)
 	    ret = 1;
 	if(ret==0 && !n_flag)
 	    if( rewrite_areas_bbs() == ERROR )

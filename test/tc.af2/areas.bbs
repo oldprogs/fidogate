@@ -1,0 +1,13 @@
+!-IGNORED-
+- LINUX.GER -d "Fido Linux" 2:2452/110.90 .99
+- TOLKIEN.GER -d "Fido Fantasy Literatur" 2:2452/110.90 .91 .92 .93
+- XX -k ax -l 2 242:1000/1.90 .91 .99
+- YY -k by -l 1 242:1000/1.99
+- ZZ -d "Usenet Test Area" 242:1000/1.99
+
+#/test ABC 242:1000/99
+# DEF 242:1000/99
+/test GHI -z 99 -l 2 -k xyz9 242:1000/99
+
+- TEST1 -k F -l 1 2:99/99
+- TEST2 -k F -l 99 2:99/99

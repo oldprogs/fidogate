@@ -1,6 +1,6 @@
 #:ts=8
 #
-#    $Id: Makefile,v 1.1 1998/02/07 18:35:19 mj Exp $
+#    $Id: Makefile,v 1.2 1998/02/14 17:13:56 mj Exp $
 #
 #    Makefile for FIDOGATE src/areafix/
 #
@@ -16,12 +16,15 @@ include $(TOPDIR)/config.make
 include $(TOPDIR)/rules.make
 
 
-PROGS		= ftnaf ftnafmail
+PROGS		= ftnaf ftnafmail ftnafpkt
 
-OBJS_AF		= areafix.o
+OBJS_AF		= ftnaf.o areafix.o
+OBJS_AFPKT	= ftnafpkt.o areafix.o
 
 LOCAL_CFLAGS	=
 LOCAL_LFLAGS	=
+
+TESTS		= testpkttmpl
 
 
 all:		$(PROGS)
@@ -29,11 +32,15 @@ all:		$(PROGS)
 ftnafmail:	$(TOPDIR)/src/common/$(LIB)
 
 ftnaf:		$(TOPDIR)/src/common/$(LIB) $(OBJS_AF)
-	$(CC) $(LFLAGS) $(LOCAL_LFLAGS) -o ftnaf ftnaf.o $(OBJS_AF) $(LIBS)
+	$(CC) $(LFLAGS) $(LOCAL_LFLAGS) -o ftnaf $(OBJS_AF) $(LIBS)
+
+ftnafpkt:	$(TOPDIR)/src/common/$(LIB) $(OBJS_AFPKT)
+	$(CC) $(LFLAGS) $(LOCAL_LFLAGS) -o ftnafpkt $(OBJS_AFPKT) $(LIBS)
 
 
 install:
 	$(INSTALL_PROG) ftnaf$(EXE) $(PREFIX)$(LIBDIR)
+	$(INSTALL_PROG) ftnafpkt$(EXE) $(PREFIX)$(LIBDIR)
 	$(INSTALL_SETUID) ftnafmail$(EXE) $(PREFIX)$(LIBDIR)
 
 
@@ -46,7 +53,10 @@ clean veryclean:
 #
 # Test programs
 #
-check:
+check:		$(TESTS)
+
+testpkttmpl:	pkttmpl.o $(TOPDIR)/src/common/$(LIB)
+	$(CC) $(LFLAGS) -o testpkttmpl pkttmpl.o $(LIBS)
 
 
 #

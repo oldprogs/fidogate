@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: areafix.c,v 1.1 1998/02/07 18:35:19 mj Exp $
+ * $Id: areafix.c,v 1.2 1998/02/14 17:13:57 mj Exp $
  *
  * Common Areafix functions
  *
@@ -45,9 +45,14 @@
 #define MY_NAME		my_name
 #define MY_CONTEXT	my_context
 
+
+
+int	areafix_tlprintf	(const char *fmt, ...);
+int	areafix_stdprintf	(const char *fmt, ...);
+
 int	is_wildcard		(char *);
 int	rewrite_areas_bbs	(void);
-int	do_command		(Node *, char *);
+int	areafix_do_cmd		(Node *, char *, Textlist *);
 int	cmd_create		(Node *, char *);
 int	cmd_vacation		(Node *, char *);
 int	cmd_list		(Node *);
@@ -60,6 +65,7 @@ int	cmd_help		(Node *);
 int	cmd_passwd		(Node *, char *);
 
 
+
 /*
  * Number of old AREAS.BBS to keep as AREAS.Onn
  */
@@ -67,12 +73,21 @@ int	cmd_passwd		(Node *, char *);
 
 
 
-
-
 /*
- * Command line options
+ * Global vars
  */
-static int   areas_bbs_changed = FALSE;
+
+/* Areafix (TRUE) / Filefix (FALSE) mode */
+static int areafix              = TRUE;
+
+/* Program name, context, config areas.bbs name */
+static char *my_name	        = MY_NAME_AF;
+static char *my_context         = MY_CONTEXT_AF;
+static char *my_areasbbs        = MY_AREASBBS_AF;
+
+/* Name of areas.bbs file */
+static char *areas_bbs          = NULL;
+static int   areas_bbs_changed  = FALSE;
 
 static int   authorized     	= FALSE;
 static int   authorized_lvl 	= 1;
@@ -81,27 +96,47 @@ static char *authorized_name    = "Sysop";
 static int   authorized_cmdline = FALSE;
 static int   authorized_create  = FALSE;
 
-static FILE *output = NULL;
 
-
-
-
-
-/**NEW************************************************************************/
 /*
- * Static configuration
+ * Output functions
  */
+typedef int (*OFuncP)(const char *, ...);
 
-/* Areafix (TRUE) / Filefix (FALSE) mode */
-static int areafix      = TRUE;
+static OFuncP    areafix_printf = areafix_stdprintf;
+static Textlist *areafix_otl    = NULL;
 
-/* Program name, context, config verb name */
-static char *my_name	= MY_NAME_AF;
-static char *my_context = MY_CONTEXT_AF;
-static char *my_areasbbs= MY_AREASBBS_AF;
 
-/* Name of areas.bbs file */
-static char *areas_bbs  = NULL;
+int areafix_tlprintf(const char *fmt, ...)
+{
+    va_list args;
+    static char buf[4096];
+    va_start(args, fmt);
+    
+#ifdef HAS_SNPRINTF    
+    vsnprintf(buf, sizeof(buf), fmt, args);
+#else
+    vsprintf(buf, fmt, args);
+#endif
+    tl_append(areafix_otl, buf);
+
+    va_end(args);
+
+    return OK;
+}
+
+
+int areafix_stdprintf(const char *fmt, ...)
+{
+    va_list args;
+    va_start(args, fmt);
+    
+    vprintf(fmt, args);
+    printf("\n");
+    
+    va_end(args);
+
+    return OK;
+}
 
 
 
@@ -180,25 +215,20 @@ char *areafix_name(void)
 
 
 /*
- * Set Areafix output
- */
-void areafix_output(FILE *fp)
-{
-    output = fp;
-}
-
-
-
-/*
  * Process Areafix command from stdin
  */
-int areafix_do(Node *node, char *subj)
+int areafix_do(Node *node, char *subj, Textlist *tl, Textlist *out)
 {
     char *passwd;
     Passwd *pwd;
     char *p, *q;
     int q_flag=FALSE, l_flag=FALSE;
+    Textline *tp;
 
+    /* Reset */
+    authorized = authorized_cmdline = authorized_create = FALSE;
+    authorized_lvl = 1;
+    authorized_key = "";
 
     /* Check password in Subject and process options */
     passwd = strtok(subj, " \t");
@@ -246,40 +276,28 @@ int areafix_do(Node *node, char *subj)
 	cmd_list(node);
     
     /* Execute commands from stdin */
-    while(fgets(buffer, sizeof(buffer), stdin))
+    for(tp=tl->first; tp; tp=tp->next)
     {
-	strip_crlf(buffer);			/* Strip CR/LF */
-	strip_space(buffer);			/* Strip spaces */
-	if(!strncmp(buffer, " * ", 3))		/* Skip " * blah" lines */
+	p = tp->line;
+	
+	strip_crlf(p);				/* Strip CR/LF */
+	strip_space(p);				/* Strip spaces */
+	if(strneq(p, " * ", 3))			/* Skip " * blah" lines */
 	    continue;
-	if(!strncmp(buffer, "---", 3))		/* Ignore cmds after --- */
+	if(strneq(p, "---", 3))			/* Ignore cmds after --- */
 	    break;
-	if(!strncmp(buffer, "--", 2))		/* Ignore cmds after --  */
+	if(strneq(p, "--", 2))			/* Ignore cmds after --  */
 	    break;				/* (signature start)     */
-	if(!strncmp(buffer, "--=20", 5))	/* dito, MIME            */
+	if(strneq(p, "--=20", 5))		/* dito, MIME            */
 	    break;
-	for(p=buffer; *p && is_space(*p); p++) ;	/* Skip white space */
+	for(; *p && is_space(*p); p++) ;	/* Skip white space */
 	if(!*p)					/* Skip empty lines */
 	    continue;
 
-	do_command(node, p);
+	areafix_do_cmd(node, p, out);
     }
 
 
-    if(!authorized)
-    {
-	/* Trouble? Give some more help ... */
-	fprintf(output, "\n\
-Your %s request didn't made it, because authorization failed.\n\
-You may try using the PASSWORD command to set address and password,\n\
-if there is an address problem.\n\
-\n\
-Additional help can be requested with the HELP command.\n",
-		my_name);
-
-	return ERROR;
-    }
-    
     return OK;
 }
 
@@ -403,13 +421,27 @@ int rewrite_areas_bbs(void)
 #define CMD_CREATE	9
 #define CMD_VACATION	10
 
-int do_command(Node *node, char *line)
+int areafix_do_cmd(Node *node, char *line, Textlist *out)
 {
     int cmd;
     char *arg;
     char buf[32];
     int i, ret;
     int percent = FALSE;
+
+    /* Output */
+    if(out) 
+    {
+	debug(3, "output via textlist");
+	areafix_otl    = out;
+	areafix_printf = areafix_tlprintf;
+    }
+    else
+    {
+	debug(3, "output via stdout");
+	areafix_otl    = NULL;
+	areafix_printf = areafix_stdprintf;
+    }
 
     debug(2, "node=%s command=%s", znfp(node), line);
 
@@ -467,7 +499,7 @@ int do_command(Node *node, char *line)
 	{
 	    if(percent)
 	    {
-		fprintf(output, "Unknown command %%%s\n", buf);
+		areafix_printf("Unknown command %%%s", buf);
 		return OK;
 	    }
 	    else
@@ -534,7 +566,7 @@ int cmd_create(Node *node, char *line)
 
     if(!authorized_create)
     {
-	fprintf(output, "Command CREATE: not authorized.\n");
+	areafix_printf("Command CREATE: not authorized.");
 	return OK;
     }
 
@@ -542,7 +574,7 @@ int cmd_create(Node *node, char *line)
 
     if( (p = areasbbs_lookup(name)) )
     {
-	fprintf(output, "%s: area already exists, can't create\n",
+	areafix_printf("%s: area already exists, can't create.",
 		name);
 	return OK;
     }
@@ -625,11 +657,11 @@ int cmd_vacation(Node *node, char *area)
 {
     if(!authorized)
     {
-	fprintf(output, "Command VACATION: not authorized.\n");
+	areafix_printf("Command VACATION: not authorized.");
 	return OK;
     }
 
-    fprintf(output, "Command VACATION: sorry, not yet implemented.\n");
+    areafix_printf("Command VACATION: sorry, not yet implemented.");
 
     return OK;
 }
@@ -646,24 +678,32 @@ int cmd_listall(Node *node)
     
     if(!authorized)
     {
-	fprintf(output, "Command LISTALL: not authorized.\n");
+	areafix_printf("Command LISTALL: not authorized.");
 	return OK;
     }
     
-    fprintf(output, "\nALL available areas:\n\n");
+    areafix_printf("");
+    areafix_printf("ALL available areas:");
+    areafix_printf("");
     
     for(p=areasbbs_first(); p; p=p->next)
     {
-	l = &p->nodes;
+	char *mark;
 
-	fprintf(output, lon_search(l, node) ? "* " : "  ");
+	l = &p->nodes;
+	mark = (lon_search(l, node) ? "*" : " ");
+
 	if(p->desc)
-	    fprintf(output, "Z%-3d %-39s: %s\n", p->zone, p->area, p->desc);
+	    areafix_printf("%s Z%-3d %-39s: %s",
+			   mark, p->zone, p->area, p->desc);
 	else
-	    fprintf(output, "Z%-3d %s\n", p->zone, p->area);
+	    areafix_printf("%s Z%-3d %s",
+			   mark, p->zone, p->area);
     }
     
-    fprintf(output, "\n* = linked to this area\n\n");
+    areafix_printf("");
+    areafix_printf("* = linked to this area");
+    areafix_printf("");
 
     return OK;
 }
@@ -682,14 +722,18 @@ int cmd_list(Node *node)
     
     if(!authorized)
     {
-	fprintf(output, "Command LIST: not authorized.\n");
+	areafix_printf("Command LIST: not authorized.");
 	return OK;
     }
     
-    fprintf(output, "\nAreas available to %s:\n\n", node_to_asc(node, FALSE));
+    areafix_printf("");
+    areafix_printf("Areas available to %s:", node_to_asc(node, FALSE));
+    areafix_printf("");
     
     for(p=areasbbs_first(); p; p=p->next)
     {
+	char *mark;
+
 	l = &p->nodes;
 
 	/* Check permissions */
@@ -712,14 +756,16 @@ int cmd_list(Node *node)
 	if(areafix && p->zone!=node->zone)
 	    continue;
 	
-	fprintf(output, lon_search(l, node) ? "* " : "  ");
+	mark = (lon_search(l, node) ? "*" : " ");
 	if(p->desc)
-	    fprintf(output, "%-39s: %s\n", p->area, p->desc);
+	    areafix_printf("%s %-39s: %s", mark, p->area, p->desc);
 	else
-	    fprintf(output, "%s\n", p->area);
+	    areafix_printf("%s %s", mark, p->area);
     }
     
-    fprintf(output, "\n* = linked to this area\n\n");
+    areafix_printf("");
+    areafix_printf("* = linked to this area");
+    areafix_printf("");
     
     return OK;
 }
@@ -736,22 +782,23 @@ int cmd_query(Node *node)
     
     if(!authorized)
     {
-	fprintf(output, "Command QUERY: not authorized.\n");
+	areafix_printf("Command QUERY: not authorized.");
 	return OK;
     }
     
-    fprintf(output, "\n%s is linked to the following areas:\n\n",
-	    node_to_asc(node, FALSE));
+    areafix_printf("");
+    areafix_printf("%s is linked to the following areas:", znfp(node));
+    areafix_printf("");
     
     for(p=areasbbs_first(); p; p=p->next)
     {
 	l = &p->nodes;
 
 	if(lon_search(l, node))
-	    fprintf(output, "  %s\n", p->area);
+	    areafix_printf("  %s", p->area);
     }
     
-    fprintf(output, "\n");
+    areafix_printf("");
     
     return OK;
 }
@@ -768,12 +815,14 @@ int cmd_unlinked(Node *node)
     
     if(!authorized)
     {
-	fprintf(output, "Command UNLINKED: not authorized.\n");
+	areafix_printf("Command UNLINKED: not authorized.");
 	return OK;
     }
     
-    fprintf(output, "\n%s is not linked to the following available areas:\n\n",
-	    node_to_asc(node, FALSE));
+    areafix_printf("");
+    areafix_printf("%s is not linked to the following available areas:",
+		   znfp(node));
+    areafix_printf("");
     
     for(p=areasbbs_first(); p; p=p->next)
     {
@@ -786,10 +835,10 @@ int cmd_unlinked(Node *node)
 	    continue;
 	
 	if(! lon_search(l, node))
-	    fprintf(output, "  %s\n", p->area);
+	    areafix_printf("  %s", p->area);
     }
     
-    fprintf(output, "\n");
+    areafix_printf("");
 
     return OK;
 }
@@ -810,7 +859,7 @@ int cmd_add(Node *node, char *area)
     
     if(!authorized)
     {
-	fprintf(output, "Command ADD: not authorized.\n");
+	areafix_printf("Command ADD: not authorized.");
 	return OK;
     }
 
@@ -830,8 +879,8 @@ int cmd_add(Node *node, char *area)
 		if(p->lvl > authorized_lvl)
 		{
 		    if(!iswc)
-			fprintf(output, "%-39s: access denied (level)\n",
-				p->area);
+			areafix_printf("%-41s: access denied (level)",
+				       p->area);
 		    continue;
 		}
 		if(p->key)
@@ -846,8 +895,8 @@ int cmd_add(Node *node, char *area)
 		    if(!key_ok)
 		    {
 			if(!iswc)
-			    fprintf(output, "%-39s: access denied (key)\n",
-				    p->area);
+			    areafix_printf("%-41s: access denied (key)",
+					   p->area);
 			continue;
 		    }
 		}
@@ -856,20 +905,19 @@ int cmd_add(Node *node, char *area)
 		if(areafix && p->zone!=node->zone)
 		{
 		    if(!iswc)
-			fprintf(output,
-				"%-39s: different zone (Z%d), not added\n",
-				p->area, p->zone);
+			areafix_printf("%-41s: different zone (Z%d), not added",
+				       p->area, p->zone);
 		    continue;
 		}
 	    }
 	    
 	    if(lon_search(l, node))
-		fprintf(output, "%-39s: already active\n", p->area);
+		areafix_printf("%-41s: already active", p->area);
 	    else 
 	    {
 		lon_add(l, node);
 		areas_bbs_changed = TRUE;
-		fprintf(output, "%-39s: added\n", p->area);
+		areafix_printf("%-41s: added", p->area);
 
 		log("%s: +%s", node_to_asc(node, TRUE), p->area);
 	    }
@@ -878,8 +926,8 @@ int cmd_add(Node *node, char *area)
 
     if(!match)
     {
-	fprintf(output, "%s: no such area, or no area matching pattern\n",
-		area);
+	areafix_printf("%s: no such area, or no area matching pattern",
+		       area);
     }
     
     return OK;
@@ -898,7 +946,7 @@ int cmd_remove(Node *node, char *area)
 
     if(!authorized)
     {
-	fprintf(output, "Command REMOVE: not authorized.\n");
+	areafix_printf("Command REMOVE: not authorized.");
 	return OK;
     }
     
@@ -913,13 +961,13 @@ int cmd_remove(Node *node, char *area)
 	    if(!lon_search(l, node))
 	    {
 		if(!areafix || p->zone==node->zone)
-		    fprintf(output, "%-39s: not active\n", p->area);
+		    areafix_printf("%-41s: not active", p->area);
 	    }
 	    else 
 	    {
 		lon_remove(l, node);
 		areas_bbs_changed = TRUE;
-		fprintf(output, "%-39s: removed\n", p->area);
+		areafix_printf("%-41s: removed", p->area);
 
 		log("%s: -%s", node_to_asc(node, TRUE), p->area);
 	    }
@@ -927,8 +975,8 @@ int cmd_remove(Node *node, char *area)
     }
     
     if(!match)
-	fprintf(output, "%s: no such area, or no area matching pattern\n",
-		area);
+	areafix_printf("%s: no such area, or no area matching pattern",
+		       area);
 	
     return OK;
 }
@@ -940,41 +988,37 @@ int cmd_remove(Node *node, char *area)
  */
 int cmd_help(Node *node)
 {
-    fprintf(output, "\n\
-Help for %s, FIDOGATE %s\n\n",
-	    MY_NAME, version_global());
-
-    fprintf(output, "\n\
-Send mail\n\
-\n\
-    To:      %s@%s\n\
-or  To:      %s @ %s\n\
-    Subject: PASSWORD\n",
-	    MY_NAME, cf_fqdn(), MY_NAME, node_to_asc(cf_addr(), FALSE) );
-
-    fprintf(output, "\n\
-Commands in message body:\n\
-\n\
-    listall                      list all available areas\n\
-    list                         list areas available to node\n\
-    query                        list subscribed areas\n\
-    unlinked                     list unsubscribed areas\n\
-    passwd Z:N/F.P PASSWORD      set address and password\n\
-    password Z:N/F.P PASSWORD\n\
-    pass Z:N/F.P PASSWORD\n\
-    add AREA                     subscribe to area\n\
-    +AREA\n\
-    AREA\n\
-    remove AREA                  unsubscribe to area\n\
-    delete AREA\n\
-    del AREA\n\
-    -AREA\n\
-    vacation AREA                set vacation flag for area\n\
-    create AREA [-options]       create new area\n\
-    help                         this help\n\
-\n\
-AREA names are not case-sensitive and support shell-style wildcards\n\
-* ? [a-z] [abc], e.g. COMP.OS.*, [A-D]*.GER\n\n"                       );
+    areafix_printf("");
+    areafix_printf("Help for %s, FIDOGATE %s", MY_NAME, version_global());
+    areafix_printf("");
+    areafix_printf("Send mail");
+    areafix_printf("");
+    areafix_printf("  To:      %s @ %s", MY_NAME, znfp(cf_addr()));
+    areafix_printf("  Subject: PASSWORD");
+    areafix_printf("");
+    areafix_printf("Commands in message body:");
+    areafix_printf("");
+    areafix_printf("  listall                  list all available areas");
+    areafix_printf("  list                     list areas available to node");
+    areafix_printf("  query                    list subscribed areas");
+    areafix_printf("  unlinked                 list unsubscribed areas");
+    areafix_printf("  passwd Z:N/F.P PASSWORD  set address and password");
+    areafix_printf("  password Z:N/F.P PASSWORD");
+    areafix_printf("  pass Z:N/F.P PASSWORD");
+    areafix_printf("  add AREA                 subscribe to area");
+    areafix_printf("  +AREA");
+    areafix_printf("  AREA");
+    areafix_printf("  remove AREA              unsubscribe to area");
+    areafix_printf("  delete AREA");
+    areafix_printf("  del AREA");
+    areafix_printf("  -AREA");
+    areafix_printf("  vacation AREA            set vacation flag for area");
+    areafix_printf("  create AREA [-options]   create new area");
+    areafix_printf("  help                     this help");
+    areafix_printf("");
+    areafix_printf("AREA names are not case-sensitive "
+		   "and support shell-style wildcards");
+    areafix_printf("  * ? [a-z] [abc], e.g. COMP.OS.*, [A-D]*.GER");
 
     return OK;
 }
@@ -995,12 +1039,12 @@ int cmd_passwd(Node *node, char *arg)
     p = strtok(arg, " \t");			/* Node address */
     if(!p)
     {
-	fprintf(output, "Command PASSWORD: missing Z:N/F.P address.\n");
+	areafix_printf("Command PASSWORD: missing Z:N/F.P address.");
 	return OK;
     }	
     if( asc_to_node(p, &n, FALSE) == ERROR )
     {
-	fprintf(output, "Command PASSWORD: illegal address %s.\n", p);
+	areafix_printf("Command PASSWORD: illegal address %s.", p);
 	return OK;
     }
     *node = n;
@@ -1009,7 +1053,7 @@ int cmd_passwd(Node *node, char *arg)
     p = strtok(NULL, " \t");			/* Password */
     if(!p)
     {
-	fprintf(output, "Command PASSWORD: no password given!\n");
+	areafix_printf("Command PASSWORD: no password given!");
 	authorized = FALSE;
 	return OK;
     }
@@ -1018,14 +1062,14 @@ int cmd_passwd(Node *node, char *arg)
     debug(3, "PASSWD entry: %s", pwd ? pwd->passwd : "-NONE-");
     if(!pwd)
     {
-	fprintf(output, "Command PASSWORD: address %s not authorized.\n",
+	areafix_printf("Command PASSWORD: address %s not authorized.",
 		node_to_asc(node, TRUE));
 	authorized = FALSE;
 	return OK;
     }	
     if(stricmp(p, pwd->passwd))
     {
-	fprintf(output, "Command PASSWORD: wrong password for address %s.\n",
+	areafix_printf("Command PASSWORD: wrong password for address %s.",
 		node_to_asc(node, TRUE));
 	authorized = FALSE;
 	return OK;

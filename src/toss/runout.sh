@@ -1,17 +1,17 @@
 #!/bin/sh
 #
-# $Id: runnews.sh,v 4.2 1998/02/14 17:13:58 mj Exp $
+# $Id: runout.sh,v 4.4 1998/02/14 17:13:59 mj Exp $
 #
-# Toss gateway output news
+# Toss misc output (ftnafpkt, ftnoutpkt)
 #
-# Usage: runnews
+# Usage: runout
 #
 
 PRG=<LIBDIR>
-LOCK=runnews
+LOCK=runout
 
 # Output to "log-out" log file
-FIDOGATE_LOGFILE="%G/log-news"
+FIDOGATE_LOGFILE="%G/log-out"
 export FIDOGATE_LOGFILE
 
 # Lock it
@@ -21,7 +21,7 @@ if [ $st -ne 0 ]; then
 	exit 2
 fi
 
-$PRG/runtoss outpkt/news
+$PRG/runtoss outpkt
 
 # Unlock it
 $PRG/ftnlock -u $LOCK

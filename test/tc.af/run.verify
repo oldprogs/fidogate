@@ -157,14 +157,11 @@ node=INVALID command=add *.GER
 cmd=4 node=INVALID arg=*.GER
 Command ADD: not authorized.
 
-Your ftnaf request
-    From: mj@fido.de
-    Node: no FTN address
-didn't made it, because authorization failed. You may try using the
-PASSWORD command to set address and password, if there is an address
-problem (the Node: address above doesn't seem to be the one you intended).
+Your Areafix request didn't made it, because authorization failed.
+You may try using the PASSWORD command to set address and password,
+if there is an address problem.
 
-Additional help on the usage of ftnaf may be requested with the HELP command.
+Additional help can be requested with the HELP command.
 node=INVALID command=password 2:1234/5678 WUSEL
 cmd=7 node=INVALID arg=2:1234/5678 WUSEL
 node=2:1234/5678.0 command=add *.GER

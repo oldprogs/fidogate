@@ -1,0 +1,75 @@
+#!/bin/sh
+
+../tr.init
+
+A="../../src/areafix/ftnafpkt -c../cf/toss.conf -vvvvvvv"
+O="../../src/util/ftnoutpkt -c../cf/toss.conf -vvv"
+D="../../src/util/pktdebug -t"
+
+echo "tc: creating Areafix messages"
+
+$O -s WUSEL -f 'Sysop @ 2:1234/5678' 'Areafix @ 2:2499/1' <<EOF
+add *.GER
+add TEST1
+add TEST2
+list
+query
+unlinked
+create NEW
+EOF
+
+
+$O -s WUSEL -f 'Sysop @ 2:1234/5678' 'Areafix @ 2:2499/1' <<EOF
+vacation *.ger
+-TEST1
+-TEST2
+EOF
+
+
+$O -s 'Areafix request' -f 'mj @ 2:2452/110.2' 'Areafix @ 2:2499/1' <<EOF
+add *.GER
+EOF
+
+
+$O -s 'Areafix request' -f 'mj @ 2:2452/110.2' 'Areafix @ 2:2499/1' <<EOF
+password 2:1234/5678 WUSEL
+add *.GER
+list
+EOF
+
+
+$O -s 'Areafix request' -f 'Sysop @ 2:2452/110.2' 'Areafix @ 2:2499/1' <<EOF
+listall
+list
+query
+unlinked
+passwd   2:1234/5678 WUSEL
+password 2:1234/5678 WUSEL
+listall
+list
+query
+unlinked
+pass     2:1234/5678 WUSEL
+add *.GER
++TEST1
+TEST[1-9]
+AB*
+remove DE*
+delete AB*
+del AB*
+-*.ger
+vacation *.ger
+create newarea.ger -z 2 -k test
+help
+EOF
+
+
+
+echo "tc: copying input packets"
+mv outpkt/*.pkt pin
+
+cp areas.bbs tmp_areas.bbs
+
+$A -b tmp_areas.bbs -a 2:2499/1
+
+$D outpkt/*.pkt

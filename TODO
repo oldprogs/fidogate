@@ -2,6 +2,8 @@
 
 	************** TODO list for FIDOGATE development **************
 
+	* ftn2rfc, ftnin: integrate programs.
+
 DONE	* ftn2rfc: get rid of buf_sprintf().
 
 	* ftnaf: send reply to Fido address!
@@ -31,13 +33,13 @@ DONE	* rfc2ftn.c (+other?): header_getcomplete() may return NULL,
 DONE	* log.c: switch on syslog logging from config file, new config
 	  LogFile syslog.
 
-	* ftnaf:
-	  - separate common functions af.c
+DONE	* ftnaf:
+areafix.c - separate common functions af.c
 	  - command line frontend ftnaf
 	  - Internet mail frontend ftnafmail
-	  - Fido mail frontend ftnafnetmail
+ftnafpkt  - Fido mail frontend ftnafnetmail
 	  
-TODO	* senduu: accept several addresses on command line.
+DONE	* senduu: accept several addresses on command line.
 
 ???	* config.*: common address settings, e.g. Address for main
 	  AKA, GateAddress for gateway???

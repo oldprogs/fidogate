@@ -1,3 +1,49 @@
+Sat Feb 14 17:28:53 1998  Martin Junius  <mj@fido.de>
+
+	------- CVS ci -------------------------------------------------------
+
+	* src/toss/runnews.sh (FIDOGATE_LOGFILE): log file must be %G/...
+
+	* src/toss/runmail.sh (FIDOGATE_LOGFILE): log file must be %G/...
+
+	* src/toss/runout.sh: new script, tossing output from ftnafpkt,
+	  ftnoutpkt. 
+
+	* test/tc.af2/run: test case for ftnafpkt.
+
+	* src/areafix/areafix.c (cmd_add): output format changed.
+	  (cmd_remove): dito.
+
+	* src/areafix/ftnafpkt.c (do_netmail): if r_flag is not set, send
+	  reply via outpkt_netmail().
+
+	* src/areafix/areafix.c: major changes to all functions, now using
+	  areafix_printf() for output either to stdout or the textlist.
+	  (areafix_stdprintf): new function, stdout output.
+
+Fri Feb 13 18:11:44 1998  Martin Junius  <mj@fido.de>
+
+	* src/areafix/ftnaf.c (do_mail): rewritten to send output in
+	  Textlist out to mailer.
+
+	* src/areafix/areafix.c (areafix_tlprintf): new function, printf
+	  output to Textlist areafix_otl.
+
+	* src/areafix/ftnafpkt.c: new program, Areafix processing FTN
+	  packets.
+
+	* src/areafix/areafix.c (areafix_do): changed function to use
+	  Textlist with command lines (no longer read from stdin).
+
+Thu Feb 12 21:23:17 1998  Martin Junius  <mj@fido.de>
+
+	* test/tc.af2/run: new Areafix test case (testpkttmpl for now).
+
+	* src/areafix/Makefile (testpkttmpl): added target for test program
+
+	* src/areafix/pkttmpl.c: new module, template (skeleton) for
+	  processing packet files from command line or input directory.
+
 Sat Feb  7 18:42:34 1998  Martin Junius  <mj@fido.de>
 
 	* src/Makefile (SUBDIRS): added areafix dir.

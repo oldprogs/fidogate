@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# $Id: runmail.sh,v 4.2 1998/01/24 15:45:56 mj Exp $
+# $Id: runmail.sh,v 4.3 1998/02/14 17:13:58 mj Exp $
 #
 # Toss gateway output mail
 #
@@ -11,7 +11,7 @@ PRG=<LIBDIR>
 LOCK=runmail
 
 # Output to "log-out" log file
-FIDOGATE_LOGFILE="$LOGDIR/log-mail"
+FIDOGATE_LOGFILE="%G/log-mail"
 export FIDOGATE_LOGFILE
 
 # Lock it
