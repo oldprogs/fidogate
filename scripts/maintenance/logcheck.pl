@@ -1,6 +1,6 @@
 #!/usr/bin/perl
 #
-# $Id: logcheck.pl,v 4.12 2001/10/21 20:17:21 mj Exp $
+# $Id: logcheck.pl,v 4.13 2001/10/30 20:02:52 mj Exp $
 #
 # Create report for sendmail check_mail/rcpt/relay rejects
 #
@@ -11,7 +11,7 @@ use FileHandle;
 
 
 my $PROGRAM     = 'logcheck';
-my $VERSION     = '1.0 $Revision: 4.12 $ ';
+my $VERSION     = '1.0 $Revision: 4.13 $ ';
 
 
 my $NEWSGROUPS  = "fido.de.lists";
@@ -105,6 +105,8 @@ my %relay;
 my %disabled;
 my %rbl_orxx;
 my $orxx;
+my %count;
+
 
 
 # Read sendmail log
@@ -122,6 +124,7 @@ while(<>) {
 	$addr = "<$addr>" if(! $addr =~ /^<.*>$/);
 	$r = $3;
 	$rbl_rbl{"$addr /// $r"}++;
+	$count{$r}++;
 	print "rbl rbl: $addr\n" if($opt_v);
     }
     # DUL
@@ -130,6 +133,7 @@ while(<>) {
 	$addr = "<$addr>" if(! $addr =~ /^<.*>$/);
 	$r = $3;
 	$rbl_dul{"$addr /// $r"}++;
+	$count{$r}++;
 	print "rbl dul: $addr\n" if($opt_v);
     }
     # RSS
@@ -143,6 +147,7 @@ while(<>) {
 	else {
 	    $rbl_rss{"$addr /// $r"}++;
 	}
+	$count{$r}++;
 	print "rbl rss: $addr\n" if($opt_v);
     }
 
@@ -156,6 +161,8 @@ while(<>) {
 	
 	$rbl_orxx{$orxx} = {} unless defined($rbl_orxx{$orxx});
 	$rbl_orxx{$orxx}->{$k}++;
+
+	$count{$r}++;
 
 	print "rbl $orxx: $addr\n" if($opt_v);
     }
@@ -218,9 +225,9 @@ if($opt_k) {
 #	printf "%5d %s\n", $n, $k;
 #    }
 
-    print "# mail-abuse RSS\n";
-    for $k (sort { $rbl_rss{$b} <=> $rbl_rss{$a} } keys(%rbl_rss)) {
-	$n = $rbl_rss{$k};
+    print "# ORxx >= $TH_RSS\n";
+    for $k (sort { $count{$b} <=> $count{$a} } keys(%count)) {
+	$n = $count{$k};
 	next if($n < $TH_RSS);
 	printf "%5d %s\n", $n, $k if($opt_v);
 	if($k =~ /\[(.+)\]/) {

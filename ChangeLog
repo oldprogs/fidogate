@@ -1,3 +1,10 @@
+2001-10-30  Martin Junius  <mj@m-j-s.net>
+
+	------- CVS ci -------------------------------------------------------
+
+	* scripts/maintenance/logcheck.pl: separate hash %count for -k =
+	  output killip option.
+
 2001-10-21  Martin Junius  <mj@m-j-s.net>
 
 	------- CVS ci -------------------------------------------------------
