@@ -1,7 +1,19 @@
+Sat Sep 20 09:10:03 1997  Martin Junius  <mj@fido.de>
+
+	------- CVS ci -------------------------------------------------------
+
+	* version.h (PATCHLEVEL): set to 7 (version 4.2.7).
+
+Sat Sep 13 22:31:49 1997  Martin Junius  <mj@fido.de>
+
+	* src/common/routing.c (routing_parse_line): type variable must be
+	  static, it will be changed by the NetMail/EchoMail routing
+	  commands. 
+
 Wed Aug 20 22:22:31 1997  Martin Junius  <mj@fido.de>
 
 	======= Release 4.2.6 ================================================
-	------- CVS ci -------------------------------------------------------
+	------- CVS ci, tag R426 ---------------------------------------------
 
 	* ANNOUNCE: update.
 

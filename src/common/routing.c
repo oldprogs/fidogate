@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: routing.c,v 4.6 1997/08/13 19:11:35 mj Exp $
+ * $Id: routing.c,v 4.7 1997/09/20 07:12:03 mj Exp $
  *
  * Routing config file reading for ftntoss and ftnroute.
  *
@@ -245,7 +245,7 @@ static Routing *routing_parse_line(char *buf)
 {
     Routing *r;
     char *p;
-    int type=TYPE_NETMAIL;
+    static int type=TYPE_NETMAIL;
     int cmd, flav, flav_new=FLAV_NONE;
     Node old, node;
     LON lon;
