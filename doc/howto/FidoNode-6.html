@@ -1,0 +1,206 @@
+<HTML>
+<HEAD>
+<TITLE>Linux Fido-Node HOWTO: Die Installation von Ifcico</TITLE>
+</HEAD>
+<BODY>
+<A HREF="FidoNode-5.html">Zurück</A>
+<A HREF="FidoNode-7.html">Weiter</A>
+<A HREF="FidoNode.html#toc6">Inhaltsverzeichnis</A>
+<HR>
+<H2><A NAME="s6">6. Die Installation von Ifcico</A></H2>
+
+
+<P>Ich beziehe mich hier auf die aktuelle Version von ifcico, welche sich
+im Paket <CODE>ifmail-2.10</CODE> findet.</P>
+<P>Zunaechst muss man das globale Compiler-Konfigurations-File
+<CODE>ifmail/CONFIG</CODE> editieren. Ich fuehre hier einfach mal alle bei
+mir noetigen Aenderungen auf: 
+<PRE>
+CONFIGFILE  = &quot;/etc/ifcico/config&quot;
+DEBUGFILE   = &quot;/var/log/fido/ifdebug&quot;
+LOGFILE     = &quot;/var/log/fido/logifmail&quot;
+PUBDIR      = &quot;/var/spool/fnet/request&quot;
+OPTS        = -DHAS_STATFS -DSTATFS_IN_VFS_H -DHAS_SETSID -DHAS_NDBM_H \
+                -DDONT_HAVE_TM_GMTOFF -DHAS_TERMIOS_H -DASCII_LOCKFILES \
+                -DHAS_FSYNC -DHAS_IOCTL_H -DHAS_REGEX_H -DHAS_TCP \
+                -DFORCEINTL -DHAS_SYSLOG -DNEED_UUCPFROM -DNEED_BSY \
+                -DREGEX_NEED_CARET -DSLAVE_SENDS_NAK_TOO -DNEED_FORK \
+                -DBELEIVE_ZFIN -DSLAVE_SENDS_NAK_TOO
+BINDIR = /usr/local/bin/ifcico
+OWNER = fido
+GROUP = fido
+MODE = 0700
+SMODE = 4700
+</PRE>
+
+Jetzt sollte man noch das Verzeichnis <CODE>/home/ifcico</CODE>
+anlegen (User fido, Group fido) und kann dann mit 
+<PRE>
+make depend
+make all
+make install
+</PRE>
+
+die Programmdateien in <CODE>/usr/local/bin/ifcico</CODE> installieren. Da wir
+ifcico als User fido, und nicht wie "normal" als User uucp, benutzten muessen
+wir noch dem Verzeichnoss <CODE>/var/lock</CODE> die richtigen rechte geben.
+<PRE>
+chown root.fido /var/lock
+</PRE>
+
+(Wer SuSe benutzt sollte noch in <CODE>/etc/permissions</CODE> die entsprechende
+Zeile aendern!)</P>
+<P>Nun muss man noch das <CODE>config</CODE>-File von ifcico installieren. Ein
+Beispiel findet man in <CODE>ifmail/misc/config</CODE>. Diese kopiert man
+nun nach <CODE>/etc/ifcico/ifcico</CODE> und editiert es passend. Hier mal wieder 
+was bei mir draus geworden ist.
+<HR>
+<PRE>
+# /etc/ifcico/config
+# Cry in the Darkness
+
+# Log file name. Overrides compile-time default.
+logfile         /var/log/fido/iflog
+
+# Debug file name. Overrides compile-time default.
+debugfile       /var/log/fido/ifdebug
+
+# Debugging verbosity level (is overidden by -x key). Default is 0.
+verbose                 b
+
+# Main address:
+address         2:2432/605
+
+# AKAs:
+address         37:109/980
+
+# Passwords: Hier koennen die Passwords direkt stehen oder man lagert sie in
+# eine externe Datei aus, welche dem User fido gehoert und die Permissions
+# 600 hat, damit niemand die Passwords lesen kann.
+include                /etc/ifcico/passworts
+
+# Directory for incoming packets/files:
+inbound         /var/spool/fnet/in
+# Directories for &quot;listed&quot; and &quot;protected&quot; sessions
+listinbound     /var/spool/fnet/in
+protinbound     /var/spool/fnet/in
+
+# Directory for outgoing packets (default domain and zone):
+# other zones will be like &quot;/fido/fnet/outb.003&quot;,
+# other domains will be like &quot;/fido/fnet/&lt;domain&gt;.&lt;zone&gt;&quot;
+outbound        /var/spool/fnet/outbound
+
+# Directory from which the file requests are satisfied
+public          /var/spool/fnet/request
+
+# Directory with executables to satisfy &quot;magic&quot; file requests
+# if requested a file present in this directory, it will be
+# executed and stdout sent to the remote system.  If the file
+# is not executable, it is read line by line and the lines are
+# processed as if they were received file requests (recusively).
+# Execution of commands may compromize security!  You are warned.
+magic           /etc/ifcico/magic
+
+# Erste Nodeliste:
+# Es wird nach nl_short.xxx gesucht und die neueste Version verwendet.
+# nl_short generiere ich manuell aus der kompletten Nodeliste, da mir das
+# Compilieren der kompletten Liste zu lange dauert.
+nodelist        /var/spool/fnet/nodelist/nl_short
+
+# Weitere Nodelisten der anderen Zonen:
+# (Achtung: ifindex hat noch einen Bug, der zu einem Core fuehrt, falls eine
+#  Nodenummer doppelt auftritt, wie z.B. bei Verwengung von nodelist und
+#  r24classic)
+#               filename        originating address
+nodelist        trek37
+
+# Sequencer file (used to generate unique IDs)
+sequencer       /var/spool/fnet/seq
+
+# An dieser Stelle stehen im Beispiel-Config-File (ifmail/misc/config) noch
+# diverse Erl&auml;uterungen und Optionen, die ich groesstenteils nicht verwende
+# und daher hier nicht auffuehre. Man sollte sich die Moeglichkeiten jedoch
+# dort mal ansehen.
+
+# Ich verwende hier als Beispiel ISDN. Praktisch ist das man nicht die gleichen
+# Ports nehmen muss, wie die auf denen Mgetty liegt.
+ModemPort       ttyI2
+
+# Nun die Konvertierung der Telefonnummern. Ganz habe ich das noch nicht
+# verstanden, aber folgendes sollte (mit der entsprechenden eigenen Vorwahl)
+# fuer ganz Deutschland korrekt sein. Fuer Spezialfaelle sollte man sich ggf.
+# nochmal ifmail/misc/config ansehen.
+
+PhoneTrans      49-5254-        /
+PhoneTrans      49-     /       0
+PhoneTrans      /       00
+
+# Hier ist der passende Reset-String fuer ISDN     
+ModemReset ATZ&amp;E5961&amp;B512\r\n\d
+#               ^^^^
+# Hier musst du deine MSN eintragen die beim angerufenen erscheinen soll.
+
+
+# Pulswahl:
+ModemDial ATDT\T\r
+ModemHangup     ATH\r
+ModemOK         OK
+
+# Statt einem einfachen &quot;CONNECT&quot; gebe ich viele Connect-Strings an, um
+# nachher im Logfile sehen zu koennen, mit welcher Geschwindigkeit connected
+# wurde.
+ModemConnect    CONNECT\s64000
+ModemConnect    CONNECT\r
+ModemError      BUSY
+ModemError      NO\sCARRIER
+ModemError      NO\sDIALTONE
+ModemError      NO\sANSWER
+ModemError      RING\r
+ModemError      ERROR
+
+# Timeouts to wait for &quot;OK&quot; and &quot;CONNECT&quot;, cannot be prefixed by logical
+# expression.
+TimeoutReset    3
+TimeoutConnect  90
+
+# Hier stehen noch weitere Konfigurationsmoeglichkeiten fuer Inbound-Calls.
+# Da ich keine Inbound-Calls zulasse, habe ich den Teil hier auch nicht
+# aufgefuehrt, fuer weiter Infos siehe ifmail/misc/config.
+
+# EMSI data for this node
+# From this line on values CANNOT be prefixed with logical expression
+# For now, escaping of '}' and ']' unimplemented, try to avoid these
+# characters please!
+Name            Cry in the Darkness
+Location        Paderborn-Sande
+SysOp           Matthias Schniedermeyer
+Phone           +49 5254 5961
+Speed           9600
+Flags           XA,X75,V34+
+</PRE>
+<HR>
+
+Die dazu passende passworts. (gekuerzt. Sollte als Beispiel reichen)
+<HR>
+<PRE>
+password        2:2432/600      GEHEIM
+password        2:2432/601      GEHEIM
+password        2:2432/602      GEHEIM
+
+password        37:109/900      GEHEIM
+
+password        2:2432/605.01   GEHEIM
+password        2:2432/605.02   GEHEIM
+password        2:2432/605.03   GEHEIM
+password        2:2432/605.04   GEHEIM
+</PRE>
+<HR>
+</P>
+
+
+<HR>
+<A HREF="FidoNode-5.html">Zurück</A>
+<A HREF="FidoNode-7.html">Weiter</A>
+<A HREF="FidoNode.html#toc6">Inhaltsverzeichnis</A>
+</BODY>
+</HTML>

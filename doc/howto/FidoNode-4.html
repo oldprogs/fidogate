@@ -1,0 +1,51 @@
+<HTML>
+<HEAD>
+<TITLE>Linux Fido-Node HOWTO: Vorbereitungen</TITLE>
+</HEAD>
+<BODY>
+<A HREF="FidoNode-3.html">Zurück</A>
+<A HREF="FidoNode-5.html">Weiter</A>
+<A HREF="FidoNode.html#toc4">Inhaltsverzeichnis</A>
+<HR>
+<H2><A NAME="s4">4. Vorbereitungen</A></H2>
+
+
+<P>Als erstes sollte der user fido und die Gruppe fido angelegt werden. (Das muss
+alles als <CODE>root</CODE> gemacht werden!)
+Dazu laed man die Datei <CODE>/etc/passwd</CODE> in einen beliebigen Editor
+und schreibt am einfachsten diese Zeile hinein
+<PRE>
+fido:*:1500:200:FidoNet:/home/fido:/bin/bash
+</PRE>
+
+(Falls Shadow-Passwoerter benutzt werden noch in der Datei <CODE>/etc/shadow</CODE>
+eine Zeile hinzugefuegt werden.
+<PRE>
+fido:*:9983:0:10000::::
+</PRE>
+ 
+als naechstes ist die <CODE>/etc/group</CODE> dran
+<PRE>
+fido::200:fido,root
+</PRE>
+
+Jetzt muss man nurnoch (als root) <CODE>passwd fido</CODE> eingeben und ein 
+Passwort eintragen.</P>
+<P>Als naechstes muessen wir noch das Home-Verzeichniss des admin-Users anlegen.
+<PRE>
+mkdir /home/fido
+</PRE>
+
+Und natuerlich sollte ihm das Verzeichniss auch gehoeren.
+<PRE>
+chown fido.fido /home/fido
+</PRE>
+</P>
+
+
+<HR>
+<A HREF="FidoNode-3.html">Zurück</A>
+<A HREF="FidoNode-5.html">Weiter</A>
+<A HREF="FidoNode.html#toc4">Inhaltsverzeichnis</A>
+</BODY>
+</HTML>

@@ -1,54 +1,28 @@
--*- Indented-Text -*-
+						   -*- Indented-Text -*-
+	************** TODO list for FIDOGATE development **************
 
-X = for next release
 
 	* rfc2ftn: different output dirs for mail and news.
 
 	* log.c: add alternate logging via openlog(), syslog().
 
-DONE	* doc: add new DO_HAVE config.h #defines.
-
 	* Direct mailing list support, gateway EchoMail <-> mailing
 	  list.
-
-DONE	* doc: add changes for FTNInSendmail.
-
-DONE	* ftnaf: check problem with WIN32.
-	
-DONE	* ftnaf: create command.
 
 	* rfc2ftn: configuration option, use only From header for Fido
 	  from field, not Reply-To.
 
-DONE	* doc: add include command for all config file.
-
-DONE	* doc: add hints for setting up packing config files, in
-	  particular for 2 points configuration.
-
 4.3.x	* config: different lib and sbin directory?
-
-DONE	* Makefiles: prefix for make install.
-
-DONE	* doc: config.gate SingleArticles.
-
-DONE	* doc: ftn2rfc -1 --single-articles option.
 
 	* scripts: check that process which created lock file still
 	  exists.
-
-DONE	* doc: FIDOGATE env var.
 
 	* lock.c:lock_lockfile_id(): implement safer variant, see man 2
 	  open, NFS related bug with O_EXCL.
 
 	* ftn2rfc: ^ARFC-<mime> import.
 
-DONE	* ftn2rfc: gateway check, log area.
-
 	* ftn2rfc/rfc2ftn: MAIL-log messages configurable.
-
-DONE	* ftn2rfc: create single news message (not a news batch),
-	  suitable for e.g. innxmit.
 
 4.3.x	* config: move config files to /etc/fidogate, %C for config dir.
 
@@ -60,8 +34,6 @@ DONE	* ftn2rfc: create single news message (not a news batch),
 
 	* ftntoss: remove duplicate addresses from SEEN-BY
 	  (postprocessing for PASSTHRU_ECHOMAIL).
-
-DONE	* rfc2ftn: mime_deheader() for all header.
 
 	* ftn2rfc: allow Newsgroups, Followup-To: header.
 
@@ -105,8 +77,6 @@ STARTED	* areas.bbs: read-only/vacation flag for downlinks,
 	  request to uplink.
 
 STARTED * Replace calls to strncpy0/strncat0 with str_copy/str_append.
-
-DONE	* "include" for reading routing/packing config file.
 
 	* Generic alias matching: name@Z:N/F.P <-> user@do.main (Name),
 	  recipient *and* sender

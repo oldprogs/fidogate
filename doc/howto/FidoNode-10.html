@@ -1,0 +1,77 @@
+<HTML>
+<HEAD>
+<TITLE>Linux Fido-Node HOWTO: Nodelisten-Compiler</TITLE>
+</HEAD>
+<BODY>
+<A HREF="FidoNode-9.html">Zurück</A>
+<A HREF="FidoNode-11.html">Weiter</A>
+<A HREF="FidoNode.html#toc10">Inhaltsverzeichnis</A>
+<HR>
+<H2><A NAME="s10">10. Nodelisten-Compiler</A></H2>
+
+
+<P>Alle im Config-File angegebenen Nodelisten sollten im Verzeichnis
+<CODE>/var/spool/fnet/nodelist</CODE> vorhanden sein. Dann ruft man
+einfach <CODE>ifindex</CODE> auf, welcher dann <CODE>index.dir</CODE> und
+<CODE>index.pag</CODE> erstellt, welche die compilierte Nodeliste enthalten.</P>
+<P>Leider ist <CODE>ifindex</CODE> nicht besonders schnell, daher k&uuml;rze ich die
+<CODE>nodelist</CODE> immer vor der Compilierung auf das, was ich (in
+Deutschland) ben&ouml;tige. Hierf&uuml;r verwende ich folgendes Skript:</P>
+<P>
+<HR>
+<PRE>
+#!/bin/sh
+#
+# /var/spool/fnet/nodelist/strip.nodelist 
+#
+if [ ! $1 ]
+then
+    echo Fallscher Aufruf!
+    echo Start mit $0 xxx, wobei xxx die Nummer der aktuellen Nodelist ist.
+    exit
+fi
+
+NODELIST=nodelist.$1
+
+if [ ! -s $NODELIST ]
+then
+    echo $NODELIST ist keine korrekte Nodelist
+    exit
+fi
+
+NLSHORT=nl_short.$1
+
+if [ -s $NLSHORT ]
+then
+    echo $NLSHORT existiert schon und wird nach $NLSHORT.bak geschoben
+    mv -f $NLSHORT $NLSHORT.bak
+fi
+
+head -n 2 $NODELIST &gt;&gt; $NLSHORT
+grep ',49-\|^Zone,' $NODELIST &gt;&gt; $NLSHORT
+
+echo Fertig.
+</PRE>
+<HR>
+</P>
+<P>Dieses Skript startet man mit <CODE>strip.nodelist</CODE> <EM>xxx</EM>, wobei
+<EM>xxx</EM> die aktuelle Nummer der Nodeliste ist. Aus
+<CODE>nodelist.</CODE><EM>xxx</EM> wird damit <CODE>nl_short.</CODE><EM>xxx</EM> generiert.</P>
+<P>Nun mu&szlig; man nat&uuml;rlich auch Diffs einarbeiten k&ouml;nnen. Hierzu gibt es
+seit ifmail-2.6 das Programm <CODE>nlpatch</CODE>, welches man mit der alten
+Nodelist sowie dem aktuellen Diff als Parameter aufruft, z.B.:
+<PRE>
+        nlpatch nodelist.123 NODEDIFF.130
+</PRE>
+
+auf (nat&uuml;rlich mit den entsprechenden Tag-Nummern). Es wird dann
+automatisch nodelist.130 generiert.</P>
+
+
+
+<HR>
+<A HREF="FidoNode-9.html">Zurück</A>
+<A HREF="FidoNode-11.html">Weiter</A>
+<A HREF="FidoNode.html#toc10">Inhaltsverzeichnis</A>
+</BODY>
+</HTML>

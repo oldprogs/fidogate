@@ -1,4 +1,15 @@
+Sun Oct 12 00:02:28 1997  Martin Junius  <mj@fido.de>
+
+	------- CVS ci -------------------------------------------------------
+
+	* doc/howto/: added Fido-Node-HOWTO contributed by
+	  Matthias Schniedermeyer <ms@citd.owl.de> (not yet complete).
+
 Sat Oct 11 19:39:08 1997  Martin Junius  <mj@fido.de>
+
+	* fidogate.lsm: updated.
+
+	* ANNOUNCE: updated size.
 
 	------- CVS ci, tag R427test -----------------------------------------
 
