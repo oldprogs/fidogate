@@ -2,6 +2,11 @@
 
 X = for next release
 
+	* config.c: make Origin/Organization normal cf_get_string()
+	  parameters.
+
+	* config.c: make cf_p_*() use char * instead of char [].
+
 	* ftn2rfc: check ^AREPLYADDR for valid Internet address. At
 	  least check for something like ^AREPLYADDR Thomas Hamm%500:531/0.
 

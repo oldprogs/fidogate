@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: node.c,v 4.1 1996/05/12 15:35:06 mj Exp $
+ * $Id: node.c,v 4.2 1996/10/02 19:09:54 mj Exp $
  *
  * Conversion Node structure <-> Z:N/F.P / pP.fF.nN.zZ
  *
@@ -478,12 +478,19 @@ void lon_sort(LON *lon, int off)
 {
     LNode *p;
     int i, n = lon->size;
-    
+
     xfree(lon->sorted);
+    lon->sorted = NULL;
+    if(n <= 0)				/* Really nothing to do */
+	return;
+    
     lon->sorted = (Node **)xmalloc(n * sizeof(Node *));
     
     for(i=0, p=lon->first; i<n && p; i++, p=p->next)
 	lon->sorted[i] = &p->node;
+    
+    if(n <= off)			/* Nothing to do */
+	return;
     
     qsort((void *)&lon->sorted[off], n-off, sizeof(Node *), lon_sort_compare);
 }

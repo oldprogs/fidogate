@@ -1,6 +1,6 @@
 # -*- Makefile -*-
 #
-# $Id: config.make,v 4.3 1996/09/28 08:13:50 mj Exp $
+# $Id: config.make,v 4.4 1996/10/02 19:09:38 mj Exp $
 #
 # FIDOGATE Makefile configuration
 #
@@ -13,21 +13,23 @@
 
 # OS2 = OS/2 with EMX GCC
 
-# OS2: comment out
- SHELL		= /bin/sh
-
-# Directories
+# FIDOGATE Directories
 BINDIR		= /usr/local/bin
 LIBDIR		= /usr/local/lib/fidogate
 INFODIR		= /usr/local/info
 SPOOLDIR	= /var/spool/fido
 LOGDIR		= /var/log/fido
 
+# Outbound *base* directory, i.e. outbound is OUTBOUND/out.xxx
 OUTBOUND	= /var/spool/bt
+# Normal (i.e. insecure) inbound
 INBOUND		= /var/spool/bt/in
+# Protected inbound
 PINBOUND	= /var/spool/bt/pin
+# Inbound for uuencoded mails (used by recvuu)
 UUINBOUND	= /var/spool/bt/uuin
 
+# INN directories
 NEWSETCDIR	= /etc/news
 NEWSVARDIR	= /var/lib/news
 NEWSLIBDIR	= /usr/lib/news
@@ -35,6 +37,9 @@ NEWSSPOOLDIR	= /var/spool/news
 
 # perl
 PERL		= /usr/bin/perl
+
+# OS2: comment out
+ SHELL		= /bin/sh
 
 # m4
  M4		= m4

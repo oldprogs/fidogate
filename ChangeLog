@@ -1,4 +1,42 @@
+Wed Oct  2 17:10:19 1996  Martin Junius  <mj@fido.de>
+
+	------- CVS ci -------------------------------------------------------
+
+	* version.h (BETA): set to 2.
+
+	* doc/fidogate.texi (config.h): edited for 4.0beta.
+	  (config.make): same.
+	  (Compiling): same.
+	  (Integration): same.
+	  (Connecting): edited for new Fido.DE configuration.
+
+	* config.h (TOSS): removed.
+
+	* doc/fidogate.texi (Config): major update of section describing
+	  configuration statements. Should be now a complete listing for
+	  4.0beta1. Some statements are just listed.
+
+	* doc/listcf.pl: utility script to extract cf_get_string() parameters
+	  from program source code, lists them along with config file name
+	  and optional parameter.
+
+Sun Sep 29 11:09:28 1996  Martin Junius  <mj@fido.de>
+
+	* sendmail/mailer/ftn.m4: add mailer Mftna, this mailer will use
+	  the relay host address as the *sender* (-a) for rfc2ftn. e.g.
+	      f99.n2499.z2.fidonet.org    ftna:p9.f99.n2499.z2.fidonet.org
+	  in mailertable will send mail to 2:2499/99 from point 2:2499/99.9.
+
 Sat Sep 28 09:25:28 1996  Martin Junius  <mj@fido.de>
+
+	* src/common/areasbbs.c (areasbbs_new): nl may be NULL (no nodes
+	  in list).
+	  (areasbbs_new): fix function for case nl==NULL.
+
+	* src/common/node.c (lon_sort): fix function for the cases empty
+	  list (size=0) and only off elements in list (size<=off).
+
+	* config.make: added some comments for directory config macros.
 
 	------- CVS ci -------------------------------------------------------
 

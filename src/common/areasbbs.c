@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: areasbbs.c,v 4.2 1996/06/06 15:59:28 mj Exp $
+ * $Id: areasbbs.c,v 4.3 1996/10/02 19:09:54 mj Exp $
  *
  * Function for processing AREAS.BBS EchoMail distribution file.
  *
@@ -53,10 +53,10 @@ static AreasBBS *areasbbs_new(char *line)
     dir = strtok(line, " \t");
     tag = strtok(NULL, " \t");
     nl  = strtok(NULL, "\r\n");
-    if(!dir || !tag || !nl)
+    if(!dir || !tag)
 	return NULL;
     
-    while(is_space(*nl))
+    while(nl && is_space(*nl))
 	nl++;
     
     p = (AreasBBS *)xmalloc(sizeof(AreasBBS));
@@ -83,12 +83,12 @@ static AreasBBS *areasbbs_new(char *line)
      *     -l LVL        Areafix access level
      *     -k KEY        Areafix access key
      */
-    while(*nl == '-')
+    while(nl && *nl=='-')
     {
 	o1 = strtok(nl  , " \t");
 	o2 = strtok(NULL, " \t");
 	nl = strtok(NULL, "");
- 	while(is_space(*nl))
+ 	while(nl && is_space(*nl))
 	    nl++;
 
 	if(o1 && o2 && !strcmp(o1, "-a"))		/* -a Z:N/F.P */
@@ -102,7 +102,8 @@ static AreasBBS *areasbbs_new(char *line)
     }	
     
     lon_init(&p->nodes);
-    lon_add_string(&p->nodes, nl);
+    if(nl)
+	lon_add_string(&p->nodes, nl);
     if(p->zone == -1)
 	p->zone = p->nodes.first ? p->nodes.first->node.zone : 0;
     

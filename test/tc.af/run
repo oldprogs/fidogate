@@ -22,6 +22,11 @@ $T -v -b tmp_areas.bbs 99:2452/110.1 add zz
 $T -v -b tmp_areas.bbs 2:2452/110.1 add UNKNOWN.GER
 $T -v -b tmp_areas.bbs -x./unknown 2:2452/110.1 add UNKNOWN.GER
 
+$T -v -b tmp_areas.bbs 2:99/99 del test1
+$T -v -b tmp_areas.bbs 2:99/99 del test2
+$T -v -b tmp_areas.bbs 2:99/99 del test2
+
+
 # mail interface
 $T -m -r -n -v -b tmp_areas.bbs <<EOF
 From: Sysop@f5678.n1234.z2.fidonet.org
@@ -33,6 +38,15 @@ add TEST2
 list
 query
 unlinked
+EOF
+
+$T -m -r -n -v -b tmp_areas.bbs <<EOF
+From: Sysop@f5678.n1234.z2.fidonet.org
+X-FTN-From: Sysop @ 2:1234/5678
+Subject: WUSEL
+
+-TEST1
+-TEST2
 EOF
 
 $T -m -r -n -v -b tmp_areas.bbs <<EOF

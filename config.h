@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway software UNIX <-> FIDO
  *
- * $Id: config.h,v 4.7 1996/08/26 19:10:26 mj Exp $
+ * $Id: config.h,v 4.8 1996/10/02 19:09:37 mj Exp $
  *
  * Configuration header file
  *
@@ -275,7 +275,6 @@
 
 #define SEQ		"seq"		/* Dir for sequencer files */
 #define LOCKS		"locks"		/* Dir for lock files */
-#define TOSS		"toss"		/* Dir for ftntoss/ftnroute/ftnpack */
 #define TOSS_IN		"toss/in"	/* ftntoss in */
 #define TOSS_TMP	"toss/tmp"	/* ftntoss out, ftnroute in */
 #define TOSS_OUT	"toss/out"	/* ftnroute out, ftnpack in */
