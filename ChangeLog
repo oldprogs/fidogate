@@ -1,5 +1,7 @@
 Sat Sep  7 18:09:32 1996  Martin Junius  <mj@fido.de>
 
+	------- CVS tag R40a5 ------------------------------------------------
+
 	------- CVS commit ---------------------------------------------------
 
 	* src/gate/rfc2ftn.c (rfc_parse): use n instead of node. node may
