@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway software UNIX <-> FIDO
  *
- * $Id: rfc2ftn.c,v 4.3 1996/04/26 08:41:41 mj Exp $
+ * $Id: rfc2ftn.c,v 4.4 1996/05/03 19:18:44 mj Exp $
  *
  * Read mail or news from standard input and convert it to a FIDO packet.
  *
@@ -39,7 +39,7 @@
 
 
 #define PROGRAM 	"rfc2ftn"
-#define VERSION 	"$Revision: 4.3 $"
+#define VERSION 	"$Revision: 4.4 $"
 #define CONFIG		CONFIG_GATE
 
 
@@ -96,7 +96,7 @@ static int echomail4d = FALSE;		/* config.gate: EchoMail4d */
 
 
 /* Private mail (default) */
-bool private = TRUE;
+int private = TRUE;
 
 /* News-article */
 int newsmode = FALSE;

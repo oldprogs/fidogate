@@ -4,75 +4,34 @@ X = for release 4.0alpha2
 
 	* ftntoss: create empty history database, if it doesn't exist?
 
-	* ffx*: log messages of activities.
+X	* ffx*: log messages of activities.
 
 	* ftn2rfc: bounce messages should include the complete FTN
 	  message with all kludges etc. to ease debugging.
 
-	* ftntoss: make "send" work as in SQUISH. Needs rewrite of
+X	* ftntoss: make "send" work as in SQUISH. Needs rewrite of
 	  node string parsing functions.
 
-	* ftnaf: forward requests to uplink(s). -x option for
+X	* ftnaf: forward requests to uplink(s). -x option for
 	  executing a script for unknown areas.
-
-DONE.	* ftnaf: no zone check for FileFix
 
 	* config.h: ALIASES, AREAS, HOSTS, PASSWD, PACKING, ROUTING
 	  configurable in config.common
 
-DONE.	* Don't abort, if HOSTS/PASSWD/ALIASES don't exist.
-
-DONE.	* ftntoss/ftnexpire: lock access to MSGID history database
-
-DONE.	* Default flavor "Hold" configurable.
-
-DONE.	* ftnexpire utility for handling MSGID history.
-
-DONE.	* areas.c: change automatic name conversion for -H to be
-	  configurable for -/_
-	  config option "AreaXlat ASet GSet"
-
-DONE.	* ftn2rfc: -i option like rfc2ftn.
-
-DONE.	* config.h: move most compile-time options to config files.
-
 	* kludge.c: handling traversing multiple kludges of the same
 	  type.
 
-	* node.c, routing.c: merge node parsing functions into general
-	  ones.
+STARTED	* node.c, routing.c: merge node parsing functions into general
+	  ones. parsenode.c
 
 	* ftnpack: runtime configuration of arcmail extension
 	  usage. Use XX0-9 only, XX0-9 + XXA-F, wrap around to XX0 if
 	  last one is too large, etc.
-
-	* ArcMail extensions: mo[0-9], plus mo[a-f], maybe mo[a-z]?
+	  ArcMail extensions: mo[0-9], plus mo[a-f], maybe mo[a-z]?
 	  runtime configuration of arcmail extensions usage.
-
-DONE.	* toss: MAXMSG, MAXFILES, MAXARC should be specified in
-	  config.main.
-
-DONE.	* ftnaf: don't show error messages for wildcard add/del area.
-
-DONE.	* config.ffx: runtime configuration of compression programs.
-
-DONE.	* ftnroute:do_move(): set file mtime after renaming.
-
-DONE.	* dir.c: function dir_openic(), ignoring case when matching
-	  files.
-
-DONE.	* function dir_search(), search file ignoring case, to be
-	  used by ftntick, file attachment processing.
-
-DONE.	* ftnroute, ftnpack: use dir_open() to process input
-	  directory, set sort order to DIR_SORTMTIME.
 
 	* Catch SIGINT, process clean-up function.
 	  - close all packet files for ftntoss, ftnroute, etc.
-
-DONE.	* File attaches, ftnpack, do_noarc(), use flonode!
-
-DONE.	* * Origin -> Organization, config option.
 
 	* areas: option -M MAXSIZE, limit maximum RFC message size to
 	  MAXSIZE bytes, larger messages won't be gated.
@@ -82,8 +41,6 @@ DONE.	* * Origin -> Organization, config option.
 	* ftn2rfc: restrict gateway to certain *Internet* addresses.
 
 	* ftntick: announce new files via mail or news posting.
-
-DONE.	* ftn2rfc: no gating of messages with unknown Zone (^AMSGID).
 
 	* X-Gateway / ^AGATEWAY processing.
 
@@ -108,22 +65,9 @@ DONE.
 	  ISO-8859-1 character set (8 bit and MIME quoted printable)
 	  for news messages.
 
-NOT	* Log file of Message-IDs FTN->Usenet
-NEEDED.	  Extended log functions
-
-DONE.	* Dupe check for ftntoss using dbm database.
-
-DONE.	* ftntoss: save mails in SPOOLDIR/toss/bad for insecure,
-	  routed, unknown EchoMail. Config statements for enabling.
-
 	* ftntoss: check # of ^AVia lines
 
 	* ftntoss: kill old messages (older than 2 weeks?)
-
-	* Implement queuemail
-
-	* ftnaf: process multiple messages queued in
-	  SPOOLDIR/queue/ftnaf by queuemail
 
 OS2	* MSDOS, OS/2 port: switch stdin to binary mode. Command line option?
 DONE.	  Problems with news batches (GD030V)?

@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway software UNIX <-> FIDO
  *
- * $Id: fidogate.h,v 4.0 1996/04/17 18:17:41 mj Exp $
+ * $Id: fidogate.h,v 4.1 1996/05/03 19:18:45 mj Exp $
  *
  * Common header file
  *
@@ -63,14 +63,15 @@
 
 
 /*
- * Defines
+ * Values
  */
-#define TRUE	1
-#define FALSE	0
-#define OK	0
-#define ERROR	(-1)
-
-#define bool	int
+#define TRUE		1
+#define FALSE		0
+#define OK		0
+#define ERROR		(-1)
+#define EMPTY		(-1)
+#define INVALID		(-1)
+#define WILDCARD	(-2)
 
 /*
  * We supply our own version of the toupper()/tolower()

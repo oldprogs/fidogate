@@ -1,6 +1,6 @@
 #:ts=8
 #
-#    $Id: Makefile,v 4.0 1996/04/17 18:17:40 mj Exp $
+#    $Id: Makefile,v 4.1 1996/05/03 19:18:44 mj Exp $
 #
 #    Makefile for FIDOGATE src/ffx/
 #
@@ -38,6 +38,8 @@ install:
 clean:
 	rm -f $(PROGS)
 	rm -f *~ *.bak *.o tags TAGS core paths.tmp
+
+check:
 
 
 #

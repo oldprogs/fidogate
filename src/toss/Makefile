@@ -1,6 +1,6 @@
 #:ts=8
 #
-#    $Id: Makefile,v 4.1 1996/04/18 09:58:37 mj Exp $
+#    $Id: Makefile,v 4.2 1996/05/03 19:18:46 mj Exp $
 #
 #    Makefile for FIDOGATE src/toss/
 #
@@ -63,6 +63,8 @@ clean:
 #
 # Test programs
 #
+check:		testhistory
+
 testhistory:	testhistory.o dbz.o
 	$(CC) $(LFLAGS) -o testhistory testhistory.o dbz.o $(LIBS)
 testhistory.o:	history.c

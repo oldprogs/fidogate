@@ -1,3 +1,41 @@
+Fri May  3 19:28:14 1996  Martin Junius  <mj@fido.de>
+
+	------- CVS commit ---------------------------------------------------
+
+	* .../Makefile: added "check" target.
+
+	* src/common/parsenode.c (znfp_print): new function converting
+	  Node struct back to string, optionally showing wildcards.
+	  (znfp_parse_partial): use znpf_get_number().
+
+	* src/include/fidogate.h (EMPTY, INVALID): add values (-1).
+
+	* src/common/Makefile (OBJS): added parsenode module.
+
+	* src/common/parsenode.c (znfp_parse_partial): check for global
+	  wildcard "*", "all", "world" first.
+	  (znfp_parse_partial): use BUF_COPY().
+	  (znfp_parse_partial): return address only if node != NULL.
+	  (znfp_parse_diff): use znfp_parse_partial(), all'n'all check removed.
+	  (znfp_parse_diff): changing -2 to -1 removed.
+	  (znfp_parse_diff): added node != NULL check.
+
+	* src/include/prototypes.h (streq, strieq, strneq, strnieq): macro
+	  for easier comparison of strings.
+
+	* src/common/parsenode.c (znfp_get_number): use WILDCARD.
+
+	* src/include/fidogate.h (bool): removed.
+	  (WILDCARD): new #define for parsenode.c functions.
+
+	* src/gate/rfc2ftn.c: "bool" replaced with "int".
+
+	* src/common/parsenode.c: new module for FTN address string
+	  parsing functions (Z:N/F.P).
+	  (znfp_get_number): copied from routing.c:get_rnumber()
+	  (znfp_parse_partial): copied from routing.c:asc_to_rnode_partial(). 
+	  (znfp_parse_diff): copied from routing.c:asc_to_rnode_diff().
+
 Wed May  1 19:01:46 1996  Martin Junius  <mj@fido.de>
 
 	------- CVS commit ---------------------------------------------------

@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: prototypes.h,v 4.3 1996/04/26 08:41:41 mj Exp $
+ * $Id: prototypes.h,v 4.4 1996/05/03 19:18:45 mj Exp $
  *
  * Prototypes for functions in libfidogate.a
  *
@@ -302,6 +302,11 @@ int	is_space		(int);
 int	is_blank		(int);
 char   *str_expand_name		(char *, size_t, char *);
 
+#define streq(a,b)		(strcmp  ((a),(b)) == 0)
+#define strieq(a,b)		(stricmp ((a),(b)) == 0)
+#define strneq(a,b,n)		(strncmp ((a),(b),(n)) == 0)
+#define strnieq(a,b,n)		(strnicmp((a),(b),(n)) == 0)
+
 /* msgid.c */
 char   *msgid_fido_to_rfc	(char *, int *);
 char   *msgid_default		(Node *, char *, char *, char *, time_t);
@@ -367,6 +372,11 @@ int 	pkt_get_hdr		(FILE *, Packet *);
 void	pkt_debug_hdr		(FILE *, Packet *, char *);
 int	pkt_put_string_padded	(FILE *, char *, int);
 int	pkt_put_hdr		(FILE *, Packet *);
+
+/* parsenode.c */
+int	znfp_parse_partial	(char *, Node *);
+int	znfp_parse_diff		(char *, Node *, Node *);
+char   *znfp_print		(Node *, int, int);
 
 /* passwd.c */
 void	passwd_init		(void);
