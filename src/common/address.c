@@ -2,12 +2,12 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway software UNIX <-> FIDO
  *
- * $Id: address.c,v 4.10 1998/07/11 21:04:35 mj Exp $
+ * $Id: address.c,v 4.11 1999/01/02 16:34:57 mj Exp $
  *
  * Parsing and conversion for FIDO and RFC addresses
  *
  *****************************************************************************
- * Copyright (C) 1990-1998
+ * Copyright (C) 1990-1999
  *  _____ _____
  * |	 |___  |   Martin Junius	     FIDO:	2:2452/110
  * | | | |   | |   Radiumstr. 18  	     Internet:	mj@fido.de
@@ -31,7 +31,6 @@
  *****************************************************************************/
 
 #include "fidogate.h"
-#include "shuffle.h"
 
 
 
@@ -76,46 +75,85 @@ int addr_is_restricted(void)
 
 
 /*
- * ftn_to_inet(): convert FTN address to Internet address
- *
- * force_flag==TRUE: generate `pX.' point address even if `-p' is not
- *                   specified in HOSTS.
+ * str_printf(): wrapper for sprintf()/snprintf()
  */
-char *ftn_to_inet(Node *node, int force_flag)
+int str_printf(char *buf, size_t len, const char *fmt, ...)
 {
-    Host *h;
-    int point_flag;
-
-    SHUFFLEBUFFERS;
-
-    h = hosts_lookup(node, NULL);
-
-    if(h)				/* Address found in HOSTS */
+    va_list args;
+    int n;
+    
+    va_start(args, fmt);
+    
+#ifdef HAS_SNPRINTF    
+    n = vsnprintf(buf, len, fmt, args);
+#else
+    n = vsprintf(buf, fmt, args);
+    if(n >= len)
     {
-	point_flag = h->flags & HOST_POINT ? TRUE : force_flag;
-
-	if(h->name)
-	{
-	    if(point_flag && node->point && !h->node.point)
-		sprintf(tcharp, "p%d.%s", node->point, h->name);
-	    else
-		sprintf(tcharp, "%s", h->name);
-	}
-	else
-	    sprintf(tcharp, "%s%s", node_to_pfnz(node, FALSE),
-		    cf_hostsdomain()                          );
+        fatal("Internal error - str_printf() buf overflow", EX_SOFTWARE);
+        /**NOT REACHED**/
+        return ERROR;
     }
-    else
-	sprintf(tcharp, "%s%s", node_to_pfnz(node, FALSE),
-		cf_zones_inet_domain(node->zone));
+#endif
+    va_end(args);
 
-    return tcharp;
+    return n;
 }
 
 
 
 /*
- * ftn_to_inet_pfnz(): convert FTN address to p.f.n.z Internet address
+ * str_ftn_to_inet(): convert FTN address to Internet address
+ *
+ * force==TRUE: generate `pX.' point address even if `-p' is not
+ *              specified in HOSTS.
+ */
+char *str_ftn_to_inet(char *buf, size_t len, Node *node, int force)
+{
+    Host *h;
+    int point;
+
+    h = hosts_lookup(node, NULL);
+
+    if(h)				/* Address found in HOSTS */
+    {
+	point = h->flags & HOST_POINT ? TRUE : force;
+	if(h->name)
+	{
+	    if(point && node->point && !h->node.point)
+		str_printf(buf, len, "p%d.%s", node->point, h->name);
+	    else
+		str_printf(buf, len, "%s", h->name);
+	}
+	else
+	    str_printf(buf, len, "%s%s", node_to_pfnz(node, FALSE),
+		       cf_hostsdomain());
+    }
+    else
+	str_printf(buf, len, "%s%s", node_to_pfnz(node, FALSE),
+		   cf_zones_inet_domain(node->zone));
+
+    return buf;
+}
+
+
+
+/*
+ * s_ftn_to_inet(): convert FTN address to Internet address
+ */
+char *s_ftn_to_inet(Node *node, int force)
+{
+    TmpS *s;
+
+    s = tmps_alloc(MAXINETADDR);
+    str_ftn_to_inet(s->s, s->len, node, force);
+    return s->s;
+}
+
+
+
+/*
+ * s_ftn_to_inet_pfnz(): convert FTN address to p.f.n.z Internet address
  */
 char *s_ftn_to_inet_pfnz(Node *node)
 {
@@ -139,10 +177,7 @@ int verify_host_flag(Node *node, int flag)
 {
     Host *h;
 
-    SHUFFLEBUFFERS;
-
     h = hosts_lookup(node, NULL);
-
     if(h)				/* Address found in HOSTS */
     {
 	return h->flags & flag ? TRUE : FALSE;

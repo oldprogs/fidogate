@@ -2,12 +2,12 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: prototypes.h,v 4.50 1998/07/19 11:28:07 mj Exp $
+ * $Id: prototypes.h,v 4.51 1999/01/02 16:35:04 mj Exp $
  *
  * Prototypes for functions in libfidogate.a
  *
  *****************************************************************************
- * Copyright (C) 1990-1998
+ * Copyright (C) 1990-1999
  *  _____ _____
  * |     |___  |   Martin Junius             FIDO:      2:2452/110
  * | | | |   | |   Radiumstr. 18             Internet:  mj@fido.de
@@ -49,7 +49,9 @@ extern char address_error[];
 void	addr_restricted		(int);
 int	addr_is_restricted	(void);
 void	addr_ignore		(int);
-char   *ftn_to_inet		(Node *, int);
+int	str_printf		(char *, size_t, const char *, ...);
+char   *str_ftn_to_inet		(char *, size_t, Node *, int);
+char   *s_ftn_to_inet		(Node *, int);
 char   *s_ftn_to_inet_pfnz	(Node *);
 Node   *inet_to_ftn		(char *);
 int	addr_is_local		(char *);
@@ -365,11 +367,10 @@ char   *str_dosify		(char *);
 int    run_system		(char *);
 
 /* msgid.c */
-char   *msgid_fido_to_rfc	(char *, int *);
-char   *msgid_default		(Message *);
-char   *msgid_rfc_to_fido	(int *, char *, int, int, char *);
-char   *msgid_rfc_to_origid	(char *, int, int);
-char   *msgid_convert_origid	(char *, int);
+char   *s_msgid_fido_to_rfc	(char *, int *);
+char   *s_msgid_default		(Message *);
+char   *s_msgid_rfc_to_fido	(int *, char *, int, int, char *);
+char   *s_msgid_convert_origid	(char *, int);
 
 /* node.c */
 int	pfnz_to_node	        (char *, Node *, int);

@@ -2,12 +2,12 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: node.c,v 4.6 1998/07/11 21:04:38 mj Exp $
+ * $Id: node.c,v 4.7 1999/01/02 16:35:00 mj Exp $
  *
  * Conversion Node structure <-> Z:N/F.P / pP.fF.nN.zZ
  *
  *****************************************************************************
- * Copyright (C) 1990-1998
+ * Copyright (C) 1990-1999
  *  _____ _____
  * |     |___  |   Martin Junius             FIDO:      2:2452/110
  * | | | |   | |   Radiumstr. 18             Internet:  mj@fido.de
@@ -31,7 +31,7 @@
  *****************************************************************************/
 
 #include "fidogate.h"
-#include "shuffle.h"
+
 
 
 /*
@@ -158,16 +158,15 @@ char *node_to_asc(Node *node, int point_flag)
  */
 char *node_to_pfnz(Node *node, int point_flag)
 {
-    SHUFFLEBUFFERS;
+    static char buf[MAXINETADDR];
 
     if(node->point!=-1 && (node->point!=0 || point_flag))
-	sprintf(tcharp,
-		"p%d.f%d.n%d.z%d",
+	sprintf(buf, "p%d.f%d.n%d.z%d",
 		node->point, node->node, node->net, node->zone );
     else
-	sprintf(tcharp, "f%d.n%d.z%d", node->node, node->net, node->zone);
+	sprintf(buf, "f%d.n%d.z%d", node->node, node->net, node->zone);
 
-    return tcharp;
+    return buf;
 }
 
 
@@ -243,28 +242,28 @@ int asc_to_node_diff(char *asc, Node *node, Node *oldnode)
  */
 char *node_to_asc_diff(Node *node, Node *oldnode)
 {
-    SHUFFLEBUFFERS;
-    
+    static char buf[MAXINETADDR];
+
     if(node->zone == oldnode->zone)
     {
 	if(node->net == oldnode->net)
 	{
 	    if(node->node == oldnode->node)
-		sprintf(tcharp, node->point ? ".%d" : "",
+		sprintf(buf, node->point ? ".%d" : "",
 			node->point                      );
 	    else
-		sprintf(tcharp, node->point ? "%d.%d" : "%d",
+		sprintf(buf, node->point ? "%d.%d" : "%d",
 			node->node, node->point              );
 	}
 	else
-	    sprintf(tcharp, node->point ? "%d/%d.%d" : "%d/%d",
+	    sprintf(buf, node->point ? "%d/%d.%d" : "%d/%d",
 		    node->net, node->node, node->point         );
     }
     else
-	sprintf(tcharp, node->point ? "%d:%d/%d.%d" : "%d:%d/%d",
+	sprintf(buf, node->point ? "%d:%d/%d.%d" : "%d:%d/%d",
 		node->zone, node->net, node->node, node->point   );
     
-    return tcharp;
+    return buf;
 }
 
 

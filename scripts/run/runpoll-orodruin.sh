@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# $Id: runpoll.sh,v 4.13 1999/01/02 16:34:53 mj Exp $
+# $Id: runpoll-orodruin.sh,v 4.1 1999/01/02 16:34:53 mj Exp $
 #
 # Poll uplink
 #
@@ -10,9 +10,7 @@ BINDIR=<BINDIR>
 IFMAIL=<IFMAILDIR>
 NEWS=<NEWSETCDIR>
 
-UPLINK=f<NODE>.n<NET>.z2
-#       ^^^^^^  ^^^^^
-#       configure me!
+UPLINK=f2.n1000.z242
 
 # -xterm: run in XTerm window
 if [ "$1" = "-xterm" ]; then
@@ -25,7 +23,13 @@ fi
 set -x
 
 
-# News gateway (INN)
+# Batch ffx news
+$NEWS/send-ffx
+
+# Batch ffx mail
+$LIBDIR/ftnpack -f 242:1000/1 -I %B/out.0f2/morannon
+
+# Gateway
 $NEWS/send-fidogate
 
 # Tosser w/o file attachments
@@ -42,6 +46,9 @@ $BINDIR/runtoss   pin
 
 # Gateway
 $LIBDIR/ftnin -x %L/ftninpost
+
+# Unbatch and process ffx files
+$LIBDIR/ffxqt
 
 # Process tic files
 $LIBDIR/ftntick

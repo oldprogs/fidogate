@@ -2,12 +2,12 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: ftnhatch.c,v 4.5 1998/02/22 15:09:37 mj Exp $
+ * $Id: ftnhatch.c,v 4.6 1999/01/02 16:35:04 mj Exp $
  *
  * Hatch file into file area
  *
  *****************************************************************************
- * Copyright (C) 1990-1998
+ * Copyright (C) 1990-1999
  *  _____ _____
  * |     |___  |   Martin Junius             FIDO:      2:2452/110
  * | | | |   | |   Radiumstr. 18             Internet:  mj@fido.de
@@ -36,7 +36,7 @@
 
 
 #define PROGRAM		"ftnhatch"
-#define VERSION		"$Revision: 4.5 $"
+#define VERSION		"$Revision: 4.6 $"
 #define CONFIG		DEFAULT_CONFIG_MAIN
 
 

@@ -1,6 +1,6 @@
 #!/usr/bin/perl
 #
-# $Id: rununpack.pl,v 4.7 1998/10/18 18:12:56 mj Exp $
+# $Id: rununpack.pl,v 4.8 1999/01/02 16:35:06 mj Exp $
 #
 # Unpack ArcMail archives
 #
@@ -9,7 +9,7 @@
 
 require 5.000;
 
-my $VERSION = '$Revision: 4.7 $ ';
+my $VERSION = '$Revision: 4.8 $ ';
 my $PROGRAM = "rununpack";
 
 use strict;
@@ -233,7 +233,7 @@ chdir("$INPUT/$TMPDIR") || die "$PROGRAM: can't chdir to $INPUT/$TMPDIR\n";
 # Process mail archives in $INPUT
 my @files;
 opendir(DIR, "$INPUT") || die "$PROGRAM: can't open $INPUT\n";
-@files = grep(/\.(su|mo|tu|we|th|fr|sa|su).$/i, readdir(DIR));
+@files = grep(/\.(mo|tu|we|th|fr|sa|su).$/i, readdir(DIR));
 closedir(DIR);
 
 my $arc;

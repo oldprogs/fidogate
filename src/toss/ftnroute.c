@@ -2,12 +2,12 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftnroute.c,v 4.17 1998/01/24 14:07:37 mj Exp $
+ * $Id: ftnroute.c,v 4.18 1999/01/02 16:35:05 mj Exp $
  *
  * Route FTN NetMail/EchoMail
  *
  *****************************************************************************
- * Copyright (C) 1990-1998
+ * Copyright (C) 1990-1999
  *  _____ _____
  * |     |___  |   Martin Junius             FIDO:      2:2452/110
  * | | | |   | |   Radiumstr. 18             Internet:  mj@fido.de
@@ -40,7 +40,7 @@
 
 
 #define PROGRAM 	"ftnroute"
-#define VERSION 	"$Revision: 4.17 $"
+#define VERSION 	"$Revision: 4.18 $"
 #define CONFIG		DEFAULT_CONFIG_MAIN
 
 

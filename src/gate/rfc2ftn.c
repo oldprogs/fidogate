@@ -2,12 +2,12 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway software UNIX <-> FIDO
  *
- * $Id: rfc2ftn.c,v 4.41 1998/07/19 11:28:07 mj Exp $
+ * $Id: rfc2ftn.c,v 4.42 1999/01/02 16:35:03 mj Exp $
  *
  * Read mail or news from standard input and convert it to a FIDO packet.
  *
  *****************************************************************************
- * Copyright (C) 1990-1998
+ * Copyright (C) 1990-1999
  *  _____ _____
  * |     |___  |   Martin Junius             FIDO:      2:2452/110
  * | | | |   | |   Radiumstr. 18             Internet:  mj@fido.de
@@ -39,7 +39,7 @@
 
 
 #define PROGRAM 	"rfc2ftn"
-#define VERSION 	"$Revision: 4.41 $"
+#define VERSION 	"$Revision: 4.42 $"
 #define CONFIG		DEFAULT_CONFIG_GATE
 
 
@@ -1323,18 +1323,15 @@ int snd_message(Message *msg, Area *parea,
 
     /***** ^A kludges *******************************************************/
 
-    /* Add kludges for MSGID / REPLY and ORIGID / ORIGREF */
+    /* Add kludges for MSGID / REPLY */
     if(!x_flags_m)				/* ! X-Flags: m */
     {
 	if((header = header_getcomplete("Message-ID")))
 	{
-	    if((id = msgid_rfc_to_fido(&flag, header, part, split, msg->area)))
+	    if((id = s_msgid_rfc_to_fido(&flag, header,
+					 part, split, msg->area)))
 	    {
 		fprintf(sf, "\001MSGID: %s\r\n", id);
-#ifdef MSGID_ORIGID
-		if(flag && (id = msgid_rfc_to_origid(header, part, split)))
-		    fprintf(sf, "\001ORIGID: %s\r\n", id);
-#endif
 	    }
 	}	
 	else
@@ -1347,13 +1344,9 @@ int snd_message(Message *msg, Area *parea,
 	if((header = header_getcomplete("References")) ||
 	   (header = header_getcomplete("In-Reply-To")))
 	{
-	    if((id = msgid_rfc_to_fido(&flag, header, 0, 0, msg->area)))
+	    if((id = s_msgid_rfc_to_fido(&flag, header, 0, 0, msg->area)))
 	    {
 		fprintf(sf, "\001REPLY: %s\r\n", id);
-#ifdef MSGID_ORIGID
-		if(flag && (id = msgid_rfc_to_origid(header, 0, 0)))
-		    fprintf(sf, "\001ORIGREF: %s\r\n", id);
-#endif
 	    }
 	}
     }
@@ -1593,6 +1586,9 @@ int snd_message(Message *msg, Area *parea,
 
     /* End of message */
     putc(0, sf);
+
+    s_freeall();
+
     return EX_OK;
 }
 

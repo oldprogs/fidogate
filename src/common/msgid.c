@@ -2,12 +2,12 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: msgid.c,v 4.7 1998/01/18 09:47:51 mj Exp $
+ * $Id: msgid.c,v 4.8 1999/01/02 16:34:59 mj Exp $
  *
  * MSGID <-> Message-ID conversion handling. See also ../doc/msgid.doc
  *
  *****************************************************************************
- * Copyright (C) 1990-1998
+ * Copyright (C) 1990-1999
  *  _____ _____
  * |	 |___  |   Martin Junius	     FIDO:	2:2452/110
  * | | | |   | |   Radiumstr. 18  	     Internet:	mj@fido.de
@@ -36,7 +36,6 @@
  *****************************************************************************/
 
 #include "fidogate.h"
-#include "shuffle.h"
 
 
 
@@ -104,10 +103,13 @@ static void msgid_mime_quote(char *d, char *s, int n)
  */
 static char *msgid_domain(int zone)
 {
-    if(zone>=1 && zone<=6)		/* FIDONET */
-	return MSGID_FIDONET_DOMAIN + 1;		/* +1 = skip leading `.' */
-    else
-	return cf_zones_inet_domain(zone) + 1;
+    char *d;
+    
+    d = zone>=1 && zone<=6 ? MSGID_FIDONET_DOMAIN : cf_zones_inet_domain(zone);
+    if(*d == '.')
+	d++;
+
+    return d;
 }
 
 
@@ -115,14 +117,15 @@ static char *msgid_domain(int zone)
 /*
  * Convert FIDO ^AMSGID/REPLY to RFC Message-ID/References
  */
-char *msgid_fido_to_rfc(char *msgid, int *pzone)
+char *s_msgid_fido_to_rfc(char *msgid, int *pzone)
 {
     char *save;
     char *origaddr, *serialno;
     char *p, *s;
     Node idnode;
     int zone;
-    
+    TmpS *tmps;
+
     save = strsave(msgid);
     
     /*
@@ -175,16 +178,14 @@ char *msgid_fido_to_rfc(char *msgid, int *pzone)
     *p = 0;
     
 
-    SHUFFLEBUFFERS;
-
     /***** New-style converted RFC Message-ID *****/
     if(wildmat(origaddr, "<*@*>"))
     {
-	strncpy0(tcharp, origaddr, MAX_CONVERT_BUFLEN);
+	tmps = tmps_copy(origaddr);
 	xfree(save);
 	if(pzone)
 	    *pzone = -2;
-	return tcharp;
+	return tmps->s;
     }
     
 
@@ -212,15 +213,17 @@ char *msgid_fido_to_rfc(char *msgid, int *pzone)
     /*
      * New-style FTN Message-IDs using MIME quoted-printable
      */
-    strncpy0(tcharp, "<MSGID_", MAX_CONVERT_BUFLEN);
-    msgid_mime_quote(tcharp + strlen(tcharp), msgid,
-		     MAX_CONVERT_BUFLEN - strlen(tcharp));
-    strncat0(tcharp, "@", MAX_CONVERT_BUFLEN);
-    strncat0(tcharp, msgid_domain(zone), MAX_CONVERT_BUFLEN);
-    strncat0(tcharp, ">", MAX_CONVERT_BUFLEN);
+    tmps = tmps_alloc(2*MAXINETADDR);
+    
+    str_copy(tmps->s, tmps->len, "<MSGID_");
+    msgid_mime_quote(tmps->s + strlen(tmps->s), msgid,
+		     tmps->len - strlen(tmps->s));
+    str_append(tmps->s, tmps->len, "@");
+    str_append(tmps->s, tmps->len, msgid_domain(zone));
+    str_append(tmps->s, tmps->len, ">");
     
     xfree(save);
-    return tcharp;
+    return tmps->s;
 }
 
 
@@ -229,10 +232,8 @@ char *msgid_fido_to_rfc(char *msgid, int *pzone)
  * Generate ID for FIDO messages without ^AMSGID, using date and CRC over
  * From, To and Subject.
  */
-char *msgid_default(Message *msg)
+char *s_msgid_default(Message *msg)
 {
-    SHUFFLEBUFFERS;
-
     /*
      * Compute CRC for strings from, to, subject
      */
@@ -241,13 +242,11 @@ char *msgid_default(Message *msg)
     crc32_compute(msg->name_to  , strlen(msg->name_to  ));
     crc32_compute(msg->subject  , strlen(msg->subject  ));
 
-    sprintf(tcharp, "<NOMSGID_%d=3A%d=2F%d.%d_%s_%08lx@%s>",
-	    msg->node_orig.zone, msg->node_orig.net,
-	    msg->node_orig.node, msg->node_orig.point,
-	    date("%y%m%d_%H%M%S", &msg->date), crc32_value(),
-	    msgid_domain(msg->node_orig.zone)                          );
-    
-    return tcharp;
+    return s_printf("<NOMSGID_%d=3A%d=2F%d.%d_%s_%08lx@%s>",
+		    msg->node_orig.zone, msg->node_orig.net,
+		    msg->node_orig.node, msg->node_orig.point,
+		    date("%y%m%d_%H%M%S", &msg->date), crc32_value(),
+		    msgid_domain(msg->node_orig.zone));
 }
 
 
@@ -255,12 +254,13 @@ char *msgid_default(Message *msg)
 /*
  * Convert RFC Message-ID/References to FIDO ^AMSGID/^AREPLY
  */
-char *msgid_rfc_to_fido(int *origid_flag, char *message_id, int part, int split, char *area)
-                     			/* Flag for ^AORIGID */
-                     			/* Original RFC-ID */
-             				/* part number */
-              				/* != 0 # of parts */
-               				/* FTN AREA */
+char *s_msgid_rfc_to_fido(int *origid_flag, char *message_id,
+			  int part, int split, char *area)
+    /* origid_flag - Flag for ^AORIGID */
+    /* message_id  - Original RFC-ID */
+    /* part        - part number */
+    /* split       - != 0 # of parts */
+    /* area        - FTN AREA */
 {
     char *id, *host, *p;
     char *savep;
@@ -268,6 +268,7 @@ char *msgid_rfc_to_fido(int *origid_flag, char *message_id, int part, int split,
     int hexflag, i;
     char hexid[16];
     unsigned long crc32;
+    TmpS *tmps;
 
     /****** Extract id and host from <id@host> *****/
 
@@ -309,11 +310,7 @@ char *msgid_rfc_to_fido(int *origid_flag, char *message_id, int part, int split,
 	return NULL;
     }
 
-
-    SHUFFLEBUFFERS;
-
     /***** Check for old style FTN Message-IDs <abcd1234%domain@p.f.n.z> *****/
-
     if(!split)
     {
 	/*
@@ -330,7 +327,7 @@ char *msgid_rfc_to_fido(int *origid_flag, char *message_id, int part, int split,
 	if(hexflag && *p=='%')		/* Domain part follows */
 	{
 	    *p++ = 0;
-	    strncpy0(node.domain, p, MAX_DOMAIN);
+	    BUF_COPY(node.domain, p);
 	}
 	else if(*p)
 	    hexflag = FALSE;
@@ -347,35 +344,29 @@ char *msgid_rfc_to_fido(int *origid_flag, char *message_id, int part, int split,
 		node.net   = n->net;
 		node.node  = n->node;
 		node.point = n->point;
-
-		sprintf(tcharp, "%s %s", node_to_asc(&node, TRUE), hexid);
-
+		tmps = tmps_printf("%s %s", node_to_asc(&node, TRUE), hexid);
 		xfree(savep);
 		if(origid_flag)
 		    *origid_flag = FALSE;
-		return tcharp;
+		return tmps->s;
 	    }
 	}
     } /**if(!split)**/
 
 
     /***** Check for new-style <MSGID_mimeanything@domain> *****/
-
     if(!strncmp(id, "MSGID_", 6))
     {
 	p = id + strlen("MSGID_");
-	
-	mime_dequote(tcharp, MAX_CONVERT_BUFLEN, p, MIME_QP|MIME_US);
-	
+	tmps = tmps_alloc(strlen(id)+1);
+	mime_dequote(tmps->s, tmps->len, p, MIME_QP|MIME_US);
 	xfree(savep);
 	if(origid_flag)
 	    *origid_flag = FALSE;
-	return tcharp;
+	return tmps->s;
     }
 
-
     /***** Generate ^AMSGID according to msgid.doc specs *****/
-
     /*
      * New-style FIDO-Gatebau '94 ^AMSGID
      */
@@ -398,58 +389,15 @@ char *msgid_rfc_to_fido(int *origid_flag, char *message_id, int part, int split,
     crc32 = crc32_value();
     if(split)
 	crc32 += part - 1;
-		  
-    msgid_fts9_quote(tcharp, id, MAX_CONVERT_BUFLEN);
-    sprintf(tcharp + strlen(tcharp), " %08lx", crc32);
+
+    tmps = tmps_alloc(strlen(id)+1+/**Extra**/20);
+    msgid_fts9_quote(tmps->s, id, tmps->len);
+    sprintf(tmps->s + strlen(tmps->s), " %08lx", crc32);
     
     xfree(savep);
     if(origid_flag)
 	*origid_flag = TRUE;
-    return tcharp;
-}
-
-
-
-/*
- * Generate string for ^AORIGID/^AORIGREF kludge
- */
-char *msgid_rfc_to_origid(char *message_id, int part, int split)
-                 			/* Original RFC-ID */
-         				/* part number */
-          				/* != 0 # of parts */
-{
-    char *id, *p;
-    char *savep;
-
-    savep = strsave(message_id);
-    /*
-     * Format of message_id is "<identification@host.domain> ..."
-     * We want the the last one in the chain, which is the message id
-     * of the article replied to.
-     */
-    id = strrchr(savep, '<');
-    if(!id)
-    {
-	xfree(savep);
-	return NULL;
-    }
-    p = strchr(id, '>');
-    if(!p)  
-    {
-	xfree(savep);
-	return NULL;
-    }
-    *++p = 0;
-
-    SHUFFLEBUFFERS;
-    
-    if(split)
-	sprintf(tcharp, "%s %d/%d", id, part, split);
-    else
-	sprintf(tcharp, "%s", id);
-
-    xfree(savep);
-    return tcharp;
+    return tmps->s;
 }
 
 
@@ -458,10 +406,11 @@ char *msgid_rfc_to_origid(char *message_id, int part, int split)
  * Extract Message-ID from ^AORIGID/^AORIGREF with special handling for
  * split messages (appended " i/n"). Returns NULL for invalid ^AORIGID.
  */
-char *msgid_convert_origid(char *origid, int part_flag)
+char *s_msgid_convert_origid(char *origid, int part_flag)
 {
     char *s, *p, *id, *part;
-    
+    TmpS *tmps;
+
     s    = strsave(origid);
 
     id   = s;
@@ -495,10 +444,7 @@ char *msgid_convert_origid(char *origid, int part_flag)
 	return NULL;
     }
 
-    SHUFFLEBUFFERS;
-    sprintf(tcharp, "%s", id);
-    
+    tmps = tmps_copy(id);
     xfree(s);
-    
-    return tcharp;
+    return tmps->s;
 }

@@ -1,4 +1,77 @@
+1999-01-02  Martin Junius  <mj@fido.de>
+
+	------- CVS ci -------------------------------------------------------
+
+	* src/common/node.c (node_to_pfnz): modified to use static buf[]
+	  for returning string.
+	  (node_to_asc_diff): dito.
+
+	* src/gate/rfc2ftn.c (snd_message): use new s_msgid_rfc_to_fido(), 
+	  call s_freeall() at end of function.
+
+	* src/gate/ftn2rfc.c (unpack): use new s_msgid_xxx() functions.
+
+	* src/common/msgid.c (msgid_rfc_to_origid): removed, no longer needed.
+	  (s_msgid_fido_to_rfc): converted shuffle.h stuff to TmpS.
+	  (s_msgid_default): renamed to s_, converted shuffle.h stuff to TmpS.
+	  (s_msgid_convert_origid): dito.
+	  (s_msgid_rfc_to_fido): dito.
+	  (msgid_domain): improved to only skip 1st char of domain name if 
+	  it really is a ".".
+
+	* src/gate/rfc2ftn.c (snd_message): removed #ifdef MSGID_ORIGID code.
+
+	* config.h (MSGID_ORIGID): #define removed.
+
+	* src/common/msgid.c (s_msgid_fido_to_rfc): renamed to s_, now
+	  returns TmpS.
+
+	* src/gate/ftn2rfc.c (unpack): use new s_ftn_to_inet().
+
+	* src/common/rfcaddr.c (rfcaddr_from_ftn): use new str_ftn_to_inet().
+
+	* src/common/address.c (s_ftn_to_inet): TmpS wrapper for
+	  str_ftn_to_inet(). 
+	  (str_printf): new replacement for sprintf(), uses vsnprintf() if 
+	  available or terminates with fatal() error if buffer overflows.
+	  (str_ftn_to_inet): renamed version of old ftn_to_inet()
+	  function writing to str buffer.
+	  (verify_host_flag): removed SHUFFLEBUFFERS.
+
+	* src/common/config.c (cf_i_am_a_gateway_prog): if neither
+	  GateAddress nor Uplink is used, copy Address to Uplink (same
+	  address for gateway and tosser).
+
+	* *: Copyright comments extended to year 1999.
+
+	* version.h: commented ALPHA, making this the new version
+	  4.3.0. From now on, 4.3.x will be the development versions, 4.4.x
+	  the future new stable versions.
+
+	* src/areafix/areafix.c (cmd_help): added log() if helpfile can't
+	  be opened of AreaFixHelp is not defined.
+
+1998-12-13  Martin Junius  <mj@fido.de>
+
+	* sendmail/cf/morannon-check.mc: added confCOPY_ERRORS_TO.
+
+1998-11-28  Martin Junius  <mj@fido.de>
+
+	* scripts/run/runpoll.sh: modified (old) runpoll for generic point 
+	  excluding ffx programs.
+
+	* scripts/run/runpoll-orodruin.sh: new (old) runpoll including ffx 
+	  programs.
+
+1998-11-23  Martin Junius  <mj@fido.de>
+
+	* src/toss/rununpack.pl (run_arc): removed extra "su" from regex.
+
 1998-11-15  Martin Junius  <mj@fido.de>
+
+	* examples/morannon/*.conf: updated.
+
+	* scripts/www/gate.cgi.pl (my_ps_news): some cosmetic changes.
 
 	------- CVS ci -------------------------------------------------------
 

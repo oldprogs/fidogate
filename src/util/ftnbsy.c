@@ -2,12 +2,12 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftnbsy.c,v 4.3 1998/01/24 15:45:59 mj Exp $
+ * $Id: ftnbsy.c,v 4.4 1999/01/02 16:35:07 mj Exp $
  *
  * Command line interface to BinkleyTerm bsy files
  *
  *****************************************************************************
- * Copyright (C) 1990-1998
+ * Copyright (C) 1990-1999
  *  _____ _____
  * |     |___  |   Martin Junius             FIDO:      2:2452/110
  * | | | |   | |   Radiumstr. 18             Internet:  mj@fido.de
@@ -36,7 +36,7 @@
 
 
 #define PROGRAM 	"ftnbsy"
-#define VERSION 	"$Revision: 4.3 $"
+#define VERSION 	"$Revision: 4.4 $"
 #define CONFIG		DEFAULT_CONFIG_MAIN
 
 

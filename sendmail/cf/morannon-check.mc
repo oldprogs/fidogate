@@ -1,20 +1,21 @@
 #:ts=8
 #
-# $Id: morannon-check.mc,v 4.4 1998/01/02 14:37:07 mj Exp $
+# $Id: morannon-check.mc,v 4.5 1999/01/02 16:34:53 mj Exp $
 #
 # Fido.DE domain gateway morannon.fido.de sendmail V8 configuration
 #
 
 include(`../m4/cf.m4')
-VERSIONID(`$Id: morannon-check.mc,v 4.4 1998/01/02 14:37:07 mj Exp $')
+VERSIONID(`$Id: morannon-check.mc,v 4.5 1999/01/02 16:34:53 mj Exp $')
 OSTYPE(linux)
 
-define(`confCF_VERSION', `morannon-check-4.4')
+define(`confCF_VERSION', `morannon-4.5')
 
 define(`confMIME_FORMAT_ERRORS', `False')
 define(`confUSE_ERRORS_TO', `True')
 define(`confMAX_HOP', `30')
 define(`confMESSAGE_TIMEOUT', `5d/2d')
+define(`confCOPY_ERRORS_TO', `postmaster')
 
 define(`ALIAS_FILE',`/etc/aliases,/usr/local/majordomo/majordomo.aliases')
 

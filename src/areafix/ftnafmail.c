@@ -2,12 +2,12 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: ftnafmail.c,v 1.2 1998/02/22 16:25:50 mj Exp $
+ * $Id: ftnafmail.c,v 1.3 1999/01/02 16:34:54 mj Exp $
  *
  * setuid frontend for ftnaf, limiting options for security reason
  *
  *****************************************************************************
- * Copyright (C) 1990-1998
+ * Copyright (C) 1990-1999
  *  _____ _____
  * |     |___  |   Martin Junius             FIDO:      2:2452/110
  * | | | |   | |   Radiumstr. 18             Internet:  mj@fido.de
@@ -38,7 +38,7 @@
 
 
 #define PROGRAM		"ftnafmail"
-#define VERSION		"$Revision: 1.2 $"
+#define VERSION		"$Revision: 1.3 $"
 #define CONFIG		DEFAULT_CONFIG_MAIN
 
 

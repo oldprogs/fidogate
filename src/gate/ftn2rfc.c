@@ -2,12 +2,12 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftn2rfc.c,v 4.44 1998/10/18 18:12:55 mj Exp $
+ * $Id: ftn2rfc.c,v 4.45 1999/01/02 16:35:02 mj Exp $
  *
  * Convert FTN mail packets to RFC mail and news batches
  *
  *****************************************************************************
- * Copyright (C) 1990-1998
+ * Copyright (C) 1990-1999
  *  _____ _____
  * |     |___  |   Martin Junius             FIDO:      2:2452/110
  * | | | |   | |   Radiumstr. 18             Internet:  mj@fido.de
@@ -40,7 +40,7 @@
 
 
 #define PROGRAM 	"ftn2rfc"
-#define VERSION 	"$Revision: 4.44 $"
+#define VERSION 	"$Revision: 4.45 $"
 #define CONFIG		DEFAULT_CONFIG_GATE
 
 
@@ -779,10 +779,10 @@ int unpack(FILE *pkt_file, Packet *pkt)
 	    }
 
 
-	thisdomain   = ftn_to_inet(cf_addr(),      TRUE);
-	uplinkdomain = ftn_to_inet(&msg.node_from, TRUE);
+	thisdomain   = s_ftn_to_inet(cf_addr(),      TRUE);
+	uplinkdomain = s_ftn_to_inet(&msg.node_from, TRUE);
 	origindomain = msg.node_orig.zone != -1
-	    ? ftn_to_inet(&msg.node_orig, TRUE) : FTN_INVALID_DOMAIN;
+	    ? s_ftn_to_inet(&msg.node_orig, TRUE) : FTN_INVALID_DOMAIN;
 
 	/* Bounce mail from nodes not registered in HOSTS, but allow
 	 * mail to local users.  */
@@ -916,11 +916,11 @@ int unpack(FILE *pkt_file, Packet *pkt)
 	ref_line = NULL;
 	
 	if( (p = kludge_get(&body.kludge, "ORIGID", NULL)) )
-	    id_line = msgid_convert_origid(p, FALSE);
+	    id_line = s_msgid_convert_origid(p, FALSE);
 	else if( (p = kludge_get(&body.kludge, "Message-Id", NULL)) )
-	    id_line = msgid_convert_origid(p, FALSE);
+	    id_line = s_msgid_convert_origid(p, FALSE);
 	else if( (p = kludge_get(&body.kludge, "RFC-Message-ID", NULL)) )
-	    id_line = msgid_convert_origid(p, FALSE);
+	    id_line = s_msgid_convert_origid(p, FALSE);
 	if(!id_line)
 	{
 	    int id_zone;
@@ -932,7 +932,7 @@ int unpack(FILE *pkt_file, Packet *pkt)
 		    log("MSGID: %s, not gated", p);
 		    continue;
 		}
-		id_line = msgid_fido_to_rfc(p, &id_zone);
+		id_line = s_msgid_fido_to_rfc(p, &id_zone);
 		if(no_unknown_msgid_zones)
 		    if(id_zone>=-1 && !cf_zones_check(id_zone))
 		    {
@@ -947,7 +947,7 @@ int unpack(FILE *pkt_file, Packet *pkt)
 		    log("MSGID: none, not gated");
 		    continue;
 		}
-		id_line = msgid_default(&msg);
+		id_line = s_msgid_default(&msg);
 	    }
 	}
 	/* Can't happen, but who knows ... ;-) */
@@ -958,10 +958,10 @@ int unpack(FILE *pkt_file, Packet *pkt)
 	}
 	
 	if( (p = kludge_get(&body.kludge, "ORIGREF", NULL)) )
-	    ref_line = msgid_convert_origid(p, FALSE);
+	    ref_line = s_msgid_convert_origid(p, FALSE);
 	if(!ref_line)
 	    if( (p = kludge_get(&body.kludge, "REPLY", NULL)) )
-		ref_line = msgid_fido_to_rfc(p, NULL);
+		ref_line = s_msgid_fido_to_rfc(p, NULL);
 
 	/* ^AGATEWAY */
 	gateway = kludge_get(&body.kludge, "GATEWAY", NULL);

@@ -2,12 +2,12 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway software UNIX <-> FIDO
  *
- * $Id: fidogate.h,v 4.7 1998/09/23 19:23:15 mj Exp $
+ * $Id: fidogate.h,v 4.8 1999/01/02 16:35:04 mj Exp $
  *
  * Common header file
  *
  *****************************************************************************
- * Copyright (C) 1990-1998
+ * Copyright (C) 1990-1999
  *  _____ _____
  * |     |___  |   Martin Junius             FIDO:      2:2452/110
  * | | | |   | |   Radiumstr. 18             Internet:  mj@fido.de

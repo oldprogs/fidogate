@@ -2,12 +2,12 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: passwd.c,v 4.6 1998/01/20 21:47:51 mj Exp $
+ * $Id: passwd.c,v 4.7 1999/01/02 16:35:01 mj Exp $
  *
  * Read PASSWD file for ffx, ffxqt, ftnaf and other programs
  *
  *****************************************************************************
- * Copyright (C) 1990-1998
+ * Copyright (C) 1990-1999
  *  _____ _____
  * |     |___  |   Martin Junius             FIDO:      2:2452/110
  * | | | |   | |   Radiumstr. 18             Internet:  mj@fido.de

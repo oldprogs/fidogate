@@ -2,12 +2,12 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: kludge.c,v 4.4 1998/01/18 09:47:48 mj Exp $
+ * $Id: kludge.c,v 4.5 1999/01/02 16:34:58 mj Exp $
  *
  * Processing of FTN ^A kludges in message body
  *
  *****************************************************************************
- * Copyright (C) 1990-1998
+ * Copyright (C) 1990-1999
  *  _____ _____
  * |     |___  |   Martin Junius             FIDO:      2:2452/110
  * | | | |   | |   Radiumstr. 18             Internet:  mj@fido.de

@@ -2,12 +2,12 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: config.c,v 4.17 1998/09/23 19:23:13 mj Exp $
+ * $Id: config.c,v 4.18 1999/01/02 16:34:57 mj Exp $
  *
  * Configuration data and functions
  *
  *****************************************************************************
- * Copyright (C) 1990-1998
+ * Copyright (C) 1990-1999
  *  _____ _____
  * |     |___  |   Martin Junius             FIDO:      2:2452/110
  * | | | |   | |   Radiumstr. 18             Internet:  mj@fido.de
@@ -136,13 +136,26 @@ void cf_i_am_a_gateway_prog(void)
 	    scf_addr[i].uplink = scf_addr[i].addr;
 	    scf_addr[i].addr   = scf_addr[i].gateaddr;
 	}
-	for(i=0; i<scf_naddr; i++)
-	    debug(8, "config: address Z%-4d: NEW addr=%s uplink=%s",
+	for(i=0; i<scf_ig; i++)
+	    debug(8, "config: address Z%-4d: GATE addr=%s uplink=%s",
 		  scf_addr[i].zone, znfp(&scf_addr[i].addr),
 		  znfp(&scf_addr[i].uplink)                             );
+	return;
     }
-    else
-	debug(8, "config: old config, no GateAddress");
+
+    if(scf_ir == 0)
+    {
+	/* No Uplink used, same address for gateway and tosser, copy addr */
+	debug(8, "config: no explicit uplink, using Address");
+	for(i=0; i<scf_ia; i++)
+	    scf_addr[i].uplink = scf_addr[i].addr;
+	scf_ir = scf_ia;
+	for(i=0; i<scf_ia; i++)
+	    debug(8, "config: address Z%-4d: GATE addr=%s uplink=%s",
+		  scf_addr[i].zone, znfp(&scf_addr[i].addr),
+		  znfp(&scf_addr[i].uplink)                             );
+	return;
+    }
 }
 
 

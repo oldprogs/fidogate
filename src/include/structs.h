@@ -2,12 +2,12 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: structs.h,v 4.16 1998/07/11 21:04:40 mj Exp $
+ * $Id: structs.h,v 4.17 1999/01/02 16:35:04 mj Exp $
  *
  * An assortment of FIDOGATE data structure definitions
  *
  *****************************************************************************
- * Copyright (C) 1990-1998
+ * Copyright (C) 1990-1999
  *  _____ _____
  * |     |___  |   Martin Junius             FIDO:      2:2452/110
  * | | | |   | |   Radiumstr. 18             Internet:  mj@fido.de

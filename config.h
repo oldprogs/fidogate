@@ -2,12 +2,12 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway software UNIX <-> FIDO
  *
- * $Id: config.h,v 4.37 1998/07/11 21:04:20 mj Exp $
+ * $Id: config.h,v 4.38 1999/01/02 16:34:49 mj Exp $
  *
  * Configuration header file
  *
  *****************************************************************************
- * Copyright (C) 1990-1998
+ * Copyright (C) 1990-1999
  *  _____ _____
  * |     |___  |   Martin Junius             FIDO:      2:2452/110
  * | | | |   | |   Radiumstr. 18             Internet:  mj@fido.de
@@ -408,13 +408,6 @@
  * !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
  */
 #define MSGID_FIDONET_DOMAIN	".fidonet.org"
-
-/*
- * Create Gatebau '93 ^AORIGID and ^AORIGREF:
- *     ^AORIGID: <id@do.main> [i/n]
- *     ^AORIGREF: <id@do.main>
- */
-/* #define MSGID_ORIGID */
 
 
 

@@ -2,12 +2,12 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: ftn2ftn.c,v 4.5 1998/01/24 14:07:34 mj Exp $
+ * $Id: ftn2ftn.c,v 4.6 1999/01/02 16:35:05 mj Exp $
  *
  * FTN-FTN gateway for NetMail, using the %Z:N/F.P addressing in the
  * from/to fields.
  *****************************************************************************
- * Copyright (C) 1990-1998
+ * Copyright (C) 1990-1999
  *  _____ _____
  * |     |___  |   Martin Junius             FIDO:      2:2452/110
  * | | | |   | |   Radiumstr. 18             Internet:  mj@fido.de
@@ -35,7 +35,7 @@
 
 
 #define PROGRAM 	"ftn2ftn"
-#define VERSION 	"$Revision: 4.5 $"
+#define VERSION 	"$Revision: 4.6 $"
 #define CONFIG		DEFAULT_CONFIG_MAIN
 
 

@@ -2,12 +2,12 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: areafix.c,v 1.9 1998/05/23 19:23:30 mj Exp $
+ * $Id: areafix.c,v 1.10 1999/01/02 16:34:54 mj Exp $
  *
  * Common Areafix functions
  *
  *****************************************************************************
- * Copyright (C) 1990-1998
+ * Copyright (C) 1990-1999
  *  _____ _____
  * |     |___  |   Martin Junius             FIDO:      2:2452/110
  * | | | |   | |   Radiumstr. 18             Internet:  mj@fido.de
@@ -1104,7 +1104,11 @@ int cmd_help(Node *node)
 	    fclose(fp);
 	    return OK;
 	}
+	else
+	    log("$ERROR: can't open %s", helpfile);
     }
+    else
+	log("WARNING: AreaFixHelp not defined");
 
     areafix_printf("Sorry, no help available.");
 

@@ -2,12 +2,12 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: sequencer.c,v 4.3 1998/01/18 15:33:09 mj Exp $
+ * $Id: sequencer.c,v 4.4 1999/01/02 16:35:01 mj Exp $
  *
  * Number sequencer using sequence file in LIBDIR
  *
  *****************************************************************************
- * Copyright (C) 1990-1998
+ * Copyright (C) 1990-1999
  *  _____ _____
  * |     |___  |   Martin Junius             FIDO:      2:2452/110
  * | | | |   | |   Radiumstr. 18             Internet:  mj@fido.de

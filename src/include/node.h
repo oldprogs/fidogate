@@ -2,12 +2,12 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: node.h,v 4.3 1998/01/18 09:48:03 mj Exp $
+ * $Id: node.h,v 4.4 1999/01/02 16:35:04 mj Exp $
  *
  * Node structure (zone, net, node, point, domain)
  *
  *****************************************************************************
- * Copyright (C) 1990-1998
+ * Copyright (C) 1990-1999
  *  _____ _____
  * |     |___  |   Martin Junius             FIDO:      2:2452/110
  * | | | |   | |   Radiumstr. 18             Internet:  mj@fido.de

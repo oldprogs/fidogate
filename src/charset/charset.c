@@ -2,12 +2,12 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: charset.c,v 1.2 1998/05/03 14:30:31 mj Exp $
+ * $Id: charset.c,v 1.3 1999/01/02 16:34:55 mj Exp $
  *
  * NEW charset.c code using charset.bin mapping file
  *
  *****************************************************************************
- * Copyright (C) 1990-1998
+ * Copyright (C) 1990-1999
  *  _____ _____
  * |     |___  |   Martin Junius             FIDO:      2:2452/110
  * | | | |   | |   Radiumstr. 18             Internet:  mj@fido.de

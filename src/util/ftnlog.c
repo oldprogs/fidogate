@@ -2,12 +2,12 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftnlog.c,v 4.4 1998/01/24 15:46:00 mj Exp $
+ * $Id: ftnlog.c,v 4.5 1999/01/02 16:35:07 mj Exp $
  *
  * Write log message to FIDOGATE log file
  *
  *****************************************************************************
- * Copyright (C) 1990-1998
+ * Copyright (C) 1990-1999
  *  _____ _____
  * |     |___  |   Martin Junius             FIDO:      2:2452/110
  * | | | |   | |   Radiumstr. 18             Internet:  mj@fido.de
@@ -36,7 +36,7 @@
 
 
 #define PROGRAM 	"ftnlog"
-#define VERSION 	"$Revision: 4.4 $"
+#define VERSION 	"$Revision: 4.5 $"
 #define CONFIG		DEFAULT_CONFIG_MAIN
 
 

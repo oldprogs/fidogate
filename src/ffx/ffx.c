@@ -2,12 +2,12 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ffx.c,v 4.7 1998/01/24 14:07:28 mj Exp $
+ * $Id: ffx.c,v 4.8 1999/01/02 16:35:02 mj Exp $
  *
  * ffx FIDO-FIDO execution
  *
  *****************************************************************************
- * Copyright (C) 1990-1998
+ * Copyright (C) 1990-1999
  *  _____ _____
  * |     |___  |   Martin Junius             FIDO:      2:2452/110
  * | | | |   | |   Radiumstr. 18             Internet:  mj@fido.de
@@ -38,7 +38,7 @@
 
 
 #define PROGRAM		"ffx"
-#define VERSION		"$Revision: 4.7 $"
+#define VERSION		"$Revision: 4.8 $"
 #define CONFIG		DEFAULT_CONFIG_FFX
 
 

@@ -2,12 +2,12 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: rfcaddr.c,v 4.5 1998/05/03 12:46:37 mj Exp $
+ * $Id: rfcaddr.c,v 4.6 1999/01/02 16:35:01 mj Exp $
  *
  * RFCAddr struct handling
  *
  *****************************************************************************
- * Copyright (C) 1990-1998
+ * Copyright (C) 1990-1999
  *  _____ _____
  * |     |___  |   Martin Junius             FIDO:      2:2452/110
  * | | | |   | |   Radiumstr. 18             Internet:  mj@fido.de
@@ -90,7 +90,7 @@ RFCAddr rfcaddr_from_ftn(char *name, Node *node)
 	if(node->zone == -1)
 	    BUF_COPY(rfc.addr, FTN_INVALID_DOMAIN);
 	else
-	    BUF_COPY(rfc.addr, ftn_to_inet(node, FALSE));
+	    str_ftn_to_inet(rfc.addr, sizeof(rfc.addr), node, FALSE);
 
     /*
      * Translate special chars >= 0x80 and removed ctrl chars
