@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ffxbatch.c,v 4.0 1996/04/17 18:17:40 mj Exp $
+ * $Id: ffxbatch.c,v 4.1 1996/04/22 20:02:04 mj Exp $
  *
  * ffx FIDO-FIDO execution batcher, packs batched (-b) ffx jobs.
  *
@@ -38,20 +38,25 @@
 
 
 #define PROGRAM		"ffxbatch"
-#define VERSION		"$Revision: 4.0 $"
+#define VERSION		"$Revision: 4.1 $"
 #define CONFIG		CONFIG_FFX
 
 
 
 /*
- * Archiver for batches
+ * Config parameters
  */
-#define ARC_PROG	"/usr/bin/zip -j9q %s %s/* 2>/dev/null"
-#define ARC_PROG_V	"/usr/bin/zip -j9 %s %s/*"
-#define ARC_EXT		".zip"
-#define ARC_UNPACK	"unbatchzip"
+static char *arc_prog, *arc_prog_v, *arc_ext, *arc_cmd;
+static char *data_flav;
 
-#define DATA_FLAV	"Hold"
+
+#define ARC_PROG	arc_prog
+#define ARC_PROG_V	arc_prog_v
+#define ARC_EXT		arc_ext
+#define ARC_UNPACK	arc_cmd
+			
+#define DATA_FLAV	data_flav
+
 
 
 /*
@@ -268,8 +273,9 @@ options:  -b --batch-dir DIR           set batch directory\n\
 int main(int argc, char **argv)
 {
     int c, ret;
+    char *p;
     char *b_flag="batch", *B_flag=NULL;
-    char *F_flag=DATA_FLAV;
+    char *F_flag=NULL;
     int   g_flag=0;
     int   w_flag=FALSE;
     char *c_flag=NULL;
@@ -375,6 +381,59 @@ int main(int argc, char **argv)
 
     cf_debug();
 
+    /*
+     * Process additional config statements
+     */
+    if((p = cf_get_string("FFXBatchArc", TRUE)))
+    {
+	debug(8, "config: FFXBatchArc %s", p);
+	arc_prog = p;
+    }
+    else
+    {
+	log("ERROR: %s: FFXBatchArc definition missing", CONFIG);
+	exit(EXIT_ERROR);
+    }
+    if((p = cf_get_string("FFXBatchArcV", TRUE)))
+    {
+	debug(8, "config: FFXBatchArcV %s", p);
+	arc_prog_v = p;
+    }
+    else
+    {
+	log("ERROR: %s: FFXBatchArcV definition missing", CONFIG);
+	exit(EXIT_ERROR);
+    }
+    if((p = cf_get_string("FFXBatchArcExt", TRUE)))
+    {
+	debug(8, "config: FFXBatchArcExt %s", p);
+	arc_ext = p;
+    }
+    else
+    {
+	log("ERROR: %s: FFXBatchArcExt definition missing", CONFIG);
+	exit(EXIT_ERROR);
+    }
+    if((p = cf_get_string("FFXBatchArcCmd", TRUE)))
+    {
+	debug(8, "config: FFXBatchArcCmd %s", p);
+	arc_cmd = p;
+    }
+    else
+    {
+	log("ERROR: %s: FFXBatchArcCmd definition missing", CONFIG);
+	exit(EXIT_ERROR);
+    }
+    if((p = cf_get_string("FFXDataFlav", TRUE)))
+    {
+	debug(8, "config: FFXDataFlav %s", p);
+	data_flav = p;
+    }
+    else
+    {
+	log("ERROR: %s: FFXDataFlav definition missing", CONFIG);
+	exit(EXIT_ERROR);
+    }
 
     /*
      * Node address from command line
@@ -397,7 +456,7 @@ int main(int argc, char **argv)
 	exit(1);
 
     ret = ffx(&node, ARC_PROG, ARC_EXT, ARC_UNPACK,
-	      F_flag, g_flag, b_flag                 );
+	      F_flag ? F_flag : DATA_FLAV, g_flag, b_flag );
 
     bink_bsy_delete(&node);
     

@@ -8,7 +8,7 @@ X = for release 4.0alpha1
 
 DONE.	* ftnaf: no zone check for FileFix
 
-X	* config.h: ALIASES, AREAS, HOSTS, PASSWD, PACKING, ROUTING
+	* config.h: ALIASES, AREAS, HOSTS, PASSWD, PACKING, ROUTING
 	  configurable in config.common
 
 DONE.	* Don't abort, if HOSTS/PASSWD/ALIASES don't exist.
@@ -21,6 +21,7 @@ DONE.	* ftnexpire utility for handling MSGID history.
 
 X	* areas.c: change automatic name conversion for -H to be
 	  configurable for -/_
+	  config option "AreaXlat ASet GSet"
 
 DONE.	* ftn2rfc: -i option like rfc2ftn.
 
@@ -43,9 +44,9 @@ X	* toss: MAXMSG, MAXFILES, MAXARC should be specified in
 
 DONE.	* ftnaf: don't show error messages for wildcard add/del area.
 
-X	* config.ffx: runtime configuration of compression programs.
+DONE.	* config.ffx: runtime configuration of compression programs.
 
-X	* ftnroute:do_move(): set file mtime after renaming.
+DONE.	* ftnroute:do_move(): set file mtime after renaming.
 
 DONE.	* dir.c: function dir_openic(), ignoring case when matching
 	  files.

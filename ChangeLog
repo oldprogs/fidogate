@@ -2,6 +2,21 @@ Mon Apr 22 15:02:58 1996  Martin Junius  <mj@fido.de>
 
 	* ----- CVS commit ---------------------------------------------------
 
+	* src/toss/ftnroute.c (do_move): set access and modification times
+	  of the new file to the current time using utime().
+
+	* src/ffx/ffxbatch.c (ARC_*, DATA_FLAV): #define to variables read
+	  from config options "FFXBatchArc", "FFXBatchArcV",
+	  "FFXBatchArcExt", "FFXBatchArcCmd", "FFXDataFlav".
+	  (main): get all these options from config.ffx.
+
+	* src/ffx/ffx.c (DATA_*): #define to variables read from config
+	  options "FFXDataCompr", "FFXDataExt", "FFXDataDecompr",
+	  "FFXDataComprN", "FFXDataExtN", "FFXDataDecomprN", "FFXDataFlav".
+	  (main): get all these options from config.ffx.
+
+	* ----- CVS commit ---------------------------------------------------
+
 	* test/Makefile (check, clean): for loop over all tc.* directories.
 
 	* Makefile: use GNU make -C for chdir, exit 1 if subdir make fails.

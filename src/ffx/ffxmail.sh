@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# $Id: ffxmail.sh,v 4.0 1996/04/17 18:17:40 mj Exp $
+# $Id: ffxmail.sh,v 4.1 1996/04/22 20:02:04 mj Exp $
 #
 # Frontend for delivering mail via ffx/ffxqt
 #
@@ -35,7 +35,7 @@ case $node in
 		faddr="242:4900/99"
 		;;
 
-##### Insert other nodes her ... #####
+##### Insert other nodes here ... #####
 #	xyz)
 #		batch="..."
 #		faddr="..."

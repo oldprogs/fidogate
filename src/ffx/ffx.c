@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ffx.c,v 4.0 1996/04/17 18:17:40 mj Exp $
+ * $Id: ffx.c,v 4.1 1996/04/22 20:02:04 mj Exp $
  *
  * ffx FIDO-FIDO execution
  *
@@ -38,25 +38,32 @@
 
 
 #define PROGRAM		"ffx"
-#define VERSION		"$Revision: 4.0 $"
+#define VERSION		"$Revision: 4.1 $"
 #define CONFIG		CONFIG_FFX
 
 
 
 /*
- * Default compression
+ * Config parameters
  */
-/*#define DATA_COMPR	"/usr/local/bin/gzip -c9"*/
-#define DATA_COMPR	"/bin/gzip -c9"
-#define DATA_EXT	".gz"
-#define DATA_DECOMPR	"gunzip"
+/* Compressed */
+static char *data_compr,   *data_ext,   *data_decompr;
+/* Uncompressed */
+static char *data_compr_n, *data_ext_n, *data_decompr_n;
+/* Outbound flavor */
+static char *data_flav;
 
-/*#define DATA_NOCOMPR	"/usr/bin/cat"*/
-#define DATA_NOCOMPR	"/bin/cat"
-#define DATA_NOEXT	""
-#define DATA_NODECOMPR	""
 
-#define DATA_FLAV	"Hold"
+#define DATA_COMPR	data_compr
+#define DATA_EXT	data_ext
+#define DATA_DECOMPR	data_decompr
+
+#define DATA_NOCOMPR	data_compr_n
+#define DATA_NOEXT	data_ext_n
+#define DATA_NODECOMPR	data_decompr_n
+
+#define DATA_FLAV	data_flav
+
 
 
 /*
@@ -305,9 +312,10 @@ options:  -b --batch-dir DIR           operate in batch mode, using DIR\n\
 int main(int argc, char **argv)
 {
     int c, ret;
+    char *p;
     char *b_flag=NULL, *B_flag=NULL;
     int   n_flag=FALSE;
-    char *F_flag=DATA_FLAV;
+    char *F_flag=NULL;
     int   g_flag=0;
     char *c_flag=NULL;
     char *S_flag=NULL, *L_flag=NULL;
@@ -414,6 +422,79 @@ int main(int argc, char **argv)
 
     cf_debug();
 
+    /*
+     * Process additional config statements
+     */
+    if((p = cf_get_string("FFXDataCompr", TRUE)))
+    {
+	debug(8, "config: FFXDataCompr %s", p);
+	data_compr = p;
+    }
+    else
+    {
+	log("ERROR: %s: FFXDataCompr definition missing", CONFIG);
+	exit(EXIT_ERROR);
+    }
+    if((p = cf_get_string("FFXDataExt", TRUE)))
+    {
+	debug(8, "config: FFXDataExt %s", p);
+	data_ext = p;
+    }
+    else
+    {
+	log("ERROR: %s: FFXDataExt definition missing", CONFIG);
+	exit(EXIT_ERROR);
+    }
+    if((p = cf_get_string("FFXDataDecompr", TRUE)))
+    {
+	debug(8, "config: FFXDataDecompr %s", p);
+	data_decompr = p;
+    }
+    else
+    {
+	log("ERROR: %s: FFXDataDecompr definition missing", CONFIG);
+	exit(EXIT_ERROR);
+    }
+    if((p = cf_get_string("FFXDataComprN", TRUE)))
+    {
+	debug(8, "config: FFXDataComprN %s", p);
+	data_compr_n = p;
+    }
+    else
+    {
+	log("ERROR: %s: FFXDataComprN definition missing", CONFIG);
+	exit(EXIT_ERROR);
+    }
+    if((p = cf_get_string("FFXDataExtN", TRUE)))
+    {
+	debug(8, "config: FFXDataExtN %s", p);
+	data_ext_n = p;
+    }
+    else
+    {
+	log("ERROR: %s: FFXDataExtN definition missing", CONFIG);
+	exit(EXIT_ERROR);
+    }
+    if((p = cf_get_string("FFXDataDecomprN", TRUE)))
+    {
+	debug(8, "config: FFXDataDecomprN %s", p);
+	data_decompr_n = p;
+    }
+    else
+    {
+	log("ERROR: %s: FFXDataDecomprN definition missing", CONFIG);
+	exit(EXIT_ERROR);
+    }
+    if((p = cf_get_string("FFXDataFlav", TRUE)))
+    {
+	debug(8, "config: FFXDataFlav %s", p);
+	data_flav = p;
+    }
+    else
+    {
+	log("ERROR: %s: FFXDataFlav definition missing", CONFIG);
+	exit(EXIT_ERROR);
+    }
 
     /*
      * Node address from command line
@@ -450,7 +531,8 @@ int main(int argc, char **argv)
 	      n_flag ? DATA_NOCOMPR   : DATA_COMPR  ,
 	      n_flag ? DATA_NOEXT     : DATA_EXT    ,
 	      n_flag ? DATA_NODECOMPR : DATA_DECOMPR,
-	      F_flag, g_flag, b_flag                 );
+	      F_flag ? F_flag         : DATA_FLAV   ,
+	      g_flag, b_flag                         );
 
     if(b_flag)
 	bink_bsy_delete(&node);
