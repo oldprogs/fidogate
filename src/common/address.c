@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway software UNIX <-> FIDO
  *
- * $Id: address.c,v 4.1 1996/04/22 14:31:10 mj Exp $
+ * $Id: address.c,v 4.2 1996/06/16 14:22:39 mj Exp $
  *
  * Parsing and conversion for FIDO and RFC addresses
  *
@@ -48,11 +48,6 @@ static int try_pfnz		(Node *, char *, char *, char *);
  */
 static int hosts_restricted = FALSE;
 
-/*
- * -i flag: don't bounce mails to unknown FTN addresses (not in HOSTS)
- */
-static int i_flag = FALSE;
-
 
 
 /*
@@ -76,198 +71,6 @@ int addr_is_restricted(void)
 }
 
 
-/*
- * Set HostsRestricted ignore flag (option -i)
- */
-void addr_ignore(int f)
-{
-    i_flag = f;
-}
-
-
-
-/*
- * MAUS address stuff
- */
-static char *maus_domain = NULL;
-static Node  maus_gate   = { -1, -1, -1, -1, "" };
-
-/*
- * Set
- */
-void addr_set_mausdomain(char *s)
-{
-    maus_domain = s;
-}
-
-void addr_set_mausgate(char *s)
-{
-    Node node;
-    
-    if(asc_to_node(s, &node, FALSE) == ERROR)
-	log("illegal MAUSGate node address %s", s);
-    else
-	maus_gate = node;
-}
-
-
-
-/*
- * int parse_address()	---  parse fidonet address to name, net/node
- *
- * Parameters:	char *address	--- address string
- *		char *name	--- pointer to return name
- *		Node *node	--- pointer to return node address
- *
- * Return:	0 = o.k., -1 = error
- */
-
-static int is_fido_flag;
-
-int parse_address(char *address, char *name, Node *node)
-{
-    RFCAddr rfc;
-    char *p;
-    int len, ret;
-    Node *n;
-    Host *h;
-    int in_domain;
-    
-    is_fido_flag = FALSE;
-
-    rfc       = rfcaddr_from_rfc(address);
-    in_domain = addr_is_domain(address);
-    
-    debug(3, "Name    %s", rfc.user);
-    debug(3, "Address %s %s", rfc.addr, in_domain ? "(local domain)" : "");
-
-    /*
-     * Remove quotes "..." and copy to name[] arg
-     */
-    p = rfc.user;
-    if(*p == '\"')			/* " makes C-mode happy */
-    {
-	p++;
-	len = strlen(p);
-	if(p[len-1] == '\"')		/* " makes C-mode happy */
-	    p[len-1] = 0;
-    }
-    strncpy0(name, p, MSG_MAXNAME);
-
-    /*
-     * Special handling for addresses `*.maus.de'. These adresses are
-     * converted to the form suitable for the FIDO<->MAUS gateway.
-     */
-    if(maus_domain)
-    {
-	int i, dlen, diff;
-
-	len  = strlen(rfc.addr);
-	dlen = strlen(maus_domain);
-	diff = len - dlen;
-	if(len > dlen                          &&
-	   !strcmp(rfc.addr+diff, maus_domain)   )  /* Got it! */
-	{
-	    debug(2, "MAUS address %s", rfc.addr);
-
-	    strncat0(name, "_%_", MSG_MAXNAME);
-	    for(i=strlen(name), p=rfc.addr;
-		i<MSG_MAXNAME-1 && *p && *p!='.';
-		i++, p++                          )
-		name[i] = toupper(*p);
-	    name[i] = 0;
-	    debug(3, "     converted to %s", name);
-
-	    *node = maus_gate;
-
-	    is_fido_flag = TRUE;
-	    return OK;
-	}
-    }
-
-
-    n = inet_to_ftn(rfc.addr);
-    if(!n)
-    {
-	/* Try as Z:N/F.P */
-	if(asc_to_node(rfc.addr, node, FALSE) == OK)
-	    n = node;
-    }
-    
-    if(n)
-    {
-	*node = *n;
-	is_fido_flag = TRUE;
-	ret = OK;
-	debug(3, "FTN Node %s", node_to_asc(node, TRUE));
-
-	/*
-	 * Look up in HOSTS
-	 */
-	if( (h = hosts_lookup(node, NULL)) )
-	{
-	    if(!in_domain && (h->flags & HOST_DOWN))
-	    {
-		/* Node is down, bounce mail */
-		sprintf(address_error,
-			"FTN address %s: currently down, unreachable",
-			node_to_asc(node, TRUE));
-		ret = ERROR;
-	    }
-	}
-	/*
-	 * Bounce mail to nodes not registered in HOSTS
-	 */
-	else if(addr_is_restricted() && !i_flag)
-	{
-	    if(!hosts_lookup(node, NULL))
-	    {
-		sprintf(address_error,
-			"FTN address %s: not registered for this domain",
-			node_to_asc(node, TRUE));
-		ret = ERROR;
-	    }
-	}
-
-	/*
-	 * Check for supported zones (zone statement in CONFIG)
-	 */
-	if(!cf_zones_check(node->zone))
-	{
-	    sprintf(address_error,
-		    "FTN address %s: zone %d not supported",
-		    node_to_asc(node, TRUE), node->zone);
-	    ret = ERROR;
-	}
-	
-    }
-    else if(cf_gateway().zone)
-    {
-	/*
-	 * If Gateway is set in config file, insert address of
-	 * FIDO<->Internet gateway for non-FIDO addresses
-	 */
-	*node = cf_gateway();
-	strcpy(name, "UUCP");
-	
-	ret = OK;
-    }
-    else
-	ret = ERROR;
-
-    return ret;
-}
-
-
-
-/***** isfido() --- Check for FIDO Internet address **************************/
-
-int isfido(void)
-{
-    return is_fido_flag;
-}
-
-
 
 /*
  * ftn_to_inet(): convert FTN address to Internet address
@@ -275,7 +78,6 @@ int isfido(void)
  * force_flag==TRUE: generate `pX.' point address even if `-p' is not
  *                   specified in HOSTS.
  */
-
 char *ftn_to_inet(Node *node, int force_flag)
 {
     Host *h;

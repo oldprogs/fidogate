@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: prototypes.h,v 4.8 1996/06/09 10:49:03 mj Exp $
+ * $Id: prototypes.h,v 4.9 1996/06/16 14:22:40 mj Exp $
  *
  * Prototypes for functions in libfidogate.a
  *
@@ -37,10 +37,6 @@ extern char address_error[];
 void	addr_restricted		(int);
 int	addr_is_restricted	(void);
 void	addr_ignore		(int);
-void	addr_set_mausdomain	(char *);
-void	addr_set_mausgate	(char *);
-int	parse_address		(char *, char *, Node *);
-int	isfido			(void);
 char   *ftn_to_inet		(Node *, int);
 Node   *inet_to_ftn		(char *);
 int	addr_is_local		(char *);
@@ -410,9 +406,6 @@ char   *rfcheader_get		(Textlist *, char *);
 char   *header_get		(char *);
 char   *header_getnext		(void);
 char   *header_getcomplete	(char *);
-char   *name_from_rfcaddr	(char *, char *);
-char   *addr_from_rfcaddr	(char *, char *);
-char   *username_from_rfcaddr	(char *, char *);
 char   *addr_token		(char *);
 
 /* routing.c */

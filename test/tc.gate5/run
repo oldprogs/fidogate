@@ -1,0 +1,17 @@
+#!/bin/sh
+
+../tr.init
+
+T="../../src/gate/rfc2ftn -L../cf -vvvvv"
+
+echo "tc: running"
+
+$T Martin_Junius@f110.n2452.z2.fidonet.org <body1
+$T Martin_Junius@f110.n2452.z2.fidonet.org <body2
+$T Martin_Junius@f110.n2452.z2.fidonet.org <body3
+$T Martin_Junius@f110.n2452.z2.fidonet.org <body4
+
+$T Martin_Junius@hippo.fido.de             <body1
+$T Martin_Junius@hippo.fido.de             <body2
+$T Martin_Junius@hippo.fido.de             <body3
+$T Martin_Junius@hippo.fido.de             <body4

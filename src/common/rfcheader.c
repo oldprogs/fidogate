@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: rfcheader.c,v 4.1 1996/04/26 08:41:40 mj Exp $
+ * $Id: rfcheader.c,v 4.2 1996/06/16 14:22:39 mj Exp $
  *
  * Functions to process RFC822 header lines from messages
  *
@@ -258,158 +258,8 @@ char *header_getcomplete(char *name)
 
 
 /*
- * name_from_rfcaddr() --- get full name from RFC822 address
- *
- * Supported formats:
- *     user@domain
- *     user@domain (Full Name)
- *     Full Name <user@domain>
- */
-
-char *name_from_rfcaddr(char *field, char *name)
-{
-    char *p, *q, *r, *s;
-    
-    if((p=strchr(field, '<')) && (r=strchr(p+1, '>')))
-    {
-	/*
-	 * Full name <user@domain>
-	 */
-	for(s=field; is_space(*s); s++) ;
-	if(!*s || *s=='<') 
-	{
-	    return NULL;
-	}
-	for(p=s; *p && *p!='<'; p++)
-	{
-	    if(is_space(*p))
-	    {
-		for(q=p; is_space(*q); q++) ;
-		if(!*q || *q == '<')
-		    break;
-	    }
-	}
-	if(s[0]	 == '\"')
-	    s++;
-	if(p[-1] == '\"')
-	    p--;
-	for(; *s && s<p; *name++ = *s++) ;
-	*name = 0;
-	return name;
-    }
-    
-    if((p=strchr(field, '(')) && (r=strrchr(p+1, ')')))
-    {
-	/*
-	 * user@domain (Full name)
-	 */
-	for(p++; *p && p<r; *name++ = *p++) ;
-	*name = 0;
-	return name;
-    }
-    
-    return NULL;
-}
-
-
-	   
-/*
- * addr_from_rfcaddr() --- get address from RFC822 address
- *
- * Supported formats:
- *     user@domain
- *     user@domain (Full Name)
- *     Full Name <user@domain>
- */
-
-char *addr_from_rfcaddr(char *field, char *addr)
-{
-    char *p, *q, *r, *s;
-    
-    if((p=strchr(field, '<')) && (r=strchr(p+1, '>')))
-    {
-	/*
-	 * Full name <user@domain>
-	 */
-	for(p++; *p && p<r; *addr++ = *p++) ;
-	*addr = 0;
-	return addr;
-    }
-    
-    if((p=strchr(field, '(')) && (r=strrchr(p+1, ')')))
-    {
-	/*
-	 * user@domain (Full name)
-	 */
-	for(s=field; is_space(*s); s++) ;
-	if(!*s || *s=='(') 
-	{
-	    return NULL;
-	}
-	for(p=s; *p && *p!='('; p++)
-	{
-	    if(is_space(*p))
-	    {
-		for(q=p; is_space(*q); q++) ;
-		if(!*q || *q == '(')
-		    break;
-	    }
-	}
-	if(s[0]	 == '\"')
-	    s++;
-	if(p[-1] == '\"')
-	    p--;
-	for(; *s && s<p; *addr++ = *s++) ;
-	*addr = 0;
-	return addr;
-    }
-    
-    for(s=field; is_space(*s); s++) ;
-    for(; *s; *addr++ = *s++) ;
-    *addr = 0;
-    return addr;
-}
-
-
-
-/*
- * username_from_rfcaddr() --- get user name from an RFC address
- */
-
-char *username_from_rfcaddr(char *field, char *name)
-{
-    char *p;
-
-    if((p = strrchr(field, '!')))
-    {
-	/*
-	 * Address contains bang, user name is string following last '!'
-	 * char to separator.
-	 */
-	p++;
-    }
-    else 
-    {
-	/*
-	 * No bang addressing, copy till end or '@' char
-	 */
-	p = field;
-	/* If address is <user@do.main> skip `<' */
-	if(*p == '<')
-	    p++;
-    }
-    
-    for(; *p && *p!='@' && !is_space(*p); *name++ = *p++) ;
-    *name = 0;
-    return name;
-}
-
-
-
-/*
  * addr_token() --- get addresses from string (',' separated)
  */
-
 char *addr_token(char *line)
 {
     static char *save_line = NULL;

@@ -2,6 +2,52 @@ Sun Jun 16 10:40:45 1996  Martin Junius  <mj@fido.de>
 
 	------- CVS commit ---------------------------------------------------
 
+	* src/include/patchlevel.h (ALPHA): set to 3.
+
+	* src/common/rfcheader.c (name_from_rfcaddr): removed.
+	  (addr_from_rfcaddr): removed.
+	  (username_from_rfcaddr): removed.
+
+	* src/gate/rfc2ftn.c (snd_mail): changed first argument to RFCAddr.
+	  (main): pass parsed address as RFCAddr to snd_mail().
+	  (sendmail_t): changed to use new snd_mail() with RFCAddr argument.
+
+	* src/common/address.c (parse_address): removed.
+	  (addr_ignore): removed.
+	  (i_flag): removed.
+
+	* src/gate/rfc2ftn.c (sendback): add @ FQDN of gateway to error
+	  message.
+	  (rfc_sender): new function getting sender RFCAddr from
+	  From/Reply-To header or uid/passwd.
+	  (snd_mail): use new rfc_sender(), rfc_parse(), rfc_isfido().
+	  (mail_sender): removed, replaced by rfc_sender().
+	  (rfc_is_domain): new function, same as
+	  address.c:addr_is_domain() with RFCAddr argument.
+	  (rfc_parse): new function, same as address.c:parse_address()
+	  with RFCAddr argument.
+	  (rfc_isfido): new function returning rfc_isfido_flag.
+	  (snd_mail): removed from argument.
+	  (sendmail_t): removed from argument, passing from to snd_mail().
+	  (main): removed setting from, passing from to snd_mail(),
+	  sendmail_t().
+	  (rfc_is_local): new function, same as address.c:addr_is_local().
+	  (rfcaddr_init): new function initializing RFCAddr.
+	  (snd_message): char *from, *to arguments replaced with RFCAddr
+	  rfc_from, rfc_to.
+	  (snd_message): removed #if 0 stuff (output of " * Xxxx: ...").
+	  (mail_address): removed.
+	  (mail_receiver): char *address argument changed to RFCAddr *rfc,
+	  use rfc_parse(), rfcaddr_from_rfc() functions.
+	  (rfc_parse): rfc argument changed to pointer.
+	  (rfc_is_local): same.
+	  (rfc_is_domain): same.
+	  (mail_sender): new function to get mail sender name and node.
+	  (snd_mail): use mail_sender().
+	  (addr_set_mausdomain/gate): moved from address.c
+
+	------- CVS commit ---------------------------------------------------
+
 Sat Jun 15 20:35:35 1996  Martin Junius  <mj@fido.de>
 
 	* src/toss/ftnroute.c (main): removed break in packet processing

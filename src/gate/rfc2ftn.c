@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway software UNIX <-> FIDO
  *
- * $Id: rfc2ftn.c,v 4.4 1996/05/03 19:18:44 mj Exp $
+ * $Id: rfc2ftn.c,v 4.5 1996/06/16 14:22:39 mj Exp $
  *
  * Read mail or news from standard input and convert it to a FIDO packet.
  *
@@ -39,7 +39,7 @@
 
 
 #define PROGRAM 	"rfc2ftn"
-#define VERSION 	"$Revision: 4.4 $"
+#define VERSION 	"$Revision: 4.5 $"
 #define CONFIG		CONFIG_GATE
 
 
@@ -60,23 +60,22 @@ MIMEInfo;
 /*
  * Prototypes
  */
+void	addr_set_mausdomain	(char *);
+void	addr_set_mausgate	(char *);
 char   *get_name_from_body	(void);
 MIMEInfo *get_mime		(void);
 void	sendback		(const char *, ...);
-char   *mail_sender		(Node *);
-char   *mail_address		(void);
 char   *receiver		(char *, Node *);
-char   *mail_receiver		(char *, Node *);
+char   *mail_receiver		(RFCAddr *, Node *);
 time_t	mail_date		(void);
-char   *estrtok			(char *, char *);
-int	snd_mail		(char *, char *, long);
-int	snd_message		(Message *, Area *, char *, char *, char *,
+int	snd_mail		(RFCAddr, long);
+int	snd_message		(Message *, Area *, RFCAddr, RFCAddr, char *,
 				 long, char *, int, MIMEInfo *);
 int	print_tear_line		(FILE *);
 int	print_origin		(FILE *, char *);
 int	print_local_msgid	(FILE *);
 int	print_via		(FILE *);
-int	sendmail_t		(char *, long);
+int	sendmail_t		(long);
 void	short_usage		(void);
 void	usage			(void);
 
@@ -85,6 +84,7 @@ void	usage			(void);
 static char *o_flag = NULL;		/* -o --out-packet-file option */
 static char *w_flag = NULL;		/* -w --write-outbound  option */
 static int   W_flag = FALSE;		/* -W --write-crash     option */
+static int   i_flag = FALSE;		/* -i --ignore-hosts    option */
 
 static int default_rfc_level = 0;	/* Default ^ARFC level for areas */
 
@@ -107,6 +107,32 @@ int newsmode = FALSE;
  * Global Textlist to save message body
  */
 Textlist body = { NULL, NULL };
+
+
+
+/*
+ * MAUS address stuff
+ */
+static char *maus_domain = NULL;
+static Node  maus_gate   = { -1, -1, -1, -1, "" };
+
+/*
+ * Set
+ */
+void addr_set_mausdomain(char *s)
+{
+    maus_domain = s;
+}
+
+void addr_set_mausgate(char *s)
+{
+    Node node;
+    
+    if(asc_to_node(s, &node, FALSE) == ERROR)
+	log("illegal MAUSGate node address %s", s);
+    else
+	maus_gate = node;
+}
 
 
 
@@ -229,8 +255,8 @@ void sendback(const char *fmt, ...)
     
     va_start(args, fmt);
 
-    fprintf(stderr, "Internet -> FIDO gateway / FIDOGATE %s\n",
-	    version_global()                                   );
+    fprintf(stderr, "Internet -> FIDO gateway / FIDOGATE %s @ %s\n",
+	    version_global(), cf_fqdn()                              );
     fprintf(stderr, "   ----- ERROR -----\n");
     vfprintf(stderr, fmt, args);
     fprintf(stderr, "\n");
@@ -239,142 +265,282 @@ void sendback(const char *fmt, ...)
 
 
 /*
- * Return sender's full name. This is taken from
- *   - Reply-To header
- *   - From header
- *   - user id and password file
- *   - environment LOGNAME or USER
+ * Initialize RFCAddr
  */
-
-char *mail_sender(Node *node)
+void rfcaddr_init(RFCAddr *rfc)
 {
-    struct passwd *pwd;
-    static char buffer[BUFSIZ];
-#ifdef PASSTHRU_NETMAIL
-    static char name[MSG_MAXNAME];
-    Node n;
-#endif /**PASSTHRU_NETMAIL**/
-    char *from;
-    char *p;
-    
-    /*
-     * Default sender node is gateway address
-     */
-    *node = cf_n_addr();
-    
-    /*
-     * Look up name in Reply-To or From header of message
-     */
-    if((from = header_getcomplete("Reply-To")) == NULL)
-	from = header_getcomplete("From");
-
-    if(from)
-    {
-	/*
-	 * Found Reply-To or From header
-	 */
-	debug(5, "RFC From: %s", from);
-
-#ifdef PASSTHRU_NETMAIL
-	/*
-	 * If the from address is an FTN address, convert and pass it via
-	 * parameter node. This may cause problems when operating different
-	 * FTNs.
-	 */
-	if(addr_from_rfcaddr(from, buffer))
-	    if(parse_address(buffer, name, &n)!=ERROR && isfido())
-	    {
-		*node = n;
-		debug(5, "    is FTN address %s", node_to_asc(node, TRUE));
-	    }
-#endif /**PASSTHRU_NETMAIL**/
-
-	if(!name_from_rfcaddr(from, buffer))
-	    username_from_rfcaddr(from, buffer);
-	debug(5, "RFC Full name: %s", buffer);
-	return buffer;
-    }
-
-    /*
-     * Try user id and passwort file entry
-     */
-    if((pwd = getpwuid(getuid())))
-    {
-	strcpy(buffer, pwd->pw_gecos);
-	if((p = strchr(buffer, ',')))
-	    /*
-	     * Kill stuff after ','
-	     */
-	    *p = 0;
-	if(!*buffer)
-	    /*
-	     * Empty, use user name
-	     */
-	    strcpy(buffer, pwd->pw_name);
-	debug(5, "passwd Full name: %s", buffer);
-	return buffer;
-    }
-
-    /*
-     * Use user name from environment as a last resort
-     */
-    if((p = getenv("LOGNAME")))
-    {
-	strcpy(buffer, p);
-	debug(5, "Env LOGNAME Full name: %s", buffer);
-	return buffer;
-    }
-    if((p = getenv("USER")))
-    {
-	strcpy(buffer, p);
-	debug(5, "Env USER Full name: %s", buffer);
-	return buffer;
-    }
-
-    debug(5, "No name for sender found");
-    strcpy(buffer, "Unknown User");
-    return buffer;
+    rfc->user[0] = 0;
+    rfc->addr[0] = 0;
+    rfc->real[0] = 0;
+    rfc->flags   = 0;
 }
 
 
 
 /*
- * Return sender's mail address. This is taken from
- *   - Reply-To header
- *   - From header
- *   - user id and password file
- *   - environment LOGNAME or USER
+ * Return message sender as RFCAddr struct
  */
-
-char *mail_address(void)
+RFCAddr rfc_sender(void)
 {
+    RFCAddr rfc, rfc1;
+    char *from, *reply_to, *p;
     struct passwd *pwd;
-    char *p;
+
+    from     = header_getcomplete("From");
+    reply_to = header_getcomplete("Reply-To");
+
+    rfcaddr_init(&rfc);
+    rfcaddr_init(&rfc1);
     
     /*
-     * Look up name in Reply-To or From header of message
+     * Use From or Reply-To header
      */
-    if((p = header_getcomplete("Reply-To")) == NULL)
-	p = header_getcomplete("From");
+    if(from || reply_to)
+    {
+	if(from)
+	{
+	    debug(5, "RFC From:     %s", from);
+	    rfc = rfcaddr_from_rfc(from);
+	}
+	if(reply_to)
+	{
+	    debug(5, "RFC Reply-To: %s", reply_to);
+	    rfc1 = rfcaddr_from_rfc(reply_to);
+	    /* No From, use Reply-To */
+	    if(!from)
+		rfc = rfc1;
+	    /* If Reply-To contains only an address which is the same as
+	     * the one in From, don't replace From RFCAddr */
+	    else if( ! ( rfc1.real[0]==0               &&
+			 !stricmp(rfc.user, rfc1.user) &&
+			 !stricmp(rfc.addr, rfc1.addr)    ) )
+		rfc = rfc1;
+	}
+    }
+    /*
+     * Use user id and passwd entry
+     */
+    else if((pwd = getpwuid(getuid())))
+    {
+	BUF_COPY(rfc.real, pwd->pw_gecos);
+	if( (p = strchr(rfc.real, ',')) )
+	    /* Kill stuff after ',' */
+	    *p = 0;
+	if(!rfc.real[0])
+	    /* Empty, use user name */
+	    BUF_COPY(rfc. real, pwd->pw_name);
+	BUF_COPY(rfc.user, pwd->pw_name);
+	BUF_COPY(rfc.addr, cf_fqdn());
+    }
+    /*
+     * No sender ?!?
+     */
+    else 
+    {
+	BUF_COPY(rfc.user, "nobody");
+	BUF_COPY(rfc.real, "Unknown User");
+	BUF_COPY(rfc.addr, cf_fqdn());
+    }
 
-    if(p)
-	return buf_copy(p);
+    debug(5, "RFC Sender:   %s", rfcaddr_to_asc(&rfc, TRUE));
+    return rfc;
+}
+
+
+
+/*
+ * Check for local RFC address, i.e. "user@HOSTNAME.DOMAIN (Full Name)"
+ * or "user (Full Name)"
+ */
+int rfc_is_local(RFCAddr *rfc)
+{
+    return  rfc->addr[0] == '\0'  ||  stricmp(rfc->addr, cf_fqdn()) == 0;
+}
+
+
+
+/*
+ * Check for address in local domain, i.e. "user@*DOMAIN (Full Name)"
+ * or "user (Full Name)"
+ */
+int rfc_is_domain(RFCAddr *rfc)
+{
+    char *d;
+    int l, ld;
+    
+    if(rfc->addr[0] == '\0')
+	return TRUE;
+    
+    d  = cf_domainname();
+    ld = strlen(d);
+    l  = strlen(rfc->addr);
+
+    if(ld > l)
+	return FALSE;
+    
+    /* user@DOMAIN */
+    if(*d == '.' && stricmp(rfc->addr, d) == 0)
+	return TRUE;
+    /* user@*.DOMAIN */
+    return stricmp(rfc->addr + l - ld, d) == 0;
+}
+
+
+
+/*
+ * Parse RFCAddr as FTN address, return name and node
+ */
+static int rfc_isfido_flag = FALSE;
+
+int rfc_parse(RFCAddr *rfc, char *name, Node *node)
+{
+    char *p;
+    int len, ret;
+    Node nn;
+    Node *n;
+    Host *h;
+    int in_domain;
+    
+    rfc_isfido_flag = FALSE;
+
+    in_domain = rfc_is_domain(rfc);
+    
+    debug(3, "Name    %s", rfc->user);
+    debug(3, "Address %s %s", rfc->addr, in_domain ? "(local domain)" : "");
 
     /*
-     * Try user id and passwort file entry
+     * Remove quotes "..." and copy to name[] arg
      */
-    if((pwd = getpwuid(getuid())))
-	return buf_sprintf("%s@%s", pwd->pw_name, cf_fqdn() );
+    if(name)
+    {
+	if(rfc->real[0])
+	    p = rfc->real;
+	else
+	    p = rfc->user;
+	if(*p == '\"')			/* " makes C-mode happy */
+	{
+	    p++;
+	    len = strlen(p);
+	    if(p[len-1] == '\"')	/* " makes C-mode happy */
+	    p[len-1] = 0;
+	}
+	str_copy(name, MSG_MAXNAME, p);
+    }
 
     /*
-     * Use user name from environment as a last resort
+     * Special handling for addresses `*.maus.de'. These adresses are
+     * converted to the form suitable for the FIDO<->MAUS gateway.
      */
-    if((p = getenv("LOGNAME")))
-	return buf_sprintf("%s@%s", p, cf_fqdn() );
-    if((p = getenv("USER")))
-	return buf_sprintf("%s@%s", p, cf_fqdn() );
+    if(maus_domain)
+    {
+	int i, dlen, diff;
 
-    return NULL;
+	len  = strlen(rfc->addr);
+	dlen = strlen(maus_domain);
+	diff = len - dlen;
+	if(len > dlen                          &&
+	   !strcmp(rfc->addr+diff, maus_domain)   )  /* Got it! */
+	{
+	    debug(2, "MAUS address %s", rfc->addr);
+
+	    if(name)
+	    {
+		str_append(name, MSG_MAXNAME, "_%_");
+		for(i=strlen(name), p=rfc->addr;
+		    i<MSG_MAXNAME-1 && *p && *p!='.';
+		    i++, p++                          )
+		    name[i] = toupper(*p);
+		name[i] = 0;
+		debug(3, "     converted to %s", name);
+	    }
+	    if(node)
+		*node = maus_gate;
+
+	    rfc_isfido_flag = TRUE;
+	    return OK;
+	}
+    }
+    
+    n = inet_to_ftn(rfc->addr);
+    if(!n)
+    {
+	/* Try as Z:N/F.P */
+	if(asc_to_node(rfc->addr, &nn, FALSE) == OK)
+	    n = &nn;
+    }
+    
+    if(n)
+    {
+	if(node)
+	    *node = *n;
+	rfc_isfido_flag = TRUE;
+	ret = OK;
+	debug(3, "FTN Node %s", node_to_asc(node, TRUE));
+
+	/*
+	 * Look up in HOSTS
+	 */
+	if( (h = hosts_lookup(node, NULL)) )
+	{
+	    if(!in_domain && (h->flags & HOST_DOWN))
+	    {
+		/* Node is down, bounce mail */
+		sprintf(address_error,
+			"FTN address %s: currently down, unreachable",
+			node_to_asc(node, TRUE));
+		ret = ERROR;
+	    }
+	}
+
+	/*
+	 * Bounce mail to nodes not registered in HOSTS
+	 */
+	else if(addr_is_restricted() && !i_flag)
+	{
+	    if(!hosts_lookup(node, NULL))
+	    {
+		sprintf(address_error,
+			"FTN address %s: not registered for this domain",
+			node_to_asc(node, TRUE));
+		ret = ERROR;
+	    }
+	}
+
+	/*
+	 * Check for supported zones (zone statement in CONFIG)
+	 */
+	if(!cf_zones_check(node->zone))
+	{
+	    sprintf(address_error,
+		    "FTN address %s: zone %d not supported",
+		    node_to_asc(node, TRUE), node->zone);
+	    ret = ERROR;
+	}
+	
+    }
+    else if(cf_gateway().zone)
+    {
+	/*
+	 * If Gateway is set in config file, insert address of
+	 * FIDO<->Internet gateway for non-FIDO addresses
+	 */
+	if(node)
+	    *node = cf_gateway();
+	if(name)
+	    strcpy(name, "UUCP");
+	
+	ret = OK;
+    }
+    else
+	ret = ERROR;
+
+    return ret;
+}
+
+
+int rfc_isfido(void)
+{
+    return rfc_isfido_flag;
 }
 
 
@@ -382,7 +548,6 @@ char *mail_address(void)
 /*
  * receiver() --- Check for aliases and beautify name
  */
-
 char *receiver(char *to, Node *node)
 {
     static char name[MSG_MAXNAME];
@@ -418,7 +583,7 @@ char *receiver(char *to, Node *node)
      * (User.Name@p.f.n.z.fidonet.org addressing style).
      */
     convert_flag = isupper(*to) ? -1 : 1;
-    us_flag      = strchr(to, '_') != NULL;
+    us_flag      = strchr(to, '_') || strchr(to, ' ') || strchr(to, '@');
     
     for(i=0; *to && i<35; i++, to++) {
 	c = *to;
@@ -464,23 +629,20 @@ char *receiver(char *to, Node *node)
 
 /*
  * Return from field for FIDO message.
- * Alias checking is done via receiver().
+ * Alias checking is done by function receiver().
  */
-
-char *mail_receiver(char *address, Node *node)
+char *mail_receiver(RFCAddr *rfc, Node *node)
 {
     char *to;
     char name[MSG_MAXNAME];
-    char realname[128];
-
-    realname[0] = 0;
-
-    if(address) {
+    RFCAddr h;
+    
+    if(rfc->user[0]) {
 	/*
 	 * Address is argument
 	 */
-	if(parse_address(address, name, node)) {
-	    log("BOUNCE: address <%s>", address);
+	if(rfc_parse(rfc, name, node)) {
+	    log("BOUNCE: address <%s>", rfcaddr_to_asc(rfc, TRUE));
 	    return NULL;
 	}
     }
@@ -489,7 +651,7 @@ char *mail_receiver(char *address, Node *node)
 	 * News/EchoMail: address is echo feed
 	 */
 	*node = cf_n_uplink();
-	strcpy(name, "All");
+	BUF_COPY(name, "All");
     
 	/*
 	 * User-defined header line X-Comment-To for gateway software
@@ -497,13 +659,19 @@ char *mail_receiver(char *address, Node *node)
 	 */
 	if( (to = header_get("X-Comment-To")) )
 	{
-	    if(name_from_rfcaddr(to, realname) && *name)
-		strncpy0(name, realname, sizeof(name));
+	    h = rfcaddr_from_rfc(to);
+	    if(h.real[0])
+		BUF_COPY(name, h.real);
+	    else if(h.user[0])
+		BUF_COPY(name, h.user);
 	}
 	else if( (to = get_name_from_body()) )
 	{
-	    if(name_from_rfcaddr(to, realname) && *name)
-		strncpy0(name, realname, sizeof(name));
+	    h = rfcaddr_from_rfc(to);
+	    if(h.real[0])
+		BUF_COPY(name, h.real);
+	    else if(h.user[0])
+		BUF_COPY(name, h.user);
 	}
     }
 
@@ -535,50 +703,86 @@ time_t mail_date(void)
 
 
 /*
+ * Mail sender name and node
+ */
+char *mail_sender(RFCAddr *rfc, Node *node)
+{
+    static char name[MSG_MAXNAME];
+    Node n;
+    int ok;
+    
+    *node = cf_n_addr();
+    ok = rfc_parse(rfc, name, &n)!=ERROR && rfc_isfido();
+    
+#ifdef PASSTHRU_NETMAIL
+    /*
+     * If the from address is an FTN address, convert and pass it via
+     * parameter node. This may cause problems when operating different
+     * FTNs.
+     */
+    if(ok)
+    {
+	*node = n;
+	debug(5, "              is FTN address %s", znfp(node));
+    }
+#endif /**PASSTHRU_NETMAIL**/
+
+    return name;
+}
+
+
+
+/*
  * Process mail/news message
  */
-int snd_mail(char *from, char *to, long int size)
-    /* from --- address from */
-    /* to   --- address to send to (news = NULL) */
+int snd_mail(RFCAddr rfc_to, long size)
 {
     char groups[BUFSIZ];
     Node node_from, node_to;
+    RFCAddr rfc_from;
     char *p, *subj;
     int status, fido;
     Message msg;
     char *flags = NULL;
     MIMEInfo *mime;
-    
+    int from_is_local;
     node_from.domain[0] = 0;
     node_to  .domain[0] = 0;
     
-    if(to)
-	debug(3, "RFC To: %s", to);
+    if(rfc_to.user[0])
+	debug(3, "RFC To: %s", rfcaddr_to_asc(&rfc_to, TRUE));
 
+    /*
+     * From RFCAddr
+     */
+    rfcaddr_init(&rfc_from);
+    rfc_from  	  = rfc_sender();
+    from_is_local = rfc_is_local(&rfc_from);
+    
     /*
      * To name/node
      */
-    p = mail_receiver(to, &node_to);
+    p = mail_receiver(&rfc_to, &node_to);
     if(!p) {
 	if(*address_error)
-	    sendback("Address %s:\n  %s", to, address_error);
+	    sendback("Address %s:\n  %s",
+		     rfcaddr_to_asc(&rfc_to, TRUE), address_error);
 	else
-	    sendback("Address %s:\n  address/host is unknown", to);
+	    sendback("Address %s:\n  address/host is unknown",
+		     rfcaddr_to_asc(&rfc_to, TRUE)               );
 	return(EX_NOHOST);
     }
     BUF_COPY(msg.name_to, p);
-    fido = isfido();
+    fido = rfc_isfido();
 
     cf_set_zone(node_to.zone);
 
     /*
      * From name/node
      */
-    p = mail_sender(&node_from);
-    if(!p)
-	p = "Gateway";
+    p = mail_sender(&rfc_from, &node_from);
     BUF_COPY(msg.name_from, p);
-
+	
     /*
      * Subject
      */
@@ -612,12 +816,13 @@ int snd_mail(char *from, char *to, long int size)
 	/*
 	 * Allow only true local users to use the X-Flags header
 	 */
-	if(addr_is_local(from) && header_hops() <= 1)
+	if(from_is_local && header_hops() <= 1)
 	    debug(5, "true local address - o.k.");
 	else
 	{
 	    if(flags)
-		log("non-local %s, X-Flags: %s", from, flags);
+		log("non-local %s, X-Flags: %s",
+		    rfcaddr_to_asc(&rfc_from, TRUE), flags);
 	    flags = p = NULL;
 	}
 	    
@@ -696,7 +901,7 @@ int snd_mail(char *from, char *to, long int size)
 		}
 		if( xpost_flag && (pa->flags & AREA_LOCALXPOST) )
 		{
-		    if(addr_is_local(from))
+		    if(from_is_local)
 		    {
 			debug(5, "Local Xposting - o.k.");
 		    }
@@ -716,7 +921,7 @@ int snd_mail(char *from, char *to, long int size)
 		msg.area      = pa->area;
 		msg.node_from = cf_n_addr();
 		msg.node_to   = cf_n_uplink();
-		status = snd_message(&msg, pa, from, NULL,
+		status = snd_message(&msg, pa, rfc_from, rfc_to,
 				     subj, size, flags, fido, mime);
 		if(status)
 		    return status;
@@ -727,11 +932,12 @@ int snd_mail(char *from, char *to, long int size)
 	/*
 	 * NetMail message
 	 */
-	log("%s -> %s", from, to);
+	log("MAIL: %s -> %s",
+	    rfcaddr_to_asc(&rfc_from, TRUE), rfcaddr_to_asc(&rfc_to, TRUE));
 	msg.area      = NULL;
 	msg.node_from = node_from;
 	msg.node_to   = node_to;
-	return snd_message(&msg, NULL, from, to,
+	return snd_message(&msg, NULL, rfc_from, rfc_to,
 			   subj, size, flags, fido, mime);
     }
     
@@ -740,16 +946,16 @@ int snd_mail(char *from, char *to, long int size)
 
 
 int snd_message(Message *msg, Area *parea,
-		char *from, char *to, char *subj,
+		RFCAddr rfc_from, RFCAddr rfc_to, char *subj,
 		long int size, char *flags, int fido, MIMEInfo *mime)
-    /* msg   --- FTN nessage structure */
-    /* parea --- area/newsgroup description structure */
-    /* from  --- Internet sender */
-    /* to    --- Internet recipient */
-    /* subj  --- Internet Subject line */
-    /* flags --- X-Flags header */
-    /* fido  --- TRUE: recipient is FTN address */
-    /* mime  --- MIME stuff */
+    /* msg   	--- FTN nessage structure */
+    /* parea 	--- area/newsgroup description structure */
+    /* rfc_from --- Internet sender */
+    /* rfc_to   --- Internet recipient */
+    /* subj  	--- Internet Subject line */
+    /* flags 	--- X-Flags header */
+    /* fido  	--- TRUE: recipient is FTN address */
+    /* mime  	--- MIME stuff */
 {
     static int last_zone = -1;		/* Zone address of last packet */
     static FILE *sf;			/* Packet file */
@@ -903,13 +1109,11 @@ int snd_message(Message *msg, Area *parea,
 	    /*
 	     * Generate FSC-0035 ^AREPLYADDR, ^AREPLYTO
 	     */
-	    if(from) 
-	    {
-		fprintf(sf, "\001REPLYADDR %s\r\n", from);
-		fprintf(sf, "\001REPLYTO %s %s\r\n",
-			node_to_asc(cf_addr(), FALSE),
-			msg->name_from);
-	    }
+	    fprintf(sf, "\001REPLYADDR %s\r\n",
+		    rfcaddr_to_asc(&rfc_from, TRUE));
+	    fprintf(sf, "\001REPLYTO %s %s\r\n",
+		    node_to_asc(cf_addr(), FALSE),
+		    msg->name_from);
 	}
 
     if(flags && strchr(flags, 'F'))
@@ -943,9 +1147,9 @@ int snd_message(Message *msg, Area *parea,
      * If Gateway is set in config file, add To line for addressing
      * FIDO<->Internet gateway
      */
-    if(cf_gateway().zone && to && !fido)
+    if(cf_gateway().zone && rfc_to.user[0] && !fido)
     {
-	fprintf(sf, "To: %s\r\n", to);
+	fprintf(sf, "To: %s\r\n", rfcaddr_to_asc(&rfc_to, TRUE));
 	add_empty = TRUE;
     }
 
@@ -956,71 +1160,9 @@ int snd_message(Message *msg, Area *parea,
 	    /*
 	     * Add From line with return address
 	     */
-	    if(from)
-	    {
-		fprintf(sf, "From: %s\r\n", from);
-		add_empty = TRUE;
-	    }
+	    fprintf(sf, "From: %s\r\n", rfcaddr_to_asc(&rfc_from, TRUE));
+	    add_empty = TRUE;
 	}
-
-#ifdef 0 /**Replaced with ^ARFC-Xxxx kludges**********************************/
-	/*
-	 * Add empty line before " * " info lines, because otherwise
-	 * Eugene Crosser's ifgate gets confused and treats them as
-	 * RFC continuation headers.
-	 */
-	if(add_empty)
-	    fprintf(sf, "\r\n");
-	add_empty = FALSE;
-
-	if(!split || part==1)		/* Info lines only in 1st part */
-	{
-	    /*
-	     * Add some header lines as info for user
-	     */
-	    if((header = header_get("From")))
-	    {
-		if(strcmp(from, header)) 
-		{
-		    /*
-		     * From header line is not equal to reply address, output
-		     * From and Reply-To header line.
-		     */
-		    fprintf(sf, " * From: %s\r\n", header);
-		    while((header = header_getnext()))
-			fprintf(sf, " *       %s\r\n", header);
-		    if((header = header_get("Reply-To")))
-		    {
-			fprintf(sf, " * Reply-To: %s\r\n", header);
-			while((header = header_getnext()))
-			    fprintf(sf, " *           %s\r\n", header);
-		    }
-		    add_empty = TRUE;
-		}		    
-	    }
-	    if((header = header_get("To")))
-	    {
-		fprintf(sf, " * To: %s\r\n", header);
-		while((header = header_getnext()))
-		    fprintf(sf, " *     %s\r\n", header);
-		add_empty = TRUE;
-	    }
-	    if((header = header_get("Cc")))
-	    {
-		fprintf(sf, " * Cc: %s\r\n", header);
-		while((header = header_getnext()))
-		    fprintf(sf, " *     %s\r\n", header);
-		add_empty = TRUE;
-	    }
-	    if((header = header_get("Newsgroups")))
-		if(strchr(header, ',') || !newsmode)
-		{
-		    /* Posted to multiple groups or mail */
-		    fprintf(sf, " * Newsgroups: %s\r\n", header);
-		    add_empty = TRUE;
-		}
-	}
-#endif /**********************************************************************/
     }
     if(add_empty)
 	fprintf(sf, "\r\n");
@@ -1054,7 +1196,7 @@ int snd_message(Message *msg, Area *parea,
     else
     {
 	/*
-	 * Add line indicating splitted message
+	 * Add line indicating split message
 	 */
 	if(split)
 	    fprintf(sf,
@@ -1219,38 +1361,44 @@ int print_via(FILE *fp)
 /*
  * Send mail to addresses taken from To, Cc, Bcc headers
  */
-int sendmail_t(char *from, long int size)
+int sendmail_t(long int size)
 {
-    char addr[MAXINETADDR];
     char *header, *p;
     int status=EX_OK, st;
+    RFCAddr rfc_to;
     
     /*
      * To:
      */
     for(header=header_get("To"); header; header=header_getnext())
 	for(p=addr_token(header); p; p=addr_token(NULL))
-	    if(addr_from_rfcaddr(p, addr))
-		if((st = snd_mail(from, addr, size)) != EX_OK)
-		    status = st;
+	{
+	    rfc_to = rfcaddr_from_rfc(p);
+	    if( (st = snd_mail(rfc_to, size)) != EX_OK )
+		status = st;
+	}
 
     /*
      * Cc:
      */
     for(header=header_get("Cc"); header; header=header_getnext())
 	for(p=addr_token(header); p; p=addr_token(NULL))
-	    if(addr_from_rfcaddr(p, addr))
-		if((st = snd_mail(from, addr, size)) != EX_OK)
-		    status = st;
+	{
+	    rfc_to = rfcaddr_from_rfc(p);
+	    if( (st = snd_mail(rfc_to, size)) != EX_OK )
+		status = st;
+	}
 
     /*
      * Bcc:
      */
     for(header=header_get("Bcc"); header; header=header_getnext())
 	for(p=addr_token(header); p; p=addr_token(NULL))
-	    if(addr_from_rfcaddr(p, addr))
-		if((st = snd_mail(from, addr, size)) != EX_OK)
-		    status = st;
+	{
+	    rfc_to = rfcaddr_from_rfc(p);
+	    if( (st = snd_mail(rfc_to, size)) != EX_OK )
+		status = st;
+	}
 
     return status;
 }
@@ -1300,10 +1448,11 @@ options: -b --news-batch              process news batch\n\
 /***** main ******************************************************************/
 int main(int argc, char **argv)
 {
-    int cnt, c;
+    RFCAddr rfc_to;
+    int i, c;
     int status=EX_OK, st;
     long size, nmsg;
-    char *from, *p;
+    char *p;
     int b_flag=FALSE, t_flag=FALSE;
     char *B_flag=NULL;
     char *O_flag=NULL;
@@ -1366,7 +1515,7 @@ int main(int argc, char **argv)
 	    break;
 	case 'i':
 	    /* Don't bounce unknown hosts */
-	    addr_ignore(TRUE);
+	    i_flag = TRUE;
 	    break;
 	case 'O':
 	    /* Set packet dir */
@@ -1555,29 +1704,32 @@ int main(int argc, char **argv)
 	}
 	debug(1, "Message body size %ld (+CR!)", size);
 
-	from = mail_address();		/* From address */
-
+	rfcaddr_init(&rfc_to);
+	
 	if(newsmode)
 	    /*
 	     * Send mail to echo feed for news messages
 	     */
-	    status = snd_mail(from, NULL, size);
+	    status = snd_mail(rfc_to, size);
 	else
 	    if(t_flag)
 	    {
 		/*
 		 * Send mail to addresses from headers
 		 */
-		status = sendmail_t(from, size);
+		status = sendmail_t(size);
 	    }
 	    else
 	    {
 		/*
 		 * Send mail to addresses from command line args
 		 */
-		for(cnt = optind; cnt < argc; cnt++)
-		    if( (st = snd_mail(from, argv[cnt], size)) != EX_OK )
+		for(i = optind; i < argc; i++)
+		{
+		    rfc_to = rfcaddr_from_rfc(argv[i]);
+		    if( (st = snd_mail(rfc_to, size)) != EX_OK )
 			status = st;
+		}
 	    }
 	
 	if(!b_flag)
