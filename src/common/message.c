@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: message.c,v 4.0 1996/04/17 18:17:40 mj Exp $
+ * $Id: message.c,v 4.1 1996/06/06 15:59:29 mj Exp $
  *
  * Reading and processing FTN text body
  *
@@ -37,13 +37,16 @@
 /*
  * Debug output of line
  */
-static void debug_line(FILE *out, char *line)
+static void debug_line(FILE *out, char *line, int crlf)
 {
     int c;
     
     while( (c = *line++) )
 	if( !(c & 0x60) )
-	    fprintf(out, "^%c", '@' + c);
+	{
+	    if(crlf || (c!='\r' && c!='\n'))
+		fprintf(out, "^%c", '@' + c);
+	}
 	else
 	    putc(c, out);
     putc('\n', out);
@@ -520,39 +523,39 @@ int msg_body_parse(Textlist *text, MsgBody *body)
 /*
  * Debug output of message body
  */
-void msg_body_debug(FILE *out, MsgBody *body)
+void msg_body_debug(FILE *out, MsgBody *body, int crlf)
 {
     Textline *p;
     
     fprintf(out, "----------------------------------------"
 	         "--------------------------------------\n");
     if(body->area)
-	debug_line(out, body->area);
+	debug_line(out, body->area, crlf);
     for(p=body->kludge.first; p; p=p->next)
-	debug_line(out, p->line);
+	debug_line(out, p->line, crlf);
     fprintf(out, "----------------------------------------"
 	            "--------------------------------------\n");
     if(body->rfc.first)
     {
 	for(p=body->rfc.first; p; p=p->next)
-	    debug_line(out, p->line);
+	    debug_line(out, p->line, crlf);
 	fprintf(out, "----------------------------------------"
 		     "--------------------------------------\n");
     }
     for(p=body->body.first; p; p=p->next)
-	debug_line(out, p->line);
+	debug_line(out, p->line, crlf);
     fprintf(out, "----------------------------------------"
 	         "--------------------------------------\n");
     if(body->tear)
-	debug_line(out, body->tear);
+	debug_line(out, body->tear, crlf);
     if(body->origin)
-	debug_line(out, body->origin);
+	debug_line(out, body->origin, crlf);
     for(p=body->seenby.first; p; p=p->next)
-	debug_line(out, p->line);
+	debug_line(out, p->line, crlf);
     for(p=body->path.first; p; p=p->next)
-	debug_line(out, p->line);
+	debug_line(out, p->line, crlf);
     for(p=body->via.first; p; p=p->next)
-	debug_line(out, p->line);
+	debug_line(out, p->line, crlf);
     fprintf(out, "========================================"
 	         "======================================\n");
 }

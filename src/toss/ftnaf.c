@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: ftnaf.c,v 4.3 1996/05/07 19:50:45 mj Exp $
+ * $Id: ftnaf.c,v 4.4 1996/06/06 15:59:31 mj Exp $
  *
  * Areafix-like AREAS.BBS EchoMail distribution manager. Commands somewhat
  * conforming to FSC-0057.
@@ -39,7 +39,7 @@
 
 
 #define PROGRAM		"ftnaf"
-#define VERSION		"$Revision: 4.3 $"
+#define VERSION		"$Revision: 4.4 $"
 #define CONFIG		CONFIG_MAIN
 
 
@@ -106,10 +106,11 @@ static char *x_flag = NULL;
 
 static int   areas_bbs_changed = FALSE;
 
-static int   authorized     = FALSE;
-static int   authorized_lvl = 1;
-static char *authorized_key = "";
-static char *authorized_name= "Sysop";
+static int   authorized     	= FALSE;
+static int   authorized_lvl 	= 1;
+static char *authorized_key 	= "";
+static char *authorized_name    = "Sysop";
+static int   authorized_cmdline = FALSE;
 
 static FILE *output = stdout;
 
@@ -763,37 +764,40 @@ int cmd_add(Node *node, char *area)
 	    match = TRUE;
 	    fprintf(output, "%-39s: ", p->area);
 
-	    /* Check permissions */
-	    if(p->lvl > authorized_lvl)
+	    if(!authorized_cmdline)	/* Command line may do everything */
 	    {
-		if(!iswc)
-		    fprintf(output, "access denied (level)\n");
-		continue;
-	    }
-	    if(p->key)
-	    {
-		key_ok = TRUE;
-		for(s=p->key; *s; s++)
-		    if(!strchr(authorized_key, *s))
-		    {
-			key_ok = FALSE;
-			break;
-		    }
-		if(!key_ok)
+		/* Check permissions */
+		if(p->lvl > authorized_lvl)
 		{
 		    if(!iswc)
-			fprintf(output, "access denied (key)\n");
+			fprintf(output, "access denied (level)\n");
 		    continue;
 		}
-	    }
+		if(p->key)
+		{
+		    key_ok = TRUE;
+		    for(s=p->key; *s; s++)
+			if(!strchr(authorized_key, *s))
+			{
+			    key_ok = FALSE;
+			    break;
+			}
+		    if(!key_ok)
+		    {
+			if(!iswc)
+			    fprintf(output, "access denied (key)\n");
+			continue;
+		    }
+		}
 
-	    /* Check zone */
-	    if(areafix && p->zone!=node->zone)
-	    {
-		if(!iswc)
-		    fprintf(output, "different zone (Z%d), not added\n",
-			    p->zone);
-		continue;
+		/* Check zone */
+		if(areafix && p->zone!=node->zone)
+		{
+		    if(!iswc)
+			fprintf(output, "different zone (Z%d), not added\n",
+				p->zone);
+		    continue;
+		}
 	    }
 	    
 	    if(lon_search(l, node))
@@ -1191,8 +1195,8 @@ int main(int argc, char **argv)
 	/*
 	 * Execute command, always authorized if command line
 	 */
-	authorized = TRUE;
-
+	authorized = authorized_cmdline = TRUE;
+	
 	if(areasbbs_init(areas_bbs) == ERROR)
 	    exit(EX_OSFILE);
 

@@ -1,6 +1,6 @@
 #!/usr/local/bin/perl
 #
-# $Id: out-freq.pl,v 4.0 1996/04/17 18:17:38 mj Exp $
+# $Id: out-freq.pl,v 4.1 1996/06/06 15:59:26 mj Exp $
 #
 # FRequest files
 #
@@ -75,7 +75,7 @@ sub node2file {
 
 # Main
 
-if($#ARGV < 2) {
+if($#ARGV < 1) {
     print STDERR "usage: out-freq [-vn] Z:N/F.P FILE ...\n";
     exit 1;
 }

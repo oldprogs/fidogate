@@ -1,3 +1,45 @@
+Thu Jun  6 15:13:16 1996  Martin Junius  <mj@fido.de>
+
+	------- CVS commit ---------------------------------------------------
+
+	* src/tick/ftntick.c (move): set atime/mtime of file copied to
+	  file area to time (Date field) from TIC file.
+
+	* src/common/lock.c (lock_program): use BUF_COPY5().
+	  (unlock_program): use BUF_COPY5().
+
+	* src/toss/ftnexpire.c (main): add log message if MSGID history
+	  database is busy.
+	  (main): new option -w, wait for MSGID history DB lock to
+	  released.
+
+	* src/toss/ftntoss.c (do_echomail): log complete MSGID for dupes.
+
+	* src/toss/ftnaf.c (main): set new flag authorized_cmdline=TRUE if
+	  areafix command is given on ftnaf command line.
+	  (cmd_add): if authorized_cmdline==TRUE, don't check for
+	  permissions and zone.
+
+	* src/util/pktdebug.c (main): make -t option incrementable. -tt
+	  passes TRUE to msg_body_debug() to display ^M, ^J for EOL.
+
+	* src/common/message.c (debug_line): new parameter crlf. Only
+	  output ^M and ^J if crlf==TRUE.
+	  (msg_body_debug): new parameter crlf, passed on to debug_line().
+
+	* src/common/Makefile (testmatch): added target for wildmat.c test
+	  program.
+
+	* src/common/wildmat.c (char_range): new static function for doing
+	  [a-z] range comparison, ignoring case if ic==TRUE.
+	  (wildmatch): use char_range() for matching [a-z] range. Fixes
+	  problem with ranges and ic==TRUE.
+
+Sat May 25 18:20:41 1996  Martin Junius  <mj@fido.de>
+
+	* src/common/areasbbs.c (areasbbs_print): if AREASBBS_PASSTHRU is
+	  set, write '#' back to areas.bbs file.
+
 Fri May 17 22:17:48 1996  Martin Junius  <mj@fido.de>
 
 	------- CVS tag r40alpha2a -------------------------------------------

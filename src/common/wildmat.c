@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: wildmat.c,v 4.0 1996/04/17 18:17:40 mj Exp $
+ * $Id: wildmat.c,v 4.1 1996/06/06 15:59:29 mj Exp $
  *
  * Wildcard matching
  *
@@ -84,16 +84,6 @@ were, I'd use the code I mentioned above.
 **  Written by Rich $alz, mirror!rs, Wed Nov 26 19:03:17 EST 1986.
 */
 
-/*
- * Modified 6Nov87 by John Gilmore (hoptoad!gnu) to return a "match"
- * if the pattern is immediately followed by a "/", as well as \0.
- * This matches what "tar" does for matching whole subdirectories.
- *
- * The "*" code could be sped up by only recursing one level instead
- * of two for each trial pattern, perhaps, and not recursing at all
- * if a literal match of the next 2 chars would fail.
- */
-
 /****************************************************************
  *
  *  Modified 5/5/91 by Kai Henningsen (kh@ms.maus.de)
@@ -113,10 +103,25 @@ static int char_eq(int c1, int c2, int ic)
 {
     if(ic)
     {
-	if(islower(c1))  c1 = toupper(c1);
-	if(islower(c2))  c2 = toupper(c2);
+	if(islower(c1)) c1 = toupper(c1);
+	if(islower(c2)) c2 = toupper(c2);
     }
     return c1 == c2;
+}
+
+
+/*
+ * Compare with range
+ */
+static int char_range(int c, int c1, int c2, int ic)
+{
+    if(ic)
+    {
+	if(islower(c))  c  = toupper(c);
+	if(islower(c1)) c1 = toupper(c1);
+	if(islower(c2)) c2 = toupper(c2);
+    }
+    return c>=c1 && c<=c2;
 }
 
 
@@ -177,8 +182,8 @@ TryAgain:
                 if ( ( reverse = (p[1] == '^') ) )
                     p++;
                 for (last = 0400, matched = FALSE; *++p && *p != ']'; last=*p)
-                    /* This next line requires a good C compiler. */
-                    if( *p=='-' ? *s<=*++p && *s>=last : char_eq(*s, *p, ic) )
+                    if( *p=='-' ? char_range(*s, last, *++p, ic)
+			        : char_eq(*s, *p, ic) )
                         matched = TRUE;
                 if (matched == reverse)
                     goto BackTrack;
@@ -186,25 +191,26 @@ TryAgain:
               }
         }
 
-    /* For "tar" use, matches that end at a slash also work. --hoptoad!gnu */
-    if (*s == '\0' /**|| *s == '/'**/) return(TRUE);
+    if (*s == '\0')
+	return TRUE ;
 
 BackTrack:
-  if (*saved_s == '\0' || *(s = ++saved_s) == '\0')
+    if (*saved_s == '\0' || *(s = ++saved_s) == '\0')
         return FALSE;
-  p = saved_p;
-  goto TryAgain;
+    p = saved_p;
+    goto TryAgain;
 }
 
 
 
+/*****************************************************************************/
 #ifdef  TEST
 #include <stdio.h>
 
 extern char     *gets();
 
 
-main(void)
+int main(void)
 {
     char pattern[80];
     char text[80];
@@ -226,5 +232,8 @@ main(void)
         }
     }
     exit(0);
+
+    /**NOT REACHED**/
+    return 0;
 }
 #endif  /* TEST */

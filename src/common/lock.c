@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: lock.c,v 4.1 1996/04/24 09:54:46 mj Exp $
+ * $Id: lock.c,v 4.2 1996/06/06 15:59:28 mj Exp $
  *
  * File locking
  *
@@ -172,12 +172,8 @@ int unlock_lockfile(char *name)
 int lock_program(char *name, int wait)
 {
     char buf[MAXPATH];
-    
-    strncpy0(buf, cf_spooldir(), sizeof(buf));
-    strncat0(buf, "/"          , sizeof(buf));
-    strncat0(buf, LOCKS        , sizeof(buf));
-    strncat0(buf, "/"          , sizeof(buf));
-    strncat0(buf, name         , sizeof(buf));
+
+    BUF_COPY5(buf, cf_spooldir(), "/", LOCKS, "/", name);
 
     return lock_lockfile(buf, wait);
 }
@@ -191,11 +187,7 @@ int unlock_program(char *name)
 {
     char buf[MAXPATH];
     
-    strncpy0(buf, cf_spooldir(), sizeof(buf));
-    strncat0(buf, "/"          , sizeof(buf));
-    strncat0(buf, LOCKS        , sizeof(buf));
-    strncat0(buf, "/"          , sizeof(buf));
-    strncat0(buf, name         , sizeof(buf));
+    BUF_COPY5(buf, cf_spooldir(), "/", LOCKS, "/", name);
 
     return unlock_lockfile(buf);
 }

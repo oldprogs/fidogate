@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: ftnexpire.c,v 4.3 1996/05/05 12:26:58 mj Exp $
+ * $Id: ftnexpire.c,v 4.4 1996/06/06 15:59:31 mj Exp $
  *
  * Expire MSGID history database
  *
@@ -36,7 +36,7 @@
 
 
 #define PROGRAM 	"ftnexpire"
-#define VERSION 	"$Revision: 4.3 $"
+#define VERSION 	"$Revision: 4.4 $"
 #define CONFIG		CONFIG_MAIN
 
 
@@ -278,6 +278,7 @@ void usage(void)
     fprintf(stderr, "usage:   %s [-options]\n\n", PROGRAM);
     fprintf(stderr, "\
 options: -m --maxhistory DAYS         set max number of days in history\n\
+         -w --wait                    wait for history DB lock to be release\n\
 \n\
          -v --verbose                 more verbose\n\
 	 -h --help                    this help\n\
@@ -297,6 +298,7 @@ int main(int argc, char **argv)
     int c, ret=EXIT_OK;
     char *p;
     char *m_flag=NULL;
+    int   w_flag=NOWAIT;
     char *c_flag=NULL;
     char *S_flag=NULL, *L_flag=NULL;
     
@@ -304,6 +306,7 @@ int main(int argc, char **argv)
     static struct option long_options[] =
     {
 	{ "maxhistory",   1, 0, 'm'},	/* MaxHistory */
+	{ "wait",         1, 0, 'w'},	/* Wait for history DB lock */
 
 	{ "verbose",      0, 0, 'v'},	/* More verbose */
 	{ "help",         0, 0, 'h'},	/* Help */
@@ -319,12 +322,15 @@ int main(int argc, char **argv)
     cf_initialize();
 
 
-    while ((c = getopt_long(argc, argv, "m:vhc:S:L:",
+    while ((c = getopt_long(argc, argv, "m:wvhc:S:L:",
 			    long_options, &option_index     )) != EOF)
 	switch (c) {
 	/***** ftnexpire options *****/
 	case 'm':
 	    m_flag = optarg;
+	    break;
+	case 'w':
+	    w_flag = WAIT;
 	    break;
 	    
 	/***** Common options *****/
@@ -383,9 +389,11 @@ int main(int argc, char **argv)
     /*
      * Run expire, locking MSGID history database
      */
-    if(lock_program(LOCK_HISTORY, FALSE) == ERROR)
-	/* Already busy */
+    if(lock_program(LOCK_HISTORY, w_flag) == ERROR)	/* Already busy */
+    {
+	log("MSGID history database is busy");
 	exit(EXIT_BUSY);
+    }
 
     if(do_expire() == ERROR)
 	ret = EXIT_ERROR;

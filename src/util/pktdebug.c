@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: pktdebug.c,v 4.0 1996/04/17 18:17:43 mj Exp $
+ * $Id: pktdebug.c,v 4.1 1996/06/06 15:59:33 mj Exp $
  *
  * Debug contents of FTN packet
  *
@@ -37,7 +37,7 @@
 
 
 #define PROGRAM		"pktdebug"
-#define VERSION		"$Revision: 4.0 $"
+#define VERSION		"$Revision: 4.1 $"
 
 
 
@@ -80,7 +80,7 @@ int main(int argc, char **argv)
     Textlist tl;
     int c, type;
     char *name;
-    int m_flag=FALSE, t_flag=FALSE;
+    int m_flag=FALSE, t_flag=0;
     MsgBody body;
     int err;
     
@@ -108,7 +108,7 @@ int main(int argc, char **argv)
 	    break;
 	case 't':
 	    m_flag = TRUE;
-	    t_flag = TRUE;
+	    t_flag++;
 	    break;
 	    
 	/***** Common options *****/
@@ -200,7 +200,7 @@ int main(int argc, char **argv)
 		    fprintf(stdout, "ERROR: %s: parsing message "
 			    "body failed (%d)\n", name, err);
 		if(t_flag)
-		    msg_body_debug(stdout, &body);
+		    msg_body_debug(stdout, &body, t_flag>1 ? TRUE : FALSE);
 	    }
 	}
 	while(0);

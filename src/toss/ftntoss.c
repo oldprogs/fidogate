@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftntoss.c,v 4.4 1996/04/24 12:15:30 mj Exp $
+ * $Id: ftntoss.c,v 4.5 1996/06/06 15:59:31 mj Exp $
  *
  * Toss FTN NetMail/EchoMail
  *
@@ -38,7 +38,7 @@
 
 
 #define PROGRAM 	"ftntoss"
-#define VERSION 	"$Revision: 4.4 $"
+#define VERSION 	"$Revision: 4.5 $"
 #define CONFIG		CONFIG_MAIN
 
 
@@ -647,8 +647,8 @@ int do_echomail(Packet *pkt, Message *msg, MsgBody *body)
 	if(hi_test(msgid))
 	{
 	    /* Dupe! */
-	    log("dupe area %s from %s", area->area,
-		node_to_asc(&msg->node_from, TRUE) );
+	    log("dupe area %s from %s: %s", area->area,
+		node_to_asc(&msg->node_from, TRUE), msgid);
 	    msgs_dupe++;
 	    if(!kill_dupe)
 		return do_bad_msg(msg, body);

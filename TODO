@@ -1,6 +1,22 @@
 -*- Indented-Text -*-
 
 X = for release 4.0alpha3
+
+DONE.	* ftnaf: command line mode must override level/key, right now
+	  level/key are checked but not set.
+
+DONE.	* ftnexpire: log busy, wait for lock file to be released
+
+DONE.   * ftntoss: log dupe MSGIDs
+
+DONE.   * ftntick: set file date after moving to file area
+
+DONE.	* pktdebug: option to disable ^M^J output
+
+DONE.	* wildmat.c:wildmatch():L181: fix case sensitivity for [a-z]
+	  ranges.
+
+	* ftnpack: remove 0-size arcmail from previous days.
 	
 X	* rfc2ftn: use rfcaddr.c functions for rfc2ftn mail_sender() etc. and
 	  to replace the RFC parsing functions in rfcheader.c

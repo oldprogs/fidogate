@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftntick.c,v 4.1 1996/05/08 18:50:05 mj Exp $
+ * $Id: ftntick.c,v 4.2 1996/06/06 15:59:30 mj Exp $
  *
  * Process incoming TIC files
  *
@@ -32,11 +32,12 @@
 
 #include "fidogate.h"
 #include "getopt.h"
+#include <utime.h>
 
 
 
 #define PROGRAM		"ftntick"
-#define VERSION		"$Revision: 4.1 $"
+#define VERSION		"$Revision: 4.2 $"
 #define CONFIG		CONFIG_MAIN
 
 
@@ -269,7 +270,8 @@ int move(Tick *tic, char *old, char *new)
     FILE *fold, *fnew;
     int nr, nw;
     unsigned long crc;
-
+    struct utimbuf ut;
+    
     /* Open */
     if( (fold = fopen(old, R_MODE)) == NULL)
     {
@@ -323,6 +325,14 @@ int move(Tick *tic, char *old, char *new)
     if(unlink(old) == ERROR)
     {
 	log("ERROR: can't remove %s", old);
+	return ERROR;
+    }
+
+    /* Set a/mtime to time from TIC */
+    ut.actime = ut.modtime = tic->date;
+    if(utime(new, &ut) == ERROR)
+    {
+	log("$ERROR: can't set time of %s", new);
 	return ERROR;
     }
 

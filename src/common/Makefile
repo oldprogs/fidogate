@@ -1,6 +1,6 @@
 #:ts=8
 #
-#    $Id: Makefile,v 4.1 1996/05/03 19:18:43 mj Exp $
+#    $Id: Makefile,v 4.2 1996/06/06 15:59:28 mj Exp $
 #
 #    Makefile for FIDOGATE src/common/
 #
@@ -50,12 +50,17 @@ clean:
 #
 # Test programs
 #
-check:		testparse
+check:		testparse testmatch
 
 testparse:	testparse.o
 	$(CC) $(LFLAGS) -o testparse testparse.o $(LIBS)
 testparse.o:	parsenode.c
 	$(CC) $(CFLAGS) $(LOCAL_CFLAGS) -DTEST -c parsenode.c -o testparse.o
+
+testmatch:	testmatch.o
+	$(CC) $(LFLAGS) -o testmatch testmatch.o $(LIBS)
+testmatch.o:	wildmat.c
+	$(CC) $(CFLAGS) $(LOCAL_CFLAGS) -DTEST -c wildmat.c -o testmatch.o
 
 
 #
