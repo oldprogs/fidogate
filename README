@@ -1,6 +1,6 @@
 -*- Indented-Text -*-
 
-$Id: README,v 4.18 1997/04/27 11:19:03 mj Exp $
+$Id: README,v 4.19 1997/06/22 10:25:11 mj Exp $
 
 ======================================================================
 				   
@@ -17,6 +17,10 @@ $Id: README,v 4.18 1997/04/27 11:19:03 mj Exp $
 		     ============================
 
 ======================================================================
+
+[See ANNOUNCE for more recent changes]
+
+
 
 Changes in 4.2.1:
 
@@ -184,7 +188,7 @@ Needed:
 * GNU CC or ANSI C compiler
 * GNU make
 * GNU flex/bison or lex/yacc
-* Perl 4.036+
+* Perl4 or Perl5
 
 Compiling:
 
@@ -251,6 +255,6 @@ but is no longer maintaining it.]
 
 ======================================================================
 
-$Date: 1997/04/27 11:19:03 $
+$Date: 1997/06/22 10:25:11 $
 Martin Junius
 mailto:mj@fido.de

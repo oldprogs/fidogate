@@ -1,3 +1,21 @@
+Sun Jun 22 12:13:12 1997  Martin Junius  <mj@fido.de>
+
+	======= Release 4.2.4 ================================================
+	------- CVS ci, tag R424 ---------------------------------------------
+
+	* ANNOUNCE: updated.
+
+	* README: updated.
+
+	* fidogate.lsm: updated.
+
+	* scripts/nodelist/template.html: sample template.html for nl-html.
+
+	* scripts/nodelist/html-tmpl.pl: perl support functions for nl-html.
+
+	* scripts/nodelist/nl-html.pl: totally new version of nodelist to
+	  HTML converter.
+
 Sat Jun 21 22:00:23 1997  Martin Junius  <mj@fido.de>
 
 	------- CVS ci -------------------------------------------------------

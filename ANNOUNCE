@@ -55,6 +55,8 @@ the FIDOGATE distribution config.h!
 * ftntick: fixed copy error if Replaces (old) file doesn't exist and
   TickReplacedDir is used.
 
+* nl-html: new nodelist to HTML converter.
+
 
 
 Changes in 4.2.3:
@@ -89,7 +91,7 @@ Needed:
 * GNU CC or ANSI C compiler
 * GNU make
 * GNU flex/bison or lex/yacc
-* Perl 4.036+
+* Perl4 or Perl5
 * GNU m4 for the sendmail m4 configuration
 
 ======================================================================
@@ -112,7 +114,7 @@ fgate-users-request@gondor.gun.de
 Begin3
 Title:          FIDOGATE
 Version:        4.2.4
-Entered-date:   11MAY97
+Entered-date:   22JUN97
 Description:    FIDOGATE Version 4:
                  * Fido-Internet Gateway
 		 * Fido FTN-FTN Gateway
@@ -134,6 +136,6 @@ End
 
 ======================================================================
 
-$Date: 1997/06/21 21:16:33 $
+$Date: 1997/06/22 10:25:09 $
 Martin Junius
 mailto:mj@fido.de
