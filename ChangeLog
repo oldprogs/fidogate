@@ -1,3 +1,12 @@
+2003-01-05  Martin Junius  <mj@m-j-s.net>
+
+	------- CVS ci -------------------------------------------------------
+
+	* test/tc.aliases/run: added more test aliases.
+
+	* src/gate/rfc2ftn.c (receiver): only return NULL for unknown
+	  aliases in !newsmode.
+
 2003-01-01  Martin Junius  <mj@m-j-s.net>
 
 	------- CVS ci -------------------------------------------------------

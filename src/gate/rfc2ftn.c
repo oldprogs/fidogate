@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway software UNIX <-> FIDO
  *
- * $Id: rfc2ftn.c,v 4.67 2003/01/01 15:30:38 n0ll Exp $
+ * $Id: rfc2ftn.c,v 4.68 2003/01/05 09:34:24 n0ll Exp $
  *
  * Read mail or news from standard input and convert it to a FIDO packet.
  *
@@ -39,7 +39,7 @@
 
 
 #define PROGRAM 	"rfc2ftn"
-#define VERSION 	"$Revision: 4.67 $"
+#define VERSION 	"$Revision: 4.68 $"
 #define CONFIG		DEFAULT_CONFIG_GATE
 
 
@@ -697,7 +697,7 @@ char *receiver(char *to, Node *node)
     }
 
     /* If RegisteredAliasesOnly is set, flag missing alias as error */
-    if(registered_aliases_only) 
+    if(!newsmode && registered_aliases_only) 
     {
 	debug(5, "No alias found: returning address error");
 	BUF_COPY(address_error, "recipient is unknown");

@@ -1,0 +1,12 @@
+#
+# $Id: config2,v 1.1 2003/01/05 09:34:24 n0ll Exp $
+#
+# Test config with RegisteredAliasesOnly
+#
+
+Aliases ./aliases
+
+
+include ../cf/fidogate.conf
+
+RegisteredAliasesOnly
