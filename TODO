@@ -2,6 +2,11 @@
 	************** TODO list for FIDOGATE development **************
 
 
+	* ^ACHRS default configurable per area.
+
+	* Different Message-ID and sender Internet domain
+	  configuration (extended Zone config).
+
 	* rfc2ftn: mail split limit configurable per host.
 
 	* Allow config option on command line for all programs.
