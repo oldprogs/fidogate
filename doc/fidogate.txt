@@ -2669,6 +2669,8 @@ The format of this file is:
      route      flavor    dest-node nodes
      hostroute  flavor    nodes
      hubroute   flavor    nodes
+     xroute     flavor    dest-node from-node to-node
+     bossroute  flavor    nodes
      
      change     old-flavor  new-flavor  nodes
      
@@ -2722,6 +2724,14 @@ Commands:
 `hubroute'
      Route normal mail addressed to nodes via their hub, using flavor.
      NOT YET IMPLEMENTED.
+
+`xroute'
+     Route normal mail from from-node to to-node via dest-node, using
+     flavor. NOT YET IMPLEMENTED.
+
+`bossroute'
+     Route flavor mail addressed to nodes via their boss node, not
+     changing the flavor.
 
 `change'
      Change flavor of mail packet from old-flavor to new-flavor.

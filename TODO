@@ -1,6 +1,10 @@
 						   -*- Indented-Text -*-
 	************** TODO list for FIDOGATE development **************
 
+DONE	* ftnroute: crashmails to points via boss node.
+
+DONE	* fb-filelist.pl: option to use fareas.bbs
+
 	* rfc2ftn: mail split limit configurable per host.
 
 	* Allow config option on command line for all programs.
@@ -103,8 +107,6 @@ STARTED * Replace calls to strncpy0/strncat0 with str_copy/str_append.
 
 	* ftn2rfc: rewrite, split huge unpack() function into parts
 	  for processing netmail and echomail.
-
-	* ftnroute: crashmails to points via boss node.
 
 	* ftn2rfc: process ^ARFC headers. If RFC level 1, import
 	  important headers such as Date, Message-ID. If RFC level 2,

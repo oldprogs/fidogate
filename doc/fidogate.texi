@@ -2,7 +2,7 @@
 @c
 @c FIDOGATE documentation
 @c
-@c $Id: fidogate.texi,v 4.31 1997/10/19 17:00:40 mj Exp $
+@c $Id: fidogate.texi,v 4.32 1997/11/01 16:53:53 mj Exp $
 @c
 
 @setfilename fidogate.info
@@ -3557,6 +3557,8 @@ send       @i{flavor}    @i{nodes}
 route      @i{flavor}    @i{dest-node} @i{nodes}
 hostroute  @i{flavor}    @i{nodes}
 hubroute   @i{flavor}    @i{nodes}
+xroute     @i{flavor}    @i{dest-node} @i{from-node} @i{to-node}
+bossroute  @i{flavor}    @i{nodes}
 
 change     @i{old-flavor}  @i{new-flavor}  @i{nodes}
 
@@ -3613,6 +3615,14 @@ using @i{flavor}.
 @item hubroute
 Route normal mail addressed to @i{nodes} via their hub,
 using @i{flavor}. NOT YET IMPLEMENTED.
+
+@item xroute
+Route normal mail from @i{from-node} to @i{to-node} via @i{dest-node},
+using @i{flavor}. NOT YET IMPLEMENTED.
+
+@item bossroute
+Route @i{flavor} mail addressed to @i{nodes} via their boss node, not
+changing the flavor.
 
 @item change
 Change flavor of mail packet from @i{old-flavor} to @i{new-flavor}.

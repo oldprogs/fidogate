@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftnroute.c,v 4.12 1996/12/17 17:19:59 mj Exp $
+ * $Id: ftnroute.c,v 4.13 1997/11/01 16:54:05 mj Exp $
  *
  * Route FTN NetMail/EchoMail
  *
@@ -40,7 +40,7 @@
 
 
 #define PROGRAM 	"ftnroute"
-#define VERSION 	"$Revision: 4.12 $"
+#define VERSION 	"$Revision: 4.13 $"
 #define CONFIG		CONFIG_MAIN
 
 
@@ -240,6 +240,21 @@ int do_cmd(PktDesc *desc, Routing *r, Node *match)
 	
     case CMD_HUBROUTE:
 	debug(2, "hubroute not yet implemented");
+	break;
+	
+    case CMD_XROUTE:
+	debug(2, "xroute not yet implemented");
+	break;
+	
+    case CMD_BOSSROUTE:
+	if(desc->flav == r->flav)
+	{
+	    debug(4, "route %c %s -> boss", r->flav,
+		  node_to_asc(&desc->to, TRUE)      );
+	    desc->to.point = 0;
+	    desc->move_only = FALSE;
+	    ret = TRUE;
+	}
 	break;
 	
     default:

@@ -24,13 +24,13 @@ Internet:
     http://sunsite.unc.edu/pub/Linux/system/Fido/
     (probably still in .../pub/Linux/Incoming)
 
-    fidogate-4.2.8.tar.gz	1150 Kbyte
+    fidogate-4.2.8.tar.gz	1160 Kbyte
 
 Fido File Request:
 ==================
     2:2452/110, 111  +49-241-876604  (V.34, ISDN V.110/X.75)
     
-    fgate428.tgz		1150 Kbyte
+    fgate428.tgz		1160 Kbyte
 
 
 
@@ -46,6 +46,11 @@ Changes in 4.2.8:
 * rfc2ftn/ftn2rfc: improved ^AGATEWAY, X-Gateway processing.
 
 * ftn2rfc: fixed BounceCCMail (messed up in 4.2.6).
+
+* fb-filelist: new version using fareas.bbs.
+
+* ftnroute: new bossroute command, allows crash mail for points to be
+  routed via their boss node.
 
 
 
@@ -181,8 +186,8 @@ To UNSUBSCRIBE from this mailing list, send the command
 
 Begin3
 Title:          FIDOGATE
-Version:        4.2.7
-Entered-date:   13OCT97
+Version:        4.2.8
+Entered-date:   01NOV97
 Description:    FIDOGATE Version 4:
                  * Fido-Internet Gateway
 		 * Fido FTN-FTN Gateway
@@ -193,17 +198,18 @@ Keywords:       fido ftn netmail echomail tosser areafix mail news gateway
 Author:         mj@fido.de (Martin Junius)
 Maintained-by:  mj@fido.de (Martin Junius)
 Primary-site:   ftp.fido.de /pub/fidogate
-		1150kB fidogate-4.2.7.tar.gz
+		1160kB fidogate-4.2.8.tar.gz
 Alternate-site: sunsite.unc.edu /pub/Linux/system/Fido
-		1150kB fidogate-4.2.7.tar.gz
-Platforms:      Linux, SunOS, but should be easily portable to most
-		UNIX systems. Supports OS/2 (EMX gcc port) and MSDOS
-		(DJGPP gcc port), too. perl is required.
+		1160kB fidogate-4.2.8.tar.gz
+Platforms:      Linux, SunOS, FreeBSD, Interactive, NextSTEP, easily
+		portable to POSIX compatible UNIX systems. Supports
+		OS/2 (EMX gcc port), MSDOS (DJGPP gcc port), and WIN32
+		(Cygnus GNU-WIN32) too. Perl is required.
 Copying-policy: GPL
 End
 
 ======================================================================
 
-$Date: 1997/10/26 17:50:05 $
+$Date: 1997/11/01 16:53:49 $
 Martin Junius
 mailto:mj@fido.de

@@ -1,7 +1,7 @@
 Begin3
 Title:          FIDOGATE
-Version:        4.2.7
-Entered-date:   13OCT97
+Version:        4.2.8
+Entered-date:   01NOV97
 Description:    FIDOGATE Version 4:
                  * Fido-Internet Gateway
 		 * Fido FTN-FTN Gateway
@@ -12,11 +12,12 @@ Keywords:       fido ftn netmail echomail tosser areafix mail news gateway
 Author:         mj@fido.de (Martin Junius)
 Maintained-by:  mj@fido.de (Martin Junius)
 Primary-site:   ftp.fido.de /pub/fidogate
-		1150kB fidogate-4.2.7.tar.gz
+		1160kB fidogate-4.2.8.tar.gz
 Alternate-site: sunsite.unc.edu /pub/Linux/system/Fido
-		1150kB fidogate-4.2.7.tar.gz
-Platforms:      Linux, SunOS, but should be easily portable to most
-		UNIX systems. Supports OS/2 (EMX gcc port) and MSDOS
-		(DJGPP gcc port), too. perl is required.
+		1160kB fidogate-4.2.8.tar.gz
+Platforms:      Linux, SunOS, FreeBSD, Interactive, NextSTEP, easily
+		portable to POSIX compatible UNIX systems. Supports
+		OS/2 (EMX gcc port), MSDOS (DJGPP gcc port), and WIN32
+		(Cygnus GNU-WIN32) too. Perl is required.
 Copying-policy: GPL
 End

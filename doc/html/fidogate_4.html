@@ -1,7 +1,7 @@
 <HTML>
 <HEAD>
 <!-- This HTML file has been created by texi2html 1.51
-     from ../fidogate.texi on 19 October 1997 -->
+     from ../fidogate.texi on 1 November 1997 -->
 
 <TITLE>FIDOGATE
  - FIDOGATE Config Files</TITLE>
@@ -1456,6 +1456,8 @@ send       <I>flavor</I>    <I>nodes</I>
 route      <I>flavor</I>    <I>dest-node</I> <I>nodes</I>
 hostroute  <I>flavor</I>    <I>nodes</I>
 hubroute   <I>flavor</I>    <I>nodes</I>
+xroute     <I>flavor</I>    <I>dest-node</I> <I>from-node</I> <I>to-node</I>
+bossroute  <I>flavor</I>    <I>nodes</I>
 
 change     <I>old-flavor</I>  <I>new-flavor</I>  <I>nodes</I>
 
@@ -1525,6 +1527,16 @@ using <I>flavor</I>.
 <DD>
 Route normal mail addressed to <I>nodes</I> via their hub,
 using <I>flavor</I>. NOT YET IMPLEMENTED.
+
+<DT><CODE>xroute</CODE>
+<DD>
+Route normal mail from <I>from-node</I> to <I>to-node</I> via <I>dest-node</I>,
+using <I>flavor</I>. NOT YET IMPLEMENTED.
+
+<DT><CODE>bossroute</CODE>
+<DD>
+Route <I>flavor</I> mail addressed to <I>nodes</I> via their boss node, not
+changing the flavor.
 
 <DT><CODE>change</CODE>
 <DD>

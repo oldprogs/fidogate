@@ -1,6 +1,6 @@
 #!/usr/bin/perl
 #
-# $Id: fb-filelist.pl,v 4.1 1996/12/17 17:19:34 mj Exp $
+# $Id: fb-filelist.pl,v 4.2 1997/11/01 16:54:02 mj Exp $
 #
 # Generate file list
 #
@@ -10,18 +10,43 @@
 # | | | |   | |   Radiumstr. 18             Internet:  mj@fido.de
 # |_|_|_|@home|   D-51069 Koeln, Germany
 #
+$LIBDIR="<LIBDIR>";
+
+
+##### Options ################################################################
+require "getopts.pl";
+
+&Getopts('e:p:n:f:hv');
+
+if($opt_h) {
+    print
+	"usage:   fb-filelist [-vh] [-e EPILOG.TXT] [-p PROLOG.TXT]\n",
+	"                     [-n NEW] [-f FILEAREA.CTL]\n\n",
+	"options: -e EPILOG.TXT    set epilog for filelist\n",
+	"         -p PROLOG.TXT    set prolog for filelist\n",
+	"         -n NEW           only files of last NEW days\n",
+	"         -f FILEAREA.CTL  use Maximus FILEAREA.CTL area list\n",
+        "         -v               more verbose\n",
+	"         -h               this help\n";
+    exit 1;
+}
+
+if($opt_n) {
+    # -n days
+    $time_new = time() - $opt_n*60*60*24;
+}
+
+$PROLOG   = $opt_p ? $opt_p : "$LIBDIR/prolog.txt";
+$EPILOG   = $opt_e ? $opt_e : "$LIBDIR/epilog.txt";
+
+$FILEAREA = $opt_f ? $opt_f : "$LIBDIR/fareas.bbs";
+
+
 
 ##### Configuration ##########################################################
 
-# Prolog/epilog
-$PROLOG   = "/home/mj/mailbox/filelist/prolog.txt";
-$EPILOG   = "/home/mj/mailbox/filelist/epilog.txt";
-
 # Missing text
 $MISSING  = "--- file description missing ---";
-
-# Maximus file areas
-$FILEAREA = "/u1/ftn/max/filearea.ctl";
 
 # Path translation: MSDOS drives -> UNIX path names
 %dirs = (
@@ -37,15 +62,6 @@ $FILEAREA = "/u1/ftn/max/filearea.ctl";
 );
 
 
-##############################################################################
-require "getopts.pl";
-
-&Getopts('n:');
-
-if($opt_n) {
-    # -n days
-    $time_new = time() - $opt_n*60*60*24;
-}
 
 $total_global = 0;
 
@@ -59,17 +75,29 @@ sub list_dir {
 
     # Read contents of directory
 
-    opendir(DIR, $dir)               || die "filelist: can't open $dir\n";
+    if(! opendir(DIR, $dir)) {
+	print "--- area missing ---\r\n\r\n\r\n";
+	return 1;
+    }
+
     @files = readdir(DIR);
     closedir(DIR);
 
     for $file (@files) {
-	# ignore ., ..
-	if( $file eq "." || $file eq ".." ) {
+	# ignore directories
+	if( -d $file ) {
+	    next;
+	}
+	# ignore .*
+	if( $file =~ /^\./ ) {
 	    next;
 	}
 	# ignore files.{bbs,bak,dat,dmp,idx}
 	if( $file =~ /^files\.(bbs|bak|dat|dmp|idx|tr)$/ ) {
+	    next;
+	}
+	# ignore index.{dir,pag}
+	if( $file =~ /^index\.(dir,pag)$/ ) {
 	    next;
 	}
 	$files_dir{$file} = 1;
@@ -77,25 +105,28 @@ sub list_dir {
 
     # Read and print contents of files.bbs
 
-    open(FILES, "$dir/files.bbs")
-	|| die "filelist: can't open $dir/files.bbs\n";
-    while(<FILES>) {
-	s/\cM?\cJ$//;
-	# File entry
-	if( /^[a-zA-Z0-9]/ ) {
-	    ($file, $desc) = split(' ', $_, 2);
-	    $file  =~ tr+A-Z\\+a-z/+;
-	    $files_dir{$file} = 2;
-	    $total += &list_file($dir, $file, $desc);
+    if(open(FILES, "$dir/files.bbs")) {
+	while(<FILES>) {
+	    s/\cM?\cJ$//;
+	    # File entry
+	    if( /^[a-zA-Z0-9]/ ) {
+		($file, $desc) = split(' ', $_, 2);
+		$file  =~ tr+A-Z\\+a-z/+;
+		$files_dir{$file} = 2;
+		$total += &list_file($dir, $file, $desc);
+	    }
+	    elsif( /^-:crlf/ ) {
+		next;
+	    }
+	    elsif(!$time_new) {
+		print $_,"\r\n";
+	    }
 	}
-	elsif( /^-:crlf/ ) {
-	    next;
-	}
-	elsif(!$time_new) {
-	    print $_,"\r\n";
-	}
+	close(FILES);
     }
-    close(FILES);
+    else {
+	print "--- no files.bbs ---\r\n";
+    }
 
     # Print files missing in files.bbs / add to files.bbs
     open(FILES, ">>$dir/files.bbs")
@@ -109,7 +140,7 @@ sub list_dir {
     close(FILES);
 
     $total_global += $total;
-    print "\r\n    File area total:   ",&ksize($total),"\r\n";
+    print "\r\n    File area total:  ",&ksize($total),"\r\n";
 
     print "\r\n\r\n";
 
@@ -170,7 +201,7 @@ sub ksize{
 	else {
 	    $k = $size / 1024;
 	}
-	return sprintf("%5dK", $k);
+	return sprintf("%6dK", $k);
     }
 }
 
@@ -206,43 +237,63 @@ if($opt_n) {
 
 open(F, "$FILEAREA") || die "filelist: can't open $FILEAREA\n";
 
+<F> if(!$opt_f);	# Ignore 1st line of fareas.bbs
+
 while(<F>) {
     s/\cM?\cJ$//;
-    s/^\s*//;
-    s/\s*$//;
-    next if( /^%/ );
-    next if( /^$/ );
 
-    ($keyw,$args) = split(' ', $_, 2);
-    $keyw =~ tr/[A-Z]/[a-z]/;
+    if($opt_f) {
+	# Maximus filearea.ctl
+	s/^\s*//;
+	s/\s*$//;
+	next if( /^%/ );
+	next if( /^$/ );
 
-    if   ($keyw eq "area"    ) {
-	$area = $args;
-    }
-    elsif($keyw eq "fileinfo") {
-	$info = $args;
-    }
-    elsif($keyw eq "download") {
-	$dir  =  $args;
-	$dir  =~ tr/[A-Z\\]/[a-z\/]/;
-	$drv  =  substr($dir, 0, 2);
-	$dir  =  substr($dir, 2, length($dir)-2);
-	$dir  =  $dirs{$drv}.$dir;
-    }
-    elsif($keyw eq "end"     ) {
-	$args =~ tr/[A-Z]/[a-z]/;
-	if($args eq "area") {
-	    $length = 50;
-	    if(length($info) > $length) {
-		$info = substr($info, 0, $length);
+	($keyw,$args) = split(' ', $_, 2);
+	$keyw =~ tr/[A-Z]/[a-z]/;
+
+	if   ($keyw eq "area"    ) {
+	    $area = $args;
+	}
+	elsif($keyw eq "fileinfo") {
+	    $info = $args;
+	}
+	elsif($keyw eq "download") {
+	    $dir  =  $args;
+	    $dir  =~ tr/[A-Z\\]/[a-z\/]/;
+	    $drv  =  substr($dir, 0, 2);
+	    $dir  =  substr($dir, 2, length($dir)-2);
+	    $dir  =  $dirs{$drv}.$dir;
+	}
+	elsif($keyw eq "end"     ) {
+	    $args =~ tr/[A-Z]/[a-z]/;
+	    if($args eq "area") {
+		$length = 50;
+		if(length($info) > $length) {
+		    $info = substr($info, 0, $length);
+		}
+		$length -= length($info);
+		printf "### MAX file area \#%-3d ### ", $area;
+		    print $info, " ", "#" x $length, "\r\n";
+		print "\r\n";
+		&list_dir($dir);
 	    }
-	    $length -= length($info);
-	    printf "### MAX file area \#%-3d ### ", $area;
-	    print $info, " ", "#" x $length, "\r\n";
-	    print "\r\n";
+	}
+    }
+    else {
+	# FIDOGATE fareas.bbs
+	($dir,$area) = split(' ', $_);
+	$dir =~ s/^\#//;
+
+	if(! $dir_visited{$dir}) {
+	    $dir_visited{$dir} = 1;
+	    $header = "### File area $area ###";
+	    $length = 78 - length($header);
+	    print "$header", "#" x $length, "\r\n\r\n";
 	    &list_dir($dir);
 	}
     }
+
 }
 
 close(F);
@@ -255,7 +306,7 @@ print "########################################",
 
 print "\r\n";
 print "This list generated by:\r\n";
-print '        $Id: fb-filelist.pl,v 4.1 1996/12/17 17:19:34 mj Exp $', "\r\n";
+print '$Id: fb-filelist.pl,v 4.2 1997/11/01 16:54:02 mj Exp $', "\r\n";
 
 if(-f $EPILOG) {
     &dump_file($EPILOG);

@@ -28,22 +28,14 @@
 ######## N E T M A I L #######################################################
 NetMail
 
-# Ourselves
-route		hold		2:2452/110.2
-route		hold		242:1000/5
+route		normal		2:2452/0  1:* 2:* 3:* 4:* 5:* 6:*
 
-# Uplink
-route		normal		2:2452/110 1:* 2:* 3:* 4:* 5:* 6:*
-route		normal		242:1000/1 242:*
-
-# Crash mail via boss
+# crash mail for all points via boss node
 bossroute	crash		*
+
 
 
 ######## E C H O M A I L #####################################################
 EchoMail
-
-sendmove	hold		2:2452/110.2
-sendmove	hold		242:1000/5
 
 sendmove	normal		*

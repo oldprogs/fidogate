@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: structs.h,v 4.7 1997/08/17 13:13:20 mj Exp $
+ * $Id: structs.h,v 4.8 1997/11/01 16:54:04 mj Exp $
  *
  * An assortment of FIDOGATE data structure definitions
  *
@@ -179,6 +179,7 @@ Passwd;
 #define CMD_REWRITE	'w'
 #define CMD_SENDMOVE	'v'
 #define CMD_XROUTE	'x'
+#define CMD_BOSSROUTE	'b'
 
 #define FLAV_NONE	'-'
 #define FLAV_NORMAL	'n'

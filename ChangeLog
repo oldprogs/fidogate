@@ -1,3 +1,32 @@
+Sat Nov  1 15:13:28 1997  Martin Junius  <mj@fido.de>
+
+	------- CVS ci -------------------------------------------------------
+
+	* fidogate.lsm: updated.
+
+	* ANNOUNCE (Internet): updated.
+
+	* examples/orodruin/routing: added bossroute example.
+
+	* doc/fidogate.texi (Routing): documented xroute (not yet
+	  implemented) and bossroute.
+
+	* src/toss/ftnroute.c (do_cmd): CMD_BOSSROUTE implemented. If
+	  r->flav matches packet flavour, then the packet will be routed
+	  to the boss node (point = 0).
+
+	* test/tc.route/run: new test case for ftnroute.
+
+	* src/toss/ftnroute.c (do_cmd): added CMD_XROUTE, CMD_BOSSROUTE.
+
+	* src/common/routing.c (parse_cmd): new commands "xroute",
+	  "bossroute". 
+
+	* src/include/structs.h (CMD_BOSSROUTE): new routing command.
+
+	* scripts/filebase/fb-filelist.pl: new version, lists file areas
+	  read from FIDOGATE's fareas.bbs.
+
 Sun Oct 26 11:07:42 1997  Martin Junius  <mj@fido.de>
 
 	------- CVS ci -------------------------------------------------------
