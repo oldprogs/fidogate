@@ -1,3 +1,10 @@
+1999-01-10  Martin Junius  <mj@fido.de>
+
+	------- CVS ci -------------------------------------------------------
+
+	* config.make (DEFAULT_F_CONFIG_xxx): switch to new single config
+	  file "fidogate.conf".
+
 1999-01-09  Martin Junius  <mj@fido.de>
 
 	------- CVS ci -------------------------------------------------------

@@ -3,7 +3,7 @@
 /*
  * FIDOGATE
  *
- * $Id: paths.h,v 4.11 1999/01/09 17:39:42 mj Exp $
+ * $Id: paths.h,v 4.12 1999/01/10 10:26:31 mj Exp $
  */
 
 #define DEFAULT_LOGDIR                  "/var/log/fidogate"
@@ -24,12 +24,12 @@
 #define DEFAULT_SEQ_TICK                "%V/seq/tick"
 #define DEFAULT_SEQ_FF                  "%V/seq/ff"
 #define DEFAULT_OUTRFC_MAIL             "%S/outrfc/mail"
-#define DEFAULT_CONFIG_GATE             "%C/gate.conf"
+#define DEFAULT_CONFIG_GATE             "%C/fidogate.conf"
 #define DEFAULT_LIBDIR                  "/usr/lib/fidogate"
 #define DEFAULT_TOSS_ROUTE              "%S/toss/route"
 #define DEFAULT_SEQ_PKT                 "%V/seq/pkt"
 #define DEFAULT_BINDIR                  "/usr/lib/fidogate/bin"
-#define DEFAULT_CONFIG_FFX              "%C/ffx.conf"
+#define DEFAULT_CONFIG_FFX              "%C/fidogate.conf"
 #define DEFAULT_FTPINBOUND              "/var/spool/bt/ftpin"
 #define DEFAULT_LOCK_HISTORY            "history"
 #define DEFAULT_LOGFILE                 "%G/log"
@@ -52,7 +52,7 @@
 #define DEFAULT_CONFIGDIR               "/etc/fidogate"
 #define DEFAULT_NEWSETCDIR              "/etc/news"
 #define DEFAULT_UUINBOUND               "/var/spool/bt/uuin"
-#define DEFAULT_CONFIG_MAIN             "%C/toss.conf"
+#define DEFAULT_CONFIG_MAIN             "%C/fidogate.conf"
 #define DEFAULT_SEQ_MSGID               "%V/seq/msgid"
 #define DEFAULT_PACKING                 "%C/packing"
 #define DEFAULT_PINBOUND                "/var/spool/bt/pin"

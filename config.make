@@ -1,6 +1,6 @@
 # -*- Makefile -*-
 #
-# $Id: config.make,v 4.22 1999/01/09 17:39:37 mj Exp $
+# $Id: config.make,v 4.23 1999/01/10 10:26:26 mj Exp $
 #
 # FIDOGATE main configuration
 #
@@ -89,13 +89,13 @@ DEFAULT_F_NEWSSPOOLDIR	= /var/spool/news
 DEFAULT_F_IFMAILDIR     = /usr/local/lib/ifmail
 
 # old-style config
-DEFAULT_F_CONFIG_GATE	= %C/gate.conf
-DEFAULT_F_CONFIG_MAIN	= %C/toss.conf
-DEFAULT_F_CONFIG_FFX	= %C/ffx.conf
+#DEFAULT_F_CONFIG_GATE	= %C/gate.conf
+#DEFAULT_F_CONFIG_MAIN	= %C/toss.conf
+#DEFAULT_F_CONFIG_FFX	= %C/ffx.conf
 # new-style config, single config file (4.3.0+)
-#DEFAULT_F_CONFIG_GATE	= %C/fidogate.conf
-#DEFAULT_F_CONFIG_MAIN	= %C/fidogate.conf
-#DEFAULT_F_CONFIG_FFX	= %C/fidogate.conf
+DEFAULT_F_CONFIG_GATE	= %C/fidogate.conf
+DEFAULT_F_CONFIG_MAIN	= %C/fidogate.conf
+DEFAULT_F_CONFIG_FFX	= %C/fidogate.conf
 
 DEFAULT_F_SEQ_MAIL	= %V/seq/mail
 DEFAULT_F_SEQ_NEWS	= %V/seq/news
