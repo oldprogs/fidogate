@@ -1,4 +1,13 @@
+2004-08-20  Martin Junius  <mj.at.n0ll.dot.net>
+
+	------- CVS ci -------------------------------------------------------
+
+	* src/common/log.c (log_program): commented getenv()s, create
+	  security risk for setuid news programs.
+
 2004-03-14  Martin Junius  <mj@m-j-s.net>
+
+	* scripts/maintenance/Makefile (install): added logsendmail2.
 
 	------- CVS ci -------------------------------------------------------
 
