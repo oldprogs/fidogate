@@ -34,7 +34,7 @@ Fri Apr 18 15:14:04 1997  Martin Junius  <mj@fido.de>
 	  system(), runs DOSIFY_IF_NEEDED and extract exit code.
 
 	* src/include/prototypes.h (DOSIFY_IF_NEEDED): new macro
-	  translates to str_dosify() only if MSDOS or OS2 are defined.
+	translates to str_dosify() only if MSDOS or OS2 are defined.
 
 	* src/gate/ftnin.c (main): removed MSDOS/OS2 code for cmd[], will
 	  be handled by str_dosify() before running system().
