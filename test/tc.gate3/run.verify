@@ -47,8 +47,10 @@ Message body size 533 (+CR!)
 RFC From:     ge276@appl2.hrz.uni-siegen.de (Alexander Schwanke)
 RFC Reply-To: ge276@appl2.hrz.uni-siegen.de
 RFC Sender:   Alexander Schwanke <ge276@appl2.hrz.uni-siegen.de>
-Name for alias checking: All
-No alias found: return All
+    Name:     udob
+    Address:  pepe.wupper.de
+Name for alias checking: Udo Boehlefeld
+No alias found: return Udo Boehlefeld
     Name:     ge276
     Address:  appl2.hrz.uni-siegen.de
 Name for alias checking: ge276
@@ -77,7 +79,7 @@ Writing FTN packet header:
     Capw: 0001
 Writing FTN message header:
     From: Alexander Schwanke                   @ 242:1000/5.0
-    To  : All                                  @ 242:1000/5.0
+    To  : Udo Boehlefeld                       @ 242:1000/5.0
     Subj: Re: S: besseres Angebot ISDN ANlage & Karte
     Attr: 0000
 Look up newsgroup de.markt.comp.misc
@@ -87,7 +89,7 @@ charset: table found in=iso-8859-1 out=iso-8859-1
 charset: msg RFC=iso-8859-1 FSC=LATIN-1 enc=8bit
 Writing FTN message header:
     From: Alexander Schwanke                   @ 242:1000/5.0
-    To  : All                                  @ 242:1000/5.0
+    To  : Udo Boehlefeld                       @ 242:1000/5.0
     Subj: Re: S: besseres Angebot ISDN ANlage & Karte
     Attr: 0000
 Look up newsgroup de.comm.misc
@@ -97,7 +99,7 @@ charset: table found in=iso-8859-1 out=iso-8859-1
 charset: msg RFC=iso-8859-1 FSC=LATIN-1 enc=8bit
 Writing FTN message header:
     From: Alexander Schwanke                   @ 242:1000/5.0
-    To  : All                                  @ 242:1000/5.0
+    To  : Udo Boehlefeld                       @ 242:1000/5.0
     Subj: Re: S: besseres Angebot ISDN ANlage & Karte
     Attr: 0000
 Look up newsgroup de.markt.misc
@@ -107,7 +109,7 @@ charset: table found in=iso-8859-1 out=iso-8859-1
 charset: msg RFC=iso-8859-1 FSC=LATIN-1 enc=8bit
 Writing FTN message header:
     From: Alexander Schwanke                   @ 242:1000/5.0
-    To  : All                                  @ 242:1000/5.0
+    To  : Udo Boehlefeld                       @ 242:1000/5.0
     Subj: Re: S: besseres Angebot ISDN ANlage & Karte
     Attr: 0000
 
@@ -115,8 +117,10 @@ Writing FTN message header:
 Message body size 296 (+CR!)
 RFC From:     ukrapp@aol.com (Ukrapp)
 RFC Sender:   Ukrapp <ukrapp@aol.com>
-Name for alias checking: All
-No alias found: return All
+    Name:     E.Ascheid
+    Address:  titan.ndh.com
+Name for alias checking: Elmar Ascheid
+No alias found: return Elmar Ascheid
     Name:     ukrapp
     Address:  aol.com
 Name for alias checking: ukrapp
@@ -145,7 +149,7 @@ Writing FTN packet header:
     Capw: 0001
 Writing FTN message header:
     From: Ukrapp                               @ 242:1000/5.0
-    To  : All                                  @ 242:1000/5.0
+    To  : Elmar Ascheid                        @ 242:1000/5.0
     Subj: Re: Vertrieb von DInfo2.0 verboten....
     Attr: 0000
 
@@ -231,8 +235,10 @@ Writing FTN message header:
 Message body size 1714 (+CR!)
 RFC From:     Maik Musall <maik@cape.de>
 RFC Sender:   Maik Musall <maik@cape.de>
-Name for alias checking: All
-No alias found: return All
+    Name:     Holger Lubitz
+    Address:  
+Name for alias checking: Holger Lubitz
+No alias found: return Holger Lubitz
     Name:     maik
     Address:  cape.de
 Name for alias checking: maik
@@ -261,7 +267,7 @@ Writing FTN packet header:
     Capw: 0001
 Writing FTN message header:
     From: Maik Musall                          @ 242:1000/5.0
-    To  : All                                  @ 242:1000/5.0
+    To  : Holger Lubitz                        @ 242:1000/5.0
     Subj: Re: Modem an E-Plus-Handy???
     Attr: 0000
 Look up newsgroup de.comm.mobil
@@ -271,7 +277,7 @@ charset: table found in=us-ascii out=us-ascii
 charset: msg RFC=us-ascii FSC=ASCII enc=7bit
 Writing FTN message header:
     From: Maik Musall                          @ 242:1000/5.0
-    To  : All                                  @ 242:1000/5.0
+    To  : Holger Lubitz                        @ 242:1000/5.0
     Subj: Re: Modem an E-Plus-Handy???
     Attr: 0000
 Look up newsgroup de.comm.modem
@@ -281,7 +287,7 @@ charset: table found in=us-ascii out=us-ascii
 charset: msg RFC=us-ascii FSC=ASCII enc=7bit
 Writing FTN message header:
     From: Maik Musall                          @ 242:1000/5.0
-    To  : All                                  @ 242:1000/5.0
+    To  : Holger Lubitz                        @ 242:1000/5.0
     Subj: Re: Modem an E-Plus-Handy???
     Attr: 0000
 Look up newsgroup ger.pc.hard
@@ -359,8 +365,10 @@ Writing FTN message header:
 Message body size 807 (+CR!)
 RFC From:     roger@larry.westfalen.de (Roger Schwentker)
 RFC Sender:   Roger Schwentker <roger@larry.westfalen.de>
-Name for alias checking: All
-No alias found: return All
+    Name:     ACiD APPlE
+    Address:  
+Name for alias checking: an456495@anon.penet.fi
+No alias found: return An456495@anon.Penet.Fi
     Name:     roger
     Address:  larry.westfalen.de
 Name for alias checking: roger
@@ -389,7 +397,7 @@ Writing FTN packet header:
     Capw: 0001
 Writing FTN message header:
     From: Roger Schwentker                     @ 242:1000/5.0
-    To  : All                                  @ 242:1000/5.0
+    To  : An456495@anon.Penet.Fi               @ 242:1000/5.0
     Subj: Trottel (war Re: http://194.163.56.129/~ronz/index.htm)
     Attr: 0000
 
@@ -526,8 +534,10 @@ Writing FTN message header:
 Message body size 1188 (+CR!)
 RFC From:     adams@t-online.de (Thomas Adams)
 RFC Sender:   Thomas Adams <adams@t-online.de>
-Name for alias checking: All
-No alias found: return All
+    Name:     udsch
+    Address:  falcon.lahn.de
+Name for alias checking: Udo Schoeffmann
+No alias found: return Udo Schoeffmann
     Name:     adams
     Address:  t-online.de
 Name for alias checking: adams
@@ -556,7 +566,7 @@ Writing FTN packet header:
     Capw: 0001
 Writing FTN message header:
     From: Thomas Adams                         @ 242:1000/5.0
-    To  : All                                  @ 242:1000/5.0
+    To  : Udo Schoeffmann                      @ 242:1000/5.0
     Subj: Re: AWS analog wieder moeglich!?
     Attr: 0000
 Look up newsgroup z-netz.telecom.allgemein
@@ -604,8 +614,10 @@ Writing FTN message header:
 Message body size 782 (+CR!)
 RFC From:     boss@msoenix.du.gtn.com (Michael Soentgerath)
 RFC Sender:   Michael Soentgerath <boss@msoenix.du.gtn.com>
-Name for alias checking: All
-No alias found: return All
+    Name:     roger
+    Address:  larry.westfalen.de
+Name for alias checking: Roger Schwentker
+No alias found: return Roger Schwentker
     Name:     boss
     Address:  msoenix.du.gtn.com
 Name for alias checking: boss
@@ -634,7 +646,7 @@ Writing FTN packet header:
     Capw: 0001
 Writing FTN message header:
     From: Michael Soentgerath                  @ 242:1000/5.0
-    To  : All                                  @ 242:1000/5.0
+    To  : Roger Schwentker                     @ 242:1000/5.0
     Subj: Re: Trottel (war Re: http://194.163.56.129/~ronz/index.htm)
     Attr: 0000
 
@@ -920,8 +932,10 @@ Message body size 254 (+CR!)
 RFC From:     "Marc A. Rieger" <rieger@stud.uni-frankfurt.de>
 RFC Reply-To: rieger@stud.uni-frankfurt.de
 RFC Sender:   Marc A. Rieger <rieger@stud.uni-frankfurt.de>
-Name for alias checking: All
-No alias found: return All
+    Name:     Rene Kacza
+    Address:  
+Name for alias checking: Rene Kacza
+No alias found: return Rene Kacza
     Name:     rieger
     Address:  stud.uni-frankfurt.de
 Name for alias checking: rieger
@@ -950,7 +964,7 @@ Writing FTN packet header:
     Capw: 0001
 Writing FTN message header:
     From: Marc A. Rieger                       @ 242:1000/5.0
-    To  : All                                  @ 242:1000/5.0
+    To  : Rene Kacza                           @ 242:1000/5.0
     Subj: Re: S: besseres Angebot ISDN ANlage & Karte
     Attr: 0000
 Look up newsgroup de.comm.misc
@@ -960,7 +974,7 @@ charset: table found in=us-ascii out=us-ascii
 charset: msg RFC=us-ascii FSC=ASCII enc=7bit
 Writing FTN message header:
     From: Marc A. Rieger                       @ 242:1000/5.0
-    To  : All                                  @ 242:1000/5.0
+    To  : Rene Kacza                           @ 242:1000/5.0
     Subj: Re: S: besseres Angebot ISDN ANlage & Karte
     Attr: 0000
 Look up newsgroup de.markt.comp.misc
@@ -970,7 +984,7 @@ charset: table found in=us-ascii out=us-ascii
 charset: msg RFC=us-ascii FSC=ASCII enc=7bit
 Writing FTN message header:
     From: Marc A. Rieger                       @ 242:1000/5.0
-    To  : All                                  @ 242:1000/5.0
+    To  : Rene Kacza                           @ 242:1000/5.0
     Subj: Re: S: besseres Angebot ISDN ANlage & Karte
     Attr: 0000
 Look up newsgroup de.markt.misc
@@ -980,7 +994,7 @@ charset: table found in=us-ascii out=us-ascii
 charset: msg RFC=us-ascii FSC=ASCII enc=7bit
 Writing FTN message header:
     From: Marc A. Rieger                       @ 242:1000/5.0
-    To  : All                                  @ 242:1000/5.0
+    To  : Rene Kacza                           @ 242:1000/5.0
     Subj: Re: S: besseres Angebot ISDN ANlage & Karte
     Attr: 0000
 
@@ -1620,8 +1634,10 @@ Writing FTN message header:
 Message body size 656 (+CR!)
 RFC From:     mozart@mozart.berlinet.de (Thomas Witt)
 RFC Sender:   Thomas Witt <mozart@mozart.berlinet.de>
-Name for alias checking: All
-No alias found: return All
+    Name:     matthias.bolten
+    Address:  bigapple.Cologne.DE
+Name for alias checking: Matthias Bolten
+No alias found: return Matthias Bolten
     Name:     mozart
     Address:  mozart.berlinet.de
 Name for alias checking: mozart
@@ -1650,7 +1666,7 @@ Writing FTN packet header:
     Capw: 0001
 Writing FTN message header:
     From: Thomas Witt                          @ 242:1000/5.0
-    To  : All                                  @ 242:1000/5.0
+    To  : Matthias Bolten                      @ 242:1000/5.0
     Subj: Re: Kosten einer Standleitung
     Attr: 0000
 Look up newsgroup de.comm.infosystems.misc
@@ -1660,7 +1676,7 @@ charset: table found in=iso-8859-1 out=iso-8859-1
 charset: msg RFC=iso-8859-1 FSC=LATIN-1 enc=8bit
 Writing FTN message header:
     From: Thomas Witt                          @ 242:1000/5.0
-    To  : All                                  @ 242:1000/5.0
+    To  : Matthias Bolten                      @ 242:1000/5.0
     Subj: Re: Kosten einer Standleitung
     Attr: 0000
 Look up newsgroup de.comm.internet.misc
@@ -1670,7 +1686,7 @@ charset: table found in=iso-8859-1 out=iso-8859-1
 charset: msg RFC=iso-8859-1 FSC=LATIN-1 enc=8bit
 Writing FTN message header:
     From: Thomas Witt                          @ 242:1000/5.0
-    To  : All                                  @ 242:1000/5.0
+    To  : Matthias Bolten                      @ 242:1000/5.0
     Subj: Re: Kosten einer Standleitung
     Attr: 0000
 Look up newsgroup de.comm.internet.routing
@@ -1680,7 +1696,7 @@ charset: table found in=iso-8859-1 out=iso-8859-1
 charset: msg RFC=iso-8859-1 FSC=LATIN-1 enc=8bit
 Writing FTN message header:
     From: Thomas Witt                          @ 242:1000/5.0
-    To  : All                                  @ 242:1000/5.0
+    To  : Matthias Bolten                      @ 242:1000/5.0
     Subj: Re: Kosten einer Standleitung
     Attr: 0000
 Look up newsgroup de.comm.internet.zugang
@@ -1690,7 +1706,7 @@ charset: table found in=iso-8859-1 out=iso-8859-1
 charset: msg RFC=iso-8859-1 FSC=LATIN-1 enc=8bit
 Writing FTN message header:
     From: Thomas Witt                          @ 242:1000/5.0
-    To  : All                                  @ 242:1000/5.0
+    To  : Matthias Bolten                      @ 242:1000/5.0
     Subj: Re: Kosten einer Standleitung
     Attr: 0000
 Look up newsgroup de.comm.isdn
@@ -1700,7 +1716,7 @@ charset: table found in=iso-8859-1 out=iso-8859-1
 charset: msg RFC=iso-8859-1 FSC=LATIN-1 enc=8bit
 Writing FTN message header:
     From: Thomas Witt                          @ 242:1000/5.0
-    To  : All                                  @ 242:1000/5.0
+    To  : Matthias Bolten                      @ 242:1000/5.0
     Subj: Re: Kosten einer Standleitung
     Attr: 0000
 Look up newsgroup de.comm.misc
@@ -1710,7 +1726,7 @@ charset: table found in=iso-8859-1 out=iso-8859-1
 charset: msg RFC=iso-8859-1 FSC=LATIN-1 enc=8bit
 Writing FTN message header:
     From: Thomas Witt                          @ 242:1000/5.0
-    To  : All                                  @ 242:1000/5.0
+    To  : Matthias Bolten                      @ 242:1000/5.0
     Subj: Re: Kosten einer Standleitung
     Attr: 0000
 Look up newsgroup de.comm.modem
@@ -1720,7 +1736,7 @@ charset: table found in=iso-8859-1 out=iso-8859-1
 charset: msg RFC=iso-8859-1 FSC=LATIN-1 enc=8bit
 Writing FTN message header:
     From: Thomas Witt                          @ 242:1000/5.0
-    To  : All                                  @ 242:1000/5.0
+    To  : Matthias Bolten                      @ 242:1000/5.0
     Subj: Re: Kosten einer Standleitung
     Attr: 0000
 
@@ -1884,8 +1900,10 @@ using local time
 Message body size 427 (+CR!)
 RFC From:     petzi@zit.th-darmstadt.de (Michael Beckmann)
 RFC Sender:   Michael Beckmann <petzi@zit.th-darmstadt.de>
-Name for alias checking: All
-No alias found: return All
+    Name:     n.balthasar
+    Address:  public.ndh.com
+Name for alias checking: Dirk Balthasar
+No alias found: return Dirk Balthasar
     Name:     petzi
     Address:  zit.th-darmstadt.de
 Name for alias checking: petzi
@@ -1914,7 +1932,7 @@ Writing FTN packet header:
     Capw: 0001
 Writing FTN message header:
     From: Michael Beckmann                     @ 242:1000/5.0
-    To  : All                                  @ 242:1000/5.0
+    To  : Dirk Balthasar                       @ 242:1000/5.0
     Subj: Re: Eudora
     Attr: 0000
 Look up newsgroup de.comm.misc
@@ -1924,7 +1942,7 @@ charset: table found in=iso-8859-1 out=iso-8859-1
 charset: msg RFC=iso-8859-1 FSC=LATIN-1 enc=8bit
 Writing FTN message header:
     From: Michael Beckmann                     @ 242:1000/5.0
-    To  : All                                  @ 242:1000/5.0
+    To  : Dirk Balthasar                       @ 242:1000/5.0
     Subj: Re: Eudora
     Attr: 0000
 
@@ -2404,8 +2422,10 @@ Writing FTN message header:
 Message body size 1944 (+CR!)
 RFC From:     Maik Musall <maik@cape.de>
 RFC Sender:   Maik Musall <maik@cape.de>
-Name for alias checking: All
-No alias found: return All
+    Name:     Holger Lubitz
+    Address:  
+Name for alias checking: Holger Lubitz
+No alias found: return Holger Lubitz
     Name:     maik
     Address:  cape.de
 Name for alias checking: maik
@@ -2434,7 +2454,7 @@ Writing FTN packet header:
     Capw: 0001
 Writing FTN message header:
     From: Maik Musall                          @ 242:1000/5.0
-    To  : All                                  @ 242:1000/5.0
+    To  : Holger Lubitz                        @ 242:1000/5.0
     Subj: Re: Modem an E-Plus-Handy???
     Attr: 0000
 Look up newsgroup de.comm.mobil
@@ -2444,7 +2464,7 @@ charset: table found in=us-ascii out=us-ascii
 charset: msg RFC=us-ascii FSC=ASCII enc=7bit
 Writing FTN message header:
     From: Maik Musall                          @ 242:1000/5.0
-    To  : All                                  @ 242:1000/5.0
+    To  : Holger Lubitz                        @ 242:1000/5.0
     Subj: Re: Modem an E-Plus-Handy???
     Attr: 0000
 Look up newsgroup de.comm.modem
@@ -2454,7 +2474,7 @@ charset: table found in=us-ascii out=us-ascii
 charset: msg RFC=us-ascii FSC=ASCII enc=7bit
 Writing FTN message header:
     From: Maik Musall                          @ 242:1000/5.0
-    To  : All                                  @ 242:1000/5.0
+    To  : Holger Lubitz                        @ 242:1000/5.0
     Subj: Re: Modem an E-Plus-Handy???
     Attr: 0000
 Look up newsgroup ger.pc.hard
@@ -2522,8 +2542,10 @@ Writing FTN message header:
 Message body size 498 (+CR!)
 RFC From:     chris@cae.muc.de (Christian A. Eroes)
 RFC Sender:   Christian A. Eroes <chris@cae.muc.de>
-Name for alias checking: All
-No alias found: return All
+    Name:     usai1035
+    Address:  
+Name for alias checking: usai1035
+No alias found: return Usai1035
     Name:     chris
     Address:  cae.muc.de
 Name for alias checking: chris
@@ -2552,7 +2574,7 @@ Writing FTN packet header:
     Capw: 0001
 Writing FTN message header:
     From: Christian A. Eroes                   @ 242:1000/5.0
-    To  : All                                  @ 242:1000/5.0
+    To  : Usai1035                             @ 242:1000/5.0
     Subj: Re: Kosten einer Standleitung
     Attr: 0000
 Look up newsgroup de.comm.gateways
@@ -2562,7 +2584,7 @@ charset: table found in=iso-8859-1 out=iso-8859-1
 charset: msg RFC=iso-8859-1 FSC=LATIN-1 enc=8bit
 Writing FTN message header:
     From: Christian A. Eroes                   @ 242:1000/5.0
-    To  : All                                  @ 242:1000/5.0
+    To  : Usai1035                             @ 242:1000/5.0
     Subj: Re: Kosten einer Standleitung
     Attr: 0000
 Look up newsgroup de.comm.infosystems.misc
@@ -2572,7 +2594,7 @@ charset: table found in=iso-8859-1 out=iso-8859-1
 charset: msg RFC=iso-8859-1 FSC=LATIN-1 enc=8bit
 Writing FTN message header:
     From: Christian A. Eroes                   @ 242:1000/5.0
-    To  : All                                  @ 242:1000/5.0
+    To  : Usai1035                             @ 242:1000/5.0
     Subj: Re: Kosten einer Standleitung
     Attr: 0000
 Look up newsgroup de.comm.internet.routing
@@ -2582,7 +2604,7 @@ charset: table found in=iso-8859-1 out=iso-8859-1
 charset: msg RFC=iso-8859-1 FSC=LATIN-1 enc=8bit
 Writing FTN message header:
     From: Christian A. Eroes                   @ 242:1000/5.0
-    To  : All                                  @ 242:1000/5.0
+    To  : Usai1035                             @ 242:1000/5.0
     Subj: Re: Kosten einer Standleitung
     Attr: 0000
 Look up newsgroup de.comm.internet.zugang
@@ -2592,7 +2614,7 @@ charset: table found in=iso-8859-1 out=iso-8859-1
 charset: msg RFC=iso-8859-1 FSC=LATIN-1 enc=8bit
 Writing FTN message header:
     From: Christian A. Eroes                   @ 242:1000/5.0
-    To  : All                                  @ 242:1000/5.0
+    To  : Usai1035                             @ 242:1000/5.0
     Subj: Re: Kosten einer Standleitung
     Attr: 0000
 Look up newsgroup de.comm.modem
@@ -2602,7 +2624,7 @@ charset: table found in=iso-8859-1 out=iso-8859-1
 charset: msg RFC=iso-8859-1 FSC=LATIN-1 enc=8bit
 Writing FTN message header:
     From: Christian A. Eroes                   @ 242:1000/5.0
-    To  : All                                  @ 242:1000/5.0
+    To  : Usai1035                             @ 242:1000/5.0
     Subj: Re: Kosten einer Standleitung
     Attr: 0000
 Look up newsgroup de.comm.isdn
@@ -2612,7 +2634,7 @@ charset: table found in=iso-8859-1 out=iso-8859-1
 charset: msg RFC=iso-8859-1 FSC=LATIN-1 enc=8bit
 Writing FTN message header:
     From: Christian A. Eroes                   @ 242:1000/5.0
-    To  : All                                  @ 242:1000/5.0
+    To  : Usai1035                             @ 242:1000/5.0
     Subj: Re: Kosten einer Standleitung
     Attr: 0000
 Look up newsgroup de.comm.misc
@@ -2622,7 +2644,7 @@ charset: table found in=iso-8859-1 out=iso-8859-1
 charset: msg RFC=iso-8859-1 FSC=LATIN-1 enc=8bit
 Writing FTN message header:
     From: Christian A. Eroes                   @ 242:1000/5.0
-    To  : All                                  @ 242:1000/5.0
+    To  : Usai1035                             @ 242:1000/5.0
     Subj: Re: Kosten einer Standleitung
     Attr: 0000
 
@@ -2668,8 +2690,10 @@ Writing FTN message header:
 Message body size 577 (+CR!)
 RFC From:     Dirk Jacob <jacob@tmfs.mpgfk.tu-dresden.de>
 RFC Sender:   Dirk Jacob <jacob@tmfs.mpgfk.tu-dresden.de>
-Name for alias checking: All
-No alias found: return All
+    Name:     K. Seeland
+    Address:  
+Name for alias checking: K. Seeland
+No alias found: return K. Seeland
     Name:     jacob
     Address:  tmfs.mpgfk.tu-dresden.de
 Name for alias checking: jacob
@@ -2698,7 +2722,7 @@ Writing FTN packet header:
     Capw: 0001
 Writing FTN message header:
     From: Dirk Jacob                           @ 242:1000/5.0
-    To  : All                                  @ 242:1000/5.0
+    To  : K. Seeland                           @ 242:1000/5.0
     Subj: Re: tcpip, ftp unter dos
     Attr: 0000
 
@@ -2706,8 +2730,10 @@ Writing FTN message header:
 Message body size 962 (+CR!)
 RFC From:     chris@cae.muc.de (Christian A. Eroes)
 RFC Sender:   Christian A. Eroes <chris@cae.muc.de>
-Name for alias checking: All
-No alias found: return All
+    Name:     chris
+    Address:  
+Name for alias checking: chris
+No alias found: return Chris
     Name:     chris
     Address:  cae.muc.de
 Name for alias checking: chris
@@ -2736,7 +2762,7 @@ Writing FTN packet header:
     Capw: 0001
 Writing FTN message header:
     From: Christian A. Eroes                   @ 242:1000/5.0
-    To  : All                                  @ 242:1000/5.0
+    To  : Chris                                @ 242:1000/5.0
     Subj: Re: SINUS 42AB
     Attr: 0000
 
@@ -2892,8 +2918,10 @@ Writing FTN message header:
 Message body size 1172 (+CR!)
 RFC From:     =?iso-8859-1?q?J=E9r=F4me_Waibel?= <schrom@lisa.simpson.inka.de>
 RFC Sender:   =?iso-8859-1?q?J=E9r=F4me_Waibel?= <schrom@lisa.simpson.inka.de>
-Name for alias checking: All
-No alias found: return All
+    Name:     Bubblebear
+    Address:  guru.rhein-main.de
+Name for alias checking: Bubblebear
+No alias found: return Bubblebear
     Name:     schrom
     Address:  lisa.simpson.inka.de
 Name for alias checking: schrom
@@ -2922,7 +2950,7 @@ Writing FTN packet header:
     Capw: 0001
 Writing FTN message header:
     From: Jérôme Waibel                        @ 242:1000/5.0
-    To  : All                                  @ 242:1000/5.0
+    To  : Bubblebear                           @ 242:1000/5.0
     Subj: Re: Vernetzung AMIGA-PC
     Attr: 0000
 
@@ -2968,8 +2996,10 @@ Writing FTN message header:
 Message body size 1032 (+CR!)
 RFC From:     Stefan Wintermeyer <S.Wintermeyer@swreisedienst.com>
 RFC Sender:   Stefan Wintermeyer <S.Wintermeyer@swreisedienst.com>
-Name for alias checking: All
-No alias found: return All
+    Name:     Michael Stein
+    Address:  
+Name for alias checking: Michael Stein
+No alias found: return Michael Stein
     Name:     S.Wintermeyer
     Address:  swreisedienst.com
 Name for alias checking: S.Wintermeyer
@@ -2998,7 +3028,7 @@ Writing FTN packet header:
     Capw: 0001
 Writing FTN message header:
     From: Stefan Wintermeyer                   @ 242:1000/5.0
-    To  : All                                  @ 242:1000/5.0
+    To  : Michael Stein                        @ 242:1000/5.0
     Subj: Re: Direkte Steuerung der Windows 95-FAX-Software
     Attr: 0000
 
@@ -3064,8 +3094,10 @@ Writing FTN message header:
 Message body size 544 (+CR!)
 RFC From:     mozart@mozart.berlinet.de (Thomas Witt)
 RFC Sender:   Thomas Witt <mozart@mozart.berlinet.de>
-Name for alias checking: All
-No alias found: return All
+    Name:     joerg
+    Address:  tretow.in-berlin.de
+Name for alias checking: Joerg Tretow
+No alias found: return Joerg Tretow
     Name:     mozart
     Address:  mozart.berlinet.de
 Name for alias checking: mozart
@@ -3094,7 +3126,7 @@ Writing FTN packet header:
     Capw: 0001
 Writing FTN message header:
     From: Thomas Witt                          @ 242:1000/5.0
-    To  : All                                  @ 242:1000/5.0
+    To  : Joerg Tretow                         @ 242:1000/5.0
     Subj: Re: Modem an E-Plus-Handy???
     Attr: 0000
 Look up newsgroup de.comm.misc
@@ -3104,7 +3136,7 @@ charset: table found in=iso-8859-1 out=iso-8859-1
 charset: msg RFC=iso-8859-1 FSC=LATIN-1 enc=8bit
 Writing FTN message header:
     From: Thomas Witt                          @ 242:1000/5.0
-    To  : All                                  @ 242:1000/5.0
+    To  : Joerg Tretow                         @ 242:1000/5.0
     Subj: Re: Modem an E-Plus-Handy???
     Attr: 0000
 Look up newsgroup de.comm.mobil
@@ -3114,7 +3146,7 @@ charset: table found in=iso-8859-1 out=iso-8859-1
 charset: msg RFC=iso-8859-1 FSC=LATIN-1 enc=8bit
 Writing FTN message header:
     From: Thomas Witt                          @ 242:1000/5.0
-    To  : All                                  @ 242:1000/5.0
+    To  : Joerg Tretow                         @ 242:1000/5.0
     Subj: Re: Modem an E-Plus-Handy???
     Attr: 0000
 Look up newsgroup ger.pc.hard
@@ -3124,8 +3156,10 @@ No FTN area
 Message body size 881 (+CR!)
 RFC From:     uh5y@rz.uni-karlsruhe.de (Martin Schulte Moenting)
 RFC Sender:   Martin Schulte Moenting <uh5y@rz.uni-karlsruhe.de>
-Name for alias checking: All
-No alias found: return All
+    Name:     On 12 Apr 1996 08:24:00 +0100 Christian A. Eroes
+    Address:  
+Name for alias checking: On 12 Apr 1996 08:24:00 +0100 Chris
+No alias found: return On 12 Apr 1996 08:24:00 +0100 Chris
     Name:     uh5y
     Address:  rz.uni-karlsruhe.de
 Name for alias checking: uh5y
@@ -3154,7 +3188,7 @@ Writing FTN packet header:
     Capw: 0001
 Writing FTN message header:
     From: Martin Schulte Moenting              @ 242:1000/5.0
-    To  : All                                  @ 242:1000/5.0
+    To  : On 12 Apr 1996 08:24:00 +0100 Chris  @ 242:1000/5.0
     Subj: Re: SINUS 42AB
     Attr: 0000
 
@@ -3328,8 +3362,10 @@ Writing FTN message header:
 Message body size 796 (+CR!)
 RFC From:     roger@larry.westfalen.de (Roger Schwentker)
 RFC Sender:   Roger Schwentker <roger@larry.westfalen.de>
-Name for alias checking: All
-No alias found: return All
+    Name:     Dirk Jacob
+    Address:  
+Name for alias checking: jacob@tmfs.mpgfk.tu-dresden.de
+No alias found: return Jacob@tmfs.Mpgfk.Tu-dresden.De
     Name:     roger
     Address:  larry.westfalen.de
 Name for alias checking: roger
@@ -3358,7 +3394,7 @@ Writing FTN packet header:
     Capw: 0001
 Writing FTN message header:
     From: Roger Schwentker                     @ 242:1000/5.0
-    To  : All                                  @ 242:1000/5.0
+    To  : Jacob@tmfs.Mpgfk.Tu-dresden.De       @ 242:1000/5.0
     Subj: Re: tcpip, ftp unter dos
     Attr: 0000
 
@@ -3444,8 +3480,10 @@ Writing FTN message header:
 Message body size 3038 (+CR!)
 RFC From:     dorfner@susi.fmi.uni-passau.de (Clemens Dorfner)
 RFC Sender:   Clemens Dorfner <dorfner@susi.fmi.uni-passau.de>
-Name for alias checking: All
-No alias found: return All
+    Name:     mark
+    Address:  umd.allcon.com
+Name for alias checking: Mark Deskowski
+No alias found: return Mark Deskowski
     Name:     dorfner
     Address:  susi.fmi.uni-passau.de
 Name for alias checking: dorfner
@@ -3474,7 +3512,7 @@ Writing FTN packet header:
     Capw: 0001
 Writing FTN message header:
     From: Clemens Dorfner                      @ 242:1000/5.0
-    To  : All                                  @ 242:1000/5.0
+    To  : Mark Deskowski                       @ 242:1000/5.0
     Subj: Re: Modem / Telefon - Wer schmeisst wen aus der Leitung ?
     Attr: 0000
 
@@ -3483,8 +3521,10 @@ Message body size 1241 (+CR!)
 RFC From:     graef@Informatik.TU-Muenchen.DE (Andreas Graef)
 RFC Reply-To: graef@informatik.tu-muenchen.de
 RFC Sender:   Andreas Graef <graef@Informatik.TU-Muenchen.DE>
-Name for alias checking: All
-No alias found: return All
+    Name:     naddy
+    Address:  mips.pfalz.de
+Name for alias checking: Christian Weisgerber
+No alias found: return Christian Weisgerber
     Name:     graef
     Address:  Informatik.TU-Muenchen.DE
 Name for alias checking: graef
@@ -3513,7 +3553,7 @@ Writing FTN packet header:
     Capw: 0001
 Writing FTN message header:
     From: Andreas Graef                        @ 242:1000/5.0
-    To  : All                                  @ 242:1000/5.0
+    To  : Christian Weisgerber                 @ 242:1000/5.0
     Subj: Re: Hörbarer Gebührenimpuls
     Attr: 0000
 
@@ -3559,10 +3599,8 @@ Writing FTN message header:
 Message body size 1217 (+CR!)
 RFC From:     kay@ula1b18.zhv.basf-ag.de (Kay Marquardt)
 RFC Sender:   Kay Marquardt <kay@ula1b18.zhv.basf-ag.de>
-    Name:     ben
-    Address:  osn.de
-Name for alias checking: Ben
-No alias found: return Ben
+Name for alias checking: All
+No alias found: return All
     Name:     kay
     Address:  ula1b18.zhv.basf-ag.de
 Name for alias checking: kay
@@ -3591,7 +3629,7 @@ Writing FTN packet header:
     Capw: 0001
 Writing FTN message header:
     From: Kay Marquardt                        @ 242:1000/5.0
-    To  : Ben                                  @ 242:1000/5.0
+    To  : All                                  @ 242:1000/5.0
     Subj: Re: Modem / Telefon - Wer schmeisst wen aus der Leitung ?
     Attr: 0000
 
@@ -3793,8 +3831,10 @@ Writing FTN message header:
 Message body size 688 (+CR!)
 RFC From:     =?iso-8859-1?q?J=E9r=F4me_Waibel?= <schrom@lisa.simpson.inka.de>
 RFC Sender:   =?iso-8859-1?q?J=E9r=F4me_Waibel?= <schrom@lisa.simpson.inka.de>
-Name for alias checking: All
-No alias found: return All
+    Name:     graef
+    Address:  informatik.tu-muenchen.de
+Name for alias checking: Andreas Graef
+No alias found: return Andreas Graef
     Name:     schrom
     Address:  lisa.simpson.inka.de
 Name for alias checking: schrom
@@ -3823,7 +3863,7 @@ Writing FTN packet header:
     Capw: 0001
 Writing FTN message header:
     From: Jérôme Waibel                        @ 242:1000/5.0
-    To  : All                                  @ 242:1000/5.0
+    To  : Andreas Graef                        @ 242:1000/5.0
     Subj: Re: Hörbarer Gebührenimpuls
     Attr: 0000
 
@@ -4153,8 +4193,10 @@ No FTN area
 Message body size 143 (+CR!)
 RFC From:     leif@elliot.allcon.com (Leif Juergensen)
 RFC Sender:   Leif Juergensen <leif@elliot.allcon.com>
-Name for alias checking: All
-No alias found: return All
+    Name:     finc27
+    Address:  zx2.hrz.uni-dortmund.de
+Name for alias checking: Thomas Adams
+No alias found: return Thomas Adams
     Name:     leif
     Address:  elliot.allcon.com
 Name for alias checking: leif
@@ -4183,7 +4225,7 @@ Writing FTN packet header:
     Capw: 0001
 Writing FTN message header:
     From: Leif Juergensen                      @ 242:1000/5.0
-    To  : All                                  @ 242:1000/5.0
+    To  : Thomas Adams                         @ 242:1000/5.0
     Subj: Re: warum sind Telekom Modems so teuer?
     Attr: 0000
 
@@ -4191,10 +4233,10 @@ Writing FTN message header:
 Message body size 764 (+CR!)
 RFC From:     zessin@helena.rbi.informatik.uni-frankfurt.de (Ralf Zessin)
 RFC Sender:   Ralf Zessin <zessin@helena.rbi.informatik.uni-frankfurt.de>
-    Name:     4ktfme$90g
-    Address:  nx2.HRZ.Uni-Dortmund.DE
-Name for alias checking: In
-No alias found: return In
+    Name:     finc27
+    Address:  zx2.hrz.uni-dortmund.de
+Name for alias checking: Thomas Adams
+No alias found: return Thomas Adams
     Name:     zessin
     Address:  helena.rbi.informatik.uni-frankfurt.de
 Name for alias checking: zessin
@@ -4223,7 +4265,7 @@ Writing FTN packet header:
     Capw: 0001
 Writing FTN message header:
     From: Ralf Zessin                          @ 242:1000/5.0
-    To  : In                                   @ 242:1000/5.0
+    To  : Thomas Adams                         @ 242:1000/5.0
     Subj: Re: warum sind Telekom Modems so teuer?
     Attr: 0000
 
@@ -4595,7 +4637,7 @@ FTN packet header:
 ==============================================================================
 FTN message header:
     From: Alexander Schwanke                   @ 242:1000/5.0
-    To  : All                                  @ 242:1000/5.0
+    To  : Udo Boehlefeld                       @ 242:1000/5.0
     Subj: Re: S: besseres Angebot ISDN ANlage & Karte
     Attr: 0000
 ------------------------------------------------------------------------------
@@ -4646,7 +4688,7 @@ SEEN-BY: 1000/5
 ==============================================================================
 FTN message header:
     From: Alexander Schwanke                   @ 242:1000/5.0
-    To  : All                                  @ 242:1000/5.0
+    To  : Udo Boehlefeld                       @ 242:1000/5.0
     Subj: Re: S: besseres Angebot ISDN ANlage & Karte
     Attr: 0000
 ------------------------------------------------------------------------------
@@ -4697,7 +4739,7 @@ SEEN-BY: 1000/5
 ==============================================================================
 FTN message header:
     From: Alexander Schwanke                   @ 242:1000/5.0
-    To  : All                                  @ 242:1000/5.0
+    To  : Udo Boehlefeld                       @ 242:1000/5.0
     Subj: Re: S: besseres Angebot ISDN ANlage & Karte
     Attr: 0000
 ------------------------------------------------------------------------------
@@ -4748,7 +4790,7 @@ SEEN-BY: 1000/5
 ==============================================================================
 FTN message header:
     From: Alexander Schwanke                   @ 242:1000/5.0
-    To  : All                                  @ 242:1000/5.0
+    To  : Udo Boehlefeld                       @ 242:1000/5.0
     Subj: Re: S: besseres Angebot ISDN ANlage & Karte
     Attr: 0000
 ------------------------------------------------------------------------------
@@ -4809,7 +4851,7 @@ FTN packet header:
 ==============================================================================
 FTN message header:
     From: Ukrapp                               @ 242:1000/5.0
-    To  : All                                  @ 242:1000/5.0
+    To  : Elmar Ascheid                        @ 242:1000/5.0
     Subj: Re: Vertrieb von DInfo2.0 verboten....
     Attr: 0000
 ------------------------------------------------------------------------------
@@ -4994,7 +5036,7 @@ FTN packet header:
 ==============================================================================
 FTN message header:
     From: Maik Musall                          @ 242:1000/5.0
-    To  : All                                  @ 242:1000/5.0
+    To  : Holger Lubitz                        @ 242:1000/5.0
     Subj: Re: Modem an E-Plus-Handy???
     Attr: 0000
 ------------------------------------------------------------------------------
@@ -5059,7 +5101,7 @@ SEEN-BY: 1000/5
 ==============================================================================
 FTN message header:
     From: Maik Musall                          @ 242:1000/5.0
-    To  : All                                  @ 242:1000/5.0
+    To  : Holger Lubitz                        @ 242:1000/5.0
     Subj: Re: Modem an E-Plus-Handy???
     Attr: 0000
 ------------------------------------------------------------------------------
@@ -5124,7 +5166,7 @@ SEEN-BY: 1000/5
 ==============================================================================
 FTN message header:
     From: Maik Musall                          @ 242:1000/5.0
-    To  : All                                  @ 242:1000/5.0
+    To  : Holger Lubitz                        @ 242:1000/5.0
     Subj: Re: Modem an E-Plus-Handy???
     Attr: 0000
 ------------------------------------------------------------------------------
@@ -5409,7 +5451,7 @@ FTN packet header:
 ==============================================================================
 FTN message header:
     From: Roger Schwentker                     @ 242:1000/5.0
-    To  : All                                  @ 242:1000/5.0
+    To  : An456495@anon.Penet.Fi               @ 242:1000/5.0
     Subj: Trottel (war Re: http://194.163.56.129/~ronz/index.htm)
     Attr: 0000
 ------------------------------------------------------------------------------
@@ -5716,7 +5758,7 @@ FTN packet header:
 ==============================================================================
 FTN message header:
     From: Thomas Adams                         @ 242:1000/5.0
-    To  : All                                  @ 242:1000/5.0
+    To  : Udo Schoeffmann                      @ 242:1000/5.0
     Subj: Re: AWS analog wieder moeglich!?
     Attr: 0000
 ------------------------------------------------------------------------------
@@ -5828,7 +5870,7 @@ FTN packet header:
 ==============================================================================
 FTN message header:
     From: Michael Soentgerath                  @ 242:1000/5.0
-    To  : All                                  @ 242:1000/5.0
+    To  : Roger Schwentker                     @ 242:1000/5.0
     Subj: Re: Trottel (war Re: http://194.163.56.129/~ronz/index.htm)
     Attr: 0000
 ------------------------------------------------------------------------------
@@ -6519,7 +6561,7 @@ FTN packet header:
 ==============================================================================
 FTN message header:
     From: Marc A. Rieger                       @ 242:1000/5.0
-    To  : All                                  @ 242:1000/5.0
+    To  : Rene Kacza                           @ 242:1000/5.0
     Subj: Re: S: besseres Angebot ISDN ANlage & Karte
     Attr: 0000
 ------------------------------------------------------------------------------
@@ -6560,7 +6602,7 @@ SEEN-BY: 1000/5
 ==============================================================================
 FTN message header:
     From: Marc A. Rieger                       @ 242:1000/5.0
-    To  : All                                  @ 242:1000/5.0
+    To  : Rene Kacza                           @ 242:1000/5.0
     Subj: Re: S: besseres Angebot ISDN ANlage & Karte
     Attr: 0000
 ------------------------------------------------------------------------------
@@ -6601,7 +6643,7 @@ SEEN-BY: 1000/5
 ==============================================================================
 FTN message header:
     From: Marc A. Rieger                       @ 242:1000/5.0
-    To  : All                                  @ 242:1000/5.0
+    To  : Rene Kacza                           @ 242:1000/5.0
     Subj: Re: S: besseres Angebot ISDN ANlage & Karte
     Attr: 0000
 ------------------------------------------------------------------------------
@@ -6642,7 +6684,7 @@ SEEN-BY: 1000/5
 ==============================================================================
 FTN message header:
     From: Marc A. Rieger                       @ 242:1000/5.0
-    To  : All                                  @ 242:1000/5.0
+    To  : Rene Kacza                           @ 242:1000/5.0
     Subj: Re: S: besseres Angebot ISDN ANlage & Karte
     Attr: 0000
 ------------------------------------------------------------------------------
@@ -8163,7 +8205,7 @@ FTN packet header:
 ==============================================================================
 FTN message header:
     From: Thomas Witt                          @ 242:1000/5.0
-    To  : All                                  @ 242:1000/5.0
+    To  : Matthias Bolten                      @ 242:1000/5.0
     Subj: Re: Kosten einer Standleitung
     Attr: 0000
 ------------------------------------------------------------------------------
@@ -8212,7 +8254,7 @@ SEEN-BY: 1000/5
 ==============================================================================
 FTN message header:
     From: Thomas Witt                          @ 242:1000/5.0
-    To  : All                                  @ 242:1000/5.0
+    To  : Matthias Bolten                      @ 242:1000/5.0
     Subj: Re: Kosten einer Standleitung
     Attr: 0000
 ------------------------------------------------------------------------------
@@ -8261,7 +8303,7 @@ SEEN-BY: 1000/5
 ==============================================================================
 FTN message header:
     From: Thomas Witt                          @ 242:1000/5.0
-    To  : All                                  @ 242:1000/5.0
+    To  : Matthias Bolten                      @ 242:1000/5.0
     Subj: Re: Kosten einer Standleitung
     Attr: 0000
 ------------------------------------------------------------------------------
@@ -8310,7 +8352,7 @@ SEEN-BY: 1000/5
 ==============================================================================
 FTN message header:
     From: Thomas Witt                          @ 242:1000/5.0
-    To  : All                                  @ 242:1000/5.0
+    To  : Matthias Bolten                      @ 242:1000/5.0
     Subj: Re: Kosten einer Standleitung
     Attr: 0000
 ------------------------------------------------------------------------------
@@ -8359,7 +8401,7 @@ SEEN-BY: 1000/5
 ==============================================================================
 FTN message header:
     From: Thomas Witt                          @ 242:1000/5.0
-    To  : All                                  @ 242:1000/5.0
+    To  : Matthias Bolten                      @ 242:1000/5.0
     Subj: Re: Kosten einer Standleitung
     Attr: 0000
 ------------------------------------------------------------------------------
@@ -8408,7 +8450,7 @@ SEEN-BY: 1000/5
 ==============================================================================
 FTN message header:
     From: Thomas Witt                          @ 242:1000/5.0
-    To  : All                                  @ 242:1000/5.0
+    To  : Matthias Bolten                      @ 242:1000/5.0
     Subj: Re: Kosten einer Standleitung
     Attr: 0000
 ------------------------------------------------------------------------------
@@ -8457,7 +8499,7 @@ SEEN-BY: 1000/5
 ==============================================================================
 FTN message header:
     From: Thomas Witt                          @ 242:1000/5.0
-    To  : All                                  @ 242:1000/5.0
+    To  : Matthias Bolten                      @ 242:1000/5.0
     Subj: Re: Kosten einer Standleitung
     Attr: 0000
 ------------------------------------------------------------------------------
@@ -8506,7 +8548,7 @@ SEEN-BY: 1000/5
 ==============================================================================
 FTN message header:
     From: Thomas Witt                          @ 242:1000/5.0
-    To  : All                                  @ 242:1000/5.0
+    To  : Matthias Bolten                      @ 242:1000/5.0
     Subj: Re: Kosten einer Standleitung
     Attr: 0000
 ------------------------------------------------------------------------------
@@ -9070,7 +9112,7 @@ FTN packet header:
 ==============================================================================
 FTN message header:
     From: Michael Beckmann                     @ 242:1000/5.0
-    To  : All                                  @ 242:1000/5.0
+    To  : Dirk Balthasar                       @ 242:1000/5.0
     Subj: Re: Eudora
     Attr: 0000
 ------------------------------------------------------------------------------
@@ -9117,7 +9159,7 @@ SEEN-BY: 1000/5
 ==============================================================================
 FTN message header:
     From: Michael Beckmann                     @ 242:1000/5.0
-    To  : All                                  @ 242:1000/5.0
+    To  : Dirk Balthasar                       @ 242:1000/5.0
     Subj: Re: Eudora
     Attr: 0000
 ------------------------------------------------------------------------------
@@ -10573,7 +10615,7 @@ FTN packet header:
 ==============================================================================
 FTN message header:
     From: Maik Musall                          @ 242:1000/5.0
-    To  : All                                  @ 242:1000/5.0
+    To  : Holger Lubitz                        @ 242:1000/5.0
     Subj: Re: Modem an E-Plus-Handy???
     Attr: 0000
 ------------------------------------------------------------------------------
@@ -10645,7 +10687,7 @@ SEEN-BY: 1000/5
 ==============================================================================
 FTN message header:
     From: Maik Musall                          @ 242:1000/5.0
-    To  : All                                  @ 242:1000/5.0
+    To  : Holger Lubitz                        @ 242:1000/5.0
     Subj: Re: Modem an E-Plus-Handy???
     Attr: 0000
 ------------------------------------------------------------------------------
@@ -10717,7 +10759,7 @@ SEEN-BY: 1000/5
 ==============================================================================
 FTN message header:
     From: Maik Musall                          @ 242:1000/5.0
-    To  : All                                  @ 242:1000/5.0
+    To  : Holger Lubitz                        @ 242:1000/5.0
     Subj: Re: Modem an E-Plus-Handy???
     Attr: 0000
 ------------------------------------------------------------------------------
@@ -10986,7 +11028,7 @@ FTN packet header:
 ==============================================================================
 FTN message header:
     From: Christian A. Eroes                   @ 242:1000/5.0
-    To  : All                                  @ 242:1000/5.0
+    To  : Usai1035                             @ 242:1000/5.0
     Subj: Re: Kosten einer Standleitung
     Attr: 0000
 ------------------------------------------------------------------------------
@@ -11028,7 +11070,7 @@ SEEN-BY: 1000/5
 ==============================================================================
 FTN message header:
     From: Christian A. Eroes                   @ 242:1000/5.0
-    To  : All                                  @ 242:1000/5.0
+    To  : Usai1035                             @ 242:1000/5.0
     Subj: Re: Kosten einer Standleitung
     Attr: 0000
 ------------------------------------------------------------------------------
@@ -11070,7 +11112,7 @@ SEEN-BY: 1000/5
 ==============================================================================
 FTN message header:
     From: Christian A. Eroes                   @ 242:1000/5.0
-    To  : All                                  @ 242:1000/5.0
+    To  : Usai1035                             @ 242:1000/5.0
     Subj: Re: Kosten einer Standleitung
     Attr: 0000
 ------------------------------------------------------------------------------
@@ -11112,7 +11154,7 @@ SEEN-BY: 1000/5
 ==============================================================================
 FTN message header:
     From: Christian A. Eroes                   @ 242:1000/5.0
-    To  : All                                  @ 242:1000/5.0
+    To  : Usai1035                             @ 242:1000/5.0
     Subj: Re: Kosten einer Standleitung
     Attr: 0000
 ------------------------------------------------------------------------------
@@ -11154,7 +11196,7 @@ SEEN-BY: 1000/5
 ==============================================================================
 FTN message header:
     From: Christian A. Eroes                   @ 242:1000/5.0
-    To  : All                                  @ 242:1000/5.0
+    To  : Usai1035                             @ 242:1000/5.0
     Subj: Re: Kosten einer Standleitung
     Attr: 0000
 ------------------------------------------------------------------------------
@@ -11196,7 +11238,7 @@ SEEN-BY: 1000/5
 ==============================================================================
 FTN message header:
     From: Christian A. Eroes                   @ 242:1000/5.0
-    To  : All                                  @ 242:1000/5.0
+    To  : Usai1035                             @ 242:1000/5.0
     Subj: Re: Kosten einer Standleitung
     Attr: 0000
 ------------------------------------------------------------------------------
@@ -11238,7 +11280,7 @@ SEEN-BY: 1000/5
 ==============================================================================
 FTN message header:
     From: Christian A. Eroes                   @ 242:1000/5.0
-    To  : All                                  @ 242:1000/5.0
+    To  : Usai1035                             @ 242:1000/5.0
     Subj: Re: Kosten einer Standleitung
     Attr: 0000
 ------------------------------------------------------------------------------
@@ -11280,7 +11322,7 @@ SEEN-BY: 1000/5
 ==============================================================================
 FTN message header:
     From: Christian A. Eroes                   @ 242:1000/5.0
-    To  : All                                  @ 242:1000/5.0
+    To  : Usai1035                             @ 242:1000/5.0
     Subj: Re: Kosten einer Standleitung
     Attr: 0000
 ------------------------------------------------------------------------------
@@ -11388,7 +11430,7 @@ FTN packet header:
 ==============================================================================
 FTN message header:
     From: Dirk Jacob                           @ 242:1000/5.0
-    To  : All                                  @ 242:1000/5.0
+    To  : K. Seeland                           @ 242:1000/5.0
     Subj: Re: tcpip, ftp unter dos
     Attr: 0000
 ------------------------------------------------------------------------------
@@ -11455,7 +11497,7 @@ FTN packet header:
 ==============================================================================
 FTN message header:
     From: Christian A. Eroes                   @ 242:1000/5.0
-    To  : All                                  @ 242:1000/5.0
+    To  : Chris                                @ 242:1000/5.0
     Subj: Re: SINUS 42AB
     Attr: 0000
 ------------------------------------------------------------------------------
@@ -11884,7 +11926,7 @@ FTN packet header:
 ==============================================================================
 FTN message header:
     From: Jérôme Waibel                        @ 242:1000/5.0
-    To  : All                                  @ 242:1000/5.0
+    To  : Bubblebear                           @ 242:1000/5.0
     Subj: Re: Vernetzung AMIGA-PC
     Attr: 0000
 ------------------------------------------------------------------------------
@@ -12010,7 +12052,7 @@ FTN packet header:
 ==============================================================================
 FTN message header:
     From: Stefan Wintermeyer                   @ 242:1000/5.0
-    To  : All                                  @ 242:1000/5.0
+    To  : Michael Stein                        @ 242:1000/5.0
     Subj: Re: Direkte Steuerung der Windows 95-FAX-Software
     Attr: 0000
 ------------------------------------------------------------------------------
@@ -12285,7 +12327,7 @@ FTN packet header:
 ==============================================================================
 FTN message header:
     From: Thomas Witt                          @ 242:1000/5.0
-    To  : All                                  @ 242:1000/5.0
+    To  : Joerg Tretow                         @ 242:1000/5.0
     Subj: Re: Modem an E-Plus-Handy???
     Attr: 0000
 ------------------------------------------------------------------------------
@@ -12330,7 +12372,7 @@ SEEN-BY: 1000/5
 ==============================================================================
 FTN message header:
     From: Thomas Witt                          @ 242:1000/5.0
-    To  : All                                  @ 242:1000/5.0
+    To  : Joerg Tretow                         @ 242:1000/5.0
     Subj: Re: Modem an E-Plus-Handy???
     Attr: 0000
 ------------------------------------------------------------------------------
@@ -12375,7 +12417,7 @@ SEEN-BY: 1000/5
 ==============================================================================
 FTN message header:
     From: Thomas Witt                          @ 242:1000/5.0
-    To  : All                                  @ 242:1000/5.0
+    To  : Joerg Tretow                         @ 242:1000/5.0
     Subj: Re: Modem an E-Plus-Handy???
     Attr: 0000
 ------------------------------------------------------------------------------
@@ -12430,7 +12472,7 @@ FTN packet header:
 ==============================================================================
 FTN message header:
     From: Martin Schulte Moenting              @ 242:1000/5.0
-    To  : All                                  @ 242:1000/5.0
+    To  : On 12 Apr 1996 08:24:00 +0100 Chris  @ 242:1000/5.0
     Subj: Re: SINUS 42AB
     Attr: 0000
 ------------------------------------------------------------------------------
@@ -12809,7 +12851,7 @@ FTN packet header:
 ==============================================================================
 FTN message header:
     From: Roger Schwentker                     @ 242:1000/5.0
-    To  : All                                  @ 242:1000/5.0
+    To  : Jacob@tmfs.Mpgfk.Tu-dresden.De       @ 242:1000/5.0
     Subj: Re: tcpip, ftp unter dos
     Attr: 0000
 ------------------------------------------------------------------------------
@@ -12979,7 +13021,7 @@ FTN packet header:
 ==============================================================================
 FTN message header:
     From: Clemens Dorfner                      @ 242:1000/5.0
-    To  : All                                  @ 242:1000/5.0
+    To  : Mark Deskowski                       @ 242:1000/5.0
     Subj: Re: Modem / Telefon - Wer schmeisst wen aus der Leitung ?
     Attr: 0000
 ------------------------------------------------------------------------------
@@ -13077,7 +13119,7 @@ FTN packet header:
 ==============================================================================
 FTN message header:
     From: Andreas Graef                        @ 242:1000/5.0
-    To  : All                                  @ 242:1000/5.0
+    To  : Christian Weisgerber                 @ 242:1000/5.0
     Subj: Re: Hörbarer Gebührenimpuls
     Attr: 0000
 ------------------------------------------------------------------------------
@@ -13194,7 +13236,7 @@ FTN packet header:
 ==============================================================================
 FTN message header:
     From: Kay Marquardt                        @ 242:1000/5.0
-    To  : Ben                                  @ 242:1000/5.0
+    To  : All                                  @ 242:1000/5.0
     Subj: Re: Modem / Telefon - Wer schmeisst wen aus der Leitung ?
     Attr: 0000
 ------------------------------------------------------------------------------
@@ -13595,7 +13637,7 @@ FTN packet header:
 ==============================================================================
 FTN message header:
     From: Jérôme Waibel                        @ 242:1000/5.0
-    To  : All                                  @ 242:1000/5.0
+    To  : Andreas Graef                        @ 242:1000/5.0
     Subj: Re: Hörbarer Gebührenimpuls
     Attr: 0000
 ------------------------------------------------------------------------------
@@ -14557,7 +14599,7 @@ FTN packet header:
 ==============================================================================
 FTN message header:
     From: Leif Juergensen                      @ 242:1000/5.0
-    To  : All                                  @ 242:1000/5.0
+    To  : Thomas Adams                         @ 242:1000/5.0
     Subj: Re: warum sind Telekom Modems so teuer?
     Attr: 0000
 ------------------------------------------------------------------------------
@@ -14601,7 +14643,7 @@ FTN packet header:
 ==============================================================================
 FTN message header:
     From: Ralf Zessin                          @ 242:1000/5.0
-    To  : In                                   @ 242:1000/5.0
+    To  : Thomas Adams                         @ 242:1000/5.0
     Subj: Re: warum sind Telekom Modems so teuer?
     Attr: 0000
 ------------------------------------------------------------------------------

@@ -1148,6 +1148,18 @@ read charset table: cp866 -> cp1251
 read charset table: cp1251 -> cp866
 read charset table: cp866 -> x-mac
 read charset table: x-mac -> cp866
+regex: pattern=^In article <?[^ ]*@[^ ]*>? on ..:..:..,? (.*) (writes|wrote)
+regex: pattern=^In article <?[^ ]*@[^ ]*>? on ..\...\...,? (.*) (writes|wrote)
+regex: pattern=^In article <?[^ ]*@[^ ]*>?,? (.*) (writes|wrote):$
+regex: pattern=^In <[^ ]*@[^ ]*>,? (.*) (writes|wrote):$
+regex: pattern=^I[nm] Artikel <?[^ ]*@[^ ]*>?,? (.*) (schreibt|schrieb)
+regex: pattern=^([a-z0-9_.\-]*@[a-z0-9_.\-]* \(.*\)) (writes|wrote|schreibt|schrieb)
+regex: pattern=^(.* <[a-z0-9_.\-]*@[a-z0-9_.\-]*>) (writes|wrote|schreibt|schrieb)
+regex: pattern=^(.* \([a-z0-9_.\-]*@[a-z0-9_.\-]*\)) (writes|wrote|schreibt|schrieb)
+regex: pattern=^([a-z0-9_.\-]*@[a-z0-9_.\-]*) (writes|wrote|schreibt|schrieb)
+regex: pattern=^On ..., .. ... .... ..:..:.. [+\-]...., (.*) (writes|wrote|schreibt|schrieb):$
+regex: pattern=^On .. ... .... ..:..:.. [+\-]...., (.*) (writes|wrote|schreibt|schrieb):$
+regex: pattern=^[ 	]*([^>|].*) (writes|wrote|schreibt|schrieb):$
 Message body size 0 (+CR!)
 ---------- ftntick -----------------------------------------------------
 config: fqdn=orodruin.fido.de

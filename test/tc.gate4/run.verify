@@ -142,8 +142,10 @@ charset: table found in=iso-8859-1 out=iso-8859-1
 Batch: message #9 size 1478
 RFC From:     Michael.B.Taylor@dartmouth.edu (Michael B. Taylor)
 RFC Sender:   Michael B. Taylor <Michael.B.Taylor@dartmouth.edu>
-Name for alias checking: All
-No alias found: return All
+    Name:     leebr
+    Address:  ecf.toronto.edu
+Name for alias checking: LEE BRIAN
+No alias found: return LEE BRIAN
     Name:     Michael.B.Taylor
     Address:  dartmouth.edu
 Name for alias checking: Michael.B.Taylor
@@ -175,8 +177,10 @@ Batch: message #11 size 1722
 RFC From:     marc@tanda.isis.org (Marc Thibault)
 RFC Reply-To: marc@tanda.isis.org
 RFC Sender:   Marc Thibault <marc@tanda.isis.org>
-Name for alias checking: All
-No alias found: return All
+    Name:     
+    Address:  
+Name for alias checking: Brian Holland
+No alias found: return Brian Holland
     Name:     marc
     Address:  tanda.isis.org
 Name for alias checking: marc
@@ -223,8 +227,10 @@ Batch: message #14 size 1261
 RFC From:     darrylo@sr.hp.com (Darryl Okahata)
 RFC Reply-To: darrylo@sr.hp.com
 RFC Sender:   Darryl Okahata <darrylo@sr.hp.com>
-Name for alias checking: All
-No alias found: return All
+    Name:     I
+    Address:  
+Name for alias checking: I
+No alias found: return I
     Name:     darrylo
     Address:  sr.hp.com
 Name for alias checking: darrylo
@@ -410,8 +416,10 @@ charset: table found in=iso-8859-1 out=iso-8859-1
 Batch: message #25 size 1966
 RFC From:     Paula_Lieberman@amicol.UUCP (Paula Lieberman)
 RFC Sender:   Paula Lieberman <Paula_Lieberman@amicol.UUCP>
-Name for alias checking: All
-No alias found: return All
+    Name:     In a message dated Sat  7 Mar 93  7:22, Abs0
+    Address:  coos.dartmouth.edu (kelvin Leu
+Name for alias checking: In a message dated Sat  7 Mar 93  7
+No alias found: return In a message dated Sat  7 Mar 93  7
     Name:     Paula_Lieberman
     Address:  amicol.UUCP
 Name for alias checking: Paula_Lieberman
@@ -425,8 +433,10 @@ charset: table found in=iso-8859-1 out=iso-8859-1
 Batch: message #26 size 4048
 RFC From:     stevev@miser.uoregon.edu (Steve VanDevender)
 RFC Sender:   Steve VanDevender <stevev@miser.uoregon.edu>
-Name for alias checking: All
-No alias found: return All
+    Name:     rrd
+    Address:  hpfcso.FC.HP.COM
+Name for alias checking: Ray Depew
+No alias found: return Ray Depew
     Name:     stevev
     Address:  miser.uoregon.edu
 Name for alias checking: stevev
@@ -508,8 +518,10 @@ charset: table found in=iso-8859-1 out=iso-8859-1
 Batch: message #31 size 2172
 RFC From:     aki!wegmann (Frank Wegmann)
 RFC Sender:   Frank Wegmann <wegmann@aki>
-Name for alias checking: All
-No alias found: return All
+    Name:     gemoe
+    Address:  proximus.north.de
+Name for alias checking: Gerhard Moeller
+No alias found: return Gerhard Moeller
     Name:     wegmann
     Address:  aki
 Name for alias checking: wegmann
@@ -868,8 +880,10 @@ charset: table found in=iso-8859-1 out=iso-8859-1
 Batch: message #53 size 3132
 RFC From:     sc03@ns1.cc.lehigh.edu (STEVE CHANG)
 RFC Sender:   STEVE CHANG <sc03@ns1.cc.lehigh.edu>
-Name for alias checking: All
-No alias found: return All
+    Name:     hanscs
+    Address:  dhhalden.no
+Name for alias checking: HANS CHRISTIA N SANDER
+No alias found: return HANS CHRISTIA N SANDER
     Name:     sc03
     Address:  ns1.cc.lehigh.edu
 Name for alias checking: sc03
@@ -1273,10 +1287,8 @@ Batch: message #22 size 1162
 RFC From:     goldfarb@ocf.berkeley.edu (David Goldfarb)
 RFC Reply-To: goldfarb@ocf.berkeley.edu (David Goldfarb)
 RFC Sender:   David Goldfarb <goldfarb@ocf.berkeley.edu>
-    Name:     xzhao+
-    Address:  cs.cmu.edu
-Name for alias checking: Xudong Zhao
-No alias found: return Xudong Zhao
+Name for alias checking: All
+No alias found: return All
     Name:     goldfarb
     Address:  ocf.berkeley.edu
 Name for alias checking: goldfarb
@@ -1305,8 +1317,10 @@ charset: table found in=iso-8859-1 out=iso-8859-1
 Batch: message #24 size 1588
 RFC From:     reljr@css1.UUCP (Robert Lee)
 RFC Sender:   Robert Lee <reljr@css1.UUCP>
-Name for alias checking: All
-No alias found: return All
+    Name:     jhk6
+    Address:  cunixb.cc.columbia.edu
+Name for alias checking: John H Kim
+No alias found: return John H Kim
     Name:     reljr
     Address:  css1.UUCP
 Name for alias checking: reljr
@@ -1604,7 +1618,7 @@ Batch: message #43 size 3769
 RFC From:     szh@zcon.com (Syed Zaeem Hosain)
 RFC Reply-To: szh@zcon.com
 RFC Sender:   Syed Zaeem Hosain <szh@zcon.com>
-    Name:     In article uupcb@u2u.lonestar.org,  bob.calbridge
+    Name:     bob.calbridge
     Address:  u2u.lonestar.org
 Name for alias checking: Bob Calbridge
 No alias found: return Bob Calbridge
@@ -2054,8 +2068,10 @@ charset: table found in=iso-8859-1 out=iso-8859-1
 Batch: message #9 size 1478
 RFC From:     Michael.B.Taylor@dartmouth.edu (Michael B. Taylor)
 RFC Sender:   Michael B. Taylor <Michael.B.Taylor@dartmouth.edu>
-Name for alias checking: All
-No alias found: return All
+    Name:     leebr
+    Address:  ecf.toronto.edu
+Name for alias checking: LEE BRIAN
+No alias found: return LEE BRIAN
     Name:     Michael.B.Taylor
     Address:  dartmouth.edu
 Name for alias checking: Michael.B.Taylor
@@ -2087,8 +2103,10 @@ Batch: message #11 size 1722
 RFC From:     marc@tanda.isis.org (Marc Thibault)
 RFC Reply-To: marc@tanda.isis.org
 RFC Sender:   Marc Thibault <marc@tanda.isis.org>
-Name for alias checking: All
-No alias found: return All
+    Name:     
+    Address:  
+Name for alias checking: Brian Holland
+No alias found: return Brian Holland
     Name:     marc
     Address:  tanda.isis.org
 Name for alias checking: marc
@@ -2135,8 +2153,10 @@ Batch: message #14 size 1261
 RFC From:     darrylo@sr.hp.com (Darryl Okahata)
 RFC Reply-To: darrylo@sr.hp.com
 RFC Sender:   Darryl Okahata <darrylo@sr.hp.com>
-Name for alias checking: All
-No alias found: return All
+    Name:     I
+    Address:  
+Name for alias checking: I
+No alias found: return I
     Name:     darrylo
     Address:  sr.hp.com
 Name for alias checking: darrylo
@@ -2322,8 +2342,10 @@ charset: table found in=iso-8859-1 out=iso-8859-1
 Batch: message #25 size 1966
 RFC From:     Paula_Lieberman@amicol.UUCP (Paula Lieberman)
 RFC Sender:   Paula Lieberman <Paula_Lieberman@amicol.UUCP>
-Name for alias checking: All
-No alias found: return All
+    Name:     In a message dated Sat  7 Mar 93  7:22, Abs0
+    Address:  coos.dartmouth.edu (kelvin Leu
+Name for alias checking: In a message dated Sat  7 Mar 93  7
+No alias found: return In a message dated Sat  7 Mar 93  7
     Name:     Paula_Lieberman
     Address:  amicol.UUCP
 Name for alias checking: Paula_Lieberman
@@ -2337,8 +2359,10 @@ charset: table found in=iso-8859-1 out=iso-8859-1
 Batch: message #26 size 4048
 RFC From:     stevev@miser.uoregon.edu (Steve VanDevender)
 RFC Sender:   Steve VanDevender <stevev@miser.uoregon.edu>
-Name for alias checking: All
-No alias found: return All
+    Name:     rrd
+    Address:  hpfcso.FC.HP.COM
+Name for alias checking: Ray Depew
+No alias found: return Ray Depew
     Name:     stevev
     Address:  miser.uoregon.edu
 Name for alias checking: stevev
@@ -2420,8 +2444,10 @@ charset: table found in=iso-8859-1 out=iso-8859-1
 Batch: message #31 size 2172
 RFC From:     aki!wegmann (Frank Wegmann)
 RFC Sender:   Frank Wegmann <wegmann@aki>
-Name for alias checking: All
-No alias found: return All
+    Name:     gemoe
+    Address:  proximus.north.de
+Name for alias checking: Gerhard Moeller
+No alias found: return Gerhard Moeller
     Name:     wegmann
     Address:  aki
 Name for alias checking: wegmann
@@ -2780,8 +2806,10 @@ charset: table found in=iso-8859-1 out=iso-8859-1
 Batch: message #53 size 3132
 RFC From:     sc03@ns1.cc.lehigh.edu (STEVE CHANG)
 RFC Sender:   STEVE CHANG <sc03@ns1.cc.lehigh.edu>
-Name for alias checking: All
-No alias found: return All
+    Name:     hanscs
+    Address:  dhhalden.no
+Name for alias checking: HANS CHRISTIA N SANDER
+No alias found: return HANS CHRISTIA N SANDER
     Name:     sc03
     Address:  ns1.cc.lehigh.edu
 Name for alias checking: sc03
@@ -3185,10 +3213,8 @@ Batch: message #22 size 1162
 RFC From:     goldfarb@ocf.berkeley.edu (David Goldfarb)
 RFC Reply-To: goldfarb@ocf.berkeley.edu (David Goldfarb)
 RFC Sender:   David Goldfarb <goldfarb@ocf.berkeley.edu>
-    Name:     xzhao+
-    Address:  cs.cmu.edu
-Name for alias checking: Xudong Zhao
-No alias found: return Xudong Zhao
+Name for alias checking: All
+No alias found: return All
     Name:     goldfarb
     Address:  ocf.berkeley.edu
 Name for alias checking: goldfarb
@@ -3217,8 +3243,10 @@ charset: table found in=iso-8859-1 out=iso-8859-1
 Batch: message #24 size 1588
 RFC From:     reljr@css1.UUCP (Robert Lee)
 RFC Sender:   Robert Lee <reljr@css1.UUCP>
-Name for alias checking: All
-No alias found: return All
+    Name:     jhk6
+    Address:  cunixb.cc.columbia.edu
+Name for alias checking: John H Kim
+No alias found: return John H Kim
     Name:     reljr
     Address:  css1.UUCP
 Name for alias checking: reljr
@@ -3516,7 +3544,7 @@ Batch: message #43 size 3769
 RFC From:     szh@zcon.com (Syed Zaeem Hosain)
 RFC Reply-To: szh@zcon.com
 RFC Sender:   Syed Zaeem Hosain <szh@zcon.com>
-    Name:     In article uupcb@u2u.lonestar.org,  bob.calbridge
+    Name:     bob.calbridge
     Address:  u2u.lonestar.org
 Name for alias checking: Bob Calbridge
 No alias found: return Bob Calbridge
@@ -3966,8 +3994,10 @@ charset: table found in=iso-8859-1 out=iso-8859-1
 Batch: message #9 size 1478
 RFC From:     Michael.B.Taylor@dartmouth.edu (Michael B. Taylor)
 RFC Sender:   Michael B. Taylor <Michael.B.Taylor@dartmouth.edu>
-Name for alias checking: All
-No alias found: return All
+    Name:     leebr
+    Address:  ecf.toronto.edu
+Name for alias checking: LEE BRIAN
+No alias found: return LEE BRIAN
     Name:     Michael.B.Taylor
     Address:  dartmouth.edu
 Name for alias checking: Michael.B.Taylor
@@ -3999,8 +4029,10 @@ Batch: message #11 size 1722
 RFC From:     marc@tanda.isis.org (Marc Thibault)
 RFC Reply-To: marc@tanda.isis.org
 RFC Sender:   Marc Thibault <marc@tanda.isis.org>
-Name for alias checking: All
-No alias found: return All
+    Name:     
+    Address:  
+Name for alias checking: Brian Holland
+No alias found: return Brian Holland
     Name:     marc
     Address:  tanda.isis.org
 Name for alias checking: marc
@@ -4047,8 +4079,10 @@ Batch: message #14 size 1261
 RFC From:     darrylo@sr.hp.com (Darryl Okahata)
 RFC Reply-To: darrylo@sr.hp.com
 RFC Sender:   Darryl Okahata <darrylo@sr.hp.com>
-Name for alias checking: All
-No alias found: return All
+    Name:     I
+    Address:  
+Name for alias checking: I
+No alias found: return I
     Name:     darrylo
     Address:  sr.hp.com
 Name for alias checking: darrylo
@@ -4234,8 +4268,10 @@ charset: table found in=iso-8859-1 out=iso-8859-1
 Batch: message #25 size 1966
 RFC From:     Paula_Lieberman@amicol.UUCP (Paula Lieberman)
 RFC Sender:   Paula Lieberman <Paula_Lieberman@amicol.UUCP>
-Name for alias checking: All
-No alias found: return All
+    Name:     In a message dated Sat  7 Mar 93  7:22, Abs0
+    Address:  coos.dartmouth.edu (kelvin Leu
+Name for alias checking: In a message dated Sat  7 Mar 93  7
+No alias found: return In a message dated Sat  7 Mar 93  7
     Name:     Paula_Lieberman
     Address:  amicol.UUCP
 Name for alias checking: Paula_Lieberman
@@ -4249,8 +4285,10 @@ charset: table found in=iso-8859-1 out=iso-8859-1
 Batch: message #26 size 4048
 RFC From:     stevev@miser.uoregon.edu (Steve VanDevender)
 RFC Sender:   Steve VanDevender <stevev@miser.uoregon.edu>
-Name for alias checking: All
-No alias found: return All
+    Name:     rrd
+    Address:  hpfcso.FC.HP.COM
+Name for alias checking: Ray Depew
+No alias found: return Ray Depew
     Name:     stevev
     Address:  miser.uoregon.edu
 Name for alias checking: stevev
@@ -4332,8 +4370,10 @@ charset: table found in=iso-8859-1 out=iso-8859-1
 Batch: message #31 size 2172
 RFC From:     aki!wegmann (Frank Wegmann)
 RFC Sender:   Frank Wegmann <wegmann@aki>
-Name for alias checking: All
-No alias found: return All
+    Name:     gemoe
+    Address:  proximus.north.de
+Name for alias checking: Gerhard Moeller
+No alias found: return Gerhard Moeller
     Name:     wegmann
     Address:  aki
 Name for alias checking: wegmann
@@ -4692,8 +4732,10 @@ charset: table found in=iso-8859-1 out=iso-8859-1
 Batch: message #53 size 3132
 RFC From:     sc03@ns1.cc.lehigh.edu (STEVE CHANG)
 RFC Sender:   STEVE CHANG <sc03@ns1.cc.lehigh.edu>
-Name for alias checking: All
-No alias found: return All
+    Name:     hanscs
+    Address:  dhhalden.no
+Name for alias checking: HANS CHRISTIA N SANDER
+No alias found: return HANS CHRISTIA N SANDER
     Name:     sc03
     Address:  ns1.cc.lehigh.edu
 Name for alias checking: sc03
@@ -5097,10 +5139,8 @@ Batch: message #22 size 1162
 RFC From:     goldfarb@ocf.berkeley.edu (David Goldfarb)
 RFC Reply-To: goldfarb@ocf.berkeley.edu (David Goldfarb)
 RFC Sender:   David Goldfarb <goldfarb@ocf.berkeley.edu>
-    Name:     xzhao+
-    Address:  cs.cmu.edu
-Name for alias checking: Xudong Zhao
-No alias found: return Xudong Zhao
+Name for alias checking: All
+No alias found: return All
     Name:     goldfarb
     Address:  ocf.berkeley.edu
 Name for alias checking: goldfarb
@@ -5129,8 +5169,10 @@ charset: table found in=iso-8859-1 out=iso-8859-1
 Batch: message #24 size 1588
 RFC From:     reljr@css1.UUCP (Robert Lee)
 RFC Sender:   Robert Lee <reljr@css1.UUCP>
-Name for alias checking: All
-No alias found: return All
+    Name:     jhk6
+    Address:  cunixb.cc.columbia.edu
+Name for alias checking: John H Kim
+No alias found: return John H Kim
     Name:     reljr
     Address:  css1.UUCP
 Name for alias checking: reljr
@@ -5428,7 +5470,7 @@ Batch: message #43 size 3769
 RFC From:     szh@zcon.com (Syed Zaeem Hosain)
 RFC Reply-To: szh@zcon.com
 RFC Sender:   Syed Zaeem Hosain <szh@zcon.com>
-    Name:     In article uupcb@u2u.lonestar.org,  bob.calbridge
+    Name:     bob.calbridge
     Address:  u2u.lonestar.org
 Name for alias checking: Bob Calbridge
 No alias found: return Bob Calbridge
@@ -5929,8 +5971,10 @@ Writing FTN message header:
 Batch: message #9 size 1478
 RFC From:     Michael.B.Taylor@dartmouth.edu (Michael B. Taylor)
 RFC Sender:   Michael B. Taylor <Michael.B.Taylor@dartmouth.edu>
-Name for alias checking: All
-No alias found: return All
+    Name:     leebr
+    Address:  ecf.toronto.edu
+Name for alias checking: LEE BRIAN
+No alias found: return LEE BRIAN
     Name:     Michael.B.Taylor
     Address:  dartmouth.edu
 Name for alias checking: Michael.B.Taylor
@@ -5972,8 +6016,10 @@ Batch: message #11 size 1722
 RFC From:     marc@tanda.isis.org (Marc Thibault)
 RFC Reply-To: marc@tanda.isis.org
 RFC Sender:   Marc Thibault <marc@tanda.isis.org>
-Name for alias checking: All
-No alias found: return All
+    Name:     
+    Address:  
+Name for alias checking: Brian Holland
+No alias found: return Brian Holland
     Name:     marc
     Address:  tanda.isis.org
 Name for alias checking: marc
@@ -6035,8 +6081,10 @@ Batch: message #14 size 1261
 RFC From:     darrylo@sr.hp.com (Darryl Okahata)
 RFC Reply-To: darrylo@sr.hp.com
 RFC Sender:   Darryl Okahata <darrylo@sr.hp.com>
-Name for alias checking: All
-No alias found: return All
+    Name:     I
+    Address:  
+Name for alias checking: I
+No alias found: return I
     Name:     darrylo
     Address:  sr.hp.com
 Name for alias checking: darrylo
@@ -6286,8 +6334,10 @@ Writing FTN message header:
 Batch: message #25 size 1966
 RFC From:     Paula_Lieberman@amicol.UUCP (Paula Lieberman)
 RFC Sender:   Paula Lieberman <Paula_Lieberman@amicol.UUCP>
-Name for alias checking: All
-No alias found: return All
+    Name:     In a message dated Sat  7 Mar 93  7:22, Abs0
+    Address:  coos.dartmouth.edu (kelvin Leu
+Name for alias checking: In a message dated Sat  7 Mar 93  7
+No alias found: return In a message dated Sat  7 Mar 93  7
     Name:     Paula_Lieberman
     Address:  amicol.UUCP
 Name for alias checking: Paula_Lieberman
@@ -6306,8 +6356,10 @@ area COMP.SYS.AMIGA.ADVOCACY, not listed or no downlinks
 Batch: message #26 size 4048
 RFC From:     stevev@miser.uoregon.edu (Steve VanDevender)
 RFC Sender:   Steve VanDevender <stevev@miser.uoregon.edu>
-Name for alias checking: All
-No alias found: return All
+    Name:     rrd
+    Address:  hpfcso.FC.HP.COM
+Name for alias checking: Ray Depew
+No alias found: return Ray Depew
     Name:     stevev
     Address:  miser.uoregon.edu
 Name for alias checking: stevev
@@ -6413,8 +6465,10 @@ area DE.TEST, not listed or no downlinks
 Batch: message #31 size 2172
 RFC From:     aki!wegmann (Frank Wegmann)
 RFC Sender:   Frank Wegmann <wegmann@aki>
-Name for alias checking: All
-No alias found: return All
+    Name:     gemoe
+    Address:  proximus.north.de
+Name for alias checking: Gerhard Moeller
+No alias found: return Gerhard Moeller
     Name:     wegmann
     Address:  aki
 Name for alias checking: wegmann
@@ -6898,8 +6952,10 @@ area COMP.OS.MS_WINDOWS.ADVOCACY, not listed or no downlinks
 Batch: message #53 size 3132
 RFC From:     sc03@ns1.cc.lehigh.edu (STEVE CHANG)
 RFC Sender:   STEVE CHANG <sc03@ns1.cc.lehigh.edu>
-Name for alias checking: All
-No alias found: return All
+    Name:     hanscs
+    Address:  dhhalden.no
+Name for alias checking: HANS CHRISTIA N SANDER
+No alias found: return HANS CHRISTIA N SANDER
     Name:     sc03
     Address:  ns1.cc.lehigh.edu
 Name for alias checking: sc03
@@ -7444,10 +7500,8 @@ Batch: message #22 size 1162
 RFC From:     goldfarb@ocf.berkeley.edu (David Goldfarb)
 RFC Reply-To: goldfarb@ocf.berkeley.edu (David Goldfarb)
 RFC Sender:   David Goldfarb <goldfarb@ocf.berkeley.edu>
-    Name:     xzhao+
-    Address:  cs.cmu.edu
-Name for alias checking: Xudong Zhao
-No alias found: return Xudong Zhao
+Name for alias checking: All
+No alias found: return All
     Name:     goldfarb
     Address:  ocf.berkeley.edu
 Name for alias checking: goldfarb
@@ -7486,8 +7540,10 @@ area REC.ARTS.MOVIES, not listed or no downlinks
 Batch: message #24 size 1588
 RFC From:     reljr@css1.UUCP (Robert Lee)
 RFC Sender:   Robert Lee <reljr@css1.UUCP>
-Name for alias checking: All
-No alias found: return All
+    Name:     jhk6
+    Address:  cunixb.cc.columbia.edu
+Name for alias checking: John H Kim
+No alias found: return John H Kim
     Name:     reljr
     Address:  css1.UUCP
 Name for alias checking: reljr
@@ -7889,7 +7945,7 @@ Batch: message #43 size 3769
 RFC From:     szh@zcon.com (Syed Zaeem Hosain)
 RFC Reply-To: szh@zcon.com
 RFC Sender:   Syed Zaeem Hosain <szh@zcon.com>
-    Name:     In article uupcb@u2u.lonestar.org,  bob.calbridge
+    Name:     bob.calbridge
     Address:  u2u.lonestar.org
 Name for alias checking: Bob Calbridge
 No alias found: return Bob Calbridge
