@@ -1,3 +1,10 @@
+2003-01-01  Martin Junius  <mj@m-j-s.net>
+
+	------- CVS ci -------------------------------------------------------
+
+	* src/gate/rfc2ftn.c: make log() messages for netmail somewhat
+	  sendmail maillog like, using from=, to=, reject=.
+
 2002-12-16  Martin Junius  <mj@m-j-s.net>
 
 	------- CVS ci -------------------------------------------------------

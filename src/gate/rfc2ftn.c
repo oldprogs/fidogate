@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway software UNIX <-> FIDO
  *
- * $Id: rfc2ftn.c,v 4.66 2002/12/16 20:20:47 n0ll Exp $
+ * $Id: rfc2ftn.c,v 4.67 2003/01/01 15:30:38 n0ll Exp $
  *
  * Read mail or news from standard input and convert it to a FIDO packet.
  *
@@ -39,7 +39,7 @@
 
 
 #define PROGRAM 	"rfc2ftn"
-#define VERSION 	"$Revision: 4.66 $"
+#define VERSION 	"$Revision: 4.67 $"
 #define CONFIG		DEFAULT_CONFIG_GATE
 
 
@@ -726,7 +726,7 @@ char *mail_receiver(RFCAddr *rfc, Node *node)
 	 * Address is argument
 	 */
 	if(rfc_parse(rfc, name, node, TRUE) == ERROR) {
-	    log("BOUNCE: <%s>, %s", s_rfcaddr_to_asc(rfc, TRUE),
+	    log("BOUNCE: to=%s, reject=%s", s_rfcaddr_to_asc(rfc, TRUE),
 		(*address_error ? address_error : "unknown")  );
 	    return NULL;
 	}
@@ -906,7 +906,7 @@ int snd_mail(RFCAddr rfc_to, long size)
 	char *msg = *address_error ? address_error : "address/host is unknown";
 	
 	sendback("Address %s:\n  %s", s_rfcaddr_to_asc(&rfc_to, TRUE), msg);
-	log("BOUNCE: %s -> %s: %s",
+	log("BOUNCE: from=%s, to=%s, reject=%s",
 	    s_rfcaddr_to_asc(&rfc_from, TRUE),
 	    s_rfcaddr_to_asc(&rfc_to, TRUE), msg);
 	TMPS_RETURN(EX_NOHOST);
@@ -958,9 +958,10 @@ int snd_mail(RFCAddr rfc_to, long size)
 	if(limitsize>0 && size>limitsize)
 	{
 	    /* Too large, don't gate it */
-	    log("message too big (%ldb, limit %ldb) for mail %s -> %s",
-		size, limitsize, s_rfcaddr_to_asc(&rfc_from, TRUE),
-		s_rfcaddr_to_asc(&rfc_to, TRUE)                            );
+	    log("BOUNCE: from=%s, to=%s, "
+		"reject=message too big (%ldb, limit %ldb)",
+		s_rfcaddr_to_asc(&rfc_from, TRUE),
+		s_rfcaddr_to_asc(&rfc_to, TRUE), size, limitsize );
 	    sendback("Address %s:\n  message too big (%ldb, limit %ldb)",
 		     s_rfcaddr_to_asc(&rfc_to, TRUE), size, limitsize      );
 	    TMPS_RETURN(EX_UNAVAILABLE);
@@ -1164,7 +1165,7 @@ int snd_mail(RFCAddr rfc_to, long size)
 	/*
 	 * NetMail message
 	 */
-	log("MAIL: %s -> %s",
+	log("MAIL: from=%s, to=%s",
 	    s_rfcaddr_to_asc(&rfc_from, TRUE),
 	    s_rfcaddr_to_asc(&rfc_to, TRUE));
 	msg.area      = NULL;
