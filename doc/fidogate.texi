@@ -2,7 +2,7 @@
 @c
 @c FIDOGATE documentation
 @c
-@c $Id: fidogate.texi,v 4.0 1996/04/17 18:17:34 mj Exp $
+@c $Id: fidogate.texi,v 4.1 1996/04/22 14:41:16 mj Exp $
 @c
 
 @setfilename fidogate.info
@@ -76,6 +76,8 @@ into other languages, under the above conditions for modified versions.
 This manual documents how to install and use FIDOGATE. It is the first
 step toward a concise documentation. Alas, writing documentation is a
 somewhat tedious business, so this manual is far from complete.
+
+!!! THIS MANUAL IS NOT UP-TO-DATE FOR THE NEW FIDOGATE RELEASE 4.0 !!!
 
 @menu
 * Introduction::Introduction to FIDOGATE
@@ -192,7 +194,7 @@ BBS and FIDO frequest:
 
 @section Requirements for FIDOGATE:
 
-@itemize
+@itemize @bullet
 
 @item
 Something that gets you FIDONET mail. If you want a FIDO mailer, I
@@ -304,7 +306,7 @@ The chapter on config files describes them in detail.
 Hints for setting up a FIDOGATE point system without Internet mail
 connectivity:
 
-@itemize
+@itemize @bullet
 
 @item
 Choose a host name and a domain name. Since both won't be visible to the
@@ -953,7 +955,7 @@ mail to and from the UNIX system by some other means.
 
 If you want everything running on the UNIX system, you need a FIDO
 mailer for UNIX. To my knowledge there are two working FIDO mailers:
-@itemize
+@itemize @bullet
 @item BinkleyTerm 3.02pl10
 @item ifcico 2.x from Eugene Crosser's ifmail package
 @end itemize
@@ -2023,7 +2025,7 @@ runin
 
 Runs the tosser for the inbound directories:
 
-@itemize
+@itemize @bullet
 
 @item
 Unpacking ArcMail archives from the insecure inbound (@code{rununpack})

@@ -1,4 +1,4 @@
-This is Info file fidogate.info, produced by Makeinfo-1.55 from the
+This is Info file fidogate.info, produced by Makeinfo-1.63 from the
 input file fidogate.texi.
 
    This file documents the usage of FIDOGATE version 3.9.6
@@ -1619,7 +1619,7 @@ FIDOGATE uses the following config files:
    All config files use the `#' character for introducing a comment and
 ignore empty lines. Keywords and commands are not case-sensitive.
 
-This is Info file fidogate.info, produced by Makeinfo-1.55 from the
+This is Info file fidogate.info, produced by Makeinfo-1.63 from the
 input file fidogate.texi.
 
    This file documents the usage of FIDOGATE version 3.9.6
@@ -2475,7 +2475,7 @@ Index
 * Compiling:                            Compiling.
 * Config:                               Config.
 * Config files:                         Config files.
-* Configuration:                        Example.
+* Configuration <1>:                    Example.
 * Configuration:                        Basic.
 * Connecting:                           Connecting.
 * CRC:                                  sumcrc.
@@ -2484,15 +2484,15 @@ Index
 * ffx:                                  ffx.
 * ffxbatch:                             ffxbatch.
 * ffxmail:                              ffxmail.
-* ffxqt:                                ffxrun.
-* ffxqt:                                ffxrmail.
+* ffxqt <1>:                            ffxrun.
+* ffxqt <1>:                            ffxrmail.
 * ffxqt:                                ffxqt.
 * ffxrmail:                             ffxrmail.
 * ffxrun:                               ffxrun.
 * FIDONET:                              Connecting.
 * File attach:                          out-attach.
 * ftn2ftn:                              ftn2ftn.
-* ftn2rfc:                              ftnin.
+* ftn2rfc <1>:                          ftnin.
 * ftn2rfc:                              ftn2rfc.
 * ftnaf:                                ftnaf.
 * ftnbounce:                            ftnbounce.
@@ -2508,14 +2508,14 @@ Index
 * ftnseq:                               ftnseq.
 * ftntick:                              ftntick.
 * ftntoss:                              ftntoss.
-* Gateway:                              rfc2ftn.
-* Gateway:                              ftn2rfc.
+* Gateway <1>:                          rfc2ftn.
+* Gateway <1>:                          ftn2rfc.
 * Gateway:                              ftn2ftn.
 * Hosts:                                Hosts.
-* Installation:                         Compiling.
+* Installation <1>:                     Compiling.
 * Installation:                         Installation.
 * Integration:                          Integration.
-* Introduction:                         Introduction.
+* Introduction <1>:                     Introduction.
 * Introduction:                         Top.
 * Lock files:                           ftnlock.
 * Log file:                             ftnlog.
@@ -2528,10 +2528,10 @@ Index
 * Point:                                Point.
 * Programs:                             Programs.
 * Remote Execution:                     ffxqt.
-* Remote execution:                     ffxbatch.
+* Remote execution <1>:                 ffxbatch.
 * Remote execution:                     ffx.
 * rfc2ftn:                              rfc2ftn.
-* Routing:                              Routing.
+* Routing <1>:                          Routing.
 * Routing:                              ftnroute.
 * rundf:                                rundf.
 * runin:                                runin.
@@ -2540,11 +2540,11 @@ Index
 * rununpack:                            rununpack.
 * sumcrc:                               sumcrc.
 * Testing:                              Testing.
-* Tossing:                              rununpack.
-* Tossing:                              runtoss.
-* Tossing:                              runout.
-* Tossing:                              runin.
-* Tossing:                              rundf.
+* Tossing <1>:                          rununpack.
+* Tossing <1>:                          runtoss.
+* Tossing <1>:                          runout.
+* Tossing <1>:                          runin.
+* Tossing <1>:                          rundf.
 * Tossing:                              ftntoss.
 
 
