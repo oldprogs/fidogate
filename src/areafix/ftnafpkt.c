@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftnafpkt.c,v 1.4 1998/04/19 10:15:35 mj Exp $
+ * $Id: ftnafpkt.c,v 1.5 1998/05/23 19:23:31 mj Exp $
  *
  * Areafix processing FTN packets
  *
@@ -37,7 +37,7 @@
 
 
 #define PROGRAM 	"ftnafpkt"
-#define VERSION 	"$Revision: 1.4 $"
+#define VERSION 	"$Revision: 1.5 $"
 #define CONFIG		DEFAULT_CONFIG_MAIN
 
 
@@ -277,7 +277,7 @@ int do_file(char *pkt_name)
     
     /* Process it */
     pkt_size = check_size(pkt_name);
-    log("packet %s (%ldb) from %s for %s", pkt_name, pkt_size,
+    log("packet %s (%ldb) from %s to %s", pkt_name, pkt_size,
 	node_to_asc(&pkt.from, TRUE), node_to_asc(&pkt.to, TRUE) );
     
     if(do_packet(pkt_file, &pkt) == ERROR) 

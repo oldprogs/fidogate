@@ -63,6 +63,9 @@ Changes in 4.3a3:
 
 * ftnin: now supports FLO files with *.pkt entries.
 
+* areasbbssync: new script for synchronizing INN's active and
+  FIDOGATE's areas.bbs.
+
 
 
 Changes in 4.3a2:
@@ -216,6 +219,6 @@ Needed:
 
 ======================================================================
 
-$Date: 1998/05/12 20:12:29 $
+$Date: 1998/05/23 19:23:26 $
 Martin Junius
 mailto:mj@fido.de

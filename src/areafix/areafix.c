@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: areafix.c,v 1.8 1998/04/18 20:20:05 mj Exp $
+ * $Id: areafix.c,v 1.9 1998/05/23 19:23:30 mj Exp $
  *
  * Common Areafix functions
  *
@@ -553,6 +553,8 @@ int areafix_do_cmd(Node *node, char *line, Textlist *out)
 	    cmd = CMD_LISTALL;
 	else if(!stricmp(buf, "new"))
 	    cmd = CMD_NEW;
+	else if(!stricmp(buf, "create"))
+	    cmd = CMD_NEW;
 	else if(!stricmp(buf, "vacation"))
 	    cmd = CMD_VACATION;
 	else if(!stricmp(buf, "delete"))
@@ -627,7 +629,7 @@ int areafix_do_cmd(Node *node, char *line, Textlist *out)
 
 
 /*
- * Create command
+ * New command
  */
 int cmd_new(Node *node, char *line)
 {
@@ -644,7 +646,7 @@ int cmd_new(Node *node, char *line)
 
     if( (p = areasbbs_lookup(name)) )
     {
-	areafix_printf("%s: area already exists, can't create.",
+	areafix_printf("%s: area already exists, can't create new one.",
 		name);
 	return OK;
     }

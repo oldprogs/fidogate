@@ -27,12 +27,11 @@ DONE	* packet.c:pkt_put_msg_hdr(): add run-time configuration for
 MOSTLY	* ftn2rfc: integrate new charset mapping
 
 	* rfc2ftn: implement new charset mapping
+	* charset translation for RFC -> Fido.
 
 DONE	* charset.c: use new mapping tables
 
 	* ^ACHRS default configurable per area
-
-	* charset translation for RFC -> Fido.
 
 	* Different Message-ID and sender Internet domain
 	  configuration (extended Zone config).
@@ -49,6 +48,9 @@ DONE	* charset.c: use new mapping tables
 	  last one is too large, etc.
 	  ArcMail extensions: mo[0-9], plus mo[a-f], maybe mo[a-z]?
 	  runtime configuration of arcmail extensions usage.
+
+	* ftnpack: error message if packet can't be moved to outbound?
+
 
     Code rewrite
 

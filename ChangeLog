@@ -1,4 +1,44 @@
+Sat May 23 21:02:18 1998  Martin Junius  <mj@fido.de>
+
+	------- CVS ci -------------------------------------------------------
+
+	* sendmail/mailer/ftn.m4: dito.
+
+	* sendmail/mailer/ffx.m4: default path updated to new config.
+
+	* src/common/areas.c (areas_parse_line): implemented -C DEF:IN:OUT
+	  charset option.
+	  (area_build): use struct assignment for copying, avoids problems
+	  when new fields area added to struct Area.
+
+	* src/include/structs.h (Area): added charset field.
+
+Sun May 17 16:38:18 1998  Martin Junius  <mj@fido.de>
+
+	* scripts/misc/areasbbssync.pl: new script, syncronizing
+	  newsgroups in active (INN) and areas.bbs (FIDOGATE).
+
+	* src/areafix/areafix.help: added CREATE command.
+
+	* src/areafix/areafix.c (areafix_do_cmd): allow CREATE as an
+	  alternate name for the NEW command.
+
+	* scripts/misc/Makefile (PROGS): added areasbbssync, make morannon
+	  target (uses TOPDIR/examples/morannon/config.make.morannon for
+	  compiling scripts).
+
+	* examples/morannon/config.make.morannon: new config.make with old
+	  directory structure for morannon.fido.de.
+
 Tue May 12 22:09:27 1998  Martin Junius  <mj@fido.de>
+
+	* src/toss/ftntoss.c (unpack_file): dito.
+
+	* src/areafix/pkttmpl.c (do_file): dito.
+
+	* src/areafix/ftnafpkt.c (do_file): change to log() message.
+
+	* src/ffx/ffxqt.c (do_ffx): removed "to %s" from log() message. 
 
 	------- CVS ci -------------------------------------------------------
 

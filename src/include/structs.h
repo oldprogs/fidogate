@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: structs.h,v 4.14 1998/04/10 17:49:16 mj Exp $
+ * $Id: structs.h,v 4.15 1998/05/23 19:23:33 mj Exp $
  *
  * An assortment of FIDOGATE data structure definitions
  *
@@ -75,6 +75,7 @@ typedef struct st_area {	/* Area/newsgroup entry with options */
     long  maxsize;		    /* -m max. size of message for split */
     long  limitsize;		    /* -L message size limit */
     Textlist x_hdr;		    /* -X "Xtra: xyz" extra RFC headers */
+    char *charset;		    /* -C def:in:out charset setting */
 } Area;
 
 #define AREA_LOCALXPOST	1	/* -l  Only local crosspostings */

@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftntoss.c,v 4.25 1998/01/24 14:07:37 mj Exp $
+ * $Id: ftntoss.c,v 4.26 1998/05/23 19:23:34 mj Exp $
  *
  * Toss FTN NetMail/EchoMail
  *
@@ -39,7 +39,7 @@
 
 
 #define PROGRAM 	"ftntoss"
-#define VERSION 	"$Revision: 4.25 $"
+#define VERSION 	"$Revision: 4.26 $"
 #define CONFIG		DEFAULT_CONFIG_MAIN
 
 
@@ -1314,8 +1314,8 @@ int unpack_file(char *pkt_name)
     
     /* Unpack it */
     pkt_size = check_size(pkt_name);
-    log("packet %s (%ldb) from %s for %s", pkt_name, pkt_size,
-	node_to_asc(&pkt.from, TRUE), node_to_asc(&pkt.to, TRUE) );
+    log("packet %s (%ldb) from %s to %s", pkt_name, pkt_size,
+	znfp(&pkt.from), znfp(&pkt.to) );
     pkts_in++;
     pkts_bytes += pkt_size;
     

@@ -29,6 +29,7 @@ Commands in message body, optional prefix %% allowed:
   vacation AREA                set vacation flag for AREA
   &AREA [-options]             create new AREA
   new AREA [-options]
+  create AREA [-options]
   ~AREA                        delete AREA
   delete AREA
   comment TEXT                 arbitrary comment (ignored)

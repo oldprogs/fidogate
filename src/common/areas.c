@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: areas.c,v 4.9 1998/01/18 17:49:09 mj Exp $
+ * $Id: areas.c,v 4.10 1998/05/23 19:23:31 mj Exp $
  *
  * Area <-> newsgroups conversion
  *
@@ -143,6 +143,7 @@ long areas_get_limitmsgsize(void)
  *     -X "Xtra: xyz"	add extra RFC header (multiple -X are allowed)
  *     -8               convert to 8bit iso-8859-1 characters
  *     -Q               convert to quoted-printable iso-8859-1 characters
+ *     -C def:in:out    charset mapping setting
  */
 static Area *areas_parse_line(char *buf)
 {
@@ -175,6 +176,7 @@ static Area *areas_parse_line(char *buf)
     p->maxsize      = -1;
     p->limitsize    = -1;
     tl_init(&p->x_hdr);
+    p->charset      = NULL;
 
     /* Options */
     for(o=xstrtok(NULL, " \t");
@@ -227,6 +229,10 @@ static Area *areas_parse_line(char *buf)
 	    p->flags |= AREA_8BIT;
 	if(!strcmp(o, "-Q"))
 	    p->flags |= AREA_QP;
+	if(!strcmp(o, "-C"))
+	    /* -C DEF:IN:OUT */
+	    if((o = xstrtok(NULL, " \t")))
+		p->charset = strsave(o);
     }
     /* Value not set or error */
     if(p->maxsize   < 0)
@@ -340,19 +346,11 @@ static Area *area_build(Area *pa, char *area, char *group)
     char *p, *q, *end;
     
     *bufa = *bufg = 0;
-    
-    ret.next         = NULL;
-    ret.area         = bufa;
-    ret.group        = bufg;
-    ret.zone         = pa->zone;
-    ret.addr         = pa->addr;
-    ret.origin       = pa->origin;
-    ret.distribution = pa->distribution;
-    ret.flags        = pa->flags;
-    ret.rfc_lvl      = pa->rfc_lvl;
-    ret.maxsize      = pa->maxsize;
-    ret.limitsize    = pa->limitsize;
-    ret.x_hdr        = pa->x_hdr;
+
+    ret       = *pa;
+    ret.next  = NULL;
+    ret.area  = bufa;
+    ret.group = bufg;
     
     /* AREA -> Newsgroup */
     if(area)				/* Was searching for area */
