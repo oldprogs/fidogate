@@ -1,9 +1,9 @@
-Subject: FIDOGATE 4.3a3 --- Fido-Internet Gateway and Tosser
+Subject: FIDOGATE 4.3a4 --- Fido-Internet Gateway and Tosser
 Keywords: fido ftn netmail echomail tosser areafix mail news gateway
 Followup-To: comp.os.linux.misc
 
 ======================================================================
-FIDOGATE 4.3a3, a development snapshot of the new FIDOGATE release 4.3
+FIDOGATE 4.3a4, a development snapshot of the new FIDOGATE release 4.3
 ======================================================================
 
 			   FIDOGATE Version 4
@@ -26,7 +26,7 @@ Internet:
     http://sunsite.unc.edu/pub/Linux/system/fido/
     (probably still in .../pub/Linux/Incoming)
 
-    fidogate-4.3a3.tar.gz	1170 Kbyte
+    fidogate-4.3a4.tar.gz	1170 Kbyte
 
 Fido File Request:
 ==================
@@ -37,6 +37,18 @@ Fido File Request:
 
 
 ======================================================================
+
+Changes in 4.3a4:
+
+* ftn2rfc / areas: support for -C default:in:out charset option.
+
+* Integrated various patches contributed by Andy Igoshin <ai@vsu.ru>,
+  see contrib/fidogate-4.3a3-ai-pl9.1/ for some documentation and
+  examples. Controlled by #define AI_x in config.h, not all of them
+  are enabled per default.
+  Also includes Russian charset mapping table.
+
+
 
 Changes in 4.3a3:
 
@@ -219,6 +231,6 @@ Needed:
 
 ======================================================================
 
-$Date: 1998/07/06 21:31:59 $
+$Date: 1998/07/12 14:59:11 $
 Martin Junius
 mailto:mj@fido.de

@@ -1,5 +1,10 @@
 Sun Jul 12 13:07:58 1998  Martin Junius  <mj@fido.de>
 
+	======= Release 4.3a4 ================================================
+	------- CVS ci, tag R43a4 --------------------------------------------
+
+	* ANNOUNCE: updated.
+
 	------- CVS ci -------------------------------------------------------
 
 	* src/gate/ftn2rfc.c (unpack): implemented processing of
@@ -59,7 +64,6 @@ Sun May 24 22:11:29 1998  Martin Junius  <mj@fido.de>
 Sat May 23 21:02:18 1998  Martin Junius  <mj@fido.de>
 
 	======= Release 4.3a3 ================================================
-
 	------- CVS ci, tag R43a3 --------------------------------------------
 
 	* sendmail/mailer/ftn.m4: dito.
