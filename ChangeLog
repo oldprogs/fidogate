@@ -1,6 +1,29 @@
+Tue Apr 23 11:49:42 1996  Martin Junius  <mj@fido.de>
+
+	------- CVS commit ---------------------------------------------------
+
+	* src/util/ftnfattach.c (main): if -F option is not given, use
+	  config option "FAttachFlav".
+
+	* src/toss/ftnpack.c (flav_to_asc): removed, common flav_to_asc()
+	  is now in binkley.c.
+
+	* src/common/binkley.c (asc_to_flav): new function converting
+	  flavor string to FLAV_* code.
+
+	* src/toss/ftnroute.c (flav_to_asc): moved to binkley.c
+
+	* src/common/binkley.c (outb_types): added type field with
+	  FLAV_* definitions from structs.h.
+	  (bink_find_flo, bink_find_out): omit new FLAV_NONE entry in
+	  outb_types[] during search.
+
+	* src/common/tick.c (tick_send): get flavor for outbound file
+	  attaches from config option "TickFlav".
+
 Mon Apr 22 15:02:58 1996  Martin Junius  <mj@fido.de>
 
-	* ----- CVS commit ---------------------------------------------------
+	------- CVS commit ---------------------------------------------------
 
 	* src/toss/ftnroute.c (do_move): set access and modification times
 	  of the new file to the current time using utime().
@@ -15,7 +38,7 @@ Mon Apr 22 15:02:58 1996  Martin Junius  <mj@fido.de>
 	  "FFXDataComprN", "FFXDataExtN", "FFXDataDecomprN", "FFXDataFlav".
 	  (main): get all these options from config.ffx.
 
-	* ----- CVS commit ---------------------------------------------------
+	------- CVS commit ---------------------------------------------------
 
 	* test/Makefile (check, clean): for loop over all tc.* directories.
 
@@ -105,7 +128,7 @@ Sun Apr 21 10:31:10 1996  Martin Junius  <mj@fido.de>
 
 Thu Apr 18 10:07:42 1996  Martin Junius  <mj@fido.de>
 
-	* ----- CVS commit ---------------------------------------------------
+	------- CVS commit ---------------------------------------------------
 
 	* src/gate/ftn2rfc.c (main): option "NoUnknownMSGIDZones" renamed
 	  to "KillUnknownMSGIDZone", "NoMessagesWithoutMSGID" to
@@ -124,13 +147,13 @@ Thu Apr 18 10:07:42 1996  Martin Junius  <mj@fido.de>
 
 Wed Apr 17 12:12:08 1996  Martin Junius  <mj@fido.de>
 
-	* ----- CVS commit ---------------------------------------------------
+	------- CVS commit ---------------------------------------------------
 
 	* src/include/version.h (VERSION): fixed text for VERSION, no RCS
 	  substitution.
 
 	* CVS: due to problems with old version imported again
-	  ----- FIDOGATE 4.0.0 (alpha0) --------------------------------------
+	------- FIDOGATE 4.0.0 (alpha0) --------------------------------------
 
 	* src/util/Makefile: added pktmore script.
 

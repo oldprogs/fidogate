@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: binkley.c,v 4.0 1996/04/17 18:17:38 mj Exp $
+ * $Id: binkley.c,v 4.1 1996/04/23 10:24:57 mj Exp $
  *
  * BinkleyTerm-style outbound directory functions
  *
@@ -40,10 +40,11 @@
 /*
  * BinkleyTerm flavors and FLO/OUT file extensions
  */
-#define NOUTB		4
+#define NOUTB		5
 
 static struct st_outb
 {
+    int type;
     char flo[4];
     char out[4];
     char flav[8];
@@ -51,10 +52,11 @@ static struct st_outb
 }
 outb_types[NOUTB] =
 {
-    { "hlo", "hut", "Hold"  , "H" },
-    { "flo", "out", "Normal", "N" },
-    { "dlo", "dut", "Direct", "D" },
-    { "clo", "cut", "Crash" , "C" }
+    { FLAV_NONE  , ""   , ""   , "None"  , "-" },
+    { FLAV_HOLD  , "hlo", "hut", "Hold"  , "H" },
+    { FLAV_NORMAL, "flo", "out", "Normal", "N" },
+    { FLAV_DIRECT, "dlo", "dut", "Direct", "D" },
+    { FLAV_CRASH , "clo", "cut", "Crash" , "C" }
 };
 
 	
@@ -64,6 +66,38 @@ outb_types[NOUTB] =
  */
 static Node *bink_bsy_addr[2 * MAXADDRESS];
 static int   bink_bsy_naddr = 0;
+
+
+
+/*
+ * FLAV_* flavor code to string
+ */
+char *flav_to_asc(int flav)
+{
+    int i;
+
+    for(i=0; i<NOUTB; i++)
+	if(outb_types[i].type == flav)
+	    return outb_types[i].flav;
+
+    return "-UNKNOWN-";
+}
+
+
+
+/*
+ * String to FLAV_* flavor code
+ */
+int asc_to_flav(char *flav)
+{
+    int i;
+
+    for(i=0; i<NOUTB; i++)
+	if(!stricmp(outb_types[i].flav, flav))
+	    return outb_types[i].type;
+
+    return ERROR;
+}
 
 
 
@@ -268,7 +302,7 @@ char *bink_find_flo(Node *node, char *flav)
     /*
      * Search existing FLO files first
      */
-    for(i=0; i<NOUTB; i++)
+    for(i=1; i<NOUTB; i++)
     {
 	strncpy0(buf, outb,              sizeof(buf));
 	strncat0(buf, outb_types[i].flo, sizeof(buf));
@@ -286,7 +320,7 @@ char *bink_find_flo(Node *node, char *flav)
     /*
      * No FLO file exists, new one with flavor from arg
      */
-    for(i=0; i<NOUTB; i++)
+    for(i=1; i<NOUTB; i++)
     {
 	if(!stricmp(outb_types[i].flav, flav) ||
 	   !stricmp(outb_types[i].shrt, flav) ||
@@ -324,7 +358,7 @@ char *bink_find_out(Node *node, char *flav)
     /*
      * Search existing OUT files first
      */
-    for(i=0; i<NOUTB; i++)
+    for(i=1; i<NOUTB; i++)
     {
 	strncpy0(buf, outb,              sizeof(buf));
 	strncat0(buf, outb_types[i].out, sizeof(buf));
@@ -342,7 +376,7 @@ char *bink_find_out(Node *node, char *flav)
     /*
      * No OUT file exists, new one with flavor from arg
      */
-    for(i=0; i<NOUTB; i++)
+    for(i=1; i<NOUTB; i++)
     {
 	if(!stricmp(outb_types[i].flav, flav) ||
 	   !stricmp(outb_types[i].shrt, flav) ||

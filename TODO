@@ -15,7 +15,7 @@ DONE.	* Don't abort, if HOSTS/PASSWD/ALIASES don't exist.
 
 X	* ftntoss/ftnexpire: lock access to MSGID history database
 
-X	* Default flavor "Hold" configurable.
+DONE.	* Default flavor "Hold" configurable.
 
 DONE.	* ftnexpire utility for handling MSGID history.
 

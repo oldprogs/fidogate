@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftnroute.c,v 4.2 1996/04/22 20:02:05 mj Exp $
+ * $Id: ftnroute.c,v 4.3 1996/04/23 10:24:59 mj Exp $
  *
  * Route FTN NetMail/EchoMail
  *
@@ -39,7 +39,7 @@
 
 
 #define PROGRAM 	"ftnroute"
-#define VERSION 	"$Revision: 4.2 $"
+#define VERSION 	"$Revision: 4.3 $"
 #define CONFIG		CONFIG_MAIN
 
 
@@ -48,7 +48,6 @@
  * Prototypes
  */
 int	do_routing		(char *, FILE *, Packet *);
-char   *flav_to_asc		(int);
 int	do_move			(char *, FILE *, PktDesc *);
 int	do_cmd			(PktDesc *, Routing *);
 int	do_packet		(char *, FILE *, Packet *, PktDesc *);
@@ -121,31 +120,6 @@ int do_routing(char *name, FILE *fp, Packet *pkt)
 
     return desc->move_only ? do_move(name, fp, desc)
 	                   : do_packet(name, fp, pkt, desc);
-}
-
-
-
-/*
- * Flavor code to string
- */
-char *flav_to_asc(int flav)
-{
-    switch(flav)
-    {
-    case FLAV_NORMAL:
-	return "Normal";  break;
-    case FLAV_HOLD:
-	return "Hold";    break;
-    case FLAV_CRASH:
-	return "Crash";   break;
-    case FLAV_DIRECT:
-	return "Direct";  break;
-    default:
-	return "Unknown"; break;
-    }
-
-    /**NOT REACHED**/
-    return NULL;
 }
 
 

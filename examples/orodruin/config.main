@@ -1,8 +1,10 @@
 #:ts=8
 #
+# $Id: config.main,v 4.3 1996/04/23 10:24:56 mj Exp $
+#
 # FIDOGATE config file main AKA
 #
-# Fido.DE domain gateway
+# orodruin.fido.de
 #
 # Format:  keyword arg ...
 #          keyword and args may be put in double quotes "..."
@@ -120,3 +122,14 @@ MaxHistory 14
 #		----		-----
 #AddToSeenBy	ABLED           2:24/24
 #AddToSeenBy	ABLENEWS	2:24/24
+
+
+#
+# Default outbound flavor for files forwarded by ftntick
+#
+TickFlav	"Normal"
+
+#
+# Default outbound flavor for file attaches by ftnfattach
+#
+FAttachFlav	"Normal"

@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: prototypes.h,v 4.1 1996/04/22 14:31:14 mj Exp $
+ * $Id: prototypes.h,v 4.2 1996/04/23 10:24:58 mj Exp $
  *
  * Prototypes for functions in libfidogate.a
  *
@@ -69,7 +69,8 @@ AreasBBS *areasbbs_lookup	(char *);
 #define CHECK_FILE	0
 #define CHECK_DIR	1
 
-
+char   *flav_to_asc		(int);
+int	asc_to_flav		(char *);
 int	bink_bsy_create_all	(int);
 int	bink_bsy_delete_all	(void);
 char   *bink_out_name		(Node *);

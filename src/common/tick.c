@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: tick.c,v 4.0 1996/04/17 18:17:40 mj Exp $
+ * $Id: tick.c,v 4.1 1996/04/23 10:24:58 mj Exp $
  *
  * TIC file processing
  *
@@ -263,12 +263,22 @@ int tick_send(Tick *tic, Node *node, char *name)
 {
     Passwd *pwd;
     char *pw = "";
+    static char *flav = NULL;
+
+    /* Flavor for file attach */
+    if(!flav)				/* Only for the first time */
+    {
+	if((flav = cf_get_string("TickFlav", TRUE)))
+	    debug(8, "config: TickFlav %s", flav);
+	else
+	    flav = "Normal";
+    }
 
     /*
      * Attach file
      */
-    debug(4, "attach %s", name);
-    if(bink_attach(node, 0, name, "Hold", TRUE) == ERROR)
+    debug(4, "attach %s (%s)", name, flav);
+    if(bink_attach(node, 0, name, flav, TRUE) == ERROR)
 	return ERROR;
     
     /*
@@ -304,8 +314,8 @@ int tick_send(Tick *tic, Node *node, char *name)
     /*
      * Attach TIC
      */
-    debug(4, "attach %s", buffer);
-    if(bink_attach(node, '^', buffer, "Hold", TRUE) == ERROR)
+    debug(4, "attach %s (%s)", buffer, flav);
+    if(bink_attach(node, '^', buffer, flav, TRUE) == ERROR)
 	return ERROR;
 
     log("area %s file %s (%lub) to %s",

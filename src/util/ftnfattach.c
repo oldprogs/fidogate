@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftnfattach.c,v 4.0 1996/04/17 18:17:43 mj Exp $
+ * $Id: ftnfattach.c,v 4.1 1996/04/23 10:24:59 mj Exp $
  *
  * Attach file to FLO entry in outbound
  *
@@ -38,7 +38,7 @@
 
 
 #define PROGRAM		"ftnfattach"
-#define VERSION		"$Revision: 4.0 $"
+#define VERSION		"$Revision: 4.1 $"
 #define CONFIG		CONFIG_MAIN
 
 
@@ -85,7 +85,7 @@ int main(int argc, char **argv)
     char *name;
     int mode;
     char *B_flag=NULL;
-    char *F_flag="Hold";
+    char *F_flag=NULL;
     char *c_flag=NULL;
     char *S_flag=NULL, *L_flag=NULL;
     char *a_flag=NULL, *u_flag=NULL;
@@ -174,6 +174,16 @@ int main(int argc, char **argv)
 	cf_set_uplink(u_flag);
 
     cf_debug();
+
+    /*
+     * Additional config options
+     */
+    if(!F_flag)
+	if((F_flag = cf_get_string("FAttachFlav", TRUE)))
+	    debug(8, "config: FAttachFlav %s", F_flag);
+    if(!F_flag)
+	F_flag = "Normal";
+
 
     /*
      * Process following command line arguments

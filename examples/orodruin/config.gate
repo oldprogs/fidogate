@@ -1,5 +1,7 @@
 #:ts=8
 #
+# $Id: config.gate,v 4.4 1996/04/23 10:24:56 mj Exp $
+#
 # FIDOGATE config file gateway programs
 #
 # orodruin.fido.de

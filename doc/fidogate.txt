@@ -26,6 +26,9 @@ This manual documents how to install and use FIDOGATE. It is the first
 step toward a concise documentation. Alas, writing documentation is a
 somewhat tedious business, so this manual is far from complete.
 
+   !!! THIS MANUAL IS NOT UP-TO-DATE FOR THE NEW FIDOGATE RELEASE 4.0
+!!!
+
 
 * Introduction::Introduction to FIDOGATE
 * Installation::Compiling and installing FIDOGATE
