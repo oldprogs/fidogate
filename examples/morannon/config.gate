@@ -126,6 +126,12 @@ MAUSGate		2:2452/101.6
 
 
 #
+# Do not allow RFC addresses (chars !, %, @) in FTN to field
+#
+#NoAddressInToField
+
+
+#
 # CC of bounced messages
 #
 BounceCCMail		postmaster@morannon.fido.de

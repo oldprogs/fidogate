@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftn2rfc.c,v 4.5 1996/05/11 15:05:37 mj Exp $
+ * $Id: ftn2rfc.c,v 4.6 1996/08/28 21:05:14 mj Exp $
  *
  * Convert FTN mail packet to RFC messages (mail and news batches)
  *
@@ -40,7 +40,7 @@
 
 
 #define PROGRAM 	"ftn2rfc"
-#define VERSION 	"$Revision: 4.5 $"
+#define VERSION 	"$Revision: 4.6 $"
 #define CONFIG		CONFIG_GATE
 
 
@@ -132,6 +132,12 @@ static char *ftn_junk_group = NULL;
  * Address for Errors-To header (NULL = none)
  */
 static char *errors_to = NULL;
+
+
+/*
+ * Do not allow RFC addresses (chars !, &, @) in FTN to field
+ */
+static int no_address_in_to_field = FALSE;
 
 
 
@@ -639,6 +645,23 @@ int unpack(FILE *pkt_file, Packet *pkt)
 	    }
 	}	    
 
+	/*
+	 * Check for address in to mail_to
+	 */
+	if(area==NULL && no_address_in_to_field)
+	{
+	    if(strchr(mail_to, '@') || strchr(mail_to, '%') ||
+	       strchr(mail_to, '!')			       )
+	    {
+		debug(1, "Message with address in mail_to: %s", mail_to);
+		log("BOUNCE: mail from %s with address in to field: %s",
+		    rfcaddr_to_asc(&addr_from, TRUE), mail_to           );
+		bounce_mail("addrinto",
+			    &addr_from, &msg, msgbody_rfc_to, &tbody);
+		continue;
+	    }
+	}
+	
 	/*
 	 * Check mail messages' user name
 	 */
@@ -1274,6 +1297,11 @@ int main(int argc, char **argv)
     {
 	debug(8, "config: ErrorsTo %s", p);
 	ftn_junk_group = p;
+    }
+    if(cf_get_string("NoAddressInToField", TRUE))
+    {
+	debug(8, "config: NoAddressInToField");
+	no_address_in_to_field = TRUE;
     }
     
     /*

@@ -1,3 +1,16 @@
+Wed Aug 28 22:54:25 1996  Martin Junius  <mj@fido.de>
+
+	------- CVS commit ---------------------------------------------------
+
+	* src/gate/ftn2rfc.c (main): new config parameter "NoAddressInToField".
+	  (unpack): if no_address_in_to_field is set, bounce messages with
+	  '@', '%', or '!' chars in to field (message file bounce.addrinto).
+
+	* examples/morannon/config.gate: same.
+
+	* examples/orodruin/config.gate: add new config parameter
+	  "NoAddressInToField". 
+
 Mon Aug 26 19:36:03 1996  Martin Junius  <mj@fido.de>
 
 	------- CVS commit ---------------------------------------------------

@@ -1,6 +1,6 @@
 #:ts=8
 #
-# $Id: config.gate,v 4.8 1996/08/26 19:10:29 mj Exp $
+# $Id: config.gate,v 4.9 1996/08/28 21:05:11 mj Exp $
 #
 # FIDOGATE config file gateway programs
 #
@@ -124,6 +124,12 @@ MaxMsgSize		15000
 #
 MAUSDomain		.maus.de
 MAUSGate		2:2452/101.6
+
+
+#
+# Do not allow RFC addresses (chars !, %, @) in FTN to field
+#
+#NoAddressInToField
 
 
 #

@@ -2,7 +2,9 @@
 
 X = for release 4.0alpha4
 
-ALPHA4	* ftn2rfc: config "NoAddressInTo", inhibit '%', '!', '@' char
+	* ftnroute: crash mails to points via boss node.
+
+DONE.	* ftn2rfc: config "NoAddressInToField", inhibit '%', '!', '@' char
 	  in Fido to field.
 
 DONE.	* rfc2ftn: config "UseOrganizationForOrigin", putting
