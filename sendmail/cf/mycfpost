@@ -1,7 +1,7 @@
 #!/usr/bin/perl
 ##############################################################################
 #
-# $Id: mycfpost,v 4.1 2003/06/18 18:45:54 n0ll Exp $
+# $Id: mycfpost,v 4.2 2003/06/18 18:54:00 n0ll Exp $
 #
 # FIDOGATE
 #
@@ -12,7 +12,7 @@
 use strict;
 
 my $PROGRAM = 'mycfpost';
-my $VERSION = '$Revision: 4.1 $ ';
+my $VERSION = '$Revision: 4.2 $ ';
 
 
 use Getopt::Std;
@@ -53,10 +53,10 @@ my $SUBST1 =
 ##### main ###################################################################
 
 while(<>) {
-    print;
     if(/\Q$MATCH1\E/) {
 	print $SUBST1, "\n";
     }
+    print;
 }
 
 exit 0;

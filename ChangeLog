@@ -2,6 +2,10 @@
 
 	------- CVS ci -------------------------------------------------------
 
+	* sendmail/cf/mycfpost: changed output order, new rule first.
+
+	------- CVS ci -------------------------------------------------------
+
 	* sendmail/cf/mycfpost: post processor for .cf files generated
 	  with m4, adds some special rules.
 	  This script adds an extra rule to SParse1, which tries to match
