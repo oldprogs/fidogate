@@ -336,8 +336,7 @@ Special configuration `rfc2ftn' (config file `config.gate'):
 
 `EchoMail4D'
      Generate 4D EchoMail control lines, when the gateway operates at a
-     point address. This is required when using the gateway and the
-     tosser for a Fido point!
+     point address.
 
 `HostsRestricted'
      Restrict usage of gateway to FTN addresses listed in `hosts'.
@@ -1043,12 +1042,10 @@ configuration described in the next section.
    Uplink (NetMail and EchoMail) 2:2499/123
 
 Address configuration `config.gate' (uplink is the same as the point
-address!), `EchoMail4D' is stricly reqired:
+address!):
 
      Address 2:2499/123.9
      Uplink  2:2499/123.9
-     
-     EchoMail4D
 
 Address configuration `config.main' (no uplink here!):
 
