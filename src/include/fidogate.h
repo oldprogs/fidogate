@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway software UNIX <-> FIDO
  *
- * $Id: fidogate.h,v 4.4 1997/03/28 11:31:23 mj Exp $
+ * $Id: fidogate.h,v 4.5 1998/01/13 20:33:52 mj Exp $
  *
  * Common header file
  *
@@ -144,3 +144,4 @@
  * Function prototypes
  */
 #include "prototypes.h"
+#include "cf_funcs.h"

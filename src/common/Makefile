@@ -1,6 +1,6 @@
 #:ts=8
 #
-#    $Id: Makefile,v 4.5 1997/08/20 21:05:02 mj Exp $
+#    $Id: Makefile,v 4.6 1998/01/13 20:33:49 mj Exp $
 #
 #    Makefile for FIDOGATE src/common/
 #
@@ -16,19 +16,59 @@ include $(TOPDIR)/config.make
 include $(TOPDIR)/rules.make
 
 
-OBJS		= address.o aliases.o areas.o areasbbs.o binkley.o\
-		  bounce.o bufstring.o charset.o config.o crc16.o crc32.o\
-		  date.o dir.o exit.o fopen.o getopt.o getopt1.o\
-		  gettime.o hosts.o kludge.o lock.o log.o mail.o\
-		  message.o misc.o msgid.o node.o outpkt.o packet.o passwd.o\
-		  parsedate.o read.o rfcaddr.o rfcheader.o routing.o\
-		  sequencer.o textlist.o version.o wildmat.o\
-		  xalloc.o xstrtok.o mime.o tick.o parsenode.o flo.o
+OBJS		= address.o \
+		  aliases.o \
+		  areas.o \
+		  areasbbs.o \
+		  binkley.o \
+		  bounce.o \
+		  bufstring.o \
+		  cf_funcs.o \
+		  charset.o \
+		  config.o \
+		  crc16.o \
+		  crc32.o \
+		  date.o \
+		  dir.o \
+		  exit.o \
+		  flo.o \
+		  fopen.o \
+		  getopt.o \
+		  getopt1.o \
+		  gettime.o \
+		  hosts.o \
+		  kludge.o \
+		  lock.o \
+		  log.o \
+		  mail.o \
+		  message.o \
+		  mime.o \
+		  misc.o \
+		  msgid.o \
+		  node.o \
+		  outpkt.o \
+		  packet.o \
+		  parsedate.o \
+		  parsenode.o \
+		  passwd.o \
+		  read.o \
+		  rfcaddr.o \
+		  rfcheader.o \
+		  routing.o \
+		  sequencer.o \
+		  textlist.o \
+		  tick.o \
+		  version.o \
+		  wildmat.o \
+		  xalloc.o \
+		  xstrtok.o
+
+
 
 LIBOBJS		= $(OBJS:%=$(LIB)(%))
 
 
-all:		$(LIB)
+all:		cf_funcs.mak $(LIB)
 
 
 $(LIB):		$(LIBOBJS)
@@ -38,6 +78,10 @@ parsedate.c:	parsedate.y
 	@echo "expect 6 shift/reduce conflicts"
 	$(YACC) parsedate.y
 	mv y.tab.c parsedate.c
+
+cf_funcs.mak:	$(TOPDIR)/config.make $(TOPDIR)/subst.pl
+	$(PERL) $(TOPDIR)/subst.pl -c$(TOPDIR)/config.make -C >cf_funcs.mak
+	diff cf_funcs.mak cf_funcs.c >/dev/null || cp cf_funcs.mak cf_funcs.c
 
 install:
 

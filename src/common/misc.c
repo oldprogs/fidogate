@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: misc.c,v 4.6 1997/07/25 21:01:39 mj Exp $
+ * $Id: misc.c,v 4.7 1998/01/13 20:33:51 mj Exp $
  *
  * Miscellaneous functions
  *
@@ -320,34 +320,28 @@ char *str_expand_name(char *d, size_t n, char *s)
     {
 	switch(s[1])
 	{
-	case 'S':				/* Spooldir */
-	    str_append(d, n, cf_spooldir());
-	    s += 2;
-	    break;
-	case 'L':				/* Libdir */
-	    str_append(d, n, cf_libdir());
-	    s += 2;
-	    break;
-	case 'G':				/* Logdir */
-	    str_append(d, n, cf_logdir());
-	    s += 2;
-	    break;
-	case 'O':				/* Outbound */
-	    str_append(d, n, cf_p_outbound());
-	    s += 2;
-	    break;
-	case 'I':				/* Inbound */
-	    str_append(d, n, cf_p_inbound());
-	    s += 2;
-	    break;
-	case 'P':				/* PInbound */
-	    str_append(d, n, cf_p_pinbound());
-	    s += 2;
-	    break;
-	case 'U':				/* UUInbound */
-	    str_append(d, n, cf_p_uuinbound());
-	    s += 2;
-	    break;
+	case 'C':
+	    str_append(d, n, cf_p_configdir()); s+=2; break;
+	case 'L':
+	    str_append(d, n, cf_p_libdir());    s+=2; break;
+	case 'N':
+	    str_append(d, n, cf_p_bindir());    s+=2; break;
+	case 'G':
+	    str_append(d, n, cf_p_logdir());    s+=2; break;
+	case 'V':
+	    str_append(d, n, cf_p_vardir());    s+=2; break;
+	case 'K':
+	    str_append(d, n, cf_p_lockdir());   s+=2; break;
+	case 'S':
+	    str_append(d, n, cf_p_spooldir());  s+=2; break;
+	case 'B': case 'O':
+	    str_append(d, n, cf_p_btbasedir()); s+=2; break;
+	case 'I':
+	    str_append(d, n, cf_p_inbound());   s+=2; break;
+	case 'P':
+	    str_append(d, n, cf_p_pinbound());  s+=2; break;
+	case 'U':
+	    str_append(d, n, cf_p_uuinbound()); s+=2; break;
 	}
     }
     

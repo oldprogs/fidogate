@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: config.c,v 4.10 1998/01/02 14:37:08 mj Exp $
+ * $Id: config.c,v 4.11 1998/01/13 20:33:50 mj Exp $
  *
  * Configuration data and functions
  *
@@ -40,13 +40,6 @@
 static int scf_line;
 
 
-
-/*
- * Directories
- */
-static char scf_libdir[MAXPATH];
-static char scf_spooldir[MAXPATH];
-static char scf_logdir[MAXPATH];
 
 /*
  * Hostname / domainname
@@ -167,7 +160,7 @@ void cf_debug(void)
     int i;
 
     debug(8, "config: libdir=%s  spooldir=%s  logdir=%s",
-	  scf_libdir, scf_spooldir, scf_logdir);
+	  cf_p_libdir(), cf_p_spooldir(), cf_p_logdir() );
     debug(8, "config: fqdn=%s", scf_fqdn);
     
     for(i=0; i<scf_naddr; i++)
@@ -380,39 +373,6 @@ void cf_do_line(char *line)
 	}
 	else
 	    BUF_COPY(scf_hostsdomain, p);
-    }
-    /***** libdir *******************************************************/
-    else if (!stricmp(keyword, "libdir"))
-    {
-	p = xstrtok(NULL, " \t");
-	if(!p) 
-	{
-	    log("config: missing libdir");
-	    return;
-	}
-	BUF_COPY(scf_libdir, p);
-    }
-    /***** spooldir *****************************************************/
-    else if (!stricmp(keyword, "spooldir"))
-    {
-	p = xstrtok(NULL, " \t");
-	if(!p) 
-	{
-	    log("config: missing spooldir");
-	    return;
-	}
-	BUF_COPY(scf_spooldir, p);
-    }
-    /***** logdir *******************************************************/
-    else if (!stricmp(keyword, "logdir"))
-    {
-	p = xstrtok(NULL, " \t");
-	if(!p) 
-	{
-	    log("config: missing logdir");
-	    return;
-	}
-	BUF_COPY(scf_logdir, p);
     }
     /***** address ******************************************************/
     else if (!stricmp(keyword, "address" ))
@@ -628,11 +588,7 @@ void cf_initialize(void)
     char *p;
 
     if( (p = getenv("FIDOGATE")) )
-	BUF_COPY(scf_libdir, p);
-    else
-	BUF_COPY(scf_libdir, LIBDIR);
-    BUF_COPY(scf_spooldir, SPOOLDIR);
-    BUF_COPY(scf_logdir, LOGDIR);
+	cf_s_libdir(p);
 
     /*
      * Check for real uid != effective uid, setuid installed FIDOGATE
@@ -706,32 +662,32 @@ void cf_set_uplink(char *addr)
  */
 void cf_set_libdir(char *dir)
 {
-    BUF_COPY(scf_libdir, dir);
+    cf_s_libdir(dir);
 }
 
 void cf_set_spooldir(char *dir)
 {
-    BUF_COPY(scf_spooldir, dir);
+    cf_s_spooldir(dir);
 }
 
 void cf_set_logdir(char *dir)
 {
-    BUF_COPY(scf_logdir, dir);
+    cf_s_logdir(dir);
 }
 
 char *cf_libdir(void)
 {
-    return scf_libdir;
+    return cf_p_libdir();
 }
 
 char *cf_spooldir(void)
 {
-    return scf_spooldir;
+    return cf_p_spooldir();
 }
 
 char *cf_logdir(void)
 {
-    return scf_logdir;
+    return cf_p_logdir();
 }
 
 
@@ -1093,95 +1049,6 @@ char *cf_p_history(void)
     }
 
     return pval;
-}
-
-
-
-/*
- * Get config values for Inbound, PInbound, UUInbound, Outbound
- */
-char *cf_p_inbound(void)
-{
-    static char *pval;
-
-    if(! pval)
-    {
-	if( ! (pval = cf_get_string("Inbound", TRUE)) )
-	    pval = INBOUND;
-	debug(8, "config: Inbound %s", pval);
-    }
-
-    return pval;
-}
-
-static char *cf_p_s_pinbound(char *s)
-{
-    static char *pval;
-
-    if(s)
-	pval = strsave(s);
-    
-    if(! pval)
-    {
-	if( ! (pval = cf_get_string("PInbound", TRUE)) )
-	    if( ! (pval = cf_get_string("Inbound", TRUE)) )
-		pval = PINBOUND;
-	debug(8, "config: PInbound %s", pval);
-    }
-
-    return pval;
-}
-    
-char *cf_p_pinbound(void)
-{
-    return cf_p_s_pinbound(NULL);
-}
-
-char *cf_s_pinbound(char *s)
-{
-    return cf_p_s_pinbound(s);
-}
-
-char *cf_p_uuinbound(void)
-{
-    static char *pval;
-
-    if(! pval)
-    {
-	if( ! (pval = cf_get_string("UUInbound", TRUE)) )
-	    if( ! (pval = cf_get_string("Inbound", TRUE)) )
-		pval = INBOUND;
-	debug(8, "config: UUInbound %s", pval);
-    }
-
-    return pval;
-}
-
-static char *cf_p_s_outbound(char *s)
-{
-    static char *pval;
-
-    if(s)
-	pval = strsave(s);
-    
-    if(! pval)
-    {
-	if( ! (pval = cf_get_string("Outbound", TRUE)) )
-	    pval = OUTBOUND;
-	debug(8, "config: Outbound %s", pval);
-    }
-
-    return pval;
-}
-    
-char *cf_p_outbound(void)
-{
-    return cf_p_s_outbound(NULL);
-}
-
-char *cf_s_outbound(char *s)
-{
-    return cf_p_s_outbound(s);
 }
 
 

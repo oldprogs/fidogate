@@ -2,6 +2,10 @@
 
 	************** TODO list for FIDOGATE development **************
 
+	* config.c:
+	  - replace cf_set_* with cf_s_*
+	  - replace cf_* with cf_p_*
+
 	* rfc2ftn.c (+other?): header_getcomplete() may return NULL,
 	  log() messages in snd_mail().
 

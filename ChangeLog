@@ -1,4 +1,34 @@
+Tue Jan 13 21:01:34 1998  Martin Junius  <mj@fido.de>
+
+	------- CVS ci -------------------------------------------------------
+
+	* src/common/misc.c (str_expand_name): implemented all new %X's.
+
+	* src/common/config.c (cf_p_inbound et al.): removed functions
+	  now in cf_funcs.c.
+	  (cf_do_line): removed config keys now in cf_funcs.c
+	  (cf_initialize): removed init of libdir/spooldir/logdir.
+
+	* src/common/Makefile: added cf_funcs.c source files,
+	  create/modified the same way as cf_funcs.h.
+
+	* src/include/fidogate.h: added #include "cf_funcs.h".
+
+	* src/include/Makefile: create/modified cf_funcs.h the same
+	  way as paths.h by running subst.pl.
+
+	* subst.pl: added more options:
+	  -H generates cf_funcs.h with cf_[ps]_NAME() prototypes for all
+	     config values DEFAULT_NAME defined in config.make.
+	  -C generates cf_funcs.c with code for these functions.
+
 Sat Jan 10 20:40:07 1998  Martin Junius  <mj@fido.de>
+
+	* subst.pl: new version, uses DEFAULT_* macros defined in
+	  config.make, new option -h to write paths.h.
+
+	* config.make (DEFAULT_*): introduced new configuration macros,
+	  will be used for the new subst.pl
 
 	------- CVS ci -------------------------------------------------------
 

@@ -1,17 +1,68 @@
 # -*- Makefile -*-
 #
-# $Id: config.make,v 4.10 1997/10/11 21:24:15 mj Exp $
+# $Id: config.make,v 4.11 1998/01/13 20:33:45 mj Exp $
 #
 # FIDOGATE Makefile configuration
 #
 
-##############################################################
-# Settings to be used by subst.pl must start in column 1 and #
-# use uppercase A-Z letters!!!                               #
-##############################################################
+##############################################################################
+#
+# Settings used by subst.pl, default values for directories
+# (subst.pl will use DEFAULT_XXX macros for substition of <XXX>)
+#
+# Directory		Compile-time		Run-time	Abbrev
+# ---------		------------		--------	------
+# Config		DEFAULT_CONFIGDIR	ConfigDir	%C
+# Main lib		DEFAULT_LIBDIR		LibDir		%L
+# Admin utilities	DEFAULT_BINDIR		BinDir		%N
+# Log			DEFAULT_LOGDIR		LogDir		%G
+# Var lib		DEFAULT_VARDIR		VarDir		%V
+# Lock files		DEFAULT_LOCKDIR		LockDir		%K
+# Spool			DEFAULT_SPOOLDIR	SpoolDir	%S
+# Outbound/inbound base	DEFAULT_BTBASEDIR	BTBaseDir	%B %O
+#
+# Inbound		DEFAULT_INBOUND		Inbound		%I
+# Protected inbound	DEFAULT_PINBOUND	PInbound	%P
+# Uuencode inbound	DEFAULT_UUINBOUND	UUInbound	%U
+# FTP inbound		DEFAULT_FTPINBOUND	FTPInbound
+#
+# INN config		DEFAULT_NEWSETCDIR
+# INN var lib		DEFAULT_NEWSVARDIR
+# INN main lib		DEFAULT_NEWSLIBDIR
+# INN spool		DEFAULT_NEWSSPOOL
+#
+# Ifmail main lib	DEFAULT_IFMAILDIR
+#
 
+DEFAULT_CONFIGDIR	= /etc/fidogate
+DEFAULT_LIBDIR		= /usr/lib/fidogate
+DEFAULT_BINDIR		= $(DEFAULT_LIBDIR)/bin
+DEFAULT_LOGDIR		= /var/log/fidogate
+DEFAULT_VARDIR		= /var/lib/fidogate
+DEFAULT_LOCKDIR		= /var/lock/fidogate
+DEFAULT_SPOOLDIR	= /var/spool/fidogate
+DEFAULT_BTBASEDIR	= /var/spool/bt
 
-# OS2 = OS/2 with EMX GCC
+DEFAULT_INBOUND		= $(DEFAULT_BTBASEDIR)/in
+DEFAULT_PINBOUND	= $(DEFAULT_BTBASEDIR)/pin
+DEFAULT_UUINBOUND	= $(DEFAULT_BTBASEDIR)/uuin
+DEFAULT_FTPINBOUND	= $(DEFAULT_BTBASEDIR)/ftpin
+
+DEFAULT_NEWSETCDIR	= /etc/news
+DEFAULT_NEWSVARDIR	= /var/lib/news
+DEFAULT_NEWSLIBDIR	= /usr/lib/news
+DEFAULT_NEWSSPOOLDIR	= /var/spool/news
+
+DEFAULT_IFMAILDIR       = /usr/local/lib/ifmail
+
+#
+# In addition, the perl interpreter used by subst.pl
+#
+# perl
+PERL		= /usr/bin/perl
+
+##############################################################################
+
 
 # FIDOGATE Directories
 BINDIR		= /usr/local/bin
@@ -23,7 +74,7 @@ LOGDIR		= /var/log/fido
 INFODIR		= /usr/local/info
 HTMLDIR		= /home/mj/public_html/fidogate
 
-# Outbound *base* directory, i.e. outbound is OUTBOUND/out.xxx
+# Outbound *base* directory, i.e. the actual outbound is OUTBOUND/out.xxx
 OUTBOUND	= /var/spool/bt
 # Normal (i.e. insecure) inbound
 INBOUND		= /var/spool/bt/in
@@ -40,9 +91,6 @@ NEWSSPOOLDIR	= /var/spool/news
 
 # Ifmail directory
 IFMAILDIR       = /usr/local/lib/ifmail
-
-# perl
-PERL		= /usr/bin/perl
 
 # OS2: comment out
  SHELL		= /bin/sh

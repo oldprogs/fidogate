@@ -1,6 +1,6 @@
 #:ts=8
 #
-#    $Id: Makefile,v 4.2 1997/08/20 21:05:04 mj Exp $
+#    $Id: Makefile,v 4.3 1998/01/13 20:33:51 mj Exp $
 #
 #    Makefile for FIDOGATE src/include/
 #
@@ -16,21 +16,15 @@ include $(TOPDIR)/config.make
 include $(TOPDIR)/rules.make
 
 
-all:		paths.mak
+all:		paths.mak cf_funcs.mak
 
-paths.mak:	$(TOPDIR)/config.make
-	@echo '/*'                                          > paths.mak
-	@echo ' * Automatically generated --- do not edit!' >>paths.mak
-	@echo ' */'                                         >>paths.mak
-	@echo '#define BINDIR   "$(BINDIR)"'                >>paths.mak
-	@echo '#define LIBDIR   "$(LIBDIR)"'                >>paths.mak
-	@echo '#define SPOOLDIR "$(SPOOLDIR)"'              >>paths.mak
-	@echo '#define LOGDIR   "$(LOGDIR)"'                >>paths.mak
-	@echo ' '                                           >>paths.mak
-	@echo '#define OUTBOUND "$(OUTBOUND)"'              >>paths.mak
-	@echo '#define INBOUND  "$(INBOUND)"'               >>paths.mak
-	@echo '#define PINBOUND "$(PINBOUND)"'              >>paths.mak
+paths.mak:	$(TOPDIR)/config.make $(TOPDIR)/subst.pl
+	$(PERL) $(TOPDIR)/subst.pl -c$(TOPDIR)/config.make -h >paths.mak
 	diff paths.mak paths.h >/dev/null || cp paths.mak paths.h
+
+cf_funcs.mak:	$(TOPDIR)/config.make $(TOPDIR)/subst.pl
+	$(PERL) $(TOPDIR)/subst.pl -c$(TOPDIR)/config.make -H >cf_funcs.mak
+	diff cf_funcs.mak cf_funcs.h >/dev/null || cp cf_funcs.mak cf_funcs.h
 
 install:
 
