@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: prototypes.h,v 4.25 1997/05/10 20:40:40 mj Exp $
+ * $Id: prototypes.h,v 4.26 1997/06/08 10:25:37 mj Exp $
  *
  * Prototypes for functions in libfidogate.a
  *
@@ -442,6 +442,8 @@ void	header_read		(FILE *);
 int	header_hops		(void);
 char   *rfcheader_get		(Textlist *, char *);
 char   *header_get		(char *);
+char   *rfcheader_geth		(Textlist *, char *, int);
+char   *header_geth		(char *, int);
 char   *header_getnext		(void);
 char   *header_getcomplete	(char *);
 char   *addr_token		(char *);

@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway software UNIX <-> FIDO
  *
- * $Id: config.h,v 4.20 1997/06/01 16:21:53 mj Exp $
+ * $Id: config.h,v 4.21 1997/06/08 10:25:08 mj Exp $
  *
  * Configuration header file
  *
@@ -92,9 +92,12 @@
 /***** rfc2ftn configuration ************************************************/
 
 /** Passthru operation for NetMail: FIDO->Internet->FIDO **/
-#define PASSTHRU_NETMAIL
+/* #define PASSTHRU_NETMAIL */
 /** Passthru operation for EchoMail: FIDO->Internet->FIDO **/
-#define PASSTHRU_ECHOMAIL /* Not yet implemented */
+/*
+ * Implemented, but requires ftntoss run after rfc2ftn to sort SEEN-BY
+ */
+/* #define PASSTHRU_ECHOMAIL */
 
 /*
  * Always generate a ^AINTL kludge for NetMails. (undef: only for mails

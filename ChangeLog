@@ -1,3 +1,33 @@
+Sun Jun  8 10:25:22 1997  Martin Junius  <mj@fido.de>
+
+	------- CVS ci -------------------------------------------------------
+
+	* doc/fidogate.texi (config.h): new PASSTHRU_ECHOMAIL description.
+
+	* config.h (PASSTHRU_NETMAIL): default: switched off.
+	  (PASSTHRU_ECHOMAIL): default: switched off.
+
+	* test/tc.passthru/run: new test case for PASSTHRU_ECHOMAIL.
+
+	* src/gate/rfc2ftn.c (print_tear_line): implemented
+	  PASSTHRU_ECHOMAIL, tear line from X-FTN-Tearline header.
+	  (print_origin): implemented PASSTHRU_ECHOMAIL, using
+	  X-FTN-Origin, X-FTN-Seen-By, X-FTN-Path headers. ftntoss must be
+	  run afterwards to sort / compact SEEN-BY and ^APATH.
+
+	* config.h (PASSTHRU_ECHOMAIL): now implemented.
+
+	* src/common/rfcheader.c (rfcheader_geth): new function unifying
+	  the various *header_get*().
+	  (header_geth): new wrapper function for rfcheader_geth(), using
+	  Textlist header.
+	  (main): added TEST main program.
+
+	* src/: started to integrate PASSTHRU_ECHOMAIL patches contributed
+	  by Jean-Louis Noel <jln@stben.be>.
+
+	* examples/: update to new fgatecfg.tgz by Andreas Braukmann.
+
 Sun Jun  1 18:04:04 1997  Martin Junius  <mj@fido.de>
 
 	------- CVS ci -------------------------------------------------------

@@ -2,6 +2,8 @@
 
 X = for next release
 
+	* rfcheader.c: rewrite all *header_get* functions using the
+	  new rfcheader_geth().
 
 	* rfc2ftn: BOUNCE log() with cause.
 

@@ -1,7 +1,7 @@
 <HTML>
 <HEAD>
 <!-- This HTML file has been created by texi2html 1.51
-     from ../fidogate.texi on 27 April 1997 -->
+     from ../fidogate.texi on 8 June 1997 -->
 
 <TITLE>FIDOGATE
  - Compiling and installing FIDOGATE</TITLE>
@@ -159,10 +159,9 @@ FTN address.
 
 <DT><CODE>PASSTHRU_ECHOMAIL</CODE>
 <DD>
-Passthru operation for EchoMail: if the sender of the message is an FTN
-address, this address will be put into the origin line of the resulting
-FTN message. If the RFC message contains an <CODE>X-FTN-Origin</CODE> header,
-this one will be used for the origin line. NOT YET IMPLEMENTED.
+Passthru operation for EchoMail: X-FTN-Tearline, X-FTN-Origin,
+X-FTN-Seen-By, X-FTN-Path headers will be used for tear line, *
+Origin, SEEN-BY, ^APATH, when gating from Internet to FTN.
 
 <DT><CODE>FTN_FORCE_INTL</CODE>
 <DD>

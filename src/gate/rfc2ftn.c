@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway software UNIX <-> FIDO
  *
- * $Id: rfc2ftn.c,v 4.24 1997/05/10 20:40:39 mj Exp $
+ * $Id: rfc2ftn.c,v 4.25 1997/06/08 10:25:36 mj Exp $
  *
  * Read mail or news from standard input and convert it to a FIDO packet.
  *
@@ -39,7 +39,7 @@
 
 
 #define PROGRAM 	"rfc2ftn"
-#define VERSION 	"$Revision: 4.24 $"
+#define VERSION 	"$Revision: 4.25 $"
 #define CONFIG		CONFIG_GATE
 
 
@@ -1348,7 +1348,14 @@ int snd_message(Message *msg, Area *parea,
  */
 int print_tear_line(FILE *fp)
 {
-    fprintf(fp, "\r\n--- FIDOGATE %s\r\n", version_global());
+#ifdef PASSTHRU_ECHOMAIL
+    char *p;
+
+    if( (p = header_get("X-FTN-Tearline")) )
+	fprintf(fp, "\r\n--- %s\r\n", p);
+    else
+#endif
+	fprintf(fp, "\r\n--- FIDOGATE %s\r\n", version_global());
 
     return ferror(fp);
 }
@@ -1363,43 +1370,56 @@ int print_origin(FILE *fp, char *origin)
     char buf[80];
     char bufa[30];
     int len;
-    
+#ifdef PASSTHRU_ECHOMAIL
+    char *p;
+#endif
+
+    /*
+     * Origin line
+     */
     BUF_COPY(buf , " * Origin: ");
     BUF_COPY(bufa, node_to_asc(cf_addr(), TRUE));
-    
-    /*
-     * Max. allowed length of origin line is 79 (80 - 1) chars,
-     * 3 chars for additional " ()".
-     */
-    len = 80 - strlen(bufa) - 3;
 
-    /* Add origin text */
-    str_append(buf, len, origin);
-    /* Add address */
-    BUF_APPEND(buf, " (");
-    BUF_APPEND(buf, bufa);
-    BUF_APPEND(buf, ")" );
-    
-    /* Origin */
+#ifdef PASSTHRU_ECHOMAIL
+    if( (p = header_get("X-FTN-Origin")) )
+	BUF_APPEND(buf, p);
+    else
+#endif
+    {
+	/* Max. allowed length of origin line is 79 (80 - 1) chars, 3
+	 * are used by " ()".  */
+	len = 80 - strlen(bufa) - 3;
+	
+	/* Add origin text */
+	str_append(buf, len, origin);
+	/* Add address */
+	BUF_APPEND(buf, " (");
+	BUF_APPEND(buf, bufa);
+	BUF_APPEND(buf, ")" );
+    }
     fprintf(fp, "%s\r\n", buf);
 
+    /*
+     * SEEN-BY
+     */
+#ifdef PASSTHRU_ECHOMAIL
+    /* Additional SEEN-BYs from X-FTN-Seen-By headers, ftntoss must be
+       run afterwards to sort / compact SEEN-BY */
+    for( p = header_geth("X-FTN-Seen-By", TRUE);
+	 p;
+	 p = header_geth("X-FTN-Seen-By", FALSE) )
+	fprintf(fp, "SEEN-BY: %s\r\n", p);
+#endif
     if(cf_addr()->point)		/* Generate 4D addresses */
     {
-	/* SEEN-BY */
 	fprintf(fp, "SEEN-BY: %d/%d",
 		cf_addr()->net, cf_addr()->node);
 	if(echomail4d)
 	    fprintf(fp, ".%d", cf_addr()->point);
-	/* PATH */
-	fprintf(fp, "\r\n\001PATH: %d/%d",
-		cf_addr()->net, cf_addr()->node);
-	if(echomail4d)
-	    fprintf(fp, ".%d", cf_addr()->point);
-	fputs("\r\n", fp);
+	fprintf(fp,"\r\n");
     }
     else				/* Generate 3D addresses */
     {
-	/* SEEN-BY */
 	fprintf(fp, "SEEN-BY: %d/%d",
 		cf_addr()->net, cf_addr()->node );
 	if(cf_uplink()->zone && cf_uplink()->net)
@@ -1410,7 +1430,29 @@ int print_origin(FILE *fp, char *origin)
 		fprintf(fp," %d", cf_uplink()->node);
 	}
 	fprintf(fp,"\r\n");
-	/* PATH */
+    }
+
+    /*
+     * ^APATH
+     */
+#ifdef PASSTHRU_ECHOMAIL
+    /* Additional ^APATHs from X-FTN-Path headers, ftntoss must be
+       run afterwards to compact ^APATH */
+    for( p = header_geth("X-FTN-Path", TRUE);
+	 p;
+	 p = header_geth("X-FTN-Path", FALSE) )
+	fprintf(fp, "\001PATH: %s\r\n", p);
+#endif
+    if(cf_addr()->point)		/* Generate 4D addresses */
+    {
+	fprintf(fp, "\001PATH: %d/%d",
+		cf_addr()->net, cf_addr()->node);
+	if(echomail4d)
+	    fprintf(fp, ".%d", cf_addr()->point);
+	fputs("\r\n", fp);
+    }
+    else				/* Generate 3D addresses */
+    {
 	fprintf(fp, "\001PATH: %d/%d\r\n",
 		cf_addr()->net, cf_addr()->node);
     }

@@ -1,0 +1,18 @@
+#!/bin/sh
+
+../tr.init
+
+F="../../src/gate/ftn2rfc -L../cf -S. -v -c./config"
+R="../../src/gate/rfc2ftn -L../cf -S. -v -c./config"
+
+echo "tc: copying input packets"
+cp ../ti.pkt-z2/*.[pP][kK][tT] in
+
+echo "tc: running ftn2rfc"
+$F
+
+echo "tc: running rfc2ftn"
+for f in in/news/*; do
+    $R -b -n < $f;
+done
+

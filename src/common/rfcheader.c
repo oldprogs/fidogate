@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: rfcheader.c,v 4.4 1997/06/01 16:22:05 mj Exp $
+ * $Id: rfcheader.c,v 4.5 1997/06/08 10:25:35 mj Exp $
  *
  * Functions to process RFC822 header lines from messages
  *
@@ -158,7 +158,7 @@ int header_hops(void)
 
 
 /*
- * header_get() --- get header line
+ * rfcheader_get() --- get header line
  */
 char *rfcheader_get(Textlist *tl, char *name)
 {
@@ -190,6 +190,81 @@ char *rfcheader_get(Textlist *tl, char *name)
 char *header_get(char *name)
 {
     return rfcheader_get(&header, name);
+}
+
+
+
+/*
+ * rfcheader_geth() --- get 1st/next header line from Textlist
+ *
+ * Modi:   name="X",  first=TRUE	return 1st X header line
+ *	   name=NULL, first=FALSE	return continuation header lines only
+ *	   name="X",  first=FALSE       return continuation header lines and
+ *					new X header lines
+ *
+ * Return: contents of header lines or NULL.
+ */
+char *rfcheader_geth(Textlist *tl, char *name, int first)
+{
+    static Textline *p_last;
+    Textline *p;
+    int len;
+    char *s;
+    
+    if(first)
+    {
+	/* Restart search */
+	p_last = NULL;
+	p      = tl->first;
+    }
+    else if(p_last)
+    {
+	/* Continue search */
+	p_last = p_last->next;
+        p      = p_last;
+	/* Check for continuation header, white space at start of line */
+	if(p_last && is_space(p_last->line[0])) 
+	{
+	    for(s=p_last->line; is_space(*s); s++) ;
+	    return s;
+	}
+    }
+    else
+    {
+	p = NULL;
+    }
+    
+    /* If p or name is NULL, stop here */
+    if(!p || !name)
+    {
+	p_last = NULL;
+	return NULL;
+    }
+    
+    /* Search for header line starting with NAME: */
+    len = strlen(name);
+    for(; p; p=p->next)
+    {
+	if(!strnicmp(p->line, name, len) && p->line[len]==':')
+	{
+	    for(s=p->line+len+1; is_space(*s); s++) ;
+	    p_last = p;
+	    return s;
+	}
+    }
+    
+    p_last = NULL;
+    return NULL;
+}
+
+
+
+/*
+ * header_geth() --- get header line
+ */
+char *header_geth(char *name, int first)
+{
+    return rfcheader_geth(&header, name, first);
 }
 
 
@@ -306,3 +381,44 @@ char *addr_token(char *line)
 	
     return s;
 }   
+
+
+
+#ifdef TEST /****************************************************************/
+
+int main(int argc, char *argv[])
+{
+    char *h, *p;
+    
+    if(argc != 2)
+    {
+	fprintf(stderr, "usage: testheader header < RFC-messsage\n");
+	exit(1);
+    }
+    
+    h = argv[1];
+
+    header_read(stdin);
+
+    printf("----------------------------------------\n");
+    for( p = rfcheader_geth(&header, h, TRUE);
+	 p;
+	 p = rfcheader_geth(&header, h, FALSE) )
+    {
+	printf("%s:    %s\n", h, p);
+    }
+    printf("----------------------------------------\n");
+    for( p = header_geth(h, TRUE);
+	 p;		 
+	 p = header_geth(NULL, FALSE) )
+    {
+	printf("%s:    %s\n", h, p);
+    }
+    printf("----------------------------------------\n");
+    
+    exit(0);
+    /**NOT REACHED**/
+    return 0;
+}
+
+#endif /**TEST***************************************************************/

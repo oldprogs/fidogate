@@ -291,11 +291,9 @@ Common configuration:
      be that FTN address.
 
 `PASSTHRU_ECHOMAIL'
-     Passthru operation for EchoMail: if the sender of the message is
-     an FTN address, this address will be put into the origin line of
-     the resulting FTN message. If the RFC message contains an
-     `X-FTN-Origin' header, this one will be used for the origin line.
-     NOT YET IMPLEMENTED.
+     Passthru operation for EchoMail: X-FTN-Tearline, X-FTN-Origin,
+     X-FTN-Seen-By, X-FTN-Path headers will be used for tear line, *
+     Origin, SEEN-BY, ^APATH, when gating from Internet to FTN.
 
 `FTN_FORCE_INTL'
      Always generate a `^AINTL' kludge, even if sender and receiver are

@@ -2,7 +2,7 @@
 @c
 @c FIDOGATE documentation
 @c
-@c $Id: fidogate.texi,v 4.24 1997/04/27 11:19:06 mj Exp $
+@c $Id: fidogate.texi,v 4.25 1997/06/08 10:25:11 mj Exp $
 @c
 
 @setfilename fidogate.info
@@ -420,10 +420,9 @@ address, the origin address of the resulting FTN message will be that
 FTN address.
 
 @item PASSTHRU_ECHOMAIL
-Passthru operation for EchoMail: if the sender of the message is an FTN
-address, this address will be put into the origin line of the resulting
-FTN message. If the RFC message contains an @code{X-FTN-Origin} header,
-this one will be used for the origin line. NOT YET IMPLEMENTED.
+Passthru operation for EchoMail: X-FTN-Tearline, X-FTN-Origin,
+X-FTN-Seen-By, X-FTN-Path headers will be used for tear line, *
+Origin, SEEN-BY, ^APATH, when gating from Internet to FTN.
 
 @item FTN_FORCE_INTL
 Always generate a @code{^AINTL} kludge, even if sender and receiver are

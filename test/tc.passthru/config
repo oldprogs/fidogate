@@ -1,0 +1,27 @@
+#
+# Test config for PASSTHRU_ECHOMAIL
+#
+
+
+#
+# X-FTN header:
+#
+#     f    X-FTN-From
+#     t    X-FTN-To
+#     T    X-FTN-Tearline
+#     O    X-FTN-Origin
+#     V    X-FTN-Via
+#     D    X-FTN-Domain
+#     S    X-FTN-Seen-By
+#     P    X-FTN-Path
+#
+X-FTN		ftTOVDSP
+
+
+
+#
+# Include common stuff (%L = LIBDIR)
+#
+include		%L/config.gate
+
+

@@ -1,6 +1,6 @@
 #:ts=8
 #
-#    $Id: Makefile,v 4.3 1996/06/09 10:49:01 mj Exp $
+#    $Id: Makefile,v 4.4 1997/06/08 10:25:34 mj Exp $
 #
 #    Makefile for FIDOGATE src/common/
 #
@@ -66,6 +66,11 @@ testflo:	testflo.o
 	$(CC) $(LFLAGS) -o testflo testflo.o $(LIBS)
 testflo.o:	flo.c
 	$(CC) $(CFLAGS) $(LOCAL_CFLAGS) -DTEST -c flo.c -o testflo.o
+
+testheader:	testheader.o
+	$(CC) $(LFLAGS) -o testheader testheader.o $(LIBS)
+testheader.o:	rfcheader.c
+	$(CC) $(CFLAGS) $(LOCAL_CFLAGS) -DTEST -c rfcheader.c -o testheader.o
 
 
 #
