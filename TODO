@@ -1,6 +1,8 @@
 -*- Indented-Text -*-
 
-X = for release 4.0alpha4
+X = for next release
+
+X	* rfc2ftn: node marked as DOWN working?
 
 	* ftn2rfc: rewrite, split huge unpack() function into parts
 	  for processing netmail and echomail.

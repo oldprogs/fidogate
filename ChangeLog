@@ -1,5 +1,23 @@
 Thu Aug 29 21:00:26 1996  Martin Junius  <mj@fido.de>
 
+	------- CVS tag r40alpha4a -------------------------------------------
+
+	------- CVS commit ---------------------------------------------------
+
+	* src/gate/rfc2ftn.c (snd_mail): moved call to rfc_is_local() into
+	  if(private) {...} (not needed for news).
+	  (rfc_is_local): removed argument, directly use From header.
+	  (rfc_is_local): added debug() message.
+	  (rfc_is_domain): removed argument, directly use From header,
+	  added debug() message.
+	  (rfc_parse): changed to call rfc_is_domain() check only if host
+	  is marked as down. This should restore the old behaviour: mail
+	  to a host marked as down will be bounced, if the sender (From)
+	  is outside the local domain.
+	  (rfc_parse): removed superfluous hosts_lookup() check.
+	  (rfc_parse): removed in_domain flag.
+	  (rfc_is_domain): fixed user@domain comparison.
+
 	------- CVS tag r40alpha4 --------------------------------------------
 
 	------- CVS commit ---------------------------------------------------

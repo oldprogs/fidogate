@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway software UNIX <-> FIDO
  *
- * $Id: rfc2ftn.c,v 4.9 1996/08/26 19:10:31 mj Exp $
+ * $Id: rfc2ftn.c,v 4.10 1996/08/29 20:16:41 mj Exp $
  *
  * Read mail or news from standard input and convert it to a FIDO packet.
  *
@@ -39,7 +39,7 @@
 
 
 #define PROGRAM 	"rfc2ftn"
-#define VERSION 	"$Revision: 4.9 $"
+#define VERSION 	"$Revision: 4.10 $"
 #define CONFIG		CONFIG_GATE
 
 
@@ -361,37 +361,62 @@ RFCAddr rfc_sender(void)
  * Check for local RFC address, i.e. "user@HOSTNAME.DOMAIN (Full Name)"
  * or "user (Full Name)"
  */
-int rfc_is_local(RFCAddr *rfc)
+int rfc_is_local(void)
 {
-    return  rfc->addr[0] == '\0'  ||  stricmp(rfc->addr, cf_fqdn()) == 0;
+    char *from = header_getcomplete("From");
+    RFCAddr rfc;
+
+    if(!from)
+	return FALSE;
+
+    rfcaddr_init(&rfc);
+    rfc = rfcaddr_from_rfc(from);
+
+    debug(7, "rfc_is_local(): From=%s FQDN=%s",
+	  rfcaddr_to_asc(&rfc, TRUE), cf_fqdn());
+    return  rfc.addr[0] == '\0'  ||  stricmp(rfc.addr, cf_fqdn()) == 0;
 }
 
 
 
 /*
- * Check for address in local domain, i.e. "user@*DOMAIN (Full Name)"
+ * Check for From address in local domain, i.e. "user@*DOMAIN (Full Name)"
  * or "user (Full Name)"
  */
-int rfc_is_domain(RFCAddr *rfc)
+int rfc_is_domain(void)
 {
+    char *from = header_getcomplete("From");
+    RFCAddr rfc;
     char *d;
     int l, ld;
     
-    if(rfc->addr[0] == '\0')
-	return TRUE;
-    
-    d  = cf_domainname();
-    ld = strlen(d);
-    l  = strlen(rfc->addr);
+    if(!from)
+	return FALSE;
 
+    d  = cf_domainname();
+    if(!d)
+	return FALSE;
+    ld = strlen(d);
+    l  = strlen(rfc.addr);
+
+    rfcaddr_init(&rfc);
+    rfc = rfcaddr_from_rfc(from);
+
+    debug(7, "rfc_is_domain(): From=%s domain=%s",
+	  rfcaddr_to_asc(&rfc, TRUE), d           );
+
+    if(rfc.addr[0] == '\0')
+	return TRUE;
     if(ld > l)
 	return FALSE;
     
     /* user@DOMAIN */
-    if(*d == '.' && stricmp(rfc->addr, d) == 0)
+    if(*d == '.' && stricmp(rfc.addr, d+1) == 0)
+	return TRUE;
+    else if(stricmp(rfc.addr, d) == 0)
 	return TRUE;
     /* user@*.DOMAIN */
-    return stricmp(rfc->addr + l - ld, d) == 0;
+    return stricmp(rfc.addr + l - ld, d) == 0;
 }
 
 
@@ -408,15 +433,11 @@ int rfc_parse(RFCAddr *rfc, char *name, Node *node)
     Node nn;
     Node *n;
     Host *h;
-    int in_domain;
     
     rfc_isfido_flag = FALSE;
 
-    in_domain = rfc_is_domain(rfc);
-    
     debug(3, "    Name:     %s", rfc->user);
-    debug(3, "    Address:  %s %s",
-	  rfc->addr, in_domain ? "(local domain)" : "");
+    debug(3, "    Address:  %s", rfc->addr);
 
     /*
      * Remove quotes "..." and copy to name[] arg
@@ -492,28 +513,27 @@ int rfc_parse(RFCAddr *rfc, char *name, Node *node)
 	 */
 	if( (h = hosts_lookup(node, NULL)) )
 	{
-	    if(!in_domain && (h->flags & HOST_DOWN))
+	    if( (h->flags & HOST_DOWN) )
 	    {
-		/* Node is down, bounce mail */
-		sprintf(address_error,
-			"FTN address %s: currently down, unreachable",
-			node_to_asc(node, TRUE));
-		ret = ERROR;
+		if(!rfc_is_domain())
+		{
+		    /* Node is down, bounce mail */
+		    sprintf(address_error,
+			    "FTN address %s: currently down, unreachable",
+			    node_to_asc(node, TRUE));
+		    ret = ERROR;
+		}
 	    }
 	}
-
 	/*
 	 * Bounce mail to nodes not registered in HOSTS
 	 */
 	else if(addr_is_restricted() && !i_flag)
 	{
-	    if(!hosts_lookup(node, NULL))
-	    {
-		sprintf(address_error,
-			"FTN address %s: not registered for this domain",
-			node_to_asc(node, TRUE));
-		ret = ERROR;
-	    }
+	    sprintf(address_error,
+		    "FTN address %s: not registered for this domain",
+		    node_to_asc(node, TRUE));
+	    ret = ERROR;
 	}
 
 	/*
@@ -781,7 +801,6 @@ int snd_mail(RFCAddr rfc_to, long size)
      */
     rfcaddr_init(&rfc_from);
     rfc_from  	  = rfc_sender();
-    from_is_local = rfc_is_local(&rfc_from);
     
     /*
      * To name/node
@@ -840,13 +859,15 @@ int snd_mail(RFCAddr rfc_to, long size)
 	/*
 	 * Allow only true local users to use the X-Flags header
 	 */
+	from_is_local = rfc_is_local();
 	if(from_is_local && header_hops() <= 1)
 	    debug(5, "true local address - o.k.");
 	else
 	{
 	    if(flags)
-		log("non-local %s, X-Flags: %s",
-		    rfcaddr_to_asc(&rfc_from, TRUE), flags);
+		log("non-local From: %s, Reply-To: %s, X-Flags: %s",
+		    header_getcomplete("From"),
+		    header_getcomplete("Reply-To"), flags           );
 	    flags = p = NULL;
 	}
 	    
