@@ -2,10 +2,19 @@
 
 X = for next release
 
+	* rfc2ftn: filter function for SPAM.
+
+	* ftntoss: remove duplicate addresses from SEEN-BY
+	  (postprocessing for PASSTHRU_ECHOMAIL).
+
+	* rfc2ftn: mime_deheader() for all header lines.
+
+	* ftn2rfc: allow Newsgroups, Followup-To: header.
+
 	* rfcheader.c: rewrite all *header_get* functions using the
 	  new rfcheader_geth().
 
-	* rfc2ftn: BOUNCE log() with cause.
+DONE.	* rfc2ftn: BOUNCE log() with cause.
 
 DONE.	* ftntick: ignore case in TIC area names.
 
@@ -27,6 +36,8 @@ DONE.	* ftnexpire: some statistics.
 
 	* ftn2rfc: send bounce mails directly as FTN messages, not via
 	  the mail system.
+ 	* ftn2rfc: bounce messages should include the complete FTN
+	  message with all kludges etc. to ease debugging.
 
 	* rfc2ftn: save large mails to file, fattach on hold for
 	  recipient?
@@ -93,9 +104,6 @@ STARTED.* Replace calls to strncpy0/strncat0 with str_copy/str_append.
 
 	* ftnhatch: copy option: copy file to file area and put entry
 	  into files.bbs (standard hatch behavior).
-
-	* ftn2rfc: bounce messages should include the complete FTN
-	  message with all kludges etc. to ease debugging.
 
 	* ftnpack: runtime configuration of arcmail extension
 	  usage. Use XX0-9 only, XX0-9 + XXA-F, wrap around to XX0 if

@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftntick.c,v 4.8 1997/03/30 14:49:51 mj Exp $
+ * $Id: ftntick.c,v 4.9 1997/06/21 21:16:46 mj Exp $
  *
  * Process incoming TIC files
  *
@@ -37,7 +37,7 @@
 
 
 #define PROGRAM		"ftntick"
-#define VERSION		"$Revision: 4.8 $"
+#define VERSION		"$Revision: 4.9 $"
 #define CONFIG		CONFIG_MAIN
 
 
@@ -224,28 +224,31 @@ int process_tic(Tick *tic)
 	char *rdir = cf_get_string("TickReplacedDir", TRUE);
 
 	BUF_COPY3(old_name, bbs->dir, "/", tic->replaces);
-	if(rdir)
+	if(check_access(old_name, CHECK_FILE) == TRUE)
 	{
-	    /* Copy to ReplacedFilesDir */
-	    BUF_COPY3(new_name, rdir, "/", tic->replaces);
-	    debug(1, "%s -> %s", old_name, new_name);
-	    if(copy_file(old_name, new_name) == ERROR)
+	    if(rdir)
 	    {
-		log("$ERROR: can't copy %s -> %s", old_name, new_name);
-		return ERROR;
+		/* Copy to ReplacedFilesDir */
+		BUF_COPY3(new_name, rdir, "/", tic->replaces);
+		debug(1, "%s -> %s", old_name, new_name);
+		if(copy_file(old_name, new_name) == ERROR)
+		{
+		    log("$ERROR: can't copy %s -> %s", old_name, new_name);
+		    return ERROR;
+		}
+		log("area %s file %s replaces %s, moved to %s",
+		    tic->area, tic->file, tic->replaces, rdir);
 	    }
-	    log("area %s file %s replaces %s, moved to %s",
-		tic->area, tic->file, tic->replaces, rdir);
-	}
-	else
-	    log("area %s file %s replaces %s, removed",
-		tic->area, tic->file, tic->replaces);
+	    else
+		log("area %s file %s replaces %s, removed",
+		    tic->area, tic->file, tic->replaces);
 	    
-	/* Remove old file, no error if this fails */
-	unlink(old_name);
-
-	/* Remove old file from FILES.BBS */
-	/**FIXME**/
+	    /* Remove old file, no error if this fails */
+	    unlink(old_name);
+	    
+	    /* Remove old file from FILES.BBS */
+	    /**FIXME**/
+	}
     }
     
     /*

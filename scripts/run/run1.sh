@@ -1,13 +1,8 @@
 #!/bin/sh
 #
-# $Id: run1.sh,v 4.1 1997/04/18 14:12:27 mj Exp $
+# $Id: run1.sh,v 4.2 1997/06/21 21:16:43 mj Exp $
 #
-# Run
-#     ffxqt
-#     send-fidogate
-#     runout
-#
-# Usage: runfso
+# Example script for FIDOGATE gateway out processing
 #
 
 PRG=<LIBDIR>
@@ -17,9 +12,7 @@ NEWS=<NEWSETCDIR>
 LOCK=run1
 
 
-#
-# Lock it
-#
+### Lock it ###
 $PRG/ftnlock -l $LOCK
 st=$?
 if [ $st -ne 0 ]; then
@@ -27,20 +20,21 @@ if [ $st -ne 0 ]; then
 fi
 
 
-#
-# process news batches for gateway
-#
+### process news for gateway ###
 $NEWS/send-fidogate
 
-#
-# toss gateway output
-#
+### process news for ffx ###
+$NEWS/send-ffx
+
+### batch ffx ###
+#$PRG/ffxbatch -F Hold -w -b orodruin 242:1000/5
+$PRG/ftnpack -f 242:1000/5 -I %O/out.0f2/orodruin
+
+### toss gateway output ###
 $PRG/runout
 
 
-#
-# Unlock it
-#
+### Unlock it ###
 $PRG/ftnlock -u $LOCK
 st=$?
 if [ $st -ne 0 ]; then

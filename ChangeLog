@@ -1,4 +1,31 @@
+Sat Jun 21 22:00:23 1997  Martin Junius  <mj@fido.de>
+
+	------- CVS ci -------------------------------------------------------
+
+	* src/gate/rfc2ftn.c (mail_receiver): add address_error[] string
+	  to BOUNCE message.
+
+	* test/tc.bounce/run: new test case for rfc2ftn BOUNCE messages.
+
+	* scripts/run/runpoll.sh: run runin before ffxrun.
+
+	* scripts/run/run1.sh: formatting changes, added send-ffx, ftnpack
+	  -f 242:1000/5.
+
+	* scripts/run/run2.sh: formatting changes, added ftntick.
+
+	* src/tick/ftntick.c (process_tic): check that old file (Replaces)
+	  exists before copying it to TickReplacedDir.
+
+Wed Jun 11 22:33:01 1997  Martin Junius  <mj@fido.de>
+
+	* src/toss/rununpack.sh: changed $INPUT/tmp directory to
+	  $INPUT/tmpunpack to avoid conflicts with ifcico's inbound tmp
+	  directory.
+
 Sun Jun  8 10:25:22 1997  Martin Junius  <mj@fido.de>
+
+	* scripts/nodelist/nl-del.pl: new options -l, -c, usage text.
 
 	------- CVS ci -------------------------------------------------------
 

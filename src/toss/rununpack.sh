@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# $Id: rununpack.sh,v 4.10 1997/05/11 19:24:58 mj Exp $
+# $Id: rununpack.sh,v 4.11 1997/06/21 21:16:47 mj Exp $
 #
 # Unpack ArcMail archives
 #
@@ -84,8 +84,8 @@ fi
 #
 # Create needed directories
 #
-[ -d $INPUT/tmp ] || mkdir $INPUT/tmp
-cd $INPUT/tmp
+[ -d $INPUT/tmpunpack ] || mkdir $INPUT/tmpunpack
+cd $INPUT/tmpunpack
 
 [ -d $INPUT/bad ] || mkdir $INPUT/bad
 

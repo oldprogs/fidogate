@@ -1,6 +1,6 @@
 #:ts=8
 #
-#    $Id: Makefile,v 4.2 1997/02/09 10:04:25 mj Exp $
+#    $Id: Makefile,v 4.3 1997/06/21 21:16:41 mj Exp $
 #
 #    Makefile for FIDOGATE scripts/filebase/
 #
@@ -26,6 +26,8 @@ all:		$(PROGS)
 
 
 install:
+	$(INSTALL_PROG)   nl-del      $(BINDIR)
+	$(INSTALL_PROG)   nl-diff     $(BINDIR)
 
 
 clean:

@@ -1,9 +1,11 @@
-#!/usr/local/bin/perl
-#:ts=8
+#!/usr/bin/perl
+#
+# $Id: nl-del.pl,v 4.1 1997/06/21 21:16:42 mj Exp $
+#
 
 require "getopts.pl";
 
-&Getopts('o:z:v');
+&Getopts('o:z:vcel');
 
 $output  = "nodelist.all";
 
@@ -12,13 +14,20 @@ if($opt_o) {
 }
 
 if($opt_z) {
-    for $z (split(',', $opt_z)) {
+    for $z (split(/[,; ]/, $opt_z)) {
 	$zones{$z} = 1;
     }
 }
 
 if($#ARGV < 0) {
-    print STDERR "usage: nl-del [-options] nodelist.xxx ...\n";
+    print STDERR
+	"usage: nl-del [-vcel] [-o output] [-z ZONE,...] nodelist.xxx ...\n\n",
+	"options:  -v           verbose\n",
+	"          -c           preserve comments\n",
+	"          -e           remove empty comments and ;E\n",
+	"          -l           leave Zone line for deleted zones\n",
+	"          -o nodelist  output nodelist\n",
+	"          -z zone,...  list of zones to be deleted\n";
     exit 1;
 }
 
@@ -37,8 +46,14 @@ $node = 0;
 $skipping_zone = 0;
 
 while(<>) {
-    if ( /^;/ || /^\cZ/ ) {
-	# Output comments as is
+    next if(/^\cZ/);
+
+    next if($opt_e && /^;\s*\cM?\cJ?$/);
+    next if($opt_e && /^;E/);
+
+    if(/^;/) {
+	# Output comments
+	print if($opt_c);
 	next;
     }
 
@@ -55,6 +70,7 @@ while(<>) {
 	    if($opt_v) {
 		printf STDERR "%-70s\n", "Zone $zone ($name) ... deleted";
 	    }
+	    print if($opt_l);
 	    print "; Zone $zone deleted ...\n";
 	    $skipping_zone = 1;
 	}

@@ -43,10 +43,24 @@ Changes in 4.2.4:
 
 * config.h: fixed DO_HAVE_SYSEXITS_H.
 
+* rfc2ftn: PASSTHRU_ECHOMAIL implementation contributed by
+  Jean-Louis Noel <jln@stben.be>.
 
-Changes in 4.2.4:
+NOTE: PASSTHRU_NETMAIL and PASSTHRU_ECHOMAIL are now switched off in
+the FIDOGATE distribution config.h!
+
+* rununpack: use directory tmpunpack/ instead of tmp/ to avoid
+  conflicts with ifcico.
+
+* ftntick: fixed copy error if Replaces (old) file doesn't exist and
+  TickReplacedDir is used.
+
+
+
+Changes in 4.2.3:
 
 * ftntick: area lookup now case-insensitive.
+
 
 
 Changes in 4.2.2:
@@ -120,6 +134,6 @@ End
 
 ======================================================================
 
-$Date: 1997/06/01 16:21:49 $
+$Date: 1997/06/21 21:16:33 $
 Martin Junius
 mailto:mj@fido.de

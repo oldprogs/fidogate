@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway software UNIX <-> FIDO
  *
- * $Id: rfc2ftn.c,v 4.25 1997/06/08 10:25:36 mj Exp $
+ * $Id: rfc2ftn.c,v 4.26 1997/06/21 21:16:46 mj Exp $
  *
  * Read mail or news from standard input and convert it to a FIDO packet.
  *
@@ -39,7 +39,7 @@
 
 
 #define PROGRAM 	"rfc2ftn"
-#define VERSION 	"$Revision: 4.25 $"
+#define VERSION 	"$Revision: 4.26 $"
 #define CONFIG		CONFIG_GATE
 
 
@@ -655,7 +655,8 @@ char *mail_receiver(RFCAddr *rfc, Node *node)
 	 * Address is argument
 	 */
 	if(rfc_parse(rfc, name, node, TRUE) == ERROR) {
-	    log("BOUNCE: address <%s>", rfcaddr_to_asc(rfc, TRUE));
+	    log("BOUNCE: <%s>, %s", rfcaddr_to_asc(rfc, TRUE),
+		(*address_error ? address_error : "unknown")  );
 	    return NULL;
 	}
     }
