@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway software UNIX <-> FIDO
  *
- * $Id: rfc2ftn.c,v 4.23 1997/04/19 11:41:53 mj Exp $
+ * $Id: rfc2ftn.c,v 4.24 1997/05/10 20:40:39 mj Exp $
  *
  * Read mail or news from standard input and convert it to a FIDO packet.
  *
@@ -39,7 +39,7 @@
 
 
 #define PROGRAM 	"rfc2ftn"
-#define VERSION 	"$Revision: 4.23 $"
+#define VERSION 	"$Revision: 4.24 $"
 #define CONFIG		CONFIG_GATE
 
 
@@ -1127,11 +1127,11 @@ int snd_message(Message *msg, Area *parea,
     pkt_put_msg_hdr(sf, msg, TRUE);
 
 
+    /***** ^A kludges *******************************************************/
+
+    /* Add kludges for MSGID / REPLY and ORIGID / ORIGREF */
     if(!flags || !strchr(flags, 'm'))		/* X-Flags: M */
     {
-	/*
-	 * Add kludges for MSGID / REPLY and ORIGID / ORIGREF
-	 */
 	if((header = header_getcomplete("Message-ID")))
 	{
 	    if((id = msgid_rfc_to_fido(&flag, header, part, split, msg->area)))
@@ -1165,9 +1165,7 @@ int snd_message(Message *msg, Area *parea,
     if(!no_fsc_0035)
 	if(!flags || !strchr(flags, 'n'))
 	{
-	    /*
-	     * Generate FSC-0035 ^AREPLYADDR, ^AREPLYTO
-	     */
+	    /* Generate FSC-0035 ^AREPLYADDR, ^AREPLYTO */
 	    fprintf(sf, "\001REPLYADDR %s\r\n",
 		    rfcaddr_to_asc(&rfc_from, TRUE));
 	    fprintf(sf, "\001REPLYTO %s %s\r\n",
@@ -1194,14 +1192,15 @@ int snd_message(Message *msg, Area *parea,
      */
     fprintf(sf, "\001CHRS: LATIN-1 2\r\n");
 
-    /*
-     * Add ^ARFC header lines according to FIDO-Gatebau '94 specs
-     */
+    /* Add ^ARFC header lines according to FIDO-Gatebau '94 specs */
     fprintf(sf, "\001RFC: %d 0\r\n", rfc_level);
     header_ca_rfc(sf, rfc_level);
 
     add_empty = FALSE;
+
     
+    /***** Text header*******************************************************/
+
     /*
      * If Gateway is set in config file, add To line for addressing
      * FIDO<->Internet gateway
@@ -1216,13 +1215,30 @@ int snd_message(Message *msg, Area *parea,
     {
 	if(!no_from_line)
 	{
-	    /* Add From line with return address */
-	    fprintf(sf, "From: %s\r\n", rfcaddr_to_asc(&rfc_from, TRUE));
-	    /* Add Sender line */
-	    if( (header = header_get("Sender")) )
-		fprintf(sf, "Sender: %s\r\n", header);
-	    else if( (header = header_get("Resent-From")) )
-		fprintf(sf, "Sender: %s\r\n", header);
+	    /* From, Reply-To */
+	    if( (header = header_getcomplete("From")) )
+		fprintf(sf, "From: %s\r\n", header);
+	    if( (header = header_getcomplete("Reply-To")) )
+		fprintf(sf, "Reply-To: %s\r\n", header);
+
+	    /* Sender, To, Cc (only for mail) */
+	    if(private)
+	    {
+		if( (header = header_getcomplete("Sender")) )
+		    fprintf(sf, "Sender: %s\r\n", header);
+		else if( (header = header_getcomplete("Resent-From")) )
+		    fprintf(sf, "Sender: %s\r\n", header);
+
+		/* If Sender/Resent-From is present also include To, Cc */
+		if(header)
+		{
+		    if( (header = header_getcomplete("To")) )
+			fprintf(sf, "Header-To: %s\r\n", header);
+		    if( (header = header_getcomplete("Cc")) )
+			fprintf(sf, "Header-Cc: %s\r\n", header);
+		}
+	    }
+
 	    add_empty = TRUE;
 	}
     }
@@ -1266,9 +1282,9 @@ int snd_message(Message *msg, Area *parea,
 		    part, split						    );
     }
 
-    /*
-     * Copy message body
-     */
+
+    /***** Message body *****************************************************/
+
     lsize = 0;
     while(p)
     {
@@ -1320,9 +1336,6 @@ int snd_message(Message *msg, Area *parea,
     else
 	print_via(sf);
 
-    /*
-     * Done
-     */
     /* End of message */
     putc(0, sf);
     return EX_OK;

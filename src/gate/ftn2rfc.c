@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftn2rfc.c,v 4.21 1997/04/18 15:37:45 mj Exp $
+ * $Id: ftn2rfc.c,v 4.22 1997/05/10 20:40:38 mj Exp $
  *
  * Convert FTN mail packets to RFC mail and news batches
  *
@@ -40,7 +40,7 @@
 
 
 #define PROGRAM 	"ftn2rfc"
-#define VERSION 	"$Revision: 4.21 $"
+#define VERSION 	"$Revision: 4.22 $"
 #define CONFIG		CONFIG_GATE
 
 
@@ -862,6 +862,11 @@ int unpack(FILE *pkt_file, Packet *pkt)
 	    
 	    if( (p = kludge_get(&body.kludge, "MSGID", NULL)) )
 	    {
+		if(!strncmp(p, "<NOMSGID_", 9))
+		{
+		    log("MSGID: %s, not gated", p);
+		    continue;
+		}
 		id_line = msgid_fido_to_rfc(p, &id_zone);
 		if(no_unknown_msgid_zones)
 		    if(id_zone>=-1 && !cf_zones_check(id_zone))
@@ -877,9 +882,7 @@ int unpack(FILE *pkt_file, Packet *pkt)
 		    log("MSGID: none, not gated");
 		    continue;
 		}
-		id_line = msgid_default(&msg.node_orig, msg.name_from,
-					msg.name_to,
-					msg.subject, msg.date);
+		id_line = msgid_default(&msg);
 	    }
 	}
 	/* Can't happen, but who knows ... ;-) */

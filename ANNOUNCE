@@ -41,7 +41,17 @@ Changes in 4.2.2:
 * ftntoss: additionally checks SEENBYs for message sender/recipient,
   messages from local AKA are no longer insecure.
 
-* Ported to FreeBSD.
+* Port to FreeBSD contributed by Dirk Meyer
+  <dirk.meyer@dinoex.sub.org>. 
+
+* rununpack: added RAR support contributed by Matthias Schniedermeyer
+  <ms@twist.owl.de>.
+
+* rfc2ftn: better support for From/Reply-To text headers, will add
+  Header-To/Header-Cc for mailing lists.
+
+* ftn2rfc: don't gate messages with ^AMSGID: <NOMSGID_...>
+
 
 ======================================================================
 
@@ -95,6 +105,6 @@ End
 
 ======================================================================
 
-$Date: 1997/04/27 11:19:00 $
+$Date: 1997/05/10 20:40:15 $
 Martin Junius
 mailto:mj@fido.de

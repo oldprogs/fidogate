@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftntoss.c,v 4.17 1997/04/27 11:19:16 mj Exp $
+ * $Id: ftntoss.c,v 4.18 1997/05/10 20:40:41 mj Exp $
  *
  * Toss FTN NetMail/EchoMail
  *
@@ -39,7 +39,7 @@
 
 
 #define PROGRAM 	"ftntoss"
-#define VERSION 	"$Revision: 4.17 $"
+#define VERSION 	"$Revision: 4.18 $"
 #define CONFIG		CONFIG_MAIN
 
 
@@ -1451,9 +1451,6 @@ int main(int argc, char **argv)
 	{ 0,              0, 0, 0  }
     };
 
-    /* Start time */
-    toss_start = time(NULL);
-
     /* Log name */
     log_program(PROGRAM);
     
@@ -1689,6 +1686,9 @@ int main(int argc, char **argv)
     signal(SIGQUIT, prog_signal);
 
     
+    /* Start time */
+    toss_start = time(NULL);
+
     ret = EXIT_OK;
     
     if(optind >= argc)

@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: ftnexpire.c,v 4.6 1996/12/17 17:19:58 mj Exp $
+ * $Id: ftnexpire.c,v 4.7 1997/05/10 20:40:40 mj Exp $
  *
  * Expire MSGID history database
  *
@@ -36,7 +36,7 @@
 
 
 #define PROGRAM 	"ftnexpire"
-#define VERSION 	"$Revision: 4.6 $"
+#define VERSION 	"$Revision: 4.7 $"
 #define CONFIG		CONFIG_MAIN
 
 
@@ -172,9 +172,6 @@ int do_expire(void)
     dbzsync();
     dbmclose();
 
-    /* Statistics */
-    log("ids processed: %ld total, %ld expired", n_processed, n_expired);
-    
     /* Rename */
     if(rename(history_n, history) == ERROR)
     {
@@ -283,7 +280,7 @@ void usage(void)
     fprintf(stderr, "usage:   %s [-options]\n\n", PROGRAM);
     fprintf(stderr, "\
 options: -m --maxhistory DAYS         set max number of days in history\n\
-         -w --wait                    wait for history DB lock to be release\n\
+         -w --wait                    wait for history lock to be released\n\
 \n\
          -v --verbose                 more verbose\n\
 	 -h --help                    this help\n\
@@ -306,6 +303,7 @@ int main(int argc, char **argv)
     int   w_flag=NOWAIT;
     char *c_flag=NULL;
     char *S_flag=NULL, *L_flag=NULL;
+    time_t expire_start, expire_delta;
     
     int option_index;
     static struct option long_options[] =
@@ -400,9 +398,21 @@ int main(int argc, char **argv)
 	exit(EXIT_BUSY);
     }
 
+    /* Start time */
+    expire_start = time(NULL);
+    /* Expire */
     if(do_expire() == ERROR)
 	ret = EXIT_ERROR;
+    /* Stop time */
+    expire_delta = time(NULL) - expire_start;
+    if(expire_delta <= 0)
+	expire_delta = 1;
 
+    /* Statistics */
+    log("ids processed: %ld total, %ld expired in %ld s, %.2lf ids/s",
+	n_processed, n_expired,
+	expire_delta, (double)n_processed/expire_delta);
+    
     unlock_program(LOCK_HISTORY);
 
     

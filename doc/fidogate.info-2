@@ -1225,7 +1225,7 @@ Areas.BBS
      Likewise, areas send to the secondary boss must have the `-a
      2:2498/120.2' option in `areas.bbs' and the secondary boss as the
      uplink, e.g.
-          LINUX.GER    -a 2:2498/120.2    2:2498/120
+          X LINUX.GER    -a 2:2498/120.2    2:2498/120
 
 Routing
      The netmail routing must be adapted to send mail to the secondary

@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: msgid.c,v 4.4 1997/04/19 11:41:51 mj Exp $
+ * $Id: msgid.c,v 4.5 1997/05/10 20:40:36 mj Exp $
  *
  * MSGID <-> Message-ID conversion handling. See also ../doc/msgid.doc
  *
@@ -229,7 +229,7 @@ char *msgid_fido_to_rfc(char *msgid, int *pzone)
  * Generate ID for FIDO messages without ^AMSGID, using date and CRC over
  * From, To and Subject.
  */
-char *msgid_default(Node *node, char *msg_from, char *msg_to, char *msg_subj, time_t msg_date)
+char *msgid_default(Message *msg)
 {
     SHUFFLEBUFFERS;
 
@@ -237,14 +237,15 @@ char *msgid_default(Node *node, char *msg_from, char *msg_to, char *msg_subj, ti
      * Compute CRC for strings from, to, subject
      */
     crc32_init();
-    crc32_compute(msg_from, strlen(msg_from));
-    crc32_compute(msg_to  , strlen(msg_to  ));
-    crc32_compute(msg_subj, strlen(msg_subj));
+    crc32_compute(msg->name_from, strlen(msg->name_from));
+    crc32_compute(msg->name_to  , strlen(msg->name_to  ));
+    crc32_compute(msg->subject  , strlen(msg->subject  ));
 
     sprintf(tcharp, "<NOMSGID_%d=3A%d=2F%d.%d_%s_%08lx@%s>",
-	    node->zone, node->net, node->node, node->point,
-	    date("%y%m%d_%H%M%S", &msg_date), crc32_value(),
-	    msgid_domain(node->zone)                          );
+	    msg->node_orig.zone, msg->node_orig.net,
+	    msg->node_orig.node, msg->node_orig.point,
+	    date("%y%m%d_%H%M%S", &msg->date), crc32_value(),
+	    msgid_domain(msg->node_orig.zone)                          );
     
     return tcharp;
 }

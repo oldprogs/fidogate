@@ -2,6 +2,13 @@
 
 X = for next release
 
+
+	* config: run-time configuration for FTN_RFC_HEADERS,
+	  RFC_LVL_1_HEADERS, and text headers put into FTN message by
+	  rfc2ftn.
+
+DONE.	* ftn2rfc: don't gate messages with ^AMSGID: <NOMSGID_...>>
+
 	* areas.bbs: read-only/vacation flag for downlinks.
 	  ftnaf: commands for vacation flag.
 
@@ -10,7 +17,7 @@ X = for next release
 	* rfc2ftn: check for multiple entries of the same groups in
 	  the Newsgroups header.
 
-	* ftnexpire: some statistics.
+DONE.	* ftnexpire: some statistics.
 
 	* ftn2rfc: send bounce mails directly as FTN messages, not via
 	  the mail system.

@@ -1,0 +1,100 @@
+From owner-isdn4linux@hub-wue.franken.de  Thu May  8 17:12:46 1997
+Return-Path: <owner-isdn4linux@hub-wue.franken.de>
+Received: (from news@localhost)
+          by orodruin.fido.de (8.8.5/8.8.4/orodruin-4.4) with FFX
+	  id RAA01348 for mj@orodruin.fido.de; Thu, 8 May 1997 17:11:56 +0200
+Received: from rachael.franken.de (rachael.franken.de [193.175.24.38]) by morannon.fido.de (8.8.5/8.7.3/morannon-4.0) with SMTP id NAA22824 for <mj@fido.de>; Thu, 8 May 1997 13:47:16 +0200
+Received: from oops.franken.de by rachael.franken.de with smtp
+	(Smail3.1.29.1 #8) id m0wPQqZ-000oJ7a; Thu, 8 May 97 12:54 MET DST
+Received: by oops.franken.de (Linux Smail3.1.29.1 #1)
+	id m0wPQx5-001ISMa; Thu, 8 May 97 13:01 MET DST
+Received: from hub-wue.franken.de by oops.franken.de  with smtp
+	(Linux Smail3.1.29.1 #1) id m0wPQwz-001ISLE; Thu, 8 May 97 13:01 MET DST
+Received: from mail.space.net by hub-wue.franken.de with smtp
+	(Smail3.1.29.1 #1) id m0wPQnE-000BnNC; Thu, 8 May 97 12:51 MET DST
+Received: from euler.space.net ([194.59.182.7]) by mail.space.net with ESMTP id <29872-12419>; Thu, 8 May 1997 12:51:38 +0200
+Received: by euler.space.net
+	via rmail with stdio
+	id <m0wPQms-000NyhC@euler.space.net>
+	for isdn4linux@hub-wue.franken.de; Thu, 8 May 1997 12:51:02 +0200 (MET DST)
+	(Smail-3.2 1996-Jul-4 #1 built 1997-Jan-29)
+Received: from lx01.temic (keil@lx01.temic [192.9.216.171]) by temic-ech.spacenet.de (8.6.12/1.02KKe) with ESMTP id MAA22743; Thu, 8 May 1997 12:49:16 +0200
+Received: (from keil@localhost) by lx01.temic (8.6.12/1.02KKe) id MAA22972; Thu, 8 May 1997 12:49:15 +0200
+Date: Thu, 8 May 1997 12:49:15 +0200
+From: Karsten Keil <keil@temic-ech.spacenet.de>
+Message-Id: <199705081049.MAA22972@lx01.temic>
+To: bodo@ON-Luebeck.DE (Kai Scharbau)
+Cc: isdn4linux@hub-wue.franken.de
+Subject: Re: Probleme mit X.75...
+Newsgroups: de.alt.comm.isdn4linux
+Organization: temic
+X-Newsreader: TIN [version 1.2 PL2]
+Sender: owner-isdn4linux@hub-wue.franken.de
+Precedence: bulk
+Status: RO
+X-Status: 
+
+In article <Pine.LNX.3.95.970508103706.32330B-100000@on.on-luebeck.de> you wrote:
+: Hi!
+
+: Seit der Umstellung auf kernel 2.0.30 / HiSax 2.1 gibt es Probleme beim
+: X.75-dialin. Wir haben 3 Karten und den HiSax-Treiber 3 mal geladen.
+: Ausser der kernel-Umstellung hat sich nichts veraendert und es lief
+: vorher problemlos.In /var/log/messages sieht es so aus:
+Bug Teufel hat bei X.75 zugeschlagen.
+Hier ein vorlaeufiger Patch.
+begin 644 isdnl2.diff.gz
+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
+8A.>]3%@K:/9.][C0KI7_`9?;F3HG$P``
+`
+end
+
+--
+Dipl.Ing. Karsten Keil                        Microcontroller Developement
+email: keil@temic-ech.spacenet.de                Temic Semiconducters GmbH
+Any opinions in this posting are my own and not those of my present
+or previous employers.
+---------------------------------------------------
+To remove yourself from this mailing list send
+email to majordomo@hub-wue.franken.de containing
+"unsubscribe isdn4linux <your_email_address>" in
+the message body [-vg]
+

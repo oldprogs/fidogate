@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: prototypes.h,v 4.24 1997/04/18 15:37:46 mj Exp $
+ * $Id: prototypes.h,v 4.25 1997/05/10 20:40:40 mj Exp $
  *
  * Prototypes for functions in libfidogate.a
  *
@@ -350,7 +350,7 @@ int    run_system		(char *);
 
 /* msgid.c */
 char   *msgid_fido_to_rfc	(char *, int *);
-char   *msgid_default		(Node *, char *, char *, char *, time_t);
+char   *msgid_default		(Message *);
 char   *msgid_rfc_to_fido	(int *, char *, int, int, char *);
 char   *msgid_rfc_to_origid	(char *, int, int);
 char   *msgid_convert_origid	(char *, int);

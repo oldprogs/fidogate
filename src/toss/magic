@@ -1,5 +1,5 @@
 #
-# $Id: magic,v 4.1 1996/06/16 08:41:27 mj Exp $
+# $Id: magic,v 4.2 1997/05/10 20:40:41 mj Exp $
 #
 # Definitions to be used with FIDOGATE's rununpack
 #
@@ -11,3 +11,4 @@
 0	string		ZOO		ZOO Archive
 0	short		0xea60		ARJ Archive
 0	short		0x60ea		ARJ Archive
+0       string          Rar!            RAR Archive
