@@ -1,8 +1,8 @@
 #:ts=8
 #
-#    $Id: Makefile,v 4.7 2001/01/04 20:03:43 mj Exp $
+#    $Id: Makefile,v 1.1 2001/01/04 20:03:42 mj Exp $
 #
-#    Makefile for FIDOGATE scripts/misc/
+#    Makefile for FIDOGATE scripts/areas/
 #
 
 #
@@ -16,7 +16,7 @@ include $(TOPDIR)/config.make
 include $(TOPDIR)/rules.make
 
 
-PROGS		= recvuu senduu senduumail hosts2dns
+PROGS		= areasbbssync
 
 
 all:		$(PROGS)
@@ -33,10 +33,6 @@ morannon:
 
 install:
 	$(INSTALL_PROG) areasbbssync $(PREFIX)$(BINDIR)
-	$(INSTALL_PROG) recvuu $(PREFIX)$(BINDIR)
-	$(INSTALL_PROG) senduu $(PREFIX)$(BINDIR)
-	$(INSTALL_PROG) senduumail $(PREFIX)$(BINDIR)
-	$(INSTALL_PROG) hosts2dns $(PREFIX)$(BINDIR)
 
 
 clean:

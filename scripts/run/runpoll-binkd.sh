@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# $Id: runpoll-binkd.sh,v 4.6 2000/04/19 17:07:28 mj Exp $
+# $Id: runpoll-binkd.sh,v 4.7 2001/01/04 20:03:43 mj Exp $
 #
 # orodruin.fido.de's poll script using binkd
 #
@@ -15,6 +15,10 @@ XTERM=/usr/X11R6/bin/xterm
 
 DUMMYADDR="nobody@fido.de"
 
+BOSSNODE="242:1000/2"
+BOSSNAME="morannon"
+
+
 # -xterm: run in XTerm window
 if [ "$1" = "-xterm" ]; then
   exec $XTERM -display :0 -g 100x20 -title "FIDOGATE runpoll (BinkD)" -e $0
@@ -26,16 +30,16 @@ fi
 set -x
 
 # Send dummy mail for polling
-mail -s "POLL" $DUMMYADDR <<EOF
-POLL
-EOF
-sleep 2
+#mail -s "POLL" $DUMMYADDR <<EOF
+#POLL
+#EOF
+#sleep 2
 
 # Batch ffx news
 $BINDIR/send-ffx
 
 # Batch ffx mail
-$LIBDIR/ftnpack -f 242:1000/1 -I %B/out.0f2/morannon
+$LIBDIR/ftnpack -f $BOSSNODE -I %B/out.0f2/$BOSSNAME
 
 # Gateway
 $BINDIR/send-fidogate
@@ -45,8 +49,8 @@ $BINDIR/runtoss outpkt
 $BINDIR/runtoss outpkt/mail
 $BINDIR/runtoss outpkt/news
 
-# Poll
-$BINKD -p $BINKDCFG
+# Poll (-P requires binkd 0.9.4)
+$BINKD -P $BOSSNODE -p $BINKDCFG
 
 # Tosser, only protected inbound
 $BINDIR/rununpack pin

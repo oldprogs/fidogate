@@ -41,6 +41,7 @@ rm -rf $RPM_BUILD_ROOT
 /usr/info/fidogate.info*
 /var/log/fidogate
 %dir /var/lib/fidogate
+%dir /var/lib/fidogate/seq
 /var/lock/fidogate
 /var/spool/fidogate
 /var/spool/bt

@@ -28,7 +28,10 @@ if [ `whoami` != "root" ]; then
     exit 1
 fi
 
-mv $tarfile /usr/src/redhat/SOURCES
+if [ -f $tarfilevartmp ]; then
+    rm -f $tarfilesources
+    mv $tarfilevartmp /usr/src/redhat/SOURCES
+fi
 
 rpm -ba fidogate.spec
 

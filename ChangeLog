@@ -1,4 +1,37 @@
+2001-01-04  Martin Junius  <mj@m-j-s.net>
+
+	------- CVS ci -------------------------------------------------------
+
+	* scripts/areas/areasbbssync.pl: moved from ../misc/ to here.
+
+	* scripts/areas/Makefile: new subdir for script managing areas,
+	  areas.bbs, sucknewsrc etc. synchronization.
+
+2001-01-02  Martin Junius  <mj@m-j-s.net>
+
+	* scripts/outbound/out-ls.pl: perl5'ified, rewritten to use
+	  config.pl and new %CONFIG_dosdrive, %CONFIG_zone.
+
+	* config.pl (CONFIG_read): special treatment for DosDrive and Zone 
+	  config statement, store in %CONFIG_dosdrive and %CONFIG_zone
+	  hashes. 
+
+2000-12-30  Martin Junius  <mj@m-j-s.net>
+
+	* fidogate.spec: seq dir was missing from %files.
+
+	* src/ffx/ffxmail.sh: morannon ist jetzt 242:1000/2
+
+	* scripts/run/runpoll-binkd.sh (BOSSNODE): ist jetzt 242:1000/2
+
+2000-12-29  Martin Junius  <mj@m-j-s.net>
+
+	* scripts/run/runpoll-binkd.sh: modified for binkd 0.9.4.
+
 2000-11-26  Martin Junius  <mj@fido.de>
+
+	* build-rpms: make sure to move newer .tar.gz from /var/tmp to
+	  /usr/src/redhat/SOURCES. 
 
 	======= Release 4.4.2 ================================================
 	------- CVS tag R442 -------------------------------------------------

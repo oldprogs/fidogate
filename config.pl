@@ -1,13 +1,18 @@
 ##############################################################################
 #
-# $Id: config.pl,v 4.3 1998/09/23 19:23:10 mj Exp $
+# $Id: config.pl,v 4.4 2001/01/04 20:03:42 mj Exp $
 #
 # Perl functions to read FIDOGATE config file,
 # included by <INCLUDE config.pl> when running subst.pl
 #
 
 my %CONFIG;
-undef %CONFIG;
+
+# specials for DosDrive and Zone
+my %CONFIG_dosdrive;
+my %CONFIG_zone;
+
+
 
 my %CONFIG_default =
     (
@@ -25,7 +30,7 @@ sub CONFIG_read {
     my($key, $arg);
     local *C;
 
-    $file = &CONFIG_expand($file);
+    $file = CONFIG_expand($file);
 
     open(C,"$file") || die "config.pl: can't open config file $file\n";
     while(<C>) {
@@ -36,7 +41,20 @@ sub CONFIG_read {
 	s/^\s*//;		# remove leading white space
 	($key,$arg) = split(' ', $_, 2);
 	$key =~ tr/A-Z/a-z/;
-	&CONFIG_read($arg) if($key eq "include");
+	if($key eq "include") {
+	    CONFIG_read($arg);
+	    next;
+	}
+	if($key eq "dosdrive") {
+	    my ($d, $path) = split(' ', $arg);
+	    $CONFIG_dosdrive{lc($d)} = $path;
+	    next;
+	}
+	if($key eq "zone") {
+	    my ($z, $rest) = split(' ', $arg, 2);
+	    $CONFIG_zone{$z} = $rest;
+	    next;
+	}
 	$CONFIG{$key} = $arg if(!$CONFIG{$key});
     }
     close(C);
@@ -62,7 +80,7 @@ sub CONFIG_get {
     my($exp);
 
     $key =~ tr/A-Z/a-z/;
-    return &CONFIG_expand( &CONFIG_get1($key) );
+    return CONFIG_expand( CONFIG_get1($key) );
 }
 
 
@@ -71,7 +89,7 @@ sub CONFIG_expand {
     my($exp);
 
     if($v =~ /^%([A-Z])/) {
-	$exp = &CONFIG_get1($CONFIG_abbrev{$1});
+	$exp = CONFIG_get1($CONFIG_abbrev{$1});
 	$v =~ s/^%./$exp/;
     }
 
@@ -83,7 +101,7 @@ sub CONFIG_debug {
     my($key);
 
     for $key (keys %CONFIG) {
-	print "$key = $CONFIG{$key} -> ", &CONFIG_get($key), "\n";
+	print "$key = $CONFIG{$key} -> ", CONFIG_get($key), "\n";
     }
 }
 

@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# $Id: ffxmail.sh,v 4.2 2000/04/11 11:32:43 mj Exp $
+# $Id: ffxmail.sh,v 4.3 2001/01/04 20:03:43 mj Exp $
 #
 # Frontend for delivering mail via ffx/ffxqt
 #
@@ -19,9 +19,9 @@ addr="$*"
 
 case $node in
 
-	242:4900/99 | 242:1000/1 | morannon.fido.de)
+	242:4900/99 | 242:1000/2 | morannon.fido.de)
 		batch="-b morannon"
-		faddr="242:1000/1"
+		faddr="242:1000/2"
 		;;
 
 	242:1000/5 | orodruin.fido.de)

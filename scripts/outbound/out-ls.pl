@@ -1,45 +1,49 @@
-#!/usr/local/bin/perl
+#!/usr/bin/perl
 #
-# $Id: out-ls.pl,v 4.2 2000/10/17 21:04:35 mj Exp $
+# $Id: out-ls.pl,v 4.3 2001/01/04 20:03:43 mj Exp $
 #
-# This script lists the outbound of BinkleyTerm. It is currently tailored
-# to a UNIX system serving a DOS NFS client. DOS filenames are translated
-# to the corresponding filename on the server if possible.
+# This script lists the outbound of a FIDOGATE system
 #
 
-$OUTBOUND = "<BTBASEDIR>";
+require 5.000;
+
+my $PROGRAM = "out-ls";
+ 
+use strict;
+use Getopt::Std;
+use FileHandle;
+
+<INCLUDE config.pl>
+
+use vars qw($opt_v $opt_c $opt_p);
+getopts('vc:p');
+
+# read config
+my $CONFIG = $opt_c ? $opt_c : "<CONFIG_FFX>";
+CONFIG_read($CONFIG);
 
 
-require "getopts.pl";
 
-&Getopts('lsaptB:mx');
+my $OUTBOUND = "<BTBASEDIR>";
+my $z;
+my $out;
 
-if($opt_B) {
-    $OUTBOUND = $opt_B;
+for $z (sort keys %CONFIG_zone) {
+    $out = $OUTBOUND . "/" . (split(' ', $CONFIG_zone{$z}))[2];
+    do_dir($z, $out) if(-d $out);
 }
 
+exit 0;
 
-my %dirs;
 
-%dirs = (
-    'c:', 'c:',
-    'd:', 'd:',
-    'e:', 'e:',
-    'f:', 'f:',
-    'g:', 'g:',
-    'h:', '/home',
-    'i:', '/var/spool',
-    'p:', '/pub',
-    'q:', '/pub',
-);
 
 
 sub file2addr {
-    local($zone, $name) = @_;
+    my ($zone, $name) = @_;
 
-    $net   = hex(substr($name,  0, 4));
-    $node  = hex(substr($name,  4, 4));
-    $point = hex(substr($name, 17, 4));
+    my $net   = hex(substr($name,  0, 4));
+    my $node  = hex(substr($name,  4, 4));
+    my $point = hex(substr($name, 17, 4));
 
     if($point != 0) {
 	return "$zone:$net/$node.$point";
@@ -52,9 +56,9 @@ sub file2addr {
 
 
 sub do_file {
-    local($zone,$dir,$file) = @_;
+    my ($zone, $dir, $file) = @_;
 
-    local($flavor, $isflo, $isout, $addr, $t, $s, $n);
+    my ($flavor, $isflo, $isout, $addr, $t, $s, $n);
 
     if($file =~ /pnt/) {
 	$flavor = substr($file, 22, 3);
@@ -63,35 +67,31 @@ sub do_file {
 	$flavor = substr($file, 9, 3);
     }
     $flavor =~ tr/a-z/A-Z/;
-    $isflo  =  $file =~ /\.[fhdc]lo$/;
-    $isout  =  $file =~ /\.[ohdc]ut$/;
-    $addr   =  &file2addr($zone, $file);
+    $isflo  =  $file =~ /\..lo$/;
+    $isout  =  $file =~ /\..ut$/;
+    $addr   =  file2addr($zone, $file);
 
     print $flavor, " ";
-    if($opt_a) {
-	printf "%-45s(%s)\n", $addr, $file;
-    }
-    else {
-	print $addr, "\n";
-    }
+    printf "%-45.45s (%s)\n", $addr . " " . "-" x 45, $file;
 
-    if($opt_l && $isflo) {
-	open(FLO, "$dir/$file")      || die "Can't open $dir/$file";
+    if($isflo) {
+	open(FLO, "$dir/$file")
+	  || die "$PROGRAM: can't open $dir/$file: $!";
 	$s = 0;
 	$n = 0;
 	while(<FLO>) {
 	    s/\cM?\cJ$//;
 	    next if( /^;/ );
-	    $s += &print_flo_entry( $dir, $_ );
+	    $s += print_flo_entry( $dir, $_ );
 	    $n++;
 	}
-	print "    ", &ksize($s), "\n" if $n>1;
+	print "    ", ksize($s), "\n" if $n>1;
     }
-    if(($opt_s || $opt_t) && $isout) {
-	($s, $t) = &size_time("$dir/$file");
+    if($isout) {
+	($s, $t) = size_time("$dir/$file");
 	print "    ";
-	print &ksize($s),   "  "  if $opt_s;
-	print &asctime($t), "  "  if $opt_t;
+	print ksize($s),   "  ";
+	print asctime($t), "  ";
 	print "\n";
     }
 }
@@ -99,22 +99,23 @@ sub do_file {
 
 
 sub print_flo_entry {
-    local($dir, $line) = @_;
+    my ($dir, $line) = @_;
 
-    local($type, $drive, $file, $short, $t, $s);
+    my ($type, $drive, $file, $short, $t, $s);
 
     $type  = substr($line, 0, 1);
-    if($type =~ /[#~^]/ ) {
+    if($type =~ /[\#~^]/ ) {
 	$line = substr($line, 1, length($line)-1);
     }
     else {
 	$type = " ";
     }
-    if(! $opt_m) {
+
+    if($line =~ /^[A-Z]:\\/i) {
 	$line  =~ tr/[A-Z\\]/[a-z\/]/;
 	$drive =  substr($line, 0, 2);
 	$file  =  substr($line, 2, length($line)-2);
-	$file  =  $dirs{$drive}.$file;
+	$file  =  $CONFIG_dosdrive{$drive}.$file;
     }
     else {
 	$file  = $line;
@@ -122,11 +123,11 @@ sub print_flo_entry {
     $short =  $file;
     $short =~ s+^$dir/++;
 
-    ($s, $t) = &size_time($file);
+    ($s, $t) = size_time($file);
 
     print "    ";
-    print &ksize($s),   "  "  if $opt_s;
-    print &asctime($t), "  "  if $opt_t;
+    print ksize($s),   "  ";
+    print asctime($t), "  ";
     print $type, " ", $short, "\n";
 
     return $s;
@@ -135,38 +136,34 @@ sub print_flo_entry {
 
 
 sub asctime {
-    local($time) = @_;
+    my ($time) = @_;
 
     if($time eq "") {
 	return "              ";
     }
     else {
-	local($yr, $mn, $dy, $h, $m, $s, $xx);
+	my ($yr, $mn, $dy, $h, $m, $s);
 
-	($s,$m,$h,$dy,$mn,$yr,$xx,$xx,$xx) = localtime($time);
+	($s,$m,$h,$dy,$mn,$yr) = localtime($time);
 
-	return sprintf("%02d.%02d.%02d %02d:%02d", $dy,$mn+1,$yr, $h,$m);
+	return sprintf("%02d.%02d.%02d %02d:%02d", $dy,$mn+1,$yr%100,$h,$m);
     }
 }
 
 
 
 sub size_time {
-    local($file) = @_;
+    my ($file) = @_;
 
-    local($t, $s, $d);
-
-    ($d,$d,$d,$d,$d,$d,$d, $s, $d, $t) = stat($file);
-
-    return ($s, $t);
+    return (stat($file))[7,9];
 }
 
 
 
 sub ksize{
-    local($size) = @_;
+    my ($size) = @_;
 
-    local($k);
+    my ($k);
 
     if($size eq "") {
 	return "   N/A";
@@ -188,16 +185,17 @@ sub ksize{
 
 
 sub do_point_dir {
-    local($zone, $dir, $pdir) = @_;
+    my ($zone, $dir, $pdir) = @_;
 
-    opendir(DIR, "$dir/$pdir")       || die "Can't open $dir/$pdir";
-    local(@files) = readdir(DIR);
+    opendir(DIR, "$dir/$pdir")
+      || die "$PROGRAM: can't open $dir/$pdir: $!";
+    my @files = readdir(DIR);
     closedir(DIR);
     @files = sort(@files);
 
     for(@files) {
-	if( /^0000[0-9a-f]{4}\.([fhdc]lo|[ohdc]ut|bsy)$/ ) {
-	    &do_file($zone,$dir,"$pdir/$_");
+	if( /^0000[0-9a-f]{4}\.(.lo|.ut|bsy)$/ ) {
+	    do_file($zone,$dir,"$pdir/$_");
 	}
     }
 }
@@ -205,24 +203,22 @@ sub do_point_dir {
 
 
 sub do_dir {
-    local($zone,$dir) = @_;
+    my ($zone, $dir) = @_;
 
-    opendir(DIR, $dir)               || die "Can't open $dir";
-    local(@files) = readdir(DIR);
+    print "zone=$zone, dir=$dir\n" if($opt_v);
+
+    opendir(DIR, $dir)
+      || die "$PROGRAM: can't open $dir: $!";
+    my @files = readdir(DIR);
     closedir(DIR);
     @files = sort(@files);
 
     for(@files) {
-	if( /^[0-9a-f]{8}\.([fhdc]lo|[ohdc]ut|bsy|\$\$.)$/ ) {
-	    &do_file($zone,$dir,$_);
+	if( /^[0-9a-f]{8}\.(.lo|.ut|bsy|\$\$.)$/ ) {
+	    do_file($zone,$dir,$_);
 	}
 	if( !$opt_p && /^[0-9a-f]{8}\.pnt$/ ) {
-	    &do_point_dir($zone,$dir,$_);
+	    do_point_dir($zone,$dir,$_);
 	}
     }
 }
-
-
-
-&do_dir(2,   "$OUTBOUND/out");
-&do_dir(242, "$OUTBOUND/out.0f2");

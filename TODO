@@ -1,6 +1,10 @@
 							 -*- Indented-Text -*-
 ===== TODO list for FIDOGATE development =====================================
 
+	* ffx*: auto create batch dirs.
+
+	* sequencer(): auto create %V/seq dir.
+
         * ffxmail: convert script to real setuid frontend like
 	  ftnmail.
 
