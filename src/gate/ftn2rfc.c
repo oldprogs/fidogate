@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftn2rfc.c,v 4.42 1998/07/19 11:28:05 mj Exp $
+ * $Id: ftn2rfc.c,v 4.43 1998/10/18 16:31:38 mj Exp $
  *
  * Convert FTN mail packets to RFC mail and news batches
  *
@@ -40,7 +40,7 @@
 
 
 #define PROGRAM 	"ftn2rfc"
-#define VERSION 	"$Revision: 4.42 $"
+#define VERSION 	"$Revision: 4.43 $"
 #define CONFIG		DEFAULT_CONFIG_GATE
 
 
@@ -127,6 +127,9 @@ static char *default_charset_def = NULL;
 static char *default_charset_out = NULL;
 static char *netmail_charset_def = NULL;
 static char *netmail_charset_out = NULL;
+
+/* String to add to news Path header */
+static char *news_path_tail = "not-for-mail";
 
 
 
@@ -979,12 +982,13 @@ int unpack(FILE *pkt_file, Packet *pkt)
 	{
 	    if(!strcmp(thisdomain, uplinkdomain))	/* this == uplink */
 		tl_appendf(&theader,
-			   "Path: %s!%s!not-for-mail\n",
-			   thisdomain, origindomain );
+			   "Path: %s!%s!%s\n",
+			   thisdomain, origindomain, news_path_tail);
 	    else
 		tl_appendf(&theader,
-			   "Path: %s!%s!%s!not-for-mail\n",
-			   thisdomain, uplinkdomain, origindomain );
+			   "Path: %s!%s!%s!%s\n",
+			   thisdomain, uplinkdomain, origindomain,
+			   news_path_tail                         );
 	}
 
 	/* Common header */
@@ -1547,6 +1551,21 @@ int main(int argc, char **argv)
 	netmail_charset_def = strtok(p, ":");
 	strtok(NULL, ":");
 	netmail_charset_out = strtok(NULL, ":");
+    }
+    if( (p = cf_get_string("NewsPathTail", TRUE)) )
+    {
+	/* <FIDOGATE_CONFIG>
+	 * <CMD>     NewsPathTail
+	 * <PARA>    STRING
+	 * <DEFAULT> "not-for-mail"
+	 * <DESC>    The STRING which FIDOGATE's ftn2rfc adds to the
+	 *           Path header, normally "not-for-mail". If gated
+	 *           messages are not generally exported to the Usenet,
+	 *           setting it to "fidogate!not-for-mail" makes
+	 *           the INN newsfeeds entry easier and less error-prone.
+	 */
+	debug(8, "config: NewsPathTail %s", p);
+	news_path_tail = p;
     }
     
     /* Init various modules */

@@ -1,3 +1,14 @@
+1998-10-18  Martin Junius  <mj@fido.de>
+
+	------- CVS ci -------------------------------------------------------
+
+	* examples/orodruin/gate.conf: added NewsPathTail.
+
+	* src/gate/ftn2rfc.c (main): new config NewsPathTail, description
+	  see comment there.
+	  (unpack): use news_path_tail instead of fixed "not-for-mail" for 
+	  constructing Path header.
+
 1998-09-23  Martin Junius  <mj@fido.de>
 
 	------- CVS ci -------------------------------------------------------
