@@ -1,6 +1,6 @@
 #:ts=8
 #
-#    $Id: Makefile,v 4.9 1997/10/11 21:24:28 mj Exp $
+#    $Id: Makefile,v 4.10 1997/11/16 15:53:27 mj Exp $
 #
 #    Makefile for FIDOGATE src/toss/
 #
@@ -17,7 +17,7 @@ include $(TOPDIR)/rules.make
 
 
 PROGS		= ftn2ftn ftnaf ftnafmail ftnexpire ftnpack ftnroute ftntoss\
-		  rundf runin runout runtoss rununpack
+		  rundf runin runmail runout runtoss rununpack
 # + ftnbounce
 
 OBJS_TOSS	= ftntoss.o dbz.o history.o

@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# $Id: run2.sh,v 4.3 1997/06/21 21:16:43 mj Exp $
+# $Id: run2.sh,v 4.4 1997/11/16 15:53:24 mj Exp $
 #
 # Example script for FIDOGATE inbound processing
 #
@@ -22,13 +22,6 @@ fi
 
 ### toss inbound ###
 $PRG/runin
-
-### process inbound ffx files ###
-# unbatch mail, process mail jobs (grade `f')
-$PRG/ffxqt -gf
-$PRG/ffxqt -gf
-# process news jobs (grade `n')
-$PRG/ffxqt -gn
 
 ### process packets for Internet gateway ###
 $PRG/ftnin -x %L/ftninpost

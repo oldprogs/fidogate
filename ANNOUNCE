@@ -1,7 +1,7 @@
-Subject: FIDOGATE 4.2.8 --- Fido-Internet Gateway and Tosser
+Subject: FIDOGATE 4.2.9 --- Fido-Internet Gateway and Tosser
 Keywords: fido ftn netmail echomail tosser areafix mail news gateway
 
-FIDOGATE 4.2.8, an update to version 4 of the FIDOGATE package is
+FIDOGATE 4.2.9, an update to version 4 of the FIDOGATE package is
 available.
 
 			   FIDOGATE Version 4
@@ -24,156 +24,24 @@ Internet:
     http://sunsite.unc.edu/pub/Linux/system/fido/
     (probably still in .../pub/Linux/Incoming)
 
-    fidogate-4.2.8.tar.gz	1160 Kbyte
+    fidogate-4.2.9.tar.gz	1160 Kbyte
 
 Fido File Request:
 ==================
     2:2452/110, 111  +49-241-876604  (V.34, ISDN V.110/X.75)
     
-    fgate428.tgz		1160 Kbyte
+    fgate429.tgz		1160 Kbyte
 
 
 
 ======================================================================
 
-Changes in 4.2.8:
+Changes in 4.2.9:
 
-* rfc2ftn: new ReplyAddrIfmailTX option for compatibility with
-  (broken) ifmail-TX.
+* ftn2rfc: new -n --no-remove option, allows ftn2rfc to be used from
+  packing prog gate ".../ftn2rfc -n %s".
 
-* logcheck: new script for analyzing sendmail rejects.
-
-* rfc2ftn/ftn2rfc: improved ^AGATEWAY, X-Gateway processing.
-
-* ftn2rfc: fixed BounceCCMail (messed up in 4.2.6).
-
-* fb-filelist: new version using fareas.bbs.
-
-* ftnroute: new bossroute command, allows crash mail for points to be
-  routed via their boss node.
-
-
-
-Changes in 4.2.7:
-
-* Fixed bug in routing config file, routing commands for EchoMail were
-  broken in 4.2.6.
-
-* runtoss, rununpack: allow arbitrary input directory as command line
-  parameter. 
-
-* sendmail configuration: SPAM filter hacks and examples added.
-
-* ftninpost: fixed running ftninrecomb.
-
-* Updated documentation.
-
-* New FIDOGATE mailing list, see below!
-
-* WIN32 binary release with some configuration examples and test
-  script.
-
-* rfc2ftn: new config XFlagsPolicy, DontUseReplyTo (see docs). Better
-  log for all mails with X-Flags settings.
-
-* ftntick: new UnkownTickArea for incoming TICs with unknown file
-  areas.
-
-* ftn2rfc, rfc2ftn: new RFCAddrMode option.
-
-
-
-Changes in 4.2.6:
-
-* Portability improvements, fixes for GNU-WIN32.
-
-* New nodelist utility scripts nl-check, nl-autoupd.
-
-* nl-diff: fixed CRC comparison bug.
-
-WARNING!!! directories for temporary files created by ftn2rfc are
-renamed to SPOOLDIR/in/tmpmail and SPOOLDIR/in/tmpnews.
-
-* ftn2rfc: new -1 --single-articles option, forces ftn2rfc to single
-  news article files in SPOOLDIR/in/tmpnews. This enables FIDOGATE to
-  cooperate with other news posting tools such as innxmit and rpost
-  (from the suck package).
-
-* aliases/areas/hosts/routing/packing/passwd config files support a
-  new "include FILE" command.
-
-* ftntick: bugfix for empty Desc(ription) line.
-
-* ftnaf: bugfix for command line mode, added create command (currently
-  command line only), stub for vacation command.
-
-* ftninpost: improved version.
-
-* rfc2ftn: MIME quoted-printable in Subject is converted to 8bit.
-
-* make install-dirs improved.
-
-
-
-Changes in 4.2.5:
-
-* ftnflo: portability fix.
-
-* Port to GNU-WIN32.
-
-* MSDOS/OS2 port: fixed typo in prototypes.h.
-
-* Some sendmail related fixes.
-
-
-
-Changes in 4.2.4:
-
-* Port to NextStep 3.3 contributed by
-  <Holger_Graudejus@p17.f6666.n245.z2.fidonet.org>.
-
-* config.h: fixed DO_HAVE_SYSEXITS_H.
-
-* rfc2ftn: PASSTHRU_ECHOMAIL implementation contributed by
-  Jean-Louis Noel <jln@stben.be>.
-
-NOTE: PASSTHRU_NETMAIL and PASSTHRU_ECHOMAIL are now switched off in
-the FIDOGATE distribution config.h!
-
-* rununpack: use directory tmpunpack/ instead of tmp/ to avoid
-  conflicts with ifcico.
-
-* ftntick: fixed copy error if Replaces (old) file doesn't exist and
-  TickReplacedDir is used.
-
-* nl-html: new nodelist to HTML converter.
-
-
-
-Changes in 4.2.3:
-
-* ftntick: area lookup now case-insensitive.
-
-
-
-Changes in 4.2.2:
-
-* ftntoss: additionally checks SEENBYs for message sender/recipient,
-  messages from local AKA are no longer insecure.
-
-* Port to FreeBSD contributed by Dirk Meyer
-  <dirk.meyer@dinoex.sub.org>. 
-
-* rununpack: added RAR support contributed by Matthias Schniedermeyer
-  <ms@twist.owl.de>.
-
-* rfc2ftn: better support for From/Reply-To text headers, will add
-  Header-To/Header-Cc for mailing lists.
-
-* ftn2rfc: don't gate messages with ^AMSGID: <NOMSGID_...>
-
-* rununpack: fixed unzip command line.
-
+* Some minor changes.
 
 ======================================================================
 
@@ -185,35 +53,11 @@ Needed:
 * Perl4 or Perl5
 * GNU m4 for the sendmail m4 configuration
 
-======================================================================
-
-There is a *NEW* mailing list for FIDOGATE discussions and
-announcements:
-
-    mailto:fidogate@fido.de
-
-To SUBSCRIBE to this mailing list, send a message to
-
-    mailto:majordomo@fido.de
-
-with the command 
-
-    subscribe fidogate
-
-in the message *body* (not subject!). This will not immediately put
-your email address into the mailing list. A confirmation mail with an
-authentication code will be send to you, which must be returned to
-majordomo to finally enable your subscription.
-
-To UNSUBSCRIBE from this mailing list, send the command
-
-    unsubscribe fidogate
-
 ===== fidogate.lsm ===================================================
 
 Begin3
 Title:          FIDOGATE
-Version:        4.2.8
+Version:        4.2.9
 Entered-date:   01NOV97
 Description:    FIDOGATE Version 4:
                  * Fido-Internet Gateway
@@ -225,9 +69,9 @@ Keywords:       fido ftn netmail echomail tosser areafix mail news gateway
 Author:         mj@fido.de (Martin Junius)
 Maintained-by:  mj@fido.de (Martin Junius)
 Primary-site:   ftp.fido.de /pub/fidogate
-		1160kB fidogate-4.2.8.tar.gz
+		1160kB fidogate-4.2.9.tar.gz
 Alternate-site: sunsite.unc.edu /pub/Linux/system/Fido
-		1160kB fidogate-4.2.8.tar.gz
+		1160kB fidogate-4.2.9.tar.gz
 Platforms:      Linux, SunOS, FreeBSD, Interactive, NextSTEP, easily
 		portable to POSIX compatible UNIX systems. Supports
 		OS/2 (EMX gcc port), MSDOS (DJGPP gcc port), and WIN32
@@ -237,6 +81,6 @@ End
 
 ======================================================================
 
-$Date: 1997/11/02 14:43:11 $
+$Date: 1997/11/16 15:53:19 $
 Martin Junius
 mailto:mj@fido.de

@@ -1,4 +1,42 @@
+Sun Nov 16 15:20:41 1997  Martin Junius  <mj@fido.de>
+
+	------- CVS ci -------------------------------------------------------
+
+	* scripts/run/runpoll.sh: added runtoss outpkt/mail.
+
+	* scripts/run/run2.sh: removed ffx processing.
+
+	* scripts/run/run1.sh: removed ffx processing.
+
+	* scripts/run/runffx.sh: new script, joining ffx processing from
+	  run1 and run2.
+
+	* src/toss/runmail.sh: new script, wrapper for runtoss outpkt/mail.
+
+	* src/toss/runtoss.sh: added outpkt/mail processing type for mail
+	  packets converted by rfc2ftn in mail mode.
+
+	* Makefile (INSTALLDIRS): added SPOOLDIR/outpkt/mail.
+
+	* sendmail/cf/morannon-check.mc: updated version.
+
+	* sendmail/mailer/ftn.m4 (FTN_MAILER_ARGS,ARGSI,ARGSA): added -O
+	  confFIDOGATE_OUTDIR to all mailer args, if macro is defined.
+	  (FTN_MAILER_ARGSO): changed output directory to %S/outpkt/$h.	  
+
+	* sendmail/cf/Makefile (M4OPTIONS): added new macro setting
+ 	  confFIDOGATE_LIBDIR, confFIDOGATE_OUTDIR. Set confFIDOGATE_OUTDIR
+ 	  to %S/outpkt/mail to enable separate processing of mail and new
+ 	  packets converted by rfc2ftn.
+
+	* rules.make (%.cf): changed to use M4OPTIONS macro.
+
 Sun Nov  9 12:41:23 1997  Martin Junius  <mj@fido.de>
+
+	* ANNOUNCE: older changes moved to README, removed mailing list
+	  advertisment 
+
+	* README: updated.
 
 	------- CVS ci -------------------------------------------------------
 

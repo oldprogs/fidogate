@@ -1,5 +1,5 @@
 #
-# $Id: Makefile,v 4.8 1997/10/11 21:24:14 mj Exp $
+# $Id: Makefile,v 4.9 1997/11/16 15:53:21 mj Exp $
 #
 # Makefile FIDOGATE TOPDIR
 #
@@ -11,10 +11,13 @@ include $(TOPDIR)/rules.make
 
 SUBDIRS		= src scripts test doc sendmail
 
-INSTALLDIRS	= $(LIBDIR) $(SPOOLDIR) $(SPOOLDIR)/in \
+INSTALLDIRS	= $(LIBDIR) \
+		  $(SPOOLDIR) $(SPOOLDIR)/in \
 		  $(SPOOLDIR)/in/tmpmail $(SPOOLDIR)/in/tmpnews \
 		  $(SPOOLDIR)/in/bad $(SPOOLDIR)/insecure \
-		  $(SPOOLDIR)/out $(SPOOLDIR)/locks $(SPOOLDIR)/seq \
+		  $(SPOOLDIR)/out \
+		  $(SPOOLDIR)/outpkt $(SPOOLDIR)/outpkt/mail \
+		  $(SPOOLDIR)/locks $(SPOOLDIR)/seq \
 		  $(SPOOLDIR)/toss $(SPOOLDIR)/toss/in \
 		  $(SPOOLDIR)/toss/bad $(SPOOLDIR)/toss/tmp \
 		  $(SPOOLDIR)/toss/out $(SPOOLDIR)/toss/pack $(LOGDIR) \

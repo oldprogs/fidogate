@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# $Id: runtoss.sh,v 4.7 1997/10/05 13:43:36 mj Exp $
+# $Id: runtoss.sh,v 4.8 1997/11/16 15:53:28 mj Exp $
 #
 # Wrapper for ftntoss, ftnroute, ftnpack doing the toss process
 #
@@ -76,6 +76,12 @@ case X$NAME in
 	   INPUT=-I$SPOOL/out
 	   FADIR=-F/
 	   GRADE=-gn
+	   FLAGS="-n -t -p"
+	   ;;
+  Xoutpkt/mail)
+	   INPUT=-I$SPOOL/outpkt/mail
+	   FADIR=
+	   GRADE=-gm
 	   FLAGS="-n -t -p"
 	   ;;
   Xpin)

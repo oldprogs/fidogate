@@ -2,8 +2,11 @@
 	************** TODO list for FIDOGATE development **************
 
 
+	* new implementation of strtok(), xstrtok() function, using
+	  reentrant common routine.
+
 STARTED	* areas.bbs: option for area description.
-4.3.x	  Better parser for areas.bbs entries and options needed!
+	  Better parser for areas.bbs entries and options needed!
 	
 DONE	* tests: ftntoss echomail problems and Kill* config.
 

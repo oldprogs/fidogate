@@ -1,6 +1,6 @@
 # -*- Makefile -*-
 #
-# $Id: rules.make,v 4.2 1996/09/28 08:13:50 mj Exp $
+# $Id: rules.make,v 4.3 1997/11/16 15:53:21 mj Exp $
 #
 # Common rules for all FIDOGATE Makefiles
 #
@@ -22,7 +22,7 @@
 	chmod +x $*
 
 %.cf:		%.mc
-	$(M4) -DconfFIDOGATE_LIBDIR=$(LIBDIR) $< >$*.cf
+	$(M4) $(M4OPTIONS) $< >$*.cf
 
 #$(LIB)(%.o):	%.o
 #	$(AR) r $(LIB) $<

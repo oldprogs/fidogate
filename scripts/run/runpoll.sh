@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# $Id: runpoll.sh,v 4.8 1997/07/08 19:24:11 mj Exp $
+# $Id: runpoll.sh,v 4.9 1997/11/16 15:53:25 mj Exp $
 #
 # Poll uplink
 #
@@ -33,9 +33,10 @@ $FIDOGATE/ftnpack -f 242:1000/1 -I %O/out.0f2/morannon
 $NEWS/send-fidogate
 
 # Tosser w/file attachments
-$FIDOGATE/runtoss outf
+#$FIDOGATE/runtoss outf
 # Tosser w/o file attachments
-#$FIDOGATE/runtoss out
+$FIDOGATE/runtoss outpkt/mail
+$FIDOGATE/runtoss out
 
 # Poll
 $IFMAIL/ifcico $UPLINK

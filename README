@@ -1,6 +1,6 @@
 -*- Indented-Text -*-
 
-$Id: README,v 4.24 1997/11/02 14:43:13 mj Exp $
+$Id: README,v 4.25 1997/11/16 15:53:21 mj Exp $
 
 ======================================================================
 				   
@@ -19,6 +19,146 @@ $Id: README,v 4.24 1997/11/02 14:43:13 mj Exp $
 ======================================================================
 
 [See ANNOUNCE for more recent changes]
+
+
+Changes in 4.2.8:
+
+* rfc2ftn: new ReplyAddrIfmailTX option for compatibility with
+  (broken) ifmail-TX.
+
+* logcheck: new script for analyzing sendmail rejects.
+
+* rfc2ftn/ftn2rfc: improved ^AGATEWAY, X-Gateway processing.
+
+* ftn2rfc: fixed BounceCCMail (messed up in 4.2.6).
+
+* fb-filelist: new version using fareas.bbs.
+
+* ftnroute: new bossroute command, allows crash mail for points to be
+  routed via their boss node.
+
+
+
+Changes in 4.2.7:
+
+* Fixed bug in routing config file, routing commands for EchoMail were
+  broken in 4.2.6.
+
+* runtoss, rununpack: allow arbitrary input directory as command line
+  parameter. 
+
+* sendmail configuration: SPAM filter hacks and examples added.
+
+* ftninpost: fixed running ftninrecomb.
+
+* Updated documentation.
+
+* New FIDOGATE mailing list, see below!
+
+* WIN32 binary release with some configuration examples and test
+  script.
+
+* rfc2ftn: new config XFlagsPolicy, DontUseReplyTo (see docs). Better
+  log for all mails with X-Flags settings.
+
+* ftntick: new UnkownTickArea for incoming TICs with unknown file
+  areas.
+
+* ftn2rfc, rfc2ftn: new RFCAddrMode option.
+
+
+
+Changes in 4.2.6:
+
+* Portability improvements, fixes for GNU-WIN32.
+
+* New nodelist utility scripts nl-check, nl-autoupd.
+
+* nl-diff: fixed CRC comparison bug.
+
+WARNING!!! directories for temporary files created by ftn2rfc are
+renamed to SPOOLDIR/in/tmpmail and SPOOLDIR/in/tmpnews.
+
+* ftn2rfc: new -1 --single-articles option, forces ftn2rfc to single
+  news article files in SPOOLDIR/in/tmpnews. This enables FIDOGATE to
+  cooperate with other news posting tools such as innxmit and rpost
+  (from the suck package).
+
+* aliases/areas/hosts/routing/packing/passwd config files support a
+  new "include FILE" command.
+
+* ftntick: bugfix for empty Desc(ription) line.
+
+* ftnaf: bugfix for command line mode, added create command (currently
+  command line only), stub for vacation command.
+
+* ftninpost: improved version.
+
+* rfc2ftn: MIME quoted-printable in Subject is converted to 8bit.
+
+* make install-dirs improved.
+
+
+
+Changes in 4.2.5:
+
+* ftnflo: portability fix.
+
+* Port to GNU-WIN32.
+
+* MSDOS/OS2 port: fixed typo in prototypes.h.
+
+* Some sendmail related fixes.
+
+
+
+Changes in 4.2.4:
+
+* Port to NextStep 3.3 contributed by
+  <Holger_Graudejus@p17.f6666.n245.z2.fidonet.org>.
+
+* config.h: fixed DO_HAVE_SYSEXITS_H.
+
+* rfc2ftn: PASSTHRU_ECHOMAIL implementation contributed by
+  Jean-Louis Noel <jln@stben.be>.
+
+NOTE: PASSTHRU_NETMAIL and PASSTHRU_ECHOMAIL are now switched off in
+the FIDOGATE distribution config.h!
+
+* rununpack: use directory tmpunpack/ instead of tmp/ to avoid
+  conflicts with ifcico.
+
+* ftntick: fixed copy error if Replaces (old) file doesn't exist and
+  TickReplacedDir is used.
+
+* nl-html: new nodelist to HTML converter.
+
+
+
+Changes in 4.2.3:
+
+* ftntick: area lookup now case-insensitive.
+
+
+
+Changes in 4.2.2:
+
+* ftntoss: additionally checks SEENBYs for message sender/recipient,
+  messages from local AKA are no longer insecure.
+
+* Port to FreeBSD contributed by Dirk Meyer
+  <dirk.meyer@dinoex.sub.org>. 
+
+* rununpack: added RAR support contributed by Matthias Schniedermeyer
+  <ms@twist.owl.de>.
+
+* rfc2ftn: better support for From/Reply-To text headers, will add
+  Header-To/Header-Cc for mailing lists.
+
+* ftn2rfc: don't gate messages with ^AMSGID: <NOMSGID_...>
+
+* rununpack: fixed unzip command line.
+
 
 
 Changes in 4.2.1:
@@ -303,6 +443,6 @@ not integrate your patches.
 
 ======================================================================
 
-$Date: 1997/11/02 14:43:13 $
+$Date: 1997/11/16 15:53:21 $
 Martin Junius
 mailto:mj@fido.de
