@@ -1,10 +1,10 @@
 X-Emacs-Mode: -*- indented-text -*-
-Subject: FIDOGATE 4.3.2 --- Fido-Internet Gateway and Tosser
+Subject: FIDOGATE 4.3.3 --- Fido-Internet Gateway and Tosser
 Keywords: fido ftn netmail echomail tosser areafix mail news gateway
 Followup-To: comp.os.linux.misc
 
   ==================================================================
-  FIDOGATE 4.3.2, a development snapshot of the new FIDOGATE release
+  FIDOGATE 4.3.3, a development snapshot of the new FIDOGATE release
   ==================================================================
 
 			   FIDOGATE Version 4
@@ -29,7 +29,7 @@ Followup-To: comp.os.linux.misc
     (probably still in .../pub/Linux/Incoming)
 ...]
 
-    fidogate-4.3.2.tar.gz	1250 Kbyte
+    fidogate-4.3.3.tar.gz	1250 Kbyte
 
 [NOT FOR DEVELOPMENT SNAPSHOTS! ...
   Fido File Request:
@@ -43,10 +43,39 @@ Followup-To: comp.os.linux.misc
 ======================================================================
 
 WARNING:
-!!! Documentation not up-to-date !!!
-!!! Examples not up-to-date !!! (except examples/orodruin/ and .../morannon/)
+* Documentation not completely up-to-date !!!
+  Up-to-date chapters in doc/fidogate.*, doc/html/: Compilation and
+  Installation, Config Files, Examples.
+
+* Some examples not up-to-date !!!
+  Up-to-date examples include:
+    o  examples/orodruin/
+    o  examples/win32/
+    o  examples/morannon/  (not that much up-to-date ;-)
+    o  examples/point/     (new and incomplete)
+    o  examples/node/      (new and incomplete)
 
 ======================================================================
+
+Changes in 4.3.3:
+
+* packet processing: yet another bugfix for Zone 0 packets.
+
+* Win32: added missing config.make to examples/win32/
+
+* rfc2ftn: major improvements to charset handling. Now parses MIME
+  headers and correctly outputs ^ACHRS and ^ARFC-MIME-Header. Charset
+  mapping Internet -> Fido is now implemented.
+
+* ftn2rfc, rfc2ftn: AI_2 and AI_7 patches are now fully integrated,
+  fixing some things along the way. New config option
+  UseXHeaderForTearline enables using X-FTN-Tearline, X-Mailer,
+  User-Agent, or X-Newsreader for the Fido --- tearline.
+
+* Documentation: major update, chapters on config files and example
+  configurations are now up-to-date for version 4.3.
+
+
 
 Changes in 4.3.2:
 
@@ -182,6 +211,6 @@ Needed:
 
 ======================================================================
 
-$Date: 1999/05/18 18:44:36 $
+$Date: 1999/05/22 17:30:22 $
 Martin Junius
 mailto:mj@fido.de

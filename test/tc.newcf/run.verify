@@ -732,6 +732,9 @@ read charset alias: ibm-878 -> koi8-r
 read charset alias: ibm-915 -> iso-8859-5
 read charset alias: x-cp1251 -> cp1251
 read charset table: us-ascii -> us-ascii
+read charset table: us-ascii -> iso-8859-1
+read charset table: us-ascii -> x-ibmpc
+read charset table: us-ascii -> x-mac
 read charset table: iso-8859-1 -> us-ascii
 read charset table: x-ibmpc -> us-ascii
 read charset table: x-mac -> us-ascii
@@ -1109,6 +1112,42 @@ passwd: ff 2:1234/5678.0 WUSEL
 passwd: ff 242:1234/5678.0 WUSEL
 passwd: ff 444:4966/0.0 <GEHEIM>
 passwd: ffx 2:1234/5678.0 WUERG
+config: CHARSETMAP %L/charset.bin
+Reading charset.bin file %L/charset.bin
+config: LIBDIR ../lib
+read charset alias: ascii -> us-ascii
+read charset alias: vt100 -> us-ascii
+read charset alias: latin-1 -> iso-8859-1
+read charset alias: amiga -> iso-8859-1
+read charset alias: ibmpc -> x-ibmpc
+read charset alias: pc-8 -> x-ibmpc
+read charset alias: mac -> x-mac
+read charset alias: alt -> cp866
+read charset alias: x-alt -> cp866
+read charset alias: x-cp866 -> cp866
+read charset alias: koi8-u -> koi8-r
+read charset alias: ibm-878 -> koi8-r
+read charset alias: ibm-915 -> iso-8859-5
+read charset alias: x-cp1251 -> cp1251
+read charset table: us-ascii -> us-ascii
+read charset table: us-ascii -> iso-8859-1
+read charset table: us-ascii -> x-ibmpc
+read charset table: us-ascii -> x-mac
+read charset table: iso-8859-1 -> us-ascii
+read charset table: x-ibmpc -> us-ascii
+read charset table: x-mac -> us-ascii
+read charset table: us-ascii -> iso-8859-1
+read charset table: iso-8859-1 -> iso-8859-1
+read charset table: x-ibmpc -> iso-8859-1
+read charset table: x-mac -> iso-8859-1
+read charset table: cp866 -> koi8-r
+read charset table: koi8-r -> cp866
+read charset table: cp866 -> iso-8859-5
+read charset table: iso-8859-5 -> cp866
+read charset table: cp866 -> cp1251
+read charset table: cp1251 -> cp866
+read charset table: cp866 -> x-mac
+read charset table: x-mac -> cp866
 Message body size 0 (+CR!)
 ---------- ftntick -----------------------------------------------------
 config: fqdn=orodruin.fido.de

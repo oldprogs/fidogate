@@ -16,11 +16,8 @@ Name for alias checking: keil
 E-mail for alias checking: keil@temic-ech.spacenet.de
 RFC Date: Thu, 8 May 1997 12:49:15 +0200
 rfc2ftn MAIL: Karsten Keil <keil@temic-ech.spacenet.de> -> Test_user@hippo.fido.de
-    Name:     keil
-    Address:  temic-ech.spacenet.de
-Name for alias checking: keil
-E-mail for alias checking: keil@temic-ech.spacenet.de
-charset: in=us-ascii out=latin-1
+charset: in=iso-8859-1 out=LATIN-1
+charset: table found in=iso-8859-1 out=iso-8859-1
 New packet file ./outpkt/mail/00000001.pkt (tmp ./outpkt/mail/00000001.tmp)
 Writing FTN packet header:
     From: 242:1000/5.0
@@ -46,11 +43,8 @@ Name for alias checking: isdn4
 E-mail for alias checking: isdn4@temic-ech.spacenet.de
 RFC Date: Thu, 1 May 1997 16:19:38 +0200
 rfc2ftn MAIL: Karsten Keil <isdn4@temic-ech.spacenet.de> -> Test_user@hippo.fido.de
-    Name:     isdn4
-    Address:  temic-ech.spacenet.de
-Name for alias checking: isdn4
-E-mail for alias checking: isdn4@temic-ech.spacenet.de
-charset: in=us-ascii out=latin-1
+charset: in=iso-8859-1 out=LATIN-1
+charset: table found in=iso-8859-1 out=iso-8859-1
 New packet file ./outpkt/mail/00000002.pkt (tmp ./outpkt/mail/00000002.tmp)
 Writing FTN packet header:
     From: 242:1000/5.0
@@ -75,11 +69,8 @@ Name for alias checking: reinhard
 E-mail for alias checking: reinhard@kammer.uni-hannover.de
 RFC Date: Fri, 9 May 1997 15:41:20 +0200
 rfc2ftn MAIL: Reinhard Kotucha <reinhard@kammer.uni-hannover.de> -> Test_user@hippo.fido.de
-    Name:     reinhard
-    Address:  kammer.uni-hannover.de
-Name for alias checking: reinhard
-E-mail for alias checking: reinhard@kammer.uni-hannover.de
-charset: in=us-ascii out=latin-1
+charset: in=iso-8859-1 out=LATIN-1
+charset: table found in=iso-8859-1 out=iso-8859-1
 New packet file ./outpkt/mail/00000003.pkt (tmp ./outpkt/mail/00000003.tmp)
 Writing FTN packet header:
     From: 242:1000/5.0
@@ -104,11 +95,8 @@ Name for alias checking: raichle
 E-mail for alias checking: raichle@Informatik.Uni-Stuttgart.DE
 RFC Date: Fri, 9 May 1997 15:29:23 +0200 (MET DST)
 rfc2ftn MAIL: Bernd Raichle <raichle@Informatik.Uni-Stuttgart.DE> -> Test_user@hippo.fido.de
-    Name:     raichle
-    Address:  Informatik.Uni-Stuttgart.DE
-Name for alias checking: raichle
-E-mail for alias checking: raichle@Informatik.Uni-Stuttgart.DE
-charset: in=us-ascii out=latin-1
+charset: in=iso-8859-1 out=LATIN-1
+charset: table found in=iso-8859-1 out=iso-8859-1
 New packet file ./outpkt/mail/00000004.pkt (tmp ./outpkt/mail/00000004.tmp)
 Writing FTN packet header:
     From: 242:1000/5.0
@@ -251,8 +239,10 @@ FTN message header:
 ^ARFC-Reply-To: isdn4linux@hub-wue.franken.de
 ^ARFC-Date: Thu, 1 May 1997 16:19:38 +0200
 ^ARFC-To: isdn4linux@hub-wue.franken.de
-^ARFC-Mime-Version: 1.0
 ^ARFC-Sender: owner-isdn4linux@hub-wue.franken.de
+^ARFC-MIME-Version: 1.0
+^ARFC-Content-Type: text/plain; charset=iso-8859-1
+^ARFC-Content-Transfer-Encoding: 8bit
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 From: Karsten Keil <isdn4@temic-ech.spacenet.de>

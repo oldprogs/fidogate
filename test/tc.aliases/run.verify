@@ -15,16 +15,17 @@ No alias found: return Test 1
     Address:  blah.org
 Name for alias checking: test
 E-mail for alias checking: test@blah.org
-addr_is_local(): From=Test User <test@blah.org> FQDN=orodruin.fido.de
-rfc2ftn MAIL: Test User <test@blah.org> -> test_1@p0.f0.n2.z2
-    Name:     test
-    Address:  blah.org
-Name for alias checking: test
-E-mail for alias checking: test@blah.org
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
+                        type = 
+                     charset = 
+                    boundary = 
 RFC Content-Transfer-Encoding: -NONE-
-charset: in=us-ascii out=latin-1
+addr_is_local(): From=Test User <test@blah.org> FQDN=orodruin.fido.de
+rfc2ftn MAIL: Test User <test@blah.org> -> test_1@p0.f0.n2.z2
+charset: in=iso-8859-1 out=LATIN-1
+charset: table found in=iso-8859-1 out=iso-8859-1
+charset: msg RFC=iso-8859-1 FSC=LATIN-1 enc=8bit
 New packet file ./outpkt/mail/00000001.pkt (tmp ./outpkt/mail/00000001.tmp)
 Writing FTN packet header:
     From: 2:2452/110.2
@@ -54,16 +55,17 @@ No alias found: return Test 2
     Address:  blah.org
 Name for alias checking: test
 E-mail for alias checking: test@blah.org
-addr_is_local(): From=Test User <test@blah.org> FQDN=orodruin.fido.de
-rfc2ftn MAIL: Test User <test@blah.org> -> test_2@p0.f0.n2.z2
-    Name:     test
-    Address:  blah.org
-Name for alias checking: test
-E-mail for alias checking: test@blah.org
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
+                        type = 
+                     charset = 
+                    boundary = 
 RFC Content-Transfer-Encoding: -NONE-
-charset: in=us-ascii out=latin-1
+addr_is_local(): From=Test User <test@blah.org> FQDN=orodruin.fido.de
+rfc2ftn MAIL: Test User <test@blah.org> -> test_2@p0.f0.n2.z2
+charset: in=iso-8859-1 out=LATIN-1
+charset: table found in=iso-8859-1 out=iso-8859-1
+charset: msg RFC=iso-8859-1 FSC=LATIN-1 enc=8bit
 New packet file ./outpkt/mail/00000002.pkt (tmp ./outpkt/mail/00000002.tmp)
 Writing FTN packet header:
     From: 2:2452/110.2

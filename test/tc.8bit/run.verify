@@ -17,12 +17,8 @@ Name for alias checking: mj
 Alias found: mj 2:2452/110.2 Martin Junius
 RFC Date: Sun, 27 Oct 1996 14:20:22 +0100 (MET)
 rfc2ftn MAIL: Martin Junius <mj@orodruin.fido.de> -> Martin_Junius@f110.n2452.z2.fidonet.org
-    Name:     mj
-    Address:  orodruin.fido.de
-    FTN node: 242:1000/5.0
-Name for alias checking: mj
-Alias found: mj 2:2452/110.2 Martin Junius
-charset: in=us-ascii out=latin-1
+charset: in=iso-8859-1 out=LATIN-1
+charset: table found in=iso-8859-1 out=iso-8859-1
 New packet file ./outpkt/mail/00000001.pkt (tmp ./outpkt/mail/00000001.tmp)
 Writing FTN packet header:
     From: 2:2452/110.2
@@ -47,12 +43,8 @@ Name for alias checking: mj
 Alias found: mj 2:2452/110.2 Martin Junius
 RFC Date: Wed, 13 Nov 1996 22:13:13 +0100 (MET)
 rfc2ftn MAIL: Martin Junius <mj@orodruin.fido.de> -> Martin_Junius@f110.n2452.z2.fidonet.org
-    Name:     mj
-    Address:  orodruin.fido.de
-    FTN node: 242:1000/5.0
-Name for alias checking: mj
-Alias found: mj 2:2452/110.2 Martin Junius
-charset: in=us-ascii out=latin-1
+charset: in=iso-8859-1 out=LATIN-1
+charset: table found in=iso-8859-1 out=iso-8859-1
 New packet file ./outpkt/mail/00000002.pkt (tmp ./outpkt/mail/00000002.tmp)
 Writing FTN packet header:
     From: 2:2452/110.2
@@ -91,7 +83,7 @@ FTN message header:
 ^ARFC-To: Martin Junius <mj@orodruin.fido.de>
 ^ARFC-MIME-Version: 1.0
 ^ARFC-Content-Type: TEXT/PLAIN; charset=iso-8859-1
-^ARFC-Content-Transfer-Encoding: 8BIT
+^ARFC-Content-Transfer-Encoding: 8bit
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 From: Martin Junius <mj@orodruin.fido.de>
@@ -156,7 +148,7 @@ FTN message header:
 ^ARFC-To: Martin Junius <mj@orodruin.fido.de>
 ^ARFC-MIME-Version: 1.0
 ^ARFC-Content-Type: TEXT/PLAIN; charset=iso-8859-1
-^ARFC-Content-Transfer-Encoding: 8BIT
+^ARFC-Content-Transfer-Encoding: 8bit
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 From: Martin Junius <mj@orodruin.fido.de>
@@ -513,7 +505,7 @@ S mu
 
 Alle 8bit-Zeichen 0xa0 ... 0xff:
 
-  ! c  ? Y | S " (C) a << - - (R) -
+  ! c # ? Y | S " (C) a << - - (R) -
 o +- ^2 ^3 ' mu P . , ^1 o >> 1/4 1/2 3/4 ?
 A A A A Ae A AE C E E E E I I I I
 D N O O O O Oe x O U U U Ue Y ? ss
@@ -556,7 +548,7 @@ S mu
 
 Alle 8bit-Zeichen 0xa0 ... 0xff:
 
-  ! c  ? Y | S " (C) a << - - (R) -
+  ! c # ? Y | S " (C) a << - - (R) -
 o +- ^2 ^3 ' mu P . , ^1 o >> 1/4 1/2 3/4 ?
 A A A A Ae A AE C E E E E I I I I
 D N O O O O Oe x O U U U Ue Y ? ss
@@ -785,7 +777,7 @@ S mu
 
 Alle 8bit-Zeichen 0xa0 ... 0xff:
 
-  ! c  ? Y | S " (C) a << - - (R) -
+  ! c # ? Y | S " (C) a << - - (R) -
 o +- ^2 ^3 ' mu P . , ^1 o >> 1/4 1/2 3/4 ?
 A A A A Ae A AE C E E E E I I I I
 D N O O O O Oe x O U U U Ue Y ? ss
@@ -1014,7 +1006,7 @@ S mu
 
 Alle 8bit-Zeichen 0xa0 ... 0xff:
 
-  ! c  ? Y | S " (C) a << - - (R) -
+  ! c # ? Y | S " (C) a << - - (R) -
 o +- ^2 ^3 ' mu P . , ^1 o >> 1/4 1/2 3/4 ?
 A A A A Ae A AE C E E E E I I I I
 D N O O O O Oe x O U U U Ue Y ? ss

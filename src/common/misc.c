@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: misc.c,v 4.16 1999/05/22 12:05:00 mj Exp $
+ * $Id: misc.c,v 4.17 1999/05/22 17:30:23 mj Exp $
  *
  * Miscellaneous functions
  *
@@ -277,7 +277,7 @@ char *strip_space(char *line)
     char *s;
 
     if(!line)
-	return;
+	return NULL;
     
     for(i=strlen(line)-1; i>=0; i--)
 	if(is_space(line[i]))

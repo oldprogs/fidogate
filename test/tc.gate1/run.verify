@@ -95,6 +95,7 @@ ftn2rfc packet ./pin/01182344.PKT (8917b) from 2:2452/110.0 to 2:2452/110.2
 ftn2rfc packet ./pin/01182740.PKT (5844b) from 2:2452/110.0 to 2:2452/110.2
 ftn2rfc packet ./pin/01184390.PKT (71064b) from 2:2452/110.0 to 2:2452/110.2
 ftn2rfc packet ./pin/01186013.PKT (33334b) from 2:2452/110.0 to 2:2452/110.2
+outrfc:
 mail
 news
 

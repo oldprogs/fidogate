@@ -15,11 +15,8 @@ Name for alias checking: monnier-stefan
 E-mail for alias checking: monnier-stefan@cs.yale.edu
 RFC Date: Sat, 30 Nov 1996 02:12:46 -0500
 rfc2ftn MAIL: Stefan Monnier <monnier-stefan@cs.yale.edu> -> Martin_Junius@f110.n2452.z2.fidonet.org
-    Name:     monnier-stefan
-    Address:  cs.yale.edu
-Name for alias checking: monnier-stefan
-E-mail for alias checking: monnier-stefan@cs.yale.edu
-charset: in=us-ascii out=latin-1
+charset: in=us-ascii out=us-ascii
+charset: table found in=us-ascii out=us-ascii
 New packet file ./outpkt/mail/00000001.pkt (tmp ./outpkt/mail/00000001.tmp)
 Writing FTN packet header:
     From: 2:2452/110.2
@@ -44,11 +41,8 @@ Name for alias checking: pseelig
 E-mail for alias checking: pseelig@goofy.zdv.Uni-Mainz.de
 RFC Date: Sat, 30 Nov 1996 08:02:12 +0100 (MET)
 rfc2ftn MAIL: Paul Seelig <pseelig@goofy.zdv.Uni-Mainz.de> -> Martin_Junius@f110.n2452.z2.fidonet.org
-    Name:     pseelig
-    Address:  goofy.zdv.Uni-Mainz.de
-Name for alias checking: pseelig
-E-mail for alias checking: pseelig@goofy.zdv.Uni-Mainz.de
-charset: in=us-ascii out=latin-1
+charset: in=US-ASCII out=us-ascii
+charset: table found in=us-ascii out=us-ascii
 New packet file ./outpkt/mail/00000002.pkt (tmp ./outpkt/mail/00000002.tmp)
 Writing FTN packet header:
     From: 2:2452/110.2
@@ -73,11 +67,8 @@ Name for alias checking: bjarne%libelle.uucp%von-neumann
 E-mail for alias checking: bjarne%libelle.uucp%von-neumann@ESCHER.UNI-MUENSTER.DE
 RFC Date: Sat, 30 Nov 1996 04:41:58 +0100
 rfc2ftn MAIL: Bjarne Pohlers <bjarne%libelle.uucp%von-neumann@ESCHER.UNI-MUENSTER.DE> -> Martin_Junius@f110.n2452.z2.fidonet.org
-    Name:     bjarne%libelle.uucp%von-neumann
-    Address:  ESCHER.UNI-MUENSTER.DE
-Name for alias checking: bjarne%libelle.uucp%von-neumann
-E-mail for alias checking: bjarne%libelle.uucp%von-neumann@ESCHER.UNI-MUENSTER.DE
-charset: in=us-ascii out=latin-1
+charset: in=iso-8859-1 out=LATIN-1
+charset: table found in=iso-8859-1 out=iso-8859-1
 New packet file ./outpkt/mail/00000003.pkt (tmp ./outpkt/mail/00000003.tmp)
 Writing FTN packet header:
     From: 2:2452/110.2
@@ -100,11 +91,8 @@ No alias found: return Martin Junius
 Name for alias checking: isdn4linux
 E-mail for alias checking: isdn4linux@hub-wue.franken.de
 rfc2ftn MAIL: isdn4linux@hub-wue.franken.de -> Martin_Junius@f110.n2452.z2.fidonet.org
-    Name:     isdn4linux
-    Address:  hub-wue.franken.de
-Name for alias checking: isdn4linux
-E-mail for alias checking: isdn4linux@hub-wue.franken.de
-charset: in=us-ascii out=latin-1
+charset: in=iso-8859-1 out=LATIN-1
+charset: table found in=iso-8859-1 out=iso-8859-1
 New packet file ./outpkt/mail/00000004.pkt (tmp ./outpkt/mail/00000004.tmp)
 Writing FTN packet header:
     From: 2:2452/110.2
@@ -136,16 +124,17 @@ FTN message header:
 ^AREPLY: <sxaenhdko0y.fsf@havik.cwi.nl> 0bf5ef8f
 ^AREPLYADDR <monnier-stefan@cs.yale.edu>
 ^AREPLYTO 2:2452/110.2 Stefan Monnier
-^ACHRS: LATIN-1 2
+^ACHRS: ASCII 2
 ^ARFC: 1 0
 ^ARFC-Return-Path: tetex-owner@antares.informatik.uni-hannover.de
 ^ARFC-From: "Stefan Monnier" <monnier-stefan@cs.yale.edu>
 ^ARFC-To: Olaf Weber <Olaf.Weber@cwi.nl>
 ^ARFC-Cc: tetex@informatik.uni-hannover.de
-^ARFC-Mime-Version: 1.0
-^ARFC-Content-Type: text/plain; charset=us-ascii
 ^ARFC-Date: Sat, 30 Nov 1996 02:12:46 -0500
 ^ARFC-Sender: owner-tetex@informatik.uni-hannover.de
+^ARFC-MIME-Version: 1.0
+^ARFC-Content-Type: text/plain; charset=us-ascii
+^ARFC-Content-Transfer-Encoding: 7bit
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 From: "Stefan Monnier" <monnier-stefan@cs.yale.edu>
@@ -244,7 +233,7 @@ FTN message header:
 ^AREPLY: <199611291648.QAA28818@lochnagarn.elsevier.co.uk> 86036501
 ^AREPLYADDR <pseelig@goofy.zdv.Uni-Mainz.de>
 ^AREPLYTO 2:2452/110.2 Paul Seelig
-^ACHRS: LATIN-1 2
+^ACHRS: ASCII 2
 ^ARFC: 1 0
 ^ARFC-Return-Path: tetex-owner@antares.informatik.uni-hannover.de
 ^ARFC-Date: Sat, 30 Nov 1996 08:02:12 +0100 (MET)
@@ -252,9 +241,10 @@ FTN message header:
 ^ARFC-Reply-To: Paul Seelig <pseelig@goofy.zdv.Uni-Mainz.de>
 ^ARFC-To: teTeX Mailing List <tetex@informatik.uni-hannover.de>
 ^ARFC-cc: Sebastian Rahtz <s.rahtz@elsevier.co.uk>
-^ARFC-MIME-Version: 1.0
-^ARFC-Content-Type: TEXT/PLAIN; charset=US-ASCII
 ^ARFC-Sender: owner-tetex@informatik.uni-hannover.de
+^ARFC-MIME-Version: 1.0
+^ARFC-Content-Type: TEXT/PLAIN; charset=us-ascii
+^ARFC-Content-Transfer-Encoding: 7bit
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 From: Paul Seelig <pseelig@goofy.zdv.Uni-Mainz.de>
@@ -322,7 +312,6 @@ FTN message header:
 ^ARFC-Date: Sat, 30 Nov 1996 04:41:58 +0100
 ^ARFC-From: Bjarne Pohlers <bjarne%libelle.uucp%von-neumann@ESCHER.UNI-MUENSTER.DE>
 ^ARFC-To: isdn4linux@hub-wue.franken.de
-^ARFC-Content-Type: text
 ^ARFC-Sender: owner-isdn4linux@hub-wue.franken.de
 ^ARFC-Reply-To: isdn4linux@hub-wue.franken.de
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
@@ -384,7 +373,6 @@ FTN message header:
 ^ACHRS: LATIN-1 2
 ^ARFC: 1 0
 ^ARFC-Return-Path: owner-isdn4linux@hub-wue.franken.de
-^ARFC-Content-Type: text
 ^ARFC-Sender: owner-isdn4linux@hub-wue.franken.de
 ^ARFC-Reply-To: isdn4linux@hub-wue.franken.de
 ^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]

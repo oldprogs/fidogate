@@ -14,11 +14,8 @@ RFC Date: Mon, 29 Jul 1996 19:30:40 GMT
 RFC Newsgroups: de.comm.misc,de.answers,news.answers
 Look up newsgroup de.comm.misc
 Found: DE.COMM.MISC de.comm.misc Zone=242 Addr=INVALID
-    Name:     jrichert
-    Address:  krefcom.westfalen.de
-Name for alias checking: jrichert
-E-mail for alias checking: jrichert@krefcom.westfalen.de
-charset: in=us-ascii out=latin-1
+charset: in=iso-8859-1 out=LATIN-1
+charset: table found in=iso-8859-1 out=iso-8859-1
 New packet file ./outpkt/news/00000001.pkt (tmp ./outpkt/news/00000001.tmp)
 Writing FTN packet header:
     From: 242:1000/5.0
@@ -31,11 +28,8 @@ Writing FTN packet header:
 Must split message: size=96184 max=32000 parts=4
 Look up newsgroup de.answers
 Found: DE.ANSWERS de.answers Zone=242 Addr=INVALID
-    Name:     jrichert
-    Address:  krefcom.westfalen.de
-Name for alias checking: jrichert
-E-mail for alias checking: jrichert@krefcom.westfalen.de
-charset: in=us-ascii out=latin-1
+charset: in=iso-8859-1 out=LATIN-1
+charset: table found in=iso-8859-1 out=iso-8859-1
 Must split message: size=96184 max=32000 parts=4
 Look up newsgroup news.answers
 No FTN area
@@ -51,11 +45,8 @@ RFC Date: Mon, 29 Jul 1996 19:30:40 GMT
 RFC Newsgroups: de.comm.misc,de.answers,news.answers
 Look up newsgroup de.comm.misc
 Found: DE.COMM.MISC de.comm.misc Zone=242 Addr=INVALID
-    Name:     jrichert
-    Address:  krefcom.westfalen.de
-Name for alias checking: jrichert
-E-mail for alias checking: jrichert@krefcom.westfalen.de
-charset: in=us-ascii out=latin-1
+charset: in=iso-8859-1 out=LATIN-1
+charset: table found in=iso-8859-1 out=iso-8859-1
 New packet file ./outpkt/news/00000002.pkt (tmp ./outpkt/news/00000002.tmp)
 Writing FTN packet header:
     From: 242:1000/5.0
@@ -68,11 +59,8 @@ Writing FTN packet header:
 Must split message: size=96184 max=32000 parts=4
 Look up newsgroup de.answers
 Found: DE.ANSWERS de.answers Zone=242 Addr=INVALID
-    Name:     jrichert
-    Address:  krefcom.westfalen.de
-Name for alias checking: jrichert
-E-mail for alias checking: jrichert@krefcom.westfalen.de
-charset: in=us-ascii out=latin-1
+charset: in=iso-8859-1 out=LATIN-1
+charset: table found in=iso-8859-1 out=iso-8859-1
 Must split message: size=96184 max=32000 parts=4
 Look up newsgroup news.answers
 No FTN area
@@ -107,11 +95,8 @@ RFC Date: 3 Aug 1996 22:56:43 -0400
 RFC Newsgroups: comp.os.linux.announce,comp.os.linux.hardware,comp.os.linux.setup,comp.os.linux.networking,comp.os.linux.x,comp.os.linux.answers,comp.os.linux.misc,comp.answers,news.answers
 Look up newsgroup comp.os.linux.announce
 Found: COMP.OS.LINUX.ANNOUNCE comp.os.linux.announce Zone=242 Addr=INVALID
-    Name:     johnsonm
-    Address:  redhat.com
-Name for alias checking: johnsonm
-E-mail for alias checking: johnsonm@redhat.com
-charset: in=us-ascii out=latin-1
+charset: in=iso-8859-1 out=LATIN-1
+charset: table found in=iso-8859-1 out=iso-8859-1
 New packet file ./outpkt/news/00000003.pkt (tmp ./outpkt/news/00000003.tmp)
 Writing FTN packet header:
     From: 242:1000/5.0
@@ -123,53 +108,32 @@ Writing FTN packet header:
     Capw: 0001
 Look up newsgroup comp.os.linux.hardware
 Found: COMP.OS.LINUX.HARDWARE comp.os.linux.hardware Zone=242 Addr=INVALID
-    Name:     johnsonm
-    Address:  redhat.com
-Name for alias checking: johnsonm
-E-mail for alias checking: johnsonm@redhat.com
-charset: in=us-ascii out=latin-1
+charset: in=iso-8859-1 out=LATIN-1
+charset: table found in=iso-8859-1 out=iso-8859-1
 Look up newsgroup comp.os.linux.setup
 Found: COMP.OS.LINUX.SETUP comp.os.linux.setup Zone=242 Addr=INVALID
-    Name:     johnsonm
-    Address:  redhat.com
-Name for alias checking: johnsonm
-E-mail for alias checking: johnsonm@redhat.com
-charset: in=us-ascii out=latin-1
+charset: in=iso-8859-1 out=LATIN-1
+charset: table found in=iso-8859-1 out=iso-8859-1
 Look up newsgroup comp.os.linux.networking
 Found: COMP.OS.LINUX.NETWORKING comp.os.linux.networking Zone=242 Addr=INVALID
-    Name:     johnsonm
-    Address:  redhat.com
-Name for alias checking: johnsonm
-E-mail for alias checking: johnsonm@redhat.com
-charset: in=us-ascii out=latin-1
+charset: in=iso-8859-1 out=LATIN-1
+charset: table found in=iso-8859-1 out=iso-8859-1
 Look up newsgroup comp.os.linux.x
 Found: COMP.OS.LINUX.X comp.os.linux.x Zone=242 Addr=INVALID
-    Name:     johnsonm
-    Address:  redhat.com
-Name for alias checking: johnsonm
-E-mail for alias checking: johnsonm@redhat.com
-charset: in=us-ascii out=latin-1
+charset: in=iso-8859-1 out=LATIN-1
+charset: table found in=iso-8859-1 out=iso-8859-1
 Look up newsgroup comp.os.linux.answers
 Found: COMP.OS.LINUX.ANSWERS comp.os.linux.answers Zone=242 Addr=INVALID
-    Name:     johnsonm
-    Address:  redhat.com
-Name for alias checking: johnsonm
-E-mail for alias checking: johnsonm@redhat.com
-charset: in=us-ascii out=latin-1
+charset: in=iso-8859-1 out=LATIN-1
+charset: table found in=iso-8859-1 out=iso-8859-1
 Look up newsgroup comp.os.linux.misc
 Found: COMP.OS.LINUX.MISC comp.os.linux.misc Zone=242 Addr=INVALID
-    Name:     johnsonm
-    Address:  redhat.com
-Name for alias checking: johnsonm
-E-mail for alias checking: johnsonm@redhat.com
-charset: in=us-ascii out=latin-1
+charset: in=iso-8859-1 out=LATIN-1
+charset: table found in=iso-8859-1 out=iso-8859-1
 Look up newsgroup comp.answers
 Found: COMP.ANSWERS comp.answers Zone=242 Addr=INVALID
-    Name:     johnsonm
-    Address:  redhat.com
-Name for alias checking: johnsonm
-E-mail for alias checking: johnsonm@redhat.com
-charset: in=us-ascii out=latin-1
+charset: in=iso-8859-1 out=LATIN-1
+charset: table found in=iso-8859-1 out=iso-8859-1
 Look up newsgroup news.answers
 No FTN area
 RFC From:     Michael K. Johnson <johnsonm@redhat.com>
@@ -184,11 +148,8 @@ RFC Date: 3 Aug 1996 22:56:43 -0400
 RFC Newsgroups: comp.os.linux.announce,comp.os.linux.hardware,comp.os.linux.setup,comp.os.linux.networking,comp.os.linux.x,comp.os.linux.answers,comp.os.linux.misc,comp.answers,news.answers
 Look up newsgroup comp.os.linux.announce
 Found: COMP.OS.LINUX.ANNOUNCE comp.os.linux.announce Zone=242 Addr=INVALID
-    Name:     johnsonm
-    Address:  redhat.com
-Name for alias checking: johnsonm
-E-mail for alias checking: johnsonm@redhat.com
-charset: in=us-ascii out=latin-1
+charset: in=iso-8859-1 out=LATIN-1
+charset: table found in=iso-8859-1 out=iso-8859-1
 New packet file ./outpkt/news/00000004.pkt (tmp ./outpkt/news/00000004.tmp)
 Writing FTN packet header:
     From: 242:1000/5.0
@@ -200,53 +161,32 @@ Writing FTN packet header:
     Capw: 0001
 Look up newsgroup comp.os.linux.hardware
 Found: COMP.OS.LINUX.HARDWARE comp.os.linux.hardware Zone=242 Addr=INVALID
-    Name:     johnsonm
-    Address:  redhat.com
-Name for alias checking: johnsonm
-E-mail for alias checking: johnsonm@redhat.com
-charset: in=us-ascii out=latin-1
+charset: in=iso-8859-1 out=LATIN-1
+charset: table found in=iso-8859-1 out=iso-8859-1
 Look up newsgroup comp.os.linux.setup
 Found: COMP.OS.LINUX.SETUP comp.os.linux.setup Zone=242 Addr=INVALID
-    Name:     johnsonm
-    Address:  redhat.com
-Name for alias checking: johnsonm
-E-mail for alias checking: johnsonm@redhat.com
-charset: in=us-ascii out=latin-1
+charset: in=iso-8859-1 out=LATIN-1
+charset: table found in=iso-8859-1 out=iso-8859-1
 Look up newsgroup comp.os.linux.networking
 Found: COMP.OS.LINUX.NETWORKING comp.os.linux.networking Zone=242 Addr=INVALID
-    Name:     johnsonm
-    Address:  redhat.com
-Name for alias checking: johnsonm
-E-mail for alias checking: johnsonm@redhat.com
-charset: in=us-ascii out=latin-1
+charset: in=iso-8859-1 out=LATIN-1
+charset: table found in=iso-8859-1 out=iso-8859-1
 Look up newsgroup comp.os.linux.x
 Found: COMP.OS.LINUX.X comp.os.linux.x Zone=242 Addr=INVALID
-    Name:     johnsonm
-    Address:  redhat.com
-Name for alias checking: johnsonm
-E-mail for alias checking: johnsonm@redhat.com
-charset: in=us-ascii out=latin-1
+charset: in=iso-8859-1 out=LATIN-1
+charset: table found in=iso-8859-1 out=iso-8859-1
 Look up newsgroup comp.os.linux.answers
 Found: COMP.OS.LINUX.ANSWERS comp.os.linux.answers Zone=242 Addr=INVALID
-    Name:     johnsonm
-    Address:  redhat.com
-Name for alias checking: johnsonm
-E-mail for alias checking: johnsonm@redhat.com
-charset: in=us-ascii out=latin-1
+charset: in=iso-8859-1 out=LATIN-1
+charset: table found in=iso-8859-1 out=iso-8859-1
 Look up newsgroup comp.os.linux.misc
 Found: COMP.OS.LINUX.MISC comp.os.linux.misc Zone=242 Addr=INVALID
-    Name:     johnsonm
-    Address:  redhat.com
-Name for alias checking: johnsonm
-E-mail for alias checking: johnsonm@redhat.com
-charset: in=us-ascii out=latin-1
+charset: in=iso-8859-1 out=LATIN-1
+charset: table found in=iso-8859-1 out=iso-8859-1
 Look up newsgroup comp.answers
 Found: COMP.ANSWERS comp.answers Zone=242 Addr=INVALID
-    Name:     johnsonm
-    Address:  redhat.com
-Name for alias checking: johnsonm
-E-mail for alias checking: johnsonm@redhat.com
-charset: in=us-ascii out=latin-1
+charset: in=iso-8859-1 out=LATIN-1
+charset: table found in=iso-8859-1 out=iso-8859-1
 Look up newsgroup news.answers
 No FTN area
 RFC From:     Michael K. Johnson <johnsonm@redhat.com>
@@ -261,11 +201,8 @@ RFC Date: 3 Aug 1996 22:56:43 -0400
 RFC Newsgroups: comp.os.linux.announce,comp.os.linux.hardware,comp.os.linux.setup,comp.os.linux.networking,comp.os.linux.x,comp.os.linux.answers,comp.os.linux.misc,comp.answers,news.answers
 Look up newsgroup comp.os.linux.announce
 Found: COMP.OS.LINUX.ANNOUNCE comp.os.linux.announce Zone=242 Addr=INVALID
-    Name:     johnsonm
-    Address:  redhat.com
-Name for alias checking: johnsonm
-E-mail for alias checking: johnsonm@redhat.com
-charset: in=us-ascii out=latin-1
+charset: in=iso-8859-1 out=LATIN-1
+charset: table found in=iso-8859-1 out=iso-8859-1
 New packet file ./outpkt/news/00000005.pkt (tmp ./outpkt/news/00000005.tmp)
 Writing FTN packet header:
     From: 242:1000/5.0
@@ -277,53 +214,32 @@ Writing FTN packet header:
     Capw: 0001
 Look up newsgroup comp.os.linux.hardware
 Found: COMP.OS.LINUX.HARDWARE comp.os.linux.hardware Zone=242 Addr=INVALID
-    Name:     johnsonm
-    Address:  redhat.com
-Name for alias checking: johnsonm
-E-mail for alias checking: johnsonm@redhat.com
-charset: in=us-ascii out=latin-1
+charset: in=iso-8859-1 out=LATIN-1
+charset: table found in=iso-8859-1 out=iso-8859-1
 Look up newsgroup comp.os.linux.setup
 Found: COMP.OS.LINUX.SETUP comp.os.linux.setup Zone=242 Addr=INVALID
-    Name:     johnsonm
-    Address:  redhat.com
-Name for alias checking: johnsonm
-E-mail for alias checking: johnsonm@redhat.com
-charset: in=us-ascii out=latin-1
+charset: in=iso-8859-1 out=LATIN-1
+charset: table found in=iso-8859-1 out=iso-8859-1
 Look up newsgroup comp.os.linux.networking
 Found: COMP.OS.LINUX.NETWORKING comp.os.linux.networking Zone=242 Addr=INVALID
-    Name:     johnsonm
-    Address:  redhat.com
-Name for alias checking: johnsonm
-E-mail for alias checking: johnsonm@redhat.com
-charset: in=us-ascii out=latin-1
+charset: in=iso-8859-1 out=LATIN-1
+charset: table found in=iso-8859-1 out=iso-8859-1
 Look up newsgroup comp.os.linux.x
 Found: COMP.OS.LINUX.X comp.os.linux.x Zone=242 Addr=INVALID
-    Name:     johnsonm
-    Address:  redhat.com
-Name for alias checking: johnsonm
-E-mail for alias checking: johnsonm@redhat.com
-charset: in=us-ascii out=latin-1
+charset: in=iso-8859-1 out=LATIN-1
+charset: table found in=iso-8859-1 out=iso-8859-1
 Look up newsgroup comp.os.linux.answers
 Found: COMP.OS.LINUX.ANSWERS comp.os.linux.answers Zone=242 Addr=INVALID
-    Name:     johnsonm
-    Address:  redhat.com
-Name for alias checking: johnsonm
-E-mail for alias checking: johnsonm@redhat.com
-charset: in=us-ascii out=latin-1
+charset: in=iso-8859-1 out=LATIN-1
+charset: table found in=iso-8859-1 out=iso-8859-1
 Look up newsgroup comp.os.linux.misc
 Found: COMP.OS.LINUX.MISC comp.os.linux.misc Zone=242 Addr=INVALID
-    Name:     johnsonm
-    Address:  redhat.com
-Name for alias checking: johnsonm
-E-mail for alias checking: johnsonm@redhat.com
-charset: in=us-ascii out=latin-1
+charset: in=iso-8859-1 out=LATIN-1
+charset: table found in=iso-8859-1 out=iso-8859-1
 Look up newsgroup comp.answers
 Found: COMP.ANSWERS comp.answers Zone=242 Addr=INVALID
-    Name:     johnsonm
-    Address:  redhat.com
-Name for alias checking: johnsonm
-E-mail for alias checking: johnsonm@redhat.com
-charset: in=us-ascii out=latin-1
+charset: in=iso-8859-1 out=LATIN-1
+charset: table found in=iso-8859-1 out=iso-8859-1
 Look up newsgroup news.answers
 No FTN area
 Mail message file ../ti.mail-l/01
@@ -341,11 +257,8 @@ Name for alias checking: LISTSERV
 E-mail for alias checking: LISTSERV@ORACLE.WIZARDS.COM
 RFC Date: Sun, 20 Oct 1996 02:30:44 -0700
 rfc2ftn MAIL: L-Soft list server at WotC (1.8b) <LISTSERV@ORACLE.WIZARDS.COM> -> test@hippo.fido.de
-    Name:     LISTSERV
-    Address:  ORACLE.WIZARDS.COM
-Name for alias checking: LISTSERV
-E-mail for alias checking: LISTSERV@ORACLE.WIZARDS.COM
-charset: in=us-ascii out=latin-1
+charset: in=iso-8859-1 out=LATIN-1
+charset: table found in=iso-8859-1 out=iso-8859-1
 New packet file ./outpkt/mail/00000006.pkt (tmp ./outpkt/mail/00000006.tmp)
 Writing FTN packet header:
     From: 242:1000/5.0
@@ -370,11 +283,8 @@ Name for alias checking: LISTSERV
 E-mail for alias checking: LISTSERV@ORACLE.WIZARDS.COM
 RFC Date: Sun, 20 Oct 1996 02:30:44 -0700
 rfc2ftn MAIL: L-Soft list server at WotC (1.8b) <LISTSERV@ORACLE.WIZARDS.COM> -> test@hippo.fido.de
-    Name:     LISTSERV
-    Address:  ORACLE.WIZARDS.COM
-Name for alias checking: LISTSERV
-E-mail for alias checking: LISTSERV@ORACLE.WIZARDS.COM
-charset: in=us-ascii out=latin-1
+charset: in=iso-8859-1 out=LATIN-1
+charset: table found in=iso-8859-1 out=iso-8859-1
 New packet file ./outpkt/mail/00000007.pkt (tmp ./outpkt/mail/00000007.tmp)
 Writing FTN packet header:
     From: 242:1000/5.0

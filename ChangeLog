@@ -2,6 +2,15 @@
 
 	------- CVS ci -------------------------------------------------------
 
+	* fidogate.lsm: updated.
+
+	* ANNOUNCE: updated.
+
+	* test/tc.*: updated run.verify for all test cases, debug() output 
+	  changed due to new features.
+
+	------- CVS ci -------------------------------------------------------
+
 	* version.h (PATCHLEVEL): set to 3 (version 4.3.3).
 
 	* doc/fidogate.texi (Example Point): updated.
@@ -12,8 +21,6 @@
 	  configuration.
 
 	* doc/fidogate.texi: some bugfixes.
-
-1999-05-19  Martin Junius  <mj@fido.de>
 
 	-------- Integrated patch-1999-05-21 into main source ----------------
 
@@ -115,6 +122,8 @@
 	  type_charset for components of Content-Type header.
 
 	----------------------------------------------------------------------
+
+1999-05-19  Martin Junius  <mj@fido.de>
 
 	* examples/win32/config.make: was missing.
 

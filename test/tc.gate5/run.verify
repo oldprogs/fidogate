@@ -51,16 +51,17 @@ No alias found: return Martin Junius
     Address:  fido.de
 Name for alias checking: mj
 Alias found: mj 2:2452/110.2 Martin Junius
-addr_is_local(): From=mj@fido.de FQDN=orodruin.fido.de
-rfc2ftn MAIL: mj@fido.de -> Martin_Junius@f110.n2452.z2.fidonet.org
-    Name:     mj
-    Address:  fido.de
-Name for alias checking: mj
-Alias found: mj 2:2452/110.2 Martin Junius
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
+                        type = 
+                     charset = 
+                    boundary = 
 RFC Content-Transfer-Encoding: -NONE-
-charset: in=us-ascii out=latin-1
+addr_is_local(): From=mj@fido.de FQDN=orodruin.fido.de
+rfc2ftn MAIL: mj@fido.de -> Martin_Junius@f110.n2452.z2.fidonet.org
+charset: in=iso-8859-1 out=LATIN-1
+charset: table found in=iso-8859-1 out=iso-8859-1
+charset: msg RFC=iso-8859-1 FSC=LATIN-1 enc=8bit
 New packet file ./outpkt/mail/00000001.pkt (tmp ./outpkt/mail/00000001.tmp)
 Writing FTN packet header:
     From: 2:2452/110.2
@@ -90,16 +91,17 @@ No alias found: return Martin Junius
     Address:  fido.de
 Name for alias checking: mj
 Alias found: mj 2:2452/110.2 Martin Junius
-addr_is_local(): From=Martin Junius <mj@fido.de> FQDN=orodruin.fido.de
-rfc2ftn MAIL: Martin Junius <mj@fido.de> -> Martin_Junius@f110.n2452.z2.fidonet.org
-    Name:     mj
-    Address:  fido.de
-Name for alias checking: mj
-Alias found: mj 2:2452/110.2 Martin Junius
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
+                        type = 
+                     charset = 
+                    boundary = 
 RFC Content-Transfer-Encoding: -NONE-
-charset: in=us-ascii out=latin-1
+addr_is_local(): From=Martin Junius <mj@fido.de> FQDN=orodruin.fido.de
+rfc2ftn MAIL: Martin Junius <mj@fido.de> -> Martin_Junius@f110.n2452.z2.fidonet.org
+charset: in=iso-8859-1 out=LATIN-1
+charset: table found in=iso-8859-1 out=iso-8859-1
+charset: msg RFC=iso-8859-1 FSC=LATIN-1 enc=8bit
 New packet file ./outpkt/mail/00000002.pkt (tmp ./outpkt/mail/00000002.tmp)
 Writing FTN packet header:
     From: 2:2452/110.2
@@ -129,17 +131,17 @@ No alias found: return Martin Junius
     FTN node: 2:2452/110.2
 Name for alias checking: Martin_Junius
 E-mail for alias checking: Martin_Junius@p2.f110.n2452.z2.fidonet.org
-addr_is_local(): From=Martin_Junius@p2.f110.n2452.z2.fidonet.org FQDN=orodruin.fido.de
-rfc2ftn MAIL: Martin_Junius@p2.f110.n2452.z2.fidonet.org -> Martin_Junius@f110.n2452.z2.fidonet.org
-    Name:     Martin_Junius
-    Address:  p2.f110.n2452.z2.fidonet.org
-    FTN node: 2:2452/110.2
-Name for alias checking: Martin_Junius
-E-mail for alias checking: Martin_Junius@p2.f110.n2452.z2.fidonet.org
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
+                        type = 
+                     charset = 
+                    boundary = 
 RFC Content-Transfer-Encoding: -NONE-
-charset: in=us-ascii out=latin-1
+addr_is_local(): From=Martin_Junius@p2.f110.n2452.z2.fidonet.org FQDN=orodruin.fido.de
+rfc2ftn MAIL: Martin_Junius@p2.f110.n2452.z2.fidonet.org -> Martin_Junius@f110.n2452.z2.fidonet.org
+charset: in=iso-8859-1 out=LATIN-1
+charset: table found in=iso-8859-1 out=iso-8859-1
+charset: msg RFC=iso-8859-1 FSC=LATIN-1 enc=8bit
 New packet file ./outpkt/mail/00000003.pkt (tmp ./outpkt/mail/00000003.tmp)
 Writing FTN packet header:
     From: 2:2452/110.2
@@ -169,17 +171,17 @@ No alias found: return Martin Junius
     FTN node: 242:1000/1.0
 Name for alias checking: test
 E-mail for alias checking: test@hippo.fido.de
-addr_is_local(): From=Test User <test@hippo.fido.de> FQDN=orodruin.fido.de
-rfc2ftn MAIL: Test User <test@hippo.fido.de> -> Martin_Junius@f110.n2452.z2.fidonet.org
-    Name:     test
-    Address:  hippo.fido.de
-    FTN node: 242:1000/1.0
-Name for alias checking: test
-E-mail for alias checking: test@hippo.fido.de
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
+                        type = 
+                     charset = 
+                    boundary = 
 RFC Content-Transfer-Encoding: -NONE-
-charset: in=us-ascii out=latin-1
+addr_is_local(): From=Test User <test@hippo.fido.de> FQDN=orodruin.fido.de
+rfc2ftn MAIL: Test User <test@hippo.fido.de> -> Martin_Junius@f110.n2452.z2.fidonet.org
+charset: in=iso-8859-1 out=LATIN-1
+charset: table found in=iso-8859-1 out=iso-8859-1
+charset: msg RFC=iso-8859-1 FSC=LATIN-1 enc=8bit
 New packet file ./outpkt/mail/00000004.pkt (tmp ./outpkt/mail/00000004.tmp)
 Writing FTN packet header:
     From: 2:2452/110.2
@@ -208,16 +210,17 @@ No alias found: return Martin Junius
     Address:  fido.de
 Name for alias checking: mj
 Alias found: mj 242:1000/5.0 Martin Junius
-addr_is_local(): From=mj@fido.de FQDN=orodruin.fido.de
-rfc2ftn MAIL: mj@fido.de -> Martin_Junius@hippo.fido.de
-    Name:     mj
-    Address:  fido.de
-Name for alias checking: mj
-Alias found: mj 242:1000/5.0 Martin Junius
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
+                        type = 
+                     charset = 
+                    boundary = 
 RFC Content-Transfer-Encoding: -NONE-
-charset: in=us-ascii out=latin-1
+addr_is_local(): From=mj@fido.de FQDN=orodruin.fido.de
+rfc2ftn MAIL: mj@fido.de -> Martin_Junius@hippo.fido.de
+charset: in=iso-8859-1 out=LATIN-1
+charset: table found in=iso-8859-1 out=iso-8859-1
+charset: msg RFC=iso-8859-1 FSC=LATIN-1 enc=8bit
 New packet file ./outpkt/mail/00000005.pkt (tmp ./outpkt/mail/00000005.tmp)
 Writing FTN packet header:
     From: 242:1000/5.0
@@ -247,16 +250,17 @@ No alias found: return Martin Junius
     Address:  fido.de
 Name for alias checking: mj
 Alias found: mj 242:1000/5.0 Martin Junius
-addr_is_local(): From=Martin Junius <mj@fido.de> FQDN=orodruin.fido.de
-rfc2ftn MAIL: Martin Junius <mj@fido.de> -> Martin_Junius@hippo.fido.de
-    Name:     mj
-    Address:  fido.de
-Name for alias checking: mj
-Alias found: mj 242:1000/5.0 Martin Junius
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
+                        type = 
+                     charset = 
+                    boundary = 
 RFC Content-Transfer-Encoding: -NONE-
-charset: in=us-ascii out=latin-1
+addr_is_local(): From=Martin Junius <mj@fido.de> FQDN=orodruin.fido.de
+rfc2ftn MAIL: Martin Junius <mj@fido.de> -> Martin_Junius@hippo.fido.de
+charset: in=iso-8859-1 out=LATIN-1
+charset: table found in=iso-8859-1 out=iso-8859-1
+charset: msg RFC=iso-8859-1 FSC=LATIN-1 enc=8bit
 New packet file ./outpkt/mail/00000006.pkt (tmp ./outpkt/mail/00000006.tmp)
 Writing FTN packet header:
     From: 242:1000/5.0
@@ -286,17 +290,17 @@ No alias found: return Martin Junius
     FTN node: 2:2452/110.2
 Name for alias checking: Martin_Junius
 E-mail for alias checking: Martin_Junius@p2.f110.n2452.z2.fidonet.org
-addr_is_local(): From=Martin_Junius@p2.f110.n2452.z2.fidonet.org FQDN=orodruin.fido.de
-rfc2ftn MAIL: Martin_Junius@p2.f110.n2452.z2.fidonet.org -> Martin_Junius@hippo.fido.de
-    Name:     Martin_Junius
-    Address:  p2.f110.n2452.z2.fidonet.org
-    FTN node: 2:2452/110.2
-Name for alias checking: Martin_Junius
-E-mail for alias checking: Martin_Junius@p2.f110.n2452.z2.fidonet.org
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
+                        type = 
+                     charset = 
+                    boundary = 
 RFC Content-Transfer-Encoding: -NONE-
-charset: in=us-ascii out=latin-1
+addr_is_local(): From=Martin_Junius@p2.f110.n2452.z2.fidonet.org FQDN=orodruin.fido.de
+rfc2ftn MAIL: Martin_Junius@p2.f110.n2452.z2.fidonet.org -> Martin_Junius@hippo.fido.de
+charset: in=iso-8859-1 out=LATIN-1
+charset: table found in=iso-8859-1 out=iso-8859-1
+charset: msg RFC=iso-8859-1 FSC=LATIN-1 enc=8bit
 New packet file ./outpkt/mail/00000007.pkt (tmp ./outpkt/mail/00000007.tmp)
 Writing FTN packet header:
     From: 242:1000/5.0
@@ -326,17 +330,17 @@ No alias found: return Martin Junius
     FTN node: 242:1000/1.0
 Name for alias checking: test
 E-mail for alias checking: test@hippo.fido.de
-addr_is_local(): From=Test User <test@hippo.fido.de> FQDN=orodruin.fido.de
-rfc2ftn MAIL: Test User <test@hippo.fido.de> -> Martin_Junius@hippo.fido.de
-    Name:     test
-    Address:  hippo.fido.de
-    FTN node: 242:1000/1.0
-Name for alias checking: test
-E-mail for alias checking: test@hippo.fido.de
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
+                        type = 
+                     charset = 
+                    boundary = 
 RFC Content-Transfer-Encoding: -NONE-
-charset: in=us-ascii out=latin-1
+addr_is_local(): From=Test User <test@hippo.fido.de> FQDN=orodruin.fido.de
+rfc2ftn MAIL: Test User <test@hippo.fido.de> -> Martin_Junius@hippo.fido.de
+charset: in=iso-8859-1 out=LATIN-1
+charset: table found in=iso-8859-1 out=iso-8859-1
+charset: msg RFC=iso-8859-1 FSC=LATIN-1 enc=8bit
 New packet file ./outpkt/mail/00000008.pkt (tmp ./outpkt/mail/00000008.tmp)
 Writing FTN packet header:
     From: 242:1000/5.0
