@@ -1,5 +1,12 @@
 Sun Sep 22 13:00:06 1996  Martin Junius  <mj@fido.de>
 
+	------- CVS ci -------------------------------------------------------
+
+	* sendmail/cf/mkmaildb (MAILDIR): fixed.
+
+	* sendmail/cf/Makefile (install-orodruin, install-morannon): fixed
+	  installation of mailertable, rewrite files in /etc/mail.
+
 	======= Release 4.0 beta 1 ===========================================
 	------- CVS tag R40b1 ------------------------------------------------
 

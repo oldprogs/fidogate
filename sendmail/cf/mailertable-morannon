@@ -8,5 +8,7 @@ orodruin		ffx:orodruin.fido.de
 orodruin.fido.de	ffx:orodruin.fido.de
 
 # special routes via SMTP
+westf.fido.de		smtp:muenster.Westfalen.DE
 .westf.fido.de		smtp:muenster.Westfalen.DE
+berlin.fido.de		smtp:ki1.chemie.FU-Berlin.DE
 .berlin.fido.de		smtp:ki1.chemie.FU-Berlin.DE
