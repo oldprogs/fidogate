@@ -1,5 +1,11 @@
 2000-04-11  Martin Junius  <mj@fido.de>
 
+	======= Release 4.4.1 ================================================
+	------- CVS tag R441 -------------------------------------------------
+	------- CVS ci -------------------------------------------------------
+
+	* src/common/rematch.c: include <regex.h> after #ifdef.
+
 	------- CVS ci -------------------------------------------------------
 
 	* config.make (HTMLDIR): changed to /html/fidogate, sync'ed with
