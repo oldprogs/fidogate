@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: ftn2ftn.c,v 4.9 1999/03/28 10:04:35 mj Exp $
+ * $Id: ftn2ftn.c,v 4.10 1999/04/03 12:13:24 mj Exp $
  *
  * FTN-FTN gateway for NetMail, using the %Z:N/F.P addressing in the
  * from/to fields.
@@ -35,7 +35,7 @@
 
 
 #define PROGRAM 	"ftn2ftn"
-#define VERSION 	"$Revision: 4.9 $"
+#define VERSION 	"$Revision: 4.10 $"
 #define CONFIG		DEFAULT_CONFIG_MAIN
 
 
@@ -72,7 +72,7 @@ Node gate_b;			/* FTN address in network B */
 void add_via(Textlist *list, Node *gate)
 {
     tl_appendf(list, "\001Via FIDOGATE/%s %s, %s\r\n",
-		     PROGRAM, node_to_asc(gate, FALSE),
+		     PROGRAM, znfp1(gate),
 		     date(DATE_VIA, NULL)  );
 }
 
@@ -124,7 +124,7 @@ int do_message(Node *gate, Message *msg, MsgBody *body)
 	*p = 0;
 	/* Add sender address to from name */
 	BUF_COPY(buffer, "%");
-	BUF_APPEND(buffer, node_to_asc(&msg->node_from, FALSE));
+	BUF_APPEND(buffer, znf1(&msg->node_from));
 	if( strlen(from)+strlen(buffer) > MSG_MAXNAME-1 )
 	    from[MSG_MAXNAME-1-strlen(buffer)] = 0;
 	str_append(from, MSG_MAXNAME, buffer);
@@ -410,8 +410,8 @@ int main(int argc, char **argv)
 	cf_set_uplink(u_flag);
 
     cf_debug();
-    debug(4, "gateway address A: %s", node_to_asc(&gate_a, TRUE));
-    debug(4, "gateway address B: %s", node_to_asc(&gate_b, TRUE));
+    debug(4, "gateway address A: %s", znfp1(&gate_a));
+    debug(4, "gateway address B: %s", znfp1(&gate_b));
 
 
     /*

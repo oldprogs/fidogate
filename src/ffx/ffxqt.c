@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ffxqt.c,v 4.14 1999/03/07 17:37:11 mj Exp $
+ * $Id: ffxqt.c,v 4.15 1999/04/03 12:13:22 mj Exp $
  *
  * Process incoming ffx control and data files
  *
@@ -38,7 +38,7 @@
 
 
 #define PROGRAM		"ffxqt"
-#define VERSION		"$Revision: 4.14 $"
+#define VERSION		"$Revision: 4.15 $"
 #define CONFIG		DEFAULT_CONFIG_FFX
 
 
@@ -219,8 +219,7 @@ int do_ffx(int t_flag)
 	if(!ffx->status)		/* BSY test, if not EOF */
 	    if(bink_bsy_test(&ffx->from))	/* Skip if busy */
 	    {
-		debug(3, "ffxqt: %s busy, skipping",
-		      node_to_asc(&ffx->from, TRUE));
+		debug(3, "ffxqt: %s busy, skipping", znfp1(&ffx->from));
 		continue;
 	    }
 	
@@ -239,8 +238,7 @@ int do_ffx(int t_flag)
 	 */
 	if(!t_flag && !passwd)
 	{
-	    log("%s: no password for %s in PASSWD", name,
-		node_to_asc(&ffx->from, TRUE)  );
+	    log("%s: no password for %s in PASSWD", name, znfp1(&ffx->from)  );
 	    goto rename_to_bad;
 	}
 	
@@ -254,7 +252,7 @@ int do_ffx(int t_flag)
 		if(stricmp(passwd, ffx->passwd))
 		{
 		    log("%s: wrong password from %s: ours=%s his=%s",
-			name, node_to_asc(&ffx->from, TRUE), passwd,
+			name, znfp1(&ffx->from), passwd,
 			ffx->passwd                              );
 		    goto rename_to_bad;
 		}
@@ -262,13 +260,13 @@ int do_ffx(int t_flag)
 	    else
 	    {
 		log("%s: no password from %s: ours=%s", name,
-		    node_to_asc(&ffx->from, TRUE), passwd );
+		    znfp1(&ffx->from), passwd );
 		goto rename_to_bad;
 	    }
 	}
 
 	log("job %s: from %s data %s (%ldb) %s / %s",
-	    ffx->job, znfp(&ffx->from), ffx->file, check_size(ffx->file),
+	    ffx->job, znfp1(&ffx->from), ffx->file, check_size(ffx->file),
 	    ffx->decompr ? ffx->decompr : "", ffx->cmd                  );
 	
 	if(exec_ffx(ffx) == ERROR)
@@ -429,8 +427,7 @@ FFX *parse_ffx(char *name)
 	return NULL;
     
     debug(3, "ffx: %s", ffx.name);
-    debug(3, "     %s -> %s",
-	  node_to_asc(&ffx.from, TRUE), node_to_asc(&ffx.to, TRUE));
+    debug(3, "     %s -> %s", znfp1(&ffx.from), znfp2(&ffx.to));
     debug(3, "     J %s", ffx.job ? ffx.job : "");
     debug(3, "     I %s %s",
 	  ffx.in      ? ffx.in      : "",

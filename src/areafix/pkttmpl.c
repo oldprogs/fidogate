@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: pkttmpl.c,v 1.5 1999/03/07 17:37:07 mj Exp $
+ * $Id: pkttmpl.c,v 1.6 1999/04/03 12:13:20 mj Exp $
  *
  * Template for utility processing FTN packets
  *
@@ -37,7 +37,7 @@
 
 
 #define PROGRAM 	"ftnxxx"
-#define VERSION 	"$Revision: 1.5 $"
+#define VERSION 	"$Revision: 1.6 $"
 #define CONFIG		DEFAULT_CONFIG_MAIN
 
 
@@ -150,8 +150,7 @@ int do_packet(FILE *pkt_file, Packet *pkt)
 	    msg.node_orig = msg.node_from;
 
 	    debug(5, "NetMail: %s -> %s",
-		  node_to_asc(&msg.node_from, TRUE),
-		  node_to_asc(&msg.node_to  , TRUE) );
+		  znfp1(&msg.node_from), znfp2(&msg.node_to) );
 	    if(do_netmail(&msg, &body) == ERROR)
 		TMPS_RETURN(ERROR);
 	}
@@ -163,8 +162,7 @@ int do_packet(FILE *pkt_file, Packet *pkt)
 		msg.node_orig = msg.node_from;
 
 	    debug(5, "EchoMail: %s -> %s",
-		  node_to_asc(&msg.node_from, TRUE),
-		  node_to_asc(&msg.node_to  , TRUE) );
+		  znfp1(&msg.node_from), znfp2(&msg.node_to) );
 	    if(do_echomail(&msg, &body) == ERROR)
 		TMPS_RETURN(ERROR);
 	}
@@ -236,7 +234,7 @@ int do_file(char *pkt_name)
     /* Process it */
     pkt_size = check_size(pkt_name);
     log("packet %s (%ldb) from %s to %s", pkt_name, pkt_size,
-	node_to_asc(&pkt.from, TRUE), node_to_asc(&pkt.to, TRUE) );
+	znfp1(&pkt.from), znfp2(&pkt.to, TRUE) );
     
     if(do_packet(pkt_file, &pkt) == ERROR) 
     {

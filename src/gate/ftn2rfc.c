@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftn2rfc.c,v 4.49 1999/03/28 10:04:33 mj Exp $
+ * $Id: ftn2rfc.c,v 4.50 1999/04/03 12:13:22 mj Exp $
  *
  * Convert FTN mail packets to RFC mail and news batches
  *
@@ -40,7 +40,7 @@
 
 
 #define PROGRAM 	"ftn2rfc"
-#define VERSION 	"$Revision: 4.49 $"
+#define VERSION 	"$Revision: 4.50 $"
 #define CONFIG		DEFAULT_CONFIG_GATE
 
 
@@ -411,8 +411,7 @@ int unpack(FILE *pkt_file, Packet *pkt)
 		/* No * Origin line address, use header */
 		node_invalid(&msg.node_orig);
 	}
-	debug(7, "FIDO sender (from/origin): %s",
-	      node_to_asc(&msg.node_orig, TRUE));
+	debug(7, "FIDO sender (from/origin): %s", znfp1(&msg.node_orig));
 
 	/*
 	 * strip_crlf() all kludge and RFC lines
@@ -634,8 +633,7 @@ int unpack(FILE *pkt_file, Packet *pkt)
 	    /* ^A SPLIT */
 	    if( (p = kludge_get(&body.kludge, "SPLIT", NULL)) )
 	    {
-		log("skipping split message, origin=%s",
-		    node_to_asc(&msg.node_orig, TRUE));
+		log("skipping split message, origin=%s", znfp1(&msg.node_orig));
 		continue;
 	    }
 	}
@@ -649,7 +647,7 @@ int unpack(FILE *pkt_file, Packet *pkt)
 	    if(msgbody_rfc_from)
 	    {
 		log("skipping message from gateway, area %s, origin=%s",
-		    area->area, node_to_asc(&msg.node_orig, TRUE));
+		    area->area, znfp1(&msg.node_orig));
 		continue;
 	    }
 	
@@ -658,7 +656,7 @@ int unpack(FILE *pkt_file, Packet *pkt)
 	       !strnicmp(p, "GIGO", 4)                         )
 	    {
 		log("skipping message from gateway (GIGO), area %s, origin=%s",
-		    area->area, node_to_asc(&msg.node_orig, TRUE));
+		    area->area, znfp1(&msg.node_orig));
 		continue;
 	    }
 
@@ -666,7 +664,7 @@ int unpack(FILE *pkt_file, Packet *pkt)
 	    if( (p = kludge_get(&body.kludge, "X-FZ-SPLIT", NULL)) )
 	    {
 		log("skipping message from gateway (X-FZ-SPLIT), area %s, origin=%s",
-		    area->area, node_to_asc(&msg.node_orig, TRUE));
+		    area->area, znfp1(&msg.node_orig));
 		continue;
 	    }
 	}
@@ -689,17 +687,17 @@ int unpack(FILE *pkt_file, Packet *pkt)
 	    {
 #ifndef AI_2
 		debug(7, "Alias found: %s %s %s", a->username,
-		      node_to_asc(&a->node, FALSE), a->fullname);
+		      znfp1(&a->node), a->fullname);
 #else
 		if(a->userdom)
 		{
 		    debug(7, "Alias found: %s@%s %s %s", a->username, a->userdom,
-			  node_to_asc(&a->node, FALSE), a->fullname);
+			  znfp1(&a->node), a->fullname);
 		    BUF_COPY(addr_from.addr, a->userdom);
 		}
 		else
 		    debug(7, "Alias found: %s %s %s", a->username,
-		          node_to_asc(&a->node, FALSE), a->fullname);
+		          znfp1(&a->node), a->fullname);
 #endif
 		BUF_COPY(addr_from.user, a->username);
 #ifdef ALIASES_ARE_LOCAL
@@ -725,7 +723,7 @@ int unpack(FILE *pkt_file, Packet *pkt)
 		{
 		    debug(7, "Alias (AI2) found: %s@%s %s \"%s\"",
 			  a->username, a->userdom,
-			  znfp(&a->node), a->fullname);
+			  znfp1(&a->node), a->fullname);
 		    /*BUF_COPY(addr_to.addr, a->userdom);*/
 		    BUF_COPY  (mail_to, a->username);
 		    BUF_APPEND(mail_to, "@");
@@ -736,7 +734,7 @@ int unpack(FILE *pkt_file, Packet *pkt)
 		{
 		    debug(7, "Alias (old) found: %s %s \"%s\"",
 			  a->username,
-		          znfp(&a->node), a->fullname);
+		          znfp1(&a->node), a->fullname);
 		    BUF_COPY(mail_to, a->username);
 		}
 	    }
@@ -791,7 +789,7 @@ int unpack(FILE *pkt_file, Packet *pkt)
 	    {
 		/* Not registered in HOSTS */
 		debug(1, "Not a registered node: %s",
-		      node_to_asc(&msg.node_orig, FALSE));
+		      znfp1(&msg.node_orig));
 		log("BOUNCE: mail from unregistered %s",
 		    s_rfcaddr_to_asc(&addr_from, TRUE));
 		bounce_mail("restricted", &addr_from, &msg,
@@ -803,7 +801,7 @@ int unpack(FILE *pkt_file, Packet *pkt)
 	    if(h->flags & HOST_DOWN)
 	    {
 		debug(1, "Registered node is down: %s",
-		      node_to_asc(&msg.node_orig, FALSE));
+		      znfp1(&msg.node_orig));
 		log("BOUNCE: mail from down %s",
 		    s_rfcaddr_to_asc(&addr_from, TRUE));
 		bounce_mail("down", &addr_from, &msg,
@@ -1072,10 +1070,10 @@ int unpack(FILE *pkt_file, Packet *pkt)
 	{
 	    if(x_ftn_f)
 		tl_appendf(&theader, "X-FTN-From: %s @ %s\n",
-			   addr_from.real, node_to_asc(&msg.node_orig,TRUE));
+			   addr_from.real, znfp1(&msg.node_orig));
 	    if(x_ftn_t)
 		tl_appendf(&theader, "X-FTN-To: %s @ %s\n",
-			   addr_to.real, node_to_asc(&msg.node_to,TRUE));
+			   addr_to.real, znfp1(&msg.node_to));
 	}
 
 	if(x_ftn_T  &&  body.tear && !strncmp(body.tear, "--- ", 4))
@@ -1253,7 +1251,7 @@ int unpack_file(char *pkt_name)
     
     /* * Unpack it */
     log("packet %s (%ldb) from %s to %s", pkt_name, check_size(pkt_name),
-	node_to_asc(&pkt.from, TRUE), node_to_asc(&pkt.to, TRUE) );
+	znfp1(&pkt.from), znfp2(&pkt.to) );
     
     if(unpack(pkt_file, &pkt) == ERROR) 
     {

@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway software UNIX <-> FIDO
  *
- * $Id: rfc2ftn.c,v 4.48 1999/03/28 10:04:34 mj Exp $
+ * $Id: rfc2ftn.c,v 4.49 1999/04/03 12:13:24 mj Exp $
  *
  * Read mail or news from standard input and convert it to a FIDO packet.
  *
@@ -39,7 +39,7 @@
 
 
 #define PROGRAM 	"rfc2ftn"
-#define VERSION 	"$Revision: 4.48 $"
+#define VERSION 	"$Revision: 4.49 $"
 #define CONFIG		DEFAULT_CONFIG_GATE
 
 
@@ -454,7 +454,7 @@ int rfc_parse(RFCAddr *rfc, char *name, Node *node, int gw)
 	*node = *n;
 	rfc_isfido_flag = TRUE;
 	ret = OK;
-	debug(3, "    FTN node: %s", node_to_asc(n, TRUE));
+	debug(3, "    FTN node: %s", znfp1(n));
 
 	/*
 	 * Look up in HOSTS
@@ -468,7 +468,7 @@ int rfc_parse(RFCAddr *rfc, char *name, Node *node, int gw)
 		    /* Node is down, bounce mail */
 		    str_printf(address_error, sizeof(address_error),
 			       "FTN address %s: currently down, unreachable",
-			       node_to_asc(n, TRUE));
+			       znfp1(n));
 		    ret = ERROR;
 		}
 	    }
@@ -480,7 +480,7 @@ int rfc_parse(RFCAddr *rfc, char *name, Node *node, int gw)
 	{
 	    str_printf(address_error, sizeof(address_error),
 		       "FTN address %s: not registered for this domain",
-		       node_to_asc(n, TRUE));
+		       znfp1(n));
 	    ret = ERROR;
 	}
 
@@ -491,7 +491,7 @@ int rfc_parse(RFCAddr *rfc, char *name, Node *node, int gw)
 	{
 	    str_printf(address_error, sizeof(address_error),
 		       "FTN address %s: zone %d not supported",
-		       node_to_asc(n, TRUE), n->zone);
+		       znfp1(n), n->zone);
 	    ret = ERROR;
 	}
 	
@@ -590,7 +590,7 @@ char *receiver(char *to, Node *node)
 #endif
     {
 	debug(5, "Alias found: %s %s %s", alias->username,
-	      node_to_asc(&alias->node, TRUE), alias->fullname);
+	      znfp1(&alias->node), alias->fullname);
 	strcpy(name, alias->fullname);
 
 	/*
@@ -729,7 +729,7 @@ char *mail_sender(RFCAddr *rfc, Node *node)
     if( (alias = alias_lookup(node, rfc->user, NULL)) && !alias->userdom )
     {
 	debug(5, "Alias found: %s %s %s", alias->username,
-	      node_to_asc(&alias->node, TRUE), alias->fullname);
+	      znfp1(&alias->node), alias->fullname);
 	strcpy(name, alias->fullname);
 
 	*node = alias->node;
@@ -746,7 +746,7 @@ char *mail_sender(RFCAddr *rfc, Node *node)
 	alias_extended = TRUE;
 
 	debug(5, "Alias found: %s@%s %s %s", alias->username, alias->userdom,
-	      node_to_asc(&alias->node, TRUE), alias->fullname);
+	      znfp1(&alias->node), alias->fullname);
 	strcpy(name, alias->fullname);
 
 	*node = alias->node;
@@ -1317,16 +1317,15 @@ int snd_message(Message *msg, Area *parea,
 #endif
 	       )
 		fprintf(sf, "\001REPLYTO %s %s\r\n",
-			node_to_asc(&ftn_from, FALSE),
+			znf1(&ftn_from),
 			msg->name_from);
 	    else
 		fprintf(sf, "\001REPLYTO %s %s\r\n",
-		        node_to_asc(cf_addr(), FALSE),
+		        znf1(cf_addr()),
 		        msg->name_from);
 #else
 	    fprintf(sf, "\001REPLYTO %s %s\r\n",
-		    node_to_asc(cf_addr(), FALSE),
-		    msg->name_from);
+		    znf1(cf_addr()), msg->name_from);
 #endif
 	}
 
@@ -1589,11 +1588,11 @@ int print_origin(FILE *fp, char *origin)
        alias_extended
 #endif
        )
-	BUF_COPY(bufa, node_to_asc(&ftn_from, TRUE));
+	BUF_COPY(bufa, znfp1(&ftn_from));
     else
-	BUF_COPY(bufa, node_to_asc(cf_addr(), TRUE));
+	BUF_COPY(bufa, znfp1(cf_addr()));
 #else
-    BUF_COPY(bufa, node_to_asc(cf_addr(), TRUE));
+    BUF_COPY(bufa, znfp1(cf_addr()));
 #endif
 
 #ifdef PASSTHRU_ECHOMAIL
@@ -1701,13 +1700,13 @@ int print_local_msgid(FILE *fp)
 #endif
     )
 	fprintf(fp, "\001MSGID: %s %08ld\r\n",
-		node_to_asc(&ftn_from, FALSE), msgid);
+		znfp1(&ftn_from), msgid);
  else
 	fprintf(fp, "\001MSGID: %s %08ld\r\n",
-		node_to_asc(cf_addr(), FALSE), msgid);
+		znfp1(cf_addr()), msgid);
 #else
 	fprintf(fp, "\001MSGID: %s %08ld\r\n",
-		node_to_asc(cf_addr(), FALSE), msgid);
+		znfp1(cf_addr()), msgid);
 #endif
 
     return ferror(fp);
@@ -1721,7 +1720,7 @@ int print_local_msgid(FILE *fp)
 int print_via(FILE *fp)
 {
     fprintf(fp, "\001Via FIDOGATE/%s %s, %s\r\n",
-	    PROGRAM, node_to_asc(cf_addr(), FALSE),
+	    PROGRAM, znfp1(cf_addr()),
 	    date(DATE_VIA, NULL)  );
 
     return ferror(fp);

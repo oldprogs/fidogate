@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: aliases.c,v 4.7 1999/01/02 16:34:57 mj Exp $
+ * $Id: aliases.c,v 4.8 1999/04/03 12:13:21 mj Exp $
  *
  * Read user name aliases from file. The alias.users format is as follows:
  *	username    Z:N/F.P    Full Name
@@ -100,14 +100,14 @@ static Alias *alias_parse_line(char *buf)
     
 #ifndef AI_2
     debug(15, "aliases: %s %s %s", p->username, 
-	  node_to_asc(&p->node, TRUE), p->fullname);
+	  znfp1(&p->node), p->fullname);
 #else
     if(p->userdom)
 	debug(15, "aliases: %s@%s %s %s", p->username, p->userdom,
-	      node_to_asc(&p->node, TRUE), p->fullname);
+	      znfp1(&p->node), p->fullname);
     else
 	debug(15, "aliases: %s %s %s", p->username, 
-	      node_to_asc(&p->node, TRUE), p->fullname);
+	      znfp1(&p->node), p->fullname);
 #endif
 
     return p;

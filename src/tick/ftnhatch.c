@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: ftnhatch.c,v 4.7 1999/03/06 18:53:31 mj Exp $
+ * $Id: ftnhatch.c,v 4.8 1999/04/03 12:13:24 mj Exp $
  *
  * Hatch file into file area
  *
@@ -36,7 +36,7 @@
 
 
 #define PROGRAM		"ftnhatch"
-#define VERSION		"$Revision: 4.7 $"
+#define VERSION		"$Revision: 4.8 $"
 #define CONFIG		DEFAULT_CONFIG_MAIN
 
 
@@ -118,7 +118,7 @@ int hatch(char *area, char *file, char *desc)
     tic.created = CREATOR;
     tic.size    = file_size;
     tl_appendf(&tic.path, "%s %ld %s",
-	       node_to_asc(cf_addr(), FALSE), now, date(NULL, &now) );
+	       znf1(cf_addr()), now, date(NULL, &now) );
     lon_add(&tic.seenby, cf_addr());
     lon_join(&tic.seenby, &bbs->nodes);
     /* tic.pw set by hatch_one() */
@@ -131,7 +131,7 @@ int hatch(char *area, char *file, char *desc)
     for(p=bbs->nodes.first; p; p=p->next)
     {
 	node = p->node;
-	debug(4, "sending to %s", node_to_asc(&node, TRUE));
+	debug(4, "sending to %s", znfp1(&node));
 	if(tick_send(&tic, &node, file_name) == ERROR)
 	    ret = EXIT_ERROR;
     }

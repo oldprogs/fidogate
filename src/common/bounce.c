@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: bounce.c,v 4.8 1999/03/28 10:04:31 mj Exp $
+ * $Id: bounce.c,v 4.9 1999/04/03 12:13:21 mj Exp $
  *
  * Bounce mails for various reasons, using LIBDIR/bounce.XXX messages
  *
@@ -64,11 +64,11 @@ int print_file_subst(FILE *in, FILE *out, Message *msg, char *rfc_to, Textlist *
 	    switch(c) 
 	    {
 	    case 'F':			/* From node */
-		fputs( node_to_asc(&msg->node_from, TRUE), out);	break;
+		fputs( znfp1(&msg->node_from), out);	break;
 	    case 'T':			/* To node */
-		fputs( node_to_asc(&msg->node_to, TRUE), out);		break;
+		fputs( znfp1(&msg->node_to), out);		break;
 	    case 'O':			/* Orig node */
-		fputs( node_to_asc(&msg->node_orig, TRUE), out);	break;
+		fputs( znfp1(&msg->node_orig), out);	break;
 	    case 'd':			/* Date */
 		fputs( date(NULL, &msg->date), out);			break;
 	    case 't':			/* To name */

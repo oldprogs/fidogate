@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftntick.c,v 4.17 1999/03/06 18:53:31 mj Exp $
+ * $Id: ftntick.c,v 4.18 1999/04/03 12:13:24 mj Exp $
  *
  * Process incoming TIC files
  *
@@ -37,7 +37,7 @@
 
 
 #define PROGRAM		"ftntick"
-#define VERSION		"$Revision: 4.17 $"
+#define VERSION		"$Revision: 4.18 $"
 #define CONFIG		DEFAULT_CONFIG_MAIN
 
 
@@ -112,7 +112,7 @@ int do_tic(int t_flag)
 	tick_debug(&tic, 3);
 
 	log("area %s file %s (%lub) from %s", tic.area, tic.file, tic.size,
-	    node_to_asc(&tic.from, TRUE));
+	    znfp1(&tic.from));
 	
 	/*
 	 * Get password for from node
@@ -130,7 +130,7 @@ int do_tic(int t_flag)
 	if(!t_flag && !passwd)
 	{
 	    log("%s: no password for %s in PASSWD", name,
-		node_to_asc(&tic.from, TRUE)  );
+		znfp1(&tic.from)  );
 	    goto rename_to_bad;
 	}
 	
@@ -144,7 +144,7 @@ int do_tic(int t_flag)
 		if(stricmp(passwd, tic.pw))
 		{
 		    log("%s: wrong password from %s: ours=%s his=%s",
-			name, node_to_asc(&tic.from, TRUE), passwd,
+			name, znfp1(&tic.from), passwd,
 			tic.pw                                      );
 		    goto rename_to_bad;
 		}
@@ -152,7 +152,7 @@ int do_tic(int t_flag)
 	    else
 	    {
 		log("%s: no password from %s: ours=%s", name,
-		    node_to_asc(&tic.from, TRUE), passwd );
+		    znfp1(&tic.from), passwd );
 		goto rename_to_bad;
 	    }
 	}
@@ -218,7 +218,7 @@ int process_tic(Tick *tic)
 	else
 	{
 	    log("unknown area %s from %s",
-		tic->area, node_to_asc(&tic->from, TRUE) );
+		tic->area, znfp1(&tic->from) );
 	    return ERROR;
 	}
     }
@@ -233,7 +233,7 @@ int process_tic(Tick *tic)
 	if(! lon_search(&bbs->nodes, &tic->from) )
 	{
 	    log("insecure tic area %s from %s", tic->area,
-		node_to_asc(&tic->from, TRUE)             );
+		znfp1(&tic->from)             );
 	    return ERROR;
 	}
 	
@@ -316,7 +316,7 @@ int process_tic(Tick *tic)
 	{
 	    if(tick_send(tic, &p->node, new_name) == ERROR)
 		log("ERROR: send area %s file %s to %s failed",
-		    tic->area, tic->file, node_to_asc(&p->node, TRUE));
+		    tic->area, tic->file, znfp1(&p->node));
 	    tmps_freeall();
 	}
     }

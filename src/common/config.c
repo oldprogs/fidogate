@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: config.c,v 4.20 1999/03/19 11:56:37 mj Exp $
+ * $Id: config.c,v 4.21 1999/04/03 12:13:21 mj Exp $
  *
  * Configuration data and functions
  *
@@ -138,8 +138,8 @@ void cf_i_am_a_gateway_prog(void)
 	}
 	for(i=0; i<scf_ig; i++)
 	    debug(8, "config: address Z%-4d: GATE addr=%s uplink=%s",
-		  scf_addr[i].zone, znfp(&scf_addr[i].addr),
-		  znfp(&scf_addr[i].uplink)                             );
+		  scf_addr[i].zone, znfp1(&scf_addr[i].addr),
+		  znfp2(&scf_addr[i].uplink)                             );
 	return;
     }
 
@@ -152,8 +152,8 @@ void cf_i_am_a_gateway_prog(void)
 	scf_ir = scf_ia;
 	for(i=0; i<scf_ia; i++)
 	    debug(8, "config: address Z%-4d: GATE addr=%s uplink=%s",
-		  scf_addr[i].zone, znfp(&scf_addr[i].addr),
-		  znfp(&scf_addr[i].uplink)                             );
+		  scf_addr[i].zone, znfp1(&scf_addr[i].addr),
+		  znfp2(&scf_addr[i].uplink)                             );
 	return;
     }
 }
@@ -204,15 +204,15 @@ void cf_debug(void)
     
     for(i=0; i<scf_naddr; i++)
 	debug(8, "config: address Z%-4d: addr=%s uplink=%s gateaddr=%s",
-	      scf_addr[i].zone, znfp(&scf_addr[i].addr),
-	      znfp(&scf_addr[i].uplink), znfp(&scf_addr[i].gateaddr));
+	      scf_addr[i].zone, znfp1(&scf_addr[i].addr),
+	      znfp2(&scf_addr[i].uplink), znfp3(&scf_addr[i].gateaddr));
 
     for(i=0; i<scf_nzones; i++)
 	debug(8, "config: zone %-4d: %s  %s  %s", scf_zones[i].zone,
 	      scf_zones[i].inet_domain, scf_zones[i].ftn_domain,
 	      scf_zones[i].out                                 );
 
-    debug(8, "config: gateway=%s", node_to_asc(&scf_gateway, TRUE));
+    debug(8, "config: gateway=%s", znfp1(&scf_gateway));
 }
 
 
@@ -279,8 +279,8 @@ void cf_set_zone(int zone)
 	    scf_c_uplink = scf_addr[i].uplink;
 	    debug(9, "Select Z%d AKA: %s  Uplink: %s",
 		  scf_addr[i].zone,
-		  node_to_asc(&scf_addr[i].addr, TRUE),
-		  node_to_asc(&scf_addr[i].uplink, TRUE)          );
+		  znfp1(&scf_addr[i].addr),
+		  znfp2(&scf_addr[i].uplink)          );
 	    return;
 	}
     
@@ -288,8 +288,8 @@ void cf_set_zone(int zone)
     scf_c_addr   = scf_addr[i].addr;
     scf_c_uplink = scf_addr[i].uplink;
     debug(9, "Select default AKA: %s  Uplink: %s",
-	  node_to_asc(&scf_addr[i].addr, TRUE),
-	  node_to_asc(&scf_addr[i].uplink, TRUE)          );
+	  znfp1(&scf_addr[i].addr),
+	  znfp2(&scf_addr[i].uplink)          );
 }
 
 

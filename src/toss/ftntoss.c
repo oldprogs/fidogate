@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftntoss.c,v 4.34 1999/03/28 10:04:35 mj Exp $
+ * $Id: ftntoss.c,v 4.35 1999/04/03 12:13:24 mj Exp $
  *
  * Toss FTN NetMail/EchoMail
  *
@@ -39,7 +39,7 @@
 
 
 #define PROGRAM 	"ftntoss"
-#define VERSION 	"$Revision: 4.34 $"
+#define VERSION 	"$Revision: 4.35 $"
 #define CONFIG		DEFAULT_CONFIG_MAIN
 
 
@@ -465,7 +465,7 @@ int toss_echomail(Message *msg, MsgBody *body,
 	is_saved = FALSE;
 
 	debug(7, "toss_echomail(): message for %s",
-	      node_to_asc(&p->node, TRUE));
+	      znfp1(&p->node));
 	
 	/* Check for msg addressed to zonegate */
 	if(zonegate_first)
@@ -748,13 +748,15 @@ void do_deleteseenby(LON *seenby)
 
     ln = &deleteseenby_first->deleteseenby;
 
-    lon_debug(9, "do_deleteseenby(): List of SEEN-BYs for removing: ", ln, FALSE);
+    lon_debug(9, "do_deleteseenby(): List of SEEN-BYs for removing: ",
+	      ln, FALSE);
 
     for(p=ln->first; p; p=p->next)
     {
         if( lon_search(seenby, &p->node) )
 	{
-	    debug(7, "do_deleteseenby(): Found SEEN-BY for removing: %s", node_to_asc(&p->node, FALSE));
+	    debug(7, "do_deleteseenby(): Found SEEN-BY for removing: %s", 
+		  znf1(&p->node));
 	    lon_remove(seenby, &p->node);
 	}
     }
@@ -778,7 +780,8 @@ void do_deletepath(LON *path)
     {
         if( lon_search(path, &p->node) )
 	{
-	    debug(7, "do_deletepath(): Found PATH for removing: %s", node_to_asc(&p->node, FALSE));
+	    debug(7, "do_deletepath(): Found PATH for removing: %s",
+		  znf1(&p->node));
 	    lon_remove(path, &p->node);
 	}
     }
@@ -808,8 +811,7 @@ int do_echomail(Packet *pkt, Message *msg, MsgBody *body)
     if( (area = areasbbs_lookup(buffer)) == NULL )
     {
 	/* Unknown area */
-	log("unknown area %s from %s", buffer,
-	    node_to_asc(&msg->node_from, TRUE) );
+	log("unknown area %s from %s", buffer, znfp1(&msg->node_from) );
 	msgs_unknown++;
 	if(!kill_unknown)
 	    return do_bad_msg(msg, body);
@@ -851,7 +853,7 @@ int do_echomail(Packet *pkt, Message *msg, MsgBody *body)
 	    if(kill_nomsgid)
 	    {
 		log("no ^AMSGID treated as dupe from %s: %s",
-		    node_to_asc(&msg->node_from, TRUE), area->area);
+		    znfp1(&msg->node_from), area->area);
 		msgs_dupe++;
 		if(!kill_dupe)
 		    return do_bad_msg(msg, body);
@@ -862,7 +864,7 @@ int do_echomail(Packet *pkt, Message *msg, MsgBody *body)
 	    if(msg_parse_origin(body->origin, &msg->node_orig) == ERROR)
 	    {
 		log("invalid * Origin treated as dupe from %s: %s",
-		    node_to_asc(&msg->node_from, TRUE), area->area);
+		    znfp1(&msg->node_from), area->area);
 		msgs_dupe++;
 		if(!kill_dupe)
 		    return do_bad_msg(msg, body);
@@ -876,7 +878,7 @@ int do_echomail(Packet *pkt, Message *msg, MsgBody *body)
 	    crc32_compute(msg->subject  , strlen(msg->subject  ));
 
 	    str_printf(buffer, sizeof(buffer), "%s NOMSGID: %s %s %08lx",
-		       area->area, node_to_asc(&msg->node_orig, TRUE),
+		       area->area, znfp1(&msg->node_orig),
 		       date("%y%m%d %H%M%S", &msg->date), crc32_value() );
 	    msgid = buffer;
 	}
@@ -887,7 +889,7 @@ int do_echomail(Packet *pkt, Message *msg, MsgBody *body)
 	    if(msg->date < exp_sec)
 	    {
 		log("message too old, treated as dupe: %s origin %s date %s",
-		    area->area, node_to_asc(&msg->node_orig, TRUE),
+		    area->area, znfp1(&msg->node_orig),
 		    date(DATE_FTS_0001, &msg->date)                          );
 		msgs_dupe++;
 		if(!kill_dupe)
@@ -900,7 +902,7 @@ int do_echomail(Packet *pkt, Message *msg, MsgBody *body)
 	if(hi_test(msgid))
 	{
 	    /* Dupe! */
-	    log("dupe from %s: %s", node_to_asc(&msg->node_from, TRUE), msgid);
+	    log("dupe from %s: %s", znfp1(&msg->node_from), msgid);
 	    msgs_dupe++;
 	    if(!kill_dupe)
 		return do_bad_msg(msg, body);
@@ -932,8 +934,8 @@ int do_echomail(Packet *pkt, Message *msg, MsgBody *body)
 	{
 	    /* Routed EchoMail */
 	    log("routed echomail area %s from %s to %s", area->area,
-		node_to_asc(&msg->node_from, TRUE),
-		node_to_asc(&msg->node_to, TRUE)                    );
+		znfp1(&msg->node_from),
+		znfp2(&msg->node_to)                    );
 	    msgs_routed++;
 	    if(!kill_routed)
 		return do_bad_msg(msg, body);
@@ -951,7 +953,7 @@ int do_echomail(Packet *pkt, Message *msg, MsgBody *body)
 	{
 	    /* Insecure EchoMail */
 	    log("insecure echomail area %s from %s", area->area,
-		node_to_asc(&msg->node_from, TRUE)              );
+		znfp1(&msg->node_from)              );
 	    msgs_insecure++;
 	    if(!kill_insecure)
 		return do_bad_msg(msg, body);
@@ -1032,8 +1034,8 @@ int do_echomail(Packet *pkt, Message *msg, MsgBody *body)
     {
 	    /* Circular ^APATH EchoMail */
 	    log("circular path echomail area %s from %s to %s",
-		area->area, node_to_asc(&msg->node_from, TRUE),
-		node_to_asc(&msg->node_to, TRUE)                 );
+		area->area, znfp1(&msg->node_from),
+		znfp2(&msg->node_to)                 );
 	    msgs_path++;
 
 	    lon_delete(&seenby);
@@ -1076,8 +1078,8 @@ int do_echomail(Packet *pkt, Message *msg, MsgBody *body)
 void add_via(Textlist *list, Node *gate)
 {
     tl_appendf(list, "\001Via FIDOGATE/%s %s, %s\r\n",
-		     PROGRAM, node_to_asc(gate, FALSE),
-		     DATE_VIA, NULL)  );
+		     PROGRAM, znfp1(gate),
+		     date(DATE_VIA, NULL)  );
 }
 
 
@@ -1114,7 +1116,7 @@ void do_rewrite(Message *msg)
 	    node = msg->node_from;
 	    change_addr(&msg->node_from, &r->to);
 	    log("rewrite: %s -> %s",
-		node_to_asc(&node, TRUE), node_to_asc(&msg->node_from, TRUE) );
+		znfp1(&node), znfp2(&msg->node_from) );
 	    break;
 	}
 
@@ -1125,7 +1127,7 @@ void do_rewrite(Message *msg)
 	    node = msg->node_to;
 	    change_addr(&msg->node_to, &r->to);
 	    log("rewrite: %s -> %s",
-		node_to_asc(&node, TRUE), node_to_asc(&msg->node_to, TRUE) );
+		znfp1(&node), znfp2(&msg->node_to) );
 	    break;
 	}
 }
@@ -1165,12 +1167,12 @@ int do_remap(Message *msg)
 	    {
 		if(r->type == CMD_REMAP_TO)
 		    log("remapto: %s @ %s -> %s", msg->name_to,
-			node_to_asc(&node, TRUE),
-			!kill ? node_to_asc(&msg->node_to, TRUE) : "KILLED");
+			znfp1(&node),
+			!kill ? znfp2(&msg->node_to) : "KILLED");
 		else
 		    log("remapfrom: %s @ %s -> %s", msg->name_from,
-			node_to_asc(&msg->node_from, TRUE),
-			!kill ? node_to_asc(&msg->node_to, TRUE) : "KILLED");
+			znfp1(&msg->node_from),
+			!kill ? znfp2(&msg->node_to) : "KILLED");
 	    }
 	    
 	    break;
@@ -1217,8 +1219,8 @@ int do_netmail(Packet *pkt, Message *msg, MsgBody *body)
 
     if(log_netmail)
 	log("MAIL: %s @ %s -> %s @ %s",
-	    msg->name_from, node_to_asc(&msg->node_from, TRUE),
-	    msg->name_to  , node_to_asc(&msg->node_to  , TRUE) );
+	    msg->name_from, znfp1(&msg->node_from),
+	    msg->name_to  , znfp2(&msg->node_to) );
 
     /*
      * Check for file attach
@@ -1236,7 +1238,7 @@ int do_netmail(Packet *pkt, Message *msg, MsgBody *body)
 	if( is_local_addr(&msg->node_to, FALSE) )
 	{
 	    log("killing empty msg from %s @ %s",
-		msg->name_from, node_to_asc(&msg->node_from, TRUE));
+		msg->name_from, znfp1(&msg->node_from));
 	    msgs_empty++;
 	    
 	    return OK;
@@ -1375,8 +1377,7 @@ int unpack(FILE *pkt_file, Packet *pkt)
 	    msg.node_orig = msg.node_from;
 
 	    debug(5, "NetMail: %s -> %s",
-		  node_to_asc(&msg.node_from, TRUE),
-		  node_to_asc(&msg.node_to  , TRUE) );
+		  znfp1(&msg.node_from), znfp2(&msg.node_to) );
 	    if(do_netmail(pkt, &msg, &body) == ERROR)
 		TMPS_RETURN(ERROR);
 	}
@@ -1388,8 +1389,8 @@ int unpack(FILE *pkt_file, Packet *pkt)
 		msg.node_orig = msg.node_from;
 
 	    debug(5, "EchoMail: %s -> %s",
-		  node_to_asc(&msg.node_from, TRUE),
-		  node_to_asc(&msg.node_to  , TRUE) );
+		  znfp1(&msg.node_from),
+		  znfp1(&msg.node_to) );
 	    if(do_echomail(pkt, &msg, &body) == ERROR)
 		TMPS_RETURN(ERROR);
 	}
@@ -1487,7 +1488,7 @@ int unpack_file(char *pkt_name)
     /* Unpack it */
     pkt_size = check_size(pkt_name);
     log("packet %s (%ldb) from %s to %s", pkt_name, pkt_size,
-	znfp(&pkt.from), znfp(&pkt.to) );
+	znfp1(&pkt.from), znfp2(&pkt.to) );
     pkts_in++;
     pkts_bytes += pkt_size;
     

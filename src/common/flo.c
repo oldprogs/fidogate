@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: flo.c,v 4.5 1999/03/07 17:37:08 mj Exp $
+ * $Id: flo.c,v 4.6 1999/04/03 12:13:21 mj Exp $
  *
  * Functions for handling BinkleyTerm-style FLO files
  *
@@ -305,7 +305,7 @@ int main(int argc, char *argv[])
 
     if(flo_open(&node, TRUE) == ERROR)
     {
-	printf("No FLO file for %s\n", znfp(&node));
+	printf("No FLO file for %s\n", znfp1(&node));
 	exit(0);
     }
 

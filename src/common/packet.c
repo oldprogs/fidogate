@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: packet.c,v 4.11 1999/03/28 10:04:32 mj Exp $
+ * $Id: packet.c,v 4.12 1999/04/03 12:13:22 mj Exp $
  *
  * Functions to read/write packets and messages
  *
@@ -526,9 +526,9 @@ void pkt_debug_msg_hdr(FILE *out, Message *msg, char *txt)
 {
     fprintf(out, "%sFTN message header:\n", txt);
     fprintf(out, "    From: %-36s @ %s\n",
-	    msg->name_from, node_to_asc(&msg->node_from, TRUE));
+	    msg->name_from, znfp1(&msg->node_from));
     fprintf(out, "    To  : %-36s @ %s\n",
-	    msg->name_to  , node_to_asc(&msg->node_to  , TRUE));
+	    msg->name_to  , znfp1(&msg->node_to));
     fprintf(out, "    Subj: %s\n", msg->subject);
     fprintf(out, "    Date: %s\n",
 	    msg->date!=-1 ? date(NULL, &msg->date) : "LOCAL" );
@@ -666,8 +666,7 @@ int pkt_put_msg_hdr(FILE *pkt, Message *msg, int kludge_flag)
 	    
 	    tmpf = msg->node_from; tmpf.point = 0; tmpf.domain[0] = 0;
 	    tmpt = msg->node_to;   tmpt.point = 0; tmpt.domain[0] = 0;
-	    fprintf(pkt, "\001INTL %s %s\r\n",
-		    node_to_asc(&tmpt, FALSE), node_to_asc(&tmpf, FALSE));
+	    fprintf(pkt, "\001INTL %s %s\r\n", znf1(&tmpt), znf2(&tmpf));
 	}
 
 	if(force_fmpt0 || msg->node_from.point)
@@ -869,8 +868,8 @@ int pkt_get_hdr(FILE *fp, Packet *pkt)
 void pkt_debug_hdr(FILE *out, Packet *pkt, char *txt)
 {
     fprintf(out, "%sFTN packet header:\n", txt);
-    fprintf(out, "    From: %s\n", node_to_asc(&pkt->from, TRUE));
-    fprintf(out, "    To  : %s\n", node_to_asc(&pkt->to  , TRUE));
+    fprintf(out, "    From: %s\n", znfp1(&pkt->from));
+    fprintf(out, "    To  : %s\n", znfp2(&pkt->to));
     fprintf(out, "    Date: %s\n", date(NULL, &pkt->time));
     fprintf(out, "    Baud: %d\n", pkt->baud);
     fprintf(out, "    Prod: %02x %02x\n", pkt->product_h, pkt->product_l);

@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: routing.c,v 4.10 1999/01/02 16:35:01 mj Exp $
+ * $Id: routing.c,v 4.11 1999/04/03 12:13:22 mj Exp $
  *
  * Routing config file reading for ftntoss and ftnroute.
  *
@@ -179,7 +179,7 @@ void routing_remap(int cmd)
     remap_last = r;
     
     debug(15, "remap: from=%s to=%s name=%s",
-	  node_to_asc(&r->from, TRUE), node_to_asc(&r->to, TRUE), r->name);
+	  znfp1(&r->from), znfp2(&r->to), r->name);
 }
 
 
@@ -236,8 +236,7 @@ void routing_rewrite(void)
 	rewrite_first      = r;
     rewrite_last = r;
     
-    debug(15, "rewrite: from=%s to=%s",
-	  node_to_asc(&r->from, TRUE), node_to_asc(&r->to, TRUE) );
+    debug(15, "rewrite: from=%s to=%s", znfp1(&r->from), znfp2(&r->to) );
 }
 
 

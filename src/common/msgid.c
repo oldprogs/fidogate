@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: msgid.c,v 4.8 1999/01/02 16:34:59 mj Exp $
+ * $Id: msgid.c,v 4.9 1999/04/03 12:13:22 mj Exp $
  *
  * MSGID <-> Message-ID conversion handling. See also ../doc/msgid.doc
  *
@@ -344,7 +344,7 @@ char *s_msgid_rfc_to_fido(int *origid_flag, char *message_id,
 		node.net   = n->net;
 		node.node  = n->node;
 		node.point = n->point;
-		tmps = tmps_printf("%s %s", node_to_asc(&node, TRUE), hexid);
+		tmps = tmps_printf("%s %s", znfp1(&node), hexid);
 		xfree(savep);
 		if(origid_flag)
 		    *origid_flag = FALSE;

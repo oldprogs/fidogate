@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: areafix.c,v 1.11 1999/03/07 17:37:06 mj Exp $
+ * $Id: areafix.c,v 1.12 1999/04/03 12:13:20 mj Exp $
  *
  * Common Areafix functions
  *
@@ -229,7 +229,7 @@ int areafix_auth_check(Node *node, char *passwd)
     areafix_auth_init();
 
     /* Check password */
-    debug(3, "Node %s, passwd %s", znfp(node), passwd);
+    debug(3, "Node %s, passwd %s", znfp1(node), passwd);
     pwd = passwd_lookup(MY_CONTEXT, node);
     debug(3, "passwd entry: %s", pwd ? pwd->passwd : "-NONE-");
 	
@@ -500,7 +500,7 @@ int areafix_do_cmd(Node *node, char *line, Textlist *out)
 	areafix_printf = areafix_stdprintf;
     }
 
-    debug(2, "node=%s command=%s", znfp(node), line);
+    debug(2, "node=%s command=%s", znfp1(node), line);
 
     if(line[0] == '%')
     {
@@ -588,7 +588,7 @@ int areafix_do_cmd(Node *node, char *line, Textlist *out)
     while(*arg && is_space(*arg))
 	arg++;
 
-    debug(2, "cmd=%d node=%s arg=%s", cmd, znfp(node), arg);
+    debug(2, "cmd=%d node=%s arg=%s", cmd, znfp1(node), arg);
 
     ret = OK;
     switch(cmd)
@@ -716,7 +716,7 @@ int cmd_new(Node *node, char *line)
     areasbbs_add(p);
 
     log("%s: new %s lvl=%d key=%s desc=%s%s%s",
-	node_to_asc(node, TRUE),
+	znfp1(node),
 	p->area,
 	p->lvl,
 	p->key ? p->key : "",
@@ -736,7 +736,7 @@ int cmd_new(Node *node, char *line)
  */
 int cmd_vacation(Node *node, char *area)
 {
-    log("%s: vacation", znfp(node));
+    log("%s: vacation", znfp1(node));
 
     if(!authorized)
     {
@@ -759,7 +759,7 @@ int cmd_listall(Node *node)
     AreasBBS *p;
     LON *l;
     
-    log("%s: listall", znfp(node));
+    log("%s: listall", znfp1(node));
 
     if(!authorized)
     {
@@ -805,7 +805,7 @@ int cmd_list(Node *node)
     char *s;
     int key_ok;
     
-    log("%s: list", znfp(node));
+    log("%s: list", znfp1(node));
 
     if(!authorized)
     {
@@ -814,7 +814,7 @@ int cmd_list(Node *node)
     }
     
     areafix_printf("");
-    areafix_printf("Areas available to %s:", node_to_asc(node, FALSE));
+    areafix_printf("Areas available to %s:", znfp1(node));
     areafix_printf("");
     
     for(p=areasbbs_first(); p; p=p->next)
@@ -867,7 +867,7 @@ int cmd_query(Node *node)
     AreasBBS *p;
     LON *l;
     
-    log("%s: query", znfp(node));
+    log("%s: query", znfp1(node));
 
     if(!authorized)
     {
@@ -876,7 +876,7 @@ int cmd_query(Node *node)
     }
     
     areafix_printf("");
-    areafix_printf("%s is linked to the following areas:", znfp(node));
+    areafix_printf("%s is linked to the following areas:", znfp1(node));
     areafix_printf("");
     
     for(p=areasbbs_first(); p; p=p->next)
@@ -902,7 +902,7 @@ int cmd_unlinked(Node *node)
     AreasBBS *p;
     LON *l;
     
-    log("%s: unlinked", znfp(node));
+    log("%s: unlinked", znfp1(node));
 
     if(!authorized)
     {
@@ -912,7 +912,7 @@ int cmd_unlinked(Node *node)
     
     areafix_printf("");
     areafix_printf("%s is not linked to the following available areas:",
-		   znfp(node));
+		   znfp1(node));
     areafix_printf("");
     
     for(p=areasbbs_first(); p; p=p->next)
@@ -1015,17 +1015,17 @@ int cmd_sub(Node *node, char *area)
 		    if(p->state && strchr(p->state, 'U'))
 		    {
 			/* Not subscribed at uplink, print note */
-			areafix_printf("        (this area is currently not subscribed at uplink %s)", znfp(&l->first->node));
+			areafix_printf("        (this area is currently not subscribed at uplink %s)", znfp1(&l->first->node));
 			log("%s: +%s (not subscribed at uplink)",
-			    znfp(node), p->area);
+			    znfp1(node), p->area);
 		    }
 		    else
-			log("%s: +%s", znfp(node), p->area);
+			log("%s: +%s", znfp1(node), p->area);
 		}
 		else
 		{
 		    areafix_printf("%s: no uplink, dead area", p->area);
-		    log("%s: dead area %s", znfp(node), p->area);
+		    log("%s: dead area %s", znfp1(node), p->area);
 		}
 	    }
 	}
@@ -1076,7 +1076,7 @@ int cmd_unsub(Node *node, char *area)
 		areas_bbs_changed = TRUE;
 		areafix_printf("%-41s: unsubscribed", p->area);
 
-		log("%s: -%s", node_to_asc(node, TRUE), p->area);
+		log("%s: -%s", znfp1(node), p->area);
 	    }
 	}
     }
@@ -1098,7 +1098,7 @@ int cmd_help(Node *node)
     FILE *fp;
     char *helpfile;
 
-    log("%s: help", znfp(node));
+    log("%s: help", znfp1(node));
 
     if( (helpfile = cf_get_string("AreaFixHelp", TRUE)) )
     {
@@ -1133,7 +1133,7 @@ int cmd_passwd(Node *node, char *arg)
     char *p;
     Node n;
     
-    log("%s: passwd", znfp(node));
+    log("%s: passwd", znfp1(node));
 
     authorized = FALSE;
 
@@ -1162,7 +1162,7 @@ int cmd_passwd(Node *node, char *arg)
     areafix_auth_check(node, p);
     if(!authorized)
 	areafix_printf("Command PASSWORD: authorization for %s failed.",
-		       znfp(node));
+		       znfp1(node));
     
     return OK;
 }

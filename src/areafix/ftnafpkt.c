@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftnafpkt.c,v 1.8 1999/03/07 17:37:07 mj Exp $
+ * $Id: ftnafpkt.c,v 1.9 1999/04/03 12:13:20 mj Exp $
  *
  * Areafix processing FTN packets
  *
@@ -37,7 +37,7 @@
 
 
 #define PROGRAM 	"ftnafpkt"
-#define VERSION 	"$Revision: 1.8 $"
+#define VERSION 	"$Revision: 1.9 $"
 #define CONFIG		DEFAULT_CONFIG_MAIN
 
 
@@ -119,7 +119,7 @@ int do_netmail(Message *msg, MsgBody *body)
  */
 int do_echomail(Message *msg, MsgBody *body)
 {
-    log("echomail message from %s not processed", znfp(&msg->node_orig));
+    log("echomail message from %s not processed", znfp1(&msg->node_orig));
     
     return OK;
 }
@@ -192,8 +192,7 @@ int do_packet(FILE *pkt_file, Packet *pkt)
 	    msg.node_orig = msg.node_from;
 
 	    debug(5, "NetMail: %s -> %s",
-		  node_to_asc(&msg.node_from, TRUE),
-		  node_to_asc(&msg.node_to  , TRUE) );
+		  znfp1(&msg.node_from), znfp2(&msg.node_to) );
 	    if(do_netmail(&msg, &body) == ERROR)
 		TMPS_RETURN(ERROR);
 	}
@@ -205,8 +204,7 @@ int do_packet(FILE *pkt_file, Packet *pkt)
 		msg.node_orig = msg.node_from;
 
 	    debug(5, "EchoMail: %s -> %s",
-		  node_to_asc(&msg.node_from, TRUE),
-		  node_to_asc(&msg.node_to  , TRUE) );
+		  znfp1(&msg.node_from), znfp2(&msg.node_to) );
 	    if(do_echomail(&msg, &body) == ERROR)
 		TMPS_RETURN(ERROR);
 	}
@@ -278,7 +276,7 @@ int do_file(char *pkt_name)
     /* Process it */
     pkt_size = check_size(pkt_name);
     log("packet %s (%ldb) from %s to %s", pkt_name, pkt_size,
-	node_to_asc(&pkt.from, TRUE), node_to_asc(&pkt.to, TRUE) );
+	znfp1(&pkt.from), znfp2(&pkt.to) );
     
     if(do_packet(pkt_file, &pkt) == ERROR) 
     {

@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftnroute.c,v 4.22 1999/03/28 10:04:35 mj Exp $
+ * $Id: ftnroute.c,v 4.23 1999/04/03 12:13:24 mj Exp $
  *
  * Route FTN NetMail/EchoMail
  *
@@ -40,7 +40,7 @@
 
 
 #define PROGRAM 	"ftnroute"
-#define VERSION 	"$Revision: 4.22 $"
+#define VERSION 	"$Revision: 4.23 $"
 #define CONFIG		DEFAULT_CONFIG_MAIN
 
 
@@ -88,7 +88,7 @@ int do_routing(char *name, FILE *fp, Packet *pkt)
 	return ERROR;
 
     debug(2, "Source packet: from=%s to=%s grade=%c type=%c flav=%c",
-	  node_to_asc(&desc->from, TRUE), node_to_asc(&desc->to, TRUE),
+	  znfp1(&desc->from), znfp2(&desc->to),
 	  desc->grade, desc->type, desc->flav);
 
     /*
@@ -116,16 +116,16 @@ int do_routing(char *name, FILE *fp, Packet *pkt)
      * Write contents of this packet to output packet
      */
     debug(2, "Target packet: from=%s to=%s grade=%c type=%c flav=%c",
-	  node_to_asc(&desc->from, TRUE), node_to_asc(&desc->to, TRUE), 
+	  znfp1(&desc->from), znfp2(&desc->to), 
 	  desc->grade, desc->type, desc->flav);
 
 
     if(node_eq(&desc->to, &pkt->to))
-	log("packet for %s (%s)", node_to_asc(&pkt->to, TRUE),
+	log("packet for %s (%s)", znfp1(&pkt->to),
 	    flav_to_asc(desc->flav)                              );
     else
-	log("packet for %s via %s (%s)", node_to_asc(&pkt->to, TRUE),
-	    node_to_asc(&desc->to, TRUE), flav_to_asc(desc->flav)     );
+	log("packet for %s via %s (%s)", znfp1(&pkt->to),
+	    znfp2(&desc->to), flav_to_asc(desc->flav)     );
 
     return desc->move_only ? do_move(name, fp, desc)
 	                   : do_packet(name, fp, pkt, desc);
@@ -177,7 +177,7 @@ int do_cmd(PktDesc *desc, Routing *r, Node *match)
     case CMD_SEND:
 	if(desc->flav == FLAV_NORMAL)
 	{
-	    debug(4, "send %c %s", r->flav, node_to_asc(&desc->to, TRUE));
+	    debug(4, "send %c %s", r->flav, znfp1(&desc->to));
 	    desc->flav = r->flav;
 	    desc->move_only = FALSE;
 	    /*
@@ -194,7 +194,7 @@ int do_cmd(PktDesc *desc, Routing *r, Node *match)
 	if(desc->flav == FLAV_NORMAL)
 	{
 	    debug(4, "sendmove %c %s", r->flav,
-		  node_to_asc(&desc->to, TRUE));
+		  znfp1(&desc->to));
 	    desc->flav = r->flav;
 	    desc->move_only = TRUE;
 	    ret = TRUE;
@@ -205,8 +205,8 @@ int do_cmd(PktDesc *desc, Routing *r, Node *match)
 	if(desc->flav == FLAV_NORMAL)
 	{
 	    debug(4, "route %c %s -> %s", r->flav,
-		  node_to_asc(&desc->to, TRUE),
-		  node_to_asc(&r->nodes.first->node, TRUE) );
+		  znfp1(&desc->to),
+		  znfp2(&r->nodes.first->node) );
 	    desc->flav = r->flav;
 	    desc->to = r->nodes.first->node;
 	    desc->move_only = FALSE;
@@ -218,7 +218,7 @@ int do_cmd(PktDesc *desc, Routing *r, Node *match)
 	if(desc->flav == r->flav)
 	{
 	    debug(4, "change %c -> %c %s", r->flav, r->flav_new,
-		  node_to_asc(&desc->to, TRUE)                );
+		  znfp1(&desc->to)                );
 	    desc->flav = r->flav_new;
 	    desc->move_only = FALSE;
 	    ret = TRUE;
@@ -229,7 +229,7 @@ int do_cmd(PktDesc *desc, Routing *r, Node *match)
 	if(desc->flav == FLAV_NORMAL)
 	{
 	    debug(4, "hostroute %c %s", r->flav,
-		  node_to_asc(&desc->to, TRUE) );
+		  znfp1(&desc->to) );
 	    desc->flav = r->flav;
 	    desc->to.node  = 0;
 	    desc->to.point = 0;
@@ -250,7 +250,7 @@ int do_cmd(PktDesc *desc, Routing *r, Node *match)
 	if(desc->flav == r->flav)
 	{
 	    debug(4, "route %c %s -> boss", r->flav,
-		  node_to_asc(&desc->to, TRUE)      );
+		  znfp1(&desc->to)      );
 	    desc->to.point = 0;
 	    desc->move_only = FALSE;
 	    ret = TRUE;
@@ -285,7 +285,7 @@ int do_cmd(PktDesc *desc, Routing *r, Node *match)
 void add_via(Textlist *list, Node *gate)
 {
     tl_appendf(list, "\001Via FIDOGATE/%s %s, %s\r\n",
-		     PROGRAM, node_to_asc(gate, FALSE),
+		     PROGRAM, znfp1(gate),
 		     date(DATE_VIA, NULL)  );
 }
 

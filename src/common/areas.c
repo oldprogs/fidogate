@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: areas.c,v 4.11 1999/01/02 16:34:57 mj Exp $
+ * $Id: areas.c,v 4.12 1999/04/03 12:13:21 mj Exp $
  *
  * Area <-> newsgroups conversion
  *
@@ -242,7 +242,7 @@ static Area *areas_parse_line(char *buf)
 	
     debug(15, "areas: %s %s Z=%d A=%s R=%d S=%ld",
 	  p->area, p->group, p->zone,
-	  p->addr.zone!=-1 ? node_to_asc(&p->addr, TRUE) : "",
+	  p->addr.zone!=-1 ? znfp1(&p->addr) : "",
 	  p->rfc_lvl, p->maxsize                               );
 
     return p;

@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: tick.c,v 4.14 1999/03/28 10:04:33 mj Exp $
+ * $Id: tick.c,v 4.15 1999/04/03 12:13:22 mj Exp $
  *
  * TIC file processing
  *
@@ -108,8 +108,8 @@ int tick_put(Tick *tic, char *name)
 	return ERROR;
     
     fprintf(fp, "Area %s\r\n", tic->area);
-    fprintf(fp, "Origin %s\r\n", node_to_asc(&tic->origin, FALSE));
-    fprintf(fp, "From %s\r\n", node_to_asc(&tic->from, FALSE));
+    fprintf(fp, "Origin %s\r\n", znf1(&tic->origin));
+    fprintf(fp, "From %s\r\n", znf1(&tic->from));
     fprintf(fp, "File %s\r\n", tic->file);
     if(tic->replaces)
 	fprintf(fp, "Replaces %s\r\n", tic->file);
@@ -124,7 +124,7 @@ int tick_put(Tick *tic, char *name)
     for(pl=tic->path.first; pl; pl=pl->next)
 	fprintf(fp, "Path %s\r\n", pl->line);
     for(p=tic->seenby.first; p; p=p->next)
-	fprintf(fp, "Seenby %s\r\n", node_to_asc(&p->node, FALSE));
+	fprintf(fp, "Seenby %s\r\n", znf1(&p->node));
     fprintf(fp, "Pw %s\r\n", tic->pw);
     
     return fclose(fp);
@@ -260,9 +260,9 @@ void tick_debug(Tick *tic, int lvl)
     Textline *pl;
     LNode *p;
     
-    debug(lvl, "Origin 	 : %s", node_to_asc(&tic->origin, TRUE));
-    debug(lvl, "From   	 : %s", node_to_asc(&tic->from, TRUE));
-    debug(lvl, "To     	 : %s", node_to_asc(&tic->to, TRUE));
+    debug(lvl, "Origin 	 : %s", znfp1(&tic->origin));
+    debug(lvl, "From   	 : %s", znfp1(&tic->from));
+    debug(lvl, "To     	 : %s", znfp1(&tic->to));
     debug(lvl, "Area   	 : %s", tic->area);
     debug(lvl, "File   	 : %s", tic->file);
     debug(lvl, "Replaces : %s", tic->replaces ? tic->replaces : "-NONE-");
@@ -276,7 +276,7 @@ void tick_debug(Tick *tic, int lvl)
     for(pl=tic->path.first; pl; pl=pl->next)
 	debug(lvl, "Path     : %s", pl->line);
     for(p=tic->seenby.first; p; p=p->next)
-	debug(lvl, "Seenby   : %s", node_to_asc(&p->node, FALSE));
+	debug(lvl, "Seenby   : %s", znfp1(&p->node));
     debug(lvl, "Pw       : %s", tic->pw);
     debug(lvl, "Release  : %ld", tic->release);
     debug(lvl, "Date     : %ld", tic->date);
@@ -351,7 +351,7 @@ int tick_send(Tick *tic, Node *node, char *name)
 	return ERROR;
 
     log("area %s file %s (%lub) to %s",
-	tic->area, tic->file, tic->size, node_to_asc(node, TRUE));
+	tic->area, tic->file, tic->size, znfp1(node));
 
     return OK;
 }
@@ -367,6 +367,6 @@ void tick_add_path(Tick *tic)
 
     now = time(NULL);
     tl_appendf(&tic->path, "%s %ld %s",
-	       node_to_asc(cf_addr(), FALSE), now, date(DATE_TICK_PATH, &now));
+	       znf1(cf_addr()), now, date(DATE_TICK_PATH, &now));
 
 }

@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: passwd.c,v 4.7 1999/01/02 16:35:01 mj Exp $
+ * $Id: passwd.c,v 4.8 1999/04/03 12:13:22 mj Exp $
  *
  * Read PASSWD file for ffx, ffxqt, ftnaf and other programs
  *
@@ -82,7 +82,7 @@ static Passwd *passwd_parse_line(char *buf)
     p->next    = NULL;
     
     debug(15, "passwd: %s %s %s", p->context,
-	  node_to_asc(&p->node, TRUE), p->passwd);
+	  znfp1(&p->node), p->passwd);
 
     return p;
 }

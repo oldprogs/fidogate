@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftnpack.c,v 4.23 1999/03/07 17:37:13 mj Exp $
+ * $Id: ftnpack.c,v 4.24 1999/04/03 12:13:24 mj Exp $
  *
  * Pack output packets of ftnroute for Binkley outbound (ArcMail)
  *
@@ -40,7 +40,7 @@
 
 
 #define PROGRAM 	"ftnpack"
-#define VERSION 	"$Revision: 4.23 $"
+#define VERSION 	"$Revision: 4.24 $"
 #define CONFIG		DEFAULT_CONFIG_MAIN
 
 
@@ -512,7 +512,7 @@ int do_arcmail(char *name, Node *arcnode, Node *flonode,
 	return ERROR;
     }
     
-    debug(4, "Archiving %s for %s arc", name, node_to_asc(arcnode, TRUE));
+    debug(4, "Archiving %s for %s arc", name, znfp1(arcnode));
     debug(4, "    Packet  name: %s", pktn);
     debug(4, "    Archive name: %s", arcn);
 
@@ -587,7 +587,7 @@ int do_noarc(char *name, Node *flonode,
     if(fp == NULL)
     {
 	log("ERROR: can't open outbound packet for %s",
-	    node_to_asc(&desc->to, TRUE)      );
+	    znfp1(&desc->to)      );
 	fclose(pkt_file);
 	TMPS_RETURN(ERROR);
     }
@@ -636,10 +636,10 @@ int do_noarc(char *name, Node *flonode,
 				      flav_to_asc(desc->flav), FALSE );
 		    if(ret == ERROR)
 			log("ERROR: file attach %s for %s failed",
-			    fa_name, node_to_asc(&desc->to, TRUE));
+			    fa_name, znfp1(&desc->to));
 		    else
 			log("file attach %s (%ldb) for %s",
-			    fa_name, sz, node_to_asc(&desc->to, TRUE));
+			    fa_name, sz, znfp1(&desc->to));
 	    }
 	    /* File attachments from inbound directory */
 	    else if(file_attach_dir[0])
@@ -652,10 +652,10 @@ int do_noarc(char *name, Node *flonode,
 				      flav_to_asc(desc->flav), FALSE );
 		    if(ret == ERROR)
 			log("ERROR: file attach %s for %s failed",
-			    msg.subject, node_to_asc(&desc->to, TRUE));
+			    msg.subject, znfp1(&desc->to));
 		    else
 			log("file attach %s (%ldb) for %s",
-			    msg.subject, sz, node_to_asc(&desc->to, TRUE));
+			    msg.subject, sz, znfp1(&desc->to));
 		}
 		else
 		    log("file attach %s: no such file", msg.subject);
@@ -781,7 +781,7 @@ int do_pack(PktDesc *desc, char *name, FILE *file, Packing *pack)
     if((!ffx_flag || !node_eq(&arcnode, &ffx_node)) &&
        bink_bsy_create(&arcnode, NOWAIT) == ERROR)
     {
-	debug(1, "%s busy, skipping", node_to_asc(&arcnode, TRUE));
+	debug(1, "%s busy, skipping", znfp1(&arcnode));
 	if(file)
 	    fclose(file);
 	return OK;			/* This is o.k. */
@@ -789,7 +789,7 @@ int do_pack(PktDesc *desc, char *name, FILE *file, Packing *pack)
     if(!node_eq(&arcnode, &flonode) &&
        bink_bsy_create(&flonode, NOWAIT) == ERROR)
     {
-	debug(1, "%s busy, skipping", node_to_asc(&flonode, TRUE));
+	debug(1, "%s busy, skipping", znfp1(&flonode));
 	if(file)
 	    fclose(file);
 	bink_bsy_delete(&arcnode);
@@ -805,17 +805,17 @@ int do_pack(PktDesc *desc, char *name, FILE *file, Packing *pack)
 	    if(pack->pack == PACK_ROUTE)
 		log("archiving packet (%ldb) for %s via %s arc (%s)",
 		    check_size(name),
-		    node_to_asc(&desc->to,TRUE), node_to_asc(&arcnode,TRUE),
+		    znfp1(&desc->to), znfp2(&arcnode),
 		    pack->arc->name );
 	    else if(pack->pack == PACK_FLO)
 		log("archiving packet (%ldb) for %s via %s flo (%s)",
 		    check_size(name),
-		    node_to_asc(&desc->to,TRUE), node_to_asc(&flonode,TRUE),
+		    znfp1(&desc->to), znfp2(&flonode),
 		    pack->arc->name );
 	    else
 		log("archiving packet (%ldb) for %s (%s)",
 		    check_size(name),
-		    node_to_asc(&desc->to,TRUE), pack->arc->name );
+		    znfp1(&desc->to), pack->arc->name );
 
 	    ret = do_arcmail(name, &arcnode, &flonode, desc,
 			     file, pack->arc->prog, NULL);
@@ -823,7 +823,7 @@ int do_pack(PktDesc *desc, char *name, FILE *file, Packing *pack)
 	else
 	{
 	    log("packet (%ldb) for %s (noarc)",
-		check_size(name), node_to_asc(&desc->to,TRUE));
+		check_size(name), znfp1(&desc->to));
 	    ret = do_noarc(name, &desc->to, desc, file, NULL);
 	}
     }
@@ -832,7 +832,7 @@ int do_pack(PktDesc *desc, char *name, FILE *file, Packing *pack)
 	if(file)
 	    fclose(file);
 	log("packet (%ldb) for %s (%s)",
-	    check_size(name), node_to_asc(&desc->to,TRUE), pack->arc->name);
+	    check_size(name), znfp1(&desc->to), pack->arc->name);
 	ret = do_prog(name, desc, pack);
     }
     
@@ -867,7 +867,7 @@ int do_dirpack(PktDesc *desc, char *name, FILE *file, Packing *pack)
     if(!ffx_flag)
 	if(bink_bsy_create(&arcnode, NOWAIT) == ERROR)
 	{
-	    debug(1, "%s busy, skipping", node_to_asc(&arcnode, TRUE));
+	    debug(1, "%s busy, skipping", znfp1(&arcnode));
 	    if(file)
 		fclose(file);
 	    return OK;			/* This is o.k. */
@@ -879,7 +879,7 @@ int do_dirpack(PktDesc *desc, char *name, FILE *file, Packing *pack)
 	if(pack->arc->prog)
 	{
 	    log("archiving packet (%ldb) for %s (%s) in %s",
-		check_size(name), znfp(&desc->to), pack->arc->name, pack->dir);
+		check_size(name), znfp1(&desc->to), pack->arc->name, pack->dir);
 
 	    ret = do_arcmail(name, &arcnode, &flonode, desc,
 			     file, pack->arc->prog, pack->dir);
@@ -890,7 +890,7 @@ int do_dirpack(PktDesc *desc, char *name, FILE *file, Packing *pack)
     if(pack->pack==PACK_MOVE)
     {
 	log("moving packet (%ldb) for %s to %s",
-	    check_size(name), znfp(&desc->to), pack->dir);
+	    check_size(name), znfp1(&desc->to), pack->dir);
 
 	pktn = packing_pkt_name(pack->dir, name);
 	ret = do_noarc(name, &flonode, desc, file, pktn);
@@ -936,7 +936,7 @@ int do_packing(char *name, FILE *fp, Packet *pkt)
     }
     
     debug(2, "Packet: from=%s to=%s grade=%c type=%c flav=%c",
-	  node_to_asc(&desc->from, TRUE), node_to_asc(&desc->to, TRUE),
+	  znfp1(&desc->from), znfp2(&desc->to),
 	  desc->grade, desc->type, desc->flav);
 
     /*

@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: binkley.c,v 4.8 1999/03/07 17:37:08 mj Exp $
+ * $Id: binkley.c,v 4.9 1999/04/03 12:13:21 mj Exp $
  *
  * BinkleyTerm-style outbound directory functions
  *
@@ -140,7 +140,7 @@ char *bink_bsy_name(Node *node)
 
     BUF_COPY(buf, out);
     BUF_APPEND(buf, "bsy");
-    debug(6, "node=%s bsy file=%s", node_to_asc(node, TRUE), buf);
+    debug(6, "node=%s bsy file=%s", znfp1(node), buf);
     return buf;
 }
 

@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: parsenode.c,v 4.8 1999/03/07 17:37:10 mj Exp $
+ * $Id: parsenode.c,v 4.9 1999/04/03 12:13:22 mj Exp $
  *
  * Parse FTN address strings (Z:N/F.P)
  *
@@ -187,7 +187,7 @@ int znfp_parse_diff(char *asc, Node *node, Node *oldnode)
 
 
 /*
- * Convert field value
+ * Output node in Fido Z:N/F.P format
  */
 char *znfp_put_number(int val, int wildcards)
 {
@@ -202,18 +202,23 @@ char *znfp_put_number(int val, int wildcards)
 }
 
 	
+#define LEN_ZNFP 48
 
-/*
- * Output Node struct
- */
-#define TMPS_LEN_ZNFP 256
 
 char *s_znfp_print(Node *node, int point0, int wildcards)
 {
     TmpS *s;
 
-    s = tmps_alloc(TMPS_LEN_ZNFP);
-    
+    s = tmps_alloc(LEN_ZNFP);
+    str_znfp_print(s->s, s->len, node, point0, wildcards);
+    tmps_stripsize(s);
+    return s->s;
+}
+
+
+char *str_znfp_print(char *s, size_t len, 
+		     Node *node, int point0, int wildcards)
+{
     /* Always display point address if wildcards==TRUE */
     if(wildcards)
 	point0 = TRUE;
@@ -222,10 +227,8 @@ char *s_znfp_print(Node *node, int point0, int wildcards)
     if(node->zone==INVALID && node->net==INVALID &&
        node->node==INVALID && node->point==INVALID  )
     {
-	str_copy(s->s, s->len, "INVALID");
-
-	tmps_stripsize(s);
-	return s->s;
+	str_copy(s, len, "INVALID");
+	return s;
     }
 
     /* Global wildcard */
@@ -233,61 +236,95 @@ char *s_znfp_print(Node *node, int point0, int wildcards)
        node->zone==WILDCARD && node->net==WILDCARD &&
        node->node==WILDCARD && node->point==WILDCARD  )
     {
-	str_copy(s->s, s->len, "*");
-
-	tmps_stripsize(s);
-	return s->s;
+	str_copy(s, len, "*");
+	return s;
     }
 
     
     /* Zone */
     if(node->zone != EMPTY)
     {
-	str_append(s->s, s->len, znfp_put_number(node->zone, wildcards));
-	str_append(s->s, s->len, ":");
+	str_append(s, len, znfp_put_number(node->zone, wildcards));
+	str_append(s, len, ":");
     }
     /* Net */
     if(node->net != EMPTY)
     {
-	str_append(s->s, s->len, znfp_put_number(node->net, wildcards));
+	str_append(s, len, znfp_put_number(node->net, wildcards));
 	if(node->node != EMPTY)
-	    str_append(s->s, s->len, "/");
+	    str_append(s, len, "/");
     }
     /* Node */
     if(node->node != EMPTY)
     {
-	str_append(s->s, s->len, znfp_put_number(node->node, wildcards));
+	str_append(s, len, znfp_put_number(node->node, wildcards));
     }
     /* Point */
     if(! (node->point==EMPTY || (node->point==0 && !point0)) )
     {
-	str_append(s->s, s->len, ".");
-	str_append(s->s, s->len, znfp_put_number(node->point, wildcards));
+	str_append(s, len, ".");
+	str_append(s, len, znfp_put_number(node->point, wildcards));
     }
 
     /* Domain */
     if(node->domain[0])
     {
-	str_append(s->s, s->len, "@");
-	str_append(s->s, s->len, node->domain);
+	str_append(s, len, "@");
+	str_append(s, len, node->domain);
     }
 
-    tmps_stripsize(s);
-    return s->s;
+    return s;
 }
 
 
-
-/*
- * Standard output function for Node
- */
-char *znfp(Node *node)
+char *s_znfp(Node *node)
 {
     return s_znfp_print(node, TRUE, TRUE);
 }
 
 
+char *znfp1(Node *node)
+{
+    static char buf[LEN_ZNFP];
 
+    return str_znfp_print(buf, sizeof(buf), node, TRUE, TRUE);
+}
+
+
+char *znfp2(Node *node)
+{
+    static char buf[LEN_ZNFP];
+
+    return str_znfp_print(buf, sizeof(buf), node, TRUE, TRUE);
+}
+
+
+char *znfp3(Node *node)
+{
+    static char buf[LEN_ZNFP];
+
+    return str_znfp_print(buf, sizeof(buf), node, TRUE, TRUE);
+}
+
+
+char *znf1(Node *node)
+{
+    static char buf[LEN_ZNFP];
+
+    return str_znfp_print(buf, sizeof(buf), node, FALSE, FALSE);
+}
+
+
+char *znf2(Node *node)
+{
+    static char buf[LEN_ZNFP];
+
+    return str_znfp_print(buf, sizeof(buf), node, FALSE, FALSE);
+}
+
+
+
+/***** TEST ******************************************************************/
 
 #ifdef TEST
 /*
@@ -315,7 +352,7 @@ int main(int argc, char *argv[])
 	}
 	printf("testparse 1: val=%d:%d/%d.%d\n",
 	       n.zone, n.net, n.node, n.point   );
-	printf("             str=%s\n", znfp(&n));
+	printf("             str=%s\n", znfp1(&n));
 	exit(0);
     }
     
@@ -334,7 +371,7 @@ int main(int argc, char *argv[])
 	}
 	printf("testparse 2: val1=%d:%d/%d.%d val2=%d:%d/%d.%d\n",
 	       o.zone, o.net, o.node, o.point, n.zone, n.net, n.node, n.point);
-	printf("             str1=%s str2=%s\n", znfp(&o), znfp(&n));
+	printf("             str1=%s str2=%s\n", znfp1(&o), znfp2(&n));
 	exit(0);
     }
 

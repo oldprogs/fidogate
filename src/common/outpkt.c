@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: outpkt.c,v 4.7 1999/03/28 10:04:32 mj Exp $
+ * $Id: outpkt.c,v 4.8 1999/04/03 12:13:22 mj Exp $
  *
  * Output packet handling for ftntoss and ftroute.
  *
@@ -269,8 +269,9 @@ FILE *outpkt_open(Node *from, Node *to,
 	return NULL;
     }
     
-    debug(2, "New packet %s (%s): %s -> %s", p->outname, p->tmpname,
-	  node_to_asc(&p->from, TRUE), node_to_asc(&p->to, TRUE)      );
+    debug(2, "New packet %s (%s): %s -> %s",
+	  p->outname, p->tmpname,
+	  znfp1(&p->from), znfp2(&p->to)    );
     
     pkt.from = p->from;
     pkt.to   = p->to;
@@ -371,13 +372,13 @@ int outpkt_netmail(Message *msg, Textlist *tl, char *program)
     pkt_put_msg_hdr(fp, msg, TRUE);
     /* Additional kludges */
     fprintf(fp, "\001MSGID: %s %08ld\r\n",
-	    znfp(&msg->node_from), sequencer(DEFAULT_SEQ_MSGID));
+	    znfp1(&msg->node_from), sequencer(DEFAULT_SEQ_MSGID));
     /* Write message body */
     tl_print_x(tl, fp, "\r\n");
     /* Additional kludges */
     fprintf(fp, "\r\n--- FIDOGATE %s\r\n", version_global());
     fprintf(fp, "\001Via FIDOGATE/%s %s, %s\r\n",
-	    program, znfp(&msg->node_from),
+	    program, znfp1(&msg->node_from),
 	    date(DATE_VIA, NULL)  );
 
     /* Terminating 0-byte */
