@@ -1,6 +1,6 @@
 #:ts=8
 #
-#    $Id: Makefile,v 4.8 1998/11/08 18:28:00 mj Exp $
+#    $Id: Makefile,v 4.9 1999/01/10 16:56:04 mj Exp $
 #
 #    Makefile for FIDOGATE src/gate/
 #
@@ -42,7 +42,7 @@ install:
 
 
 clean veryclean:
-	rm -f $(PROGS)
+	rm -f $(PROGS) $(SCRIPTS)
 	rm -f *~ *.bak *.o tags TAGS core paths.tmp
 
 check:

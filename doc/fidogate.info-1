@@ -1,4 +1,4 @@
-This is Info file fidogate.info, produced by Makeinfo version 1.67 from
+This is Info file fidogate.info, produced by Makeinfo version 1.68 from
 the input file fidogate.texi.
 
    This file documents the usage of FIDOGATE version 4
@@ -397,7 +397,9 @@ Message ID configuration:
 Files and directories used by FIDOGATE:
 
 `DEFAULT_CONFIG_GATE'
+
 `DEFAULT_CONFIG_MAIN'
+
 `DEFAULT_CONFIG_FFX'
      Names of FIDOGATE config files.
 
@@ -423,10 +425,15 @@ Files and directories used by FIDOGATE:
      Default database of `^AMSGID's for dupe checking.
 
 `HOSTS'
+
 `ALIASES'
+
 `AREAS'
+
 `PASSWD'
+
 `PACKING'
+
 `ROUTING'
      Definitions from config file.
 
@@ -494,8 +501,11 @@ Files and directories used by FIDOGATE:
      Directory where lock files are created, relativ to `SPOOLDIR'.
 
 `TOSS_IN'
+
 `TOSS_TMP'
+
 `TOSS_OUT'
+
 `TOSS_PACK'
      Tosser input, temporary, output, and arcmail packet directory,
      relative to `SPOOLDIR'. Used by `ftntoss', `ftnroute', `ftnpack'.
@@ -1166,18 +1176,25 @@ Commands:
      List unsubscribed areas.
 
 `passwd Z:N/F.P PASSWORD'
+
 `password Z:N/F.P PASSWORD'
+
 `pass Z:N/F.P PASSWORD'
      Set address and password.
 
 `add AREA'
+
 `+AREA'
+
 `AREA'
      Subscribe to AREA.
 
 `remove AREA'
+
 `delete AREA'
+
 `del AREA'
+
 `-AREA'
      Unsubscribe from AREA.
 

@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: log.c,v 4.13 1999/01/02 16:34:58 mj Exp $
+ * $Id: log.c,v 4.14 1999/01/10 16:56:03 mj Exp $
  *
  * Log and debug functions
  *
@@ -94,7 +94,8 @@ void log(const char *fmt, ...)
     va_list args;
     FILE *fp;
     char buf[32];
-    
+    int save_errno;
+
     va_start(args, fmt);
 
     /* Set logfile name if called 1st time */
@@ -111,7 +112,7 @@ void log(const char *fmt, ...)
 	}
 	vsyslog(LOG_NOTICE, *fmt == '$' ? fmt + 1 : fmt, args);
 	if (*fmt == '$')
-	    syslog(LOG_NOTICE, "  (errno=%d: %m)", errno);
+	    syslog(LOG_NOTICE, "(errno=%d: %m)", errno);
 	
     }
     else {
@@ -121,15 +122,17 @@ void log(const char *fmt, ...)
 	    fp = logfile;
 	else
 	{
+	    save_errno = errno;
 	    /* Open logname[] or default */
 	    if((fp = fopen(logname, A_MODE)) == NULL)
 	    {
 		fprintf(stderr,
-			"%s WARNING: can't open log file %s  (errno=%d: %s)\n",
+			"%s WARNING: can't open log file %s (errno=%d: %s)\n",
 			logprog, logname, errno, strerror(errno)             );
 		if(!verbose)
 		    verbose = -1;
 	    }
+	    errno = save_errno;
 	}
 	if(fp)
 	{
@@ -137,7 +140,7 @@ void log(const char *fmt, ...)
 		    date_buf(buf, "%b %d %H:%M:%S", (long *)0), logprog);
 	    vfprintf(fp, *fmt == '$' ? fmt + 1 : fmt, args);
 	    if (*fmt == '$')
-		fprintf(fp, "  (errno=%d: %s)", errno, strerror(errno));
+		fprintf(fp, " (errno=%d: %s)", errno, strerror(errno));
 	    fprintf(fp, "\n");
 	    if(logfile == NULL)
 		fclose(fp);
@@ -152,7 +155,7 @@ void log(const char *fmt, ...)
 	    fprintf(debugfile, "%s ", logprog);
 	    vfprintf(debugfile, *fmt == '$' ? fmt + 1 : fmt, args);
 	    if (*fmt == '$')
-		fprintf(debugfile, "  (errno=%d: %s)", errno, strerror(errno));
+		fprintf(debugfile, " (errno=%d: %s)", errno, strerror(errno));
 	    fprintf(debugfile, "\n");
 	    fflush(debugfile);
 	}

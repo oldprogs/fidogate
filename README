@@ -1,6 +1,6 @@
 -*- Indented-Text -*-
 
-$Id: README,v 4.27 1998/04/11 16:30:59 mj Exp $
+$Id: README,v 4.28 1999/01/10 16:55:54 mj Exp $
 
 ======================================================================
 				   
@@ -15,6 +15,21 @@ $Id: README,v 4.27 1998/04/11 16:30:59 mj Exp $
 		        * Fido File Processor
 		        * Fido Areafix/Filefix
 		     ============================
+
+
+WARNING!!! If you're migrating from FIDOGATE 4.2.9 to 4.3.x, please
+note the following *MAJOR* changes:
+
+     4.3a1..a5	New directory hierarchy, new config files
+		/etc/fidogate/*.conf (see doc/dirs.html)
+
+     4.3.0+	In addition, FIDOGATE now uses a single config file
+		/etc/fidogate/fidogate.conf for *all* programs.
+
+Please subscribe to the FIDOGATE mailing list, if you want to use
+4.3.x! (see below)
+
+
 
 ======================================================================
 
@@ -463,6 +478,6 @@ not integrate your patches.
 
 ======================================================================
 
-$Date: 1998/04/11 16:30:59 $
+$Date: 1999/01/10 16:55:54 $
 Martin Junius
 mailto:mj@fido.de

@@ -1,4 +1,4 @@
-#!/usr/local/bin/perl -i
+#!/usr/bin/perl -i
 #
 # post-html.pl --- post processor for sgml2html
 #

@@ -1,10 +1,11 @@
 <HTML>
 <HEAD>
-<!-- This HTML file has been created by texi2html 1.51
-     from ../fidogate.texi on 18 January 1998 -->
+<!-- This HTML file has been created by texi2html 1.54
+     from ../fidogate.texi on 10 January 1999 -->
 
 <TITLE>FIDOGATE
  - Table of Contents</TITLE>
+
 </HEAD>
 <BODY>
 <H1>FIDOGATE</H1>
@@ -17,93 +18,103 @@
 <ADDRESS>by Martin Junius</ADDRESS>
 <P>
 <P><HR><P>
+<P>
+<A NAME="IDX1"></A>
+
+</P>
+<P>
+This manual documents how to install and use FIDOGATE. It is the first
+step toward a concise documentation. Alas, writing documentation is a
+somewhat tedious business, so this manual is far from complete.
+
+</P>
+
 <UL>
-<LI><A NAME="TOC1" HREF="fidogate_1.html#SEC1">Introduction to FIDOGATE</A>
-<UL>
-<LI><A NAME="TOC2" HREF="fidogate_1.html#SEC2">How to Get FIDOGATE</A>
-<LI><A NAME="TOC3" HREF="fidogate_1.html#SEC3">Requirements for FIDOGATE:</A>
-<LI><A NAME="TOC4" HREF="fidogate_1.html#SEC4">FIDOGATE Mailing List</A>
-<LI><A NAME="TOC5" HREF="fidogate_1.html#SEC5">Credits</A>
+<LI><A HREF="fidogate_1.html#SEC1">Introduction</A>: Introduction to FIDOGATE
+<LI><A HREF="fidogate_2.html#SEC6">Installation</A>: Compiling and installing FIDOGATE
+<LI><A HREF="fidogate_3.html#SEC16">Programs</A>: FIDOGATE programs and scripts
+<LI><A HREF="fidogate_4.html#SEC50">Config files</A>: FIDOGATE config files
+<LI><A HREF="fidogate_5.html#SEC60">Basic</A>: Basic configuration
+<LI><A HREF="fidogate_6.html#SEC65">Usage</A>: FIDOGATE usage
+
+<LI><A HREF="fidogate_7.html#SEC68">Index</A>: Index
+
+ -- The Detailed Node Listing ---
+
+Compiling and installing FIDOGATE
+
+<LI><A HREF="fidogate_2.html#SEC7">Point</A>: Installing a FIDOGATE point system
+<LI><A HREF="fidogate_2.html#SEC8">config.h</A>: The @code{config.h} header file
+<LI><A HREF="fidogate_2.html#SEC9">config.make</A>: The @code{config.make} Makefile configuration
+<LI><A HREF="fidogate_2.html#SEC10">Compiling</A>: Compiling and installing FIDOGATE
+<LI><A HREF="fidogate_2.html#SEC11">Integration</A>: Integrating FIDOGATE and the mail/news system
+<LI><A HREF="fidogate_2.html#SEC12">Testing</A>: Testing FIDOGATE operation
+<LI><A HREF="fidogate_2.html#SEC15">Connecting</A>: Connecting to FIDONET
+
+FIDOGATE Programs
+
+<LI><A HREF="fidogate_3.html#SEC17">ffx</A>: Remote execution via FIDO mailer
+<LI><A HREF="fidogate_3.html#SEC18">ffxbatch</A>: Remove execution via FIDO mailer - batched
+<LI><A HREF="fidogate_3.html#SEC19">ffxmail</A>: @code{ffx} frontend for sending mail
+<LI><A HREF="fidogate_3.html#SEC20">ffxqt</A>: Execute @code{ffx} requests
+<LI><A HREF="fidogate_3.html#SEC21">ffxrmail</A>: @code{rmail} command for @code{ffxqt}
+<LI><A HREF="fidogate_3.html#SEC22">ffxrun</A>: Script for running @code{ffxqt}
+<LI><A HREF="fidogate_3.html#SEC23">ftn2ftn</A>: FTN-FTN NetMail gateway
+<LI><A HREF="fidogate_3.html#SEC24">ftn2rfc</A>: FTN-Internet mail/news gateway
+<LI><A HREF="fidogate_3.html#SEC25">ftnaf</A>: Areafix
+<LI><A HREF="fidogate_3.html#SEC26">ftnafmail</A>: Areafix mail frontend
+<LI><A HREF="fidogate_3.html#SEC27">ftnbounce</A>: Bounce mail to unknown FTN address
+<LI><A HREF="fidogate_3.html#SEC28">ftnbsy</A>: Create/delete Binkley busy files
+<LI><A HREF="fidogate_3.html#SEC29">ftnconfig</A>: Retrieve information from FIDOGATE config files
+<LI><A HREF="fidogate_3.html#SEC30">ftnhatch</A>: Hatch new file into file
+<LI><A HREF="fidogate_3.html#SEC31">ftnin</A>: Frontend for @code{ftn2rfc}
+<LI><A HREF="fidogate_3.html#SEC32">ftninpost</A>: Mail/news processing script
+<LI><A HREF="fidogate_3.html#SEC33">ftninrecomb</A>: Mail/news recombining script
+<LI><A HREF="fidogate_3.html#SEC34">ftnlock</A>: Create/delete lock files
+<LI><A HREF="fidogate_3.html#SEC35">ftnlog</A>: Write message to log file
+<LI><A HREF="fidogate_3.html#SEC36">ftnpack</A>: Pack (ArcMail) FTN mail packets
+<LI><A HREF="fidogate_3.html#SEC37">ftnroute</A>: Route FTN mail packets
+<LI><A HREF="fidogate_3.html#SEC38">ftnseq</A>: Access sequencer file
+<LI><A HREF="fidogate_3.html#SEC39">ftntick</A>: Process incoming file echos
+<LI><A HREF="fidogate_3.html#SEC40">ftntoss</A>: Toss/remap/rewrite FTN mail packets
+<LI><A HREF="fidogate_3.html#SEC41">ftnfattach</A>: Binkley outbound file attach utility
+<LI><A HREF="fidogate_3.html#SEC42">pktdebug</A>: FTN mail packet debugger
+<LI><A HREF="fidogate_3.html#SEC43">rfc2ftn</A>: Internet-FTN gateway
+<LI><A HREF="fidogate_3.html#SEC44">rundf</A>: Script for checking free disk space
+<LI><A HREF="fidogate_3.html#SEC45">runin</A>: Script for processing inbound packets
+<LI><A HREF="fidogate_3.html#SEC46">runout</A>: Script for processing gateway output packets
+<LI><A HREF="fidogate_3.html#SEC47">runtoss</A>: Script for running tosser
+<LI><A HREF="fidogate_3.html#SEC48">rununpack</A>: Script for unpacking arcmail archives
+<LI><A HREF="fidogate_3.html#SEC49">sumcrc</A>: CRC checksum utility
+
+FIDOGATE Config Files
+
+<LI><A HREF="fidogate_4.html#SEC51">Config</A>: @code{config.*} configuration files
+<LI><A HREF="fidogate_4.html#SEC52">Hosts</A>: @code{hosts} FTN address to host name conversion
+<LI><A HREF="fidogate_4.html#SEC53">Aliases</A>: @code{aliases} user aliases
+<LI><A HREF="fidogate_4.html#SEC54">Areas</A>: @code{areas} FTN area to newsgroup conversion
+<LI><A HREF="fidogate_4.html#SEC55">Bounce</A>: Bounce messages of @code{ftn2rfc}
+<LI><A HREF="fidogate_4.html#SEC56">Passwd</A>: @code{passwd} password config file
+<LI><A HREF="fidogate_4.html#SEC57">Routing</A>: @code{routing} file for @code{ftntoss} and @code{ftnroute}
+<LI><A HREF="fidogate_4.html#SEC58">Packing</A>: @code{packing} file for @code{ftnpack}
+<LI><A HREF="fidogate_4.html#SEC59">Areas.bbs</A>: @code{areas.bbs} EchoMail distribution
+
+Basic Configuration
+
+<LI><A HREF="fidogate_5.html#SEC61">Sendmail</A>: Sendmail configuration
+<LI><A HREF="fidogate_5.html#SEC62">Example Point</A>: Example point configuration
+<LI><A HREF="fidogate_5.html#SEC63">Example Point 2</A>: Example configuration with 2 point addresses
+<LI><A HREF="fidogate_5.html#SEC64">Example Node</A>: Example leaf node configuration
+
+FIDOGATE Usage
+
+<LI><A HREF="fidogate_6.html#SEC66">RFC Headers</A>: RFC Headers in FTN Messages
+<LI><A HREF="fidogate_6.html#SEC67">X Headers</A>: X Headers in RFC Messages
 </UL>
-<LI><A NAME="TOC6" HREF="fidogate_2.html#SEC6">Compiling and installing FIDOGATE</A>
-<UL>
-<LI><A NAME="TOC7" HREF="fidogate_2.html#SEC7">Installing a FIDGATE Point System</A>
-<LI><A NAME="TOC8" HREF="fidogate_2.html#SEC8">The <CODE>config.h</CODE> Header File</A>
-<LI><A NAME="TOC9" HREF="fidogate_2.html#SEC9">The <CODE>config.make</CODE> Makefile Configuration</A>
-<LI><A NAME="TOC10" HREF="fidogate_2.html#SEC10">Compiling and Installing FIDOGATE</A>
-<LI><A NAME="TOC11" HREF="fidogate_2.html#SEC11">Integrating FIDOGATE and the Mail/News System</A>
-<LI><A NAME="TOC12" HREF="fidogate_2.html#SEC12">Testing FIDOGATE Operation</A>
-<UL>
-<LI><A NAME="TOC13" HREF="fidogate_2.html#SEC13"><CODE>ftn2rfc</CODE></A>
-<LI><A NAME="TOC14" HREF="fidogate_2.html#SEC14"><CODE>rfc2ftn</CODE></A>
-</UL>
-<LI><A NAME="TOC15" HREF="fidogate_2.html#SEC15">Connecting to FIDONET</A>
-</UL>
-<LI><A NAME="TOC16" HREF="fidogate_3.html#SEC16">FIDOGATE Programs</A>
-<UL>
-<LI><A NAME="TOC17" HREF="fidogate_3.html#SEC17">ffx -- Remote Execution via FIDO Mailer</A>
-<LI><A NAME="TOC18" HREF="fidogate_3.html#SEC18">ffxbatch -- Batches Remote Executon via FIDO Mailer</A>
-<LI><A NAME="TOC19" HREF="fidogate_3.html#SEC19">ffxmail -- ffx Frontend for Sending Mail</A>
-<LI><A NAME="TOC20" HREF="fidogate_3.html#SEC20">ffxqt -- Execute ffx Requests</A>
-<LI><A NAME="TOC21" HREF="fidogate_3.html#SEC21">ffxrmail -- Script for Processing FFX <CODE>rmail</CODE> Commands</A>
-<LI><A NAME="TOC22" HREF="fidogate_3.html#SEC22">ffxrun -- Script for Running ffxqt</A>
-<LI><A NAME="TOC23" HREF="fidogate_3.html#SEC23">ftn2ftn -- FTN-FTN NetMail Gateway</A>
-<LI><A NAME="TOC24" HREF="fidogate_3.html#SEC24">ftn2rfc -- FTN-Internet Gateway</A>
-<LI><A NAME="TOC25" HREF="fidogate_3.html#SEC25">ftnaf -- Areafix</A>
-<LI><A NAME="TOC26" HREF="fidogate_3.html#SEC26">ftnafmail -- Areafix Mail Frontend</A>
-<LI><A NAME="TOC27" HREF="fidogate_3.html#SEC27">ftnbounce -- Bounce Mail to Unknown Addresses</A>
-<LI><A NAME="TOC28" HREF="fidogate_3.html#SEC28">ftnbsy -- Create/delete Binkley Busy Filess</A>
-<LI><A NAME="TOC29" HREF="fidogate_3.html#SEC29">ftnconfig -- Retrieve information from FIDOGATE config files</A>
-<LI><A NAME="TOC30" HREF="fidogate_3.html#SEC30">ftnhatch -- Hatch new file into file echo</A>
-<LI><A NAME="TOC31" HREF="fidogate_3.html#SEC31">ftnin -- Frontend for <CODE>ftn2rfc</CODE></A>
-<LI><A NAME="TOC32" HREF="fidogate_3.html#SEC32">ftninpost -- Mail/News Processing Script</A>
-<LI><A NAME="TOC33" HREF="fidogate_3.html#SEC33">ftninrecomb -- Mail/News Recombining Script</A>
-<LI><A NAME="TOC34" HREF="fidogate_3.html#SEC34">ftnlock -- Create/Remove Lock Files</A>
-<LI><A NAME="TOC35" HREF="fidogate_3.html#SEC35">ftnlog -- Write Message to Log File</A>
-<LI><A NAME="TOC36" HREF="fidogate_3.html#SEC36">ftnpack -- Pack FTN ArcMail Packets</A>
-<LI><A NAME="TOC37" HREF="fidogate_3.html#SEC37">ftnroute -- Route FTN Mail Packets</A>
-<LI><A NAME="TOC38" HREF="fidogate_3.html#SEC38">ftnseq -- Command Line Interface to Sequencer Files</A>
-<LI><A NAME="TOC39" HREF="fidogate_3.html#SEC39">ftntick -- Process incoming file echos</A>
-<LI><A NAME="TOC40" HREF="fidogate_3.html#SEC40">ftntoss -- Toss FTN Mail Packets</A>
-<LI><A NAME="TOC41" HREF="fidogate_3.html#SEC41">ftnfattach -- Outbound file attaches</A>
-<LI><A NAME="TOC42" HREF="fidogate_3.html#SEC42">pktdebug -- FTN mail packet debugger</A>
-<LI><A NAME="TOC43" HREF="fidogate_3.html#SEC43">rfc2ftn -- Internet-FTN Gateway</A>
-<LI><A NAME="TOC44" HREF="fidogate_3.html#SEC44">rundf -- Script for Checking Free Disk Space</A>
-<LI><A NAME="TOC45" HREF="fidogate_3.html#SEC45">runin -- Script for Processing Inbound Packets</A>
-<LI><A NAME="TOC46" HREF="fidogate_3.html#SEC46">runout -- Script for Processing Gateway Output Packets</A>
-<LI><A NAME="TOC47" HREF="fidogate_3.html#SEC47">runtoss -- Script for Running Tosser</A>
-<LI><A NAME="TOC48" HREF="fidogate_3.html#SEC48">rununpack -- Script for Unpacking ArcMail Archives</A>
-<LI><A NAME="TOC49" HREF="fidogate_3.html#SEC49">sumcrc -- CRC Checksum Utility</A>
-</UL>
-<LI><A NAME="TOC50" HREF="fidogate_4.html#SEC50">FIDOGATE Config Files</A>
-<UL>
-<LI><A NAME="TOC51" HREF="fidogate_4.html#SEC51"><CODE>config.*</CODE> Configuration Files</A>
-<LI><A NAME="TOC52" HREF="fidogate_4.html#SEC52"><CODE>hosts</CODE> FTN Address to Host Name Conversion</A>
-<LI><A NAME="TOC53" HREF="fidogate_4.html#SEC53"><CODE>aliases</CODE> User Aliases</A>
-<LI><A NAME="TOC54" HREF="fidogate_4.html#SEC54"><CODE>areas</CODE> FTN Area to Newsgroup Conversion</A>
-<LI><A NAME="TOC55" HREF="fidogate_4.html#SEC55">Bounce Messages of <CODE>ftn2rfc</CODE></A>
-<LI><A NAME="TOC56" HREF="fidogate_4.html#SEC56"><CODE>passwd</CODE> Password Config File</A>
-<LI><A NAME="TOC57" HREF="fidogate_4.html#SEC57"><CODE>routing</CODE> Config File</A>
-<LI><A NAME="TOC58" HREF="fidogate_4.html#SEC58"><CODE>packing</CODE> Config File</A>
-<LI><A NAME="TOC59" HREF="fidogate_4.html#SEC59"><CODE>areas.bbs</CODE> EchoMail Distribution</A>
-</UL>
-<LI><A NAME="TOC60" HREF="fidogate_5.html#SEC60">Basic Configuration</A>
-<UL>
-<LI><A NAME="TOC61" HREF="fidogate_5.html#SEC61">Sendmail Configuration</A>
-<LI><A NAME="TOC62" HREF="fidogate_5.html#SEC62">Example Point Configuration</A>
-<LI><A NAME="TOC63" HREF="fidogate_5.html#SEC63">Example Configuration with 2 Point Addresses</A>
-<LI><A NAME="TOC64" HREF="fidogate_5.html#SEC64">Example Leaf Node configuration</A>
-</UL>
-<LI><A NAME="TOC65" HREF="fidogate_6.html#SEC65">FIDOGATE Usage</A>
-<UL>
-<LI><A NAME="TOC66" HREF="fidogate_6.html#SEC66">RFC Headers in FTN Messages</A>
-<LI><A NAME="TOC67" HREF="fidogate_6.html#SEC67">X Headers in RFC Messages</A>
-</UL>
-<LI><A NAME="TOC68" HREF="fidogate_7.html#SEC68">Index</A>
-</UL>
+
 <P><HR><P>
-This document was generated on 18 January 1998 using the
+This document was generated on 10 January 1999 using the
 <A HREF="http://wwwcn.cern.ch/dci/texi2html/">texi2html</A>
-translator version 1.51.</P>
+translator version 1.51a.</P>
 </BODY>
 </HTML>

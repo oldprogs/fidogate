@@ -1,5 +1,5 @@
 #
-# $Id: Makefile,v 1.4 1997/10/11 21:24:19 mj Exp $
+# $Id: Makefile,v 1.5 1999/01/10 16:55:58 mj Exp $
 #
 # Makefile FIDOGATE doc/gatebau/
 #
@@ -18,7 +18,7 @@ msgid.html:	msgid.sgml
 	./post-html.pl msgid*.html
 
 msgid.tex:	msgid.sgml
-	-sgml2latex -2e -a msgid.sgml
+	-sgml2latex -o tex msgid.sgml
 
 msgid.txt:	msgid.sgml
 	-sgml2txt msgid.sgml

@@ -1,6 +1,6 @@
 #:ts=8
 #
-#    $Id: Makefile,v 4.15 1998/03/07 16:53:30 mj Exp $
+#    $Id: Makefile,v 4.16 1999/01/10 16:56:04 mj Exp $
 #
 #    Makefile for FIDOGATE src/toss/
 #
@@ -57,7 +57,7 @@ install:
 
 
 clean veryclean:
-	rm -f $(PROGS)
+	rm -f $(PROGS) $(SCRIPTS)
 	rm -f testhistory
 	rm -f *~ *.bak *.o tags TAGS core paths.tmp
 

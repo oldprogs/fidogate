@@ -1,10 +1,11 @@
-Subject: FIDOGATE 4.3a5 --- Fido-Internet Gateway and Tosser
+X-Emacs-Mode: -*- indented-text -*-
+Subject: FIDOGATE 4.3.0 --- Fido-Internet Gateway and Tosser
 Keywords: fido ftn netmail echomail tosser areafix mail news gateway
 Followup-To: comp.os.linux.misc
 
-======================================================================
-FIDOGATE 4.3a5, a development snapshot of the new FIDOGATE release 4.3
-======================================================================
+  ==================================================================
+  FIDOGATE 4.3.0, a development snapshot of the new FIDOGATE release
+  ==================================================================
 
 			   FIDOGATE Version 4
 		      ===========================
@@ -16,27 +17,67 @@ FIDOGATE 4.3a5, a development snapshot of the new FIDOGATE release 4.3
 		      ===========================
 
 
-Internet:
-=========
+  Internet:
+  =========
     http://www.fido.de/fidogate/
     ftp://ftp.fido.de/pub/fidogate/
     http://www.fido.de/pub/fidogate/
 
+[NOT FOR DEVELOPMENT SNAPSHOTS! ...
     ftp://sunsite.unc.edu/pub/Linux/system/fido/
     http://sunsite.unc.edu/pub/Linux/system/fido/
     (probably still in .../pub/Linux/Incoming)
+...]
 
-    fidogate-4.3a5.tar.gz	1250 Kbyte
+    fidogate-4.3.0.tar.gz	1250 Kbyte
 
-Fido File Request:
-==================
+[NOT FOR DEVELOPMENT SNAPSHOTS! ...
+  Fido File Request:
+  ==================
     2:2452/110, 111  +49-241-876604  (V.34, ISDN V.110/X.75)
     
     fgate***.tgz		1250 Kbyte
-
+...]
 
 
 ======================================================================
+
+Changes in 4.3.0:
+
+* New, and improved versions of the various runxxx scripts and the INN 
+  interface scripts.
+
+* General clean-up of scripts/ directory, obsolete ones removed.
+
+* gate.cgi: new FIDOGATE status CGI script.
+
+* Updated morannon example config files (NOT using the new single
+  fidogate.conf, but the old 4.3a5 config files).
+
+* runpoll: new generic version without the ffx programs (suitable for
+  most FIDOGATE points).
+
+* Allow configuration with only Address statements, Uplink or
+  GateAddress is not necessary, if main and gateway address are the
+  same. 
+
+* Started to get rid of some of the ugly shuffle.h stuff.
+
+* rfc2ftn: code to generate ^AORIGID removed (already disabled per
+  default).
+
+* config.make: NEW DEFAULT CONFIGURATION IS NOW A SINGLE CONFIG FILE
+  /etc/fidogate/fidogate.conf FOR ALL PROGRAMS!!! (The different 4.3a5 
+  config files can still be used by changing the corresponding
+  definitions in config.make, line 91-98.
+
+  Currently, there is only one example of the new single config file:
+  examples/orodruin/fidogate.conf
+
+* ftntoss: config option EchoMail4D renamed to TossEchoMail4D to avoid 
+  conflicts with rfc2ftn configuration.
+
+
 
 Changes in 4.3a5:
 
@@ -256,6 +297,6 @@ Needed:
 
 ======================================================================
 
-$Date: 1998/10/18 18:12:53 $
+$Date: 1999/01/10 16:55:54 $
 Martin Junius
 mailto:mj@fido.de

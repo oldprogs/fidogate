@@ -1,5 +1,17 @@
 1999-01-10  Martin Junius  <mj@fido.de>
 
+	======= Release 4.3.0 ================================================
+	------- CVS tag R430 -------------------------------------------------
+	------- CVS ci -------------------------------------------------------
+	* fidogate.lsm: updated.
+
+	* ANNOUNCE: updated.
+
+	* README: updated.
+
+	* src/common/log.c (log): save errno before trying to open log
+	  file and restore afterwards.
+
 	------- CVS ci -------------------------------------------------------
 
 	* config.make (DEFAULT_F_CONFIG_xxx): switch to new single config

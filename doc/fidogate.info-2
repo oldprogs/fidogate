@@ -1,4 +1,4 @@
-This is Info file fidogate.info, produced by Makeinfo version 1.67 from
+This is Info file fidogate.info, produced by Makeinfo version 1.68 from
 the input file fidogate.texi.
 
    This file documents the usage of FIDOGATE version 4
@@ -292,6 +292,7 @@ Special configuration `ftn2rfc' (config file `config.gate'):
      NetMail.
 
 `NetMailQuotedPrintable'
+
 `NetMailQP'
      Use the ISO-8859-1 MIME QUOTED-PRINTABLE character set when gating
      Fido NetMail. `NetMailQuotedPrintable' overrides `NetMail8bit' if
@@ -350,6 +351,7 @@ Special configuration `rfc2ftn' (config file `config.gate'):
      bounced (mail) and simply not gated (news).
 
 `MausDomain .do.main'
+
 `MausGate address'
      Enables and sets the processing of addresses for the German MAUS
      network, replacing the old `maus' config file. `MausDomain' sets
@@ -468,6 +470,7 @@ Special configuration `ftntoss' (config file `config.main'):
           ZoneGate  1:105/42  105/42 2452/110
 
 `KillEmpty'
+
 `KillBlank'
      Kill empty (blank) messages addressed to one of our AKAs. These are
      typically file attach and file request messages.
@@ -485,6 +488,7 @@ Special configuration `ftntoss' (config file `config.main'):
      Kill EchoMail with circular path (own address already in `^APATH').
 
 `LogNetMail'
+
 `Track'
      Log all NetMail messages in log file.
 
@@ -498,6 +502,7 @@ Special configuration `ftntoss' (config file `config.main'):
      Kill EchoMail messages without a `^AMSGID', i.e. treat as dupes.
 
 `KillDupe'
+
 `KillDupes'
      Kill duplicate EchoMail messages if `DupeCheck' is enabled.
 
@@ -576,6 +581,7 @@ hostname
           translation, using the standard p.f.n.z address.
 
 options
+
     `-p'
           Generate addresses with point part, e.g. `p99.hippo.fido.de'.
           Default is omitting the point part.
@@ -908,6 +914,7 @@ The format of this file is:
 Commands:
 
 `remap'
+
 `remapto'
      Remaps NetMail addressed to name at src-node to the new address
      dest-node. Most usefull for remapping to points based on their
@@ -1469,6 +1476,7 @@ FIDOGATE's `rfc2ftn' supports the following X headers in RFC messages:
      Use for the recipient's name in news articles.
 
 `X-Flags: flags'
+
     `c'
           Message is crash.
 
