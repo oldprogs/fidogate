@@ -537,8 +537,8 @@ and don't touch the standard abbreviations in this file!!!
      BinkleyTerm-style FTP inbound directory.
 
 `DEFAULT_V_ACL'
-     Access configuration list for AI patches (not used for standard
-     FIDOGATE distribution).
+     Access control list for AI patches (not used for standard FIDOGATE
+     distribution).
 
 `DEFAULT_V_ALIASES'
      Configuration file for aliases.
@@ -1879,34 +1879,47 @@ FIDOGATE uses the following config files:
 * Packing::     `packing' file for `ftnpack'
 * Areas.bbs::   `areas.bbs' EchoMail distribution
 
-   All config files use the `#' character for introducing a comment and
-ignore empty lines. Keywords and commands are not case-sensitive.
+   For all config files, a line starting with (some white space and)
+`#' character is a comment and as well as an empty line completely
+ignored.
 
    All config files (with the execption of `areas.bbs' support an
 `include' command for reading in other config files. `include' must be
 the first keyword on the line, the filename is the next argument.
 
    All options and config statements which take file or directory names
-accept the following `%' abbreviations:
+as arguments accept the following `%' abbreviations:
+
+`%C'
+     CONFIGDIR
 
 `%L'
-     The value of `LibDir'
+     LIBDIR
 
-`%S'
-     The value of `SpoolDir'
+`%N'
+     BINDIR
 
 `%G'
-     The value of `LogDir'
+     LOGDIR
 
-`%O'
-     The value of `Outbound'
+`%V'
+     VARDIR
+
+`%K'
+     LOCKDIR
+
+`%S'
+     SPOOLDIR
+
+`%B'
+     BTBASEDIR
 
 `%I'
-     The value of `Inbound'
+     INBOUND
 
 `%P'
-     The value of `PInbound'
+     PINBOUND
 
 `%U'
-     The value of `UUInbound'
+     UUINBOUND
 

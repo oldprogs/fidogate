@@ -1,7 +1,7 @@
 <HTML>
 <HEAD>
 <!-- This HTML file has been created by texi2html 1.54
-     from ../fidogate.texi on 15 May 1999 -->
+     from ../fidogate.texi on 16 May 1999 -->
 
 <TITLE>FIDOGATE
  - FIDOGATE Config Files</TITLE>
@@ -27,52 +27,65 @@ FIDOGATE uses the following config files:
 
 <DL COMPACT>
 
-<DT><CODE>config.common</CODE>
+<DT><CODE>fidogate.conf</CODE>
 <DD>
-<DT><CODE>config.gate</CODE>
+Main configuration file
+
+<DT><CODE>acl</CODE>
 <DD>
-<DT><CODE>config.main</CODE>
-<DD>
-<DT><CODE>config.ffx</CODE>
-<DD>
-Configuration file: common settings, gateway, node, ffx programs
-<DT><CODE>hosts</CODE>
-<DD>
-FTN address to host name conversion
+Access control list used by AI patches (not for standard configuration)
+
 <DT><CODE>aliases</CODE>
 <DD>
 User aliases
+
 <DT><CODE>areas</CODE>
 <DD>
 FTN area to newsgroup conversion
+
 <DT><CODE>bounce.*</CODE>
 <DD>
 Bounce messages of <CODE>ftn2rfc</CODE>
+
+<DT><CODE>hosts</CODE>
+<DD>
+FTN address to host name conversion
+
 <DT><CODE>passwd</CODE>
 <DD>
 Password config file
+
 <DT><CODE>permissions</CODE>
 <DD>
 Permissions config file
+
 <DT><CODE>routing</CODE>
 <DD>
 Routing file for <CODE>ftntoss</CODE> and <CODE>ftnroute</CODE>
+
 <DT><CODE>packing</CODE>
 <DD>
 Packing file for <CODE>ftnpack</CODE>
+
 <DT><CODE>areas.bbs</CODE>
 <DD>
 <DT><CODE>fareas.bbs</CODE>
 <DD>
 EchoMail / file echo distribution
+
 </DL>
 
 <P>
-FIDOGATE tries to find these config files in <CODE>LIBDIR</CODE> (compiled-in
-default), if no <CODE>-L</CODE> command line option is used. In addition,
-FIDOGATE 4.2.7 and newer supports the environment variable
-<CODE>FIDOGATE</CODE>, which tells the various programs where to look for
-their config files.
+FIDOGATE tries to find <CODE>fidogate.conf</CODE> in <CODE>CONFIGDIR</CODE>
+(compiled-in default), the location and name of all other directories
+and files can be specified in this main configuration file.
+
+</P>
+<P>
+In addition, FIDOGATE 4.2.7 and newer support the environment variable
+<CODE>FIDOGATE</CODE>, which tells where to find
+<CODE>fidogate.conf</CODE>. FIDOGATE 4.3.0 and newer also support
+<CODE>FIDOGATE_CONFIGDIR</CODE> for the very same purpose.
 
 </P>
 
@@ -90,8 +103,9 @@ their config files.
 </UL>
 
 <P>
-All config files use the <CODE>#</CODE> character for introducing a comment
-and ignore empty lines. Keywords and commands are not case-sensitive.
+For all config files, a line starting with (some white space and)
+<CODE>#</CODE> character is a comment and as well as an empty line completely
+ignored.
 
 </P>
 <P>
@@ -102,87 +116,80 @@ argument.
 
 </P>
 <P>
-All options and config statements which take file or directory names
-accept the following <CODE>%</CODE> abbreviations:
+All options and config statements which take file or directory names as
+arguments accept the following <CODE>%</CODE> abbreviations:
 
 </P>
 <DL COMPACT>
+
+<DT><CODE>%C</CODE>
+<DD>
+CONFIGDIR
 
 <DT><CODE>%L</CODE>
 <DD>
-The value of <CODE>LibDir</CODE>
+LIBDIR
 
-<DT><CODE>%S</CODE>
+<DT><CODE>%N</CODE>
 <DD>
-The value of <CODE>SpoolDir</CODE>
+BINDIR
 
 <DT><CODE>%G</CODE>
 <DD>
-The value of <CODE>LogDir</CODE>
+LOGDIR
 
-<DT><CODE>%O</CODE>
+<DT><CODE>%V</CODE>
 <DD>
-The value of <CODE>Outbound</CODE>
+VARDIR
+
+<DT><CODE>%K</CODE>
+<DD>
+LOCKDIR
+
+<DT><CODE>%S</CODE>
+<DD>
+SPOOLDIR
+
+<DT><CODE>%B</CODE>
+<DD>
+BTBASEDIR
 
 <DT><CODE>%I</CODE>
 <DD>
-The value of <CODE>Inbound</CODE>
+INBOUND
 
 <DT><CODE>%P</CODE>
 <DD>
-The value of <CODE>PInbound</CODE>
+PINBOUND
 
 <DT><CODE>%U</CODE>
 <DD>
-The value of <CODE>UUInbound</CODE>
+UUINBOUND
 
 </DL>
 
-<P>
-<B>NOT UP-TO-DATE FOR VERSION 4.3.X !!!</B>
-
-</P>
-<P>
-SEE examples/orodruin/fidogate.conf FOR A COMMENTED VERSION OF THE NEW
-CONFIG FILE!!!
-
-</P>
 
 
-
-<H2><A NAME="SEC50" HREF="fidogate_toc.html#TOC50"><CODE>config.*</CODE> Configuration Files</A></H2>
+<H2><A NAME="SEC50" HREF="fidogate_toc.html#TOC50">Main Configuration File</A></H2>
 <P>
 <A NAME="IDX74"></A>
+<A NAME="IDX75"></A>
+
+</P>
+
+<P>
+<CODE>fidogate.conf</CODE> is the main configuration file for all FIDOGATE
+programs.
 
 </P>
 <P>
-FIDOGATE uses different config files:
+NOTE: the new single configuration file replaces the different
+configuration files <CODE>config.*</CODE> and <CODE>*.conf</CODE> of versions prior
+to 4.3.0.
 
 </P>
-<DL COMPACT>
-
-<DT><CODE>config.common</CODE>
-<DD>
-Common settings.
-<DT><CODE>config.gate</CODE>
-<DD>
-The config file for the gateway related programs <CODE>ftn2rfc</CODE>,
-<CODE>ftnin</CODE>, <CODE>ftninpost</CODE>, <CODE>ftninrecomb</CODE>, <CODE>rfc2ftn</CODE>.
-<DT><CODE>config.main</CODE>
-<DD>
-The config file for the tosser related programs <CODE>ftn2ftn</CODE>,
-<CODE>ftnaf</CODE>, <CODE>ftnbounce</CODE>, <CODE>ftnbsy</CODE>, <CODE>ftnconfig</CODE>,
-<CODE>ftnhatch</CODE>, <CODE>ftnlock</CODE>, <CODE>ftnlog</CODE>, <CODE>ftnpack</CODE>,
-<CODE>ftnroute</CODE>, <CODE>ftnseq</CODE>, <CODE>ftntick</CODE>, <CODE>ftntoss</CODE>,
-<CODE>ftnfattach</CODE>.
-<DT><CODE>config.ffx</CODE>
-<DD>
-The config file for the ffx programs <CODE>ffx</CODE>, <CODE>ffxbatch</CODE>,
-<CODE>ffxqt</CODE>
-</DL>
-
 <P>
-The format of these files is
+The format of <CODE>fidogate.conf</CODE> is:
 
 </P>
 
@@ -193,6 +200,16 @@ The format of these files is
 <P>
 Keywords and arguments may be quoted in <CODE>""</CODE>, keywords are
 case-insensitive.
+
+</P>
+<P>
+See <CODE>examples/orodruin/fidogate.conf</CODE> for an up-to-date commented
+version of the new config file.
+
+</P>
+
+<P>
+<B>NOT UP-TO-DATE FOR VERSION 4.3.X !!!</B>
 
 </P>
 
@@ -927,7 +944,7 @@ Default flavour for file attaches created by <CODE>ftnfattach</CODE>.
 
 <H2><A NAME="SEC51" HREF="fidogate_toc.html#TOC51"><CODE>hosts</CODE> FTN Address to Host Name Conversion</A></H2>
 <P>
-<A NAME="IDX75"></A>
+<A NAME="IDX76"></A>
 
 </P>
 <P>
@@ -1069,7 +1086,7 @@ to Internet:
 
 <H2><A NAME="SEC52" HREF="fidogate_toc.html#TOC52"><CODE>aliases</CODE> User Aliases</A></H2>
 <P>
-<A NAME="IDX76"></A>
+<A NAME="IDX77"></A>
 
 </P>
 <P>
@@ -1143,7 +1160,7 @@ Marc van.Rey @ 2:2452/110.6  &#60;-&#62;  mvr@hippo.Fido.DE
 
 <H2><A NAME="SEC53" HREF="fidogate_toc.html#TOC53"><CODE>areas</CODE> FTN Area to Newsgroup Conversion</A></H2>
 <P>
-<A NAME="IDX77"></A>
+<A NAME="IDX78"></A>
 
 </P>
 <P>
@@ -1296,7 +1313,7 @@ FTN area not listed in this file will be gated into the
 
 <H2><A NAME="SEC54" HREF="fidogate_toc.html#TOC54">Bounce Messages of <CODE>ftn2rfc</CODE></A></H2>
 <P>
-<A NAME="IDX78"></A>
+<A NAME="IDX79"></A>
 
 </P>
 <P>
@@ -1369,7 +1386,7 @@ The entire message body.
 
 <H2><A NAME="SEC55" HREF="fidogate_toc.html#TOC55"><CODE>passwd</CODE> Password Config File</A></H2>
 <P>
-<A NAME="IDX79"></A>
+<A NAME="IDX80"></A>
 
 </P>
 <P>
@@ -1446,7 +1463,7 @@ ff          242:1234/5678   WUSEL       4   UQ    "Yet Another Sysop"
 
 <H2><A NAME="SEC56" HREF="fidogate_toc.html#TOC56"><CODE>routing</CODE> Config File</A></H2>
 <P>
-<A NAME="IDX80"></A>
+<A NAME="IDX81"></A>
 
 </P>
 <P>
@@ -1605,7 +1622,7 @@ route     hold         242:1000/50 51 52 53 54 55 56 57 58 59
 
 <H2><A NAME="SEC57" HREF="fidogate_toc.html#TOC57"><CODE>packing</CODE> Config File</A></H2>
 <P>
-<A NAME="IDX81"></A>
+<A NAME="IDX82"></A>
 
 </P>
 <P>
@@ -1695,8 +1712,8 @@ pack    zip     *
 
 <H2><A NAME="SEC58" HREF="fidogate_toc.html#TOC58"><CODE>areas.bbs</CODE> EchoMail Distribution</A></H2>
 <P>
-<A NAME="IDX82"></A>
 <A NAME="IDX83"></A>
+<A NAME="IDX84"></A>
 
 </P>
 <P>

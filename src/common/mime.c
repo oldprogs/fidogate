@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: mime.c,v 4.8 1999/01/02 16:34:59 mj Exp $
+ * $Id: mime.c,v 4.9 1999/05/18 18:44:46 mj Exp $
  *
  * MIME stuff
  *
@@ -59,62 +59,39 @@ static int x2toi(char *s)
 
 
 
-#ifdef AI_9
-int	mime_qp_soft_endline;	/* flag for decoding soft endlines in QP */
-				/* (Rule#5 in RFC1521)                   */
-#endif
-
 /*
  * Dequote string with MIME-style quoted-printable =XX
  */
 char *mime_dequote(char *d, size_t n, char *s, int flags)
 {
-    int i;
+    int i, c;
 
     for(i=0; i<n-1 && *s; i++, s++)
     {
-	if(flags & MIME_QP)
-	    if(s[0] == '=')	/* Maybe MIME quoted printable */
+	if( (flags & MIME_QP) && (s[0] == '=') )/* MIME quoted printable */
+	{
+	    if(is_qpx(s[1]) && is_qpx(s[2]))	/* =XX */
 	    {
-		if(is_qpx(s[1]) && is_qpx(s[2]))	/* =XX */
-		{
-		    d[i] = x2toi(s+1);
-		    s += 2;
-		    continue;
-		}
-#ifndef AI_9
-		if(s[1]=='\n'                ||		/* =<LF> */
-		   (s[1]=='\r' && s[2]=='\n')  )	/* this as well */
-#else
-		else if(s[1]=='\n')			/* =<LF> */
-#endif
-		{
-#ifndef AI_9
-		    d[i] = 0;
-		    break;
-#else
-		    mime_qp_soft_endline = i;
-		    s++;
-		    return d;		    
-		}
-		else if(s[1]=='\r' && s[2]=='\n')	/* this as well */
-		{
-		    mime_qp_soft_endline = i;
-		    s += 2;
-		    return d;		    
-#endif
-		}
+	        c = x2toi(s+1);
+		s += 2;
 	    }
+	    if(s[1]=='\n'                ||	/* =<LF> and */
+	       (s[1]=='\r' && s[2]=='\n')  )	/* =<CR><LF> */
+	    {
+		break;
+	    }
+	}
+	else if( (flags & MIME_US) && (s[0] == '_') ) /* Underscore */
+	{
+	    c = ' ';
+	    continue;
+	}
+	else {					/* Nothing special to do */
+	    c = *s;
+	}
 
-	if(flags & MIME_US)
-	    if(s[0] == '_')
-	    {
-		d[i] = ' ';
-		continue;
-	    }
-	
-	/* Nothing special to do */
-	d[i] = *s;
+	/**FIXME: add charset mapping**/
+	d[i] = c;
     }
     d[i] = 0;
 

@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway software UNIX <-> FIDO
  *
- * $Id: config.h,v 4.40 1999/05/15 20:54:31 mj Exp $
+ * $Id: config.h,v 4.41 1999/05/18 18:44:39 mj Exp $
  *
  * Configuration header file
  *
@@ -132,13 +132,6 @@
  * New `DeleteSeenBy' and `DeletePath' options for ftntoss
  */
 /* #define AI_3 */
-
-/*
- * Fixed quoted-printable bug (added processing of Soft Line Breaks
- * (Rule #5 of RFC1521) - `=' at the end of QP-line) in rfc2ftn.c, mime.c,
- * unicode.c (Andy Igoshin <ai@vsu.ru>).
- */
-/* #define AI_9 */
 
 /*
  * Check on 8bit in subject, origin and tearline

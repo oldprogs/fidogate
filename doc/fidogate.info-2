@@ -22,38 +22,26 @@ versions.
 
 File: fidogate.info,  Node: Config,  Next: Hosts,  Prev: Config files,  Up: Config files
 
-   NOT UP-TO-DATE FOR VERSION 4.3.X !!!
+Main Configuration File
+=======================
 
-   SEE examples/orodruin/fidogate.conf FOR A COMMENTED VERSION OF THE
-NEW CONFIG FILE!!!
+`fidogate.conf' is the main configuration file for all FIDOGATE
+programs.
 
-`config.*' Configuration Files
-==============================
+   NOTE: the new single configuration file replaces the different
+configuration files `config.*' and `*.conf' of versions prior to 4.3.0.
 
-FIDOGATE uses different config files:
-
-`config.common'
-     Common settings.
-
-`config.gate'
-     The config file for the gateway related programs `ftn2rfc',
-     `ftnin', `ftninpost', `ftninrecomb', `rfc2ftn'.
-
-`config.main'
-     The config file for the tosser related programs `ftn2ftn',
-     `ftnaf', `ftnbounce', `ftnbsy', `ftnconfig', `ftnhatch',
-     `ftnlock', `ftnlog', `ftnpack', `ftnroute', `ftnseq', `ftntick',
-     `ftntoss', `ftnfattach'.
-
-`config.ffx'
-     The config file for the ffx programs `ffx', `ffxbatch', `ffxqt'
-
-   The format of these files is
+   The format of `fidogate.conf' is:
 
      keyword [ arg ... ]
 
    Keywords and arguments may be quoted in `""', keywords are
 case-insensitive.
+
+   See `examples/orodruin/fidogate.conf' for an up-to-date commented
+version of the new config file.
+
+   NOT UP-TO-DATE FOR VERSION 4.3.X !!!
 
 Common configuration:
 
@@ -1558,6 +1546,7 @@ Index
 * ffxqt:                                 ffxqt.
 * ffxrmail:                              ffxrmail.
 * ffxrun:                                ffxrun.
+* fidogate.conf:                         Config.
 * FIDONET:                               Connecting.
 * File attach:                           ftnfattach.
 * ftn2ftn:                               ftn2ftn.

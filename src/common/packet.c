@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: packet.c,v 4.12 1999/04/03 12:13:22 mj Exp $
+ * $Id: packet.c,v 4.13 1999/05/18 18:44:47 mj Exp $
  *
  * Functions to read/write packets and messages
  *
@@ -742,6 +742,10 @@ int pkt_get_hdr(FILE *fp, Packet *pkt)
     pkt->rev_maj   = 0;
     pkt->passwd[0] = 0;
     pkt->capword   = 0;
+
+    /* Set zone to default, i.e. use the zone from your FIRST aka
+     * specified in fidogate.conf */
+    pkt->from.zone = pkt->to.zone = cf_defzone();
 
     /* Orig node */
     if((val = pkt_get_int16(fp)) == ERROR)  return ERROR;

@@ -65,12 +65,24 @@ Changes in 4.3.2:
 
 * charsetc: some bug fixes.
 
-* Win32 port: some bug fixes, compiles with Cygwin B20.1.
+* Win32 port: some bug fixes and work-arounds, compiles with Cygwin
+  B20.1. New example config files in examples/win32/.
 
 * Areafix: %unlinked lists only areas with access rights (level, key).
 
 * Updated texinfo documentation: at least the sections on compilation
   and installation are now up-to-date for version 4.3.x.
+
+* Packets with zone information (really *old* tosser programs) are
+  processed with the default zone (from 1st aka).
+
+* rfc2ftn: CheckAreasBBS should now work if gateway address and main
+  address are identical.
+
+* rfc2ftn: AI_9 patches obsoleted.
+
+* rfc2ftn: preparation for charset mapping support (will be finalized
+  in 4.3.3).
 
 
 
@@ -170,6 +182,6 @@ Needed:
 
 ======================================================================
 
-$Date: 1999/05/15 21:50:55 $
+$Date: 1999/05/18 18:44:36 $
 Martin Junius
 mailto:mj@fido.de

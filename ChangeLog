@@ -1,3 +1,33 @@
+1999-05-18  Martin Junius  <mj@fido.de>
+
+	------- CVS ci -------------------------------------------------------
+
+	* config.h (AI_9): removed, obsoleted by code changes.
+
+	* src/gate/rfc2ftn.c (main): added DefaultCharset/NetMailCharset
+	  options.
+	  (snd_message): preparation for charset mapping table, get cs_out
+	  from FIDOGATE/area config, set mapping.
+
+	* src/common/mime.c (mime_dequote): function prepared to add
+	  charset mapping.
+
+	* src/common/mime.c (mime_dequote): removed AI_9 patches.
+
+	* src/gate/rfc2ftn.c (check_downlinks): correct calculation for #
+	  of downlinks, reduce by 1 if gateway is the first entry in LON.
+	  (snd_mail): cf_set_curr/zone() directly after area is found.
+	  (snd_message): removed AI_9 patches, correct lsize calculations
+	  for lines with MIME soft line-breaks =<LF>.
+
+1999-05-16  Martin Junius  <mj@fido.de>
+
+	* doc/fidogate.texi (Config files): updated.
+
+	* src/common/packet.c (pkt_get_hdr): initialize pkt->from/to.zone
+	  values with cf_defzone(), avoid 0-Zone with really old tosser
+	  programs which produce only 2D packets.
+
 1999-05-15  Martin Junius  <mj@fido.de>
 
 	------- CVS ci -------------------------------------------------------

@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway software UNIX <-> FIDO
  *
- * $Id: rfc2ftn.c,v 4.51 1999/05/15 20:54:42 mj Exp $
+ * $Id: rfc2ftn.c,v 4.52 1999/05/18 18:44:48 mj Exp $
  *
  * Read mail or news from standard input and convert it to a FIDO packet.
  *
@@ -39,7 +39,7 @@
 
 
 #define PROGRAM 	"rfc2ftn"
-#define VERSION 	"$Revision: 4.51 $"
+#define VERSION 	"$Revision: 4.52 $"
 #define CONFIG		DEFAULT_CONFIG_GATE
 
 
@@ -61,12 +61,6 @@ typedef struct st_mimeinfo
     char *encoding;		/* Content-Transfer-Encoding */
 }
 MIMEInfo;
-
-
-
-#ifdef AI_9
-extern int	mime_qp_soft_endline;
-#endif
 
 
 
@@ -130,6 +124,10 @@ static int use_xmailer_for_tearline     = FALSE; /* config.gate: UseXMailerForTe
 static int use_useragent_for_tearline   = FALSE; /* config.gate: UseUseragentForTearline     */
 static int use_xnewsreader_for_tearline = FALSE; /* config.gate: UseXNewsreaderForTearline   */
 #endif
+
+/* Charset stuff */
+static char *default_charset_out = NULL;
+static char *netmail_charset_out = NULL;
 
 
 
@@ -779,8 +777,13 @@ int check_downlinks(char *area)
     
     n = a->nodes.size;
     debug(5, "area %s, LON size %d", area, n);
-    /**FIXME: if gate=main AKA, all entries are downlinks!**/
-    return n < 1 ? 0 : n - 1;
+    if( a->nodes.first && node_eq(&a->nodes.first->node, cf_addr()) ) {
+	/* 1st downlink is gateway, don't include in # of downlinks */
+	n--;
+	debug(5, "     # downlinks is %d", n);
+    }
+    
+    return n;
 }
 
 
@@ -993,28 +996,34 @@ int snd_mail(RFCAddr rfc_to, long size)
 		debug(5, "No FTN area");
 	    else
 	    {
-		debug(5, "Found: %s %s Z%d", pa->area, pa->group, pa->zone);
+		/* Set address or zone aka for this area */
+		debug(5, "Found: %s %s Zone=%d Addr=%s",
+		      pa->area, pa->group, pa->zone, znfp1(&pa->addr) );
+		if(pa->addr.zone != -1)
+		    cf_set_curr(&pa->addr);
+		else
+		    cf_set_zone(pa->zone);
 
+		/* Various checks */
 		if(check_areas_bbs && check_downlinks(pa->area)<=0)
 		{
 		    debug(5, "area %s, not listed or no downlinks", pa->area);
 		    continue;
 		}
-		
 		if( xpost_flag && (pa->flags & AREA_NOXPOST) )
 		{
-		    debug(5, "No Xpostings allowed - skipped");
+		    debug(5, "No cross-postings allowed - skipped");
 		    continue;
 		}
 		if( xpost_flag && (pa->flags & AREA_LOCALXPOST) )
 		{
 		    if(from_is_local)
 		    {
-			debug(5, "Local Xposting - o.k.");
+			debug(5, "Local cross-posting - OK");
 		    }
 		    else
 		    {
-			debug(5, "No non-local Xpostings allowed - skipped");
+			debug(5, "No non-local cross-postings allowed - skipped");
 			continue;
 		    }
 		}
@@ -1048,13 +1057,8 @@ int snd_mail(RFCAddr rfc_to, long size)
 			size, limitsize, pa->area                        );
 		    continue;
 		}
-		
-		/* Set address or zone aka for this area */
-		if(pa->addr.zone != -1)
-		    cf_set_curr(&pa->addr);
-		else
-		    cf_set_zone(pa->zone);
 
+		/* Create and send message */
 		msg.area      = pa->area;
 		msg.node_from = cf_n_addr();
 		msg.node_to   = cf_n_uplink();
@@ -1114,6 +1118,8 @@ int snd_message(Message *msg, Area *parea,
     int mime_qp = 0;			/* quoted-printable flag */
     int rfc_level = default_rfc_level;
     int x_flags_n=FALSE, x_flags_m=FALSE, x_flags_f=FALSE;
+    char *cs_in, *cs_out;		/* Charset in(=RFC), out(=FTN) */
+    char *cs_save;
 #if defined(AI_1) || defined(AI_2)
     Node ftn_from;
 
@@ -1142,14 +1148,40 @@ int snd_message(Message *msg, Area *parea,
 	  mime->type     ? mime->type     : "-NONE-");
     debug(6, "RFC Content-Transfer-Encoding: %s",
 	  mime->encoding ? mime->encoding : "-NONE-");
-
     if(mime->encoding && !stricmp(mime->encoding, "QUOTED-PRINTABLE"))
     {
 	if( (header = header_get("Content-Transfer-Encoding")) )
 	    str_copy(header, strlen(header)+1, "8BIT");
 	mime_qp = MIME_QP;
     }
-    
+    cs_in   = CHARSET_STD7BIT;
+    cs_save = NULL;
+    cs_out  = NULL;
+    if(mime->type) {
+        /**FIXME: get input charset from MIME type**/
+    }
+    if(parea)					/* News */
+    {
+	if(parea->charset)
+	{
+	    cs_save = strsave(parea->charset);
+	    strtok(cs_save, ":");
+	    cs_out = strtok(NULL, ":");
+	}
+    }
+    else					/* Mail */
+    {
+	cs_out = netmail_charset_out;
+    }
+    /* defaults */
+    if(!cs_out)
+        cs_out = default_charset_out;
+    if(!cs_out)
+        cs_out = CHARSET_STD7BIT;
+    charset_set_in_out(cs_in, cs_out);
+    if(cs_save)
+        xfree(cs_save);
+
     /*
      * Open output packet
      */
@@ -1204,30 +1236,17 @@ int snd_message(Message *msg, Area *parea,
     {
 	split = 1;
 	lsize = 0;
-	p     = body.first;
-	while(p)
+	for(p=body.first; p; p=p->next)
 	{
 	    /* Decode all MIME-style quoted printables */
-#ifndef AI_9
 	    mime_dequote(buffer, sizeof(buffer), p->line, mime_qp);
-#else
-	    int line_offset = 0;
-	    do
-	    {
-		mime_dequote(buffer+line_offset, sizeof(buffer)-line_offset, p->line, mime_qp);
-		if(mime_qp_soft_endline)
-		{
-		    line_offset += mime_qp_soft_endline;
-		    p = p->next;
-		}
-	    } while (mime_qp_soft_endline);
-#endif
-	    lsize += strlen(buffer) + 1 /* additional CR */;
+	    lsize += strlen(buffer);		/* Length incl. <LF> */
+	    if(BUF_LAST(buffer) == '\n')	/* <LF> ->           */
+	      lsize++;				/* <CR><LF>          */
 	    if(lsize > maxsize) {
 		split++;
 		lsize = 0;
 	    }
-	    p = p->next;
 	}
 
 	if(split == 1)
@@ -1457,22 +1476,12 @@ int snd_message(Message *msg, Area *parea,
     while(p)
     {
 	/* Decode all MIME-style quoted printables */
-#ifndef AI_9
 	mime_dequote(buffer, sizeof(buffer), p->line, mime_qp);
-#else
-	int line_offset = 0;
-	do
-	{
-	    mime_dequote(buffer+line_offset, sizeof(buffer)-line_offset, p->line, mime_qp);
-	    if(mime_qp_soft_endline)
-	    {
-		line_offset += mime_qp_soft_endline;
-		p = p->next;
-	    }
-	} while (mime_qp_soft_endline);
-#endif
 	pkt_put_line(sf, buffer);
-	lsize += strlen(buffer) + 1 /* additional CR */;
+	lsize += strlen(buffer);		/* Length incl. <LF> */
+	if(BUF_LAST(buffer) == '\n')		/* <LF> ->           */
+	  lsize++;				/* <CR><LF>          */
+
 	if(split && lsize > maxsize) {
 	    print_tear_line(sf);
 	    if(newsmode)
@@ -1497,6 +1506,7 @@ int snd_message(Message *msg, Area *parea,
 	    p = p->next;
 	    goto again;
 	}
+
 	p = p->next;
 	line++;
     }
@@ -2103,6 +2113,18 @@ int main(int argc, char **argv)
 	addr_is_local_xpost_init(p);
     }
 #endif    
+    if( (p = cf_get_string("DefaultCharset", TRUE)) )
+    {
+	debug(8, "config: DefaultCharset %s", p);
+	strtok(p, ":");
+	default_charset_out = strtok(NULL, ":");
+    }
+    if( (p = cf_get_string("NetMailCharset", TRUE)) )
+    {
+	debug(8, "config: NetMailCharset %s", p);
+	strtok(p, ":");
+	netmail_charset_out = strtok(NULL, ":");
+    }
 
     /*
      * Process local options

@@ -2,7 +2,7 @@
 @c
 @c FIDOGATE documentation
 @c
-@c $Id: fidogate.texi,v 4.40 1999/05/15 21:44:45 mj Exp $
+@c $Id: fidogate.texi,v 4.41 1999/05/18 18:44:41 mj Exp $
 @c
 
 @setfilename fidogate.info
@@ -637,7 +637,7 @@ BinkleyTerm-style FTP inbound directory.
 
 
 @item DEFAULT_V_ACL
-Access configuration list for AI patches (not used for standard FIDOGATE 
+Access control list for AI patches (not used for standard FIDOGATE 
 distribution).
 
 @item DEFAULT_V_ALIASES
@@ -2329,37 +2329,53 @@ FIDOGATE uses the following config files:
 @iftex
 
 @table @code
-@item config.common
-@item config.gate
-@item config.main
-@item config.ffx
-Configuration file: common settings, gateway, node, ffx programs
-@item hosts
-FTN address to host name conversion
+
+@item fidogate.conf
+Main configuration file
+
+@item acl
+Access control list used by AI patches (not for standard configuration)
+
 @item aliases
 User aliases
+
 @item areas
 FTN area to newsgroup conversion
+
 @item bounce.*
 Bounce messages of @code{ftn2rfc}
+
+@item hosts
+FTN address to host name conversion
+
 @item passwd
 Password config file
+
 @item permissions
 Permissions config file
+
 @item routing
 Routing file for @code{ftntoss} and @code{ftnroute}
+
 @item packing
 Packing file for @code{ftnpack}
+
 @item areas.bbs
 @item fareas.bbs
 EchoMail / file echo distribution
+
 @end table
 
-FIDOGATE tries to find these config files in @code{LIBDIR} (compiled-in
-default), if no @code{-L} command line option is used. In addition,
-FIDOGATE 4.2.7 and newer supports the environment variable
-@code{FIDOGATE}, which tells the various programs where to look for
-their config files.
+
+FIDOGATE tries to find @code{fidogate.conf} in @code{CONFIGDIR}
+(compiled-in default), the location and name of all other directories
+and files can be specified in this main configuration file.
+
+In addition, FIDOGATE 4.2.7 and newer support the environment variable
+@code{FIDOGATE}, which tells where to find
+@code{fidogate.conf}. FIDOGATE 4.3.0 and newer also support
+@code{FIDOGATE_CONFIGDIR} for the very same purpose.
+
 
 @end iftex
 
@@ -2375,39 +2391,53 @@ their config files.
 * Areas.bbs::   @code{areas.bbs} EchoMail distribution
 @end menu
 
-All config files use the @code{#} character for introducing a comment
-and ignore empty lines. Keywords and commands are not case-sensitive.
+
+For all config files, a line starting with (some white space and)
+@code{#} character is a comment and as well as an empty line completely
+ignored.
 
 All config files (with the execption of @code{areas.bbs} support an
 @code{include} command for reading in other config files. @code{include}
 must be the first keyword on the line, the filename is the next
 argument.
 
-All options and config statements which take file or directory names
-accept the following @code{%} abbreviations:
+All options and config statements which take file or directory names as
+arguments accept the following @code{%} abbreviations:
 
 @table @code
 
-@item %L
-The value of @code{LibDir}
+@item %C
+CONFIGDIR
 
-@item %S
-The value of @code{SpoolDir}
+@item %L
+LIBDIR
+
+@item %N
+BINDIR
 
 @item %G
-The value of @code{LogDir}
+LOGDIR
 
-@item %O
-The value of @code{Outbound}
+@item %V
+VARDIR
+
+@item %K
+LOCKDIR
+
+@item %S
+SPOOLDIR
+
+@item %B
+BTBASEDIR
 
 @item %I
-The value of @code{Inbound}
+INBOUND
 
 @item %P
-The value of @code{PInbound}
+PINBOUND
 
 @item %U
-The value of @code{UUInbound}
+UUINBOUND
 
 @end table
 
@@ -2416,36 +2446,20 @@ The value of @code{UUInbound}
 @c ***************************************************************************
 @node Config, Hosts, Config files, Config files
 
-@b{NOT UP-TO-DATE FOR VERSION 4.3.X !!!}
-
-SEE examples/orodruin/fidogate.conf FOR A COMMENTED VERSION OF THE NEW
-CONFIG FILE!!!
-
-
-@section @code{config.*} Configuration Files
+@section Main Configuration File
 @cindex Config
+@cindex fidogate.conf
+
 
 @noindent
-FIDOGATE uses different config files:
+@code{fidogate.conf} is the main configuration file for all FIDOGATE
+programs.
 
-@table @code
-@item config.common
-Common settings.
-@item config.gate
-The config file for the gateway related programs @code{ftn2rfc},
-@code{ftnin}, @code{ftninpost}, @code{ftninrecomb}, @code{rfc2ftn}.
-@item config.main
-The config file for the tosser related programs @code{ftn2ftn},
-@code{ftnaf}, @code{ftnbounce}, @code{ftnbsy}, @code{ftnconfig},
-@code{ftnhatch}, @code{ftnlock}, @code{ftnlog}, @code{ftnpack},
-@code{ftnroute}, @code{ftnseq}, @code{ftntick}, @code{ftntoss},
-@code{ftnfattach}.
-@item config.ffx
-The config file for the ffx programs @code{ffx}, @code{ffxbatch},
-@code{ffxqt}
-@end table
+NOTE: the new single configuration file replaces the different
+configuration files @code{config.*} and @code{*.conf} of versions prior
+to 4.3.0.
 
-The format of these files is
+The format of @code{fidogate.conf} is:
 
 @example
 @i{keyword} @r{[} @i{arg ...} @r{]}
@@ -2454,6 +2468,11 @@ The format of these files is
 Keywords and arguments may be quoted in @code{""}, keywords are
 case-insensitive.
 
+See @code{examples/orodruin/fidogate.conf} for an up-to-date commented
+version of the new config file.
+
+
+@b{NOT UP-TO-DATE FOR VERSION 4.3.X !!!}
 
 
 @c ---------------------------------------------------------------------------
