@@ -2,6 +2,10 @@ Fri Dec 20 09:47:56 1996  Martin Junius  <mj@fido.de>
 
 	------- CVS ci -------------------------------------------------------
 
+	* fidogate.lsm: updated.
+
+	* ANNOUNCE: updated.
+
 	* sendmail/mailer/ftn.m4 (Mftna): changed FTN_MAILER_ARGSA to only
 	  set -a and -u, not the output directory.
 	  (Mftno): like ftna, but also sets -O output directory (same as
