@@ -1,0 +1,16 @@
+#!/bin/sh
+
+../tr.init
+
+echo "tc: copying input packets"
+cp ../ti.pkt-mail/*.[pP][kK][tT] in
+
+echo "tc: running"
+../../src/gate/ftn2rfc -L../cf -I./in -v
+
+echo "tc: copying input packets"
+cp ../ti.pkt-mail/*.[pP][kK][tT] in
+
+echo "tc: running"
+../../src/gate/ftn2rfc -L../cf -I./in -cconfig -v
+

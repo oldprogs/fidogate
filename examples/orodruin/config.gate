@@ -1,6 +1,6 @@
 #:ts=8
 #
-# $Id: config.gate,v 4.13 1997/02/09 10:04:21 mj Exp $
+# $Id: config.gate,v 4.14 1997/02/09 10:40:20 mj Exp $
 #
 # FIDOGATE config file gateway programs
 #
@@ -64,7 +64,7 @@ Organization	"Martin Junius' orodruin.fido.de"
 # Without this option the standard local HOST.DOMAIN is used
 #     To: Max_Mueller@orodruin.fido.de
 #
-UseFTNToAddress
+#UseFTNToAddress
 
 
 #

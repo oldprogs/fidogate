@@ -6,12 +6,12 @@ X = for next release
 	  causes problems with news reading. Son-of-rfc1036 saiz that
 	  quotes are not allowed in addresses.
 
-	* DOS/OS2: use \ for path names when running commands via system()
-
+STARTED.* DOS/OS2: use \ for path names when running commands via system()
+(ftnin)
 	* ftntick: call script for incoming TICs, passing file area,
 	  name, ...
 
-	* ftn2rfc:702: config option, instead of @FQDN, add @addr_to.addr
+DONE.	* ftn2rfc:702: config option, instead of @FQDN, add @addr_to.addr
 	  (domain part of recipient's FTN address).
 
 	* rfc2ftn: limit max. message size

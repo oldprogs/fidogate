@@ -2,6 +2,15 @@ Sun Feb  9 10:40:31 1997  Martin Junius  <mj@fido.de>
 
 	------- CVS ci -------------------------------------------------------
 
+	* src/gate/ftnin.c (main): use '\' for OS2 and MSDOS when creating
+	  ftn2rfc cmd[] string.
+
+	* test/tc.gate11/config: set UseFTNToAddress.
+
+	* test/tc.gate11/run: new test case, netmail processed by ftn2rfc.
+
+	------- CVS ci -------------------------------------------------------
+
 	* version.h (PATCHLEVEL): set to 6.
 
 	* doc/fidogate.texi (Config): added UseFTNToAddress.

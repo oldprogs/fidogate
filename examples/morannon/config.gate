@@ -60,7 +60,7 @@ Organization	"Fido.DE domain gateway (IN e.V.)"
 # Without this option the standard local HOST.DOMAIN is used
 #     To: Max_Mueller@orodruin.fido.de
 #
-UseFTNToAddress
+#UseFTNToAddress
 
 
 #
