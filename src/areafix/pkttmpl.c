@@ -2,12 +2,12 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: pkttmpl.c,v 1.7 1999/04/03 13:29:01 mj Exp $
+ * $Id: pkttmpl.c,v 1.8 2000/01/28 22:01:08 mj Exp $
  *
  * Template for utility processing FTN packets
  *
  *****************************************************************************
- * Copyright (C) 1990-1999
+ * Copyright (C) 1990-2000
  *  _____ _____
  * |     |___  |   Martin Junius             FIDO:      2:2452/110
  * | | | |   | |   Radiumstr. 18             Internet:  mj@fido.de
@@ -37,7 +37,7 @@
 
 
 #define PROGRAM 	"ftnxxx"
-#define VERSION 	"$Revision: 1.7 $"
+#define VERSION 	"$Revision: 1.8 $"
 #define CONFIG		DEFAULT_CONFIG_MAIN
 
 

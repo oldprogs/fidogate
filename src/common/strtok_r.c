@@ -2,12 +2,12 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: strtok_r.c,v 4.3 1999/06/17 21:42:50 mj Exp $
+ * $Id: strtok_r.c,v 4.4 2000/01/28 22:01:11 mj Exp $
  *
  * Specialized strtok() variants for FIDOGATE
  *
  *****************************************************************************
- * Copyright (C) 1990-1999
+ * Copyright (C) 1990-2000
  *  _____ _____
  * |     |___  |   Martin Junius             FIDO:      2:2452/110
  * | | | |   | |   Radiumstr. 18             Internet:  mj@fido.de

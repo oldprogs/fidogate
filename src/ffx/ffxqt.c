@@ -2,14 +2,14 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ffxqt.c,v 4.15 1999/04/03 12:13:22 mj Exp $
+ * $Id: ffxqt.c,v 4.16 2000/01/28 22:01:12 mj Exp $
  *
  * Process incoming ffx control and data files
  *
  * With full supporting cast of busy files and locking. ;-)
  *
  *****************************************************************************
- * Copyright (C) 1990-1999
+ * Copyright (C) 1990-2000
  *  _____ _____
  * |     |___  |   Martin Junius             FIDO:      2:2452/110
  * | | | |   | |   Radiumstr. 18             Internet:  mj@fido.de
@@ -38,7 +38,7 @@
 
 
 #define PROGRAM		"ffxqt"
-#define VERSION		"$Revision: 4.15 $"
+#define VERSION		"$Revision: 4.16 $"
 #define CONFIG		DEFAULT_CONFIG_FFX
 
 

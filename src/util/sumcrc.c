@@ -2,12 +2,12 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: sumcrc.c,v 4.3 1999/01/02 16:35:07 mj Exp $
+ * $Id: sumcrc.c,v 4.4 2000/01/28 22:01:15 mj Exp $
  *
  * sumcrc32 --- CRC32 checksum computation
  *
  *****************************************************************************
- * Copyright (C) 1990-1999
+ * Copyright (C) 1990-2000
  *  _____ _____
  * |     |___  |   Martin Junius             FIDO:      2:2452/110
  * | | | |   | |   Radiumstr. 18             Internet:  mj@fido.de
@@ -36,7 +36,7 @@
 
 
 #define PROGRAM		"sumcrc32"
-#define VERSION		"$Revision: 4.3 $"
+#define VERSION		"$Revision: 4.4 $"
 
 
 int s1_flag = FALSE;		/* -1 */

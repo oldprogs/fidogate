@@ -2,12 +2,12 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: packet.h,v 4.4 1999/01/02 16:35:04 mj Exp $
+ * $Id: packet.h,v 4.5 2000/01/28 22:01:13 mj Exp $
  *
  * Packet structure
  *
  *****************************************************************************
- * Copyright (C) 1990-1999
+ * Copyright (C) 1990-2000
  *  _____ _____
  * |     |___  |   Martin Junius             FIDO:      2:2452/110
  * | | | |   | |   Radiumstr. 18             Internet:  mj@fido.de

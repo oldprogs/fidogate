@@ -2,12 +2,12 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: ftnaddr.c,v 4.4 1999/03/14 20:44:04 mj Exp $
+ * $Id: ftnaddr.c,v 4.5 2000/01/28 22:01:10 mj Exp $
  *
  * Function for handling FTN addresses
  *
  *****************************************************************************
- * Copyright (C) 1990-1999
+ * Copyright (C) 1990-2000
  *  _____ _____
  * |     |___  |   Martin Junius             FIDO:      2:2452/110
  * | | | |   | |   Radiumstr. 18             Internet:  mj@fido.de

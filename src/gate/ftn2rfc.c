@@ -2,12 +2,12 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftn2rfc.c,v 4.53 1999/10/04 08:18:23 mj Exp $
+ * $Id: ftn2rfc.c,v 4.54 2000/01/28 22:01:12 mj Exp $
  *
  * Convert FTN mail packets to RFC mail and news batches
  *
  *****************************************************************************
- * Copyright (C) 1990-1999
+ * Copyright (C) 1990-2000
  *  _____ _____
  * |     |___  |   Martin Junius             FIDO:      2:2452/110
  * | | | |   | |   Radiumstr. 18             Internet:  mj@fido.de
@@ -40,7 +40,7 @@
 
 
 #define PROGRAM 	"ftn2rfc"
-#define VERSION 	"$Revision: 4.53 $"
+#define VERSION 	"$Revision: 4.54 $"
 #define CONFIG		DEFAULT_CONFIG_GATE
 
 

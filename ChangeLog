@@ -1,3 +1,30 @@
+2000-01-28  Martin Junius  <mj@fido.de>
+
+	------- CVS ci -------------------------------------------------------
+
+	* *: updated copyright notice to 1990-2000.
+
+	* version.h: version set to 4.4.0 stable.
+
+	* src/charset/charset.map: new mappings contributed by "Mathias
+	  Pannike" <st000320@hrzpub.tu-darmstadt.de>, completing missing
+	  mappings -> x-ibmpc, x-mac.
+
+1999-12-28  Martin Junius  <mj@fido.de>
+
+	* scripts/misc/areasbbssync.pl: added ger.* to PATTERN,
+	  binaer|dateien to NPATTERN.
+
+1999-11-25  Martin Junius  <mj@fido.de>
+
+	* scripts/www/gate.cgi.pl: using <NEWSSPOOLDIR> doesn't work
+	  because it points to .../articles.
+
+	* scripts/Makefile (SUBDIRS): must add www to SUBDIRS.
+
+	* version.h (PATCHLEVEL): set to 7 for next release, forget to set 
+	  this to 6 for release 4.3.6.
+
 1999-11-21  Martin Junius  <mj@fido.de>
 
 	======= Release 4.3.6 ================================================

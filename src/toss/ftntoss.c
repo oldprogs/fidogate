@@ -2,12 +2,12 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftntoss.c,v 4.36 1999/04/03 13:29:04 mj Exp $
+ * $Id: ftntoss.c,v 4.37 2000/01/28 22:01:15 mj Exp $
  *
  * Toss FTN NetMail/EchoMail
  *
  *****************************************************************************
- * Copyright (C) 1990-1999
+ * Copyright (C) 1990-2000
  *  _____ _____
  * |     |___  |   Martin Junius             FIDO:      2:2452/110
  * | | | |   | |   Radiumstr. 18             Internet:  mj@fido.de
@@ -39,7 +39,7 @@
 
 
 #define PROGRAM 	"ftntoss"
-#define VERSION 	"$Revision: 4.36 $"
+#define VERSION 	"$Revision: 4.37 $"
 #define CONFIG		DEFAULT_CONFIG_MAIN
 
 

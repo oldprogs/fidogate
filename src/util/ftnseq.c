@@ -2,11 +2,11 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: ftnseq.c,v 4.4 1999/01/02 16:35:07 mj Exp $
+ * $Id: ftnseq.c,v 4.5 2000/01/28 22:01:15 mj Exp $
  *
  * Command line interface to sequencer files
  *****************************************************************************
- * Copyright (C) 1990-1999
+ * Copyright (C) 1990-2000
  *  _____ _____
  * |     |___  |   Martin Junius             FIDO:      2:2452/110
  * | | | |   | |   Radiumstr. 18             Internet:  mj@fido.de
@@ -34,7 +34,7 @@
 
 
 #define PROGRAM 	"ftnseq"
-#define VERSION 	"$Revision: 4.4 $"
+#define VERSION 	"$Revision: 4.5 $"
 #define CONFIG		DEFAULT_CONFIG_MAIN
 
 

@@ -2,7 +2,7 @@
 @c
 @c FIDOGATE documentation for 4.3
 @c
-@c $Id: fidogate.texi,v 4.48 1999/10/04 08:18:14 mj Exp $
+@c $Id: fidogate.texi,v 4.49 2000/01/28 21:59:25 mj Exp $
 @c
 
 @setfilename fidogate.info
@@ -15,9 +15,9 @@
 
 
 @ifinfo
-This file documents the installation and usage of FIDOGATE version 4.3.
+This file documents the installation and usage of FIDOGATE version 4.4
 
-Copyright (C) 1994-1999, Martin Junius
+Copyright (C) 1994-2000, Martin Junius
 
 Permission is granted to make and distribute verbatim copies of
 this manual provided the copyright notice and this permission notice
@@ -54,7 +54,7 @@ into other languages, under the above conditions for modified versions.
 
 @page
 
-Copyright @copyright{} 1994-1999 Martin Junius
+Copyright @copyright{} 1990-2000 Martin Junius
 
 Permission is granted to make and distribute verbatim copies of
 this manual provided the copyright notice and this permission notice

@@ -2,12 +2,12 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: areasbbs.c,v 4.17 1999/06/17 21:42:50 mj Exp $
+ * $Id: areasbbs.c,v 4.18 2000/01/28 22:01:09 mj Exp $
  *
  * Function for processing AREAS.BBS EchoMail distribution file.
  *
  *****************************************************************************
- * Copyright (C) 1990-1999
+ * Copyright (C) 1990-2000
  *  _____ _____
  * |     |___  |   Martin Junius             FIDO:      2:2452/110
  * | | | |   | |   Radiumstr. 18             Internet:  mj@fido.de

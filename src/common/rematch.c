@@ -2,12 +2,12 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: rematch.c,v 4.2 1999/06/20 13:49:51 mj Exp $
+ * $Id: rematch.c,v 4.3 2000/01/28 22:01:11 mj Exp $
  *
  * Regular expression (POSIX functions) handling for FIDOGATE
  *
  *****************************************************************************
- * Copyright (C) 1990-1999
+ * Copyright (C) 1990-2000
  *  _____ _____
  * |     |___  |   Martin Junius             FIDO:      2:2452/110
  * | | | |   | |   Radiumstr. 18             Internet:  mj@fido.de

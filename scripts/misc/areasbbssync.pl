@@ -1,11 +1,11 @@
 #!/usr/bin/perl
 #
-# $Id: areasbbssync.pl,v 4.2 1999/03/06 17:51:22 mj Exp $
+# $Id: areasbbssync.pl,v 4.3 2000/01/28 22:01:06 mj Exp $
 #
 # Syncronize groups in active (INN) and areas.bbs (FIDOGATE)
 #
 
-$VERSION = '$Revision: 4.2 $ ';
+$VERSION = '$Revision: 4.3 $ ';
 $PROGRAM = "areasbbssync";
 
 
@@ -46,9 +46,9 @@ $ADDRESS = $opt_a ? $opt_a : "";
 $ACTIVE	 = $opt_A ? $opt_A : &CONFIG_get("NewsVarDir")."/active";
 $AREAS 	 = $opt_B ? $opt_B : &CONFIG_get("AreasBBS");
 $PATTERN = $opt_P ? $opt_P : 
-    "^(comp|de|humanities|misc|news|rec|sci|soc|talk)\\.";
+    "^(comp|de|humanities|misc|news|rec|sci|soc|talk|ger)\\.";
 $NPATTERN = $opt_N ? $opt_N : 
-    "\\.binaries\\.";
+    "\\.(binaries|binaer|dateien)\\.";
 
 if($opt_w || $opt_x || $opt_l) {
     $ADDRESS || die "$PROGRAM: gateway address not specified (option -a)\n";
@@ -84,7 +84,7 @@ close(A);
 
 # find new groups (only in active, not in areas.bbs)
 if(!$opt_r) {
-    print "NEW areas:\n" if($opt_l);
+    print "\nNEW areas:\n" if($opt_l);
     for $area (sort keys %areas_active) {
 	if($areas_bbs{$area}) {
 #	print "checking active: area $area OK\n" if($opt_v);
@@ -102,7 +102,7 @@ if(!$opt_r) {
 
 # find removed groups (not in active, only in areas.bbs)
 if(!$opt_n) {
-    print "DELETED areas:\n" if($opt_l);
+    print "\nDELETED areas:\n" if($opt_l);
     for $area (sort keys %areas_bbs) {
 	if($areas_active{$area}) {
 #	print "checking areas.bbs: area $area OK\n" if($opt_v);
