@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftnpack.c,v 4.15 1997/08/13 19:11:37 mj Exp $
+ * $Id: ftnpack.c,v 4.16 1997/11/09 16:37:46 mj Exp $
  *
  * Pack output packets of ftnroute for Binkley outbound (ArcMail)
  *
@@ -40,7 +40,7 @@
 
 
 #define PROGRAM 	"ftnpack"
-#define VERSION 	"$Revision: 4.15 $"
+#define VERSION 	"$Revision: 4.16 $"
 #define CONFIG		CONFIG_MAIN
 
 
@@ -824,6 +824,8 @@ int do_pack(PktDesc *desc, char *name, FILE *file, Packing *pack)
     {
 	if(file)
 	    fclose(file);
+	log("packet (%ldb) for %s (%s)",
+	    check_size(name), node_to_asc(&desc->to,TRUE), pack->arc->name);
 	ret = do_prog(name, desc, pack->arc->prog);
     }
     

@@ -2,6 +2,30 @@ Sun Nov  9 12:41:23 1997  Martin Junius  <mj@fido.de>
 
 	------- CVS ci -------------------------------------------------------
 
+	* src/toss/ftnaf.c (cmd_create): added new -d DESC option, using
+	  xstrtok() to allow "text".
+	  (cmd_listall): add area description to output.
+	  (cmd_list): add area description to output.
+
+	* src/common/areasbbs.c (areasbbs_new): implemented new -d DESC
+	  option, using xstrtok() to allow "text".
+	  (areasbbs_print): added -d DESC output.
+
+	* src/include/structs.h (AreasBBS): added new desc(ription) field.
+
+	* src/toss/ftnpack.c (do_pack): added log() message for programm
+	  execution. 
+
+	* test/tc.packprog/run: new test case, ftnpack program execution
+	  via the prog definition in packing.
+
+	* test/ti.pkt-toss/: input packets for tc.tosskill/run.
+
+	* test/tc.tosskill/run: new test case, ftntoss behaviour for
+	  circular path, insecure, routed, unknown area EchoMail.
+
+	------- CVS ci -------------------------------------------------------
+
 	* examples/orodruin/: some updates.
 
 	* doc/fidogate.texi (ftn2rfc): documented -i and -n options.

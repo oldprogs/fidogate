@@ -1,0 +1,15 @@
+#:ts=8
+#
+# $Id: config,v 1.1 1997/11/09 16:37:48 mj Exp $
+#
+
+#
+# X-Flags policy
+#
+#    n, N, 0    -    No X-Flags processing at all
+#    s, S, 1    -    X-Flags processing for local sender
+#    a, A, 2    -    X-Flags processing for all
+#
+XFlagsPolicy a
+
+include %L/config.gate

@@ -1,6 +1,4 @@
 #
-# $Id: packing,v 4.2 1997/11/09 16:37:41 mj Exp $
-#
 # FIDOGATE ftnpack config file
 #
 # Commands:
@@ -17,12 +15,14 @@
 arc		zip	"/usr/bin/zip -gkjq %s %s"
 arc		arc	"/usr/bin/arc an %s %s"
 
-prog		gate	"/usr/local/lib/fidogate/ftn2rfc -n -x %L/ftninpost %s"
+prog		gate	"../../src/gate/ftn2rfc -L../cf -n -vvv %s"
 
 
 ######## P A C K I N G #######################################################
 
-pack		noarc	2:2452/110.2
-pack		noarc	242:1000/5
+#pack		noarc	2:2452/110.2
+#pack		noarc	242:1000/5
+pack		gate	2:2452/110.2
+pack		gate	242:1000/5
 
 pack		zip	*

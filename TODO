@@ -1,22 +1,23 @@
 						   -*- Indented-Text -*-
 	************** TODO list for FIDOGATE development **************
 
-	
-	* tests: ftntoss echomail problems and Kill* config.
 
-	* ftn2rfc: option to *not* delete input packet for usage with
+	* areas.bbs: option for area description.
+	
+DONE	* tests: ftntoss echomail problems and Kill* config.
+
+DONE	* ftn2rfc: option to *not* delete input packet for usage with
 	  ftnpack and the prog packing command.
 
 	* ^ACHRS default configurable per area.
 
-	* Different Message-ID and sender Internet domain
+4.3.x	* Different Message-ID and sender Internet domain
 	  configuration (extended Zone config).
 
 	* rfc2ftn: mail split limit configurable per host.
 
 	* Allow config option on command line for all programs.
-
-	* rfc2ftn: command line option for enabling X-Flags.
+	  rfc2ftn: command line option for enabling X-Flags.
 
 4.3.x	* rfc2ftn: different output dirs for mail and news.
 
@@ -75,10 +76,6 @@ STARTED	* areas.bbs: read-only/vacation flag for downlinks,
 	* rfc2ftn: configuration option for mail RFC level *per*
 	  *host*, e.g. option in HOSTS.
 
-	* rfcaddr.c: using quotes for "som(e)thing%special"@host
-	  causes problems with news reading. Son-of-rfc1036 saiz that
-	  quotes are not allowed in addresses.
-
 	* ftntick: call script for incoming TICs, passing file area,
 	  name, ... for announcements
 
@@ -86,6 +83,8 @@ STARTED	* areas.bbs: read-only/vacation flag for downlinks,
 	  at the uplink (option or using directory), regularly check
 	  if area is subscribed by any downlink and send add/del
 	  request to uplink.
+	  #+ AREA is subscribed
+	  #- AREA is not subscribed
 
 STARTED * Replace calls to strncpy0/strncat0 with str_copy/str_append.
 
@@ -101,12 +100,9 @@ STARTED * Replace calls to strncpy0/strncat0 with str_copy/str_append.
 	  setting AKA based on current zone, using the AKA with best
 	  fits the sender/receiver. For multi-point operation.
 
-	* rfc2ftn: config parameter to disable/enable X-Flags
+DONE	* rfc2ftn: config parameter to disable/enable X-Flags
 	  processing. Add config parameter for specifying addresses
 	  allowed to use X-Flags.
-
-	* ftn2rfc: rewrite, split huge unpack() function into parts
-	  for processing netmail and echomail.
 
 	* ftn2rfc: process ^ARFC headers. If RFC level 1, import
 	  important headers such as Date, Message-ID. If RFC level 2,
@@ -145,7 +141,7 @@ DONE	  copy netmail packets (do_noarc()), use rename(). If archiver
 
 	* ftntoss: check # of ^AVia lines
 
-	* ftn2rfc, rfc2ftn: passthru operation for FTN messages, in
+DONE	* ftn2rfc, rfc2ftn: passthru operation for FTN messages, in
 	  particular EchoMail control information.
 
 	* ftntoss: strip ^APATH for ZoneGate

@@ -1,0 +1,20 @@
+#!/bin/sh
+
+T1="../../src/toss/ftntoss -vv -L../cf -c./config1"
+T2="../../src/toss/ftntoss -vv -L../cf -c./config2"
+
+../tr.init
+
+echo "tc: copying input packets"
+cp ../ti.pkt-toss/*.pkt toss/in
+
+echo "tc: running (killing bad)"
+$T2
+
+echo "tc: copying input packets"
+cp ../ti.pkt-toss/*.pkt toss/in
+
+echo "tc: running (saving bad)"
+$T1
+
+../../src/util/pktdebug -s toss/bad/*.pkt

@@ -1,0 +1,27 @@
+#!/bin/sh
+
+../tr.init
+
+G="../../src/gate/rfc2ftn -L../cf -v -c./config -i"
+
+T="../../src/toss/ftntoss  -L../cf -v"
+R="../../src/toss/ftnroute -L../cf -v"
+P="../../src/toss/ftnpack  -L../cf -vvv -p./packing"
+
+echo "tc: running"
+
+# Generate mail
+$G -a2:2452/99 -u2:2452/110.2 test@2:2452/110.2 <<EOF
+Subject: Test incoming mail
+From: test_user@f99.n2452.z2.fidonet.org
+X-Flags: mnc
+
+TEST incoming mail
+EOF
+
+
+# Move to SPOOLDIR/toss/in and run ftntoss/ftnroute
+mv out/*.pkt toss/in
+$T
+$R
+$P

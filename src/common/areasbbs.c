@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: areasbbs.c,v 4.7 1997/10/13 19:29:55 mj Exp $
+ * $Id: areasbbs.c,v 4.8 1997/11/09 16:37:43 mj Exp $
  *
  * Function for processing AREAS.BBS EchoMail distribution file.
  *
@@ -50,9 +50,9 @@ static AreasBBS *areasbbs_new(char *line)
     AreasBBS *p;
     char *dir, *tag, *nl, *o1, *o2;
    
-    dir = strtok(line, " \t");
-    tag = strtok(NULL, " \t");
-    nl  = strtok(NULL, "\r\n");
+    dir = xstrtok(line, " \t");
+    tag = xstrtok(NULL, " \t");
+    nl  = xstrtok(NULL, "\r\n");
     if(!dir || !tag)
 	return NULL;
     
@@ -74,6 +74,7 @@ static AreasBBS *areasbbs_new(char *line)
     node_invalid(&p->addr);
     p->lvl   = -1;
     p->key   = NULL;
+    p->desc  = NULL;
     
     /*
      * Parse options before list of linked nodes:
@@ -82,23 +83,26 @@ static AreasBBS *areasbbs_new(char *line)
      *     -z ZONE       alternate zone AKA for this area
      *     -l LVL        Areafix access level
      *     -k KEY        Areafix access key
+     *     -d DESC       Area description text
      */
     while(nl && *nl=='-')
     {
-	o1 = strtok(nl  , " \t");
-	o2 = strtok(NULL, " \t");
-	nl = strtok(NULL, "");
+	o1 = xstrtok(nl  , " \t");
+	o2 = xstrtok(NULL, " \t");
+	nl = xstrtok(NULL, "");
  	while(nl && is_space(*nl))
 	    nl++;
 
-	if(o1 && o2 && !strcmp(o1, "-a"))		/* -a Z:N/F.P */
+	if(o1 && o2 && streq(o1, "-a"))		/* -a Z:N/F.P */
 	    asc_to_node(o2, &p->addr, FALSE);
-	if(o1 && o2 && !strcmp(o1, "-z"))		/* -z ZONE */
+	if(o1 && o2 && streq(o1, "-z"))		/* -z ZONE */
 	    p->zone = atoi(o2);
-	if(o1 && o2 && !strcmp(o1, "-l"))		/* -l LVL */
+	if(o1 && o2 && streq(o1, "-l"))		/* -l LVL */
 	    p->lvl = atoi(o2);
-	if(o1 && o2 && !strcmp(o1, "-k"))		/* -k KEY */
+	if(o1 && o2 && streq(o1, "-k"))		/* -k KEY */
 	    p->key = strsave(o2);
+	if(o1 && o2 && streq(o1, "-d"))		/* -d DESC */
+	    p->desc = strsave(o2);
     }	
     
     lon_init(&p->nodes);
@@ -192,6 +196,8 @@ int areasbbs_print(FILE *fp)
 	    fprintf(fp, "-l %d ", p->lvl);
 	if(p->key)
 	    fprintf(fp, "-k %s ", p->key);
+	if(p->desc)
+	    fprintf(fp, "-d \"%s\" ", p->desc);
 	lon_print_sorted(&p->nodes, fp, 1);
 	fprintf(fp, "\r\n");
     }

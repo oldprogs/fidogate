@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: ftnaf.c,v 4.12 1997/08/17 13:13:22 mj Exp $
+ * $Id: ftnaf.c,v 4.13 1997/11/09 16:37:46 mj Exp $
  *
  * Areafix-like AREAS.BBS EchoMail distribution manager. Commands somewhat
  * conforming to FSC-0057.
@@ -39,7 +39,7 @@
 
 
 #define PROGRAM		"ftnaf"
-#define VERSION		"$Revision: 4.12 $"
+#define VERSION		"$Revision: 4.13 $"
 #define CONFIG		CONFIG_MAIN
 
 
@@ -587,7 +587,7 @@ int cmd_create(Node *node, char *line)
 	return OK;
     }
 
-    name = strtok(line, " \t");
+    name = xstrtok(line, " \t");
 
     if( (p = areasbbs_lookup(name)) )
     {
@@ -607,7 +607,8 @@ int cmd_create(Node *node, char *line)
     node_invalid(&p->addr);
     p->lvl   = -1;
     p->key   = NULL;
-    
+    p->desc  = NULL;
+
     /* Parse options:
      *
      *     -#            passthru
@@ -615,7 +616,7 @@ int cmd_create(Node *node, char *line)
      *     -r            read-only
      *     -l LVL        Areafix access level
      *     -k KEY        Areafix access key   */
-    while( (o1 = strtok(NULL, " \t")) )
+    while( (o1 = xstrtok(NULL, " \t")) )
     {
 	if(streq(o1, "-#") || streq(o1, "-p"))		/* -# */
 	    p->flags |= AREASBBS_PASSTHRU;
@@ -625,16 +626,23 @@ int cmd_create(Node *node, char *line)
 	    
 	if(streq(o1, "-l"))				/* -l LVL */
 	{
-	    if(! (o2 = strtok(NULL, " \t")) )
+	    if(! (o2 = xstrtok(NULL, " \t")) )
 		break;
 	    p->lvl = atoi(o2);
 	}
 	
 	if(streq(o1, "-k"))				/* -k KEY */
 	{
-	    if(! (o2 = strtok(NULL, " \t")) )
+	    if(! (o2 = xstrtok(NULL, " \t")) )
 		break;
 	    p->key = strsave(o2);
+	}
+
+	if(streq(o1, "-d"))				/* -d DESC */
+	{
+	    if(! (o2 = xstrtok(NULL, " \t")) )
+		break;
+	    p->desc = strsave(o2);
 	}
     }	
     
@@ -643,11 +651,12 @@ int cmd_create(Node *node, char *line)
 
     areasbbs_add(p);
 
-    log("%s: created %s lvl=%d key=%s%s%s",
+    log("%s: created %s lvl=%d key=%s desc=%s%s%s",
 	node_to_asc(node, TRUE),
 	p->area,
 	p->lvl,
 	p->key ? p->key : "",
+	p->desc ? p->desc : "",
 	p->flags & AREASBBS_PASSTHRU ? " passthru" : "",
 	p->flags & AREASBBS_READONLY ? " ro" : "");
 
@@ -697,7 +706,8 @@ int cmd_listall(Node *node)
 	l = &p->nodes;
 
 	fprintf(output, lon_search(l, node) ? "* " : "  ");
-	fprintf(output, "Z%-3d %s\n", p->zone, p->area);
+	fprintf(output, "Z%-3d %-39s%s%s\n", p->zone, p->area,
+		p->desc ? ": " : "", p->desc ? p->desc : ""   );
     }
     
     fprintf(output, "\n* = linked to this area\n\n");
@@ -750,7 +760,8 @@ int cmd_list(Node *node)
 	    continue;
 	
 	fprintf(output, lon_search(l, node) ? "* " : "  ");
-	fprintf(output, "%s\n", p->area);
+	fprintf(output, "%-39s%s%s\n", p->area,
+		p->desc ? ": " : "", p->desc ? p->desc : ""   );
     }
     
     fprintf(output, "\n* = linked to this area\n\n");
