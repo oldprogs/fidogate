@@ -2,6 +2,8 @@
 
 X = for next release
 
+EXISTS!	* ftnexpire: wait for lock file to be released!
+
 	* ftn2rfc/rfc2ftn: mail log + size / message date
 
 	* doc: add areas -L, LimitMsgSize, #define DO_HAVE_SYSEXITS_H
@@ -15,7 +17,7 @@ X = for next release
 	* doc: add X-Flags documentation.
 
 	* ftn2rfc: improve processing of RFC address user%do.main and
-	  user@do.main in FTN to field.
+	  user@do.main in FTN to field. Avoid "" quotes.
 
 	* rfc2ftn: configuration option for mail RFC level *per*
 	  *host*, e.g. option in HOSTS.

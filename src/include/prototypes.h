@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: prototypes.h,v 4.22 1997/03/28 11:31:23 mj Exp $
+ * $Id: prototypes.h,v 4.23 1997/04/12 07:55:44 mj Exp $
  *
  * Prototypes for functions in libfidogate.a
  *
@@ -339,6 +339,8 @@ int	is_blank		(int);
 char   *str_expand_name		(char *, size_t, char *);
 
 #define BUF_EXPAND(d,s)			str_expand_name(d,sizeof(d),s)
+
+char   *str_dosify		(char *);
 
 /* msgid.c */
 char   *msgid_fido_to_rfc	(char *, int *);

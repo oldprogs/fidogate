@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: misc.c,v 4.2 1997/02/09 10:04:27 mj Exp $
+ * $Id: misc.c,v 4.3 1997/04/12 07:55:42 mj Exp $
  *
  * Miscellaneous functions
  *
@@ -321,4 +321,20 @@ char *str_expand_name(char *d, size_t n, char *s)
     str_append(d, n, s);
     
     return d;
+}
+
+
+
+/*
+ * Convert `/' to `\' for MSDOS / OS2 filenames
+ */
+char *str_dosify(char *s)
+{
+    for(; *s; s++)
+	switch(*s)
+	{
+	case '/':
+	    *s = '\\';  break;
+	}
+    return s;
 }

@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway software UNIX <-> FIDO
  *
- * $Id: config.h,v 4.16 1997/03/28 11:31:18 mj Exp $
+ * $Id: config.h,v 4.17 1997/04/12 07:55:30 mj Exp $
  *
  * Configuration header file
  *
@@ -44,6 +44,12 @@
  * Create Binkley-style BSY files for all outbound operations
  */
 #define DO_BSY_FILES
+
+/*
+ * Create 4D outbound filenames for AmigaDOS mailers,
+ * Z.N.F.P.flo / Z.N.F.P.mo0
+ */
+/* #define AMIGADOS_4D_OUTBOUND */
 
 /*
  * Secure permissions
@@ -308,7 +314,7 @@
  */
 #define FTN_RFC_HEADERS \
     "From:", "Reply-To:", "UUCPFROM:", "To:", "Cc:", "Bcc:", \
-    "Newsgroups:", "Sender", "Content-Transfer-Encoding"
+    "Newsgroups:", "Sender:", "Content-Transfer-Encoding:"
 
 /*
  * RFC headers output for ^ARFC level 1 (partial RFC headers)

@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: binkley.c,v 4.3 1996/12/17 17:19:38 mj Exp $
+ * $Id: binkley.c,v 4.4 1997/04/12 07:55:42 mj Exp $
  *
  * BinkleyTerm-style outbound directory functions
  *
@@ -169,13 +169,18 @@ char *bink_out_name(Node *node)
     outbound = cf_outbound();
     if(!outbound)
 	return NULL;
-    
+
+#ifdef AMIGADOS_4D_OUTBOUND
+    sprintf(buf,"%s/%s/%d.%d.%d.%d.", outbound, out, node->zone,
+            node->net, node->node, node->point);
+#else    
     if(node->point)
 	sprintf(buf, "%s/%s/%04x%04x.pnt/0000%04x.",
 		outbound, out, node->net, node->node, node->point);
     else
 	sprintf(buf, "%s/%s/%04x%04x.",
 		outbound, out, node->net, node->node);
+#endif /**AMIGADOS_4D_OUTBOUND**/
 
     return buf;
 }

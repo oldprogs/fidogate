@@ -1,4 +1,40 @@
+Sat Apr 12 09:22:58 1997  Martin Junius  <mj@fido.de>
+
+	------- CVS ci -------------------------------------------------------
+
+	* version.h (PATCHLEVEL): set to 1 (version 4.2.1).
+
+	* src/common/misc.c (str_dosify): new function converting string
+	  with filename from UNIX `/' to MSDOS `\'.
+
+	* src/common/binkley.c (bink_out_name): implemented
+	  AMIGADOS_4D_OUTBOUND. 
+
+	* src/toss/ftnpack.c (arcmail_name): implemented
+	  AMIGADOS_4D_OUTBOUND. 
+
+	* config.h (AMIGADOS_4D_OUTBOUND): new #define to enable
+	  4D outbound filenames for AmigaDOS mailers, Z.N.F.P.flo /
+	  Z.N.F.P.mo0. Patches supplied by James McOrmond <jam@jammys.net>.
+
 Thu Apr 10 20:52:03 1997  Martin Junius  <mj@fido.de>
+
+	* config.h (FTN_RFC_HEADERS): added ":" to last two strings.
+
+	* examples/orodruin/hosts: updated.
+
+	* examples/morannon/routing: updated.
+
+	* examples/morannon/hosts: updated.
+
+	* examples/morannon/aliases: updated, Fido.DE user aliases
+	  removed.
+	
+	* ANNOUNCE: updated.
+
+	* fidogate.lsm: updated.
+
+	* test/tc.gate6/run: added exit 0 to continue in make check.
 
 	======= Release 4.2.0 ================================================
 

@@ -225,9 +225,6 @@ route	hold	242:2000/0 242:2000/all
 # Joerg Stadelhoff (Koblenz)
 route	hold	242:3000/0 242:3000/all
 
-# Arne
-route	hold	242:3001/0 242:3001/all
-
 # Rolf Gerke (Goettingen)
 route	hold	242:3700/0 242:3700/all
 

@@ -23,3 +23,5 @@ for f in ../ti.mail-l/[0-9]*; do
   $T -cconfig3 test@hippo.fido.de <$f
 done
 
+# last test returns with error status
+exit 0

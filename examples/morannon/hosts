@@ -22,13 +22,6 @@
 2:2452/110      hippo          
 242:1000/7      yftn           
 2:2452/108      yftn           
-242:3001/51     black          
-242:3001/52     black          
-242:3001/54     black          
-242:3001/0      black          
-2:2452/151      black          
-2:2452/152      black          
-2:242/5         black          
 242:1000/51     inncomm         -p
 242:1000/54     inncomm         -p
 242:1000/50     inncomm         -p
@@ -66,7 +59,7 @@
 2:244/1121      ambrosia       
 242:1000/153    nirvana        
 242:1000/150    nirvana        
-2:2490/1521     nirvana        
+2:2490/2121     nirvana        
 242:1000/14     wuivendriet    
 2:2452/121      wuivendriet    
 242:4000/6      suburbia       
@@ -119,6 +112,7 @@
 242:1000/500    saeubrenner    
 2:2452/401      saeubrenner    
 2:2452/402      saeubrenner    
+2:2452/1        saeubrenner    
 242:1000/510    highlands      
 242:1000/511    highlands      
 2:2452/351      highlands      
@@ -128,13 +122,6 @@
 2:2452/169      aero           
 2:2452/170      aero           
 2:2452/171      aero           
-242:3001/53     black-isdn     
-2:2452/153      black-isdn     
-242:9000/1      funclub        
-2:240/5010      funclub        
-242:9000/2      funclub-isdn   
-2:240/5011      funclub-isdn   
-2:240/5012      funclub-isdn   
 242:1000/10     krynn           -p
 242:1000/11     krynn           -p
 242:3001/104    krynn           -p
@@ -144,9 +131,6 @@
 242:2000/200    ibf            
 2:240/3007      ibf            
 2:240/3008      ibf            
-242:9000/400    graft          
-242:9000/401    graft          
-2:240/5400      graft          
 242:1000/553    citybox        
 242:1000/551    citybox        
 242:1000/552    citybox        
@@ -177,8 +161,6 @@
 2:241/1130      desert         
 2:241/1131      desert         
 2:241/1132      desert         
-242:3001/2      ariadne        
-2:2452/187      ariadne        
 242:6000/224    gruft          
 242:6000/225    gruft          
 242:6000/226    gruft          
@@ -217,15 +199,6 @@
 242:1000/607    mccs           
 242:1000/608    mccs           
 2:246/8100      mccs           
-242:9000/50     rookie         
-242:9000/51     rookie         
-2:240/5001      rookie         
-2:240/5002      rookie         
-2:240/5003      rookie         
-242:9000/52     hanse          
-242:9000/53     hanse          
-2:240/5015      hanse          
-2:240/5016      hanse          
 242:1000/612    tsb             -p
 242:1000/609    tsb             -p
 242:1000/610    tsb             -p
@@ -268,10 +241,6 @@
 2:2487/8006     ayn-ii          -p
 242:1000/16     3lands          -p
 2:301/221       3lands          -p
-242:9000/58     rolf           
-242:9000/59     rolf           
-2:240/5225      rolf           
-2:240/5226      rolf           
 242:7000/704    wad.berlin      -p
 242:7000/1      wad.berlin      -p
 242:7000/0      wad.berlin      -p
@@ -315,19 +284,11 @@
 2:2452/110.1    sungate-ftn    
 242:9000/102    xtc            
 2:240/5222      xtc            
-242:9000/112    takeoff        
-2:240/5070      takeoff        
-242:9000/100    hqsys          
-2:240/5202      hqsys          
 242:1001/500    mailonly       
 242:3800/500    mailonly       
 2:241/500       mailonly       
 2:241/501       mailonly       
 2:241/1069      mailonly       
-242:3700/5      911            
-242:3700/6      911            
-242:2000/305    911            
-242:2000/306    911            
 242:7000/305    median.berlin  
 242:7000/315    median.berlin  
 242:7000/398    median.berlin  
@@ -372,8 +333,6 @@
 2:2410/224      pipe.berlin    
 2:2410/293      pipe.berlin    
 2:2410/294      pipe.berlin    
-242:3800/595    maw            
-2:241/595       maw            
 242:5000/10     geobox3        
 2:2437/41       geobox3        
 242:5000/11     aigyptos       
@@ -382,8 +341,6 @@
 242:5000/13     adkanet        
 2:2437/921      adkanet        
 2:2437/928      adkanet        
-242:9000/64     caronia        
-2:240/5048      caronia        
 242:9000/60     ccb-world      
 2:240/5067      ccb-world      
 2:240/5068      ccb-world      
