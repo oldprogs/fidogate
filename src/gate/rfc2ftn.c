@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway software UNIX <-> FIDO
  *
- * $Id: rfc2ftn.c,v 4.58 2000/01/30 20:39:25 mj Exp $
+ * $Id: rfc2ftn.c,v 4.59 2000/04/10 20:00:57 mj Exp $
  *
  * Read mail or news from standard input and convert it to a FIDO packet.
  *
@@ -39,7 +39,7 @@
 
 
 #define PROGRAM 	"rfc2ftn"
-#define VERSION 	"$Revision: 4.58 $"
+#define VERSION 	"$Revision: 4.59 $"
 #define CONFIG		DEFAULT_CONFIG_GATE
 
 
@@ -1046,7 +1046,6 @@ int snd_mail(RFCAddr rfc_to, long size)
 	xpost_flag = strchr(groups, ',') != NULL;
 
 	/* List of newsgroups -> textlist (strtok is not reentrant!) */
-	tl_clear(&tl);
 	for(p=strtok(groups, ","); p; p=strtok(NULL, ","))
 	    tl_append(&tl, p);
 
@@ -1126,11 +1125,16 @@ int snd_mail(RFCAddr rfc_to, long size)
 		msg.node_from = cf_n_addr();
 		msg.node_to   = cf_n_uplink();
 		status = snd_message(&msg, pa, rfc_from, rfc_to,
-				     subj, size, flags, fido, mime, &node_from);
-		if(status)
+				     subj, size, flags, fido, mime,
+				     &node_from);
+		if(status) {
+		    tl_clear(&tl);
 		    TMPS_RETURN(status);
+		}
 	    }
 	}
+
+	tl_clear(&tl);
     }
     else {
 	/*

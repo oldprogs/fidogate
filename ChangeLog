@@ -1,3 +1,13 @@
+2000-04-10  Martin Junius  <mj@fido.de>
+
+	------- CVS ci -------------------------------------------------------
+
+	* src/gate/rfc2ftn.c (snd_mail): fixed memory leak, tl must be
+	  cleared after for loop.
+
+	* test/tc.memleak/run1: new test case for memory leaks in various
+ 	  FIDOGATE programs, starting with rfc2ftn.
+
 2000-03-07  Martin Junius  <mj@fido.de>
 
 	------- CVS ci -------------------------------------------------------
