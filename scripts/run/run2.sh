@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# $Id: run2.sh,v 4.0 1996/04/17 18:17:38 mj Exp $
+# $Id: run2.sh,v 4.1 1996/05/07 19:50:41 mj Exp $
 #
 # Run
 #     runin
@@ -35,7 +35,7 @@ $PRG/runin
 #
 # 2nd pass: process packets for Internet gateway
 #
-$PRG/ftnin -x ftninpost
+$PRG/ftnin -x %L/ftninpost
 
 #
 # 3rd pass: process packets for FTN gateway

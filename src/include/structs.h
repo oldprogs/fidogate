@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: structs.h,v 4.0 1996/04/17 18:17:41 mj Exp $
+ * $Id: structs.h,v 4.1 1996/05/07 19:50:44 mj Exp $
  *
  * An assortment of FIDOGATE data structure definitions
  *
@@ -208,6 +208,43 @@ typedef struct st_rewrite
     struct st_rewrite *next;
 }
 Rewrite;
+
+
+
+/*
+ * Archiver or program
+ */
+#define PACK_NORMAL	'n'		/* Pack to pkt dest archive */
+#define PACK_ROUTE	'r'		/* Pack to other archive */
+#define PACK_FLO	'f'		/* Attach archive to other FLO */
+#define PACK_DIR	'd'		/* Pack to separate directory */
+
+#define PACK_ARC	'a'
+#define PACK_PROG	'p'
+
+typedef struct st_arcprog
+{
+    int pack;
+    char *name;
+    char *prog;
+    
+    struct st_arcprog *next;
+}
+ArcProg;
+
+/*
+ * Packing entry
+ */
+typedef struct st_packing
+{
+    int pack;
+    char *dir;
+    ArcProg *arc;
+    LON nodes;
+    
+    struct st_packing *next;
+}
+Packing;
 
 
 

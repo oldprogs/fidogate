@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# $Id: runpoll.sh,v 4.1 1996/05/05 12:26:54 mj Exp $
+# $Id: runpoll.sh,v 4.2 1996/05/07 19:50:42 mj Exp $
 #
 # Poll uplink
 #
@@ -57,4 +57,4 @@ $FIDOGATE/runtoss   pin
 $FIDOGATE/ftnexpire
 
 # Gateway
-$FIDOGATE/ftnin -x ftninpost
+$FIDOGATE/ftnin -x %L/ftninpost

@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ffxqt.c,v 4.1 1996/05/05 12:26:56 mj Exp $
+ * $Id: ffxqt.c,v 4.2 1996/05/07 19:50:42 mj Exp $
  *
  * Process incoming ffx control and data files
  *
@@ -38,7 +38,7 @@
 
 
 #define PROGRAM		"ffxqt"
-#define VERSION		"$Revision: 4.1 $"
+#define VERSION		"$Revision: 4.2 $"
 #define CONFIG		CONFIG_FFX
 
 
@@ -169,9 +169,10 @@ int do_ffx(int t_flag)
 	    }
 	}
 
-	log("job %s from %s for %s", ffx->job,
-	    node_to_asc(&ffx->from, TRUE), node_to_asc(&ffx->to, TRUE));
-	log("job %s: data %s (%ldb) %s", ffx->job, ffx->file,
+	log("job %s: from %s for %s data %s (%ldb) %s",
+	    ffx->job,
+	    node_to_asc(&ffx->from, TRUE), node_to_asc(&ffx->to, TRUE),
+	    ffx->file,
 	    check_size(ffx->file), ffx->decompr ? ffx->decompr : "");
 	log("job %s: %s", ffx->job, ffx->cmd);
 	

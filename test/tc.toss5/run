@@ -1,0 +1,12 @@
+#!/bin/sh
+
+../tr.init
+mkdir tmp_pack
+
+echo "tc: copying input packets"
+cp ../ti.pkt-z2/* toss/in
+
+echo "tc: running"
+../../src/toss/ftntoss  -L../cf -S. -v
+../../src/toss/ftnroute -L../cf -S. -v
+../../src/toss/ftnpack  -L../cf -S. -v -B./bt -ppacking

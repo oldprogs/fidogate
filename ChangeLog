@@ -1,4 +1,59 @@
+Tue May  7 20:21:58 1996  Martin Junius  <mj@fido.de>
+
+	* test/tc.toss5/run: new test case for ftnpack's "dirpack" command.
+
+	* src/toss/ftnpack.c (parse_pack): new "dirpack" command.
+	  (packing_init): parse directory argument for "dirpack" command.
+	  Syntax:
+	      dirpack  DIRECTORY  NAME  NODES
+	  (do_arcmail): new argument "dir", directory for "dirpack"
+	  command, NULL for all others.
+	  (do_arcmail): pass dir to arcmail_name(), only do bink_attach()
+	  if dir==NULL (command is not "dirpack").
+	  (arcmail_name): new argument "dir", directory for "dirpack"
+	  command. If !=NULL used for the directory base name.
+	  (arcmail_name): use BUF_COPY(), BUF_COPY2(), BUF_APPEND().
+	  (arcmail_name): don't use point subdirectory for "dirpack" command.
+	  (do_dirpack): new function doing special actions for "dirpack"
+	  command. 
+	  (do_packing): call do_dirpack() for "dirpack" command.
+
+	* src/include/structs.h (PACK_DIR): new #define for "dirpack" command.
+	  (Packing): new field "dir", directory name for "dirpack" command.
+
+	* src/toss/ftnpack.c (ArcProg, Packing): struct definitions moved
+	  to structs.h.
+
+Mon May  6 22:22:31 1996  Martin Junius  <mj@fido.de>
+
+	* src/ffx/ffxqt.c (do_ffx): combine 2 log() messages in one line.
+
 Sun May  5 11:00:41 1996  Martin Junius  <mj@fido.de>
+
+	* test/tc.af/run: new test case for testing ftnaf.
+
+	* scripts/run/runpoll.sh: same.
+
+	* scripts/run/run2.sh: use "ftnin -x %L/ftninpost".
+
+	* src/gate/ftn2rfc.c (main): same.
+
+	* src/gate/ftnin.c (main): use str_expand_name() for script name,
+	  no more fixed LIBDIR prefix.
+
+	* src/toss/ftnaf.c (usage): new -x --exec-program option.
+	  (main): implemented -x.
+	  (run_script): stub for new function, running script for adding
+	  unknown area.
+	  (cmd_add): if area is not found, run script if requested by -x
+	  option. 
+	  (rewrite_areas_bbs): usee MAXPATH for str_expand_name() because
+	  of limited size of old[], new[].
+	  (run_script): execute script, passing node and area args:
+	  	X-SCRIPT NODE AREA
+		         ^^^^ ^^^^-- Unknown area name
+			    -------- Node address of requesting system
+	  (run_script): use str_expand_name() for script name.
 
 	------- CVS commit ---------------------------------------------------
 

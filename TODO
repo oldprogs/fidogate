@@ -1,21 +1,12 @@
--*- Indented-Text -*- :ts=8
+-*- Indented-Text -*-
 
 X = for release 4.0alpha2
-
-DONE.	* ftnexpire: add some statistics output
-
-DONE.	* ftntoss: create empty history database, if it doesn't exist
-
-DONE.	* ffx*: log messages of activities.
 
 	* ftn2rfc: bounce messages should include the complete FTN
 	  message with all kludges etc. to ease debugging.
 
-X	* ftntoss: make "send" work as in SQUISH. Needs rewrite of
-	  node string parsing functions.
-
-X	* ftnaf: forward requests to uplink(s). -x option for
-	  executing a script for unknown areas.
+STARTED.* ftntoss: make "send" work as in SQUISH. Needs rewrite of
+	  node string parsing functions and routing.c / ftnroute.c.
 
 	* config.h: ALIASES, AREAS, HOSTS, PASSWD, PACKING, ROUTING
 	  configurable in config.common
@@ -23,7 +14,7 @@ X	* ftnaf: forward requests to uplink(s). -x option for
 	* kludge.c: handling traversing multiple kludges of the same
 	  type.
 
-STARTED	* node.c, routing.c: merge node parsing functions into general
+STARTED.* node.c, routing.c: merge node parsing functions into general
 	  ones. parsenode.c
 
 	* ftnpack: runtime configuration of arcmail extension
@@ -51,10 +42,6 @@ STARTED	* node.c, routing.c: merge node parsing functions into general
 PARTLY	* ftnpack: better file attach processing, -F DIR option. Don't
 DONE.	  copy netmail packets (do_noarc()), use rename(). If archiver
 	  fails, move packets back to toss/out directory.
-
-DONE.	* ftntoss/ftnroute/ftnpack: make -a Z:N/F.P option in
-	  AREAS.BBS work. outpkt_open() should take into account
-	  packet from addresses as well.
 
 rfc2ftn	* Support for new FIDO-Gatebau '94 ^ARFC kludges.
 DONE.

@@ -3,12 +3,13 @@
 #
 # Commands:
 #
-#     arc    NAME  "/PATH/PROG %s %s"
-#     prog   NAME  "/PATH/PROG %s"
-#
-#     pack   NAME  NODES
-#     rpack  NAME  TARGET NODES
-#     fpack  NAME  TARGET NODES
+#     arc      NAME  "/PATH/PROG %s %s"
+#     prog     NAME  "/PATH/PROG %s"
+#  
+#     pack     NAME  NODES
+#     rpack    NAME  TARGET NODES
+#     fpack    NAME  TARGET NODES
+#     dirpack  DIRECTORY  NAME  NODES
 #
 
 arc		zip	"/usr/bin/zip -gkjq %s %s"

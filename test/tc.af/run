@@ -1,0 +1,19 @@
+#!/bin/sh
+
+../tr.init
+
+T="../../src/toss/ftnaf -L../cf -S."
+
+echo "tc: running"
+
+$T -v -b areas.bbs 2:2452/110.90 query
+$T -v -b areas.bbs 2:2452/110.90 list
+$T -v -b areas.bbs 2:2452/110.90 listall
+
+cp areas.bbs tmp_areas.bbs
+
+$T -v -b tmp_areas.bbs 2:2452/110.1 add linux.ger
+$T -v -b tmp_areas.bbs 2:2452/110.1 add tolkien.ger
+
+$T -v -b tmp_areas.bbs 2:2452/110.1 add UNKNOWN.GER
+$T -v -b tmp_areas.bbs -x./unknown 2:2452/110.1 add UNKNOWN.GER

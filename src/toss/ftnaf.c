@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: ftnaf.c,v 4.2 1996/05/05 12:26:58 mj Exp $
+ * $Id: ftnaf.c,v 4.3 1996/05/07 19:50:45 mj Exp $
  *
  * Areafix-like AREAS.BBS EchoMail distribution manager. Commands somewhat
  * conforming to FSC-0057.
@@ -39,7 +39,7 @@
 
 
 #define PROGRAM		"ftnaf"
-#define VERSION		"$Revision: 4.2 $"
+#define VERSION		"$Revision: 4.3 $"
 #define CONFIG		CONFIG_MAIN
 
 
@@ -69,6 +69,7 @@
 /*
  * Prototypes
  */
+int	run_script		(Node *, char *);
 int	is_wildcard		(char *);
 FILE   *mailer_open		(char *);
 int     mailer_close		(FILE *);
@@ -101,6 +102,7 @@ static int   areafix = TRUE;
 static int   m_flag = FALSE;
 static int   r_flag = FALSE;
 static int   n_flag = FALSE;
+static char *x_flag = NULL;
 
 static int   areas_bbs_changed = FALSE;
 
@@ -124,6 +126,36 @@ static char *my_areasbbs= MY_AREASBBS_AF;
  * Name of areas.bbs file
  */
 static char *areas_bbs = NULL;
+
+
+
+/*
+ * Run script for unknown area
+ */
+int run_script(Node *node, char *area)
+{
+    char buf[MAXPATH];
+    FILE *fp;
+
+    str_expand_name(buf, sizeof(buf), x_flag);
+    BUF_APPEND(buf, " ");
+    BUF_APPEND(buf, node_to_asc(node, TRUE));
+    BUF_APPEND(buf, " ");
+    BUF_APPEND(buf, area);
+
+    if( (fp = popen(buf, R_MODE)) == NULL )
+    {
+	log("$ERROR: can't open pipe to %s", buf);
+	return ERROR;
+    }
+
+    while(fgets(buf, sizeof(buf), fp))
+	fputs(buf, output);
+
+    pclose(fp);
+    
+    return OK;
+}
 
 
 
@@ -196,7 +228,7 @@ int rewrite_areas_bbs(void)
     /*
      * Base name
      */
-    str_expand_name(buffer, sizeof(buffer), areas_bbs);
+    str_expand_name(buffer, MAXPATH, areas_bbs);
     ovwr = strlen(buffer) - 3;		/* 3 = extension "bbs" */
     if(ovwr < 0)			/* Just to be sure */
 	ovwr = 0;
@@ -778,9 +810,14 @@ int cmd_add(Node *node, char *area)
     }
 
     if(!match)
-	fprintf(output, "%s: no such area, or no area matching pattern\n",
-		area);
-	
+    {
+	if(x_flag && !iswc)
+	    run_script(node, area);
+	else
+	    fprintf(output, "%s: no such area, or no area matching pattern\n",
+		    area);
+    }
+    
     return OK;
 }
 
@@ -959,6 +996,7 @@ options: -m --mail                    process Areafix mail on stdin\n\
          -n --no-rewrite              don't rewrite AREAS.BBS\n\
          -b --areas-bbs NAME          use alternate AREAS.BBS\n\
          -F --filefix                 run as Filefix program (FAREAS.BBS)\n\
+         -x --exec-program SCRIPT     call SCRIPT for unknown areas\n\
 \n\
          -v --verbose                 more verbose\n\
 	 -h --help                    this help\n\
@@ -992,6 +1030,7 @@ int main(int argc, char **argv)
 	{ "no-rewrite",   0, 0, 'n'},
         { "areas-bbs",	  1, 0, 'b'},
 	{ "filefix",      0, 0, 'F'},
+	{ "exec-program", 1, 0, 'x'},	/* Exec script for unknown areas */
 
 	{ "verbose",      0, 0, 'v'},	/* More verbose */
 	{ "help",         0, 0, 'h'},	/* Help */
@@ -1014,7 +1053,7 @@ int main(int argc, char **argv)
     cf_initialize();
 
 
-    while ((c = getopt_long(argc, argv, "mrnb:Fvhc:S:L:a:u:",
+    while ((c = getopt_long(argc, argv, "mrnb:Fx:vhc:S:L:a:u:",
 			    long_options, &option_index     )) != EOF)
 	switch (c) {
 	/***** ftnaf options *****/
@@ -1036,6 +1075,9 @@ int main(int argc, char **argv)
 	    my_context  = MY_CONTEXT_FF;
 	    my_areasbbs = MY_AREASBBS_FF;
 	    areafix     = FALSE;
+	    break;
+	case 'x':
+	    x_flag = optarg;
 	    break;
 	    
 	/***** Common options *****/

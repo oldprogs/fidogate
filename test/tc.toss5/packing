@@ -20,7 +20,4 @@ prog		gate	"/usr/local/lib/fidogate/ftn2rfc %s"
 
 ######## P A C K I N G #######################################################
 
-pack		noarc	2:2452/110.2
-pack		noarc	242:1000/5
-
-pack		zip	*
+dirpack ./tmp_pack	zip	*

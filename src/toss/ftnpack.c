@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftnpack.c,v 4.3 1996/04/24 12:15:29 mj Exp $
+ * $Id: ftnpack.c,v 4.4 1996/05/07 19:50:45 mj Exp $
  *
  * Pack output packets of ftnroute for Binkley outbound (ArcMail)
  *
@@ -39,7 +39,7 @@
 
 
 #define PROGRAM 	"ftnpack"
-#define VERSION 	"$Revision: 4.3 $"
+#define VERSION 	"$Revision: 4.4 $"
 #define CONFIG		CONFIG_MAIN
 
 
@@ -59,49 +59,18 @@ static char file_attach_dir[MAXPATH];
 static int severe_error = OK;		/* ERROR: exit after error */
 
 
-
-/*
- * Archiver or Program
- */
-#define PACK_NORMAL	'n'		/* Packing to pkt dest archive */
-#define PACK_ROUTE	'r'		/* Packing to other archive */
-#define PACK_FLO	'f'		/* Attach archive to other FLO */
-
-#define PACK_ARC	'a'
-#define PACK_PROG	'p'
-
-typedef struct st_arcprog
-{
-    int pack;
-    char *name;
-    char *prog;
-    
-    struct st_arcprog *next;
-}
-ArcProg;
-
+/* "noarc" packer program */
 static ArcProg noarc = 
 {
     PACK_ARC, "noarc", NULL, NULL
 };
 
+/* packer programs linked list */
 static ArcProg *arcprog_first = &noarc;
 static ArcProg *arcprog_last  = &noarc;
 
 
-/*
- * Packing entry
- */
-typedef struct st_packing
-{
-    int pack;
-    ArcProg *arc;
-    LON nodes;
-    
-    struct st_packing *next;
-}
-Packing;
-
+/* packing commands linked list */
 static Packing *packing_first = NULL;
 static Packing *packing_last  = NULL;
 
@@ -114,14 +83,15 @@ int	parse_pack		(char *);
 ArcProg*parse_arc		(char *);
 void	new_arc			(int, char *);
 void	packing_init		(char *);
-char   *arcmail_name		(Node *);
+char   *arcmail_name		(Node *, char *);
 char   *pkttime_name		(char *);
 int	arcmail_search		(char *);
 int	do_arcmail		(char *, Node *, Node *, PktDesc *,
-				 FILE *, char *);
+				 FILE *, char *, char *);
 int	do_noarc		(char *, Node *, PktDesc *, FILE *, char *);
 void	set_zero		(Node *);
 int	do_pack			(PktDesc *, char *, FILE *, Packing *);
+int	do_dirpack		(PktDesc *, char *, FILE *, Packing *);
 int	do_packing		(char *, FILE *, Packet *);
 int	do_packet		(FILE *, Packet *, PktDesc *);
 void	add_via			(Textlist *, Node *);
@@ -142,6 +112,8 @@ int parse_pack(char *s)
 	return PACK_ROUTE;
     if(!stricmp(s, "fpack"))
 	return PACK_FLO;
+    if(!stricmp(s, "dirpack"))
+	return PACK_DIR;
     if(!stricmp(s, "arc"))
 	return PACK_ARC;
     if(!stricmp(s, "prog"))
@@ -212,6 +184,7 @@ void packing_init(char *name)
     Packing *r;
     ArcProg *a;
     char *p;
+    char *dir;
     Node old, node;
     LON lon;
     int cmd;
@@ -243,7 +216,7 @@ void packing_init(char *name)
 	p = xstrtok(NULL, " \t");
 	if(!p)
 	{
-	    log("packing: packer name argument missing");
+	    log("packing: packer name/directory argument missing");
 	    continue;
 	}
 
@@ -253,6 +226,16 @@ void packing_init(char *name)
 	    new_arc(cmd, p);
 	    continue;
 	}
+	if(cmd == PACK_DIR)
+	{
+	    /* Directory name for "dirpack" command */
+	    dir = strsave(p);
+	    p = xstrtok(NULL, " \t");
+	}
+	else
+	    dir = NULL;
+
+	/* Archiver/program name */
 	if((a = parse_arc(p)) == NULL)
 	{
 	    log("packing: unknown archiver/program %s", p);
@@ -292,6 +275,7 @@ void packing_init(char *name)
 	 */
 	r = (Packing *)xmalloc(sizeof(Packing));
 	r->pack  = cmd;
+	r->dir   = dir;
 	r->arc   = a;
 	r->nodes = lon;
 	r->next  = NULL;
@@ -302,7 +286,8 @@ void packing_init(char *name)
 	    packing_first      = r;
 	packing_last = r;
 	
-	debug(15, "packing: pack=%c arc=%s", r->pack, r->arc->name);
+	debug(15, "packing: pack=%c dir=%s arc=%s",
+	      r->pack, r->dir ? r->dir : "", r->arc->name);
 	lon_debug(15, "packing: nodes=", &r->nodes, TRUE);
     }
 
@@ -314,7 +299,7 @@ void packing_init(char *name)
 /*
  * Return name for ArcMail archive
  */
-char *arcmail_name(Node *node)
+char *arcmail_name(Node *node, char *dir)
 {
     static char buf[MAXPATH];
     static char *wk0[] = { "su0", "mo0", "tu0", "we0", "th0", "fr0", "sa0" };
@@ -325,15 +310,22 @@ char *arcmail_name(Node *node)
     
     cf_set_zone(node->zone);
 
-    /*
-     * Outbound dir + zone dir
-     */
-    strncpy0(buf, cf_outbound(), sizeof(buf));
-    strncat0(buf, "/"          , sizeof(buf));
-    if((base = cf_zones_out(node->zone)) == NULL)
-	return NULL;
-    strncat0(buf, base         , sizeof(buf));
-    strncat0(buf, "/"          , sizeof(buf));
+    if(dir)
+    {
+	/* Passed directory name */
+	BUF_COPY(buf, dir);
+	if(buf[str_last(buf, sizeof(buf))] != '/')
+	    BUF_APPEND(buf, "/");
+    }
+    else
+    {
+	/* Outbound dir + zone dir */
+	BUF_COPY2(buf, cf_outbound(), "/");
+	if((base = cf_zones_out(node->zone)) == NULL)
+	    return NULL;
+	BUF_APPEND(buf, base);
+	BUF_APPEND(buf, "/");
+    }
     base = buf + strlen(buf);
 
     /*
@@ -350,9 +342,12 @@ char *arcmail_name(Node *node)
     {
 	d1 = 0;
 	d2 = (cf_main_addr()->point - node->point) & 0xffff;
-	
-	sprintf(base, "%04x%04x.pnt/%04x%04x.%s",
-		node->net, node->node, d1, d2, wk );
+
+	if(dir)
+	    sprintf(base, "%04x%04x.%s", d1, d2, wk );
+	else
+	    sprintf(base, "%04x%04x.pnt/%04x%04x.%s",
+		    node->net, node->node, d1, d2, wk );
     }
     else
     {
@@ -454,12 +449,12 @@ int arcmail_search(char *name)
  * Pack packet to ArcMail archive
  */
 int do_arcmail(char *name, Node *arcnode, Node *flonode,
-	       PktDesc *desc, FILE *file, char *prog)
+	       PktDesc *desc, FILE *file, char *prog, char *dir)
 {
     char *arcn, *pktn;
     int ret, newfile;
     
-    arcn = arcmail_name(arcnode);
+    arcn = arcmail_name(arcnode, dir);
     pktn = pkttime_name(name);
     if(!arcn)
 	return ERROR;
@@ -515,7 +510,7 @@ int do_arcmail(char *name, Node *arcnode, Node *flonode,
     chmod(arcn, PACKET_MODE);
     if(unlink(pktn) == -1)
 	log("$ERROR: can't remove %s", pktn);
-    if(newfile)
+    if(!dir && newfile)
 	return bink_attach(flonode, '#', arcn,
 			   flav_to_asc(desc->flav), FALSE );
 
@@ -697,7 +692,7 @@ int do_pack(PktDesc *desc, char *name, FILE *file, Packing *pack)
 {
     int ret = OK;
     Node arcnode, flonode;
-
+    
     arcnode = desc->to;
     flonode = desc->to;
     
@@ -756,7 +751,7 @@ int do_pack(PktDesc *desc, char *name, FILE *file, Packing *pack)
 		    node_to_asc(&desc->to,TRUE), pack->arc->name );
 
 	    ret = do_arcmail(name, &arcnode, &flonode, desc,
-			     file, pack->arc->prog);
+			     file, pack->arc->prog, NULL);
 	}
 	else
 	{
@@ -775,6 +770,46 @@ int do_pack(PktDesc *desc, char *name, FILE *file, Packing *pack)
     bink_bsy_delete(&arcnode);
     if(!node_eq(&arcnode, &flonode))
 	bink_bsy_delete(&flonode);
+    
+    return ret;
+}
+
+
+
+/*
+ * Pack packet to ArcMail archive in separate directory
+ */
+int do_dirpack(PktDesc *desc, char *name, FILE *file, Packing *pack)
+{
+    int ret = OK;
+    Node arcnode, flonode;
+    
+    arcnode = desc->to;
+    flonode = desc->to;
+    
+    /* Set all -1 values to 0 */
+    set_zero(&arcnode);
+    set_zero(&flonode);
+    
+    /* Create lock file */
+
+    
+    /* Do the various pack functions */
+    if(pack->arc->pack == PACK_ARC)
+    {
+	if(pack->arc->prog)
+	{
+	    log("archiving packet (%ldb) for %s (%s) in %s",
+		check_size(name),
+		node_to_asc(&desc->to,TRUE), pack->arc->name, pack->dir);
+
+	    ret = do_arcmail(name, &arcnode, &flonode, desc,
+			     file, pack->arc->prog, pack->dir);
+	}
+    }
+    
+    /* Remove lock file */
+
     
     return ret;
 }
@@ -821,8 +856,10 @@ int do_packing(char *name, FILE *fp, Packet *pkt)
 	for(p=r->nodes.first; p; p=p->next)
 	    if(node_match(&desc->to, &p->node))
 	    {
-		debug(3, "packing: pack=%c arc=%s", r->pack, r->arc->name);
-		return do_pack(desc, name, fp, r);
+		debug(3, "packing: pack=%c dir=%s arc=%s",
+		      r->pack, r->dir ? r->dir : "", r->arc->name);
+		return r->dir ? do_dirpack(desc, name, fp, r)
+		              : do_pack   (desc, name, fp, r);
 	    }
 
     return OK;
