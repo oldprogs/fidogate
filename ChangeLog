@@ -1,3 +1,16 @@
+2004-03-08  Martin Junius  <mj@m-j-s.net>
+
+	------- CVS ci -------------------------------------------------------
+
+	* scripts/maintenance/Makefile (PROGS): added logsendmail2.
+
+	* scripts/maintenance/logsendmail2.pl: new version of logsendmail
+	  utility. 
+
+2004-02-12  Martin Junius  <mj@m-j-s.net>
+
+	* src/gate/rfc2ftn.c (receiver): "sysop" is always a valid name.
+
 2004-02-11  Martin Junius  <mj@m-j-s.net>
 
 	------- CVS ci -------------------------------------------------------
