@@ -375,8 +375,8 @@ config: HostsRestricted
 config: FTNJunkGroup fido.junk
 config: NetMailQP
 config: RFCAddrMode 1
-config: DefaultCharset x-ibmpc:iso-8859-1:iso-8859-1
-config: NetMailCharset x-ibmpc:iso-8859-1:iso-8859-1
+config: DefaultCharset x-ibmpc:latin-1:iso-8859-1
+config: NetMailCharset x-ibmpc:latin-1:iso-8859-1
 config: NewsPathTail fidogate!not-for-mail
 config: AreasXlate _		-
 config: AREAS %C/areas
@@ -773,6 +773,8 @@ config: XFlagsPolicy 0
 config: DontUseReplyTo
 config: RFCAddrMode 1
 config: ReplyAddrIfmailTX
+config: DefaultCharset x-ibmpc:latin-1:iso-8859-1
+config: NetMailCharset x-ibmpc:latin-1:iso-8859-1
 config: HOSTS %C/hosts
 Reading hosts file %C/hosts
 config: CONFIGDIR ../cf

@@ -17,7 +17,7 @@ E-mail for alias checking: chw@veteran.sax.de
 RFC Date: Sat, 6 Apr 1996 11:20:39 GMT
 RFC Newsgroups: de.comm.misc
 Look up newsgroup de.comm.misc
-Found: DE.COMM.MISC de.comm.misc Z242
+Found: DE.COMM.MISC de.comm.misc Zone=242 Addr=INVALID
     Name:     chw
     Address:  veteran.sax.de
 Name for alias checking: chw
@@ -25,6 +25,7 @@ E-mail for alias checking: chw@veteran.sax.de
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
+charset: in=us-ascii out=latin-1
 New packet file ./outpkt/news/00000001.pkt (tmp ./outpkt/news/00000001.tmp)
 Writing FTN packet header:
     From: 242:1000/5.0
@@ -54,7 +55,7 @@ E-mail for alias checking: ge276@appl2.hrz.uni-siegen.de
 RFC Date: Fri, 05 Apr 1996 16:20:37 +0100
 RFC Newsgroups: de.comm.isdn,de.markt.comp.misc,de.comm.misc,de.markt.misc
 Look up newsgroup de.comm.isdn
-Found: DE.COMM.ISDN de.comm.isdn Z242
+Found: DE.COMM.ISDN de.comm.isdn Zone=242 Addr=INVALID
     Name:     ge276
     Address:  appl2.hrz.uni-siegen.de
 Name for alias checking: ge276
@@ -62,6 +63,7 @@ E-mail for alias checking: ge276@appl2.hrz.uni-siegen.de
 RFC MIME-Version:              1.0
 RFC Content-Type:              text/plain; charset=ISO-8859-1
 RFC Content-Transfer-Encoding: 8bit
+charset: in=us-ascii out=latin-1
 New packet file ./outpkt/news/00000002.pkt (tmp ./outpkt/news/00000002.tmp)
 Writing FTN packet header:
     From: 242:1000/5.0
@@ -77,7 +79,7 @@ Writing FTN message header:
     Subj: Re: S: besseres Angebot ISDN ANlage & Karte
     Attr: 0000
 Look up newsgroup de.markt.comp.misc
-Found: DE.MARKT.COMP.MISC de.markt.comp.misc Z242
+Found: DE.MARKT.COMP.MISC de.markt.comp.misc Zone=242 Addr=INVALID
     Name:     ge276
     Address:  appl2.hrz.uni-siegen.de
 Name for alias checking: ge276
@@ -85,13 +87,14 @@ E-mail for alias checking: ge276@appl2.hrz.uni-siegen.de
 RFC MIME-Version:              1.0
 RFC Content-Type:              text/plain; charset=ISO-8859-1
 RFC Content-Transfer-Encoding: 8bit
+charset: in=us-ascii out=latin-1
 Writing FTN message header:
     From: Alexander Schwanke                   @ 242:1000/5.0
     To  : All                                  @ 242:1000/5.0
     Subj: Re: S: besseres Angebot ISDN ANlage & Karte
     Attr: 0000
 Look up newsgroup de.comm.misc
-Found: DE.COMM.MISC de.comm.misc Z242
+Found: DE.COMM.MISC de.comm.misc Zone=242 Addr=INVALID
     Name:     ge276
     Address:  appl2.hrz.uni-siegen.de
 Name for alias checking: ge276
@@ -99,13 +102,14 @@ E-mail for alias checking: ge276@appl2.hrz.uni-siegen.de
 RFC MIME-Version:              1.0
 RFC Content-Type:              text/plain; charset=ISO-8859-1
 RFC Content-Transfer-Encoding: 8bit
+charset: in=us-ascii out=latin-1
 Writing FTN message header:
     From: Alexander Schwanke                   @ 242:1000/5.0
     To  : All                                  @ 242:1000/5.0
     Subj: Re: S: besseres Angebot ISDN ANlage & Karte
     Attr: 0000
 Look up newsgroup de.markt.misc
-Found: DE.MARKT.MISC de.markt.misc Z242
+Found: DE.MARKT.MISC de.markt.misc Zone=242 Addr=INVALID
     Name:     ge276
     Address:  appl2.hrz.uni-siegen.de
 Name for alias checking: ge276
@@ -113,6 +117,7 @@ E-mail for alias checking: ge276@appl2.hrz.uni-siegen.de
 RFC MIME-Version:              1.0
 RFC Content-Type:              text/plain; charset=ISO-8859-1
 RFC Content-Transfer-Encoding: 8bit
+charset: in=us-ascii out=latin-1
 Writing FTN message header:
     From: Alexander Schwanke                   @ 242:1000/5.0
     To  : All                                  @ 242:1000/5.0
@@ -132,7 +137,7 @@ E-mail for alias checking: ukrapp@aol.com
 RFC Date: 7 Apr 1996 10:35:46 -0400
 RFC Newsgroups: de.comm.misc
 Look up newsgroup de.comm.misc
-Found: DE.COMM.MISC de.comm.misc Z242
+Found: DE.COMM.MISC de.comm.misc Zone=242 Addr=INVALID
     Name:     ukrapp
     Address:  aol.com
 Name for alias checking: ukrapp
@@ -140,6 +145,7 @@ E-mail for alias checking: ukrapp@aol.com
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
+charset: in=us-ascii out=latin-1
 New packet file ./outpkt/news/00000003.pkt (tmp ./outpkt/news/00000003.tmp)
 Writing FTN packet header:
     From: 242:1000/5.0
@@ -170,7 +176,7 @@ E-mail for alias checking: jrichert@krefcom.westfalen.de
 RFC Date: Sat, 6 Apr 1996 20:33:07 GMT
 RFC Newsgroups: de.comm.misc
 Look up newsgroup de.comm.misc
-Found: DE.COMM.MISC de.comm.misc Z242
+Found: DE.COMM.MISC de.comm.misc Zone=242 Addr=INVALID
     Name:     jrichert
     Address:  krefcom.westfalen.de
 Name for alias checking: jrichert
@@ -178,6 +184,7 @@ E-mail for alias checking: jrichert@krefcom.westfalen.de
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
+charset: in=us-ascii out=latin-1
 New packet file ./outpkt/news/00000004.pkt (tmp ./outpkt/news/00000004.tmp)
 Writing FTN packet header:
     From: 242:1000/5.0
@@ -206,7 +213,7 @@ E-mail for alias checking: news@allusenet.com
 RFC Date: Sun, 07 Apr 1996 21:43:09 GMT
 RFC Newsgroups: de.comm.misc
 Look up newsgroup de.comm.misc
-Found: DE.COMM.MISC de.comm.misc Z242
+Found: DE.COMM.MISC de.comm.misc Zone=242 Addr=INVALID
     Name:     news
     Address:  allusenet.com
 Name for alias checking: news
@@ -214,6 +221,7 @@ E-mail for alias checking: news@allusenet.com
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
+charset: in=us-ascii out=latin-1
 New packet file ./outpkt/news/00000005.pkt (tmp ./outpkt/news/00000005.tmp)
 Writing FTN packet header:
     From: 242:1000/5.0
@@ -242,7 +250,7 @@ E-mail for alias checking: maik@cape.de
 RFC Date: Mon, 08 Apr 1996 00:49:15 +0200
 RFC Newsgroups: de.comm.misc,de.comm.mobil,de.comm.modem,ger.pc.hard
 Look up newsgroup de.comm.misc
-Found: DE.COMM.MISC de.comm.misc Z242
+Found: DE.COMM.MISC de.comm.misc Zone=242 Addr=INVALID
     Name:     maik
     Address:  cape.de
 Name for alias checking: maik
@@ -250,6 +258,7 @@ E-mail for alias checking: maik@cape.de
 RFC MIME-Version:              1.0
 RFC Content-Type:              text/plain; charset=us-ascii
 RFC Content-Transfer-Encoding: 7bit
+charset: in=us-ascii out=latin-1
 New packet file ./outpkt/news/00000006.pkt (tmp ./outpkt/news/00000006.tmp)
 Writing FTN packet header:
     From: 242:1000/5.0
@@ -265,7 +274,7 @@ Writing FTN message header:
     Subj: Re: Modem an E-Plus-Handy???
     Attr: 0000
 Look up newsgroup de.comm.mobil
-Found: DE.COMM.MOBIL de.comm.mobil Z242
+Found: DE.COMM.MOBIL de.comm.mobil Zone=242 Addr=INVALID
     Name:     maik
     Address:  cape.de
 Name for alias checking: maik
@@ -273,13 +282,14 @@ E-mail for alias checking: maik@cape.de
 RFC MIME-Version:              1.0
 RFC Content-Type:              text/plain; charset=us-ascii
 RFC Content-Transfer-Encoding: 7bit
+charset: in=us-ascii out=latin-1
 Writing FTN message header:
     From: Maik Musall                          @ 242:1000/5.0
     To  : All                                  @ 242:1000/5.0
     Subj: Re: Modem an E-Plus-Handy???
     Attr: 0000
 Look up newsgroup de.comm.modem
-Found: DE.COMM.MODEM de.comm.modem Z242
+Found: DE.COMM.MODEM de.comm.modem Zone=242 Addr=INVALID
     Name:     maik
     Address:  cape.de
 Name for alias checking: maik
@@ -287,6 +297,7 @@ E-mail for alias checking: maik@cape.de
 RFC MIME-Version:              1.0
 RFC Content-Type:              text/plain; charset=us-ascii
 RFC Content-Transfer-Encoding: 7bit
+charset: in=us-ascii out=latin-1
 Writing FTN message header:
     From: Maik Musall                          @ 242:1000/5.0
     To  : All                                  @ 242:1000/5.0
@@ -308,7 +319,7 @@ E-mail for alias checking: rene@flatta.in-berlin.de
 RFC Date: 08 Apr 1996 00:37:00 +0200
 RFC Newsgroups: de.comm.isdn,de.comm.misc,de.markt.comp.misc,de.markt.misc
 Look up newsgroup de.comm.isdn
-Found: DE.COMM.ISDN de.comm.isdn Z242
+Found: DE.COMM.ISDN de.comm.isdn Zone=242 Addr=INVALID
     Name:     rene
     Address:  flatta.in-berlin.de
 Name for alias checking: rene
@@ -316,6 +327,7 @@ E-mail for alias checking: rene@flatta.in-berlin.de
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
+charset: in=us-ascii out=latin-1
 New packet file ./outpkt/news/00000007.pkt (tmp ./outpkt/news/00000007.tmp)
 Writing FTN packet header:
     From: 242:1000/5.0
@@ -331,7 +343,7 @@ Writing FTN message header:
     Subj: Re: S: besseres Angebot ISDN ANlage & Karte
     Attr: 0000
 Look up newsgroup de.comm.misc
-Found: DE.COMM.MISC de.comm.misc Z242
+Found: DE.COMM.MISC de.comm.misc Zone=242 Addr=INVALID
     Name:     rene
     Address:  flatta.in-berlin.de
 Name for alias checking: rene
@@ -339,13 +351,14 @@ E-mail for alias checking: rene@flatta.in-berlin.de
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
+charset: in=us-ascii out=latin-1
 Writing FTN message header:
     From: Rene Kacza                           @ 242:1000/5.0
     To  : All                                  @ 242:1000/5.0
     Subj: Re: S: besseres Angebot ISDN ANlage & Karte
     Attr: 0000
 Look up newsgroup de.markt.comp.misc
-Found: DE.MARKT.COMP.MISC de.markt.comp.misc Z242
+Found: DE.MARKT.COMP.MISC de.markt.comp.misc Zone=242 Addr=INVALID
     Name:     rene
     Address:  flatta.in-berlin.de
 Name for alias checking: rene
@@ -353,13 +366,14 @@ E-mail for alias checking: rene@flatta.in-berlin.de
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
+charset: in=us-ascii out=latin-1
 Writing FTN message header:
     From: Rene Kacza                           @ 242:1000/5.0
     To  : All                                  @ 242:1000/5.0
     Subj: Re: S: besseres Angebot ISDN ANlage & Karte
     Attr: 0000
 Look up newsgroup de.markt.misc
-Found: DE.MARKT.MISC de.markt.misc Z242
+Found: DE.MARKT.MISC de.markt.misc Zone=242 Addr=INVALID
     Name:     rene
     Address:  flatta.in-berlin.de
 Name for alias checking: rene
@@ -367,6 +381,7 @@ E-mail for alias checking: rene@flatta.in-berlin.de
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
+charset: in=us-ascii out=latin-1
 Writing FTN message header:
     From: Rene Kacza                           @ 242:1000/5.0
     To  : All                                  @ 242:1000/5.0
@@ -386,7 +401,7 @@ E-mail for alias checking: roger@larry.westfalen.de
 RFC Date: Mon, 8 Apr 1996 18:59:46 GMT
 RFC Newsgroups: de.comm.misc
 Look up newsgroup de.comm.misc
-Found: DE.COMM.MISC de.comm.misc Z242
+Found: DE.COMM.MISC de.comm.misc Zone=242 Addr=INVALID
     Name:     roger
     Address:  larry.westfalen.de
 Name for alias checking: roger
@@ -394,6 +409,7 @@ E-mail for alias checking: roger@larry.westfalen.de
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
+charset: in=us-ascii out=latin-1
 New packet file ./outpkt/news/00000008.pkt (tmp ./outpkt/news/00000008.tmp)
 Writing FTN packet header:
     From: 242:1000/5.0
@@ -422,7 +438,7 @@ E-mail for alias checking: gau_t@gauhh.hanse.de
 RFC Date: Mon, 8 Apr 1996 11:28:58 GMT
 RFC Newsgroups: de.comm.misc,de.comp.os.linux.networking,hanse.hardware
 Look up newsgroup de.comm.misc
-Found: DE.COMM.MISC de.comm.misc Z242
+Found: DE.COMM.MISC de.comm.misc Zone=242 Addr=INVALID
     Name:     gau_t
     Address:  gauhh.hanse.de
 Name for alias checking: gau_t
@@ -430,6 +446,7 @@ E-mail for alias checking: gau_t@gauhh.hanse.de
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
+charset: in=us-ascii out=latin-1
 New packet file ./outpkt/news/00000009.pkt (tmp ./outpkt/news/00000009.tmp)
 Writing FTN packet header:
     From: 242:1000/5.0
@@ -445,7 +462,7 @@ Writing FTN message header:
     Subj: 802.3-frame >= 64 Bytes
     Attr: 0000
 Look up newsgroup de.comp.os.linux.networking
-Found: DE.COMP.OS.LINUX.NETWORKING de.comp.os.linux.networking Z242
+Found: DE.COMP.OS.LINUX.NETWORKING de.comp.os.linux.networking Zone=242 Addr=INVALID
     Name:     gau_t
     Address:  gauhh.hanse.de
 Name for alias checking: gau_t
@@ -453,6 +470,7 @@ E-mail for alias checking: gau_t@gauhh.hanse.de
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
+charset: in=us-ascii out=latin-1
 Writing FTN message header:
     From: Thorsten Gau                         @ 242:1000/5.0
     To  : All                                  @ 242:1000/5.0
@@ -477,7 +495,7 @@ E-mail for alias checking: holger.schmid@student.uni-tuebingen.de
 RFC Date: Tue, 09 Apr 1996 09:54:48 GMT
 RFC Newsgroups: de.comm.misc
 Look up newsgroup de.comm.misc
-Found: DE.COMM.MISC de.comm.misc Z242
+Found: DE.COMM.MISC de.comm.misc Zone=242 Addr=INVALID
     Name:     holger.schmid
     Address:  student.uni-tuebingen.de
 Name for alias checking: holger.schmid
@@ -485,6 +503,7 @@ E-mail for alias checking: holger.schmid@student.uni-tuebingen.de
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
+charset: in=us-ascii out=latin-1
 New packet file ./outpkt/news/00000010.pkt (tmp ./outpkt/news/00000010.tmp)
 Writing FTN packet header:
     From: 242:1000/5.0
@@ -513,7 +532,7 @@ E-mail for alias checking: kaisggdf@sp.zrz.tu-berlin.de
 RFC Date: Thu, 28 Mar 1996 21:20:39 -0800
 RFC Newsgroups: de.comm.misc
 Look up newsgroup de.comm.misc
-Found: DE.COMM.MISC de.comm.misc Z242
+Found: DE.COMM.MISC de.comm.misc Zone=242 Addr=INVALID
     Name:     kaisggdf
     Address:  sp.zrz.tu-berlin.de
 Name for alias checking: kaisggdf
@@ -521,6 +540,7 @@ E-mail for alias checking: kaisggdf@sp.zrz.tu-berlin.de
 RFC MIME-Version:              1.0
 RFC Content-Type:              text/plain; charset=us-ascii
 RFC Content-Transfer-Encoding: 7bit
+charset: in=us-ascii out=latin-1
 New packet file ./outpkt/news/00000011.pkt (tmp ./outpkt/news/00000011.tmp)
 Writing FTN packet header:
     From: 242:1000/5.0
@@ -549,7 +569,7 @@ E-mail for alias checking: adams@t-online.de
 RFC Date: 7 Apr 1996 08:08:34 GMT
 RFC Newsgroups: de.comm.misc,z-netz.telecom.allgemein
 Look up newsgroup de.comm.misc
-Found: DE.COMM.MISC de.comm.misc Z242
+Found: DE.COMM.MISC de.comm.misc Zone=242 Addr=INVALID
     Name:     adams
     Address:  t-online.de
 Name for alias checking: adams
@@ -557,6 +577,7 @@ E-mail for alias checking: adams@t-online.de
 RFC MIME-Version:              1.0
 RFC Content-Type:              text/plain; charset=iso-8859-1
 RFC Content-Transfer-Encoding: 8bit
+charset: in=us-ascii out=latin-1
 New packet file ./outpkt/news/00000012.pkt (tmp ./outpkt/news/00000012.tmp)
 Writing FTN packet header:
     From: 242:1000/5.0
@@ -587,7 +608,7 @@ E-mail for alias checking: adams@t-online.de
 RFC Date: 8 Apr 1996 11:26:52 GMT
 RFC Newsgroups: de.comm.misc
 Look up newsgroup de.comm.misc
-Found: DE.COMM.MISC de.comm.misc Z242
+Found: DE.COMM.MISC de.comm.misc Zone=242 Addr=INVALID
     Name:     adams
     Address:  t-online.de
 Name for alias checking: adams
@@ -595,6 +616,7 @@ E-mail for alias checking: adams@t-online.de
 RFC MIME-Version:              1.0
 RFC Content-Type:              text/plain; charset=iso-8859-1
 RFC Content-Transfer-Encoding: 8bit
+charset: in=us-ascii out=latin-1
 New packet file ./outpkt/news/00000013.pkt (tmp ./outpkt/news/00000013.tmp)
 Writing FTN packet header:
     From: 242:1000/5.0
@@ -623,7 +645,7 @@ E-mail for alias checking: boss@msoenix.du.gtn.com
 RFC Date: Tue, 09 Apr 1996 21:22:31 +0100
 RFC Newsgroups: de.comm.misc
 Look up newsgroup de.comm.misc
-Found: DE.COMM.MISC de.comm.misc Z242
+Found: DE.COMM.MISC de.comm.misc Zone=242 Addr=INVALID
     Name:     boss
     Address:  msoenix.du.gtn.com
 Name for alias checking: boss
@@ -631,6 +653,7 @@ E-mail for alias checking: boss@msoenix.du.gtn.com
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
+charset: in=us-ascii out=latin-1
 New packet file ./outpkt/news/00000014.pkt (tmp ./outpkt/news/00000014.tmp)
 Writing FTN packet header:
     From: 242:1000/5.0
@@ -661,7 +684,7 @@ E-mail for alias checking: sgeorg@berlin.snafu.de
 RFC Date: Tue, 09 Apr 1996 18:55:18 GMT
 RFC Newsgroups: de.comm.misc
 Look up newsgroup de.comm.misc
-Found: DE.COMM.MISC de.comm.misc Z242
+Found: DE.COMM.MISC de.comm.misc Zone=242 Addr=INVALID
     Name:     sgeorg
     Address:  berlin.snafu.de
 Name for alias checking: sgeorg
@@ -669,6 +692,7 @@ E-mail for alias checking: sgeorg@berlin.snafu.de
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
+charset: in=us-ascii out=latin-1
 New packet file ./outpkt/news/00000015.pkt (tmp ./outpkt/news/00000015.tmp)
 Writing FTN packet header:
     From: 242:1000/5.0
@@ -698,7 +722,7 @@ E-mail for alias checking: eckubitz@aol.com
 RFC Date: 10 Apr 1996 08:29:22 -0400
 RFC Newsgroups: de.comm.misc
 Look up newsgroup de.comm.misc
-Found: DE.COMM.MISC de.comm.misc Z242
+Found: DE.COMM.MISC de.comm.misc Zone=242 Addr=INVALID
     Name:     eckubitz
     Address:  aol.com
 Name for alias checking: eckubitz
@@ -706,6 +730,7 @@ E-mail for alias checking: eckubitz@aol.com
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
+charset: in=us-ascii out=latin-1
 New packet file ./outpkt/news/00000016.pkt (tmp ./outpkt/news/00000016.tmp)
 Writing FTN packet header:
     From: 242:1000/5.0
@@ -734,7 +759,7 @@ E-mail for alias checking: CANDYMAN@LaDune.Westfalen.De
 RFC Date: Sun,  7 Apr 96  17:03:17 GMT
 RFC Newsgroups: de.comm.misc
 Look up newsgroup de.comm.misc
-Found: DE.COMM.MISC de.comm.misc Z242
+Found: DE.COMM.MISC de.comm.misc Zone=242 Addr=INVALID
     Name:     CANDYMAN
     Address:  LaDune.Westfalen.De
 Name for alias checking: CANDYMAN
@@ -742,6 +767,7 @@ E-mail for alias checking: CANDYMAN@LaDune.Westfalen.De
 RFC MIME-Version:              1.0
 RFC Content-Type:              text/plain; charset=ISO-8859-1
 RFC Content-Transfer-Encoding: 8bit
+charset: in=us-ascii out=latin-1
 New packet file ./outpkt/news/00000017.pkt (tmp ./outpkt/news/00000017.tmp)
 Writing FTN packet header:
     From: 242:1000/5.0
@@ -771,7 +797,7 @@ E-mail for alias checking: steiner@bb-data.de
 RFC Date: Wed, 10 Apr 1996 09:48:48 GMT
 RFC Newsgroups: de.comm.mobil,de.comm.misc
 Look up newsgroup de.comm.mobil
-Found: DE.COMM.MOBIL de.comm.mobil Z242
+Found: DE.COMM.MOBIL de.comm.mobil Zone=242 Addr=INVALID
     Name:     steiner
     Address:  bb-data.de
 Name for alias checking: steiner
@@ -779,6 +805,7 @@ E-mail for alias checking: steiner@bb-data.de
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
+charset: in=us-ascii out=latin-1
 New packet file ./outpkt/news/00000018.pkt (tmp ./outpkt/news/00000018.tmp)
 Writing FTN packet header:
     From: 242:1000/5.0
@@ -794,7 +821,7 @@ Writing FTN message header:
     Subj: PT11 / 2110 Passivhalterung
     Attr: 0000
 Look up newsgroup de.comm.misc
-Found: DE.COMM.MISC de.comm.misc Z242
+Found: DE.COMM.MISC de.comm.misc Zone=242 Addr=INVALID
     Name:     steiner
     Address:  bb-data.de
 Name for alias checking: steiner
@@ -802,6 +829,7 @@ E-mail for alias checking: steiner@bb-data.de
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
+charset: in=us-ascii out=latin-1
 Writing FTN message header:
     From: Steffen Steiner                      @ 242:1000/5.0
     To  : All                                  @ 242:1000/5.0
@@ -823,7 +851,7 @@ E-mail for alias checking: hal@caty.ol.sub.de
 RFC Date: Wed, 10 Apr 1996 13:59:00 GMT
 RFC Newsgroups: de.comm.misc,de.comm.mobil,de.comm.modem,ger.pc.hard
 Look up newsgroup de.comm.misc
-Found: DE.COMM.MISC de.comm.misc Z242
+Found: DE.COMM.MISC de.comm.misc Zone=242 Addr=INVALID
     Name:     hal
     Address:  caty.ol.sub.de
 Name for alias checking: hal
@@ -831,6 +859,7 @@ E-mail for alias checking: hal@caty.ol.sub.de
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
+charset: in=us-ascii out=latin-1
 New packet file ./outpkt/news/00000019.pkt (tmp ./outpkt/news/00000019.tmp)
 Writing FTN packet header:
     From: 242:1000/5.0
@@ -846,7 +875,7 @@ Writing FTN message header:
     Subj: Re: Modem an E-Plus-Handy???
     Attr: 0000
 Look up newsgroup de.comm.mobil
-Found: DE.COMM.MOBIL de.comm.mobil Z242
+Found: DE.COMM.MOBIL de.comm.mobil Zone=242 Addr=INVALID
     Name:     hal
     Address:  caty.ol.sub.de
 Name for alias checking: hal
@@ -854,13 +883,14 @@ E-mail for alias checking: hal@caty.ol.sub.de
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
+charset: in=us-ascii out=latin-1
 Writing FTN message header:
     From: Holger Lubitz                        @ 242:1000/5.0
     To  : Maik Musall                          @ 242:1000/5.0
     Subj: Re: Modem an E-Plus-Handy???
     Attr: 0000
 Look up newsgroup de.comm.modem
-Found: DE.COMM.MODEM de.comm.modem Z242
+Found: DE.COMM.MODEM de.comm.modem Zone=242 Addr=INVALID
     Name:     hal
     Address:  caty.ol.sub.de
 Name for alias checking: hal
@@ -868,6 +898,7 @@ E-mail for alias checking: hal@caty.ol.sub.de
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
+charset: in=us-ascii out=latin-1
 Writing FTN message header:
     From: Holger Lubitz                        @ 242:1000/5.0
     To  : Maik Musall                          @ 242:1000/5.0
@@ -890,7 +921,7 @@ E-mail for alias checking: winkler@ira.uka.de
 RFC Date: 10 Apr 1996 19:13:08 GMT
 RFC Newsgroups: de.comp.os.os2.misc,de.comm.misc
 Look up newsgroup de.comp.os.os2.misc
-Found: DE.COMP.OS.OS2.MISC de.comp.os.os2.misc Z242
+Found: DE.COMP.OS.OS2.MISC de.comp.os.os2.misc Zone=242 Addr=INVALID
     Name:     winkler
     Address:  ira.uka.de
 Name for alias checking: winkler
@@ -898,6 +929,7 @@ E-mail for alias checking: winkler@ira.uka.de
 RFC MIME-Version:              1.0
 RFC Content-Type:              text/plain; charset=iso-8859-1
 RFC Content-Transfer-Encoding: 8bit
+charset: in=us-ascii out=latin-1
 New packet file ./outpkt/news/00000020.pkt (tmp ./outpkt/news/00000020.tmp)
 Writing FTN packet header:
     From: 242:1000/5.0
@@ -913,7 +945,7 @@ Writing FTN message header:
     Subj: Scall/SMS fur OS/2 ?
     Attr: 0000
 Look up newsgroup de.comm.misc
-Found: DE.COMM.MISC de.comm.misc Z242
+Found: DE.COMM.MISC de.comm.misc Zone=242 Addr=INVALID
     Name:     winkler
     Address:  ira.uka.de
 Name for alias checking: winkler
@@ -921,6 +953,7 @@ E-mail for alias checking: winkler@ira.uka.de
 RFC MIME-Version:              1.0
 RFC Content-Type:              text/plain; charset=iso-8859-1
 RFC Content-Transfer-Encoding: 8bit
+charset: in=us-ascii out=latin-1
 Writing FTN message header:
     From: Frank Winkler @home                  @ 242:1000/5.0
     To  : All                                  @ 242:1000/5.0
@@ -941,7 +974,7 @@ E-mail for alias checking: rieger@stud.uni-frankfurt.de
 RFC Date: Wed, 10 Apr 1996 23:58:07 +0200
 RFC Newsgroups: de.comm.isdn,de.comm.misc,de.markt.comp.misc,de.markt.misc
 Look up newsgroup de.comm.isdn
-Found: DE.COMM.ISDN de.comm.isdn Z242
+Found: DE.COMM.ISDN de.comm.isdn Zone=242 Addr=INVALID
     Name:     rieger
     Address:  stud.uni-frankfurt.de
 Name for alias checking: rieger
@@ -949,6 +982,7 @@ E-mail for alias checking: rieger@stud.uni-frankfurt.de
 RFC MIME-Version:              1.0
 RFC Content-Type:              text/plain; charset=us-ascii
 RFC Content-Transfer-Encoding: 7bit
+charset: in=us-ascii out=latin-1
 New packet file ./outpkt/news/00000021.pkt (tmp ./outpkt/news/00000021.tmp)
 Writing FTN packet header:
     From: 242:1000/5.0
@@ -964,7 +998,7 @@ Writing FTN message header:
     Subj: Re: S: besseres Angebot ISDN ANlage & Karte
     Attr: 0000
 Look up newsgroup de.comm.misc
-Found: DE.COMM.MISC de.comm.misc Z242
+Found: DE.COMM.MISC de.comm.misc Zone=242 Addr=INVALID
     Name:     rieger
     Address:  stud.uni-frankfurt.de
 Name for alias checking: rieger
@@ -972,13 +1006,14 @@ E-mail for alias checking: rieger@stud.uni-frankfurt.de
 RFC MIME-Version:              1.0
 RFC Content-Type:              text/plain; charset=us-ascii
 RFC Content-Transfer-Encoding: 7bit
+charset: in=us-ascii out=latin-1
 Writing FTN message header:
     From: Marc A. Rieger                       @ 242:1000/5.0
     To  : All                                  @ 242:1000/5.0
     Subj: Re: S: besseres Angebot ISDN ANlage & Karte
     Attr: 0000
 Look up newsgroup de.markt.comp.misc
-Found: DE.MARKT.COMP.MISC de.markt.comp.misc Z242
+Found: DE.MARKT.COMP.MISC de.markt.comp.misc Zone=242 Addr=INVALID
     Name:     rieger
     Address:  stud.uni-frankfurt.de
 Name for alias checking: rieger
@@ -986,13 +1021,14 @@ E-mail for alias checking: rieger@stud.uni-frankfurt.de
 RFC MIME-Version:              1.0
 RFC Content-Type:              text/plain; charset=us-ascii
 RFC Content-Transfer-Encoding: 7bit
+charset: in=us-ascii out=latin-1
 Writing FTN message header:
     From: Marc A. Rieger                       @ 242:1000/5.0
     To  : All                                  @ 242:1000/5.0
     Subj: Re: S: besseres Angebot ISDN ANlage & Karte
     Attr: 0000
 Look up newsgroup de.markt.misc
-Found: DE.MARKT.MISC de.markt.misc Z242
+Found: DE.MARKT.MISC de.markt.misc Zone=242 Addr=INVALID
     Name:     rieger
     Address:  stud.uni-frankfurt.de
 Name for alias checking: rieger
@@ -1000,6 +1036,7 @@ E-mail for alias checking: rieger@stud.uni-frankfurt.de
 RFC MIME-Version:              1.0
 RFC Content-Type:              text/plain; charset=us-ascii
 RFC Content-Transfer-Encoding: 7bit
+charset: in=us-ascii out=latin-1
 Writing FTN message header:
     From: Marc A. Rieger                       @ 242:1000/5.0
     To  : All                                  @ 242:1000/5.0
@@ -1019,7 +1056,7 @@ E-mail for alias checking: malcolm@modebox.rhein-ruhr.de
 RFC Date: 09 Apr 1996 16:20:00 +0200
 RFC Newsgroups: de.comm.misc
 Look up newsgroup de.comm.misc
-Found: DE.COMM.MISC de.comm.misc Z242
+Found: DE.COMM.MISC de.comm.misc Zone=242 Addr=INVALID
     Name:     malcolm
     Address:  modebox.rhein-ruhr.de
 Name for alias checking: malcolm
@@ -1027,6 +1064,7 @@ E-mail for alias checking: malcolm@modebox.rhein-ruhr.de
 RFC MIME-Version:              1.0
 RFC Content-Type:              text/plain; charset=ISO-8859-1
 RFC Content-Transfer-Encoding: 8bit
+charset: in=us-ascii out=latin-1
 New packet file ./outpkt/news/00000022.pkt (tmp ./outpkt/news/00000022.tmp)
 Writing FTN packet header:
     From: 242:1000/5.0
@@ -1056,7 +1094,7 @@ E-mail for alias checking: thilo.pohl@fernuni-hagen.de
 RFC Date: Thu, 11 Apr 1996 06:42:07 GMT
 RFC Newsgroups: de.comm.misc
 Look up newsgroup de.comm.misc
-Found: DE.COMM.MISC de.comm.misc Z242
+Found: DE.COMM.MISC de.comm.misc Zone=242 Addr=INVALID
     Name:     thilo.pohl
     Address:  fernuni-hagen.de
 Name for alias checking: thilo.pohl
@@ -1064,6 +1102,7 @@ E-mail for alias checking: thilo.pohl@fernuni-hagen.de
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
+charset: in=us-ascii out=latin-1
 New packet file ./outpkt/news/00000023.pkt (tmp ./outpkt/news/00000023.tmp)
 Writing FTN packet header:
     From: 242:1000/5.0
@@ -1092,7 +1131,7 @@ E-mail for alias checking: zmm@grs.de
 RFC Date: Thu, 11 Apr 1996 09:19:04 +0200
 RFC Newsgroups: de.comm.misc
 Look up newsgroup de.comm.misc
-Found: DE.COMM.MISC de.comm.misc Z242
+Found: DE.COMM.MISC de.comm.misc Zone=242 Addr=INVALID
     Name:     zmm
     Address:  grs.de
 Name for alias checking: zmm
@@ -1100,6 +1139,7 @@ E-mail for alias checking: zmm@grs.de
 RFC MIME-Version:              1.0
 RFC Content-Type:              text/plain; charset=iso-8859-1
 RFC Content-Transfer-Encoding: 8bit
+charset: in=us-ascii out=latin-1
 New packet file ./outpkt/news/00000024.pkt (tmp ./outpkt/news/00000024.tmp)
 Writing FTN packet header:
     From: 242:1000/5.0
@@ -1128,7 +1168,7 @@ E-mail for alias checking: n.balthasar@public.ndh.com
 RFC Date: Thu, 11 Apr 1996 08:51:14 GMT
 RFC Newsgroups: de.comm.internet.misc,de.comm.misc
 Look up newsgroup de.comm.internet.misc
-Found: DE.COMM.INTERNET.MISC de.comm.internet.misc Z242
+Found: DE.COMM.INTERNET.MISC de.comm.internet.misc Zone=242 Addr=INVALID
     Name:     n.balthasar
     Address:  public.ndh.com
 Name for alias checking: n.balthasar
@@ -1136,6 +1176,7 @@ E-mail for alias checking: n.balthasar@public.ndh.com
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
+charset: in=us-ascii out=latin-1
 New packet file ./outpkt/news/00000025.pkt (tmp ./outpkt/news/00000025.tmp)
 Writing FTN packet header:
     From: 242:1000/5.0
@@ -1151,7 +1192,7 @@ Writing FTN message header:
     Subj: Eudora
     Attr: 0000
 Look up newsgroup de.comm.misc
-Found: DE.COMM.MISC de.comm.misc Z242
+Found: DE.COMM.MISC de.comm.misc Zone=242 Addr=INVALID
     Name:     n.balthasar
     Address:  public.ndh.com
 Name for alias checking: n.balthasar
@@ -1159,6 +1200,7 @@ E-mail for alias checking: n.balthasar@public.ndh.com
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
+charset: in=us-ascii out=latin-1
 Writing FTN message header:
     From: Dirk Balthasar                       @ 242:1000/5.0
     To  : All                                  @ 242:1000/5.0
@@ -1181,7 +1223,7 @@ E-mail for alias checking: Kai.Ruettger@paediat.med.uni-giessen.de
 RFC Date: Wed, 03 Apr 1996 23:07:12 GMT
 RFC Newsgroups: de.comm.misc
 Look up newsgroup de.comm.misc
-Found: DE.COMM.MISC de.comm.misc Z242
+Found: DE.COMM.MISC de.comm.misc Zone=242 Addr=INVALID
     Name:     Kai.Ruettger
     Address:  paediat.med.uni-giessen.de
 Name for alias checking: Kai.Ruettger
@@ -1189,6 +1231,7 @@ E-mail for alias checking: Kai.Ruettger@paediat.med.uni-giessen.de
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
+charset: in=us-ascii out=latin-1
 New packet file ./outpkt/news/00000026.pkt (tmp ./outpkt/news/00000026.tmp)
 Writing FTN packet header:
     From: 242:1000/5.0
@@ -1217,7 +1260,7 @@ E-mail for alias checking: muench@wolf.informatik.rwth-aachen.de
 RFC Date: 11 Apr 1996 12:32:34 GMT
 RFC Newsgroups: de.comm.misc
 Look up newsgroup de.comm.misc
-Found: DE.COMM.MISC de.comm.misc Z242
+Found: DE.COMM.MISC de.comm.misc Zone=242 Addr=INVALID
     Name:     muench
     Address:  wolf.informatik.rwth-aachen.de
 Name for alias checking: muench
@@ -1225,6 +1268,7 @@ E-mail for alias checking: muench@wolf.informatik.rwth-aachen.de
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
+charset: in=us-ascii out=latin-1
 New packet file ./outpkt/news/00000027.pkt (tmp ./outpkt/news/00000027.tmp)
 Writing FTN packet header:
     From: 242:1000/5.0
@@ -1253,7 +1297,7 @@ E-mail for alias checking: matthias.bolten@bigapple.Cologne.DE
 RFC Date: Thu, 11 Apr 1996 13:54:19 +0200
 RFC Newsgroups: de.comm.gateways,de.comm.infosystems.misc,de.comm.internet.misc,de.comm.internet.routing,de.comm.internet.zugang,de.comm.isdn,de.comm.misc,de.comm.modem
 Look up newsgroup de.comm.gateways
-Found: DE.COMM.GATEWAYS de.comm.gateways Z242
+Found: DE.COMM.GATEWAYS de.comm.gateways Zone=242 Addr=INVALID
     Name:     matthias.bolten
     Address:  bigapple.Cologne.DE
 Name for alias checking: matthias.bolten
@@ -1261,6 +1305,7 @@ E-mail for alias checking: matthias.bolten@bigapple.Cologne.DE
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
+charset: in=us-ascii out=latin-1
 New packet file ./outpkt/news/00000028.pkt (tmp ./outpkt/news/00000028.tmp)
 Writing FTN packet header:
     From: 242:1000/5.0
@@ -1276,7 +1321,7 @@ Writing FTN message header:
     Subj: Kosten einer Standleitung
     Attr: 0000
 Look up newsgroup de.comm.infosystems.misc
-Found: DE.COMM.INFOSYSTEMS.MISC de.comm.infosystems.misc Z242
+Found: DE.COMM.INFOSYSTEMS.MISC de.comm.infosystems.misc Zone=242 Addr=INVALID
     Name:     matthias.bolten
     Address:  bigapple.Cologne.DE
 Name for alias checking: matthias.bolten
@@ -1284,13 +1329,14 @@ E-mail for alias checking: matthias.bolten@bigapple.Cologne.DE
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
+charset: in=us-ascii out=latin-1
 Writing FTN message header:
     From: Matthias Bolten                      @ 242:1000/5.0
     To  : All                                  @ 242:1000/5.0
     Subj: Kosten einer Standleitung
     Attr: 0000
 Look up newsgroup de.comm.internet.misc
-Found: DE.COMM.INTERNET.MISC de.comm.internet.misc Z242
+Found: DE.COMM.INTERNET.MISC de.comm.internet.misc Zone=242 Addr=INVALID
     Name:     matthias.bolten
     Address:  bigapple.Cologne.DE
 Name for alias checking: matthias.bolten
@@ -1298,13 +1344,14 @@ E-mail for alias checking: matthias.bolten@bigapple.Cologne.DE
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
+charset: in=us-ascii out=latin-1
 Writing FTN message header:
     From: Matthias Bolten                      @ 242:1000/5.0
     To  : All                                  @ 242:1000/5.0
     Subj: Kosten einer Standleitung
     Attr: 0000
 Look up newsgroup de.comm.internet.routing
-Found: DE.COMM.INTERNET.ROUTING de.comm.internet.routing Z242
+Found: DE.COMM.INTERNET.ROUTING de.comm.internet.routing Zone=242 Addr=INVALID
     Name:     matthias.bolten
     Address:  bigapple.Cologne.DE
 Name for alias checking: matthias.bolten
@@ -1312,13 +1359,14 @@ E-mail for alias checking: matthias.bolten@bigapple.Cologne.DE
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
+charset: in=us-ascii out=latin-1
 Writing FTN message header:
     From: Matthias Bolten                      @ 242:1000/5.0
     To  : All                                  @ 242:1000/5.0
     Subj: Kosten einer Standleitung
     Attr: 0000
 Look up newsgroup de.comm.internet.zugang
-Found: DE.COMM.INTERNET.ZUGANG de.comm.internet.zugang Z242
+Found: DE.COMM.INTERNET.ZUGANG de.comm.internet.zugang Zone=242 Addr=INVALID
     Name:     matthias.bolten
     Address:  bigapple.Cologne.DE
 Name for alias checking: matthias.bolten
@@ -1326,13 +1374,14 @@ E-mail for alias checking: matthias.bolten@bigapple.Cologne.DE
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
+charset: in=us-ascii out=latin-1
 Writing FTN message header:
     From: Matthias Bolten                      @ 242:1000/5.0
     To  : All                                  @ 242:1000/5.0
     Subj: Kosten einer Standleitung
     Attr: 0000
 Look up newsgroup de.comm.isdn
-Found: DE.COMM.ISDN de.comm.isdn Z242
+Found: DE.COMM.ISDN de.comm.isdn Zone=242 Addr=INVALID
     Name:     matthias.bolten
     Address:  bigapple.Cologne.DE
 Name for alias checking: matthias.bolten
@@ -1340,13 +1389,14 @@ E-mail for alias checking: matthias.bolten@bigapple.Cologne.DE
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
+charset: in=us-ascii out=latin-1
 Writing FTN message header:
     From: Matthias Bolten                      @ 242:1000/5.0
     To  : All                                  @ 242:1000/5.0
     Subj: Kosten einer Standleitung
     Attr: 0000
 Look up newsgroup de.comm.misc
-Found: DE.COMM.MISC de.comm.misc Z242
+Found: DE.COMM.MISC de.comm.misc Zone=242 Addr=INVALID
     Name:     matthias.bolten
     Address:  bigapple.Cologne.DE
 Name for alias checking: matthias.bolten
@@ -1354,13 +1404,14 @@ E-mail for alias checking: matthias.bolten@bigapple.Cologne.DE
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
+charset: in=us-ascii out=latin-1
 Writing FTN message header:
     From: Matthias Bolten                      @ 242:1000/5.0
     To  : All                                  @ 242:1000/5.0
     Subj: Kosten einer Standleitung
     Attr: 0000
 Look up newsgroup de.comm.modem
-Found: DE.COMM.MODEM de.comm.modem Z242
+Found: DE.COMM.MODEM de.comm.modem Zone=242 Addr=INVALID
     Name:     matthias.bolten
     Address:  bigapple.Cologne.DE
 Name for alias checking: matthias.bolten
@@ -1368,6 +1419,7 @@ E-mail for alias checking: matthias.bolten@bigapple.Cologne.DE
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
+charset: in=us-ascii out=latin-1
 Writing FTN message header:
     From: Matthias Bolten                      @ 242:1000/5.0
     To  : All                                  @ 242:1000/5.0
@@ -1389,7 +1441,7 @@ E-mail for alias checking: naddy@mips.pfalz.de
 RFC Date: 11 Apr 1996 11:42:15 +0200
 RFC Newsgroups: de.comm.isdn,on.fragen+antworten,on.tips,de.comm.misc
 Look up newsgroup de.comm.isdn
-Found: DE.COMM.ISDN de.comm.isdn Z242
+Found: DE.COMM.ISDN de.comm.isdn Zone=242 Addr=INVALID
     Name:     naddy
     Address:  mips.pfalz.de
 Name for alias checking: naddy
@@ -1397,6 +1449,7 @@ E-mail for alias checking: naddy@mips.pfalz.de
 RFC MIME-Version:              1.0
 RFC Content-Type:              text/plain; charset=iso-8859-1
 RFC Content-Transfer-Encoding: 8bit
+charset: in=us-ascii out=latin-1
 New packet file ./outpkt/news/00000029.pkt (tmp ./outpkt/news/00000029.tmp)
 Writing FTN packet header:
     From: 242:1000/5.0
@@ -1416,7 +1469,7 @@ No FTN area
 Look up newsgroup on.tips
 No FTN area
 Look up newsgroup de.comm.misc
-Found: DE.COMM.MISC de.comm.misc Z242
+Found: DE.COMM.MISC de.comm.misc Zone=242 Addr=INVALID
     Name:     naddy
     Address:  mips.pfalz.de
 Name for alias checking: naddy
@@ -1424,6 +1477,7 @@ E-mail for alias checking: naddy@mips.pfalz.de
 RFC MIME-Version:              1.0
 RFC Content-Type:              text/plain; charset=iso-8859-1
 RFC Content-Transfer-Encoding: 8bit
+charset: in=us-ascii out=latin-1
 Writing FTN message header:
     From: Christian Weisgerber                 @ 242:1000/5.0
     To  : Andreas Schrot                       @ 242:1000/5.0
@@ -1443,7 +1497,7 @@ E-mail for alias checking: pklinke@econ2.uni-bonn.de
 RFC Date: Thu, 11 Apr 1996 15:27:49 -0700
 RFC Newsgroups: de.comm.misc
 Look up newsgroup de.comm.misc
-Found: DE.COMM.MISC de.comm.misc Z242
+Found: DE.COMM.MISC de.comm.misc Zone=242 Addr=INVALID
     Name:     pklinke
     Address:  econ2.uni-bonn.de
 Name for alias checking: pklinke
@@ -1451,6 +1505,7 @@ E-mail for alias checking: pklinke@econ2.uni-bonn.de
 RFC MIME-Version:              1.0
 RFC Content-Type:              text/plain; charset=us-ascii
 RFC Content-Transfer-Encoding: 7bit
+charset: in=us-ascii out=latin-1
 New packet file ./outpkt/news/00000030.pkt (tmp ./outpkt/news/00000030.tmp)
 Writing FTN packet header:
     From: 242:1000/5.0
@@ -1481,7 +1536,7 @@ E-mail for alias checking: usai1035@servus02.rus.uni-stuttgart.de
 RFC Date: 11 Apr 1996 14:31:43 GMT
 RFC Newsgroups: de.comm.gateways,de.comm.infosystems.misc,de.comm.internet.misc,de.comm.internet.routing,de.comm.internet.zugang,de.comm.isdn,de.comm.misc,de.comm.modem
 Look up newsgroup de.comm.gateways
-Found: DE.COMM.GATEWAYS de.comm.gateways Z242
+Found: DE.COMM.GATEWAYS de.comm.gateways Zone=242 Addr=INVALID
     Name:     usai1035
     Address:  servus02.rus.uni-stuttgart.de
 Name for alias checking: usai1035
@@ -1489,6 +1544,7 @@ E-mail for alias checking: usai1035@servus02.rus.uni-stuttgart.de
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
+charset: in=us-ascii out=latin-1
 New packet file ./outpkt/news/00000031.pkt (tmp ./outpkt/news/00000031.tmp)
 Writing FTN packet header:
     From: 242:1000/5.0
@@ -1504,7 +1560,7 @@ Writing FTN message header:
     Subj: Re: Kosten einer Standleitung
     Attr: 0000
 Look up newsgroup de.comm.infosystems.misc
-Found: DE.COMM.INFOSYSTEMS.MISC de.comm.infosystems.misc Z242
+Found: DE.COMM.INFOSYSTEMS.MISC de.comm.infosystems.misc Zone=242 Addr=INVALID
     Name:     usai1035
     Address:  servus02.rus.uni-stuttgart.de
 Name for alias checking: usai1035
@@ -1512,13 +1568,14 @@ E-mail for alias checking: usai1035@servus02.rus.uni-stuttgart.de
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
+charset: in=us-ascii out=latin-1
 Writing FTN message header:
     From: Ralf Sipple                          @ 242:1000/5.0
     To  : Matthias.Bolten@bigapple.Cologne.DE  @ 242:1000/5.0
     Subj: Re: Kosten einer Standleitung
     Attr: 0000
 Look up newsgroup de.comm.internet.misc
-Found: DE.COMM.INTERNET.MISC de.comm.internet.misc Z242
+Found: DE.COMM.INTERNET.MISC de.comm.internet.misc Zone=242 Addr=INVALID
     Name:     usai1035
     Address:  servus02.rus.uni-stuttgart.de
 Name for alias checking: usai1035
@@ -1526,13 +1583,14 @@ E-mail for alias checking: usai1035@servus02.rus.uni-stuttgart.de
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
+charset: in=us-ascii out=latin-1
 Writing FTN message header:
     From: Ralf Sipple                          @ 242:1000/5.0
     To  : Matthias.Bolten@bigapple.Cologne.DE  @ 242:1000/5.0
     Subj: Re: Kosten einer Standleitung
     Attr: 0000
 Look up newsgroup de.comm.internet.routing
-Found: DE.COMM.INTERNET.ROUTING de.comm.internet.routing Z242
+Found: DE.COMM.INTERNET.ROUTING de.comm.internet.routing Zone=242 Addr=INVALID
     Name:     usai1035
     Address:  servus02.rus.uni-stuttgart.de
 Name for alias checking: usai1035
@@ -1540,13 +1598,14 @@ E-mail for alias checking: usai1035@servus02.rus.uni-stuttgart.de
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
+charset: in=us-ascii out=latin-1
 Writing FTN message header:
     From: Ralf Sipple                          @ 242:1000/5.0
     To  : Matthias.Bolten@bigapple.Cologne.DE  @ 242:1000/5.0
     Subj: Re: Kosten einer Standleitung
     Attr: 0000
 Look up newsgroup de.comm.internet.zugang
-Found: DE.COMM.INTERNET.ZUGANG de.comm.internet.zugang Z242
+Found: DE.COMM.INTERNET.ZUGANG de.comm.internet.zugang Zone=242 Addr=INVALID
     Name:     usai1035
     Address:  servus02.rus.uni-stuttgart.de
 Name for alias checking: usai1035
@@ -1554,13 +1613,14 @@ E-mail for alias checking: usai1035@servus02.rus.uni-stuttgart.de
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
+charset: in=us-ascii out=latin-1
 Writing FTN message header:
     From: Ralf Sipple                          @ 242:1000/5.0
     To  : Matthias.Bolten@bigapple.Cologne.DE  @ 242:1000/5.0
     Subj: Re: Kosten einer Standleitung
     Attr: 0000
 Look up newsgroup de.comm.isdn
-Found: DE.COMM.ISDN de.comm.isdn Z242
+Found: DE.COMM.ISDN de.comm.isdn Zone=242 Addr=INVALID
     Name:     usai1035
     Address:  servus02.rus.uni-stuttgart.de
 Name for alias checking: usai1035
@@ -1568,13 +1628,14 @@ E-mail for alias checking: usai1035@servus02.rus.uni-stuttgart.de
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
+charset: in=us-ascii out=latin-1
 Writing FTN message header:
     From: Ralf Sipple                          @ 242:1000/5.0
     To  : Matthias.Bolten@bigapple.Cologne.DE  @ 242:1000/5.0
     Subj: Re: Kosten einer Standleitung
     Attr: 0000
 Look up newsgroup de.comm.misc
-Found: DE.COMM.MISC de.comm.misc Z242
+Found: DE.COMM.MISC de.comm.misc Zone=242 Addr=INVALID
     Name:     usai1035
     Address:  servus02.rus.uni-stuttgart.de
 Name for alias checking: usai1035
@@ -1582,13 +1643,14 @@ E-mail for alias checking: usai1035@servus02.rus.uni-stuttgart.de
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
+charset: in=us-ascii out=latin-1
 Writing FTN message header:
     From: Ralf Sipple                          @ 242:1000/5.0
     To  : Matthias.Bolten@bigapple.Cologne.DE  @ 242:1000/5.0
     Subj: Re: Kosten einer Standleitung
     Attr: 0000
 Look up newsgroup de.comm.modem
-Found: DE.COMM.MODEM de.comm.modem Z242
+Found: DE.COMM.MODEM de.comm.modem Zone=242 Addr=INVALID
     Name:     usai1035
     Address:  servus02.rus.uni-stuttgart.de
 Name for alias checking: usai1035
@@ -1596,6 +1658,7 @@ E-mail for alias checking: usai1035@servus02.rus.uni-stuttgart.de
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
+charset: in=us-ascii out=latin-1
 Writing FTN message header:
     From: Ralf Sipple                          @ 242:1000/5.0
     To  : Matthias.Bolten@bigapple.Cologne.DE  @ 242:1000/5.0
@@ -1617,7 +1680,7 @@ E-mail for alias checking: ghost@dawn.mayn.de
 RFC Date: Thu, 11 Apr 96 11:28:59 +0100
 RFC Newsgroups: de.comm.misc
 Look up newsgroup de.comm.misc
-Found: DE.COMM.MISC de.comm.misc Z242
+Found: DE.COMM.MISC de.comm.misc Zone=242 Addr=INVALID
     Name:     ghost
     Address:  dawn.mayn.de
 Name for alias checking: ghost
@@ -1625,6 +1688,7 @@ E-mail for alias checking: ghost@dawn.mayn.de
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
+charset: in=us-ascii out=latin-1
 New packet file ./outpkt/news/00000032.pkt (tmp ./outpkt/news/00000032.tmp)
 Writing FTN packet header:
     From: 242:1000/5.0
@@ -1655,7 +1719,7 @@ E-mail for alias checking: ghost@dawn.mayn.de
 RFC Date: Thu, 11 Apr 96 11:32:34 +0100
 RFC Newsgroups: de.comm.misc
 Look up newsgroup de.comm.misc
-Found: DE.COMM.MISC de.comm.misc Z242
+Found: DE.COMM.MISC de.comm.misc Zone=242 Addr=INVALID
     Name:     ghost
     Address:  dawn.mayn.de
 Name for alias checking: ghost
@@ -1663,6 +1727,7 @@ E-mail for alias checking: ghost@dawn.mayn.de
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
+charset: in=us-ascii out=latin-1
 New packet file ./outpkt/news/00000033.pkt (tmp ./outpkt/news/00000033.tmp)
 Writing FTN packet header:
     From: 242:1000/5.0
@@ -1691,7 +1756,7 @@ E-mail for alias checking: mozart@mozart.berlinet.de
 RFC Date: Thu, 11 Apr 96 16:58:21 MEZ
 RFC Newsgroups: de.comm.gateways,de.comm.infosystems.misc,de.comm.internet.misc,de.comm.internet.routing,de.comm.internet.zugang,de.comm.isdn,de.comm.misc,de.comm.modem
 Look up newsgroup de.comm.gateways
-Found: DE.COMM.GATEWAYS de.comm.gateways Z242
+Found: DE.COMM.GATEWAYS de.comm.gateways Zone=242 Addr=INVALID
     Name:     mozart
     Address:  mozart.berlinet.de
 Name for alias checking: mozart
@@ -1699,6 +1764,7 @@ E-mail for alias checking: mozart@mozart.berlinet.de
 RFC MIME-Version:              1.0
 RFC Content-Type:              text/plain; charset=iso-8859-1
 RFC Content-Transfer-Encoding: 8bit
+charset: in=us-ascii out=latin-1
 New packet file ./outpkt/news/00000034.pkt (tmp ./outpkt/news/00000034.tmp)
 Writing FTN packet header:
     From: 242:1000/5.0
@@ -1714,7 +1780,7 @@ Writing FTN message header:
     Subj: Re: Kosten einer Standleitung
     Attr: 0000
 Look up newsgroup de.comm.infosystems.misc
-Found: DE.COMM.INFOSYSTEMS.MISC de.comm.infosystems.misc Z242
+Found: DE.COMM.INFOSYSTEMS.MISC de.comm.infosystems.misc Zone=242 Addr=INVALID
     Name:     mozart
     Address:  mozart.berlinet.de
 Name for alias checking: mozart
@@ -1722,13 +1788,14 @@ E-mail for alias checking: mozart@mozart.berlinet.de
 RFC MIME-Version:              1.0
 RFC Content-Type:              text/plain; charset=iso-8859-1
 RFC Content-Transfer-Encoding: 8bit
+charset: in=us-ascii out=latin-1
 Writing FTN message header:
     From: Thomas Witt                          @ 242:1000/5.0
     To  : All                                  @ 242:1000/5.0
     Subj: Re: Kosten einer Standleitung
     Attr: 0000
 Look up newsgroup de.comm.internet.misc
-Found: DE.COMM.INTERNET.MISC de.comm.internet.misc Z242
+Found: DE.COMM.INTERNET.MISC de.comm.internet.misc Zone=242 Addr=INVALID
     Name:     mozart
     Address:  mozart.berlinet.de
 Name for alias checking: mozart
@@ -1736,13 +1803,14 @@ E-mail for alias checking: mozart@mozart.berlinet.de
 RFC MIME-Version:              1.0
 RFC Content-Type:              text/plain; charset=iso-8859-1
 RFC Content-Transfer-Encoding: 8bit
+charset: in=us-ascii out=latin-1
 Writing FTN message header:
     From: Thomas Witt                          @ 242:1000/5.0
     To  : All                                  @ 242:1000/5.0
     Subj: Re: Kosten einer Standleitung
     Attr: 0000
 Look up newsgroup de.comm.internet.routing
-Found: DE.COMM.INTERNET.ROUTING de.comm.internet.routing Z242
+Found: DE.COMM.INTERNET.ROUTING de.comm.internet.routing Zone=242 Addr=INVALID
     Name:     mozart
     Address:  mozart.berlinet.de
 Name for alias checking: mozart
@@ -1750,13 +1818,14 @@ E-mail for alias checking: mozart@mozart.berlinet.de
 RFC MIME-Version:              1.0
 RFC Content-Type:              text/plain; charset=iso-8859-1
 RFC Content-Transfer-Encoding: 8bit
+charset: in=us-ascii out=latin-1
 Writing FTN message header:
     From: Thomas Witt                          @ 242:1000/5.0
     To  : All                                  @ 242:1000/5.0
     Subj: Re: Kosten einer Standleitung
     Attr: 0000
 Look up newsgroup de.comm.internet.zugang
-Found: DE.COMM.INTERNET.ZUGANG de.comm.internet.zugang Z242
+Found: DE.COMM.INTERNET.ZUGANG de.comm.internet.zugang Zone=242 Addr=INVALID
     Name:     mozart
     Address:  mozart.berlinet.de
 Name for alias checking: mozart
@@ -1764,13 +1833,14 @@ E-mail for alias checking: mozart@mozart.berlinet.de
 RFC MIME-Version:              1.0
 RFC Content-Type:              text/plain; charset=iso-8859-1
 RFC Content-Transfer-Encoding: 8bit
+charset: in=us-ascii out=latin-1
 Writing FTN message header:
     From: Thomas Witt                          @ 242:1000/5.0
     To  : All                                  @ 242:1000/5.0
     Subj: Re: Kosten einer Standleitung
     Attr: 0000
 Look up newsgroup de.comm.isdn
-Found: DE.COMM.ISDN de.comm.isdn Z242
+Found: DE.COMM.ISDN de.comm.isdn Zone=242 Addr=INVALID
     Name:     mozart
     Address:  mozart.berlinet.de
 Name for alias checking: mozart
@@ -1778,13 +1848,14 @@ E-mail for alias checking: mozart@mozart.berlinet.de
 RFC MIME-Version:              1.0
 RFC Content-Type:              text/plain; charset=iso-8859-1
 RFC Content-Transfer-Encoding: 8bit
+charset: in=us-ascii out=latin-1
 Writing FTN message header:
     From: Thomas Witt                          @ 242:1000/5.0
     To  : All                                  @ 242:1000/5.0
     Subj: Re: Kosten einer Standleitung
     Attr: 0000
 Look up newsgroup de.comm.misc
-Found: DE.COMM.MISC de.comm.misc Z242
+Found: DE.COMM.MISC de.comm.misc Zone=242 Addr=INVALID
     Name:     mozart
     Address:  mozart.berlinet.de
 Name for alias checking: mozart
@@ -1792,13 +1863,14 @@ E-mail for alias checking: mozart@mozart.berlinet.de
 RFC MIME-Version:              1.0
 RFC Content-Type:              text/plain; charset=iso-8859-1
 RFC Content-Transfer-Encoding: 8bit
+charset: in=us-ascii out=latin-1
 Writing FTN message header:
     From: Thomas Witt                          @ 242:1000/5.0
     To  : All                                  @ 242:1000/5.0
     Subj: Re: Kosten einer Standleitung
     Attr: 0000
 Look up newsgroup de.comm.modem
-Found: DE.COMM.MODEM de.comm.modem Z242
+Found: DE.COMM.MODEM de.comm.modem Zone=242 Addr=INVALID
     Name:     mozart
     Address:  mozart.berlinet.de
 Name for alias checking: mozart
@@ -1806,6 +1878,7 @@ E-mail for alias checking: mozart@mozart.berlinet.de
 RFC MIME-Version:              1.0
 RFC Content-Type:              text/plain; charset=iso-8859-1
 RFC Content-Transfer-Encoding: 8bit
+charset: in=us-ascii out=latin-1
 Writing FTN message header:
     From: Thomas Witt                          @ 242:1000/5.0
     To  : All                                  @ 242:1000/5.0
@@ -1825,7 +1898,7 @@ E-mail for alias checking: zoc@zocki.toppoint.de
 RFC Date: 11 Apr 1996 15:59:00 +0100
 RFC Newsgroups: de.comm.misc
 Look up newsgroup de.comm.misc
-Found: DE.COMM.MISC de.comm.misc Z242
+Found: DE.COMM.MISC de.comm.misc Zone=242 Addr=INVALID
     Name:     zoc
     Address:  zocki.toppoint.de
 Name for alias checking: zoc
@@ -1833,6 +1906,7 @@ E-mail for alias checking: zoc@zocki.toppoint.de
 RFC MIME-Version:              1.0
 RFC Content-Type:              text/plain; charset=ISO-8859-1
 RFC Content-Transfer-Encoding: 8bit
+charset: in=us-ascii out=latin-1
 New packet file ./outpkt/news/00000035.pkt (tmp ./outpkt/news/00000035.tmp)
 Writing FTN packet header:
     From: 242:1000/5.0
@@ -1863,7 +1937,7 @@ RFC Date: Thu, 11 Apr 96 19:27:15 DST
           can't parse this date string
 RFC Newsgroups: de.comm.gateways,de.comm.infosystems.misc,de.comm.internet.misc,de.comm.internet.routing,de.comm.internet.zugang,de.comm.isdn,de.comm.misc,de.comm.modem
 Look up newsgroup de.comm.gateways
-Found: DE.COMM.GATEWAYS de.comm.gateways Z242
+Found: DE.COMM.GATEWAYS de.comm.gateways Zone=242 Addr=INVALID
     Name:     root
     Address:  bespin.in-berlin.de
 Name for alias checking: root
@@ -1871,6 +1945,7 @@ E-mail for alias checking: root@bespin.in-berlin.de
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
+charset: in=us-ascii out=latin-1
 New packet file ./outpkt/news/00000036.pkt (tmp ./outpkt/news/00000036.tmp)
 Writing FTN packet header:
     From: 242:1000/5.0
@@ -1887,7 +1962,7 @@ Writing FTN message header:
     Attr: 0000
 using local time
 Look up newsgroup de.comm.infosystems.misc
-Found: DE.COMM.INFOSYSTEMS.MISC de.comm.infosystems.misc Z242
+Found: DE.COMM.INFOSYSTEMS.MISC de.comm.infosystems.misc Zone=242 Addr=INVALID
     Name:     root
     Address:  bespin.in-berlin.de
 Name for alias checking: root
@@ -1895,6 +1970,7 @@ E-mail for alias checking: root@bespin.in-berlin.de
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
+charset: in=us-ascii out=latin-1
 Writing FTN message header:
     From: Sascha Matzke                        @ 242:1000/5.0
     To  : All                                  @ 242:1000/5.0
@@ -1902,7 +1978,7 @@ Writing FTN message header:
     Attr: 0000
 using local time
 Look up newsgroup de.comm.internet.misc
-Found: DE.COMM.INTERNET.MISC de.comm.internet.misc Z242
+Found: DE.COMM.INTERNET.MISC de.comm.internet.misc Zone=242 Addr=INVALID
     Name:     root
     Address:  bespin.in-berlin.de
 Name for alias checking: root
@@ -1910,6 +1986,7 @@ E-mail for alias checking: root@bespin.in-berlin.de
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
+charset: in=us-ascii out=latin-1
 Writing FTN message header:
     From: Sascha Matzke                        @ 242:1000/5.0
     To  : All                                  @ 242:1000/5.0
@@ -1917,7 +1994,7 @@ Writing FTN message header:
     Attr: 0000
 using local time
 Look up newsgroup de.comm.internet.routing
-Found: DE.COMM.INTERNET.ROUTING de.comm.internet.routing Z242
+Found: DE.COMM.INTERNET.ROUTING de.comm.internet.routing Zone=242 Addr=INVALID
     Name:     root
     Address:  bespin.in-berlin.de
 Name for alias checking: root
@@ -1925,6 +2002,7 @@ E-mail for alias checking: root@bespin.in-berlin.de
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
+charset: in=us-ascii out=latin-1
 Writing FTN message header:
     From: Sascha Matzke                        @ 242:1000/5.0
     To  : All                                  @ 242:1000/5.0
@@ -1932,7 +2010,7 @@ Writing FTN message header:
     Attr: 0000
 using local time
 Look up newsgroup de.comm.internet.zugang
-Found: DE.COMM.INTERNET.ZUGANG de.comm.internet.zugang Z242
+Found: DE.COMM.INTERNET.ZUGANG de.comm.internet.zugang Zone=242 Addr=INVALID
     Name:     root
     Address:  bespin.in-berlin.de
 Name for alias checking: root
@@ -1940,6 +2018,7 @@ E-mail for alias checking: root@bespin.in-berlin.de
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
+charset: in=us-ascii out=latin-1
 Writing FTN message header:
     From: Sascha Matzke                        @ 242:1000/5.0
     To  : All                                  @ 242:1000/5.0
@@ -1947,7 +2026,7 @@ Writing FTN message header:
     Attr: 0000
 using local time
 Look up newsgroup de.comm.isdn
-Found: DE.COMM.ISDN de.comm.isdn Z242
+Found: DE.COMM.ISDN de.comm.isdn Zone=242 Addr=INVALID
     Name:     root
     Address:  bespin.in-berlin.de
 Name for alias checking: root
@@ -1955,6 +2034,7 @@ E-mail for alias checking: root@bespin.in-berlin.de
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
+charset: in=us-ascii out=latin-1
 Writing FTN message header:
     From: Sascha Matzke                        @ 242:1000/5.0
     To  : All                                  @ 242:1000/5.0
@@ -1962,7 +2042,7 @@ Writing FTN message header:
     Attr: 0000
 using local time
 Look up newsgroup de.comm.misc
-Found: DE.COMM.MISC de.comm.misc Z242
+Found: DE.COMM.MISC de.comm.misc Zone=242 Addr=INVALID
     Name:     root
     Address:  bespin.in-berlin.de
 Name for alias checking: root
@@ -1970,6 +2050,7 @@ E-mail for alias checking: root@bespin.in-berlin.de
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
+charset: in=us-ascii out=latin-1
 Writing FTN message header:
     From: Sascha Matzke                        @ 242:1000/5.0
     To  : All                                  @ 242:1000/5.0
@@ -1977,7 +2058,7 @@ Writing FTN message header:
     Attr: 0000
 using local time
 Look up newsgroup de.comm.modem
-Found: DE.COMM.MODEM de.comm.modem Z242
+Found: DE.COMM.MODEM de.comm.modem Zone=242 Addr=INVALID
     Name:     root
     Address:  bespin.in-berlin.de
 Name for alias checking: root
@@ -1985,6 +2066,7 @@ E-mail for alias checking: root@bespin.in-berlin.de
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
+charset: in=us-ascii out=latin-1
 Writing FTN message header:
     From: Sascha Matzke                        @ 242:1000/5.0
     To  : All                                  @ 242:1000/5.0
@@ -2005,7 +2087,7 @@ E-mail for alias checking: petzi@zit.th-darmstadt.de
 RFC Date: Thu, 11 Apr 1996 19:57:54 +0200
 RFC Newsgroups: de.comm.internet.misc,de.comm.misc
 Look up newsgroup de.comm.internet.misc
-Found: DE.COMM.INTERNET.MISC de.comm.internet.misc Z242
+Found: DE.COMM.INTERNET.MISC de.comm.internet.misc Zone=242 Addr=INVALID
     Name:     petzi
     Address:  zit.th-darmstadt.de
 Name for alias checking: petzi
@@ -2013,6 +2095,7 @@ E-mail for alias checking: petzi@zit.th-darmstadt.de
 RFC MIME-Version:              1.0
 RFC Content-Type:              text/plain; charset=ISO-8859-1
 RFC Content-Transfer-Encoding: 8bit
+charset: in=us-ascii out=latin-1
 New packet file ./outpkt/news/00000037.pkt (tmp ./outpkt/news/00000037.tmp)
 Writing FTN packet header:
     From: 242:1000/5.0
@@ -2028,7 +2111,7 @@ Writing FTN message header:
     Subj: Re: Eudora
     Attr: 0000
 Look up newsgroup de.comm.misc
-Found: DE.COMM.MISC de.comm.misc Z242
+Found: DE.COMM.MISC de.comm.misc Zone=242 Addr=INVALID
     Name:     petzi
     Address:  zit.th-darmstadt.de
 Name for alias checking: petzi
@@ -2036,6 +2119,7 @@ E-mail for alias checking: petzi@zit.th-darmstadt.de
 RFC MIME-Version:              1.0
 RFC Content-Type:              text/plain; charset=ISO-8859-1
 RFC Content-Transfer-Encoding: 8bit
+charset: in=us-ascii out=latin-1
 Writing FTN message header:
     From: Michael Beckmann                     @ 242:1000/5.0
     To  : All                                  @ 242:1000/5.0
@@ -2057,7 +2141,7 @@ E-mail for alias checking: groggy@eikon.e-technik.tu-muenchen.de
 RFC Date: Thu, 11 Apr 1996 18:25:33 GMT
 RFC Newsgroups: de.comm.misc
 Look up newsgroup de.comm.misc
-Found: DE.COMM.MISC de.comm.misc Z242
+Found: DE.COMM.MISC de.comm.misc Zone=242 Addr=INVALID
     Name:     groggy
     Address:  eikon.e-technik.tu-muenchen.de
 Name for alias checking: groggy
@@ -2065,6 +2149,7 @@ E-mail for alias checking: groggy@eikon.e-technik.tu-muenchen.de
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
+charset: in=us-ascii out=latin-1
 New packet file ./outpkt/news/00000038.pkt (tmp ./outpkt/news/00000038.tmp)
 Writing FTN packet header:
     From: 242:1000/5.0
@@ -2095,7 +2180,7 @@ E-mail for alias checking: daniel@fiction.pb.owl.de
 RFC Date: Thu, 11 Apr 1996 19:53:23 GMT
 RFC Newsgroups: de.comm.gateways,de.comm.infosystems.misc,de.comm.internet.misc,de.comm.internet.routing,de.comm.internet.zugang,de.comm.isdn,de.comm.misc,de.comm.modem
 Look up newsgroup de.comm.gateways
-Found: DE.COMM.GATEWAYS de.comm.gateways Z242
+Found: DE.COMM.GATEWAYS de.comm.gateways Zone=242 Addr=INVALID
     Name:     daniel
     Address:  fiction.pb.owl.de
 Name for alias checking: daniel
@@ -2103,6 +2188,7 @@ E-mail for alias checking: daniel@fiction.pb.owl.de
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
+charset: in=us-ascii out=latin-1
 New packet file ./outpkt/news/00000039.pkt (tmp ./outpkt/news/00000039.tmp)
 Writing FTN packet header:
     From: 242:1000/5.0
@@ -2118,7 +2204,7 @@ Writing FTN message header:
     Subj: Re: Kosten einer Standleitung
     Attr: 0000
 Look up newsgroup de.comm.infosystems.misc
-Found: DE.COMM.INFOSYSTEMS.MISC de.comm.infosystems.misc Z242
+Found: DE.COMM.INFOSYSTEMS.MISC de.comm.infosystems.misc Zone=242 Addr=INVALID
     Name:     daniel
     Address:  fiction.pb.owl.de
 Name for alias checking: daniel
@@ -2126,13 +2212,14 @@ E-mail for alias checking: daniel@fiction.pb.owl.de
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
+charset: in=us-ascii out=latin-1
 Writing FTN message header:
     From: Daniel Roedding                      @ 242:1000/5.0
     To  : Ralf Sipple                          @ 242:1000/5.0
     Subj: Re: Kosten einer Standleitung
     Attr: 0000
 Look up newsgroup de.comm.internet.misc
-Found: DE.COMM.INTERNET.MISC de.comm.internet.misc Z242
+Found: DE.COMM.INTERNET.MISC de.comm.internet.misc Zone=242 Addr=INVALID
     Name:     daniel
     Address:  fiction.pb.owl.de
 Name for alias checking: daniel
@@ -2140,13 +2227,14 @@ E-mail for alias checking: daniel@fiction.pb.owl.de
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
+charset: in=us-ascii out=latin-1
 Writing FTN message header:
     From: Daniel Roedding                      @ 242:1000/5.0
     To  : Ralf Sipple                          @ 242:1000/5.0
     Subj: Re: Kosten einer Standleitung
     Attr: 0000
 Look up newsgroup de.comm.internet.routing
-Found: DE.COMM.INTERNET.ROUTING de.comm.internet.routing Z242
+Found: DE.COMM.INTERNET.ROUTING de.comm.internet.routing Zone=242 Addr=INVALID
     Name:     daniel
     Address:  fiction.pb.owl.de
 Name for alias checking: daniel
@@ -2154,13 +2242,14 @@ E-mail for alias checking: daniel@fiction.pb.owl.de
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
+charset: in=us-ascii out=latin-1
 Writing FTN message header:
     From: Daniel Roedding                      @ 242:1000/5.0
     To  : Ralf Sipple                          @ 242:1000/5.0
     Subj: Re: Kosten einer Standleitung
     Attr: 0000
 Look up newsgroup de.comm.internet.zugang
-Found: DE.COMM.INTERNET.ZUGANG de.comm.internet.zugang Z242
+Found: DE.COMM.INTERNET.ZUGANG de.comm.internet.zugang Zone=242 Addr=INVALID
     Name:     daniel
     Address:  fiction.pb.owl.de
 Name for alias checking: daniel
@@ -2168,13 +2257,14 @@ E-mail for alias checking: daniel@fiction.pb.owl.de
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
+charset: in=us-ascii out=latin-1
 Writing FTN message header:
     From: Daniel Roedding                      @ 242:1000/5.0
     To  : Ralf Sipple                          @ 242:1000/5.0
     Subj: Re: Kosten einer Standleitung
     Attr: 0000
 Look up newsgroup de.comm.isdn
-Found: DE.COMM.ISDN de.comm.isdn Z242
+Found: DE.COMM.ISDN de.comm.isdn Zone=242 Addr=INVALID
     Name:     daniel
     Address:  fiction.pb.owl.de
 Name for alias checking: daniel
@@ -2182,13 +2272,14 @@ E-mail for alias checking: daniel@fiction.pb.owl.de
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
+charset: in=us-ascii out=latin-1
 Writing FTN message header:
     From: Daniel Roedding                      @ 242:1000/5.0
     To  : Ralf Sipple                          @ 242:1000/5.0
     Subj: Re: Kosten einer Standleitung
     Attr: 0000
 Look up newsgroup de.comm.misc
-Found: DE.COMM.MISC de.comm.misc Z242
+Found: DE.COMM.MISC de.comm.misc Zone=242 Addr=INVALID
     Name:     daniel
     Address:  fiction.pb.owl.de
 Name for alias checking: daniel
@@ -2196,13 +2287,14 @@ E-mail for alias checking: daniel@fiction.pb.owl.de
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
+charset: in=us-ascii out=latin-1
 Writing FTN message header:
     From: Daniel Roedding                      @ 242:1000/5.0
     To  : Ralf Sipple                          @ 242:1000/5.0
     Subj: Re: Kosten einer Standleitung
     Attr: 0000
 Look up newsgroup de.comm.modem
-Found: DE.COMM.MODEM de.comm.modem Z242
+Found: DE.COMM.MODEM de.comm.modem Zone=242 Addr=INVALID
     Name:     daniel
     Address:  fiction.pb.owl.de
 Name for alias checking: daniel
@@ -2210,6 +2302,7 @@ E-mail for alias checking: daniel@fiction.pb.owl.de
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
+charset: in=us-ascii out=latin-1
 Writing FTN message header:
     From: Daniel Roedding                      @ 242:1000/5.0
     To  : Ralf Sipple                          @ 242:1000/5.0
@@ -2229,7 +2322,7 @@ E-mail for alias checking: Klaus.Heimes@uni-koeln.de
 RFC Date: Mon, 08 Apr 1996 14:50:52 GMT
 RFC Newsgroups: de.comm.misc
 Look up newsgroup de.comm.misc
-Found: DE.COMM.MISC de.comm.misc Z242
+Found: DE.COMM.MISC de.comm.misc Zone=242 Addr=INVALID
     Name:     Klaus.Heimes
     Address:  uni-koeln.de
 Name for alias checking: Klaus.Heimes
@@ -2237,6 +2330,7 @@ E-mail for alias checking: Klaus.Heimes@uni-koeln.de
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
+charset: in=us-ascii out=latin-1
 New packet file ./outpkt/news/00000040.pkt (tmp ./outpkt/news/00000040.tmp)
 Writing FTN packet header:
     From: 242:1000/5.0
@@ -2265,7 +2359,7 @@ E-mail for alias checking: gutschk@uni-muenster.de
 RFC Date: 05 Apr 1996 13:45:04 GMT
 RFC Newsgroups: de.comm.misc
 Look up newsgroup de.comm.misc
-Found: DE.COMM.MISC de.comm.misc Z242
+Found: DE.COMM.MISC de.comm.misc Zone=242 Addr=INVALID
     Name:     gutschk
     Address:  uni-muenster.de
 Name for alias checking: gutschk
@@ -2273,6 +2367,7 @@ E-mail for alias checking: gutschk@uni-muenster.de
 RFC MIME-Version:              1.0 (generated by tm-edit 7.41)
 RFC Content-Type:              text/plain; charset=US-ASCII
 RFC Content-Transfer-Encoding: -NONE-
+charset: in=us-ascii out=latin-1
 New packet file ./outpkt/news/00000041.pkt (tmp ./outpkt/news/00000041.tmp)
 Writing FTN packet header:
     From: 242:1000/5.0
@@ -2303,7 +2398,7 @@ E-mail for alias checking: kalle@rd.cls.de
 RFC Date: 11 Apr 1996 23:18:34 +0200
 RFC Newsgroups: de.comm.gateways,de.comm.infosystems.misc,de.comm.internet.misc,de.comm.internet.routing,de.comm.internet.zugang,de.comm.isdn,de.comm.misc,de.comm.modem
 Look up newsgroup de.comm.gateways
-Found: DE.COMM.GATEWAYS de.comm.gateways Z242
+Found: DE.COMM.GATEWAYS de.comm.gateways Zone=242 Addr=INVALID
     Name:     kalle
     Address:  rd.cls.de
 Name for alias checking: kalle
@@ -2311,6 +2406,7 @@ E-mail for alias checking: kalle@rd.cls.de
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
+charset: in=us-ascii out=latin-1
 New packet file ./outpkt/news/00000042.pkt (tmp ./outpkt/news/00000042.tmp)
 Writing FTN packet header:
     From: 242:1000/5.0
@@ -2326,7 +2422,7 @@ Writing FTN message header:
     Subj: Re: Kosten einer Standleitung
     Attr: 0000
 Look up newsgroup de.comm.infosystems.misc
-Found: DE.COMM.INFOSYSTEMS.MISC de.comm.infosystems.misc Z242
+Found: DE.COMM.INFOSYSTEMS.MISC de.comm.infosystems.misc Zone=242 Addr=INVALID
     Name:     kalle
     Address:  rd.cls.de
 Name for alias checking: kalle
@@ -2334,13 +2430,14 @@ E-mail for alias checking: kalle@rd.cls.de
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
+charset: in=us-ascii out=latin-1
 Writing FTN message header:
     From: Karlheinz Hagen                      @ 242:1000/5.0
     To  : Usai1035@servus02.Rus.Uni-stuttgart  @ 242:1000/5.0
     Subj: Re: Kosten einer Standleitung
     Attr: 0000
 Look up newsgroup de.comm.internet.misc
-Found: DE.COMM.INTERNET.MISC de.comm.internet.misc Z242
+Found: DE.COMM.INTERNET.MISC de.comm.internet.misc Zone=242 Addr=INVALID
     Name:     kalle
     Address:  rd.cls.de
 Name for alias checking: kalle
@@ -2348,13 +2445,14 @@ E-mail for alias checking: kalle@rd.cls.de
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
+charset: in=us-ascii out=latin-1
 Writing FTN message header:
     From: Karlheinz Hagen                      @ 242:1000/5.0
     To  : Usai1035@servus02.Rus.Uni-stuttgart  @ 242:1000/5.0
     Subj: Re: Kosten einer Standleitung
     Attr: 0000
 Look up newsgroup de.comm.internet.routing
-Found: DE.COMM.INTERNET.ROUTING de.comm.internet.routing Z242
+Found: DE.COMM.INTERNET.ROUTING de.comm.internet.routing Zone=242 Addr=INVALID
     Name:     kalle
     Address:  rd.cls.de
 Name for alias checking: kalle
@@ -2362,13 +2460,14 @@ E-mail for alias checking: kalle@rd.cls.de
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
+charset: in=us-ascii out=latin-1
 Writing FTN message header:
     From: Karlheinz Hagen                      @ 242:1000/5.0
     To  : Usai1035@servus02.Rus.Uni-stuttgart  @ 242:1000/5.0
     Subj: Re: Kosten einer Standleitung
     Attr: 0000
 Look up newsgroup de.comm.internet.zugang
-Found: DE.COMM.INTERNET.ZUGANG de.comm.internet.zugang Z242
+Found: DE.COMM.INTERNET.ZUGANG de.comm.internet.zugang Zone=242 Addr=INVALID
     Name:     kalle
     Address:  rd.cls.de
 Name for alias checking: kalle
@@ -2376,13 +2475,14 @@ E-mail for alias checking: kalle@rd.cls.de
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
+charset: in=us-ascii out=latin-1
 Writing FTN message header:
     From: Karlheinz Hagen                      @ 242:1000/5.0
     To  : Usai1035@servus02.Rus.Uni-stuttgart  @ 242:1000/5.0
     Subj: Re: Kosten einer Standleitung
     Attr: 0000
 Look up newsgroup de.comm.isdn
-Found: DE.COMM.ISDN de.comm.isdn Z242
+Found: DE.COMM.ISDN de.comm.isdn Zone=242 Addr=INVALID
     Name:     kalle
     Address:  rd.cls.de
 Name for alias checking: kalle
@@ -2390,13 +2490,14 @@ E-mail for alias checking: kalle@rd.cls.de
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
+charset: in=us-ascii out=latin-1
 Writing FTN message header:
     From: Karlheinz Hagen                      @ 242:1000/5.0
     To  : Usai1035@servus02.Rus.Uni-stuttgart  @ 242:1000/5.0
     Subj: Re: Kosten einer Standleitung
     Attr: 0000
 Look up newsgroup de.comm.misc
-Found: DE.COMM.MISC de.comm.misc Z242
+Found: DE.COMM.MISC de.comm.misc Zone=242 Addr=INVALID
     Name:     kalle
     Address:  rd.cls.de
 Name for alias checking: kalle
@@ -2404,13 +2505,14 @@ E-mail for alias checking: kalle@rd.cls.de
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
+charset: in=us-ascii out=latin-1
 Writing FTN message header:
     From: Karlheinz Hagen                      @ 242:1000/5.0
     To  : Usai1035@servus02.Rus.Uni-stuttgart  @ 242:1000/5.0
     Subj: Re: Kosten einer Standleitung
     Attr: 0000
 Look up newsgroup de.comm.modem
-Found: DE.COMM.MODEM de.comm.modem Z242
+Found: DE.COMM.MODEM de.comm.modem Zone=242 Addr=INVALID
     Name:     kalle
     Address:  rd.cls.de
 Name for alias checking: kalle
@@ -2418,6 +2520,7 @@ E-mail for alias checking: kalle@rd.cls.de
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
+charset: in=us-ascii out=latin-1
 Writing FTN message header:
     From: Karlheinz Hagen                      @ 242:1000/5.0
     To  : Usai1035@servus02.Rus.Uni-stuttgart  @ 242:1000/5.0
@@ -2437,7 +2540,7 @@ E-mail for alias checking: hf@ulysses.reactor.in-passau.de
 RFC Date: Thu, 11 Apr 1996 21:05:03 +0200
 RFC Newsgroups: de.comm.misc
 Look up newsgroup de.comm.misc
-Found: DE.COMM.MISC de.comm.misc Z242
+Found: DE.COMM.MISC de.comm.misc Zone=242 Addr=INVALID
     Name:     hf
     Address:  ulysses.reactor.in-passau.de
 Name for alias checking: hf
@@ -2445,6 +2548,7 @@ E-mail for alias checking: hf@ulysses.reactor.in-passau.de
 RFC MIME-Version:              1.0
 RFC Content-Type:              text/plain; charset=iso-8859-1
 RFC Content-Transfer-Encoding: 8bit
+charset: in=us-ascii out=latin-1
 New packet file ./outpkt/news/00000043.pkt (tmp ./outpkt/news/00000043.tmp)
 Writing FTN packet header:
     From: 242:1000/5.0
@@ -2473,7 +2577,7 @@ E-mail for alias checking: joerg@tretow.in-berlin.de
 RFC Date: 11 Apr 1996 13:57:00 +0100
 RFC Newsgroups: de.comm.modem,de.comm.misc,de.comm.mobil,ger.pc.hard
 Look up newsgroup de.comm.modem
-Found: DE.COMM.MODEM de.comm.modem Z242
+Found: DE.COMM.MODEM de.comm.modem Zone=242 Addr=INVALID
     Name:     joerg
     Address:  tretow.in-berlin.de
 Name for alias checking: joerg
@@ -2481,6 +2585,7 @@ E-mail for alias checking: joerg@tretow.in-berlin.de
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
+charset: in=us-ascii out=latin-1
 New packet file ./outpkt/news/00000044.pkt (tmp ./outpkt/news/00000044.tmp)
 Writing FTN packet header:
     From: 242:1000/5.0
@@ -2496,7 +2601,7 @@ Writing FTN message header:
     Subj: Re: Modem an E-Plus-Handy???
     Attr: 0000
 Look up newsgroup de.comm.misc
-Found: DE.COMM.MISC de.comm.misc Z242
+Found: DE.COMM.MISC de.comm.misc Zone=242 Addr=INVALID
     Name:     joerg
     Address:  tretow.in-berlin.de
 Name for alias checking: joerg
@@ -2504,13 +2609,14 @@ E-mail for alias checking: joerg@tretow.in-berlin.de
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
+charset: in=us-ascii out=latin-1
 Writing FTN message header:
     From: Joerg Tretow                         @ 242:1000/5.0
     To  : All                                  @ 242:1000/5.0
     Subj: Re: Modem an E-Plus-Handy???
     Attr: 0000
 Look up newsgroup de.comm.mobil
-Found: DE.COMM.MOBIL de.comm.mobil Z242
+Found: DE.COMM.MOBIL de.comm.mobil Zone=242 Addr=INVALID
     Name:     joerg
     Address:  tretow.in-berlin.de
 Name for alias checking: joerg
@@ -2518,6 +2624,7 @@ E-mail for alias checking: joerg@tretow.in-berlin.de
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
+charset: in=us-ascii out=latin-1
 Writing FTN message header:
     From: Joerg Tretow                         @ 242:1000/5.0
     To  : All                                  @ 242:1000/5.0
@@ -2539,7 +2646,7 @@ E-mail for alias checking: Bubblebear@guru.rhein-main.de
 RFC Date: Thu, 11 Apr 1996 18:20:24 +0100
 RFC Newsgroups: de.comm.misc
 Look up newsgroup de.comm.misc
-Found: DE.COMM.MISC de.comm.misc Z242
+Found: DE.COMM.MISC de.comm.misc Zone=242 Addr=INVALID
     Name:     Bubblebear
     Address:  guru.rhein-main.de
 Name for alias checking: Bubblebear
@@ -2547,6 +2654,7 @@ E-mail for alias checking: Bubblebear@guru.rhein-main.de
 RFC MIME-Version:              1.0
 RFC Content-Type:              text/plain; charset=ISO-8859-1
 RFC Content-Transfer-Encoding: 8bit
+charset: in=us-ascii out=latin-1
 New packet file ./outpkt/news/00000045.pkt (tmp ./outpkt/news/00000045.tmp)
 Writing FTN packet header:
     From: 242:1000/5.0
@@ -2575,7 +2683,7 @@ E-mail for alias checking: maik@cape.de
 RFC Date: Fri, 12 Apr 1996 03:22:22 +0200
 RFC Newsgroups: de.comm.misc,de.comm.mobil,de.comm.modem,ger.pc.hard
 Look up newsgroup de.comm.misc
-Found: DE.COMM.MISC de.comm.misc Z242
+Found: DE.COMM.MISC de.comm.misc Zone=242 Addr=INVALID
     Name:     maik
     Address:  cape.de
 Name for alias checking: maik
@@ -2583,6 +2691,7 @@ E-mail for alias checking: maik@cape.de
 RFC MIME-Version:              1.0
 RFC Content-Type:              text/plain; charset=us-ascii
 RFC Content-Transfer-Encoding: 7bit
+charset: in=us-ascii out=latin-1
 New packet file ./outpkt/news/00000046.pkt (tmp ./outpkt/news/00000046.tmp)
 Writing FTN packet header:
     From: 242:1000/5.0
@@ -2598,7 +2707,7 @@ Writing FTN message header:
     Subj: Re: Modem an E-Plus-Handy???
     Attr: 0000
 Look up newsgroup de.comm.mobil
-Found: DE.COMM.MOBIL de.comm.mobil Z242
+Found: DE.COMM.MOBIL de.comm.mobil Zone=242 Addr=INVALID
     Name:     maik
     Address:  cape.de
 Name for alias checking: maik
@@ -2606,13 +2715,14 @@ E-mail for alias checking: maik@cape.de
 RFC MIME-Version:              1.0
 RFC Content-Type:              text/plain; charset=us-ascii
 RFC Content-Transfer-Encoding: 7bit
+charset: in=us-ascii out=latin-1
 Writing FTN message header:
     From: Maik Musall                          @ 242:1000/5.0
     To  : All                                  @ 242:1000/5.0
     Subj: Re: Modem an E-Plus-Handy???
     Attr: 0000
 Look up newsgroup de.comm.modem
-Found: DE.COMM.MODEM de.comm.modem Z242
+Found: DE.COMM.MODEM de.comm.modem Zone=242 Addr=INVALID
     Name:     maik
     Address:  cape.de
 Name for alias checking: maik
@@ -2620,6 +2730,7 @@ E-mail for alias checking: maik@cape.de
 RFC MIME-Version:              1.0
 RFC Content-Type:              text/plain; charset=us-ascii
 RFC Content-Transfer-Encoding: 7bit
+charset: in=us-ascii out=latin-1
 Writing FTN message header:
     From: Maik Musall                          @ 242:1000/5.0
     To  : All                                  @ 242:1000/5.0
@@ -2641,7 +2752,7 @@ E-mail for alias checking: T.Kammerer@charly.in-ulm.de
 RFC Date: 11 Apr 1996 21:55:00 +0100
 RFC Newsgroups: de.comm.internet.software,de.comm.misc,de.newusers.questions
 Look up newsgroup de.comm.internet.software
-Found: DE.COMM.INTERNET.SOFTWARE de.comm.internet.software Z242
+Found: DE.COMM.INTERNET.SOFTWARE de.comm.internet.software Zone=242 Addr=INVALID
     Name:     T.Kammerer
     Address:  charly.in-ulm.de
 Name for alias checking: T.Kammerer
@@ -2649,6 +2760,7 @@ E-mail for alias checking: T.Kammerer@charly.in-ulm.de
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
+charset: in=us-ascii out=latin-1
 New packet file ./outpkt/news/00000047.pkt (tmp ./outpkt/news/00000047.tmp)
 Writing FTN packet header:
     From: 242:1000/5.0
@@ -2664,7 +2776,7 @@ Writing FTN message header:
     Subj: ftp Probleme
     Attr: 0000
 Look up newsgroup de.comm.misc
-Found: DE.COMM.MISC de.comm.misc Z242
+Found: DE.COMM.MISC de.comm.misc Zone=242 Addr=INVALID
     Name:     T.Kammerer
     Address:  charly.in-ulm.de
 Name for alias checking: T.Kammerer
@@ -2672,13 +2784,14 @@ E-mail for alias checking: T.Kammerer@charly.in-ulm.de
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
+charset: in=us-ascii out=latin-1
 Writing FTN message header:
     From: Thomas Kammerer                      @ 242:1000/5.0
     To  : All                                  @ 242:1000/5.0
     Subj: ftp Probleme
     Attr: 0000
 Look up newsgroup de.newusers.questions
-Found: DE.NEWUSERS.QUESTIONS de.newusers.questions Z242
+Found: DE.NEWUSERS.QUESTIONS de.newusers.questions Zone=242 Addr=INVALID
     Name:     T.Kammerer
     Address:  charly.in-ulm.de
 Name for alias checking: T.Kammerer
@@ -2686,6 +2799,7 @@ E-mail for alias checking: T.Kammerer@charly.in-ulm.de
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
+charset: in=us-ascii out=latin-1
 Writing FTN message header:
     From: Thomas Kammerer                      @ 242:1000/5.0
     To  : All                                  @ 242:1000/5.0
@@ -2705,7 +2819,7 @@ E-mail for alias checking: chris@cae.muc.de
 RFC Date: 11 Apr 1996 22:26:00 +0100
 RFC Newsgroups: de.comm.internet.misc,de.comm.gateways,de.comm.infosystems.misc,de.comm.internet.routing,de.comm.internet.zugang,de.comm.modem,de.comm.isdn,de.comm.misc
 Look up newsgroup de.comm.internet.misc
-Found: DE.COMM.INTERNET.MISC de.comm.internet.misc Z242
+Found: DE.COMM.INTERNET.MISC de.comm.internet.misc Zone=242 Addr=INVALID
     Name:     chris
     Address:  cae.muc.de
 Name for alias checking: chris
@@ -2713,6 +2827,7 @@ E-mail for alias checking: chris@cae.muc.de
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
+charset: in=us-ascii out=latin-1
 New packet file ./outpkt/news/00000048.pkt (tmp ./outpkt/news/00000048.tmp)
 Writing FTN packet header:
     From: 242:1000/5.0
@@ -2728,7 +2843,7 @@ Writing FTN message header:
     Subj: Re: Kosten einer Standleitung
     Attr: 0000
 Look up newsgroup de.comm.gateways
-Found: DE.COMM.GATEWAYS de.comm.gateways Z242
+Found: DE.COMM.GATEWAYS de.comm.gateways Zone=242 Addr=INVALID
     Name:     chris
     Address:  cae.muc.de
 Name for alias checking: chris
@@ -2736,13 +2851,14 @@ E-mail for alias checking: chris@cae.muc.de
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
+charset: in=us-ascii out=latin-1
 Writing FTN message header:
     From: Christian A. Eroes                   @ 242:1000/5.0
     To  : All                                  @ 242:1000/5.0
     Subj: Re: Kosten einer Standleitung
     Attr: 0000
 Look up newsgroup de.comm.infosystems.misc
-Found: DE.COMM.INFOSYSTEMS.MISC de.comm.infosystems.misc Z242
+Found: DE.COMM.INFOSYSTEMS.MISC de.comm.infosystems.misc Zone=242 Addr=INVALID
     Name:     chris
     Address:  cae.muc.de
 Name for alias checking: chris
@@ -2750,13 +2866,14 @@ E-mail for alias checking: chris@cae.muc.de
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
+charset: in=us-ascii out=latin-1
 Writing FTN message header:
     From: Christian A. Eroes                   @ 242:1000/5.0
     To  : All                                  @ 242:1000/5.0
     Subj: Re: Kosten einer Standleitung
     Attr: 0000
 Look up newsgroup de.comm.internet.routing
-Found: DE.COMM.INTERNET.ROUTING de.comm.internet.routing Z242
+Found: DE.COMM.INTERNET.ROUTING de.comm.internet.routing Zone=242 Addr=INVALID
     Name:     chris
     Address:  cae.muc.de
 Name for alias checking: chris
@@ -2764,13 +2881,14 @@ E-mail for alias checking: chris@cae.muc.de
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
+charset: in=us-ascii out=latin-1
 Writing FTN message header:
     From: Christian A. Eroes                   @ 242:1000/5.0
     To  : All                                  @ 242:1000/5.0
     Subj: Re: Kosten einer Standleitung
     Attr: 0000
 Look up newsgroup de.comm.internet.zugang
-Found: DE.COMM.INTERNET.ZUGANG de.comm.internet.zugang Z242
+Found: DE.COMM.INTERNET.ZUGANG de.comm.internet.zugang Zone=242 Addr=INVALID
     Name:     chris
     Address:  cae.muc.de
 Name for alias checking: chris
@@ -2778,13 +2896,14 @@ E-mail for alias checking: chris@cae.muc.de
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
+charset: in=us-ascii out=latin-1
 Writing FTN message header:
     From: Christian A. Eroes                   @ 242:1000/5.0
     To  : All                                  @ 242:1000/5.0
     Subj: Re: Kosten einer Standleitung
     Attr: 0000
 Look up newsgroup de.comm.modem
-Found: DE.COMM.MODEM de.comm.modem Z242
+Found: DE.COMM.MODEM de.comm.modem Zone=242 Addr=INVALID
     Name:     chris
     Address:  cae.muc.de
 Name for alias checking: chris
@@ -2792,13 +2911,14 @@ E-mail for alias checking: chris@cae.muc.de
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
+charset: in=us-ascii out=latin-1
 Writing FTN message header:
     From: Christian A. Eroes                   @ 242:1000/5.0
     To  : All                                  @ 242:1000/5.0
     Subj: Re: Kosten einer Standleitung
     Attr: 0000
 Look up newsgroup de.comm.isdn
-Found: DE.COMM.ISDN de.comm.isdn Z242
+Found: DE.COMM.ISDN de.comm.isdn Zone=242 Addr=INVALID
     Name:     chris
     Address:  cae.muc.de
 Name for alias checking: chris
@@ -2806,13 +2926,14 @@ E-mail for alias checking: chris@cae.muc.de
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
+charset: in=us-ascii out=latin-1
 Writing FTN message header:
     From: Christian A. Eroes                   @ 242:1000/5.0
     To  : All                                  @ 242:1000/5.0
     Subj: Re: Kosten einer Standleitung
     Attr: 0000
 Look up newsgroup de.comm.misc
-Found: DE.COMM.MISC de.comm.misc Z242
+Found: DE.COMM.MISC de.comm.misc Zone=242 Addr=INVALID
     Name:     chris
     Address:  cae.muc.de
 Name for alias checking: chris
@@ -2820,6 +2941,7 @@ E-mail for alias checking: chris@cae.muc.de
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
+charset: in=us-ascii out=latin-1
 Writing FTN message header:
     From: Christian A. Eroes                   @ 242:1000/5.0
     To  : All                                  @ 242:1000/5.0
@@ -2839,7 +2961,7 @@ E-mail for alias checking: chris@cae.muc.de
 RFC Date: 12 Apr 1996 08:24:00 +0100
 RFC Newsgroups: de.comm.misc
 Look up newsgroup de.comm.misc
-Found: DE.COMM.MISC de.comm.misc Z242
+Found: DE.COMM.MISC de.comm.misc Zone=242 Addr=INVALID
     Name:     chris
     Address:  cae.muc.de
 Name for alias checking: chris
@@ -2847,6 +2969,7 @@ E-mail for alias checking: chris@cae.muc.de
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
+charset: in=us-ascii out=latin-1
 New packet file ./outpkt/news/00000049.pkt (tmp ./outpkt/news/00000049.tmp)
 Writing FTN packet header:
     From: 242:1000/5.0
@@ -2875,7 +2998,7 @@ E-mail for alias checking: jacob@tmfs.mpgfk.tu-dresden.de
 RFC Date: Wed, 10 Apr 1996 13:25:03 +0100
 RFC Newsgroups: de.comm.misc
 Look up newsgroup de.comm.misc
-Found: DE.COMM.MISC de.comm.misc Z242
+Found: DE.COMM.MISC de.comm.misc Zone=242 Addr=INVALID
     Name:     jacob
     Address:  tmfs.mpgfk.tu-dresden.de
 Name for alias checking: jacob
@@ -2883,6 +3006,7 @@ E-mail for alias checking: jacob@tmfs.mpgfk.tu-dresden.de
 RFC MIME-Version:              1.0
 RFC Content-Type:              text/plain; charset=us-ascii
 RFC Content-Transfer-Encoding: 7bit
+charset: in=us-ascii out=latin-1
 New packet file ./outpkt/news/00000050.pkt (tmp ./outpkt/news/00000050.tmp)
 Writing FTN packet header:
     From: 242:1000/5.0
@@ -2911,7 +3035,7 @@ E-mail for alias checking: chris@cae.muc.de
 RFC Date: 12 Apr 1996 09:57:00 +0100
 RFC Newsgroups: de.comm.misc
 Look up newsgroup de.comm.misc
-Found: DE.COMM.MISC de.comm.misc Z242
+Found: DE.COMM.MISC de.comm.misc Zone=242 Addr=INVALID
     Name:     chris
     Address:  cae.muc.de
 Name for alias checking: chris
@@ -2919,6 +3043,7 @@ E-mail for alias checking: chris@cae.muc.de
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
+charset: in=us-ascii out=latin-1
 New packet file ./outpkt/news/00000051.pkt (tmp ./outpkt/news/00000051.tmp)
 Writing FTN packet header:
     From: 242:1000/5.0
@@ -2949,7 +3074,7 @@ E-mail for alias checking: kris@schulung.netuse.de
 RFC Date: Fri, 12 Apr 1996 07:26:28 GMT
 RFC Newsgroups: de.comm.misc
 Look up newsgroup de.comm.misc
-Found: DE.COMM.MISC de.comm.misc Z242
+Found: DE.COMM.MISC de.comm.misc Zone=242 Addr=INVALID
     Name:     kris
     Address:  schulung.netuse.de
 Name for alias checking: kris
@@ -2957,6 +3082,7 @@ E-mail for alias checking: kris@schulung.netuse.de
 RFC MIME-Version:              1.0
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
+charset: in=us-ascii out=latin-1
 New packet file ./outpkt/news/00000052.pkt (tmp ./outpkt/news/00000052.tmp)
 Writing FTN packet header:
     From: 242:1000/5.0
@@ -2985,7 +3111,7 @@ E-mail for alias checking: rene@flatta.in-berlin.de
 RFC Date: 11 Apr 1996 23:43:00 +0200
 RFC Newsgroups: de.comm.gateways,de.comm.infosystems.misc,de.comm.internet.misc,de.comm.internet.routing,de.comm.internet.zugang,de.comm.isdn,de.comm.misc,de.comm.modem
 Look up newsgroup de.comm.gateways
-Found: DE.COMM.GATEWAYS de.comm.gateways Z242
+Found: DE.COMM.GATEWAYS de.comm.gateways Zone=242 Addr=INVALID
     Name:     rene
     Address:  flatta.in-berlin.de
 Name for alias checking: rene
@@ -2993,6 +3119,7 @@ E-mail for alias checking: rene@flatta.in-berlin.de
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
+charset: in=us-ascii out=latin-1
 New packet file ./outpkt/news/00000053.pkt (tmp ./outpkt/news/00000053.tmp)
 Writing FTN packet header:
     From: 242:1000/5.0
@@ -3008,7 +3135,7 @@ Writing FTN message header:
     Subj: Re: Kosten einer Standleitung
     Attr: 0000
 Look up newsgroup de.comm.infosystems.misc
-Found: DE.COMM.INFOSYSTEMS.MISC de.comm.infosystems.misc Z242
+Found: DE.COMM.INFOSYSTEMS.MISC de.comm.infosystems.misc Zone=242 Addr=INVALID
     Name:     rene
     Address:  flatta.in-berlin.de
 Name for alias checking: rene
@@ -3016,13 +3143,14 @@ E-mail for alias checking: rene@flatta.in-berlin.de
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
+charset: in=us-ascii out=latin-1
 Writing FTN message header:
     From: Rene Kacza                           @ 242:1000/5.0
     To  : All                                  @ 242:1000/5.0
     Subj: Re: Kosten einer Standleitung
     Attr: 0000
 Look up newsgroup de.comm.internet.misc
-Found: DE.COMM.INTERNET.MISC de.comm.internet.misc Z242
+Found: DE.COMM.INTERNET.MISC de.comm.internet.misc Zone=242 Addr=INVALID
     Name:     rene
     Address:  flatta.in-berlin.de
 Name for alias checking: rene
@@ -3030,13 +3158,14 @@ E-mail for alias checking: rene@flatta.in-berlin.de
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
+charset: in=us-ascii out=latin-1
 Writing FTN message header:
     From: Rene Kacza                           @ 242:1000/5.0
     To  : All                                  @ 242:1000/5.0
     Subj: Re: Kosten einer Standleitung
     Attr: 0000
 Look up newsgroup de.comm.internet.routing
-Found: DE.COMM.INTERNET.ROUTING de.comm.internet.routing Z242
+Found: DE.COMM.INTERNET.ROUTING de.comm.internet.routing Zone=242 Addr=INVALID
     Name:     rene
     Address:  flatta.in-berlin.de
 Name for alias checking: rene
@@ -3044,13 +3173,14 @@ E-mail for alias checking: rene@flatta.in-berlin.de
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
+charset: in=us-ascii out=latin-1
 Writing FTN message header:
     From: Rene Kacza                           @ 242:1000/5.0
     To  : All                                  @ 242:1000/5.0
     Subj: Re: Kosten einer Standleitung
     Attr: 0000
 Look up newsgroup de.comm.internet.zugang
-Found: DE.COMM.INTERNET.ZUGANG de.comm.internet.zugang Z242
+Found: DE.COMM.INTERNET.ZUGANG de.comm.internet.zugang Zone=242 Addr=INVALID
     Name:     rene
     Address:  flatta.in-berlin.de
 Name for alias checking: rene
@@ -3058,13 +3188,14 @@ E-mail for alias checking: rene@flatta.in-berlin.de
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
+charset: in=us-ascii out=latin-1
 Writing FTN message header:
     From: Rene Kacza                           @ 242:1000/5.0
     To  : All                                  @ 242:1000/5.0
     Subj: Re: Kosten einer Standleitung
     Attr: 0000
 Look up newsgroup de.comm.isdn
-Found: DE.COMM.ISDN de.comm.isdn Z242
+Found: DE.COMM.ISDN de.comm.isdn Zone=242 Addr=INVALID
     Name:     rene
     Address:  flatta.in-berlin.de
 Name for alias checking: rene
@@ -3072,13 +3203,14 @@ E-mail for alias checking: rene@flatta.in-berlin.de
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
+charset: in=us-ascii out=latin-1
 Writing FTN message header:
     From: Rene Kacza                           @ 242:1000/5.0
     To  : All                                  @ 242:1000/5.0
     Subj: Re: Kosten einer Standleitung
     Attr: 0000
 Look up newsgroup de.comm.misc
-Found: DE.COMM.MISC de.comm.misc Z242
+Found: DE.COMM.MISC de.comm.misc Zone=242 Addr=INVALID
     Name:     rene
     Address:  flatta.in-berlin.de
 Name for alias checking: rene
@@ -3086,13 +3218,14 @@ E-mail for alias checking: rene@flatta.in-berlin.de
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
+charset: in=us-ascii out=latin-1
 Writing FTN message header:
     From: Rene Kacza                           @ 242:1000/5.0
     To  : All                                  @ 242:1000/5.0
     Subj: Re: Kosten einer Standleitung
     Attr: 0000
 Look up newsgroup de.comm.modem
-Found: DE.COMM.MODEM de.comm.modem Z242
+Found: DE.COMM.MODEM de.comm.modem Zone=242 Addr=INVALID
     Name:     rene
     Address:  flatta.in-berlin.de
 Name for alias checking: rene
@@ -3100,6 +3233,7 @@ E-mail for alias checking: rene@flatta.in-berlin.de
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
+charset: in=us-ascii out=latin-1
 Writing FTN message header:
     From: Rene Kacza                           @ 242:1000/5.0
     To  : All                                  @ 242:1000/5.0
@@ -3119,7 +3253,7 @@ E-mail for alias checking: schrom@lisa.simpson.inka.de
 RFC Date: 12 Apr 1996 14:46:43 +0100
 RFC Newsgroups: de.comm.misc
 Look up newsgroup de.comm.misc
-Found: DE.COMM.MISC de.comm.misc Z242
+Found: DE.COMM.MISC de.comm.misc Zone=242 Addr=INVALID
     Name:     schrom
     Address:  lisa.simpson.inka.de
 Name for alias checking: schrom
@@ -3127,6 +3261,7 @@ E-mail for alias checking: schrom@lisa.simpson.inka.de
 RFC MIME-Version:              1.0
 RFC Content-Type:              text/plain; charset=iso-8859-1
 RFC Content-Transfer-Encoding: 8bit
+charset: in=us-ascii out=latin-1
 New packet file ./outpkt/news/00000054.pkt (tmp ./outpkt/news/00000054.tmp)
 Writing FTN packet header:
     From: 242:1000/5.0
@@ -3155,7 +3290,7 @@ E-mail for alias checking: 100657.202@compuserve.com
 RFC Date: Sat, 13 Apr 1996 01:45:23 GMT
 RFC Newsgroups: de.comm.misc
 Look up newsgroup de.comm.misc
-Found: DE.COMM.MISC de.comm.misc Z242
+Found: DE.COMM.MISC de.comm.misc Zone=242 Addr=INVALID
     Name:     100657.202
     Address:  compuserve.com
 Name for alias checking: 100657.202
@@ -3163,6 +3298,7 @@ E-mail for alias checking: 100657.202@compuserve.com
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
+charset: in=us-ascii out=latin-1
 New packet file ./outpkt/news/00000055.pkt (tmp ./outpkt/news/00000055.tmp)
 Writing FTN packet header:
     From: 242:1000/5.0
@@ -3191,7 +3327,7 @@ E-mail for alias checking: S.Wintermeyer@swreisedienst.com
 RFC Date: Sat, 13 Apr 1996 11:09:04 +0200
 RFC Newsgroups: de.comm.misc
 Look up newsgroup de.comm.misc
-Found: DE.COMM.MISC de.comm.misc Z242
+Found: DE.COMM.MISC de.comm.misc Zone=242 Addr=INVALID
     Name:     S.Wintermeyer
     Address:  swreisedienst.com
 Name for alias checking: S.Wintermeyer
@@ -3199,6 +3335,7 @@ E-mail for alias checking: S.Wintermeyer@swreisedienst.com
 RFC MIME-Version:              1.0
 RFC Content-Type:              text/plain; charset=iso-8859-1
 RFC Content-Transfer-Encoding: quoted-printable
+charset: in=us-ascii out=latin-1
 New packet file ./outpkt/news/00000056.pkt (tmp ./outpkt/news/00000056.tmp)
 Writing FTN packet header:
     From: 242:1000/5.0
@@ -3227,7 +3364,7 @@ E-mail for alias checking: UPS500@ibm.rhrz.uni-bonn.de
 RFC Date: Sat, 13 Apr 96 16:10:12 MEZ
 RFC Newsgroups: de.comm.service+tarife,de.comm.misc,de.comm.mobil
 Look up newsgroup de.comm.service+tarife
-Found: DE.COMM.SERVICE+TARIFE de.comm.service+tarife Z242
+Found: DE.COMM.SERVICE+TARIFE de.comm.service+tarife Zone=242 Addr=INVALID
     Name:     UPS500
     Address:  ibm.rhrz.uni-bonn.de
 Name for alias checking: UPS500
@@ -3235,6 +3372,7 @@ E-mail for alias checking: UPS500@ibm.rhrz.uni-bonn.de
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
+charset: in=us-ascii out=latin-1
 New packet file ./outpkt/news/00000057.pkt (tmp ./outpkt/news/00000057.tmp)
 Writing FTN packet header:
     From: 242:1000/5.0
@@ -3250,7 +3388,7 @@ Writing FTN message header:
     Subj: *** News ***: Norwegen schafft Telefon-Ortsgebuehren ab
     Attr: 0000
 Look up newsgroup de.comm.misc
-Found: DE.COMM.MISC de.comm.misc Z242
+Found: DE.COMM.MISC de.comm.misc Zone=242 Addr=INVALID
     Name:     UPS500
     Address:  ibm.rhrz.uni-bonn.de
 Name for alias checking: UPS500
@@ -3258,13 +3396,14 @@ E-mail for alias checking: UPS500@ibm.rhrz.uni-bonn.de
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
+charset: in=us-ascii out=latin-1
 Writing FTN message header:
     From: Markus Schlegel                      @ 242:1000/5.0
     To  : All                                  @ 242:1000/5.0
     Subj: *** News ***: Norwegen schafft Telefon-Ortsgebuehren ab
     Attr: 0000
 Look up newsgroup de.comm.mobil
-Found: DE.COMM.MOBIL de.comm.mobil Z242
+Found: DE.COMM.MOBIL de.comm.mobil Zone=242 Addr=INVALID
     Name:     UPS500
     Address:  ibm.rhrz.uni-bonn.de
 Name for alias checking: UPS500
@@ -3272,6 +3411,7 @@ E-mail for alias checking: UPS500@ibm.rhrz.uni-bonn.de
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
+charset: in=us-ascii out=latin-1
 Writing FTN message header:
     From: Markus Schlegel                      @ 242:1000/5.0
     To  : All                                  @ 242:1000/5.0
@@ -3291,7 +3431,7 @@ E-mail for alias checking: mozart@mozart.berlinet.de
 RFC Date: Sat, 13 Apr 96 19:13:50 MEZ
 RFC Newsgroups: de.comm.modem,de.comm.misc,de.comm.mobil,ger.pc.hard
 Look up newsgroup de.comm.modem
-Found: DE.COMM.MODEM de.comm.modem Z242
+Found: DE.COMM.MODEM de.comm.modem Zone=242 Addr=INVALID
     Name:     mozart
     Address:  mozart.berlinet.de
 Name for alias checking: mozart
@@ -3299,6 +3439,7 @@ E-mail for alias checking: mozart@mozart.berlinet.de
 RFC MIME-Version:              1.0
 RFC Content-Type:              text/plain; charset=iso-8859-1
 RFC Content-Transfer-Encoding: 8bit
+charset: in=us-ascii out=latin-1
 New packet file ./outpkt/news/00000058.pkt (tmp ./outpkt/news/00000058.tmp)
 Writing FTN packet header:
     From: 242:1000/5.0
@@ -3314,7 +3455,7 @@ Writing FTN message header:
     Subj: Re: Modem an E-Plus-Handy???
     Attr: 0000
 Look up newsgroup de.comm.misc
-Found: DE.COMM.MISC de.comm.misc Z242
+Found: DE.COMM.MISC de.comm.misc Zone=242 Addr=INVALID
     Name:     mozart
     Address:  mozart.berlinet.de
 Name for alias checking: mozart
@@ -3322,13 +3463,14 @@ E-mail for alias checking: mozart@mozart.berlinet.de
 RFC MIME-Version:              1.0
 RFC Content-Type:              text/plain; charset=iso-8859-1
 RFC Content-Transfer-Encoding: 8bit
+charset: in=us-ascii out=latin-1
 Writing FTN message header:
     From: Thomas Witt                          @ 242:1000/5.0
     To  : All                                  @ 242:1000/5.0
     Subj: Re: Modem an E-Plus-Handy???
     Attr: 0000
 Look up newsgroup de.comm.mobil
-Found: DE.COMM.MOBIL de.comm.mobil Z242
+Found: DE.COMM.MOBIL de.comm.mobil Zone=242 Addr=INVALID
     Name:     mozart
     Address:  mozart.berlinet.de
 Name for alias checking: mozart
@@ -3336,6 +3478,7 @@ E-mail for alias checking: mozart@mozart.berlinet.de
 RFC MIME-Version:              1.0
 RFC Content-Type:              text/plain; charset=iso-8859-1
 RFC Content-Transfer-Encoding: 8bit
+charset: in=us-ascii out=latin-1
 Writing FTN message header:
     From: Thomas Witt                          @ 242:1000/5.0
     To  : All                                  @ 242:1000/5.0
@@ -3357,7 +3500,7 @@ E-mail for alias checking: uh5y@rz.uni-karlsruhe.de
 RFC Date: Sat, 13 Apr 1996 19:30:42 GMT
 RFC Newsgroups: de.comm.misc
 Look up newsgroup de.comm.misc
-Found: DE.COMM.MISC de.comm.misc Z242
+Found: DE.COMM.MISC de.comm.misc Zone=242 Addr=INVALID
     Name:     uh5y
     Address:  rz.uni-karlsruhe.de
 Name for alias checking: uh5y
@@ -3365,6 +3508,7 @@ E-mail for alias checking: uh5y@rz.uni-karlsruhe.de
 RFC MIME-Version:              1.0
 RFC Content-Type:              text/plain; charset=iso-8859-1
 RFC Content-Transfer-Encoding: 8bit
+charset: in=us-ascii out=latin-1
 New packet file ./outpkt/news/00000059.pkt (tmp ./outpkt/news/00000059.tmp)
 Writing FTN packet header:
     From: 242:1000/5.0
@@ -3393,7 +3537,7 @@ E-mail for alias checking: rufus@informatik.uni-koblenz.de
 RFC Date: 13 Apr 1996 22:09:08 GMT
 RFC Newsgroups: de.comm.misc
 Look up newsgroup de.comm.misc
-Found: DE.COMM.MISC de.comm.misc Z242
+Found: DE.COMM.MISC de.comm.misc Zone=242 Addr=INVALID
     Name:     rufus
     Address:  informatik.uni-koblenz.de
 Name for alias checking: rufus
@@ -3401,6 +3545,7 @@ E-mail for alias checking: rufus@informatik.uni-koblenz.de
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
+charset: in=us-ascii out=latin-1
 New packet file ./outpkt/news/00000060.pkt (tmp ./outpkt/news/00000060.tmp)
 Writing FTN packet header:
     From: 242:1000/5.0
@@ -3431,7 +3576,7 @@ E-mail for alias checking: groggy@eikon.e-technik.tu-muenchen.de
 RFC Date: Sun, 14 Apr 1996 09:00:16 GMT
 RFC Newsgroups: de.comp.os.os2.misc,de.comm.misc
 Look up newsgroup de.comp.os.os2.misc
-Found: DE.COMP.OS.OS2.MISC de.comp.os.os2.misc Z242
+Found: DE.COMP.OS.OS2.MISC de.comp.os.os2.misc Zone=242 Addr=INVALID
     Name:     groggy
     Address:  eikon.e-technik.tu-muenchen.de
 Name for alias checking: groggy
@@ -3439,6 +3584,7 @@ E-mail for alias checking: groggy@eikon.e-technik.tu-muenchen.de
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
+charset: in=us-ascii out=latin-1
 New packet file ./outpkt/news/00000061.pkt (tmp ./outpkt/news/00000061.tmp)
 Writing FTN packet header:
     From: 242:1000/5.0
@@ -3454,7 +3600,7 @@ Writing FTN message header:
     Subj: Re: Scall/SMS fur OS/2 ?
     Attr: 0000
 Look up newsgroup de.comm.misc
-Found: DE.COMM.MISC de.comm.misc Z242
+Found: DE.COMM.MISC de.comm.misc Zone=242 Addr=INVALID
     Name:     groggy
     Address:  eikon.e-technik.tu-muenchen.de
 Name for alias checking: groggy
@@ -3462,6 +3608,7 @@ E-mail for alias checking: groggy@eikon.e-technik.tu-muenchen.de
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
+charset: in=us-ascii out=latin-1
 Writing FTN message header:
     From: Christian Grodau                     @ 242:1000/5.0
     To  : Frank Winkler @home                  @ 242:1000/5.0
@@ -3483,7 +3630,7 @@ E-mail for alias checking: funked@bonsai.fernuni-hagen.de
 RFC Date: Sun, 14 Apr 1996 15:05:50 GMT
 RFC Newsgroups: de.comm.misc
 Look up newsgroup de.comm.misc
-Found: DE.COMM.MISC de.comm.misc Z242
+Found: DE.COMM.MISC de.comm.misc Zone=242 Addr=INVALID
     Name:     funked
     Address:  bonsai.fernuni-hagen.de
 Name for alias checking: funked
@@ -3491,6 +3638,7 @@ E-mail for alias checking: funked@bonsai.fernuni-hagen.de
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
+charset: in=us-ascii out=latin-1
 New packet file ./outpkt/news/00000062.pkt (tmp ./outpkt/news/00000062.tmp)
 Writing FTN packet header:
     From: 242:1000/5.0
@@ -3519,7 +3667,7 @@ E-mail for alias checking: ben@osn.de
 RFC Date: Sun, 14 Apr 1996 19:04:09 GMT
 RFC Newsgroups: de.comm.misc
 Look up newsgroup de.comm.misc
-Found: DE.COMM.MISC de.comm.misc Z242
+Found: DE.COMM.MISC de.comm.misc Zone=242 Addr=INVALID
     Name:     ben
     Address:  osn.de
 Name for alias checking: ben
@@ -3527,6 +3675,7 @@ E-mail for alias checking: ben@osn.de
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
+charset: in=us-ascii out=latin-1
 New packet file ./outpkt/news/00000063.pkt (tmp ./outpkt/news/00000063.tmp)
 Writing FTN packet header:
     From: 242:1000/5.0
@@ -3555,7 +3704,7 @@ E-mail for alias checking: roger@larry.westfalen.de
 RFC Date: Sun, 14 Apr 1996 07:10:24 GMT
 RFC Newsgroups: de.comm.misc
 Look up newsgroup de.comm.misc
-Found: DE.COMM.MISC de.comm.misc Z242
+Found: DE.COMM.MISC de.comm.misc Zone=242 Addr=INVALID
     Name:     roger
     Address:  larry.westfalen.de
 Name for alias checking: roger
@@ -3563,6 +3712,7 @@ E-mail for alias checking: roger@larry.westfalen.de
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
+charset: in=us-ascii out=latin-1
 New packet file ./outpkt/news/00000064.pkt (tmp ./outpkt/news/00000064.tmp)
 Writing FTN packet header:
     From: 242:1000/5.0
@@ -3593,7 +3743,7 @@ E-mail for alias checking: mark@umd.allcon.com
 RFC Date: Sun, 14 Apr 1996 22:01:39 GMT
 RFC Newsgroups: de.comm.misc
 Look up newsgroup de.comm.misc
-Found: DE.COMM.MISC de.comm.misc Z242
+Found: DE.COMM.MISC de.comm.misc Zone=242 Addr=INVALID
     Name:     mark
     Address:  umd.allcon.com
 Name for alias checking: mark
@@ -3601,6 +3751,7 @@ E-mail for alias checking: mark@umd.allcon.com
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
+charset: in=us-ascii out=latin-1
 New packet file ./outpkt/news/00000065.pkt (tmp ./outpkt/news/00000065.tmp)
 Writing FTN packet header:
     From: 242:1000/5.0
@@ -3629,7 +3780,7 @@ E-mail for alias checking: ruhs@thor.tech.chemie.tu-muenchen.de
 RFC Date: 15 Apr 1996 07:46:57 GMT
 RFC Newsgroups: de.comm.misc
 Look up newsgroup de.comm.misc
-Found: DE.COMM.MISC de.comm.misc Z242
+Found: DE.COMM.MISC de.comm.misc Zone=242 Addr=INVALID
     Name:     ruhs
     Address:  thor.tech.chemie.tu-muenchen.de
 Name for alias checking: ruhs
@@ -3637,6 +3788,7 @@ E-mail for alias checking: ruhs@thor.tech.chemie.tu-muenchen.de
 RFC MIME-Version:              1.0
 RFC Content-Type:              Text/Plain; charset=ISO-8859-1
 RFC Content-Transfer-Encoding: -NONE-
+charset: in=us-ascii out=latin-1
 New packet file ./outpkt/news/00000066.pkt (tmp ./outpkt/news/00000066.tmp)
 Writing FTN packet header:
     From: 242:1000/5.0
@@ -3665,7 +3817,7 @@ E-mail for alias checking: dorfner@susi.fmi.uni-passau.de
 RFC Date: 15 Apr 96 09:20:41 GMT
 RFC Newsgroups: de.comm.misc
 Look up newsgroup de.comm.misc
-Found: DE.COMM.MISC de.comm.misc Z242
+Found: DE.COMM.MISC de.comm.misc Zone=242 Addr=INVALID
     Name:     dorfner
     Address:  susi.fmi.uni-passau.de
 Name for alias checking: dorfner
@@ -3673,6 +3825,7 @@ E-mail for alias checking: dorfner@susi.fmi.uni-passau.de
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
+charset: in=us-ascii out=latin-1
 New packet file ./outpkt/news/00000067.pkt (tmp ./outpkt/news/00000067.tmp)
 Writing FTN packet header:
     From: 242:1000/5.0
@@ -3702,7 +3855,7 @@ E-mail for alias checking: graef@Informatik.TU-Muenchen.DE
 RFC Date: Sat, 13 Apr 1996 17:26:28 +0100
 RFC Newsgroups: de.comm.misc
 Look up newsgroup de.comm.misc
-Found: DE.COMM.MISC de.comm.misc Z242
+Found: DE.COMM.MISC de.comm.misc Zone=242 Addr=INVALID
     Name:     graef
     Address:  Informatik.TU-Muenchen.DE
 Name for alias checking: graef
@@ -3710,6 +3863,7 @@ E-mail for alias checking: graef@Informatik.TU-Muenchen.DE
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
+charset: in=us-ascii out=latin-1
 New packet file ./outpkt/news/00000068.pkt (tmp ./outpkt/news/00000068.tmp)
 Writing FTN packet header:
     From: 242:1000/5.0
@@ -3738,7 +3892,7 @@ E-mail for alias checking: finc27@zx2.hrz.uni-dortmund.de
 RFC Date: 15 Apr 1996 12:33:18 GMT
 RFC Newsgroups: de.comm.misc
 Look up newsgroup de.comm.misc
-Found: DE.COMM.MISC de.comm.misc Z242
+Found: DE.COMM.MISC de.comm.misc Zone=242 Addr=INVALID
     Name:     finc27
     Address:  zx2.hrz.uni-dortmund.de
 Name for alias checking: finc27
@@ -3746,6 +3900,7 @@ E-mail for alias checking: finc27@zx2.hrz.uni-dortmund.de
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
+charset: in=us-ascii out=latin-1
 New packet file ./outpkt/news/00000069.pkt (tmp ./outpkt/news/00000069.tmp)
 Writing FTN packet header:
     From: 242:1000/5.0
@@ -3776,7 +3931,7 @@ E-mail for alias checking: kay@ula1b18.zhv.basf-ag.de
 RFC Date: 15 Apr 1996 13:50:30 GMT
 RFC Newsgroups: de.comm.misc
 Look up newsgroup de.comm.misc
-Found: DE.COMM.MISC de.comm.misc Z242
+Found: DE.COMM.MISC de.comm.misc Zone=242 Addr=INVALID
     Name:     kay
     Address:  ula1b18.zhv.basf-ag.de
 Name for alias checking: kay
@@ -3784,6 +3939,7 @@ E-mail for alias checking: kay@ula1b18.zhv.basf-ag.de
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
+charset: in=us-ascii out=latin-1
 New packet file ./outpkt/news/00000070.pkt (tmp ./outpkt/news/00000070.tmp)
 Writing FTN packet header:
     From: 242:1000/5.0
@@ -3814,7 +3970,7 @@ E-mail for alias checking: funked@bonsai.fernuni-hagen.de
 RFC Date: Mon, 15 Apr 1996 15:39:24 GMT
 RFC Newsgroups: de.comm.misc
 Look up newsgroup de.comm.misc
-Found: DE.COMM.MISC de.comm.misc Z242
+Found: DE.COMM.MISC de.comm.misc Zone=242 Addr=INVALID
     Name:     funked
     Address:  bonsai.fernuni-hagen.de
 Name for alias checking: funked
@@ -3822,6 +3978,7 @@ E-mail for alias checking: funked@bonsai.fernuni-hagen.de
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
+charset: in=us-ascii out=latin-1
 New packet file ./outpkt/news/00000071.pkt (tmp ./outpkt/news/00000071.tmp)
 Writing FTN packet header:
     From: 242:1000/5.0
@@ -3852,7 +4009,7 @@ E-mail for alias checking: ghost@dawn.mayn.de
 RFC Date: Mon, 15 Apr 96 19:48:39 +0100
 RFC Newsgroups: de.comm.misc
 Look up newsgroup de.comm.misc
-Found: DE.COMM.MISC de.comm.misc Z242
+Found: DE.COMM.MISC de.comm.misc Zone=242 Addr=INVALID
     Name:     ghost
     Address:  dawn.mayn.de
 Name for alias checking: ghost
@@ -3860,6 +4017,7 @@ E-mail for alias checking: ghost@dawn.mayn.de
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
+charset: in=us-ascii out=latin-1
 New packet file ./outpkt/news/00000072.pkt (tmp ./outpkt/news/00000072.tmp)
 Writing FTN packet header:
     From: 242:1000/5.0
@@ -3888,7 +4046,7 @@ E-mail for alias checking: rene@flatta.in-berlin.de
 RFC Date: 15 Apr 1996 21:47:00 +0200
 RFC Newsgroups: de.comm.misc
 Look up newsgroup de.comm.misc
-Found: DE.COMM.MISC de.comm.misc Z242
+Found: DE.COMM.MISC de.comm.misc Zone=242 Addr=INVALID
     Name:     rene
     Address:  flatta.in-berlin.de
 Name for alias checking: rene
@@ -3896,6 +4054,7 @@ E-mail for alias checking: rene@flatta.in-berlin.de
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
+charset: in=us-ascii out=latin-1
 New packet file ./outpkt/news/00000073.pkt (tmp ./outpkt/news/00000073.tmp)
 Writing FTN packet header:
     From: 242:1000/5.0
@@ -3924,7 +4083,7 @@ E-mail for alias checking: WASTL@RMAN2.gun.de
 RFC Date: 15 Apr 96 21:42:00 +0200
 RFC Newsgroups: de.comm.misc
 Look up newsgroup de.comm.misc
-Found: DE.COMM.MISC de.comm.misc Z242
+Found: DE.COMM.MISC de.comm.misc Zone=242 Addr=INVALID
     Name:     WASTL
     Address:  RMAN2.gun.de
 Name for alias checking: WASTL
@@ -3932,6 +4091,7 @@ E-mail for alias checking: WASTL@RMAN2.gun.de
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
+charset: in=us-ascii out=latin-1
 New packet file ./outpkt/news/00000074.pkt (tmp ./outpkt/news/00000074.tmp)
 Writing FTN packet header:
     From: 242:1000/5.0
@@ -3960,7 +4120,7 @@ E-mail for alias checking: WASTL@RMAN2.gun.de
 RFC Date: 15 Apr 96 22:20:00 +0200
 RFC Newsgroups: de.comm.misc
 Look up newsgroup de.comm.misc
-Found: DE.COMM.MISC de.comm.misc Z242
+Found: DE.COMM.MISC de.comm.misc Zone=242 Addr=INVALID
     Name:     WASTL
     Address:  RMAN2.gun.de
 Name for alias checking: WASTL
@@ -3968,6 +4128,7 @@ E-mail for alias checking: WASTL@RMAN2.gun.de
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
+charset: in=us-ascii out=latin-1
 New packet file ./outpkt/news/00000075.pkt (tmp ./outpkt/news/00000075.tmp)
 Writing FTN packet header:
     From: 242:1000/5.0
@@ -3996,7 +4157,7 @@ E-mail for alias checking: schrom@lisa.simpson.inka.de
 RFC Date: 16 Apr 1996 00:21:10 +0100
 RFC Newsgroups: de.comm.misc
 Look up newsgroup de.comm.misc
-Found: DE.COMM.MISC de.comm.misc Z242
+Found: DE.COMM.MISC de.comm.misc Zone=242 Addr=INVALID
     Name:     schrom
     Address:  lisa.simpson.inka.de
 Name for alias checking: schrom
@@ -4004,6 +4165,7 @@ E-mail for alias checking: schrom@lisa.simpson.inka.de
 RFC MIME-Version:              1.0
 RFC Content-Type:              text/plain; charset=iso-8859-1
 RFC Content-Transfer-Encoding: 8bit
+charset: in=us-ascii out=latin-1
 New packet file ./outpkt/news/00000076.pkt (tmp ./outpkt/news/00000076.tmp)
 Writing FTN packet header:
     From: 242:1000/5.0
@@ -4034,7 +4196,7 @@ E-mail for alias checking: hmo@sep.hamburg.com
 RFC Date: Mon, 15 Apr 1996 22:04:26 GMT
 RFC Newsgroups: de.comm.internet.misc,de.comm.gateways,de.comm.infosystems.misc,de.comm.internet.routing,de.comm.internet.zugang,de.comm.modem,de.comm.isdn,de.comm.misc
 Look up newsgroup de.comm.internet.misc
-Found: DE.COMM.INTERNET.MISC de.comm.internet.misc Z242
+Found: DE.COMM.INTERNET.MISC de.comm.internet.misc Zone=242 Addr=INVALID
     Name:     hmo
     Address:  sep.hamburg.com
 Name for alias checking: hmo
@@ -4042,6 +4204,7 @@ E-mail for alias checking: hmo@sep.hamburg.com
 RFC MIME-Version:              1.0
 RFC Content-Type:              text/plain; charset=iso-8859-1
 RFC Content-Transfer-Encoding: 8bit
+charset: in=us-ascii out=latin-1
 New packet file ./outpkt/news/00000077.pkt (tmp ./outpkt/news/00000077.tmp)
 Writing FTN packet header:
     From: 242:1000/5.0
@@ -4057,7 +4220,7 @@ Writing FTN message header:
     Subj: Re: Kosten einer Standleitung
     Attr: 0000
 Look up newsgroup de.comm.gateways
-Found: DE.COMM.GATEWAYS de.comm.gateways Z242
+Found: DE.COMM.GATEWAYS de.comm.gateways Zone=242 Addr=INVALID
     Name:     hmo
     Address:  sep.hamburg.com
 Name for alias checking: hmo
@@ -4065,13 +4228,14 @@ E-mail for alias checking: hmo@sep.hamburg.com
 RFC MIME-Version:              1.0
 RFC Content-Type:              text/plain; charset=iso-8859-1
 RFC Content-Transfer-Encoding: 8bit
+charset: in=us-ascii out=latin-1
 Writing FTN message header:
     From: Helge Oldach                         @ 242:1000/5.0
     To  : Christian A. Eroes                   @ 242:1000/5.0
     Subj: Re: Kosten einer Standleitung
     Attr: 0000
 Look up newsgroup de.comm.infosystems.misc
-Found: DE.COMM.INFOSYSTEMS.MISC de.comm.infosystems.misc Z242
+Found: DE.COMM.INFOSYSTEMS.MISC de.comm.infosystems.misc Zone=242 Addr=INVALID
     Name:     hmo
     Address:  sep.hamburg.com
 Name for alias checking: hmo
@@ -4079,13 +4243,14 @@ E-mail for alias checking: hmo@sep.hamburg.com
 RFC MIME-Version:              1.0
 RFC Content-Type:              text/plain; charset=iso-8859-1
 RFC Content-Transfer-Encoding: 8bit
+charset: in=us-ascii out=latin-1
 Writing FTN message header:
     From: Helge Oldach                         @ 242:1000/5.0
     To  : Christian A. Eroes                   @ 242:1000/5.0
     Subj: Re: Kosten einer Standleitung
     Attr: 0000
 Look up newsgroup de.comm.internet.routing
-Found: DE.COMM.INTERNET.ROUTING de.comm.internet.routing Z242
+Found: DE.COMM.INTERNET.ROUTING de.comm.internet.routing Zone=242 Addr=INVALID
     Name:     hmo
     Address:  sep.hamburg.com
 Name for alias checking: hmo
@@ -4093,13 +4258,14 @@ E-mail for alias checking: hmo@sep.hamburg.com
 RFC MIME-Version:              1.0
 RFC Content-Type:              text/plain; charset=iso-8859-1
 RFC Content-Transfer-Encoding: 8bit
+charset: in=us-ascii out=latin-1
 Writing FTN message header:
     From: Helge Oldach                         @ 242:1000/5.0
     To  : Christian A. Eroes                   @ 242:1000/5.0
     Subj: Re: Kosten einer Standleitung
     Attr: 0000
 Look up newsgroup de.comm.internet.zugang
-Found: DE.COMM.INTERNET.ZUGANG de.comm.internet.zugang Z242
+Found: DE.COMM.INTERNET.ZUGANG de.comm.internet.zugang Zone=242 Addr=INVALID
     Name:     hmo
     Address:  sep.hamburg.com
 Name for alias checking: hmo
@@ -4107,13 +4273,14 @@ E-mail for alias checking: hmo@sep.hamburg.com
 RFC MIME-Version:              1.0
 RFC Content-Type:              text/plain; charset=iso-8859-1
 RFC Content-Transfer-Encoding: 8bit
+charset: in=us-ascii out=latin-1
 Writing FTN message header:
     From: Helge Oldach                         @ 242:1000/5.0
     To  : Christian A. Eroes                   @ 242:1000/5.0
     Subj: Re: Kosten einer Standleitung
     Attr: 0000
 Look up newsgroup de.comm.modem
-Found: DE.COMM.MODEM de.comm.modem Z242
+Found: DE.COMM.MODEM de.comm.modem Zone=242 Addr=INVALID
     Name:     hmo
     Address:  sep.hamburg.com
 Name for alias checking: hmo
@@ -4121,13 +4288,14 @@ E-mail for alias checking: hmo@sep.hamburg.com
 RFC MIME-Version:              1.0
 RFC Content-Type:              text/plain; charset=iso-8859-1
 RFC Content-Transfer-Encoding: 8bit
+charset: in=us-ascii out=latin-1
 Writing FTN message header:
     From: Helge Oldach                         @ 242:1000/5.0
     To  : Christian A. Eroes                   @ 242:1000/5.0
     Subj: Re: Kosten einer Standleitung
     Attr: 0000
 Look up newsgroup de.comm.isdn
-Found: DE.COMM.ISDN de.comm.isdn Z242
+Found: DE.COMM.ISDN de.comm.isdn Zone=242 Addr=INVALID
     Name:     hmo
     Address:  sep.hamburg.com
 Name for alias checking: hmo
@@ -4135,13 +4303,14 @@ E-mail for alias checking: hmo@sep.hamburg.com
 RFC MIME-Version:              1.0
 RFC Content-Type:              text/plain; charset=iso-8859-1
 RFC Content-Transfer-Encoding: 8bit
+charset: in=us-ascii out=latin-1
 Writing FTN message header:
     From: Helge Oldach                         @ 242:1000/5.0
     To  : Christian A. Eroes                   @ 242:1000/5.0
     Subj: Re: Kosten einer Standleitung
     Attr: 0000
 Look up newsgroup de.comm.misc
-Found: DE.COMM.MISC de.comm.misc Z242
+Found: DE.COMM.MISC de.comm.misc Zone=242 Addr=INVALID
     Name:     hmo
     Address:  sep.hamburg.com
 Name for alias checking: hmo
@@ -4149,6 +4318,7 @@ E-mail for alias checking: hmo@sep.hamburg.com
 RFC MIME-Version:              1.0
 RFC Content-Type:              text/plain; charset=iso-8859-1
 RFC Content-Transfer-Encoding: 8bit
+charset: in=us-ascii out=latin-1
 Writing FTN message header:
     From: Helge Oldach                         @ 242:1000/5.0
     To  : Christian A. Eroes                   @ 242:1000/5.0
@@ -4168,7 +4338,7 @@ E-mail for alias checking: kakau@crest4.lbcmbx.bln.sub.org
 RFC Date: 14 Apr 1996 00:35:00 +0100
 RFC Newsgroups: de.comm.misc
 Look up newsgroup de.comm.misc
-Found: DE.COMM.MISC de.comm.misc Z242
+Found: DE.COMM.MISC de.comm.misc Zone=242 Addr=INVALID
     Name:     kakau
     Address:  crest4.lbcmbx.bln.sub.org
 Name for alias checking: kakau
@@ -4176,6 +4346,7 @@ E-mail for alias checking: kakau@crest4.lbcmbx.bln.sub.org
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
+charset: in=us-ascii out=latin-1
 New packet file ./outpkt/news/00000078.pkt (tmp ./outpkt/news/00000078.tmp)
 Writing FTN packet header:
     From: 242:1000/5.0
@@ -4204,7 +4375,7 @@ E-mail for alias checking: kakau@crest4.lbcmbx.bln.sub.org
 RFC Date: 14 Apr 1996 01:51:00 +0100
 RFC Newsgroups: de.comm.misc
 Look up newsgroup de.comm.misc
-Found: DE.COMM.MISC de.comm.misc Z242
+Found: DE.COMM.MISC de.comm.misc Zone=242 Addr=INVALID
     Name:     kakau
     Address:  crest4.lbcmbx.bln.sub.org
 Name for alias checking: kakau
@@ -4212,6 +4383,7 @@ E-mail for alias checking: kakau@crest4.lbcmbx.bln.sub.org
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
+charset: in=us-ascii out=latin-1
 New packet file ./outpkt/news/00000079.pkt (tmp ./outpkt/news/00000079.tmp)
 Writing FTN packet header:
     From: 242:1000/5.0
@@ -4240,7 +4412,7 @@ E-mail for alias checking: kakau@crest4.lbcmbx.bln.sub.org
 RFC Date: 14 Apr 1996 01:52:00 +0100
 RFC Newsgroups: de.comm.misc
 Look up newsgroup de.comm.misc
-Found: DE.COMM.MISC de.comm.misc Z242
+Found: DE.COMM.MISC de.comm.misc Zone=242 Addr=INVALID
     Name:     kakau
     Address:  crest4.lbcmbx.bln.sub.org
 Name for alias checking: kakau
@@ -4248,6 +4420,7 @@ E-mail for alias checking: kakau@crest4.lbcmbx.bln.sub.org
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
+charset: in=us-ascii out=latin-1
 New packet file ./outpkt/news/00000080.pkt (tmp ./outpkt/news/00000080.tmp)
 Writing FTN packet header:
     From: 242:1000/5.0
@@ -4276,7 +4449,7 @@ E-mail for alias checking: kakau@crest4.lbcmbx.bln.sub.org
 RFC Date: 14 Apr 1996 01:54:00 +0100
 RFC Newsgroups: de.comm.misc
 Look up newsgroup de.comm.misc
-Found: DE.COMM.MISC de.comm.misc Z242
+Found: DE.COMM.MISC de.comm.misc Zone=242 Addr=INVALID
     Name:     kakau
     Address:  crest4.lbcmbx.bln.sub.org
 Name for alias checking: kakau
@@ -4284,6 +4457,7 @@ E-mail for alias checking: kakau@crest4.lbcmbx.bln.sub.org
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
+charset: in=us-ascii out=latin-1
 New packet file ./outpkt/news/00000081.pkt (tmp ./outpkt/news/00000081.tmp)
 Writing FTN packet header:
     From: 242:1000/5.0
@@ -4312,7 +4486,7 @@ E-mail for alias checking: i21atchr@rz.unibw-muenchen.de
 RFC Date: Tue, 16 Apr 1996 10:16:55 +0200
 RFC Newsgroups: de.comm.modem,de.comm.misc,de.comm.mobil,ger.pc.hard
 Look up newsgroup de.comm.modem
-Found: DE.COMM.MODEM de.comm.modem Z242
+Found: DE.COMM.MODEM de.comm.modem Zone=242 Addr=INVALID
     Name:     i21atchr
     Address:  rz.unibw-muenchen.de
 Name for alias checking: i21atchr
@@ -4320,6 +4494,7 @@ E-mail for alias checking: i21atchr@rz.unibw-muenchen.de
 RFC MIME-Version:              1.0
 RFC Content-Type:              text/plain; charset=iso-8859-1
 RFC Content-Transfer-Encoding: quoted-printable
+charset: in=us-ascii out=latin-1
 New packet file ./outpkt/news/00000082.pkt (tmp ./outpkt/news/00000082.tmp)
 Writing FTN packet header:
     From: 242:1000/5.0
@@ -4335,7 +4510,7 @@ Writing FTN message header:
     Subj: Re: Modem an E-Plus-Handy???
     Attr: 0000
 Look up newsgroup de.comm.misc
-Found: DE.COMM.MISC de.comm.misc Z242
+Found: DE.COMM.MISC de.comm.misc Zone=242 Addr=INVALID
     Name:     i21atchr
     Address:  rz.unibw-muenchen.de
 Name for alias checking: i21atchr
@@ -4343,13 +4518,14 @@ E-mail for alias checking: i21atchr@rz.unibw-muenchen.de
 RFC MIME-Version:              1.0
 RFC Content-Type:              text/plain; charset=iso-8859-1
 RFC Content-Transfer-Encoding: quoted-printable
+charset: in=us-ascii out=latin-1
 Writing FTN message header:
     From: Timo Christoph                       @ 242:1000/5.0
     To  : All                                  @ 242:1000/5.0
     Subj: Re: Modem an E-Plus-Handy???
     Attr: 0000
 Look up newsgroup de.comm.mobil
-Found: DE.COMM.MOBIL de.comm.mobil Z242
+Found: DE.COMM.MOBIL de.comm.mobil Zone=242 Addr=INVALID
     Name:     i21atchr
     Address:  rz.unibw-muenchen.de
 Name for alias checking: i21atchr
@@ -4357,6 +4533,7 @@ E-mail for alias checking: i21atchr@rz.unibw-muenchen.de
 RFC MIME-Version:              1.0
 RFC Content-Type:              text/plain; charset=iso-8859-1
 RFC Content-Transfer-Encoding: quoted-printable
+charset: in=us-ascii out=latin-1
 Writing FTN message header:
     From: Timo Christoph                       @ 242:1000/5.0
     To  : All                                  @ 242:1000/5.0
@@ -4378,7 +4555,7 @@ E-mail for alias checking: leif@elliot.allcon.com
 RFC Date: 16 Apr 1996 10:08:00 +0200
 RFC Newsgroups: de.comm.misc
 Look up newsgroup de.comm.misc
-Found: DE.COMM.MISC de.comm.misc Z242
+Found: DE.COMM.MISC de.comm.misc Zone=242 Addr=INVALID
     Name:     leif
     Address:  elliot.allcon.com
 Name for alias checking: leif
@@ -4386,6 +4563,7 @@ E-mail for alias checking: leif@elliot.allcon.com
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
+charset: in=us-ascii out=latin-1
 New packet file ./outpkt/news/00000083.pkt (tmp ./outpkt/news/00000083.tmp)
 Writing FTN packet header:
     From: 242:1000/5.0
@@ -4416,7 +4594,7 @@ E-mail for alias checking: zessin@helena.rbi.informatik.uni-frankfurt.de
 RFC Date: 16 Apr 1996 12:56:42 GMT
 RFC Newsgroups: de.comm.misc
 Look up newsgroup de.comm.misc
-Found: DE.COMM.MISC de.comm.misc Z242
+Found: DE.COMM.MISC de.comm.misc Zone=242 Addr=INVALID
     Name:     zessin
     Address:  helena.rbi.informatik.uni-frankfurt.de
 Name for alias checking: zessin
@@ -4424,6 +4602,7 @@ E-mail for alias checking: zessin@helena.rbi.informatik.uni-frankfurt.de
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
+charset: in=us-ascii out=latin-1
 New packet file ./outpkt/news/00000084.pkt (tmp ./outpkt/news/00000084.tmp)
 Writing FTN packet header:
     From: 242:1000/5.0
@@ -4452,7 +4631,7 @@ E-mail for alias checking: UZS106@ibm.rhrz.uni-bonn.de
 RFC Date: Tue, 16 Apr 96 15:04:50 MEZ
 RFC Newsgroups: de.org.ccc,de.soc.netzwesen,de.comm.misc
 Look up newsgroup de.org.ccc
-Found: DE.ORG.CCC de.org.ccc Z242
+Found: DE.ORG.CCC de.org.ccc Zone=242 Addr=INVALID
     Name:     UZS106
     Address:  ibm.rhrz.uni-bonn.de
 Name for alias checking: UZS106
@@ -4460,6 +4639,7 @@ E-mail for alias checking: UZS106@ibm.rhrz.uni-bonn.de
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
+charset: in=us-ascii out=latin-1
 New packet file ./outpkt/news/00000085.pkt (tmp ./outpkt/news/00000085.tmp)
 Writing FTN packet header:
     From: 242:1000/5.0
@@ -4475,7 +4655,7 @@ Writing FTN message header:
     Subj: Nochmal: Ortsnetze und Internet
     Attr: 0000
 Look up newsgroup de.soc.netzwesen
-Found: DE.SOC.NETZWESEN de.soc.netzwesen Z242
+Found: DE.SOC.NETZWESEN de.soc.netzwesen Zone=242 Addr=INVALID
     Name:     UZS106
     Address:  ibm.rhrz.uni-bonn.de
 Name for alias checking: UZS106
@@ -4483,13 +4663,14 @@ E-mail for alias checking: UZS106@ibm.rhrz.uni-bonn.de
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
+charset: in=us-ascii out=latin-1
 Writing FTN message header:
     From: Heiko Recktenwald                    @ 242:1000/5.0
     To  : All                                  @ 242:1000/5.0
     Subj: Nochmal: Ortsnetze und Internet
     Attr: 0000
 Look up newsgroup de.comm.misc
-Found: DE.COMM.MISC de.comm.misc Z242
+Found: DE.COMM.MISC de.comm.misc Zone=242 Addr=INVALID
     Name:     UZS106
     Address:  ibm.rhrz.uni-bonn.de
 Name for alias checking: UZS106
@@ -4497,6 +4678,7 @@ E-mail for alias checking: UZS106@ibm.rhrz.uni-bonn.de
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
+charset: in=us-ascii out=latin-1
 Writing FTN message header:
     From: Heiko Recktenwald                    @ 242:1000/5.0
     To  : All                                  @ 242:1000/5.0
@@ -4516,7 +4698,7 @@ E-mail for alias checking: roberto_zicari@omg.org
 RFC Date: Tue, 16 Apr 1996 16:27:19 +0000
 RFC Newsgroups: de.comm.internet.misc,de.comm.misc
 Look up newsgroup de.comm.internet.misc
-Found: DE.COMM.INTERNET.MISC de.comm.internet.misc Z242
+Found: DE.COMM.INTERNET.MISC de.comm.internet.misc Zone=242 Addr=INVALID
     Name:     roberto_zicari
     Address:  omg.org
 Name for alias checking: roberto_zicari
@@ -4524,6 +4706,7 @@ E-mail for alias checking: roberto_zicari@omg.org
 RFC MIME-Version:              1.0
 RFC Content-Type:              text/plain; charset=us-ascii
 RFC Content-Transfer-Encoding: 7bit
+charset: in=us-ascii out=latin-1
 New packet file ./outpkt/news/00000086.pkt (tmp ./outpkt/news/00000086.tmp)
 Writing FTN packet header:
     From: 242:1000/5.0
@@ -4539,7 +4722,7 @@ Writing FTN message header:
     Subj: ife96
     Attr: 0000
 Look up newsgroup de.comm.misc
-Found: DE.COMM.MISC de.comm.misc Z242
+Found: DE.COMM.MISC de.comm.misc Zone=242 Addr=INVALID
     Name:     roberto_zicari
     Address:  omg.org
 Name for alias checking: roberto_zicari
@@ -4547,6 +4730,7 @@ E-mail for alias checking: roberto_zicari@omg.org
 RFC MIME-Version:              1.0
 RFC Content-Type:              text/plain; charset=us-ascii
 RFC Content-Transfer-Encoding: 7bit
+charset: in=us-ascii out=latin-1
 Writing FTN message header:
     From: localhost                            @ 242:1000/5.0
     To  : All                                  @ 242:1000/5.0
@@ -4568,7 +4752,7 @@ E-mail for alias checking: kris@schulung.netuse.de
 RFC Date: Tue, 16 Apr 1996 11:13:57 GMT
 RFC Newsgroups: de.comm.misc
 Look up newsgroup de.comm.misc
-Found: DE.COMM.MISC de.comm.misc Z242
+Found: DE.COMM.MISC de.comm.misc Zone=242 Addr=INVALID
     Name:     kris
     Address:  schulung.netuse.de
 Name for alias checking: kris
@@ -4576,6 +4760,7 @@ E-mail for alias checking: kris@schulung.netuse.de
 RFC MIME-Version:              1.0
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
+charset: in=us-ascii out=latin-1
 New packet file ./outpkt/news/00000087.pkt (tmp ./outpkt/news/00000087.tmp)
 Writing FTN packet header:
     From: 242:1000/5.0
@@ -4607,7 +4792,7 @@ E-mail for alias checking: marc@aargh.incubus.sub.org
 RFC Date: Tue, 16 Apr 1996 19:41:25 CET
 RFC Newsgroups: de.comm.misc
 Look up newsgroup de.comm.misc
-Found: DE.COMM.MISC de.comm.misc Z242
+Found: DE.COMM.MISC de.comm.misc Zone=242 Addr=INVALID
     Name:     marc
     Address:  aargh.incubus.sub.org
 Name for alias checking: marc
@@ -4615,6 +4800,7 @@ E-mail for alias checking: marc@aargh.incubus.sub.org
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
+charset: in=us-ascii out=latin-1
 New packet file ./outpkt/news/00000088.pkt (tmp ./outpkt/news/00000088.tmp)
 Writing FTN packet header:
     From: 242:1000/5.0
@@ -4643,7 +4829,7 @@ E-mail for alias checking: klaus@arco.de
 RFC Date: 15 Apr 96 15:14:59 
 RFC Newsgroups: de.comm.misc
 Look up newsgroup de.comm.misc
-Found: DE.COMM.MISC de.comm.misc Z242
+Found: DE.COMM.MISC de.comm.misc Zone=242 Addr=INVALID
     Name:     klaus
     Address:  arco.de
 Name for alias checking: klaus
@@ -4651,6 +4837,7 @@ E-mail for alias checking: klaus@arco.de
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
+charset: in=us-ascii out=latin-1
 New packet file ./outpkt/news/00000089.pkt (tmp ./outpkt/news/00000089.tmp)
 Writing FTN packet header:
     From: 242:1000/5.0
@@ -4679,7 +4866,7 @@ E-mail for alias checking: Christian@eder.pumuckl.cube.net
 RFC Date: 16 Apr 1996 21:29:00 +0200
 RFC Newsgroups: de.comm.isdn,de.comm.misc,de.markt.misc,de.markt.comp.misc
 Look up newsgroup de.comm.isdn
-Found: DE.COMM.ISDN de.comm.isdn Z242
+Found: DE.COMM.ISDN de.comm.isdn Zone=242 Addr=INVALID
     Name:     Christian
     Address:  eder.pumuckl.cube.net
 Name for alias checking: Christian
@@ -4687,6 +4874,7 @@ E-mail for alias checking: Christian@eder.pumuckl.cube.net
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
+charset: in=us-ascii out=latin-1
 New packet file ./outpkt/news/00000090.pkt (tmp ./outpkt/news/00000090.tmp)
 Writing FTN packet header:
     From: 242:1000/5.0
@@ -4702,7 +4890,7 @@ Writing FTN message header:
     Subj: Meinungen zur ISTEC
     Attr: 0000
 Look up newsgroup de.comm.misc
-Found: DE.COMM.MISC de.comm.misc Z242
+Found: DE.COMM.MISC de.comm.misc Zone=242 Addr=INVALID
     Name:     Christian
     Address:  eder.pumuckl.cube.net
 Name for alias checking: Christian
@@ -4710,13 +4898,14 @@ E-mail for alias checking: Christian@eder.pumuckl.cube.net
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
+charset: in=us-ascii out=latin-1
 Writing FTN message header:
     From: Christian Frankenberg                @ 242:1000/5.0
     To  : All                                  @ 242:1000/5.0
     Subj: Meinungen zur ISTEC
     Attr: 0000
 Look up newsgroup de.markt.misc
-Found: DE.MARKT.MISC de.markt.misc Z242
+Found: DE.MARKT.MISC de.markt.misc Zone=242 Addr=INVALID
     Name:     Christian
     Address:  eder.pumuckl.cube.net
 Name for alias checking: Christian
@@ -4724,13 +4913,14 @@ E-mail for alias checking: Christian@eder.pumuckl.cube.net
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
+charset: in=us-ascii out=latin-1
 Writing FTN message header:
     From: Christian Frankenberg                @ 242:1000/5.0
     To  : All                                  @ 242:1000/5.0
     Subj: Meinungen zur ISTEC
     Attr: 0000
 Look up newsgroup de.markt.comp.misc
-Found: DE.MARKT.COMP.MISC de.markt.comp.misc Z242
+Found: DE.MARKT.COMP.MISC de.markt.comp.misc Zone=242 Addr=INVALID
     Name:     Christian
     Address:  eder.pumuckl.cube.net
 Name for alias checking: Christian
@@ -4738,6 +4928,7 @@ E-mail for alias checking: Christian@eder.pumuckl.cube.net
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
+charset: in=us-ascii out=latin-1
 Writing FTN message header:
     From: Christian Frankenberg                @ 242:1000/5.0
     To  : All                                  @ 242:1000/5.0

@@ -1,5 +1,17 @@
 1999-05-18  Martin Junius  <mj@fido.de>
 
+	======= Release 4.3.1 ================================================
+	------- CVS tag R431 -------------------------------------------------
+	------- CVS ci -------------------------------------------------------
+
+	* fidogate.lsm: updated.
+
+	* config.h (HAS_STRERROR): #define for OS2.
+
+	* examples/orodruin/fidogate.conf: updated.
+
+	* src/common/mime.c (mime_dequote): bug fix for =<LF>.
+
 	------- CVS ci -------------------------------------------------------
 
 	* config.h (AI_9): removed, obsoleted by code changes.

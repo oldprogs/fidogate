@@ -22,6 +22,7 @@ rfc2ftn MAIL: Martin Junius <mj@orodruin.fido.de> -> Martin_Junius@f110.n2452.z2
     FTN node: 242:1000/5.0
 Name for alias checking: mj
 Alias found: mj 2:2452/110.2 Martin Junius
+charset: in=us-ascii out=latin-1
 New packet file ./outpkt/mail/00000001.pkt (tmp ./outpkt/mail/00000001.tmp)
 Writing FTN packet header:
     From: 2:2452/110.2
@@ -51,6 +52,7 @@ rfc2ftn MAIL: Martin Junius <mj@orodruin.fido.de> -> Martin_Junius@f110.n2452.z2
     FTN node: 242:1000/5.0
 Name for alias checking: mj
 Alias found: mj 2:2452/110.2 Martin Junius
+charset: in=us-ascii out=latin-1
 New packet file ./outpkt/mail/00000002.pkt (tmp ./outpkt/mail/00000002.tmp)
 Writing FTN packet header:
     From: 2:2452/110.2

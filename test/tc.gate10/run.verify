@@ -19,6 +19,7 @@ rfc2ftn MAIL: Stefan Monnier <monnier-stefan@cs.yale.edu> -> Martin_Junius@f110.
     Address:  cs.yale.edu
 Name for alias checking: monnier-stefan
 E-mail for alias checking: monnier-stefan@cs.yale.edu
+charset: in=us-ascii out=latin-1
 New packet file ./outpkt/mail/00000001.pkt (tmp ./outpkt/mail/00000001.tmp)
 Writing FTN packet header:
     From: 2:2452/110.2
@@ -47,6 +48,7 @@ rfc2ftn MAIL: Paul Seelig <pseelig@goofy.zdv.Uni-Mainz.de> -> Martin_Junius@f110
     Address:  goofy.zdv.Uni-Mainz.de
 Name for alias checking: pseelig
 E-mail for alias checking: pseelig@goofy.zdv.Uni-Mainz.de
+charset: in=us-ascii out=latin-1
 New packet file ./outpkt/mail/00000002.pkt (tmp ./outpkt/mail/00000002.tmp)
 Writing FTN packet header:
     From: 2:2452/110.2
@@ -75,6 +77,7 @@ rfc2ftn MAIL: Bjarne Pohlers <bjarne%libelle.uucp%von-neumann@ESCHER.UNI-MUENSTE
     Address:  ESCHER.UNI-MUENSTER.DE
 Name for alias checking: bjarne%libelle.uucp%von-neumann
 E-mail for alias checking: bjarne%libelle.uucp%von-neumann@ESCHER.UNI-MUENSTER.DE
+charset: in=us-ascii out=latin-1
 New packet file ./outpkt/mail/00000003.pkt (tmp ./outpkt/mail/00000003.tmp)
 Writing FTN packet header:
     From: 2:2452/110.2
@@ -101,6 +104,7 @@ rfc2ftn MAIL: isdn4linux@hub-wue.franken.de -> Martin_Junius@f110.n2452.z2.fidon
     Address:  hub-wue.franken.de
 Name for alias checking: isdn4linux
 E-mail for alias checking: isdn4linux@hub-wue.franken.de
+charset: in=us-ascii out=latin-1
 New packet file ./outpkt/mail/00000004.pkt (tmp ./outpkt/mail/00000004.tmp)
 Writing FTN packet header:
     From: 2:2452/110.2

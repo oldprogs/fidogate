@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway software UNIX <-> FIDO
  *
- * $Id: config.h,v 4.41 1999/05/18 18:44:39 mj Exp $
+ * $Id: config.h,v 4.42 1999/05/18 19:49:01 mj Exp $
  *
  * Configuration header file
  *
@@ -352,12 +352,12 @@
 #endif
 #ifdef OS2
 # undef  HAS_FCNTL_LOCK
-# undef  HAS_SYSEXITS_H		/* ? */
+# undef  HAS_SYSEXITS_H
 # define HAS_GETTIMEOFDAY
 # define HAS_STRFTIME
 # undef  HAS_STRCASECMP
 # define HAS_STRICMP
-# undef  HAS_STRERROR		/* ? */
+# define HAS_STRERROR
 # define DO_BINARY
 # define DO_DOSIFY
 # undef  HAS_SYSLOG		/* syslog(), vsyslog() not supported */

@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: mime.c,v 4.9 1999/05/18 18:44:46 mj Exp $
+ * $Id: mime.c,v 4.10 1999/05/18 19:49:06 mj Exp $
  *
  * MIME stuff
  *
@@ -75,7 +75,7 @@ char *mime_dequote(char *d, size_t n, char *s, int flags)
 	        c = x2toi(s+1);
 		s += 2;
 	    }
-	    if(s[1]=='\n'                ||	/* =<LF> and */
+	    else if(s[1]=='\n'           ||	/* =<LF> and */
 	       (s[1]=='\r' && s[2]=='\n')  )	/* =<CR><LF> */
 	    {
 		break;

@@ -618,7 +618,6 @@ Areas available to 2:1234/5678:
 2:1234/5678 is not linked to the following available areas:
 
   AAAA.GER
-  TEST2
 
 Command NEW: not authorized.
 
@@ -775,7 +774,6 @@ Areas available to 2:1234/5678:
 
   AAAA.GER
   TEST1
-  TEST2
 
 BLAH.GER                                 : already active
 AAAA.GER: no uplink, dead area

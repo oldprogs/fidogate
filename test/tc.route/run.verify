@@ -22,20 +22,20 @@ ftntoss packet ./pin/00000003.pkt (306b) from 2:2452/110.0 to 2:2499/1.2
 ftntoss MAIL: Test User @ 2:2452/110.0 -> Test @ 2:2499/1.2
 New packet ./toss/toss/nnh00003.pkt (./toss/toss/nnh00003.tmp): 2:2452/110.2 -> 2:2499/1.2
 ftntoss msgs processed: 3 in, 3 out (3 mail, 0 echo)
-Source packet: from=2:2452/110.2 to=2:2499/1.2 grade=n type=n flav=n
-Target packet: from=2:2452/110.2 to=2:2452/0.0 grade=n type=n flav=n
-ftnroute packet for 2:2499/1.2 via 2:2452/0.0 (Normal)
-New packet ./toss/route/nnn00004.pkt (./toss/route/nnn00004.tmp): 2:2452/110.2 -> 2:2452/0.0
+Source packet: from=2:2452/110.2 to=2:2499/1.2 grade=n type=n flav=c
+Target packet: from=2:2452/110.2 to=2:2499/1.0 grade=n type=n flav=c
+ftnroute packet for 2:2499/1.2 via 2:2499/1.0 (Crash)
+New packet ./toss/route/nnc00004.pkt (./toss/route/nnc00004.tmp): 2:2452/110.2 -> 2:2499/1.0
 Source packet: from=2:2452/110.2 to=2:2499/1.2 grade=n type=n flav=h
 Target packet: from=2:2452/110.2 to=2:2499/1.2 grade=n type=n flav=h
 ftnroute packet for 2:2499/1.2 (Hold)
 New packet ./toss/route/nnh00005.pkt (./toss/route/nnh00005.tmp): 2:2452/110.2 -> 2:2499/1.2
-Source packet: from=2:2452/110.2 to=2:2499/1.2 grade=n type=n flav=c
-Target packet: from=2:2452/110.2 to=2:2499/1.0 grade=n type=n flav=c
-ftnroute packet for 2:2499/1.2 via 2:2499/1.0 (Crash)
-New packet ./toss/route/nnc00006.pkt (./toss/route/nnc00006.tmp): 2:2452/110.2 -> 2:2499/1.0
-ftnpack archiving packet (376b) for 2:2499/1.2 (zip)
+Source packet: from=2:2452/110.2 to=2:2499/1.2 grade=n type=n flav=n
+Target packet: from=2:2452/110.2 to=2:2452/0.0 grade=n type=n flav=n
+ftnroute packet for 2:2499/1.2 via 2:2452/0.0 (Normal)
+New packet ./toss/route/nnn00006.pkt (./toss/route/nnn00006.tmp): 2:2452/110.2 -> 2:2452/0.0
 ftnpack packet (378b) for 2:2499/1.0 (noarc)
+ftnpack archiving packet (376b) for 2:2499/1.2 (zip)
 ftnpack archiving packet (380b) for 2:2452/0.0 (zip)
 Test mail -> 2:2471/241 NORMAL
 rfc2ftn X-Flags: mn, From: test_user@f110.n2452.z2.fidonet.org

@@ -556,6 +556,24 @@ config: PASSWD %C/passwd
 Packet: type 2+
 Reading FTN packet header:
     From: 2:2452/123.0
+    To  : 2:2452/999.0
+    Baud: 0
+    Prod: 00 fe
+    Rev : 4.3
+    Pass: ""
+    Capw: 0001
+Source packet: from=2:2452/123.0 to=2:2452/999.0 grade=n type=e flav=n
+routing: type=e cmd=v flav=n flav_new=- match=*
+sendmove n 2:2452/999.0
+Target packet: from=2:2452/123.0 to=2:2452/999.0 grade=n type=e flav=n
+config: LOGFILE %G/log
+config: LOGDIR .
+ftnroute packet for 2:2452/999.0 (Normal)
+config: VARDIR .
+Rename ./toss/toss/nen00001.pkt -> ./toss/route/nen00008.pkt
+Packet: type 2+
+Reading FTN packet header:
+    From: 2:2452/123.0
     To  : 2:2452/123.2
     Baud: 0
     Prod: 00 fe
@@ -566,11 +584,8 @@ Source packet: from=2:2452/123.0 to=2:2452/123.2 grade=n type=e flav=n
 routing: type=e cmd=v flav=n flav_new=- match=*
 sendmove n 2:2452/123.2
 Target packet: from=2:2452/123.0 to=2:2452/123.2 grade=n type=e flav=n
-config: LOGFILE %G/log
-config: LOGDIR .
 ftnroute packet for 2:2452/123.2 (Normal)
-config: VARDIR .
-Rename ./toss/toss/nen00002.pkt -> ./toss/route/nen00008.pkt
+Rename ./toss/toss/nen00002.pkt -> ./toss/route/nen00009.pkt
 Packet: type 2+
 Reading FTN packet header:
     From: 2:2452/123.0
@@ -585,7 +600,7 @@ routing: type=e cmd=v flav=n flav_new=- match=*
 sendmove n 2:2452/123.3
 Target packet: from=2:2452/123.0 to=2:2452/123.3 grade=n type=e flav=n
 ftnroute packet for 2:2452/123.3 (Normal)
-Rename ./toss/toss/nen00003.pkt -> ./toss/route/nen00009.pkt
+Rename ./toss/toss/nen00003.pkt -> ./toss/route/nen0000a.pkt
 Packet: type 2+
 Reading FTN packet header:
     From: 2:2452/123.0
@@ -600,7 +615,7 @@ routing: type=e cmd=v flav=n flav_new=- match=*
 sendmove n 2:2452/123.4
 Target packet: from=2:2452/123.0 to=2:2452/123.4 grade=n type=e flav=n
 ftnroute packet for 2:2452/123.4 (Normal)
-Rename ./toss/toss/nen00004.pkt -> ./toss/route/nen0000a.pkt
+Rename ./toss/toss/nen00004.pkt -> ./toss/route/nen0000b.pkt
 Packet: type 2+
 Reading FTN packet header:
     From: 2:2452/123.0
@@ -615,7 +630,7 @@ routing: type=e cmd=v flav=n flav_new=- match=*
 sendmove n 2:2452/123.5
 Target packet: from=2:2452/123.0 to=2:2452/123.5 grade=n type=e flav=n
 ftnroute packet for 2:2452/123.5 (Normal)
-Rename ./toss/toss/nen00005.pkt -> ./toss/route/nen0000b.pkt
+Rename ./toss/toss/nen00005.pkt -> ./toss/route/nen0000c.pkt
 Packet: type 2+
 Reading FTN packet header:
     From: 2:2452/123.0
@@ -630,7 +645,7 @@ routing: type=e cmd=v flav=n flav_new=- match=*
 sendmove n 2:2452/123.0
 Target packet: from=2:2452/123.0 to=2:2452/123.0 grade=n type=e flav=n
 ftnroute packet for 2:2452/123.0 (Normal)
-Rename ./toss/toss/nen00006.pkt -> ./toss/route/nen0000c.pkt
+Rename ./toss/toss/nen00006.pkt -> ./toss/route/nen0000d.pkt
 Packet: type 2+
 Reading FTN packet header:
     From: 2:2452/123.0
@@ -645,19 +660,4 @@ routing: type=e cmd=v flav=n flav_new=- match=*
 sendmove n 2:2452/123.1
 Target packet: from=2:2452/123.0 to=2:2452/123.1 grade=n type=e flav=n
 ftnroute packet for 2:2452/123.1 (Normal)
-Rename ./toss/toss/nen00007.pkt -> ./toss/route/nen0000d.pkt
-Packet: type 2+
-Reading FTN packet header:
-    From: 2:2452/123.0
-    To  : 2:2452/999.0
-    Baud: 0
-    Prod: 00 fe
-    Rev : 4.3
-    Pass: ""
-    Capw: 0001
-Source packet: from=2:2452/123.0 to=2:2452/999.0 grade=n type=e flav=n
-routing: type=e cmd=v flav=n flav_new=- match=*
-sendmove n 2:2452/999.0
-Target packet: from=2:2452/123.0 to=2:2452/999.0 grade=n type=e flav=n
-ftnroute packet for 2:2452/999.0 (Normal)
-Rename ./toss/toss/nen00001.pkt -> ./toss/route/nen0000e.pkt
+Rename ./toss/toss/nen00007.pkt -> ./toss/route/nen0000e.pkt

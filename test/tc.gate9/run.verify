@@ -22,6 +22,7 @@ Alias found: mj 2:2452/110.2 Martin Junius
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
+charset: in=us-ascii out=latin-1
 New packet file ./outpkt/mail/00000001.pkt (tmp ./outpkt/mail/00000001.tmp)
 Writing FTN packet header:
     From: 2:2452/110.2
