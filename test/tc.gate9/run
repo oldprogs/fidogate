@@ -1,0 +1,14 @@
+#!/bin/sh
+
+../tr.init
+
+R="../../src/gate/rfc2ftn -L../cf -vvvvvvv -i -cconfig.gate"
+
+echo "Internet Mail via Fido Gateway"
+$R test@abc.def.org <<EOF
+To: test@abc.def.org (Test User)
+From: mj@fido.de (Martin Junius)
+Subject: Test Gateway
+
+TEST GATEWAY
+EOF

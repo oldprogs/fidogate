@@ -1,3 +1,22 @@
+Fri Nov  1 13:25:29 1996  Martin Junius  <mj@fido.de>
+
+	------- CVS ci -------------------------------------------------------
+
+	* src/gate/rfc2ftn.c (rfc_parse): new argument gw, if TRUE enables
+	  cf_gateway() checking and address/name replacement.
+	  (mail_receiver): call rfc_parse() with gw=TRUE.
+	  (mail_sender): call rfc_parse() with gw=FALSE, fixing the bug
+	  that also the sender was set to UUCP when Gateway Z:N/F.P was
+	  enabled in config.gate.
+
+	* test/tc.gate9/run (Subject): new test case for "Gateway" config
+	  statement. 
+
+Mon Oct 28 22:04:56 1996  Martin Junius  <mj@fido.de>
+
+	* test/tc.point2/run: new test case to setup with 2 different
+	  point addresses and 2 different uplinks.
+
 Sun Oct 27 13:33:33 1996  Martin Junius  <mj@fido.de>
 
 	------- CVS ci -------------------------------------------------------

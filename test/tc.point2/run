@@ -1,0 +1,26 @@
+#!/bin/sh
+
+../tr.init
+
+R="../../src/gate/rfc2ftn -L../cf -vvv -i -cconfig.gate"
+
+echo "Mail from Point 1"
+#$R -a 2:2449/417.2 Test_User@2:2449/123.4 <<EOF
+$R -a p2.f417.n2449.z2 Test_User@2:2449/123.4 <<EOF
+To: test (Test User)
+From: mj@fido.de
+Subject: Test Point 1
+
+TEST
+EOF
+
+echo "Mail from Point 2"
+#$R -a 2:2449/450.1 Test_User@2:2449/567.8 <<EOF
+$R -a p1.f450.n2449.z2 Test_User@2:2449/567.8 <<EOF
+To: test (Test User)
+From: mj@fido.de
+Subject: Test Point 1
+
+TEST
+EOF
+

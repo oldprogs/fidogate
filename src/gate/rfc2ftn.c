@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway software UNIX <-> FIDO
  *
- * $Id: rfc2ftn.c,v 4.15 1996/10/20 19:15:21 mj Exp $
+ * $Id: rfc2ftn.c,v 4.16 1996/11/01 13:07:59 mj Exp $
  *
  * Read mail or news from standard input and convert it to a FIDO packet.
  *
@@ -39,7 +39,7 @@
 
 
 #define PROGRAM 	"rfc2ftn"
-#define VERSION 	"$Revision: 4.15 $"
+#define VERSION 	"$Revision: 4.16 $"
 #define CONFIG		CONFIG_GATE
 
 
@@ -65,6 +65,12 @@ void	addr_set_mausgate	(char *);
 char   *get_name_from_body	(void);
 MIMEInfo *get_mime		(void);
 void	sendback		(const char *, ...);
+void	rfcaddr_init		(RFCAddr *);
+RFCAddr rfc_sender		(void);
+int	rfc_is_local		(void);
+int	rfc_is_domain		(void);
+int	rfc_parse		(RFCAddr *, char *, Node *, int);
+int	rfc_isfido		(void);
 void	cvt_user_name		(char *);
 char   *receiver		(char *, Node *);
 char   *mail_receiver		(RFCAddr *, Node *);
@@ -384,7 +390,7 @@ int rfc_is_domain(void)
  */
 static int rfc_isfido_flag = FALSE;
 
-int rfc_parse(RFCAddr *rfc, char *name, Node *node)
+int rfc_parse(RFCAddr *rfc, char *name, Node *node, int gw)
 {
     char *p;
     int len, ret=OK;
@@ -506,7 +512,7 @@ int rfc_parse(RFCAddr *rfc, char *name, Node *node)
 	}
 	
     }
-    else if(cf_gateway().zone)
+    else if(gw && cf_gateway().zone)
     {
 	/*
 	 * If Gateway is set in config file, insert address of
@@ -645,7 +651,7 @@ char *mail_receiver(RFCAddr *rfc, Node *node)
 	/*
 	 * Address is argument
 	 */
-	if(rfc_parse(rfc, name, node)) {
+	if(rfc_parse(rfc, name, node, TRUE)) {
 	    log("BOUNCE: address <%s>", rfcaddr_to_asc(rfc, TRUE));
 	    return NULL;
 	}
@@ -664,12 +670,12 @@ char *mail_receiver(RFCAddr *rfc, Node *node)
 	if( (to = header_get("X-Comment-To")) )
 	{
 	    h = rfcaddr_from_rfc(to);
-	    rfc_parse(&h, name, NULL);
+	    rfc_parse(&h, name, NULL, TRUE);
 	}
 	else if( (to = get_name_from_body()) )
 	{
 	    h = rfcaddr_from_rfc(to);
-	    rfc_parse(&h, name, NULL);
+	    rfc_parse(&h, name, NULL, TRUE);
 	}
     }
 
@@ -711,7 +717,7 @@ char *mail_sender(RFCAddr *rfc, Node *node)
 
     *name = 0;
     *node = cf_n_addr();
-    ret = rfc_parse(rfc, name, &n);
+    ret = rfc_parse(rfc, name, &n, FALSE);
     
 #ifdef PASSTHRU_NETMAIL
     /*

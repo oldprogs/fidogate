@@ -25,6 +25,8 @@
 # area                        newsgroup                     [-option]
 # ------------------------    --------------------------    ---------
 TEST                          test                          -z 2 -Q
+ABC                           abc                           -z 2 -Q
+DEF                           def                           -z 2 -Q
 
 # Fidonet *.GER
 LINUX.GER                     fido.ger.linux                -x -z 2 -Q

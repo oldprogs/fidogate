@@ -7,10 +7,14 @@ X = for next release
 
 	* run*: Use ftnconfig.
 
-	* config.c: implement cf_pinbound() returning value of
+	* config.c: replace cf_inbound() with cf_p_pinbound()?
+
+	* ffxqt/ftntick: replace cf_set_inbound()?
+
+DONE.	* config.c: implement cf_p_inbound() returning value of
 	  PInbound. Fallback to Inbound, if PInbound is not set.
 
-	* config.common: implement PInbound, UUInbound
+DONE.	* config.common: implement PInbound, UUInbound
 
 DONE.	* config.gate: NetMailOptions, same as options in AREAS file.
 
@@ -35,7 +39,7 @@ DONE.	* ftn2rfc: MIME header
 	* config.c: make Origin/Organization normal cf_get_string()
 	  parameters.
 
-	* config.c: make cf_p_*() use char * instead of char [].
+DONE.	* config.c: make cf_p_*() use char * instead of char [].
 
 	* ftn2rfc: check ^AREPLYADDR for valid Internet address. At
 	  least check for something like ^AREPLYADDR Thomas Hamm%500:531/0.
