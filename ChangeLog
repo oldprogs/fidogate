@@ -2,6 +2,16 @@ Fri Jan  2 15:32:58 1998  Martin Junius  <mj@fido.de>
 
 	------- CVS ci -------------------------------------------------------
 
+	* contrib/areafix/: new contribution, alternate Areafix from
+	  Matthias Schniedermeyer.
+
+	* contrib/: new directory for stuff contributed by FIDOGATE users.
+
+	* doc/howto/: added new version of Matthias Schniedermeyer's
+	  Node-Howto incl. SGML source.
+
+	------- CVS ci -------------------------------------------------------
+
 	* version.h: changed to 4.3.0alpha1, actually not that different
 	  from 4.2.9.
 

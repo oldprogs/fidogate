@@ -1,111 +1,27 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
 <HTML>
 <HEAD>
-<TITLE>Linux Fido-Node HOWTO: Die Installation von sendmail V8</TITLE>
+<TITLE>Linux Fido-Node HOWTO: Unterstuetzung</TITLE>
 </HEAD>
 <BODY>
+Weiter
 <A HREF="FidoNode-7.html">Zurück</A>
-<A HREF="FidoNode-9.html">Weiter</A>
-<A HREF="FidoNode.html#toc8">Inhaltsverzeichnis</A>
+<A HREF="FidoNode.html#toc8">Inhalt</A>
 <HR>
-<H2><A NAME="s8">8. Die Installation von sendmail V8</A></H2>
+<H2><A NAME="s8">8. Unterstuetzung</A></H2>
 
-
-<P>Da ich keine anderweitigen Erfahrungen habe, kann ich nur empfehlen sendmail
-von der jeweiligen Distribution zu nehmen.</P>
-<P>Jetzt zur sendmail.cf</P>
-<P>Da ich mit sendmail usw keine gesteigerten Erfahrungen habe kann ich nur
-beschreiben wie es mir gelungen ist, es zum rennen zu kriegen.</P>
-<P>Ein (fast) kompletter Satz von Configdatei fuer sendmail sind im 
-Fidogate-Archiv enthalten.
-Erstmal habe ich die Dateien
-<CODE>linux.uucp.mc</CODE> von meiner Distri und 
-<CODE>fidogate/sendmail/cf/morannon.mc</CODE> genommen und "verkuppelt". Meine 
-Mails gehen ueber UUCP ins I-Net, deshalb habe ich die entsprechende .mc 
-Datei von meiner Destri genommen und sie um den Fido-Part von 
-<CODE>morannon.mc</CODE> erweitert.
-Hier das Ergebniss der Aktion.
+<P>
+<P>Wie unschwer zu erkennen ist habe ich die FidoPoint-Howto ein "bisschen" 
+umgeschrieben. Roland Rosenfeld hat mir hierzu freundlicherweise den Quellcode
+zur Verfuegung gestellt.
+<P>Herzlichen Dank auch auch Martin Junius. Erstens dafuer das die Howto im
+fidogate Archiv drin ist, zweitens fuer die vielen Tips und drittens dafuer das
+er mich nicht in den Twit-Filter gesteckt hat.
+<P>Ergaenzungen, Fehler-Reports etc. werde ich gern einarbeiten.
+<P>
 <HR>
-<PRE>
-#:ts=8
-#
-# $Id: FidoNode-8.html,v 1.2 1997/11/20 18:30:39 mj Exp $
-#
-# Fido.DE domain gateway morannon.fido.de sendmail V8 configuration
-#
-
-include(`../m4/cf.m4')
-VERSIONID(`$Id: FidoNode-8.html,v 1.2 1997/11/20 18:30:39 mj Exp $')
-OSTYPE(linux)
-
-define(`confCF_VERSION', `citd-1.0')
-
-define(`confDEF_USER_ID', `daemon:daemon')dnl
-define(`PROCMAIL_MAILER_PATH', `/usr/bin/procmail')dnl
-define(`QUEUE_DIR', `/var/mqueue')dnl
-define(`SMART_HOST', `uucp-dom:devnull.owl.de')dnl
-define(`confTRUSTED_USERS', `wwwrun')dnl
-define(`UUCP_MAILER_MAX', 10000000)dnl
-
-FEATURE(local_procmail)dnl
-FEATURE(nodns)dnl
-FEATURE(nocanonify)dnl
-FEATURE(mailertable,hash /etc/mail/mailertable.db)
-FEATURE(always_add_domain)dnl
-
-MAILER(local)dnl
-MAILER(procmail)dnl
-MAILER(smtp)dnl
-MAILER(uucp)dnl
-MAILER(ftn)dnl
-
-LOCAL_CONFIG
-# More trusted users
-Tnews
-Tfido
-
-LOCAL_NET_CONFIG
-</PRE>
-<HR>
-</P>
-<P>Jetzt fehlen nurnoch ein paar Eintraege in <CODE>/etc/aliases</CODE> und 
-<CODE>/usr/local/lib/fidogate/aliases</CODE>. Zuerst <CODE>/etc/aliases</CODE>
-<HR>
-<PRE>
-dp1: Demo Point 1@p2.f605.n2432.z2.fidonet.org
-dp2: Demo Point 2@p3.f605.n2432.z2.fidonet.org
-dp3: Demo Point 3@p4.f605.n2432.z2.fidonet.org
-</PRE>
-<HR>
-
-Nachdem man die datei veraender hat MUSS man immer <CODE>newaliases</CODE> einmal
-starten.
-Und jetzt <CODE>/usr/local/lib/fidogate/aliases</CODE>
-<HR>
-<PRE>
-dp1              2:2432/605.2            &quot;Demo Point 1&quot;
-dp2              2:2432/605.3            &quot;Demo Point 2&quot;
-dp3              2:2432/605.4            &quot;Demo Point 3&quot;
-</PRE>
-<HR>
-
-Man MUSS genau aufpassen das die beiden Alias-Dateien uebereinstimmen, sonst
-stimmt z.B. die Absender-Adresse nicht! 
-So jetzt steht dem Mailen nichts mehr im Weg. Mail I-Net -> Fido funktionieren
-ohne weitere zutun. Mails Fido -> I-Net sind dagegen nur durch einen kleinen
-"Umstand" moeglich. Man muss an den in <CODE>/usr/local/lib/fidogate/config.gate</CODE>
-angegebenen "Gate-Point" schreiben. Und in die erste Zeile des Bodys
-<HR>
-<PRE>
-to: &lt;Empfaenger-Email-Adresse&gt;
-</PRE>
-<HR>
-
-hineinschreiben.</P>
-
-
-<HR>
+Weiter
 <A HREF="FidoNode-7.html">Zurück</A>
-<A HREF="FidoNode-9.html">Weiter</A>
-<A HREF="FidoNode.html#toc8">Inhaltsverzeichnis</A>
+<A HREF="FidoNode.html#toc8">Inhalt</A>
 </BODY>
 </HTML>

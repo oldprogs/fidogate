@@ -1,129 +1,49 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
 <HTML>
 <HEAD>
-<TITLE>Linux Fido-Node HOWTO: Die Installation von Mgetty</TITLE>
+<TITLE>Linux Fido-Node HOWTO: Fehlersuche</TITLE>
 </HEAD>
 <BODY>
-<A HREF="FidoNode-6.html">Zurück</A>
 <A HREF="FidoNode-8.html">Weiter</A>
-<A HREF="FidoNode.html#toc7">Inhaltsverzeichnis</A>
-<HR>
-<H2><A NAME="s7">7. Die Installation von Mgetty</A></H2>
-
-
-<P>Ich beziehe mich hier auf die derzeit aktuelle 1.1er Serie.</P>
-<P>Als erstes kopiert man die datei <CODE>policy.h-dist</CODE> nach <CODE>policy.h</CODE></P>
-<P>Dann kann man mit dem editieren beginnen. Hier die Aenderungen die ich daran
-vorgekommen habe
-<HR>
-<PRE>
-#define DEVICE_OWNER    &quot;fido&quot;
-#define DEVICE_GROUP    &quot;fido&quot;
-#define FILE_MODE 0600
-#define LOG_PATH &quot;/var/log/fido/log_mg.%s&quot;
-#define DEFAULT_PORTSPEED       115200
-#define MODEM_INIT_STRING       &quot;ATS0=0&quot;
-#define MODEM_CHECK_TIME -1
-#define DEFAULT_MODEMTYPE &quot;data&quot;
-</PRE>
-<HR>
-
-Jetzt muss man noch eine Zeile im <CODE>Makefile</CODE> aendern. Schliesslich
-wollen wir ja FIDO Unterstuetzung. :-)
-<HR>
-<PRE>
-CFLAGS=-O2 -Wall -pipe -DFIDO
-</PRE>
-<HR>
-
-Danach kann man Mgetty compilieren und installieren mit
-<PRE>
-make
-make install
-</PRE>
-
-In <CODE>/usr/local/etc/mgetty+sendfax</CODE> wurden bei der Installation mehrere
-Konfigurations-Dateien angelegt die man noch ein bisschen veraendern muss.
-Zuerst <CODE>login.config</CODE>
-<HR>
-<PRE>
-/FIDO/  fido    fido    /usr/local/bin/ifcico/ifcico @
-</PRE>
-<HR>
-
-Dann noch <CODE>mgetty.config</CODE>. Da die Aenderungen ein bisschen umfangreicher
-sind, ist hier die ganze Datei.
-<HR>
-<PRE>
-#
-# mgetty configuration file
-#
-# Cry in the darkness
-#
-
-# set the global debug level to &quot;4&quot; (default from policy.h)
-debug 4
-
-# access the modem(s) with 115200 bps
-speed 115200
-
-port ttyI0
-  direct n
-  init-chat &quot;&quot; atz&amp;e5961&amp;b512 OK
-  speed 115200
-  data-only y
-  port-owner fido
-  port-group fido
-  port-mode 0600
-
-port ttyI1
-  direct n
-  init-chat &quot;&quot; atz&amp;e5961&amp;b512 OK
-  speed 115200
-  data-only y
-  port-owner fido
-  port-group fido
-  port-mode 0600
-
-port ttyS1
-  direct n
-  init-chat &quot;&quot; ATZ OK ATM0 OK ATS0=0 OK
-  speed 115200
-  data-only y
-  port-owner fido
-  port-group fido
-  port-mode 0600
-</PRE>
-<HR>
-</P>
-<P>Noch ein Kommentar zu den Init-Strings. Bei ISDN muss man bei &amp;e5961 die
-Rufnummer einstellen auf die reagiert werden soll. (Bei mit 5961)</P>
-<P>Jetzt kommen wir langsam zu haarigen Teil der Konfiguration. Mgetty muss jetzt
-in <CODE>/etc/inittab</CODE> eingetragen werden, damit auch die Points anrufen
-koennen. Dazu fuegen wir ans Ende der Datei die folgenden Zeilen an.
-<HR>
-<PRE>
-I0:123:respawn:/usr/local/sbin/mgetty ttyI0
-I1:123:respawn:/usr/local/sbin/mgetty ttyI1
-S1:123:respawn:/usr/local/sbin/mgetty ttyS1
-</PRE>
-<HR>
-
-Wo wir schonmal dabei sind die inittab zu aendern wuerde ich noch folgende
-zwei Zeilen hinzufuegen.
-<HR>
-<PRE>
-7:123:respawn:/usr/bin/tail -n 50 -f /var/log/fido/ifdebug &gt;/dev/tty7
-8:123:respawn:/usr/bin/tail -n 50 -f /var/log/fido/log-in &gt;/dev/tty8
-</PRE>
-<HR>
-
-Damit kriegt man die Debug-Files von ifcico und fidogate auf tty7 und tty8
-angezeit. Ist SEHR praktisch!</P>
-
-
-<HR>
 <A HREF="FidoNode-6.html">Zurück</A>
+<A HREF="FidoNode.html#toc7">Inhalt</A>
+<HR>
+<H2><A NAME="s7">7. Fehlersuche</A></H2>
+
+<P>
+<P>Sollte Das alles trotz meiner Anleitung noch nicht auf Anhieb
+funktionieren, so gibt es noch diverse Moeglichkeiten, einen Fehler
+aufzuspueren.
+<P>Wichtigstes Tool hierzu ist das Programm <CODE>ifstat</CODE>, welches anzeigt,
+welche Pakete fuer welche Adresse bereit liegen.
+<P>
+<P>
+<H2><A NAME="ss7.1">7.1 Mail wird nicht verarbeitet</A>
+</H2>
+
+<P>
+<P>
+<P>
+<DL>
+<DT><B>fidogate</B><DD><P><CODE>/var/log/fido/log-in</CODE>
+<CODE>/var/log/fido/log</CODE>
+<DT><B>ifcico</B><DD><P><CODE>/var/log/fido/log/ifdebug</CODE>
+<DT><B>mgetty</B><DD><P><CODE>/var/log/fido/log_mg.ttyI0</CODE>
+<CODE>/var/log/fido/log_mg.ttyI1</CODE>
+<CODE>/var/log/fido/log_mg.ttyS1</CODE>
+</DL>
+<P>Um die Korrektheit erstellter Pakete zu erkunden oder Probleme in
+bestehenden Paketen zu finden, enthaelt FidoGate das Programm
+<CODE>pktdebug</CODE>. Braucht man mehr Informationen, so sollte man sich das
+DOS-Programm Inspect besorgen, welches problemlos in der Dosemu laeuft
+und wenn man die Verzeichnisse entsprechend freigibt und die Dosemu
+dann als User <CODE>uucp</CODE> startet, dann kann man die <CODE>.pkt</CODE>-Files und
+Archive sogar veraendern.
+<P>
+<P>
+<HR>
 <A HREF="FidoNode-8.html">Weiter</A>
-<A HREF="FidoNode.html#toc7">Inhaltsverzeichnis</A>
+<A HREF="FidoNode-6.html">Zurück</A>
+<A HREF="FidoNode.html#toc7">Inhalt</A>
 </BODY>
 </HTML>
