@@ -27,7 +27,7 @@ Address         242:242/0
 Address         242:4900/0
 
 Address		49:305/1.200
-##so
+
 Address		124:1249/9999
 
 #
@@ -94,13 +94,18 @@ KillCircular
 #
 # Enable dupe check using MSGID history database
 #
-#DupeCheck
+DupeCheck
 
 #
 # Number of days a MSGID entry stays in the history database
 # (decimal fraction allowed)
 #
 MaxHistory 14
+
+#
+# Kill old messages (date < now - MaxHistory) (= treat as dupe)
+#
+#KillOld
 
 #
 # Kill dupe messages
@@ -132,6 +137,18 @@ KillDupe
 
 
 #
+# Use 4D echomail control lines, i.e. SEEN-BY / PATH includes point
+# addresses
+#
+#EchoMail4D
+
+#
+# Do not output an empty PATH line
+#
+#NoEmptyPath
+
+
+#
 # Default outbound flavor for files forwarded by ftntick
 #
 TickFlav	"Hold"
@@ -146,12 +163,17 @@ FAttachFlav	"Hold"
 #
 #TickReplacedDir	"/pub/fido/oldfiles"
 
+#
+# File area for unknown TIC file areas
+#
+UnknownTickArea UNKNOWN
+
 
 #
 # Maximum number of messages to toss before closing output packets/
 # exiting ftntoss.
 #
-MaxMsg		400
+MaxMsg		500
 
 #
 # Maximum number of concurrently open files (OS dependent)
@@ -161,9 +183,9 @@ MaxOpenFiles	40
 #
 # Maximum size of ArcMail archives (KByte)
 #
-MaxArc		2048
+MaxArc		3000
 
 #
 # Minimum free disk space for runtoss (KByte)
 #
-MinDiskFree	10240
+MinDiskFree	32000

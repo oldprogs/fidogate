@@ -1,4 +1,21 @@
+Sun Nov 23 17:47:14 1997  Martin Junius  <mj@fido.de>
+
+	------- CVS ci -------------------------------------------------------
+
+	* doc/dirs.html: new HTML file documentation the new directory
+	  structure for FIDOGATE 4.3.0.
+
+	* doc/index.html: new HTML index for files in doc directory.
+
+	* examples/morannon/config.*: updated morannon config files for
+	  new FIDOGATE 4.2.9 release.
+
 Sat Nov 22 18:32:02 1997  Martin Junius  <mj@fido.de>
+
+	* scripts/maintenance/logcheck.pl: spelling correction.
+
+	* test/tc.tosskill/run: disabled dupe check for test case
+	  (config1, config2).
 
 	======= Release 4.2.9 ================================================
 	------- CVS ci, tag R429 ---------------------------------------------

@@ -16,6 +16,16 @@
 #
 # lib, spool defaults are defined in config.h
 #
+# May be accessed in the config files and on the command using
+#
+#     %S    SpoolDir
+#     %L    LibDir
+#     %G    LogDir
+#     %O    Outbound
+#     %I    Inbound
+#     %P    PInbound
+#     %U    UUInbound
+#
 LibDir		/usr/local/lib/fidogate
 SpoolDir	/var/spool/fido
 LogDir          /var/log/fido
@@ -23,6 +33,7 @@ Outbound	/var/spool/bt
 Inbound		/var/spool/bt/in
 PInbound	/var/spool/bt/pin
 UUInbound	/var/spool/bt/uuin
+
 
 #
 # Configuration files
@@ -36,6 +47,7 @@ Packing		%L/packing
 Passwd		%L/passwd
 Routing		%L/routing
 
+History		/u3/spool/fido/history
 
 
 #
@@ -74,8 +86,8 @@ Zone	152	.oopsnet.de		oopsnet		-
 Zone	193	.pressnet.infox.com	pressnet	-
 Zone	243	.dungeon.mbis.de	-		-
 Zone	244	.fido.blindnet.sub.de	-		-
-##so
 Zone	124	.cm.org			cm		out.07c
+
 
 #
 # OPTIONAL:
@@ -87,3 +99,4 @@ DosDrive	H:	/home
 DosDrive	I:	/var/spool
 DosDrive	I:	/usr/spool
 DosDrive	P:	/u1
+DosDrive	Q:	/pub

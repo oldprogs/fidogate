@@ -1,7 +1,5 @@
 #:ts=8
 #
-# $Id: config.ftp,v 4.2 1996/11/29 21:24:01 mj Exp $
-#
 # FIDOGATE config file FTP hub
 #
 # orodruin.fido.de
@@ -21,13 +19,11 @@ include		%L/config.common
 #
 Address		2:2452/110
 Address		2:2452/111
-
 Address		242:1000/1
 Address		242:1000/2
 Address		242:1000/0
 Address         242:242/0
 Address         242:4900/0
-##so
 Address		124:1249/9999
 
 

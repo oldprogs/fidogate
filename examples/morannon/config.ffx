@@ -22,13 +22,11 @@ include		%L/config.common
 #               ----
 Address		2:2452/110.1
 Address		242:4900/99
-##so
-Address		124:1249/9999
+Address		124:1249/9999.1
 
 Uplink		2:2452/110
 Uplink		242:1000/1
-##so
-Uplink		124:1249/9999.1
+Uplink		124:1249/9999
 
 #
 # Outbound flavor for FFX files
@@ -64,3 +62,8 @@ FFXCommand	unbatchzip	/usr/bin/unzip -ojqq
 
 FFXUncompress	unzip		/usr/bin/unzip -pqq
 FFXUncompress	gunzip		/bin/gunzip -cq
+
+#
+# Sendmail command for ffxrmail
+#
+FFXRmailSendmail  /usr/sbin/sendmail -oee -oi -pFFX:orodruin.fido.de

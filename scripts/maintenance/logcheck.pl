@@ -1,8 +1,8 @@
 #!/usr/local/bin/perl
 #
-# $Id: logcheck.pl,v 4.2 1997/11/09 17:46:23 mj Exp $
+# $Id: logcheck.pl,v 4.3 1997/11/23 18:51:44 mj Exp $
 #
-# Create report for sendmail chech_mail rule
+# Create report for sendmail check_mail rules
 #
 
 $NEWSGROUPS = "fido.de";

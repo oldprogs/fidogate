@@ -11,6 +11,8 @@ cp ../ti.pkt-toss/*.pkt toss/in
 echo "tc: running (killing bad)"
 $T2
 
+../../src/util/pktdebug -s toss/bad/*.pkt
+
 echo "tc: copying input packets"
 cp ../ti.pkt-toss/*.pkt toss/in
 

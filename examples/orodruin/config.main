@@ -1,6 +1,6 @@
 #:ts=8
 #
-# $Id: config.main,v 4.12 1997/10/13 19:29:54 mj Exp $
+# $Id: config.main,v 4.13 1997/11/23 18:51:43 mj Exp $
 #
 # FIDOGATE config file main AKA
 #
@@ -98,7 +98,7 @@ MaxHistory 28
 #
 # Kill old messages (date < now - MaxHistory) (= treat as dupe)
 #
-KillOld
+#KillOld
 
 #
 # Kill dupe messages
