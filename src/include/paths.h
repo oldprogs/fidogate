@@ -3,7 +3,7 @@
 /*
  * FIDOGATE
  *
- * $Id: paths.h,v 4.14 1999/05/15 21:51:02 mj Exp $
+ * $Id: paths.h,v 4.15 1999/08/01 19:42:00 mj Exp $
  */
 
 #define DEFAULT_LOGDIR                  "/var/log/fidogate"

@@ -1,3 +1,11 @@
+1999-08-01  Martin Junius  <mj@fido.de>
+
+	------- CVS ci -------------------------------------------------------
+
+	* test/tc.bink/run: added some tests with ftnpack.
+
+	* src/common/binkley.c (bink_attach): pass bsy flag to flo_close()!
+
 1999-07-23  Martin Junius  <mj@fido.de>
 
 	------- CVS ci -------------------------------------------------------

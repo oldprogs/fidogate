@@ -1,6 +1,9 @@
 							 -*- Indented-Text -*-
 ===== TODO list for FIDOGATE development =====================================
 
+	* ftnoutpkt, outpkt.c:outpkt_netmail(): allow creation of
+	  EchoMail.
+
 DONE	* ftnpack/bink_attach(): check that FLO file contains entry
 	  for ArcMail archive, always call bink_attach().
 	  bink_attach(): use flo_xxx() functions.

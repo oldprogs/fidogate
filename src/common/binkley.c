@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: binkley.c,v 4.11 1999/07/23 21:30:12 mj Exp $
+ * $Id: binkley.c,v 4.12 1999/08/01 19:42:00 mj Exp $
  *
  * BinkleyTerm-style outbound directory functions
  *
@@ -459,7 +459,7 @@ int bink_attach(Node *node, int mode, char *name, char *flav, int bsy)
 	    fprintf(fp, "%s%s"  ,       n, cf_dos() ? "\r\n" : "\n" );
     }
 
-    flo_close(node, TRUE, FALSE);
+    flo_close(node, bsy, FALSE);
 
     return OK;
 }
