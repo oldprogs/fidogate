@@ -1,14 +1,14 @@
 #
-# $Id: charset.map,v 1.4 1998/07/11 21:04:33 mj Exp $
+# $Id: charset.map,v 1.5 1999/05/22 12:04:59 mj Exp $
 #
 # Character set mapping table (to be compiled by charsetc)
 #
 # Syntax:
 #
 #	include FILE
-#       alias   ALIAS NAME
-#	table   IN-SET OUT-SET
-#	map     IN-CHAR OUT-CHAR [OUT-CHAR] [OUT-CHAR]
+#       alias   FSC-NAME  RFC-NAME
+#	table   IN-SET    OUT-SET
+#	map     IN-CHAR   OUT-CHAR [OUT-CHAR] [OUT-CHAR]
 #	map     1:1
 #	map     1:1-noctrl
 #	map     default CHAR
@@ -47,6 +47,8 @@
 #
 # Aliases for FSC-0054 ^ACHRS
 #
+#	FSC-0054 name	RFC 2045 name
+#	-------------	-------------
 alias	ascii		us-ascii
 alias	vt100		us-ascii
 alias	latin-1		iso-8859-1
@@ -58,6 +60,21 @@ alias	mac		x-mac
 
 # ----------------------------------------------------------------------------
 table	us-ascii	us-ascii
+# nothing special to map
+
+
+# ----------------------------------------------------------------------------
+table	us-ascii	iso-8859-1
+# nothing special to map
+
+
+# ----------------------------------------------------------------------------
+table	us-ascii	x-ibmpc
+# nothing special to map
+
+
+# ----------------------------------------------------------------------------
+table	us-ascii	x-mac
 # nothing special to map
 
 

@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: charset.c,v 1.4 1999/03/07 17:37:07 mj Exp $
+ * $Id: charset.c,v 1.5 1999/05/22 12:04:59 mj Exp $
  *
  * NEW charset.c code using charset.bin mapping file
  *
@@ -243,6 +243,39 @@ char *charset_map_c(int c, int qp)
 
 
 /*
+ * Search alias
+ */
+char *charset_alias_fsc(char *name)
+{
+    CharsetAlias *pa;
+
+    /* Search for aliases */
+    for(pa = charset_alias_list; pa; pa=pa->next)
+    {
+	if(strieq(pa->name, name))
+	    return pa->alias;
+    }
+
+    return name;
+}
+
+char *charset_alias_rfc(char *name)
+{
+    CharsetAlias *pa;
+
+    /* Search for aliases */
+    for(pa = charset_alias_list; pa; pa=pa->next)
+    {
+	if(strieq(pa->alias, name))
+	    return pa->name;
+    }
+
+    return name;
+}
+
+
+
+/*
  * Set character mapping table
  */
 int charset_set_in_out(char *in, char *out)
@@ -256,20 +289,22 @@ int charset_set_in_out(char *in, char *out)
     for(pa = charset_alias_list; pa; pa=pa->next)
     {
 	if(strieq(pa->alias, in))
-	   in = pa->name;
+	    in = pa->name;
 	if(strieq(pa->alias, out))
 	    out = pa->name;
     }
 
     /* Search for matching table */
     for(pt = charset_table_list; pt; pt=pt->next)
+    {
 	if(strieq(pt->in, in) && strieq(pt->out, out))
 	{
 	    debug(5, "charset: table found in=%s out=%s", pt->in, pt->out);
 	    charset_table_used = pt;
 	    return OK;
 	}
-    
+    }
+
     charset_table_used = NULL;
     return ERROR;
 }

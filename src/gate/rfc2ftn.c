@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway software UNIX <-> FIDO
  *
- * $Id: rfc2ftn.c,v 4.52 1999/05/18 18:44:48 mj Exp $
+ * $Id: rfc2ftn.c,v 4.53 1999/05/22 12:05:01 mj Exp $
  *
  * Read mail or news from standard input and convert it to a FIDO packet.
  *
@@ -39,7 +39,7 @@
 
 
 #define PROGRAM 	"rfc2ftn"
-#define VERSION 	"$Revision: 4.52 $"
+#define VERSION 	"$Revision: 4.53 $"
 #define CONFIG		DEFAULT_CONFIG_GATE
 
 
@@ -52,12 +52,15 @@
 
 
 /*
- * MIME (RFC 1521) header info
+ * MIME (RFC 2045) header info
  */
 typedef struct st_mimeinfo
 {
     char *version;		/* MIME-Version */
-    char *type;			/* Content-Type */
+    char *type;			/* Content-Type (complete header) */
+    char *type_type;		/*              MIME type part */
+    char *type_charset;		/*              charset part */
+    char *type_boundary;	/*              charset part */
     char *encoding;		/* Content-Transfer-Encoding */
 }
 MIMEInfo;
@@ -82,17 +85,12 @@ char   *mail_receiver		(RFCAddr *, Node *);
 time_t	mail_date		(void);
 int	snd_mail		(RFCAddr, long);
 int	snd_message		(Message *, Area *, RFCAddr, RFCAddr, char *,
-				 long, char *, int, MIMEInfo *);
+				 long, char *, int, MIMEInfo *, Node *);
 int	print_tear_line		(FILE *);
-#if defined(AI_1) || defined(AI_2)
-int	print_origin		(FILE *, char *, Node);
-int	print_local_msgid	(FILE *, Node);
-#else
-int	print_origin		(FILE *, char *);
-int	print_local_msgid	(FILE *);
-#endif
+int	print_origin		(FILE *, char *, Node *);
+int	print_local_msgid	(FILE *, Node *);
 int	print_via		(FILE *);
-int	sendmail_t		(long);
+int	snd_to_cc_bcc		(long);
 void	short_usage		(void);
 void	usage			(void);
 
@@ -105,25 +103,19 @@ static int   i_flag = FALSE;		/* -i --ignore-hosts   		    */
 
 static int maxmsg = 0;			/* Process maxmsg messages */
 
-#if defined(AI_1) || defined(AI_2)
 static int alias_extended = FALSE;
-#endif
 
 static int default_rfc_level = 0;	/* Default ^ARFC level for areas    */
 
-static int no_from_line	= FALSE;	/* NoFromLine          */
-static int no_fsc_0035 = FALSE;		/* NoFSC0035           */
-static int no_fsc_0047 = FALSE;		/* NoFSC0047           */
-static int echomail4d = FALSE;		/* EchoMail4d          */ 
-static int x_flags_policy = 0;		/* XFlagsPolicy        */
-static int dont_use_reply_to = FALSE;	/* DontUseReplyTo      */
-static int replyaddr_ifmail_tx = FALSE;	/* ReplyAddrIfmailTX   */
-static int check_areas_bbs = FALSE;	/* CheckAreasBBS       */
-#ifdef AI_7
-static int use_xmailer_for_tearline     = FALSE; /* config.gate: UseXMailerForTearline       */
-static int use_useragent_for_tearline   = FALSE; /* config.gate: UseUseragentForTearline     */
-static int use_xnewsreader_for_tearline = FALSE; /* config.gate: UseXNewsreaderForTearline   */
-#endif
+static int no_from_line	= FALSE;	/* NoFromLine          	 */
+static int no_fsc_0035 = FALSE;		/* NoFSC0035           	 */
+static int no_fsc_0047 = FALSE;		/* NoFSC0047           	 */
+static int echomail4d = FALSE;		/* EchoMail4d          	 */ 
+static int x_flags_policy = 0;		/* XFlagsPolicy        	 */
+static int dont_use_reply_to = FALSE;	/* DontUseReplyTo      	 */
+static int replyaddr_ifmail_tx = FALSE;	/* ReplyAddrIfmailTX   	 */
+static int check_areas_bbs = FALSE;	/* CheckAreasBBS       	 */
+static int use_x_for_tearline = FALSE;	/* UseXHeaderForTearline */
 
 /* Charset stuff */
 static char *default_charset_out = NULL;
@@ -254,10 +246,61 @@ char *get_name_from_body(void)
 MIMEInfo *get_mime(void)
 {
     static MIMEInfo mime;
+    char *s, *p, *q;
     
-    mime.version  = s_header_getcomplete("MIME-Version");
-    mime.type     = s_header_getcomplete("Content-Type");
-    mime.encoding = s_header_getcomplete("Content-Transfer-Encoding");
+    mime.version       = s_header_getcomplete("MIME-Version");
+    mime.type          = s_header_getcomplete("Content-Type");
+    mime.type_type     = NULL;
+    mime.type_charset  = NULL;
+    mime.type_boundary = NULL;
+    mime.encoding      = s_header_getcomplete("Content-Transfer-Encoding");
+
+    s = mime.type ? s_copy(mime.type) : NULL;
+    if( s && (p = strtok(s, ";")) )
+    {
+	p = strip_space(p);
+	mime.type_type = s_copy(p);
+
+	for(p=strtok(NULL, ";"); p; p=strtok(NULL, ";"))
+	{
+	    p = strip_space(p);
+	    if(strnieq(p, "charset=", strlen("charset=")))
+	    {
+		p += strlen("charset=");
+		if(*p == '\"')
+		  p++;
+		for(q=p; *q; q++)
+		  if(*q=='\"' || is_space(*q))
+		    break;
+		*q = 0;
+		mime.type_charset = s_copy(p);
+	    }
+	    if(strnieq(p, "boundary=", strlen("boundary=")))
+	    {
+		p += strlen("boundary=");
+		if(*p == '\"')
+		  p++;
+		for(q=p; *q; q++)
+		  if(*q=='\"' || is_space(*q))
+		    break;
+		*q = 0;
+		mime.type_boundary = s_copy(p);
+	    }
+	}
+    }
+
+    debug(6, "RFC MIME-Version:              %s",
+	  mime.version ? mime.version : "-NONE-");
+    debug(6, "RFC Content-Type:              %s",
+	  mime.type ? mime.type : "-NONE-");
+    debug(6, "                        type = %s",
+	  mime.type_type ? mime.type_type : "");
+    debug(6, "                     charset = %s",
+	  mime.type_charset ? mime.type_charset : "");
+    debug(6, "                    boundary = %s",
+	  mime.type_boundary ? mime.type_boundary : "");
+    debug(6, "RFC Content-Transfer-Encoding: %s",
+	  mime.encoding ? mime.encoding : "-NONE-");
 
     return &mime;
 }
@@ -581,21 +624,15 @@ char *receiver(char *to, Node *node)
      */
     debug(5, "Name for alias checking: %s", to);
 
-#ifndef AI_2
-    if((alias = alias_lookup(node, to, NULL)))
-#else
+    /**FIXME: why && !alias->userdom?**/
     if( (alias = alias_lookup(node, to, NULL)) && !alias->userdom )
-#endif
     {
 	debug(5, "Alias found: %s %s %s", alias->username,
 	      znfp1(&alias->node), alias->fullname);
 	strcpy(name, alias->fullname);
-
-	/*
-	 * Store address from ALIASES into node, this will reroute
-	 * the message to the point specified in ALIASES, if the message
-	 * addressed to node without point address.
-	 */
+	/* Store address from ALIASES into node, this will reroute the
+	 * message to the point specified in ALIASES, if the message
+	 * addressed to node without point address.  */
 	*node = alias->node;
 	
 	return name;
@@ -700,9 +737,7 @@ char *mail_sender(RFCAddr *rfc, Node *node)
     static char name[MSG_MAXNAME];
     Node n;
     int ret;
-#ifdef AI_2
     Alias *alias;
-#endif
 
     *name = 0;
     *node = cf_n_addr();
@@ -718,40 +753,31 @@ char *mail_sender(RFCAddr *rfc, Node *node)
 	*node = n;
 #endif /**PASSTHRU_NETMAIL**/
 
-#ifdef AI_2
     /*
      * Check for email alias
      */
     debug(5, "Name for alias checking: %s", rfc->user);
-
+    /**FIXME: why && !alias->userdom?**/
     if( (alias = alias_lookup(node, rfc->user, NULL)) && !alias->userdom )
     {
 	debug(5, "Alias found: %s %s %s", alias->username,
 	      znfp1(&alias->node), alias->fullname);
 	strcpy(name, alias->fullname);
-
 	*node = alias->node;
-	
 	return name;
     }
 
     alias_extended = FALSE;
-
     debug(5, "E-mail for alias checking: %s", s_rfcaddr_to_asc(rfc, FALSE));
-
     if((alias = alias_lookup_userdom(NULL, rfc, NULL)))
     {
 	alias_extended = TRUE;
-
 	debug(5, "Alias found: %s@%s %s %s", alias->username, alias->userdom,
 	      znfp1(&alias->node), alias->fullname);
 	strcpy(name, alias->fullname);
-
 	*node = alias->node;
-	
 	return name;
     }
-#endif
 
     /*
      * If no real name, apply name conversion
@@ -804,10 +830,12 @@ int snd_mail(RFCAddr rfc_to, long size)
     MIMEInfo *mime;
     int from_is_local = FALSE;
     long limitsize;
-
+    Textlist tl;
+    Textline *tp;
 
     node_clear(&node_from);
     node_clear(&node_to);
+    tl_init(&tl);
     
     if(rfc_to.user[0])
 	debug(3, "RFC To:       %s", s_rfcaddr_to_asc(&rfc_to, TRUE));
@@ -987,9 +1015,15 @@ int snd_mail(RFCAddr rfc_to, long size)
 	debug(3, "RFC Newsgroups: %s", groups);
 
 	xpost_flag = strchr(groups, ',') != NULL;
-	
+
+	/* List of newsgroups -> textlist (strtok is not reentrant!) */
+	tl_clear(&tl);
 	for(p=strtok(groups, ","); p; p=strtok(NULL, ","))
+	    tl_append(&tl, p);
+
+	for(tp=tl.first; tp; tp=tp->next)
 	{
+	    p = tp->line;
 	    debug(5, "Look up newsgroup %s", p);
 	    pa = areas_lookup(NULL, p);
 	    if(!pa)
@@ -1063,7 +1097,7 @@ int snd_mail(RFCAddr rfc_to, long size)
 		msg.node_from = cf_n_addr();
 		msg.node_to   = cf_n_uplink();
 		status = snd_message(&msg, pa, rfc_from, rfc_to,
-				     subj, size, flags, fido, mime);
+				     subj, size, flags, fido, mime, &node_from);
 		if(status)
 		    TMPS_RETURN(status);
 	    }
@@ -1079,7 +1113,7 @@ int snd_mail(RFCAddr rfc_to, long size)
 	msg.node_from = node_from;
 	msg.node_to   = node_to;
 	status = snd_message(&msg, NULL, rfc_from, rfc_to,
-			     subj, size, flags, fido, mime);
+			     subj, size, flags, fido, mime, &node_from);
 	TMPS_RETURN(status);
     }
 
@@ -1090,9 +1124,9 @@ int snd_mail(RFCAddr rfc_to, long size)
 
 int snd_message(Message *msg, Area *parea,
 		RFCAddr rfc_from, RFCAddr rfc_to, char *subj,
-		long size, char *flags, int fido, MIMEInfo *mime)
-    /*
-     * msg   	 FTN nessage structure
+		long size, char *flags, int fido, MIMEInfo *mime,
+		Node *node_from)
+    /* msg   	 FTN nessage structure
      * parea 	 area/newsgroup description structure
      * rfc_from  Internet sender
      * rfc_to    Internet recipient
@@ -1101,7 +1135,7 @@ int snd_message(Message *msg, Area *parea,
      * flags 	 X-Flags header
      * fido  	 TRUE: recipient is FTN address
      * mime  	 MIME stuff
-     */
+     * node_from sender node from mail_sender()       */
 {
     static int nmsg = 0;
     static int last_zone = -1;		/* Zone address of last packet */
@@ -1119,12 +1153,8 @@ int snd_message(Message *msg, Area *parea,
     int rfc_level = default_rfc_level;
     int x_flags_n=FALSE, x_flags_m=FALSE, x_flags_f=FALSE;
     char *cs_in, *cs_out;		/* Charset in(=RFC), out(=FTN) */
-    char *cs_save;
-#if defined(AI_1) || defined(AI_2)
-    Node ftn_from;
-
-    mail_sender(&rfc_from, &ftn_from);
-#endif
+    char *cs_out_fsc, *cs_out_rfc;
+    char *cs_save, *cs_enc;
 
     /*
      * X-Flags settings
@@ -1139,32 +1169,20 @@ int snd_message(Message *msg, Area *parea,
     if(parea && parea->rfc_lvl!=-1)
 	rfc_level = parea->rfc_lvl;
     
-    /*
-     * MIME info
-     */
-    debug(6, "RFC MIME-Version:              %s",
-	  mime->version  ? mime->version  : "-NONE-");
-    debug(6, "RFC Content-Type:              %s",
-	  mime->type     ? mime->type     : "-NONE-");
-    debug(6, "RFC Content-Transfer-Encoding: %s",
-	  mime->encoding ? mime->encoding : "-NONE-");
-    if(mime->encoding && !stricmp(mime->encoding, "QUOTED-PRINTABLE"))
-    {
-	if( (header = header_get("Content-Transfer-Encoding")) )
-	    str_copy(header, strlen(header)+1, "8BIT");
+    /* MIME stuff and charset handling */
+    if(mime->encoding && strieq(mime->encoding, "quoted-printable"))
 	mime_qp = MIME_QP;
-    }
-    cs_in   = CHARSET_STD7BIT;
+    cs_in   = CHARSET_STDRFC;
     cs_save = NULL;
     cs_out  = NULL;
-    if(mime->type) {
-        /**FIXME: get input charset from MIME type**/
+    if(mime->type_charset) {
+        cs_in = mime->type_charset;
     }
     if(parea)					/* News */
     {
 	if(parea->charset)
 	{
-	    cs_save = strsave(parea->charset);
+	    cs_save = s_copy(parea->charset);
 	    strtok(cs_save, ":");
 	    cs_out = strtok(NULL, ":");
 	}
@@ -1176,11 +1194,15 @@ int snd_message(Message *msg, Area *parea,
     /* defaults */
     if(!cs_out)
         cs_out = default_charset_out;
-    if(!cs_out)
+    if(!cs_out || strieq(cs_in, CHARSET_STD7BIT))
         cs_out = CHARSET_STD7BIT;
+    cs_out_rfc = charset_alias_rfc(cs_out);
+    cs_out_fsc = charset_alias_fsc(cs_out);
+    str_upper(cs_out_fsc);
+    cs_enc = strieq(cs_out_rfc, "us-ascii") ? "7bit" : "8bit";
     charset_set_in_out(cs_in, cs_out);
-    if(cs_save)
-        xfree(cs_save);
+    debug(6, "charset: msg RFC=%s FSC=%s enc=%s",
+	  cs_out_rfc, cs_out_fsc, cs_enc         );
 
     /*
      * Open output packet
@@ -1295,11 +1317,7 @@ int snd_message(Message *msg, Area *parea,
 	    }
 	}	
 	else
-#if defined(AI_1) || defined(AI_2)
-	    print_local_msgid(sf, ftn_from);
-#else
-	    print_local_msgid(sf);
-#endif
+	    print_local_msgid(sf, node_from);
 	
 	if((header = s_header_getcomplete("References")) ||
 	   (header = s_header_getcomplete("In-Reply-To")))
@@ -1311,11 +1329,7 @@ int snd_message(Message *msg, Area *parea,
 	}
     }
     else
-#if defined(AI_1) || defined(AI_2)
-	print_local_msgid(sf, ftn_from);
-#else
-	print_local_msgid(sf);
-#endif
+	print_local_msgid(sf, node_from);
 
     if(!no_fsc_0035)
 	if(!x_flags_n)
@@ -1327,26 +1341,14 @@ int snd_message(Message *msg, Area *parea,
 	    else
 		fprintf(sf, "\001REPLYADDR %s\r\n",
 			s_rfcaddr_to_asc(&rfc_from, TRUE));
-#if defined(AI_1) || defined(AI_2)
-	    if(
 #ifdef AI_1
-	       verify_host_flag(&ftn_from,HOST_ADDR) ||
-#endif
-#ifdef AI_2
-	       alias_extended
-#endif
-	       )
+	    if(verify_host_flag(node_from,HOST_ADDR) || alias_extended)
 		fprintf(sf, "\001REPLYTO %s %s\r\n",
-			znf1(&ftn_from),
-			msg->name_from);
+			znf1(node_from), msg->name_from);
 	    else
-		fprintf(sf, "\001REPLYTO %s %s\r\n",
-		        znf1(cf_addr()),
-		        msg->name_from);
-#else
-	    fprintf(sf, "\001REPLYTO %s %s\r\n",
-		    znf1(cf_addr()), msg->name_from);
 #endif
+		fprintf(sf, "\001REPLYTO %s %s\r\n",
+		        znf1(cf_addr()), msg->name_from);
 	}
 
     if(x_flags_f)
@@ -1359,20 +1361,23 @@ int snd_message(Message *msg, Area *parea,
 	fprintf(sf, "\001FLAGS KFS\r\n");
     }
 
-    /*
-     * Add ^ACHRS kludge indicating that this messages uses the
-     * ISO-8859-1 charset. This may be not the case, but most Usenet
-     * messages with umlauts use this character set and FIDOGATE
-     * doesn't support MIME completely yet.  (^ACHRS is documented in
-     * FSC-0054)
-     */
-    fprintf(sf, "\001CHRS: LATIN-1 2\r\n");
+    /* charset */
+    fprintf(sf, "\001CHRS: %s 2\r\n", cs_out_fsc);
 
     if(!x_flags_n)
     {
 	/* Add ^ARFC header lines */
 	fprintf(sf, "\001RFC: %d 0\r\n", rfc_level);
+	/**FIXME: don´t output MIME header lines for rfc_level==2**/
 	header_ca_rfc(sf, rfc_level);
+	/* Add ^ARFC MIME header lines */
+	if(mime->version && rfc_level>0)
+	    fprintf(sf,
+		    "\001RFC-MIME-Version: 1.0\r\n"
+		    "\001RFC-Content-Type: %s; charset=%s\r\n"
+		    "\001RFC-Content-Transfer-Encoding: %s\r\n",
+		    (mime->type_type ? mime->type_type : "text/plain"),
+		    cs_out_rfc, cs_enc                                 );
 	/* Add ^AGATEWAY header */
 	if( (header = s_header_getcomplete("X-Gateway")) )
 	    fprintf(sf, "\001GATEWAY: RFC1036/822 %s [FIDOGATE %s], %s\r\n",
@@ -1494,11 +1499,7 @@ int snd_message(Message *msg, Area *parea,
 		    origin = organization;
 		else
 		    origin = cf_p_origin();
-#if defined(AI_1) || defined(AI_2)
-		print_origin(sf, origin, ftn_from);
-#else
-		print_origin(sf, origin);
-#endif
+		print_origin(sf, origin, node_from);
 	    }
 	    /* End of message */
 	    putc(0, sf);
@@ -1526,11 +1527,7 @@ int snd_message(Message *msg, Area *parea,
 	    origin = organization;
 	else
 	    origin = cf_p_origin();
-#if defined(AI_1) || defined(AI_2)
-	print_origin(sf, origin, ftn_from);
-#else
-	print_origin(sf, origin);
-#endif
+	print_origin(sf, origin, node_from);
     }
     else
 	print_via(sf);
@@ -1548,21 +1545,17 @@ int snd_message(Message *msg, Area *parea,
  */
 int print_tear_line(FILE *fp)
 {
-#ifdef PASSTHRU_ECHOMAIL
     char *p;
 
-#ifndef AI_7
-    if( (p = header_get("X-FTN-Tearline")) )
-	fprintf(fp, "\r\n--- %s\r\n", p);
-#else
-    if( (p = header_get("X-FTN-Tearline")) ||
-      ( use_xmailer_for_tearline     && (p = header_get("X-Mailer"))   ) ||
-      ( use_useragent_for_tearline   && (p = header_get("User-Agent"))   ) ||
-      ( use_xnewsreader_for_tearline && (p = header_get("X-Newsreader")) ) )
-    	fprintf(fp, "\r\n--- %s\r\n", p);
-#endif
+    if(use_x_for_tearline)
+    {
+	if( (p = header_get("X-FTN-Tearline")) ||
+	    (p = header_get("X-Mailer"))       ||
+	    (p = header_get("User-Agent"))     ||
+	    (p = header_get("X-Newsreader"))      )
+	  fprintf(fp, "\r\n--- %s\r\n", p);
+    }
     else
-#endif
 	fprintf(fp, "\r\n--- FIDOGATE %s\r\n", version_global());
 
     return ferror(fp);
@@ -1573,11 +1566,7 @@ int print_tear_line(FILE *fp)
 /*
  * Generate origin, seen-by and path line
  */
-#if defined(AI_1) || defined(AI_2)
-int print_origin(FILE *fp, char *origin, Node ftn_from)
-#else
-int print_origin(FILE *fp, char *origin)
-#endif
+int print_origin(FILE *fp, char *origin, Node *node_from)
 {
     char buf[80];
     char bufa[30];
@@ -1590,21 +1579,12 @@ int print_origin(FILE *fp, char *origin)
      * Origin line
      */
     BUF_COPY(buf , " * Origin: ");
-#if defined(AI_1) || defined(AI_2)
-    if(
 #ifdef AI_1
-       verify_host_flag(&ftn_from,HOST_ADDR) ||
-#endif
-#ifdef AI_2
-       alias_extended
-#endif
-       )
-	BUF_COPY(bufa, znfp1(&ftn_from));
+    if(verify_host_flag(node_from,HOST_ADDR) || alias_extended)
+	BUF_COPY(bufa, znfp1(node_from));
     else
-	BUF_COPY(bufa, znfp1(cf_addr()));
-#else
-    BUF_COPY(bufa, znfp1(cf_addr()));
 #endif
+	BUF_COPY(bufa, znfp1(cf_addr()));
 
 #ifdef PASSTHRU_ECHOMAIL
     if( (p = header_get("X-FTN-Origin")) )
@@ -1671,16 +1651,14 @@ int print_origin(FILE *fp, char *origin)
 #endif
     if(cf_addr()->point)		/* Generate 4D addresses */
     {
-	fprintf(fp, "\001PATH: %d/%d",
-		cf_addr()->net, cf_addr()->node);
+	fprintf(fp, "\001PATH: %d/%d", cf_addr()->net, cf_addr()->node);
 	if(echomail4d)
 	    fprintf(fp, ".%d", cf_addr()->point);
 	fputs("\r\n", fp);
     }
     else				/* Generate 3D addresses */
     {
-	fprintf(fp, "\001PATH: %d/%d\r\n",
-		cf_addr()->net, cf_addr()->node);
+	fprintf(fp, "\001PATH: %d/%d\r\n", cf_addr()->net, cf_addr()->node);
     }
     
     return ferror(fp);
@@ -1691,34 +1669,18 @@ int print_origin(FILE *fp, char *origin)
 /*
  * Generate local `^AMSGID:' if none is found in message header
  */
-#if defined(AI_1) || defined(AI_2)
-int print_local_msgid(FILE *fp, Node ftn_from)
-#else
-int print_local_msgid(FILE *fp)
-#endif
+int print_local_msgid(FILE *fp, Node *node_from)
 {
     long msgid;
 
     msgid = sequencer(DEFAULT_SEQ_MSGID);
 
-#if defined(AI_1) || defined(AI_2)
-    if(
 #ifdef AI_1
-	verify_host_flag(&ftn_from,HOST_ADDR) ||
+    if(verify_host_flag(node_from,HOST_ADDR) || alias_extended)
+	fprintf(fp, "\001MSGID: %s %08ld\r\n", znf1(node_from), msgid);
+    else
 #endif
-#ifdef AI_2
-	alias_extended
-#endif
-    )
-	fprintf(fp, "\001MSGID: %s %08ld\r\n",
-		znf1(&ftn_from), msgid);
- else
-	fprintf(fp, "\001MSGID: %s %08ld\r\n",
-		znf1(cf_addr()), msgid);
-#else
-	fprintf(fp, "\001MSGID: %s %08ld\r\n",
-		znf1(cf_addr()), msgid);
-#endif
+	fprintf(fp, "\001MSGID: %s %08ld\r\n", znf1(cf_addr()), msgid);
 
     return ferror(fp);
 }
@@ -1742,7 +1704,7 @@ int print_via(FILE *fp)
 /*
  * Send mail to addresses taken from To, Cc, Bcc headers
  */
-int sendmail_t(long int size)
+int snd_to_cc_bcc(long int size)
 {
     char *header, *p;
     int status=EX_OK, st;
@@ -2089,23 +2051,11 @@ int main(int argc, char **argv)
 	    exit(EX_USAGE);
 	}
     }
-#ifdef AI_7
-    if(cf_get_string("UseXMailerForTearline", TRUE))
+    if(cf_get_string("UseXHeaderForTearline", TRUE))
     {
-	debug(8, "config: UseXMailerForTearline");
-	use_xmailer_for_tearline = TRUE;
+	debug(8, "config: UseXHeaderForTearline");
+	use_x_for_tearline = TRUE;
     }
-    if(cf_get_string("UseUseragentForTearline", TRUE))
-    {
-	debug(8, "config: UseUseragentForTearline");
-	use_useragent_for_tearline = TRUE;
-    }
-    if(cf_get_string("UseXNewsreaderForTearline", TRUE))
-    {
-	debug(8, "config: UseXNewsreaderForTearline");
-	use_xnewsreader_for_tearline = TRUE;
-    }
-#endif
 #ifdef AI_6
     if( (p = cf_get_string("AddressIsLocalForXPost", TRUE)) )
     {
@@ -2149,6 +2099,7 @@ int main(int argc, char **argv)
 #ifdef AI_8
     acl_init();
 #endif
+    charset_init();
 
     /* Switch stdin to binary for reading news batches */
 #ifdef OS2
@@ -2208,9 +2159,8 @@ int main(int argc, char **argv)
 	    strip_crlf(buffer);
 	    if(! (p = strtok(buffer, " \t")) )
 		continue;
-	    if(*p != '/')	/* No absolute path, add /var/spool/news/ */
-		/**FIXME:          vvvvvvvvvvvvvvvvv use config**/
-		BUF_COPY3(article, "/var/spool/news", "/", p);
+	    if(*p != '/')
+		BUF_COPY3(article, DEFAULT_NEWSSPOOLDIR, "/", p);
 	    else
 		BUF_COPY(article, p);
 
@@ -2265,7 +2215,7 @@ int main(int argc, char **argv)
 	    if(t_flag)
 	    {
 		/* Send mail to addresses from headers */
-		status = sendmail_t(size);
+		status = snd_to_cc_bcc(size);
 		tmps_freeall();
 	    }
 	    else

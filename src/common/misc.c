@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: misc.c,v 4.15 1999/05/15 20:54:41 mj Exp $
+ * $Id: misc.c,v 4.16 1999/05/22 12:05:00 mj Exp $
  *
  * Miscellaneous functions
  *
@@ -271,10 +271,11 @@ void strip_crlf(char *line)
 /*
  * Remove white space at end of line
  */
-void strip_space(char *line)
+char *strip_space(char *line)
 {
     int i;
-    
+    char *s;
+
     if(!line)
 	return;
     
@@ -283,6 +284,9 @@ void strip_space(char *line)
 	    line[i] = 0;
 	else
 	    break;
+
+    for(s=line; is_space(*s); s++) ;
+    return s;
 }
 
 

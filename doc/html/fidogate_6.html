@@ -1,26 +1,20 @@
 <HTML>
 <HEAD>
-<!-- This HTML file has been created by texi2html 1.54
-     from ../fidogate.texi on 18 May 1999 -->
+<!-- Created by texi2html 1.56k from ../fidogate.texi on 22 May 1999 -->
 
-<TITLE>FIDOGATE
- - FIDOGATE Usage</TITLE>
-<link href="fidogate_7.html" rel=Next>
-<link href="fidogate_5.html" rel=Previous>
-<link href="fidogate_toc.html" rel=ToC>
-
+<TITLE>FIDOGATE  - FIDOGATE Usage</TITLE>
 </HEAD>
 <BODY>
-<p>Go to the <A HREF="fidogate_1.html">first</A>, <A HREF="fidogate_5.html">previous</A>, <A HREF="fidogate_7.html">next</A>, <A HREF="fidogate_7.html">last</A> section, <A HREF="fidogate_toc.html">table of contents</A>.
+Go to the <A HREF="fidogate_1.html">first</A>, <A HREF="fidogate_5.html">previous</A>, <A HREF="fidogate_7.html">next</A>, <A HREF="fidogate_7.html">last</A> section, <A HREF="fidogate_toc.html">table of contents</A>.
 <P><HR><P>
 
 
 <H1><A NAME="SEC64" HREF="fidogate_toc.html#TOC64">FIDOGATE Usage</A></H1>
 
 <P>
-<A NAME="IDX97"></A>
+<A NAME="IDX96"></A>
 
-</P>
+
 
 <UL>
 <LI><A HREF="fidogate_6.html#SEC65">RFC Headers</A>: RFC Headers in FTN Messages
@@ -32,17 +26,17 @@
 <H2><A NAME="SEC65" HREF="fidogate_toc.html#TOC65">RFC Headers in FTN Messages</A></H2>
 
 <P>
+<A NAME="IDX97"></A>
 <A NAME="IDX98"></A>
-<A NAME="IDX99"></A>
 
-</P>
+
 <P>
 FIDOGATE's <CODE>ftn2rfc</CODE> supports the following RFC headers at the
 start of an FTN message. RFC headers must be the first text lines,
 max. 3 empty lines before the RFC headers are allowed. Only one header
 line of each type is allowed.
 
-</P>
+
 <DL COMPACT>
 
 <DT><CODE>From: <I>address</I></CODE>
@@ -78,7 +72,7 @@ Sets Sender header line. NOT YET IMPLEMENTED.
 <DT><CODE>Content-Transfer-Encoding: 7bit | 8bit | quoted-printable</CODE>
 <DD>
 Sets content encoding type, overriding the default configured in
-<CODE>config.gate</CODE> (<CODE>NetMail8bit</CODE>, <CODE>NetMailQuotedPrintable</CODE>)
+<CODE>fidogate.conf</CODE> (<CODE>NetMail8bit</CODE>, <CODE>NetMailQuotedPrintable</CODE>)
 or <CODE>areas</CODE> (<CODE>-8</CODE>, <CODE>-Q</CODE>).
 
 </DL>
@@ -87,7 +81,7 @@ or <CODE>areas</CODE> (<CODE>-8</CODE>, <CODE>-Q</CODE>).
 <CODE>ftn2rfc</CODE> sends mail to all addresses listed in To, Cc, and Bcc. It
 support the RFC1036 standard address formats:
 
-</P>
+
 
 <PRE>
 user@do.main
@@ -98,22 +92,21 @@ Real Name &#60;user@do.main&#62;
 <P>
 Multiple addresses can be separated by a <CODE>,</CODE>.
 
-</P>
 
 
 
 <H2><A NAME="SEC66" HREF="fidogate_toc.html#TOC66">X Headers in RFC Messages</A></H2>
 
 <P>
+<A NAME="IDX99"></A>
 <A NAME="IDX100"></A>
-<A NAME="IDX101"></A>
 
-</P>
+
 <P>
 FIDOGATE's <CODE>rfc2ftn</CODE> supports the following X headers in RFC
 messages:
 
-</P>
+
 <DL COMPACT>
 
 <DT><CODE>X-Comment-To: <I>name</I></CODE>
@@ -153,6 +146,6 @@ kludges.
 </DL>
 
 <P><HR><P>
-<p>Go to the <A HREF="fidogate_1.html">first</A>, <A HREF="fidogate_5.html">previous</A>, <A HREF="fidogate_7.html">next</A>, <A HREF="fidogate_7.html">last</A> section, <A HREF="fidogate_toc.html">table of contents</A>.
+Go to the <A HREF="fidogate_1.html">first</A>, <A HREF="fidogate_5.html">previous</A>, <A HREF="fidogate_7.html">next</A>, <A HREF="fidogate_7.html">last</A> section, <A HREF="fidogate_toc.html">table of contents</A>.
 </BODY>
 </HTML>

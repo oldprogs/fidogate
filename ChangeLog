@@ -1,3 +1,126 @@
+1999-05-22  Martin Junius  <mj@fido.de>
+
+	------- CVS ci -------------------------------------------------------
+
+	* version.h (PATCHLEVEL): set to 3 (version 4.3.3).
+
+	* doc/fidogate.texi (Example Point): updated.
+	  (Example Point 2): updated.
+	  (Example Node): updated.
+
+	* examples/point/fidogate.conf: new example config file for point
+	  configuration.
+
+	* doc/fidogate.texi: some bugfixes.
+
+1999-05-19  Martin Junius  <mj@fido.de>
+
+	-------- Integrated patch-1999-05-21 into main source ----------------
+
+	* doc/fidogate.texi (Programs): updated list of %X abbreviations.
+	  (Config): Oeff! Complete update of all config options, now in
+	  sync with the latest examples/orodruin/fidogate.conf.
+	  (Areas): updated.
+	  (Aliases): updated.
+	  (Passwd): updated.
+	  (Areas.bbs): updated.
+
+	* src/gate/ftn2rfc.c: removed #ifdef AI_2, now the default.
+
+	* src/gate/rfc2ftn.c (snd_message): set cs_in = CHARSET_STDRFC,
+	  currently "iso-8859-1". Some messages are 8bit, but don't
+	  contain MIME headers.
+	  (snd_message): set cs_out to CHARSET_STD7BIT "us-ascii" if cs_in
+	  is CHARSET_STD7BIT.
+
+	* config.h (CHARSET_STDRFC): new #define, charset used for RFC
+	  messages without MIME headers.
+
+	* test/cf/fidogate.conf: dito.
+
+	* examples/orodruin/fidogate.conf: added UseXHeaderForTearline.
+
+	* config.h (AI_2): removed, now the default.
+
+	* src/gate/rfc2ftn.c: removed #ifdef AI_2, now the default. The
+	  function associated with the alias_extended flag is now part of
+	  #ifdef AI_1, which is not enabled per default.
+
+	* src/common/aliases.c: removed #ifdef AI_2, now the default.
+
+	* src/gate/rfc2ftn.c (main): new config option
+	  UseXHeaderForTearline, replacing old AI_7 patches.
+	  (st_mimeinfo): added type_boundary field.
+	  (get_mime): added parsing for boundary=...
+	  (get_mime): added NULL pointer check for mime.type.
+
+	* config.h (AI_7): removed, obsoleted by new UseXHeaderForTearline
+	  config option.
+
+	* src/gate/rfc2ftn.c (snd_message): MIME header output only for
+	  rfc_level > 0.
+	  (snd_message): added new paramter node_from to pass node_from
+	  from snd_mail().
+	  (snd_message): replaced ftn_from from AI_2 patches with
+	  node_from, removed some #ifdef's.
+	  (print_origin): new paramter node_from.
+	  (print_local_msgid): new parameter node_from.
+	  (sendmail_t): renamed to snd_to_cc_bcc().
+	  (main): use DEFAULT_NEWSSPOOLDIR instead of fixed "/var/spool/news".
+	  (print_tear_line): #ifdef PASSTHRU_ECHOMAIL removed, new config
+	  flag use_x_for_tearline enables getting tearline string from
+	  headers X-FTN-Tearline, X-Mailer, User-Agent, X-Newsreader.
+
+	* src/gate/rfc2ftn.c (snd_message): added output of modified MIME
+	  header lines, header_ca_rfc() won't do this anymore.
+
+	* config.h (RFC_LVL_1_HEADERS): removed MIME headers, will be done
+	  "manually" in rfc2ftn.
+
+	* src/gate/rfc2ftn.c (snd_message): cs_out_rfc, cs_out_fsc contain
+	  RFC 2045, FSC-0054 name of charset, used for Content-Type,
+	  ^ACHRS, respectively.
+	  (snd_message): change Content-Transfer-Encoding depending on
+	  cs_out to "7BIT" or "8BIT".
+
+	* src/charset/charset.c (charset_alias_fsc): new function, searchs
+	  FSC-0054 name for charset from alias list.
+	  (charset_alias_rfc): new functions, search RFC 2045 name for
+	  charset from alias list.
+
+	* src/charset/charset.map: added us-ascii -> * mappings, updated
+	  comments. 
+
+	* src/common/mime.c (mime_dequote): translate chars >= 0x80 using
+	  charset_map_c().
+
+	* src/gate/rfc2ftn.c (snd_mail): copy list of newsgroups to
+	  textlist, allowing strtok() to be used in functions called by
+	  snd_mail(). 
+	  (get_mime): parse Content-Type header, extract MIME type and
+	  charset. 
+	  (snd_message): moved MIME debug() output to get_mime().
+	  (get_mime): added .type_type and .type_charset to debug() output.
+	  (main): call charset_init().
+	  (snd_message): use s_copy() for cs_save.
+	  (snd_message): convert cs_out to upper case and use for
+	  ^ACHRS. Should be fixed to search for an FSC-0054 alias, because
+	  it may be configured as e.g. "iso-8859-1" instead of "latin-1".
+
+	* src/common/misc.c (strip_space): function now returns char *
+	  pointer to 1st non-space character of string. This change should
+	  be compatible with the old void function.
+
+	* src/gate/rfc2ftn.c (st_mimeinfo): added fields type_type and
+	  type_charset for components of Content-Type header.
+
+	----------------------------------------------------------------------
+
+	* examples/win32/config.make: was missing.
+
+	* src/common/packet.c (pkt_get_hdr): when reading FSC-0039 zone
+	  fields from packet header, don't use zone 0.
+
 1999-05-18  Martin Junius  <mj@fido.de>
 
 	======= Release 4.3.2 ================================================

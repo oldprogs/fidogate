@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway software UNIX <-> FIDO
  *
- * $Id: config.h,v 4.42 1999/05/18 19:49:01 mj Exp $
+ * $Id: config.h,v 4.43 1999/05/22 12:04:54 mj Exp $
  *
  * Configuration header file
  *
@@ -84,6 +84,11 @@
 #define CHARSET_STDFTN	"ibmpc"
 
 /*
+ * Default assumed charset for RFC messages if without MIME headers
+ */
+#define CHARSET_STDRFC	"iso-8859-1"
+
+/*
  * Default charset for RFC messages with forced 7bit encoding
  */
 #define CHARSET_STD7BIT	"us-ascii"
@@ -124,11 +129,6 @@
 /* #define AI_1 */
 
 /*
- * Improved ALIASES (see README.ai.aliases)
- */
-#define AI_2
-
-/*
  * New `DeleteSeenBy' and `DeletePath' options for ftntoss
  */
 /* #define AI_3 */
@@ -145,19 +145,6 @@
  * in `areas' file.
  */
 /* #define AI_6 */
-
-/*
- * New `UseXMailerForTearline', `UseUseragentForTearline' and
- * `UseXNewsreaderForTearline' options to config.gate file (see
- * example).  This allows generation of `Tearline' field in .pkt
- * files from field `User-Agent:' or `X-Newsreader:' contained in RFC
- * message (like `X-FTN-Tearline:' header). Priority is:
- * `X-FTN-Tearline:', `User-Agent:', `X-Newsreader:' for news
- * messages and `X-FTN-Tearline:', `X-Mailer:' for mail messages. If
- * these variables are not present in config.gate, we do not process
- * the corresponding fields in RFC message.
- */
-#define AI_7
 
 /*
  * Added ACL support. This feature allows one to describe the
@@ -434,7 +421,6 @@
 #define RFC_LVL_1_HEADERS \
     "From", "Reply-To", "To", "Cc", "Newsgroups", "Date", \
     "Sender", "Resent-From", "Return-Path", \
-    "MIME-Version", "Content-Type", "Content-Transfer-Encoding", \
     "Next-Attachment"
 
 /*

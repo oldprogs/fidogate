@@ -1,5 +1,5 @@
-This is Info file fidogate.info, produced by Makeinfo version 1.68 from
-the input file fidogate.texi.
+This is fidogate.info, produced by Makeinfo version 3.12f from
+fidogate.texi.
 
    This file documents the installation and usage of FIDOGATE version
 4.3
@@ -43,7 +43,7 @@ version to 4.3 are not completely documented here.
 
 * Index::       Index
 
- -- The Detailed Node Listing --
+ --- The Detailed Node Listing ---
 
 Compiling and installing FIDOGATE
 
@@ -161,6 +161,7 @@ Requirements for FIDOGATE:
 
    * M4 for compiling the sendmail config files.
 
+
 FIDOGATE Mailing List
 =====================
 
@@ -222,8 +223,8 @@ Compiling and installing FIDOGATE
 
 * Menu:
 
-* config.h::    The `config.h' header file
-* config.make:: The `config.make' Makefile configuration
+* config.h::    The config.h header file
+* config.make:: The config.make Makefile configuration
 * Compiling::   Compiling and installing FIDOGATE
 * Integration:: Integrating FIDOGATE and the mail/news system
 * Testing::     Testing FIDOGATE operation
@@ -901,26 +902,38 @@ addresses from the config file are disabled.
    All options and config statements which take file or directory names
 accept the following `%' abbreviations:
 
-`%L'
-     The value of `LibDir'
+`%C'
+     CONFIGDIR
 
-`%S'
-     The value of `SpoolDir'
+`%L'
+     LIBDIR
+
+`%N'
+     BINDIR
 
 `%G'
-     The value of `LogDir'
+     LOGDIR
 
-`%O'
-     The value of `Outbound'
+`%V'
+     VARDIR
+
+`%K'
+     LOCKDIR
+
+`%S'
+     SPOOLDIR
+
+`%B'
+     BTBASEDIR
 
 `%I'
-     The value of `Inbound'
+     INBOUND
 
 `%P'
-     The value of `PInbound'
+     PINBOUND
 
 `%U'
-     The value of `UUInbound'
+     UUINBOUND
 
 
 File: fidogate.info,  Node: ffx,  Next: ffxbatch,  Prev: Programs,  Up: Programs
@@ -1752,6 +1765,7 @@ No options.
 
    * Tossing packets from the protected inbound (`runtoss')
 
+
    All log messages are written to LIBDIR/log-in.
 
    Edit this script (`src/runin.sh') to meet your local requirements.
@@ -1869,15 +1883,15 @@ FIDOGATE uses the following config files:
 
 * Menu:
 
-* Config::      `config.*' configuration files
-* Hosts::       `hosts' FTN address to host name conversion
-* Aliases::     `aliases' user aliases
-* Areas::       `areas' FTN area to newsgroup conversion
+* Config::      Main configuration file
+* Hosts::       hosts FTN address to host name conversion
+* Aliases::     aliases user aliases
+* Areas::       areas FTN area to newsgroup conversion
 * Bounce::      Bounce messages of `ftn2rfc'
-* Passwd::      `passwd' password config file
-* Routing::     `routing' file for `ftntoss' and `ftnroute'
-* Packing::     `packing' file for `ftnpack'
-* Areas.bbs::   `areas.bbs' EchoMail distribution
+* Passwd::      passwd password config file
+* Routing::     routing file for `ftntoss' and `ftnroute'
+* Packing::     packing file for `ftnpack'
+* Areas.bbs::   areas.bbs EchoMail distribution
 
    For all config files, a line starting with (some white space and)
 `#' character is a comment and as well as an empty line completely

@@ -12,12 +12,12 @@
 
 	* ftnafutil: option to sort areas.bbs, including zone/keys.
 
-MOSTLY	* ftn2rfc: integrate new charset mapping
+DONE	* ftn2rfc: integrate new charset mapping
 
-	* rfc2ftn: implement new charset mapping
+DONE	* rfc2ftn: implement new charset mapping
 	* charset translation for RFC -> Fido.
 
-	* ^ACHRS default configurable per area
+DONE	* ^ACHRS default configurable per area
 
 	* Different Message-ID and sender Internet domain
 	  configuration (extended Zone config).
@@ -81,10 +81,7 @@ DONE	  copy netmail packets (do_noarc()), use rename(). If archiver
 
     Features
 
-	* ftn2rfc/rfc2ftn: MAIL-log messages configurable.
-	* ftn2rfc/rfc2ftn: mail log + size / message date
-
-	* Generic alias matching: name@Z:N/F.P <-> user@do.main (Name),
+DONE	* Generic alias matching: name@Z:N/F.P <-> user@do.main (Name),
 	  recipient *and* sender
 
 	* rfc2ftn: improve parser for 1st line. Use regexp library?
@@ -110,7 +107,7 @@ DONE	  copy netmail packets (do_noarc()), use rename(). If archiver
 
 	* packing: MaxArc configurable per node
 
-???	* config.*: common address settings, e.g. Address for main
+DONE	* config.*: common address settings, e.g. Address for main
 	  AKA, GateAddress for gateway???
 
 	* Allow config parameters on command line for all programs.

@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: aliases.c,v 4.8 1999/04/03 12:13:21 mj Exp $
+ * $Id: aliases.c,v 4.9 1999/05/22 12:05:00 mj Exp $
  *
  * Read user name aliases from file. The alias.users format is as follows:
  *	username    Z:N/F.P    Full Name
@@ -62,9 +62,7 @@ static Alias *alias_parse_line(char *buf)
     Alias *p;
     char *u, *n, *f;
     Node node;
-#ifdef AI_2
     char *un, *ud;
-#endif
     
     u = xstrtok(buf,  " \t");	/* User name */
     n = xstrtok(NULL, " \t");	/* FTN node */
@@ -88,27 +86,18 @@ static Alias *alias_parse_line(char *buf)
     p = (Alias *)xmalloc(sizeof(Alias));
     p->next     = NULL;
     p->node     = node;
-#ifndef AI_2
-    p->username = strsave(u);
-#else
     un = xstrtok(u,  "@");	/* User name */
     ud = xstrtok(NULL, " \t");	/* User domain */
     p->username = strsave(un);
-    p->userdom = ud ? strsave(ud) : NULL;
-#endif
+    p->userdom  = ud ? strsave(ud) : NULL;
     p->fullname = strsave(f);
     
-#ifndef AI_2
-    debug(15, "aliases: %s %s %s", p->username, 
-	  znfp1(&p->node), p->fullname);
-#else
     if(p->userdom)
 	debug(15, "aliases: %s@%s %s %s", p->username, p->userdom,
 	      znfp1(&p->node), p->fullname);
     else
 	debug(15, "aliases: %s %s %s", p->username, 
 	      znfp1(&p->node), p->fullname);
-#endif
 
     return p;
 }
@@ -186,7 +175,8 @@ Alias *alias_lookup(Node *node, char *username, char *fullname)
     return NULL;
 }
 
-#ifdef AI_2
+
+
 Alias *alias_lookup_strict(Node *node, char *username, char *fullname)
 {
     Alias *a;
@@ -228,7 +218,7 @@ Alias *alias_lookup_userdom(Node *node, RFCAddr *rfc, char *fullname)
 
     return NULL;
 }
-#endif
+
 
 
 /*

@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftn2rfc.c,v 4.50 1999/04/03 12:13:22 mj Exp $
+ * $Id: ftn2rfc.c,v 4.51 1999/05/22 12:05:01 mj Exp $
  *
  * Convert FTN mail packets to RFC mail and news batches
  *
@@ -40,7 +40,7 @@
 
 
 #define PROGRAM 	"ftn2rfc"
-#define VERSION 	"$Revision: 4.50 $"
+#define VERSION 	"$Revision: 4.51 $"
 #define CONFIG		DEFAULT_CONFIG_GATE
 
 
@@ -678,17 +678,10 @@ int unpack(FILE *pkt_file, Packet *pkt)
 
 	    debug(7, "Checking for alias: %s",
 		  s_rfcaddr_to_asc(&addr_from, TRUE));
-#ifndef AI_2
-	    a = alias_lookup(&msg.node_orig, NULL, addr_from.real);
-#else
+	    /**FIXME: why _strict()?**/
 	    a = alias_lookup_strict(&msg.node_orig, NULL, addr_from.real);
-#endif
 	    if(a)
 	    {
-#ifndef AI_2
-		debug(7, "Alias found: %s %s %s", a->username,
-		      znfp1(&a->node), a->fullname);
-#else
 		if(a->userdom)
 		{
 		    debug(7, "Alias found: %s@%s %s %s", a->username, a->userdom,
@@ -698,7 +691,6 @@ int unpack(FILE *pkt_file, Packet *pkt)
 		else
 		    debug(7, "Alias found: %s %s %s", a->username,
 		          znfp1(&a->node), a->fullname);
-#endif
 		BUF_COPY(addr_from.user, a->username);
 #ifdef ALIASES_ARE_LOCAL
 		BUF_COPY(addr_from.addr, cf_fqdn());
@@ -711,14 +703,10 @@ int unpack(FILE *pkt_file, Packet *pkt)
 	    
 	    debug(7, "Checking for alias: %s",
 		  s_rfcaddr_to_asc(&addr_to, TRUE));
-#ifdef AI_2
+	    /**FIXME: why _strict()?**/
 	    a = alias_lookup_strict(&msg.node_to, NULL, addr_to.real);
-#else
-	    a = alias_lookup(cf_addr(), NULL, addr_to.real);
-#endif
 	    if(a)
 	    {
-#ifdef AI_2
 		if(a->userdom)
 		{
 		    debug(7, "Alias (AI2) found: %s@%s %s \"%s\"",
@@ -730,7 +718,6 @@ int unpack(FILE *pkt_file, Packet *pkt)
 		    BUF_APPEND(mail_to, a->userdom);
 		}
 		else
-#endif
 		{
 		    debug(7, "Alias (old) found: %s %s \"%s\"",
 			  a->username,

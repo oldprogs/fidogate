@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: prototypes.h,v 4.55 1999/04/03 12:13:24 mj Exp $
+ * $Id: prototypes.h,v 4.56 1999/05/22 12:05:01 mj Exp $
  *
  * Prototypes for functions in libfidogate.a
  *
@@ -67,10 +67,8 @@ int	verify_host_flag	(Node *, int);
 /* aliases.c */
 void	alias_init		(void);
 Alias  *alias_lookup		(Node *, char *, char *);
-#ifdef AI_2
 Alias  *alias_lookup_strict	(Node *, char *, char *);
 Alias  *alias_lookup_userdom	(Node *, RFCAddr *, char *);
-#endif
 
 /* areas.c */
 void	areas_maxmsgsize	(long);
@@ -123,9 +121,11 @@ CharsetTable *charset_table_new	(void);
 CharsetAlias *charset_alias_new	(void);
 int	charset_write_bin	(char *);
 int	charset_read_bin	(char *);
-char   *charset_qpen		(int c, int qp);
+char   *charset_qpen		(int, int);
 char   *charset_map_c		(int, int);
-int	charset_set_in_out	(char *in, char *out);
+char   *charset_alias_fsc	(char *);
+char   *charset_alias_rfc	(char *);
+int	charset_set_in_out	(char *, char *);
 void	charset_init		(void);
 char   *charset_chrs_name	(char *);
 
@@ -349,7 +349,7 @@ int	stricmp			(char *, char *);
 
 long	xtol			(char *);
 void	strip_crlf		(char *);
-void	strip_space		(char *);
+char   *strip_space		(char *);
 int	is_space		(int);
 int	is_blank		(int);
 int     is_digit		(int);

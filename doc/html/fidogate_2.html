@@ -1,30 +1,24 @@
 <HTML>
 <HEAD>
-<!-- This HTML file has been created by texi2html 1.54
-     from ../fidogate.texi on 18 May 1999 -->
+<!-- Created by texi2html 1.56k from ../fidogate.texi on 22 May 1999 -->
 
-<TITLE>FIDOGATE
- - Compiling and installing FIDOGATE</TITLE>
-<link href="fidogate_3.html" rel=Next>
-<link href="fidogate_1.html" rel=Previous>
-<link href="fidogate_toc.html" rel=ToC>
-
+<TITLE>FIDOGATE  - Compiling and installing FIDOGATE</TITLE>
 </HEAD>
 <BODY>
-<p>Go to the <A HREF="fidogate_1.html">first</A>, <A HREF="fidogate_1.html">previous</A>, <A HREF="fidogate_3.html">next</A>, <A HREF="fidogate_7.html">last</A> section, <A HREF="fidogate_toc.html">table of contents</A>.
+Go to the <A HREF="fidogate_1.html">first</A>, <A HREF="fidogate_1.html">previous</A>, <A HREF="fidogate_3.html">next</A>, <A HREF="fidogate_7.html">last</A> section, <A HREF="fidogate_toc.html">table of contents</A>.
 <P><HR><P>
 
 
 <H1><A NAME="SEC6" HREF="fidogate_toc.html#TOC6">Compiling and installing FIDOGATE</A></H1>
 
 <P>
-<A NAME="IDX3"></A>
+<A NAME="IDX2"></A>
 
-</P>
+
 
 <UL>
-<LI><A HREF="fidogate_2.html#SEC7">config.h</A>: The <CODE>config.h</CODE> header file
-<LI><A HREF="fidogate_2.html#SEC8">config.make</A>: The <CODE>config.make</CODE> Makefile configuration
+<LI><A HREF="fidogate_2.html#SEC7">config.h</A>: The config.h header file
+<LI><A HREF="fidogate_2.html#SEC8">config.make</A>: The config.make Makefile configuration
 <LI><A HREF="fidogate_2.html#SEC9">Compiling</A>: Compiling and installing FIDOGATE
 <LI><A HREF="fidogate_2.html#SEC10">Integration</A>: Integrating FIDOGATE and the mail/news system
 <LI><A HREF="fidogate_2.html#SEC11">Testing</A>: Testing FIDOGATE operation
@@ -38,11 +32,10 @@ CONFIGDIR directory, <CODE>fidogate.conf</CODE>, <CODE>areas</CODE>, <CODE>hosts
 <CODE>passwd</CODE>, <CODE>routing</CODE>, <CODE>packing</CODE>, <CODE>aliases</CODE> according
 to your setup (see the examples subdirectory).
 
-</P>
+
 <P>
 The chapter on config files describes them in detail.
 
-</P>
 
 
 
@@ -54,11 +47,11 @@ of the supported platforms, it is <I>not</I> necessary to change anything
 in this file. Most things can be configured or overridden in
 <CODE>config.make</CODE> (compile-time) or <CODE>fidogate.conf</CODE> (run-time).
 
-</P>
+
 <P>
 If you really want to edit <CODE>config.h</CODE>, here are the gory details:
 
-</P>
+
 <DL COMPACT>
 
 <DT><CODE>LOCAL_FTN_ADDRESSES</CODE>
@@ -142,23 +135,23 @@ Configuration for Andy Igoshin's patches, see
 <P>
 System dependent configuration:
 
-</P>
+
 <P>
 This configuration contains several groups of #define/#undef. First, the
 definitions for a standard POSIX UNIX, followed by #ifdef'ed definitions
 for SunOS, Linux, FreeBSD, Interactive UNIX, MSDOS DJGPP, NextStep,
 GNU-WIN32.
 
-</P>
+
 <P>
 If you want to port FIDOGATE to a new system, please add a #ifdef'ed
 section similar to the already existing ones.
 
-</P>
+
 <P>
 The gory details:
 
-</P>
+
 <DL COMPACT>
 
 <DT><CODE>HAS_FCNTL_LOCK</CODE>
@@ -237,12 +230,11 @@ Define only one of <CODE>HAS_TM_ZONE</CODE>, <CODE>HAS_STRFTIME</CODE>,
 <CODE>HAS_TZNAME</CODE>, and also only one of <CODE>HAS_STRCASECMP</CODE>,
 <CODE>HAS_STRICMP</CODE>.
 
-</P>
 
 <P>
 <I>THE FOLLOWING DEFINES SHOULD REALLY BE LEFT AS IS!!!</I>
 
-</P>
+
 <DL COMPACT>
 
 <DT><CODE>MSGID_FIDONET_DOMAIN</CODE>
@@ -350,13 +342,13 @@ configuration dependent, see UNIX ulimits.
 <P>
 This file is included in all FIDOGATE Makefiles.
 
-</P>
+
 <P>
 A special convention is used for defining FIDOGATE configuration macros: 
 macro name starting with <CODE>DEFAULT_</CODE> are used by the compilation
 process to automatically generate C code.
 
-</P>
+
 <DL COMPACT>
 
 <DT><CODE>DEFAULT_V_<I>option</I></CODE>
@@ -384,7 +376,6 @@ for <I>option</I>.
 Be very carefull not to <B>remove</B> any of the FIDOGATE standard macros
 and don't touch the standard abbreviations in this file!!!
 
-</P>
 
 <DL COMPACT>
 
@@ -704,10 +695,10 @@ Name of the FIDOGATE library.
 
 <H2><A NAME="SEC9" HREF="fidogate_toc.html#TOC9">Compiling and Installing FIDOGATE</A></H2>
 <P>
+<A NAME="IDX3"></A>
 <A NAME="IDX4"></A>
-<A NAME="IDX5"></A>
 
-</P>
+
 <P>
 Compile the beast by entering
 
@@ -742,15 +733,14 @@ Next you must create the configuration files in (default)
 <CODE>/etc/fidogate</CODE>. Have a look at the various configuration in
 directory <CODE>examples/</CODE> and use them to build your own configuration.
 
-</P>
 
 
 
 <H2><A NAME="SEC10" HREF="fidogate_toc.html#TOC10">Integrating FIDOGATE and the Mail/News System</A></H2>
 <P>
-<A NAME="IDX6"></A>
+<A NAME="IDX5"></A>
 
-</P>
+
 <DL COMPACT>
 
 <DT><CODE>scripts/inn</CODE>
@@ -771,15 +761,14 @@ FIDOGATE: Fido.DE domain gateway morannon, orodruin, point setup.
 <P>
 Much more concise instructions should be here!!! ;-)
 
-</P>
 
 
 
 <H2><A NAME="SEC11" HREF="fidogate_toc.html#TOC11">Testing the FIDOGATE Installation</A></H2>
 <P>
-<A NAME="IDX7"></A>
+<A NAME="IDX6"></A>
 
-</P>
+
 
 
 <H3><A NAME="SEC12" HREF="fidogate_toc.html#TOC12"><CODE>Tosser</CODE></A></H3>
@@ -787,7 +776,6 @@ Much more concise instructions should be here!!! ;-)
 <P>
 ...
 
-</P>
 
 
 
@@ -796,21 +784,20 @@ Much more concise instructions should be here!!! ;-)
 <P>
 ...
 
-</P>
 
 
 
 <H2><A NAME="SEC14" HREF="fidogate_toc.html#TOC14">Connecting to FIDONET</A></H2>
 <P>
+<A NAME="IDX7"></A>
 <A NAME="IDX8"></A>
-<A NAME="IDX9"></A>
 
-</P>
+
 <P>
 FIDOGATE does NOT include a FIDO mailer, so you have to transfer FIDO
 mail to and from the UNIX system by some other means.
 
-</P>
+
 <P>
 If you want everything running on the UNIX system, you need a FIDO
 mailer for UNIX. Currently, this choice is limited to
@@ -829,7 +816,7 @@ I don't know what the current state of BinkleyTerm for Unix/Linux is,
 but ifcico and BinkD are working very well for me. See the FIDOGATE home 
 page at <CODE>http://www.fido.de/fidogate/</CODE> for links.
 
-</P>
+
 <P>
 Another solution is a separate PC running DOS or OS/2 and BinkleyTerm as
 a mailer. The Fido.DE gateway currently comprises a LINUX PC for the
@@ -837,9 +824,8 @@ gateway/tosser and Samba server, and an OS/2 PC running BinkleyTerm for
 the analog phone and ISDN lines. The BinkleyTerm outbound is kept on the
 LINUX server, so the OS/2 PC and the gateway have access to it.
 
-</P>
 
 <P><HR><P>
-<p>Go to the <A HREF="fidogate_1.html">first</A>, <A HREF="fidogate_1.html">previous</A>, <A HREF="fidogate_3.html">next</A>, <A HREF="fidogate_7.html">last</A> section, <A HREF="fidogate_toc.html">table of contents</A>.
+Go to the <A HREF="fidogate_1.html">first</A>, <A HREF="fidogate_1.html">previous</A>, <A HREF="fidogate_3.html">next</A>, <A HREF="fidogate_7.html">last</A> section, <A HREF="fidogate_toc.html">table of contents</A>.
 </BODY>
 </HTML>

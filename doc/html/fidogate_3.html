@@ -1,34 +1,28 @@
 <HTML>
 <HEAD>
-<!-- This HTML file has been created by texi2html 1.54
-     from ../fidogate.texi on 18 May 1999 -->
+<!-- Created by texi2html 1.56k from ../fidogate.texi on 22 May 1999 -->
 
-<TITLE>FIDOGATE
- - FIDOGATE Programs</TITLE>
-<link href="fidogate_4.html" rel=Next>
-<link href="fidogate_2.html" rel=Previous>
-<link href="fidogate_toc.html" rel=ToC>
-
+<TITLE>FIDOGATE  - FIDOGATE Programs</TITLE>
 </HEAD>
 <BODY>
-<p>Go to the <A HREF="fidogate_1.html">first</A>, <A HREF="fidogate_2.html">previous</A>, <A HREF="fidogate_4.html">next</A>, <A HREF="fidogate_7.html">last</A> section, <A HREF="fidogate_toc.html">table of contents</A>.
+Go to the <A HREF="fidogate_1.html">first</A>, <A HREF="fidogate_2.html">previous</A>, <A HREF="fidogate_4.html">next</A>, <A HREF="fidogate_7.html">last</A> section, <A HREF="fidogate_toc.html">table of contents</A>.
 <P><HR><P>
 
 
 <H1><A NAME="SEC15" HREF="fidogate_toc.html#TOC15">FIDOGATE Programs</A></H1>
 <P>
-<A NAME="IDX10"></A>
+<A NAME="IDX9"></A>
 
-</P>
+
 <P>
 <B>NOT UP-TO-DATE FOR VERSION 4.3.X !!!</B>
 
-</P>
+
 <P>
 The current FIDOGATE distribution includes the following programs and
 scripts:
 
-</P>
+
 <DL COMPACT>
 
 <DT><CODE>ffx</CODE>
@@ -173,7 +167,7 @@ CRC checksum utility
 Almost all FIDOGATE programs support standard options, which aren't
 listed in the following sections describing the individual programs:
 
-</P>
+
 <DL COMPACT>
 
 <DT><CODE>-v --verbose</CODE>
@@ -204,56 +198,61 @@ The option <CODE>-a</CODE> and <CODE>-u</CODE> also support Internet-style FTN
 addresses, e.g. <CODE>p10.f110.n2452.z2</CODE>. If any of these options is
 specified, all addresses from the config file are disabled.
 
-</P>
+
 <P>
 All options and config statements which take file or directory names
 accept the following <CODE>%</CODE> abbreviations:
 
-</P>
+
 <DL COMPACT>
 
+<DT><CODE>%C</CODE>
+<DD>
+CONFIGDIR
 <DT><CODE>%L</CODE>
 <DD>
-The value of <CODE>LibDir</CODE>
-
-<DT><CODE>%S</CODE>
+LIBDIR
+<DT><CODE>%N</CODE>
 <DD>
-The value of <CODE>SpoolDir</CODE>
-
+BINDIR
 <DT><CODE>%G</CODE>
 <DD>
-The value of <CODE>LogDir</CODE>
-
-<DT><CODE>%O</CODE>
+LOGDIR
+<DT><CODE>%V</CODE>
 <DD>
-The value of <CODE>Outbound</CODE>
-
+VARDIR
+<DT><CODE>%K</CODE>
+<DD>
+LOCKDIR
+<DT><CODE>%S</CODE>
+<DD>
+SPOOLDIR
+<DT><CODE>%B</CODE>
+<DD>
+BTBASEDIR
 <DT><CODE>%I</CODE>
 <DD>
-The value of <CODE>Inbound</CODE>
-
+INBOUND
 <DT><CODE>%P</CODE>
 <DD>
-The value of <CODE>PInbound</CODE>
-
+PINBOUND
 <DT><CODE>%U</CODE>
 <DD>
-The value of <CODE>UUInbound</CODE>
-
+UUINBOUND
 </DL>
 
 
 
 <H2><A NAME="SEC16" HREF="fidogate_toc.html#TOC16">ffx -- Remote Execution via FIDO Mailer</A></H2>
 <P>
+<A NAME="IDX10"></A>
 <A NAME="IDX11"></A>
-<A NAME="IDX12"></A>
 
-</P>
+
 <P>
 Usage:
 
-</P>
+
 
 <PRE>
 ffx  [<I>-options</I>]  <I>Z:N/F.P</I>  <I>command</I>
@@ -262,7 +261,7 @@ ffx  [<I>-options</I>]  <I>Z:N/F.P</I>  <I>command</I>
 <P>
 Options:
 
-</P>
+
 <DL COMPACT>
 
 <DT><CODE>-b --batch-dir <I>dir</I></CODE>
@@ -294,20 +293,19 @@ Don't compress data files.
 The compression program (<CODE>gzip</CODE>) and other are hardcoded in the
 <CODE>ffx.c</CODE> source code.
 
-</P>
 
 
 
 <H2><A NAME="SEC17" HREF="fidogate_toc.html#TOC17">ffxbatch -- Batches Remote Executon via FIDO Mailer</A></H2>
 <P>
+<A NAME="IDX12"></A>
 <A NAME="IDX13"></A>
-<A NAME="IDX14"></A>
 
-</P>
+
 <P>
 Usage:
 
-</P>
+
 
 <PRE>
 ffxbatch  [<I>-options</I>]  <I>Z:N/F.P</I>  <I>command</I>
@@ -316,7 +314,7 @@ ffxbatch  [<I>-options</I>]  <I>Z:N/F.P</I>  <I>command</I>
 <P>
 Options:
 
-</P>
+
 <DL COMPACT>
 
 <DT><CODE>-b --batch-dir <I>dir</I></CODE>
@@ -348,20 +346,19 @@ batched <CODE>ffx</CODE>-Jobs.
 The name of the archiving program (<CODE>zip</CODE>) is hardcoded in the
 <CODE>ffxbatch.c</CODE> source.
 
-</P>
 
 
 
 <H2><A NAME="SEC18" HREF="fidogate_toc.html#TOC18">ffxmail -- ffx Frontend for Sending Mail</A></H2>
 <P>
+<A NAME="IDX14"></A>
 <A NAME="IDX15"></A>
-<A NAME="IDX16"></A>
 
-</P>
+
 <P>
 Usage:
 
-</P>
+
 
 <PRE>
 ffxmail  <I>Z:N/F.P</I>  <I>address</I> ...
@@ -370,26 +367,25 @@ ffxmail  <I>Z:N/F.P</I>  <I>address</I> ...
 <P>
 No options.
 
-</P>
+
 <P>
 <CODE>ffxmail</CODE> calls <CODE>ffx</CODE> in batch mode (<CODE>-b</CODE>), selecting the
 batch directory from the node address. Modify the script
 (<CODE>src/ffxmail.sh</CODE>) for other addresses/batch directories.
 
-</P>
 
 
 
 <H2><A NAME="SEC19" HREF="fidogate_toc.html#TOC19">ffxqt -- Execute ffx Requests</A></H2>
 <P>
+<A NAME="IDX16"></A>
 <A NAME="IDX17"></A>
-<A NAME="IDX18"></A>
 
-</P>
+
 <P>
 Usage:
 
-</P>
+
 
 <PRE>
 ffxqt  [<I>-options</I>]
@@ -398,7 +394,7 @@ ffxqt  [<I>-options</I>]
 <P>
 Options:
 
-</P>
+
 <DL COMPACT>
 
 <DT><CODE>-g  --grade <I>grade</I></CODE>
@@ -423,24 +419,23 @@ the requested commands. Commands are executed by running
 LIBDIR/ffxqt-dir/<I>command</I>, so every allowed command must reside as a
 script or symbolic link there.
 
-</P>
+
 <P>
 Some program/paths are hard coded in the <CODE>ffxqt.c</CODE> code.
 
-</P>
 
 
 
 <H2><A NAME="SEC20" HREF="fidogate_toc.html#TOC20">ffxrmail -- Script for Processing FFX <CODE>rmail</CODE> Commands</A></H2>
 <P>
+<A NAME="IDX18"></A>
 <A NAME="IDX19"></A>
-<A NAME="IDX20"></A>
 
-</P>
+
 <P>
 Usage:
 
-</P>
+
 
 <PRE>
 ffxrun  [-v]
@@ -451,24 +446,23 @@ Perl script to be called as <CODE>rmail</CODE> by <CODE>ffxqt</CODE>. This repla
 <CODE>/bin/rmail</CODE> (UUCP), calling <CODE>/usr/lib/sendmail</CODE> directly with
 appropiate options.
 
-</P>
+
 <P>
 Installed as LIBDIR/ffxqt-dir/<CODE>rmail</CODE>.
 
-</P>
 
 
 
 <H2><A NAME="SEC21" HREF="fidogate_toc.html#TOC21">ffxrun -- Script for Running ffxqt</A></H2>
 <P>
+<A NAME="IDX20"></A>
 <A NAME="IDX21"></A>
-<A NAME="IDX22"></A>
 
-</P>
+
 <P>
 Usage:
 
-</P>
+
 
 <PRE>
 ffxrun  [<I>ffxqt options</I>]
@@ -479,20 +473,19 @@ This script runs <CODE>ffxqt</CODE> twice (the second run for processing batch
 archives unpacked by the first one). All command line arguments are passed
 to <CODE>ffxqt</CODE>.
 
-</P>
 
 
 
 <H2><A NAME="SEC22" HREF="fidogate_toc.html#TOC22">ftn2ftn -- FTN-FTN NetMail Gateway</A></H2>
 <P>
+<A NAME="IDX22"></A>
 <A NAME="IDX23"></A>
-<A NAME="IDX24"></A>
 
-</P>
+
 <P>
 Usage:
 
-</P>
+
 
 <PRE>
 ftn2ftn  [<I>-options</I>]  [<I>packet</I> ... ]
@@ -501,7 +494,7 @@ ftn2ftn  [<I>-options</I>]  [<I>packet</I> ... ]
 <P>
 Options:
 
-</P>
+
 <DL COMPACT>
 
 <DT><CODE>-A --address-a <I>Z:N/F.P</I></CODE>
@@ -527,33 +520,32 @@ This program provides a NetMail gateway between different FTNs, using
 the (somewhat) standard "User Name%Z:N/F.P" addressing in the FTN from
 and to fields.
 
-</P>
+
 <P>
 If no <I>packet</I> is given on the command line, <CODE>ftn2ftn</CODE> looks for
 packets addressed to the gateway addresses (A and B) in the Binkley
 outbound. Both gateway addresses must be specified with the <CODE>-A</CODE> and
 <CODE>-B</CODE> options.
 
-</P>
+
 <P>
 If a <I>packet</I> name is passed on the command line, <CODE>ftn2ftn</CODE> will
 gate this to the other network A. The gateway address (sender of the mails
 in network A) is set with <CODE>-A</CODE> option.
 
-</P>
 
 
 
 <H2><A NAME="SEC23" HREF="fidogate_toc.html#TOC23">ftn2rfc -- FTN-Internet Gateway</A></H2>
 <P>
+<A NAME="IDX24"></A>
 <A NAME="IDX25"></A>
-<A NAME="IDX26"></A>
 
-</P>
+
 <P>
 Usage:
 
-</P>
+
 
 <PRE>
 ftn2rfc  [<I>-options</I>]  [<I>packet</I> ... ]
@@ -562,7 +554,7 @@ ftn2rfc  [<I>-options</I>]  [<I>packet</I> ... ]
 <P>
 Options:
 
-</P>
+
 <DL COMPACT>
 
 <DT><CODE>-1 --single-articles</CODE>
@@ -606,20 +598,19 @@ command line and converts the FTN packets to Internet RFC mail and news,
 written as mail files and news batches to the directories
 SPOOLDIR/in/mail and SPOOLDIR/in/news, respectively.
 
-</P>
 
 
 
 <H2><A NAME="SEC24" HREF="fidogate_toc.html#TOC24">ftnaf -- Areafix</A></H2>
 <P>
+<A NAME="IDX26"></A>
 <A NAME="IDX27"></A>
-<A NAME="IDX28"></A>
 
-</P>
+
 <P>
 Usage:
 
-</P>
+
 
 <PRE>
 ftnaf  [<I>-options</I>]  [<I>Z:N/F.P</I>  <I>command</I> ]
@@ -628,7 +619,7 @@ ftnaf  [<I>-options</I>]  [<I>Z:N/F.P</I>  <I>command</I> ]
 <P>
 Options:
 
-</P>
+
 <DL COMPACT>
 
 <DT><CODE>-m --mail</CODE>
@@ -655,7 +646,7 @@ Run as Filefix program, using FAREAS.BBS.
 <P>
 Commands:
 
-</P>
+
 <DL COMPACT>
 
 <DT><CODE>listall</CODE>
@@ -723,25 +714,24 @@ All command keywords may be prefixed by <CODE>%</CODE>. <CODE>ftnaf</CODE> also
 recognizes the <CODE>-q</CODE> (= query) and <CODE>-l</CODE> (= list) options
 following the password in the subject header.
 
-</P>
+
 <P>
 For proper operation <CODE>ftnaf</CODE> requires the <CODE>X-FTN-From</CODE> header
 generated by <CODE>ftn2rfc</CODE> (see <CODE>config.h</CODE> configuration).
 
-</P>
 
 
 
 <H2><A NAME="SEC25" HREF="fidogate_toc.html#TOC25">ftnafmail -- Areafix Mail Frontend</A></H2>
 <P>
+<A NAME="IDX28"></A>
 <A NAME="IDX29"></A>
-<A NAME="IDX30"></A>
 
-</P>
+
 <P>
 Usage:
 
-</P>
+
 
 <PRE>
 ftnafmail  [<I>-options</I>]
@@ -750,7 +740,7 @@ ftnafmail  [<I>-options</I>]
 <P>
 Options:
 
-</P>
+
 <DL COMPACT>
 
 <DT><CODE>-F --filefix</CODE>
@@ -763,7 +753,7 @@ Run <CODE>ftnaf</CODE> as Filefix program.
 This is the setuid mail frontend for <CODE>ftnaf</CODE> to be run from the
 sendmail aliases:
 
-</P>
+
 
 <PRE>
 # Areafix/Filefix - FIDOGATE ftnaf
@@ -777,14 +767,14 @@ filemgr: filefix
 
 <H2><A NAME="SEC26" HREF="fidogate_toc.html#TOC26">ftnbounce -- Bounce Mail to Unknown Addresses</A></H2>
 <P>
+<A NAME="IDX30"></A>
 <A NAME="IDX31"></A>
-<A NAME="IDX32"></A>
 
-</P>
+
 <P>
 Usage:
 
-</P>
+
 
 <PRE>
 ftnbounce  [<I>-options</I>]  [<I>packet</I> ... ]
@@ -793,24 +783,23 @@ ftnbounce  [<I>-options</I>]  [<I>packet</I> ... ]
 <P>
 Options:
 
-</P>
+
 <P>
 NOT YET IMPLEMENTED. (Only program skeleton is there.)
 
-</P>
 
 
 
 <H2><A NAME="SEC27" HREF="fidogate_toc.html#TOC27">ftnbsy -- Create/delete Binkley Busy Filess</A></H2>
 <P>
+<A NAME="IDX32"></A>
 <A NAME="IDX33"></A>
-<A NAME="IDX34"></A>
 
-</P>
+
 <P>
 Usage:
 
-</P>
+
 
 <PRE>
 ftnbsy  [<I>-options</I>]  <I>Z:N/F.P</I> ...
@@ -819,7 +808,7 @@ ftnbsy  [<I>-options</I>]  <I>Z:N/F.P</I> ...
 <P>
 Options:
 
-</P>
+
 <DL COMPACT>
 
 <DT><CODE>-t --test</CODE>
@@ -844,14 +833,14 @@ Wait for busy file to be released (when <CODE>-l</CODE> option is given).
 
 <H2><A NAME="SEC28" HREF="fidogate_toc.html#TOC28">ftnconfig -- Retrieve information from FIDOGATE config files</A></H2>
 <P>
+<A NAME="IDX34"></A>
 <A NAME="IDX35"></A>
-<A NAME="IDX36"></A>
 
-</P>
+
 <P>
 Usage:
 
-</P>
+
 
 <PRE>
 ftnconfig  [<I>-options</I>]  <I>parameter</I>
@@ -860,7 +849,7 @@ ftnconfig  [<I>-options</I>]  <I>parameter</I>
 <P>
 Options:
 
-</P>
+
 <DL COMPACT>
 
 <DT><CODE>-l --no-newline</CODE>
@@ -880,7 +869,7 @@ Output <CODE>1</CODE> if the parameter is present, <CODE>0</CODE> if not.
 <P>
 Special parameters:
 
-</P>
+
 <DL COMPACT>
 
 <DT><CODE>=fqdn</CODE>
@@ -905,13 +894,13 @@ Domain for entries in <CODE>hosts</CODE> config files.
 
 <H2><A NAME="SEC29" HREF="fidogate_toc.html#TOC29">ftnhatch -- Hatch new file into file echo</A></H2>
 <P>
-<A NAME="IDX37"></A>
+<A NAME="IDX36"></A>
 
-</P>
+
 <P>
 Usage:
 
-</P>
+
 
 <PRE>
 ftnhatch  [<I>-options</I>]  <I>area</I>  <I>file</I>  "<I>description</I>"
@@ -920,7 +909,7 @@ ftnhatch  [<I>-options</I>]  <I>area</I>  <I>file</I>  "<I>description</I>"
 <P>
 Options:
 
-</P>
+
 <DL COMPACT>
 
 <DT><CODE>-b --fareas-bbs <I>NAME</I></CODE>
@@ -933,14 +922,14 @@ Use alternate FAREAS.BBS.
 
 <H2><A NAME="SEC30" HREF="fidogate_toc.html#TOC30">ftnin -- Frontend for <CODE>ftn2rfc</CODE></A></H2>
 <P>
+<A NAME="IDX37"></A>
 <A NAME="IDX38"></A>
-<A NAME="IDX39"></A>
 
-</P>
+
 <P>
 Usage:
 
-</P>
+
 
 <PRE>
 ftnin  [<I>-options</I>]
@@ -949,7 +938,7 @@ ftnin  [<I>-options</I>]
 <P>
 Options:
 
-</P>
+
 <DL COMPACT>
 
 <DT><CODE>-n --no-toss</CODE>
@@ -966,25 +955,24 @@ Execute <I>SCRIPT</I> after <CODE>ftn2rfc</CODE> processing, typically
 <P>
 All standard options are passed to the called <CODE>ftn2rfc</CODE>.
 
-</P>
+
 <P>
 <CODE>ftnin</CODE> looks for mail packets addressed to the gateway addresses
 (all <CODE>Address</CODE> statements in <CODE>config</CODE>) and calls <CODE>ftn2rfc</CODE>
 for each packet.
 
-</P>
 
 
 
 <H2><A NAME="SEC31" HREF="fidogate_toc.html#TOC31">ftninpost -- Mail/News Processing Script</A></H2>
 <P>
-<A NAME="IDX40"></A>
+<A NAME="IDX39"></A>
 
-</P>
+
 <P>
 Usage:
 
-</P>
+
 
 <PRE>
 ftninpost  [<I>-options</I>]
@@ -995,19 +983,18 @@ This script is run by <CODE>ftn2rfc</CODE> or <CODE>ftnin</CODE>, feeding the ou
 in SPOOLDIR/in/mail and SPOOLDIR/in/news to <CODE>sendmail</CODE> and
 <CODE>rnews</CODE>, respectively.
 
-</P>
 
 
 
 <H2><A NAME="SEC32" HREF="fidogate_toc.html#TOC32">ftninrecomb -- Mail/News Recombining Script</A></H2>
 <P>
-<A NAME="IDX41"></A>
+<A NAME="IDX40"></A>
 
-</P>
+
 <P>
 Usage:
 
-</P>
+
 
 <PRE>
 ftninrecomb  [<I>-options</I>]
@@ -1017,20 +1004,19 @@ ftninrecomb  [<I>-options</I>]
 If <CODE>FTNInRecombine</CODE> is enabled in <CODE>config.gate</CODE>, this script
 wil be run by <CODE>ftninpost</CODE> to recombine split messages.
 
-</P>
 
 
 
 <H2><A NAME="SEC33" HREF="fidogate_toc.html#TOC33">ftnlock -- Create/Remove Lock Files</A></H2>
 <P>
+<A NAME="IDX41"></A>
 <A NAME="IDX42"></A>
-<A NAME="IDX43"></A>
 
-</P>
+
 <P>
 Usage:
 
-</P>
+
 
 <PRE>
 ftnlock  [<I>-options</I>]  [<I>NAME</I>]  [<I>ID</I>]
@@ -1039,7 +1025,7 @@ ftnlock  [<I>-options</I>]  [<I>NAME</I>]  [<I>ID</I>]
 <P>
 Options:
 
-</P>
+
 <DL COMPACT>
 
 <DT><CODE>-l --lock</CODE>
@@ -1063,21 +1049,20 @@ file can't be created because it already exists.
 <P>
 Lock files are created as SPOOLDIR/locks/<I>NAME</I>.
 
-</P>
 
 
 
 <H2><A NAME="SEC34" HREF="fidogate_toc.html#TOC34">ftnlog -- Write Message to Log File</A></H2>
 <P>
+<A NAME="IDX43"></A>
 <A NAME="IDX44"></A>
 <A NAME="IDX45"></A>
-<A NAME="IDX46"></A>
 
-</P>
+
 <P>
 Usage:
 
-</P>
+
 
 <PRE>
 ftnlog  [<I>-options</I>]  <I>message text</I>
@@ -1086,7 +1071,7 @@ ftnlog  [<I>-options</I>]  <I>message text</I>
 <P>
 Options:
 
-</P>
+
 <DL COMPACT>
 
 <DT><CODE>-p --program <I>NAME</I></CODE>
@@ -1099,20 +1084,19 @@ Set program name for logging.
 This program is used to write a log message from a shell script. The log
 file name may be specified with the <CODE>LOGFILE</CODE> environment variable.
 
-</P>
 
 
 
 <H2><A NAME="SEC35" HREF="fidogate_toc.html#TOC35">ftnpack -- Pack FTN ArcMail Packets</A></H2>
 <P>
+<A NAME="IDX46"></A>
 <A NAME="IDX47"></A>
-<A NAME="IDX48"></A>
 
-</P>
+
 <P>
 Usage:
 
-</P>
+
 
 <PRE>
 ftnpack  [<I>-options</I>]  [<I>packet</I> ... ]
@@ -1121,7 +1105,7 @@ ftnpack  [<I>-options</I>]  [<I>packet</I> ... ]
 <P>
 Options:
 
-</P>
+
 <DL COMPACT>
 
 <DT><CODE>-B --binkley <I>dir</I></CODE>
@@ -1184,14 +1168,14 @@ Process *.pkt files in the input directory. Default: output files of
 
 <H2><A NAME="SEC36" HREF="fidogate_toc.html#TOC36">ftnroute -- Route FTN Mail Packets</A></H2>
 <P>
+<A NAME="IDX48"></A>
 <A NAME="IDX49"></A>
-<A NAME="IDX50"></A>
 
-</P>
+
 <P>
 Usage:
 
-</P>
+
 
 <PRE>
 ftnroute  [<I>-options</I>]  [<I>packet</I> ... ]
@@ -1200,7 +1184,7 @@ ftnroute  [<I>-options</I>]  [<I>packet</I> ... ]
 <P>
 Options:
 
-</P>
+
 <DL COMPACT>
 
 <DT><CODE>-g --grade <I>grade</I></CODE>
@@ -1234,13 +1218,13 @@ Set maximum number of concurrently open packet filess to
 
 <H2><A NAME="SEC37" HREF="fidogate_toc.html#TOC37">ftnseq -- Command Line Interface to Sequencer Files</A></H2>
 <P>
-<A NAME="IDX51"></A>
+<A NAME="IDX50"></A>
 
-</P>
+
 <P>
 Usage:
 
-</P>
+
 
 <PRE>
 ftnseq  [<I>-options</I>]  <I>sequencer</I>
@@ -1251,19 +1235,18 @@ This utilitity increments the named <I>sequencer</I> file outputs the
 resulting value to standard output. Useful for accessing FIDOGATE
 sequencer files from perl and shell scripts.
 
-</P>
 
 
 
 <H2><A NAME="SEC38" HREF="fidogate_toc.html#TOC38">ftntick -- Process incoming file echos</A></H2>
 <P>
-<A NAME="IDX52"></A>
+<A NAME="IDX51"></A>
 
-</P>
+
 <P>
 Usage:
 
-</P>
+
 
 <PRE>
 ftntick  [<I>-options</I>]
@@ -1272,7 +1255,7 @@ ftntick  [<I>-options</I>]
 <P>
 Options:
 
-</P>
+
 <DL COMPACT>
 
 <DT><CODE>-b --fareas-bbs <I>file</I></CODE>
@@ -1293,14 +1276,14 @@ Insecure processing, do TIC files without password.
 
 <H2><A NAME="SEC39" HREF="fidogate_toc.html#TOC39">ftntoss -- Toss FTN Mail Packets</A></H2>
 <P>
+<A NAME="IDX52"></A>
 <A NAME="IDX53"></A>
-<A NAME="IDX54"></A>
 
-</P>
+
 <P>
 Usage:
 
-</P>
+
 
 <PRE>
 ftntoss  [<I>-options</I>]  [<I>packet</I> ... ]
@@ -1309,7 +1292,7 @@ ftntoss  [<I>-options</I>]  [<I>packet</I> ... ]
 <P>
 Options:
 
-</P>
+
 <DL COMPACT>
 
 <DT><CODE>-d --no-dupecheck</CODE>
@@ -1375,14 +1358,14 @@ Set maximum number of concurrently open packet filess to
 
 <H2><A NAME="SEC40" HREF="fidogate_toc.html#TOC40">ftnfattach -- Outbound file attaches</A></H2>
 <P>
+<A NAME="IDX54"></A>
 <A NAME="IDX55"></A>
-<A NAME="IDX56"></A>
 
-</P>
+
 <P>
 Usage:
 
-</P>
+
 
 <PRE>
 ftnfattach  [<I>-options</I>]  <I>Z:N/F.P</I>  <I>file</I> ...
@@ -1391,7 +1374,7 @@ ftnfattach  [<I>-options</I>]  <I>Z:N/F.P</I>  <I>file</I> ...
 <P>
 Options:
 
-</P>
+
 <DL COMPACT>
 
 <DT><CODE>-B --binkley <I>name</I></CODE>
@@ -1409,20 +1392,18 @@ Set flavor of outbound FLO file to <I>name</I>: <CODE>Hold</CODE>,
 The file name may start with <CODE>^</CODE> or <CODE>#</CODE>, indicating that
 the file should be deleted or truncated, respectively, after sending.
 
-</P>
 
 
 
 <H2><A NAME="SEC41" HREF="fidogate_toc.html#TOC41">pktdebug -- FTN mail packet debugger</A></H2>
 <P>
-<A NAME="IDX57"></A>
+<A NAME="IDX56"></A>
 
-</P>
 
 <P>
 Usage:
 
-</P>
+
 
 <PRE>
 pktdebug  [<I>-options</I>]  <I>file</I> ...
@@ -1431,7 +1412,7 @@ pktdebug  [<I>-options</I>]  <I>file</I> ...
 <P>
 Options (standard options not supported):
 
-</P>
+
 <DL COMPACT>
 
 <DT><CODE>-m --msg-header</CODE>
@@ -1456,26 +1437,24 @@ Help on <CODE>pktdebug</CODE> usage.
 This utility displays the packet header and optionally the message
 header and message body contents.
 
-</P>
+
 <P>
 See also the <CODE>util/pktmore</CODE> utitility, which pipes the output of
 <CODE>pktdebug</CODE> to <CODE>$PAGER</CODE>.
 
-</P>
 
 
 
 <H2><A NAME="SEC42" HREF="fidogate_toc.html#TOC42">rfc2ftn -- Internet-FTN Gateway</A></H2>
 <P>
+<A NAME="IDX57"></A>
 <A NAME="IDX58"></A>
-<A NAME="IDX59"></A>
 
-</P>
 
 <P>
 Usage:
 
-</P>
+
 
 <PRE>
 rfc2ftn  [<I>-options</I>]  [<I>address</I> ...]
@@ -1484,7 +1463,7 @@ rfc2ftn  [<I>-options</I>]  [<I>address</I> ...]
 <P>
 Options:
 
-</P>
+
 <DL COMPACT>
 
 <DT><CODE>-b --news-batch</CODE>
@@ -1530,14 +1509,14 @@ Write only crash mail directly to Binkley .CUT file.
 
 <H2><A NAME="SEC43" HREF="fidogate_toc.html#TOC43">rundf -- Script for Checking Free Disk Space</A></H2>
 <P>
+<A NAME="IDX59"></A>
 <A NAME="IDX60"></A>
-<A NAME="IDX61"></A>
 
-</P>
+
 <P>
 Usage:
 
-</P>
+
 
 <PRE>
 rundf  <I>dir</I>
@@ -1546,32 +1525,31 @@ rundf  <I>dir</I>
 <P>
 No options.
 
-</P>
+
 <P>
 This shell script returns the free disk space (kB) of the file system
 containing <I>dir</I>. It is called by <CODE>runtoss</CODE> for the directories
 <CODE>OUTBOUND</CODE> and <CODE>SPOOLDIR</CODE>.
 
-</P>
+
 <P>
 As distributed with FIDOGATE this script requires <CODE>df</CODE> from the GNU
 file utilities. If you don't have this one, you must adapt
 <CODE>src/rundf.sh</CODE> to the output of your <CODE>df</CODE>.
 
-</P>
 
 
 
 <H2><A NAME="SEC44" HREF="fidogate_toc.html#TOC44">runin -- Script for Processing Inbound Packets</A></H2>
 <P>
+<A NAME="IDX61"></A>
 <A NAME="IDX62"></A>
-<A NAME="IDX63"></A>
 
-</P>
+
 <P>
 Usage:
 
-</P>
+
 
 <PRE>
 runin
@@ -1580,11 +1558,11 @@ runin
 <P>
 No options.
 
-</P>
+
 <P>
 Runs the tosser for the inbound directories:
 
-</P>
+
 
 <UL>
 
@@ -1609,25 +1587,24 @@ Tossing packets from the protected inbound (<CODE>runtoss</CODE>)
 <P>
 All log messages are written to LIBDIR/log-in.
 
-</P>
+
 <P>
 Edit this script (<CODE>src/runin.sh</CODE>) to meet your local
 requirements.
 
-</P>
 
 
 
 <H2><A NAME="SEC45" HREF="fidogate_toc.html#TOC45">runout -- Script for Processing Gateway Output Packets</A></H2>
 <P>
+<A NAME="IDX63"></A>
 <A NAME="IDX64"></A>
-<A NAME="IDX65"></A>
 
-</P>
+
 <P>
 Usage:
 
-</P>
+
 
 <PRE>
 runout
@@ -1636,31 +1613,29 @@ runout
 <P>
 No options.
 
-</P>
+
 <P>
 Runs the tosser for the gateway output directory, all log messages are
 written to LIBDIR/log-out.
 
-</P>
+
 <P>
 Edit this script (<CODE>src/runout.sh</CODE>) to meet your local
 requirements.
 
-</P>
 
 
 
 <H2><A NAME="SEC46" HREF="fidogate_toc.html#TOC46">runtoss -- Script for Running Tosser</A></H2>
 <P>
+<A NAME="IDX65"></A>
 <A NAME="IDX66"></A>
-<A NAME="IDX67"></A>
 
-</P>
 
 <P>
 Usage:
 
-</P>
+
 
 <PRE>
 runtoss  <I>type</I>
@@ -1669,29 +1644,28 @@ runtoss  <I>type</I>
 <P>
 No options.
 
-</P>
+
 <P>
 Types:
 
-</P>
+
 <P>
 Please the the script source code (<CODE>src/runtoss.sh</CODE>) for available
 <I>type</I> parameters and feel free to adapt it to your requirements.
 
-</P>
 
 
 
 <H2><A NAME="SEC47" HREF="fidogate_toc.html#TOC47">rununpack -- Script for Unpacking ArcMail Archives</A></H2>
 <P>
+<A NAME="IDX67"></A>
 <A NAME="IDX68"></A>
-<A NAME="IDX69"></A>
 
-</P>
+
 <P>
 Usage:
 
-</P>
+
 
 <PRE>
 rununpack  <I>type</I>
@@ -1700,21 +1674,21 @@ rununpack  <I>type</I>
 <P>
 No options.
 
-</P>
+
 <P>
 Types:
 
-</P>
+
 <P>
 Please the the script source code (<CODE>src/rununpack.sh</CODE>) for available
 <I>type</I> parameters and feel free to adapt it to your requirements.
 
-</P>
+
 <P>
 It requires the <CODE>file</CODE> command and the following definitions in
 LIBDIR<CODE>/magic</CODE> to work properly (done by make install):
 
-</P>
+
 
 <PRE>
 # ----- Archiver ----------------------------------
@@ -1731,22 +1705,20 @@ Edit the script (<CODE>src/rununpack.sh</CODE>) if necessary, changing
 unpacker names. The required programs are <CODE>unzip</CODE>, <CODE>unarj</CODE>,
 <CODE>lha</CODE>(<CODE>rc</CODE>), <CODE>zoo</CODE>, <CODE>arc</CODE>.
 
-</P>
 
 
 
 <H2><A NAME="SEC48" HREF="fidogate_toc.html#TOC48">sumcrc -- CRC Checksum Utility</A></H2>
 <P>
+<A NAME="IDX69"></A>
 <A NAME="IDX70"></A>
 <A NAME="IDX71"></A>
-<A NAME="IDX72"></A>
 
-</P>
 
 <P>
 Usage:
 
-</P>
+
 
 <PRE>
 sumcrc  [<I>-options</I>]  <I>file</I> ...
@@ -1755,7 +1727,7 @@ sumcrc  [<I>-options</I>]  <I>file</I> ...
 <P>
 Options (standard options not supported):
 
-</P>
+
 <DL COMPACT>
 
 <DT><CODE>-1 --skip-first-line</CODE>
@@ -1793,9 +1765,8 @@ Help on <CODE>sumcrc</CODE> usage.
 Use <CODE>sumcrc -1z</CODE> to compute the checksum for a standard FIDO
 nodelist.
 
-</P>
 
 <P><HR><P>
-<p>Go to the <A HREF="fidogate_1.html">first</A>, <A HREF="fidogate_2.html">previous</A>, <A HREF="fidogate_4.html">next</A>, <A HREF="fidogate_7.html">last</A> section, <A HREF="fidogate_toc.html">table of contents</A>.
+Go to the <A HREF="fidogate_1.html">first</A>, <A HREF="fidogate_2.html">previous</A>, <A HREF="fidogate_4.html">next</A>, <A HREF="fidogate_7.html">last</A> section, <A HREF="fidogate_toc.html">table of contents</A>.
 </BODY>
 </HTML>

@@ -1,32 +1,26 @@
 <HTML>
 <HEAD>
-<!-- This HTML file has been created by texi2html 1.54
-     from ../fidogate.texi on 18 May 1999 -->
+<!-- Created by texi2html 1.56k from ../fidogate.texi on 22 May 1999 -->
 
-<TITLE>FIDOGATE
- - Basic Configuration</TITLE>
-<link href="fidogate_6.html" rel=Next>
-<link href="fidogate_4.html" rel=Previous>
-<link href="fidogate_toc.html" rel=ToC>
-
+<TITLE>FIDOGATE  - Basic Configuration</TITLE>
 </HEAD>
 <BODY>
-<p>Go to the <A HREF="fidogate_1.html">first</A>, <A HREF="fidogate_4.html">previous</A>, <A HREF="fidogate_6.html">next</A>, <A HREF="fidogate_7.html">last</A> section, <A HREF="fidogate_toc.html">table of contents</A>.
+Go to the <A HREF="fidogate_1.html">first</A>, <A HREF="fidogate_4.html">previous</A>, <A HREF="fidogate_6.html">next</A>, <A HREF="fidogate_7.html">last</A> section, <A HREF="fidogate_toc.html">table of contents</A>.
 <P><HR><P>
 
 
 <H1><A NAME="SEC59" HREF="fidogate_toc.html#TOC59">Basic Configuration</A></H1>
 
 <P>
-<A NAME="IDX85"></A>
+<A NAME="IDX84"></A>
 
-</P>
+
 <P>
-There seems to be some confusion about how to configure the mail/news
-system, the gateway, and the tosser, so I added this chapter. Hopefully
-this will help ...
+There seems to be some confusion about the basic configuration of the
+mail/news system, the gateway, and the tosser, so I added this
+chapter. Hopefully this will help ...
 
-</P>
+
 
 <UL>
 <LI><A HREF="fidogate_5.html#SEC60">Sendmail</A>: Sendmail configuration
@@ -39,37 +33,39 @@ this will help ...
 
 <H2><A NAME="SEC60" HREF="fidogate_toc.html#TOC60">Sendmail Configuration</A></H2>
 <P>
+<A NAME="IDX85"></A>
 <A NAME="IDX86"></A>
-<A NAME="IDX87"></A>
 
-</P>
+
 <P>
 This section describes the FIDOGATE additions to the sendmail V8 m4
 configuration.
 
-</P>
+
 <P>
 FIDOGATE adds two new mailer files, <CODE>ftn.m4</CODE> and <CODE>ffx.m4</CODE>. Use
 <CODE>MAILER(ftn)</CODE> and/or <CODE>Mailer(ffx)</CODE> to include these mailer
-definitions.
+definitions. (See the comment above for what ffx is good for. Most
+likely you won't need it.)
 
-</P>
+
 <P>
 Please note that the new FIDOGATE mailers are based on the SMTP mailer
 sender/recipient rewrite rules, so including <CODE>MAILER(smtp)</CODE> is
 mandatory!
 
-</P>
-<P>
-FIDOGATE ftn mailers (using the <CODE>rfc2ftn</CODE> gateway program):
 
-</P>
+<P>
+FIDOGATE ftn mailers (using the <CODE>ftnmail</CODE> wrapper for
+<CODE>rfc2ftn</CODE>):
+
+
 <DL COMPACT>
 
 <DT><CODE>ftn</CODE>
 <DD>
 Mailer for sending to systems registered in the <CODE>hosts</CODE> config
-file. <CODE>ftn</CODE> will bounce mails if the receiving hosts is not
+file. <CODE>ftn</CODE> will bounce mails if the receiving host is not
 registered or marked as down.
 
 <DT><CODE>ftni</CODE>
@@ -86,14 +82,14 @@ uplink of the gateway to the relay host passed to this mailer.
 <DT><CODE>ftno</CODE>
 <DD>
 Like <CODE>ftna</CODE>. In addition, this mailer sets the directory for
-packets created by <CODE>rfc2ftn</CODE> to SPOOLDIR/out/<I>relayhost</I>.
+packets created by <CODE>rfc2ftn</CODE> to SPOOLDIR/outpkt/<I>relayhost</I>.
 
 </DL>
 
 <P>
 FIDOGATE ffx mailer (using the <CODE>ffxmail</CODE> utitility):
 
-</P>
+
 <DL COMPACT>
 
 <DT><CODE>ffx</CODE>
@@ -106,74 +102,63 @@ Mailer for sending via the FIDOGATE ffx sub-system.
 
 <H2><A NAME="SEC61" HREF="fidogate_toc.html#TOC61">Example Point Configuration</A></H2>
 <P>
+<A NAME="IDX87"></A>
 <A NAME="IDX88"></A>
 <A NAME="IDX89"></A>
-<A NAME="IDX90"></A>
 
-</P>
-<P>
-<B>NOT UP-TO-DATE FOR VERSION 4.3.X !!!</B>
 
-</P>
 <P>
-<I>Please note that this point configuration uses the FIDOGATE
+<B>Please note that this point configuration uses the FIDOGATE
 tosser. Thus, it's different from the point configuration described in
-Roland Rosenfeld's Point HOWTO!!!</I>
+Roland Rosenfeld's old Point HOWTO!!! The Point HOWTO configuration will 
+definitely NOT work with FIDOGATE version 4!!!</B>
 
-</P>
+
 <P>
 Actually, this point configuration is very similar to the node
 configuration described in the next section.
 
-</P>
+
 <P>
 Let's assume the following addresses:
 
-</P>
-<P>
-Fido point address 2:2499/123.9
-
-</P>
-<P>
-Uplink (NetMail and EchoMail) 2:2499/123
-
-</P>
 
 <P>
-Address configuration <CODE>config.gate</CODE> (uplink is the same as the
-point address!), <CODE>EchoMail4D</CODE> is stricly reqired:
+Fido point address 2:2499/999.9
 
-</P>
+
+<P>
+Boss node (NetMail and EchoMail) 2:2499/999
+
+
+<P>
+Address configuration <CODE>fidogate.conf</CODE> (gateway and point address
+are the same!), gateway configuration <CODE>EchoMail4D</CODE> is stricly
+reqired:
+
+
 
 <PRE>
-Address 2:2499/123.9
-Uplink  2:2499/123.9
-
+...
+Address 2:2499/999.9
+...
 EchoMail4D
-</PRE>
-
-<P>
-Address configuration <CODE>config.main</CODE> (no uplink here!):
-
-</P>
-
-<PRE>
-Address 2:2499/123.9
+...
 </PRE>
 
 <P>
 Routing configuration <CODE>routing</CODE>: mail for the local address on
 hold, everything else is send to the boss node.
 
-</P>
+
 
 <PRE>
 NetMail
-route    hold   2:2499/123.9
-route    normal 2:2499/123 1:* 2:* 3:* 4:* 5:* 6:*
+route    hold   2:2499/999.9
+route    normal 2:2499/999 1:* 2:* 3:* 4:* 5:* 6:*
 
 EchoMail
-sendmove hold   2:2499/123.9
+sendmove hold   2:2499/999.9
 sendmove normal *
 </PRE>
 
@@ -182,12 +167,12 @@ Packer configuration <CODE>packing</CODE>: no packing (noarc, this is very
 important) for own address, <CODE>zip</CODE> is the default archiver for
 everything else.
 
-</P>
+
 
 <PRE>
 arc  zip    "/usr/bin/zip -9gkjq %s %s"
 
-pack noarc  2:2499/123.9
+pack noarc  2:2499/999.9
 pack zip    *
 </PRE>
 
@@ -197,86 +182,72 @@ Next, the EchoMail areas must be listed in the <CODE>areas.bbs</CODE> file. Do
 areas (the directory <CODE>X</CODE> is not used for EchoMail areas), which
 must be non-passthrough:
 
-</P>
+
 
 <PRE>
 Your system name!sysop name
-X LINUX.GER 2:2499/123
-X UNIX.GER  2:2499/123
+X LINUX.GER 2:2499/999
+X UNIX.GER  2:2499/999
 </PRE>
 
 <P>
 In the gateway configuration, these areas must be listed in the
 <CODE>areas</CODE> config file:
 
-</P>
+
 
 <PRE>
-LINUX.GER fido.ger.linux
-UNIX.GER  fido.ger.unix
+LINUX.GER fido.ger.linux -8
+UNIX.GER  fido.ger.unix  -8
 </PRE>
 
 <P>
-Now the gateway is able to process EchoMail. The program <CODE>ftnin</CODE>
-should be run to gate any (unpacked) FTN outbound mail packet for
-2:2499/123.9. The script <CODE>scripts/run/runpoll</CODE> runs everything
-needed for a point polling its mail at the boss node.
+The example configuration files for this configuration can be found in
+<CODE>examples/point/</CODE>. See also <CODE>scripts/run/runpoll</CODE> for a
+suitable poll script, which does everything necessary for a FIDOGATE
+point.
 
-</P>
 
 
 
 <H2><A NAME="SEC62" HREF="fidogate_toc.html#TOC62">Example Configuration with 2 Point Addresses</A></H2>
 <P>
+<A NAME="IDX90"></A>
 <A NAME="IDX91"></A>
 <A NAME="IDX92"></A>
-<A NAME="IDX93"></A>
 
-</P>
-<P>
-<B>NOT UP-TO-DATE FOR VERSION 4.3.X !!!</B>
 
-</P>
 <P>
 This section describes a point setup with 2 different point addresses
-and 2 different boss nodes (uplinks). Thanks to Stephan Zellerhoff
+and 2 different boss nodes. Thanks to Stephan Zellerhoff
 &#60;stephan@poi.westfalen.de&#62; for contributing some stuff.
 
-</P>
+
 <P>
 Let's assume the following addresses:
 
-</P>
-<P>
-Primary point address 2:2499/123.10, boss node 2:2499/123
 
-</P>
 <P>
-Secondary point address 2:2498/120.2, boss node 2:2498/120
+Primary point address 2:2499/999.9, boss node 2:2499/999
 
-</P>
+
+<P>
+Secondary point address 2:2498/888.8, boss node 2:2498/888
+
+
 <P>
 Setup with FIDOGATE:
 
-</P>
+
 <DL COMPACT>
 
 <DT><B>Addresses</B>
 <DD>
-Put the following address statements in <CODE>config.gate</CODE>
+Put the following address statements in <CODE>fidogate.conf</CODE>
 
 <PRE>
-Address 2:2499/123.10
-Address 2:2498/120.2
-Uplink  2:2499/123.10
-Uplink  2:2498/120.2
-</PRE>
-
-and <CODE>config.main</CODE>
-
-<PRE>
-Address 2:2499/123.10
-Address 2:2498/120.2
+Address 2:2499/999.9
+Address 2:2498/888.8
 </PRE>
 
 Please note that the primary point address must be the <I>first</I> entry!
@@ -288,9 +259,9 @@ entries for routing Fidonet mail:
 
 <PRE>
 # Mail to 2:2498/*, secondary address
-.n2498.z2.fidonet.org    ftna:p2.f120.n2498.z2.fidonet.org
+.n2498.z2.fidonet.org    ftna:p8.f888.n2498.z2.fidonet.org
 # Everything else 2:*/*, primary address
-.z2.fidonet.org          ftna:p10.f123.n2499.z2.fidonet.org
+.z2.fidonet.org          ftna:p9.f999.n2499.z2.fidonet.org
 </PRE>
 
 Please note that in this setup, the relay host specified with the
@@ -300,20 +271,20 @@ Please note that in this setup, the relay host specified with the
 <DD>
 Areas send to the primary boss don't require anything special in the
 <CODE>areas</CODE> config file, areas send to the secondary boss must have the
-<CODE>-a 2:2498/120.2</CODE> option, e.g.
+<CODE>-a 2:2498/888.8</CODE> option, e.g.
 
 <PRE>
-LINUX.GER    fido.ger.linux    -a 2:2498/120.2
+LINUX.GER    fido.ger.linux    -a 2:2498/888.8 -8
 </PRE>
 
 <DT><B>Areas.BBS</B>
 <DD>
 Likewise, areas send to the secondary boss must have the <CODE>-a
-2:2498/120.2</CODE> option in <CODE>areas.bbs</CODE> and the secondary boss as the
+2:2498/888.8</CODE> option in <CODE>areas.bbs</CODE> and the secondary boss as the
 uplink, e.g.
 
 <PRE>
-X LINUX.GER    -a 2:2498/120.2    2:2498/120
+X LINUX.GER    -a 2:2498/888.8    2:2498/888
 </PRE>
 
 <DT><B>Routing</B>
@@ -322,8 +293,16 @@ The netmail routing must be adapted to send mail to the secondary boss,
 e.g. everything for net 2498:
 
 <PRE>
-route    normal   2:2498/120 2:2498/*.*
-route    normal   2:2499/123 2:*
+NetMail
+route    hold     2:2499/999.9
+route    hold     2:2498/888.8
+
+route    normal   2:2498/888 2:2498/*.*
+route    normal   2:2499/999 2:*
+
+EchoMail
+sendmove hold     2:2499/999.9 2498/888.8
+sendmove normal   *
 </PRE>
 
 <DT><B>Packing</B>
@@ -336,76 +315,53 @@ archiver for everything else.
 <PRE>
 arc  zip    "/usr/bin/zip -9gkjq %s %s"
 
-pack noarc  2:2499/123.10 120.2
+pack noarc  2:2499/999.9 2498/888.8
 pack zip    *
 </PRE>
 
-<DT><B>Miscellaneous</B>
-<DD>
-
-<UL>
-<LI>
-
-<I>Disable</I> <CODE>CheckPath</CODE> in <CODE>config.main</CODE>.
-<LI>
-
-<I>Enable</I> <CODE>EchoMail4D</CODE> in <CODE>config.gate</CODE>.
-</UL>
-
 </DL>
+
+<P>
+Otherwise see the standard point configuration with a single address.
+
 
 
 
 <H2><A NAME="SEC63" HREF="fidogate_toc.html#TOC63">Example Leaf Node configuration</A></H2>
 <P>
+<A NAME="IDX93"></A>
 <A NAME="IDX94"></A>
 <A NAME="IDX95"></A>
-<A NAME="IDX96"></A>
 
-</P>
 
-<P>
-<B>NOT UP-TO-DATE FOR VERSION 4.3.X !!!</B>
-
-</P>
 <P>
 Let's assume the following addresses:
 
-</P>
-<P>
-Fido main address 2:2499/123
-
-</P>
-<P>
-Uplink (NetMail and EchoMail) 2:2499/100
-
-</P>
-<P>
-Local gateway address 2:2499/123.1
-
-</P>
-<P>
-Two points, Max Mueller @ 2:2499/123.10, Sabine Meier @ 2:2499/123.11
-
-</P>
 
 <P>
-Address configuration <CODE>config.gate</CODE> (uplink is node address!):
+Fido main address 2:2499/999
 
-</P>
+
+<P>
+Uplink (NetMail and EchoMail) 2:2499/900
+
+
+<P>
+Gateway point address 2:2499/999.1
+
+
+<P>
+Two points, Max Mueller @ 2:2499/999.10, Sabine Meier @ 2:2499/999.11
+
+
+<P>
+Address configuration <CODE>fidogate.conf</CODE>:
+
+
 
 <PRE>
-Address 2:2499/123.1
-Uplink  2:2499/123
-</PRE>
-
-<P>
-Address configuration <CODE>config.main</CODE> (no uplink here!):
-
-</P>
-
-<PRE>
-Address 2:2499/123
+Address     2:2499/999
+GateAddress 2:2499/999.1
 </PRE>
 
 <P>
@@ -415,33 +371,33 @@ you will be reading your mail). NetMail for all points is <CODE>send</CODE>
 onto hold, everything else <CODE>route</CODE>d to your uplink. EchoMail is
 alway put onto hold.
 
-</P>
+
 
 <PRE>
-remap 2:2499/123.0 2:2499/123.10 "Max Mueller"
-remap 2:2499/123.0 2:2499/123.11 "Sabine Meier"
-remap 2:2499/123.0 2:2499/123.1  "*"
+remap    2:2499/999.0 2:2499/999.10 "Max Mueller"
+remap    2:2499/999.0 2:2499/999.11 "Sabine Meier"
+remap    2:2499/999.0 2:2499/999.1  "*"
 
 NetMail
-send  hold   2:2499/123.*
-route normal 2:2499/100 1:* 2:* 3:* 4:* 5:* 6:*
+send     hold   2:2499/999.*
+route    normal 2:2499/900 1:* 2:* 3:* 4:* 5:* 6:*
 
 EchoMail
-sendmove hold   2:2499/123.*
+sendmove hold   2:2499/999.*
 sendmove normal *
 </PRE>
 
 <P>
-Packer configuration <CODE>packing</CODE>: no packing for the gateway address,
-<CODE>zip</CODE> is the default archiver for everything else.
+Packer configuration <CODE>packing</CODE>: <CODE>noarc</CODE> packing for the
+gateway address, <CODE>zip</CODE> is the default archiver for everything else.
 
-</P>
+
 
 <PRE>
-arc zip "/usr/bin/zip -9gkjq %s %s"
+arc      zip    "/usr/bin/zip -9gkjq %s %s"
 
-pack noarc  2:2499/123.1
-pack zip    *
+pack     noarc  2:2499/999.1
+pack     zip    *
 </PRE>
 
 <P>
@@ -450,49 +406,69 @@ Next, the EchoMail areas must be listed in the <CODE>areas.bbs</CODE> file. Do
 areas, both subscribed by the gateway and your points (the directory
 <CODE>X</CODE> is not used for EchoMail areas):
 
-</P>
+
 
 <PRE>
 Your system name!sysop name
-#X LINUX.GER 2:2499/100 123.1 .10 .11
-#X UNIX.GER  2:2499/100 123.1 .11
+#X LINUX.GER 2:2499/900 999.1 .10 .11
+#X UNIX.GER  2:2499/900 999.1 .11
 </PRE>
 
 <P>
 <CODE>#</CODE> denotes a <I>passthrough</I> area, i.e. no packets for the own
-address (2:2499/123) are created. All EchoMail will be send to the
+address (2:2499/999) are created. All EchoMail will be send to the
 gateway (.1).
 
-</P>
+
 <P>
 In the gateway configuration, these areas must be listed in the
 <CODE>areas</CODE> config file:
 
-</P>
+
 
 <PRE>
-LINUX.GER fido.ger.linux
-UNIX.GER  fido.ger.unix
+LINUX.GER fido.ger.linux -8
+UNIX.GER  fido.ger.unix  -8
 </PRE>
 
 <P>
-Now the gateway is able to process EchoMail. The program <CODE>ftnin</CODE>
-should be run to gate any (unpacked) FTN outbound mail packet for
-2:2499/123.1. The scripts <CODE>runin</CODE> and <CODE>runout</CODE> run the tosser
-for processing the inbound and the gateway output, respectively.
+For regular processing, the following scripts should be run from cron
+every 20 min or so:
+<DL COMPACT>
 
-</P>
+<DT><CODE>rungate</CODE>
+<DD>
+Inbound gateway (Fido -&#62; Internet and FTN -&#62; FTN) processing
+
+<DT><CODE>runin</CODE>
+<DD>
+Inbound tosser and ticker processing
+
+<DT><CODE>runmail</CODE>
+<DD>
+Outbound gateway for mail (Internet -&#62; Fido) processing.
+
+<DT><CODE>runnews</CODE>
+<DD>
+Outbound gateway for news (Internet -&#62; Fido) processing.
+
+<DT><CODE>runout</CODE>
+<DD>
+Outbound packet processing (various sources).
+
+</DL>
+
 <P>
-To use the <CODE>ftnaf</CODE> areafix, the gateway and the mail system must be
-working. You can then install suitable aliases in <CODE>/etc/aliases</CODE>:
+To use the areafix, the gateway and the mail system must be working. You
+can then install suitable aliases in <CODE>/etc/aliases</CODE>:
 
-</P>
+
 
 <PRE>
 # Areafix/Filefix - FIDOGATE ftnaf
-areafix: "|/usr/local/lib/fidogate/ftnafmail"
+areafix: "|/usr/lib/fidogate/ftnafmail"
 areamgr: areafix
-filefix: "|/usr/local/lib/fidogate/ftnafmail -F"
+filefix: "|/usr/lib/fidogate/ftnafmail -F"
 filemgr: filefix
 </PRE>
 
@@ -501,9 +477,8 @@ That's it. I hope that this short chapter on basic configuration clarifies
 some of the darker point of the FIDOGATE configuration. Anyway, please
 help to improve the FIDOGATE documentation.
 
-</P>
 
 <P><HR><P>
-<p>Go to the <A HREF="fidogate_1.html">first</A>, <A HREF="fidogate_4.html">previous</A>, <A HREF="fidogate_6.html">next</A>, <A HREF="fidogate_7.html">last</A> section, <A HREF="fidogate_toc.html">table of contents</A>.
+Go to the <A HREF="fidogate_1.html">first</A>, <A HREF="fidogate_4.html">previous</A>, <A HREF="fidogate_6.html">next</A>, <A HREF="fidogate_7.html">last</A> section, <A HREF="fidogate_toc.html">table of contents</A>.
 </BODY>
 </HTML>

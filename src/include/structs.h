@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: structs.h,v 4.17 1999/01/02 16:35:04 mj Exp $
+ * $Id: structs.h,v 4.18 1999/05/22 12:05:01 mj Exp $
  *
  * An assortment of FIDOGATE data structure definitions
  *
@@ -54,9 +54,7 @@ typedef struct st_alias {
     struct st_alias *next;
     Node node;
     char *username;
-#ifdef AI_2
     char *userdom;
-#endif
     char *fullname;
 } Alias;
 

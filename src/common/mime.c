@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: mime.c,v 4.10 1999/05/18 19:49:06 mj Exp $
+ * $Id: mime.c,v 4.11 1999/05/22 12:05:00 mj Exp $
  *
  * MIME stuff
  *
@@ -65,6 +65,7 @@ static int x2toi(char *s)
 char *mime_dequote(char *d, size_t n, char *s, int flags)
 {
     int i, c;
+    char *xl;
 
     for(i=0; i<n-1 && *s; i++, s++)
     {
@@ -84,14 +85,26 @@ char *mime_dequote(char *d, size_t n, char *s, int flags)
 	else if( (flags & MIME_US) && (s[0] == '_') ) /* Underscore */
 	{
 	    c = ' ';
-	    continue;
 	}
 	else {					/* Nothing special to do */
 	    c = *s;
 	}
 
-	/**FIXME: add charset mapping**/
-	d[i] = c;
+	if(c & 0x80)
+	{
+	    /* Translate special characters according to charset */
+	    if( (xl = charset_map_c(c, FALSE)) )
+	    {
+		while(*xl && i<n-1)
+		{
+		    d[i] = *xl++;
+		    if(*xl)
+		        i++;
+		}
+	    }
+	}
+	else
+	  d[i] = c;
     }
     d[i] = 0;
 
