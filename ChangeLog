@@ -1,3 +1,15 @@
+2003-12-13  Martin Junius  <mj@m-j-s.net>
+
+	------- CVS ci -------------------------------------------------------
+
+	* sendmail/cf/redhat9-morannon.mc: dito.
+
+	* sendmail/cf/redhat9-orodruin.mc: enabled TRUST_AUTH_MECH.
+
+2003-10-28  Martin Junius  <mj@m-j-s.net>
+
+	* sendmail/cf/redhat9-orodruin.mc: use masquerade and genericstable.
+
 2003-06-18  Martin Junius  <mj@m-j-s.net>
 
 	------- CVS ci -------------------------------------------------------

@@ -42,8 +42,8 @@ dnl # Mozilla Mail and Evolution, though Outlook Express and other MUAs do
 dnl # use LOGIN. Other mechanisms should be used if the connection is not
 dnl # guaranteed secure.
 dnl #
-dnl TRUST_AUTH_MECH(`EXTERNAL DIGEST-MD5 CRAM-MD5 LOGIN PLAIN')dnl
-dnl define(`confAUTH_MECHANISMS', `EXTERNAL GSSAPI DIGEST-MD5 CRAM-MD5 LOGIN PLAIN')dnl
+TRUST_AUTH_MECH(`EXTERNAL DIGEST-MD5 CRAM-MD5 LOGIN PLAIN')dnl
+define(`confAUTH_MECHANISMS', `EXTERNAL GSSAPI DIGEST-MD5 CRAM-MD5 LOGIN PLAIN')dnl
 dnl #
 dnl # Rudimentary information on creating certificates for sendmail TLS:
 dnl #     make -C /usr/share/ssl/certs usage

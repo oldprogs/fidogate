@@ -16,7 +16,7 @@ dnl # be sent out through an external mail server:
 dnl #
 define(`SMART_HOST', ffx:morannon.fido.de)
 dnl #
-define(`confCF_VERSION', `redhat9-orodruin-1.2')
+define(`confCF_VERSION', `redhat9-orodruin-1.3')
 define(`confMIME_FORMAT_ERRORS', `False')
 define(`confDEF_USER_ID',``8:12'')dnl
 define(`confTRUSTED_USER', `smmsp')dnl
@@ -43,8 +43,8 @@ dnl # Mozilla Mail and Evolution, though Outlook Express and other MUAs do
 dnl # use LOGIN. Other mechanisms should be used if the connection is not
 dnl # guaranteed secure.
 dnl #
-dnl TRUST_AUTH_MECH(`EXTERNAL DIGEST-MD5 CRAM-MD5 LOGIN PLAIN')dnl
-dnl define(`confAUTH_MECHANISMS', `EXTERNAL GSSAPI DIGEST-MD5 CRAM-MD5 LOGIN PLAIN')dnl
+TRUST_AUTH_MECH(`EXTERNAL DIGEST-MD5 CRAM-MD5 LOGIN PLAIN')dnl
+define(`confAUTH_MECHANISMS', `EXTERNAL GSSAPI DIGEST-MD5 CRAM-MD5 LOGIN PLAIN')dnl
 dnl #
 dnl # Rudimentary information on creating certificates for sendmail TLS:
 dnl #     make -C /usr/share/ssl/certs usage
@@ -134,20 +134,27 @@ dnl #
 dnl # The following example makes mail from this host and any additional
 dnl # specified domains appear to be sent from mydomain.com
 dnl #
-dnl MASQUERADE_AS(`mydomain.com')dnl
+MASQUERADE_AS(`m-j-s.net')
 dnl #
 dnl # masquerade not just the headers, but the envelope as well
 dnl #
-dnl FEATURE(masquerade_envelope)dnl
+FEATURE(masquerade_envelope)
 dnl #
 dnl # masquerade not just @mydomainalias.com, but @*.mydomainalias.com as well
 dnl #
-dnl FEATURE(masquerade_entire_domain)dnl
+FEATURE(masquerade_entire_domain)
 dnl #
-dnl MASQUERADE_DOMAIN(localhost)dnl
-dnl MASQUERADE_DOMAIN(localhost.localdomain)dnl
-dnl MASQUERADE_DOMAIN(mydomainalias.com)dnl
-dnl MASQUERADE_DOMAIN(mydomain.lan)dnl
+MASQUERADE_DOMAIN(localhost)
+MASQUERADE_DOMAIN(localhost.localdomain)
+MASQUERADE_DOMAIN(m-j-s.net)
+MASQUERADE_DOMAIN(mjsb.net)
+MASQUERADE_DOMAIN(orodruin.mjsb.net)
+
+dnl # For masquerading
+FEATURE(`genericstable')
+FEATURE(`generics_entire_domain')
+GENERICS_DOMAIN(mjsb.net)
+
 
 MAILER(smtp)
 MAILER(procmail)
