@@ -1,5 +1,17 @@
 Sat Sep  7 18:09:32 1996  Martin Junius  <mj@fido.de>
 
+	------- CVS tag R40a5a -----------------------------------------------
+
+	------- CVS ci -------------------------------------------------------
+
+	* src/common/version.c: removed #include "patchlevel.h".
+
+	* patchlevel.h: removed.
+
+	* version.h: integrated stuff from patchlevel.h
+
+	* patchlevel.h (ALPHA): updated version number.
+
 	------- CVS tag R40a5 ------------------------------------------------
 
 	------- CVS commit ---------------------------------------------------
