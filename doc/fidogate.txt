@@ -1139,6 +1139,16 @@ Commands:
 `-AREA'
      Unsubscribe from AREA.
 
+`create AREA  [-options ]'
+     Create new area. AUTHORISATION NOT YET IMPLEMENTED, command works
+     only from command line. Allowed `areas.bbs' options: `-r', `-#',
+     `-l', `-k', and `-d'. If you want to set an area description using
+     `-d "Some Text"', enclose the whole command in single quotes
+     `'...''.
+
+`vacation AREA'
+     Set vacation flag for AREA.
+
 `help'
      Help on Areafix commands.
 
@@ -1661,21 +1671,8 @@ No options.
 
 Types:
 
-`normal'
-     Default processing (input SPOOLDIR/toss/in).
-
-`out'
-     Process output of `rfc2ftn' (input SPOOLDIR/out).
-
-`pin'
-     Process protected inbound (input PINBOUND).
-
-`in'
-     Process insecure inbound (input INBOUND).
-
-   Edit the script (`src/runtoss.sh') for configuration options:
-maximum number of open files, maximum number of messages, maximum
-archive size, minimum free disk space.
+   Please the the script source code (`src/runtoss.sh') for available
+type parameters and feel free to adapt it to your requirements.
 
 
 rununpack -- Script for Unpacking ArcMail Archives
@@ -1689,11 +1686,8 @@ No options.
 
 Types:
 
-`pin'
-     Process protected inbound (input PINBOUND).
-
-`in'
-     Process insecure inbound (input INBOUND).
+   Please the the script source code (`src/rununpack.sh') for available
+type parameters and feel free to adapt it to your requirements.
 
    It requires the `file' command and the following definitions in
 LIBDIR`/magic' to work properly (done by make install):
@@ -2872,11 +2866,12 @@ options
           Set Areafix/Filefix access key for this area.
 
     `-d "description"'
-          Description for this area. Enclose in "..." to allow spaces in
-          description text.
+          Description for this area. Enclose in `"..."' to allow spaces
+          in description text.
 
     `-#'
-          Set pass-through flag for this area.
+          Set pass-through flag for this area (same as directory
+          starting with `#').
 
     `-r'
           Set read-only flag for this area. New downlink will have a

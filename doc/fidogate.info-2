@@ -1095,11 +1095,12 @@ options
           Set Areafix/Filefix access key for this area.
 
     `-d "description"'
-          Description for this area. Enclose in "..." to allow spaces in
-          description text.
+          Description for this area. Enclose in `"..."' to allow spaces
+          in description text.
 
     `-#'
-          Set pass-through flag for this area.
+          Set pass-through flag for this area (same as directory
+          starting with `#').
 
     `-r'
           Set read-only flag for this area. New downlink will have a

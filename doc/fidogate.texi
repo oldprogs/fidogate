@@ -2,7 +2,7 @@
 @c
 @c FIDOGATE documentation
 @c
-@c $Id: fidogate.texi,v 4.35 1997/11/16 18:25:39 mj Exp $
+@c $Id: fidogate.texi,v 4.36 1997/11/20 18:30:36 mj Exp $
 @c
 
 @setfilename fidogate.info
@@ -1538,6 +1538,16 @@ Subscribe to @i{AREA}.
 @item -@i{AREA}
 Unsubscribe from @i{AREA}.
 
+@item create @i{AREA}  @r{[}@i{-options} @r{]}
+Create new area. AUTHORISATION NOT YET IMPLEMENTED, command works only
+from command line. Allowed @code{areas.bbs} @i{options}: @code{-r},
+@code{-#}, @code{-l}, @code{-k}, and @code{-d}. If you want to set an
+area description using @code{-d "Some Text"}, enclose the whole
+@i{command} in single quotes @code{'...'}.
+
+@item vacation @i{AREA}
+Set vacation flag for @i{AREA}.
+
 @item help
 Help on Areafix commands.
 
@@ -2287,25 +2297,8 @@ runtoss  @i{type}
 
 @noindent Types:
 
-@table @code
-
-@item normal
-Default processing (input SPOOLDIR/toss/in).
-
-@item out
-Process output of @code{rfc2ftn} (input SPOOLDIR/out).
-
-@item pin
-Process protected inbound (input PINBOUND).
-
-@item in
-Process insecure inbound (input INBOUND).
-
-@end table
-
-Edit the script (@code{src/runtoss.sh}) for configuration options:
-maximum number of open files, maximum number of messages, maximum
-archive size, minimum free disk space.
+Please the the script source code (@code{src/runtoss.sh}) for available
+@i{type} parameters and feel free to adapt it to your requirements.
 
 
 
@@ -2326,15 +2319,8 @@ rununpack  @i{type}
 
 @noindent Types:
 
-@table @code
-
-@item pin
-Process protected inbound (input PINBOUND).
-
-@item in
-Process insecure inbound (input INBOUND).
-
-@end table
+Please the the script source code (@code{src/rununpack.sh}) for available
+@i{type} parameters and feel free to adapt it to your requirements.
 
 It requires the @code{file} command and the following definitions in
 LIBDIR@code{/magic} to work properly (done by make install):
@@ -3792,10 +3778,11 @@ Set Areafix/Filefix access level for this area.
 @item -k @i{key}
 Set Areafix/Filefix access key for this area.
 @item -d "@i{description}"
-Description for this area. Enclose in "..." to allow spaces in
+Description for this area. Enclose in @code{"..."} to allow spaces in
 description text.
 @item -#
-Set pass-through flag for this area.
+Set pass-through flag for this area (same as @i{directory} starting with
+@code{#}).
 @item -r
 Set read-only flag for this area. New downlink will have a read-only
 status. NOT YET IMPLEMENTED.

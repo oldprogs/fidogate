@@ -1,7 +1,7 @@
 <HTML>
 <HEAD>
 <!-- This HTML file has been created by texi2html 1.51
-     from ../fidogate.texi on 16 November 1997 -->
+     from ../fidogate.texi on 20 November 1997 -->
 
 <TITLE>FIDOGATE
  - FIDOGATE Programs</TITLE>
@@ -699,6 +699,18 @@ Subscribe to <I>AREA</I>.
 <DT><CODE>-<I>AREA</I></CODE>
 <DD>
 Unsubscribe from <I>AREA</I>.
+
+<DT><CODE>create <I>AREA</I>  [<I>-options</I> ]</CODE>
+<DD>
+Create new area. AUTHORISATION NOT YET IMPLEMENTED, command works only
+from command line. Allowed <CODE>areas.bbs</CODE> <I>options</I>: <CODE>-r</CODE>,
+<CODE>-#</CODE>, <CODE>-l</CODE>, <CODE>-k</CODE>, and <CODE>-d</CODE>. If you want to set an
+area description using <CODE>-d "Some Text"</CODE>, enclose the whole
+<I>command</I> in single quotes <CODE>'...'</CODE>.
+
+<DT><CODE>vacation <I>AREA</I></CODE>
+<DD>
+Set vacation flag for <I>AREA</I>.
 
 <DT><CODE>help</CODE>
 <DD>
@@ -1662,30 +1674,9 @@ No options.
 Types:
 
 </P>
-<DL COMPACT>
-
-<DT><CODE>normal</CODE>
-<DD>
-Default processing (input SPOOLDIR/toss/in).
-
-<DT><CODE>out</CODE>
-<DD>
-Process output of <CODE>rfc2ftn</CODE> (input SPOOLDIR/out).
-
-<DT><CODE>pin</CODE>
-<DD>
-Process protected inbound (input PINBOUND).
-
-<DT><CODE>in</CODE>
-<DD>
-Process insecure inbound (input INBOUND).
-
-</DL>
-
 <P>
-Edit the script (<CODE>src/runtoss.sh</CODE>) for configuration options:
-maximum number of open files, maximum number of messages, maximum
-archive size, minimum free disk space.
+Please the the script source code (<CODE>src/runtoss.sh</CODE>) for available
+<I>type</I> parameters and feel free to adapt it to your requirements.
 
 </P>
 
@@ -1714,18 +1705,11 @@ No options.
 Types:
 
 </P>
-<DL COMPACT>
+<P>
+Please the the script source code (<CODE>src/rununpack.sh</CODE>) for available
+<I>type</I> parameters and feel free to adapt it to your requirements.
 
-<DT><CODE>pin</CODE>
-<DD>
-Process protected inbound (input PINBOUND).
-
-<DT><CODE>in</CODE>
-<DD>
-Process insecure inbound (input INBOUND).
-
-</DL>
-
+</P>
 <P>
 It requires the <CODE>file</CODE> command and the following definitions in
 LIBDIR<CODE>/magic</CODE> to work properly (done by make install):

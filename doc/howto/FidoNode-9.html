@@ -15,18 +15,19 @@ nur Vereinfachungen. </P>
 <P>Also ich habe folgende Dateien ins Verzeichniss gelinkt.
 <HR>
 <PRE>
-ln -s /etc/fidogate/areas.bbs
-ln -s /etc/fidogate/fareas.bbs
-ln -s /etc/fidogate/packing
-ln -s /etc/fidogate/passwd
-ln -s /etc/fidogate/routing
-ln -s /usr/local/bin/fidogate/ftn2rfc
-ln -s /usr/local/bin/fidogate/ftnaf
-ln -s /usr/local/bin/fidogate/ftnfattach
-ln -s /usr/local/bin/fidogate/ftnhatch
-ln -s /usr/local/bin/fidogate/ftntick
-ln -s /usr/local/bin/fidogate/rfc2ftn
-ln -s /usr/local/bin/fidogate/runin
+cd /home/fido
+ln -s /usr/local/lib/fidogate/areas.bbs
+ln -s /usr/local/lib/fidogate/fareas.bbs
+ln -s /usr/local/lib/fidogate/packing
+ln -s /usr/local/lib/fidogate/passwd
+ln -s /usr/local/lib/fidogate/routing
+ln -s /usr/local/lib/fidogate/ftn2rfc
+ln -s /usr/local/lib/fidogate/ftnaf
+ln -s /usr/local/lib/fidogate/ftnfattach
+ln -s /usr/local/lib/fidogate/ftnhatch
+ln -s /usr/local/lib/fidogate/ftntick
+ln -s /usr/local/lib/fidogate/rfc2ftn
+ln -s /usr/local/lib/fidogate/runin
 
 ln -s /etc/ifcico/config
 ln -s /etc/ifcico/passworts
@@ -197,7 +198,7 @@ gegebenfalls den File-ticker.</P>
 geschrieben wurden, ins I-Net verschickt werden.</P>
 <P>Der vierte Abschnitt ist mein "Ersatz" fuer Sendmail. Es verarbeitet Mails
 an den Areafix und schickt die Repleys zurueck.</P>
-<P>(Die "fehlende Datei" <CODE>message.header</CODE> sieht so aus.
+<P>(Die "fehlende" Datei <CODE>message.header</CODE> sieht so aus.
 <HR>
 <PRE>
 Subject: Areafix
@@ -292,7 +293,7 @@ if [ ! -s sub ]; then
         ~/check
 fi
 if [ -s sub ]; then
-        mv areas.new /etc/fidogate/areas.bbs
+        mv areas.new /usr/local/lib/fidogate/areas.bbs
         cat Areafix sub | ~/rfc2ftn -t
         cd /var/spool/fnet/outbound
         a=`ls *.pkt`

@@ -1,3 +1,17 @@
+Thu Nov 20 18:47:24 1997  Martin Junius  <mj@fido.de>
+
+	------- CVS ci -------------------------------------------------------
+
+	* doc/howto/FidoNode*.html: update by Matthias Schniedermeyer
+	  <ms@citd.owl.de>.
+
+	* fidogate.lsm: updated.
+
+	* doc/fidogate.texi (ftnaf): added documentation for create and
+ 	  vacation commands.
+	  (runtoss/rununpack): due to ever changing type parameter added
+ 	  reference to source code.
+
 Sun Nov 16 15:20:41 1997  Martin Junius  <mj@fido.de>
 
 	------- CVS ci -------------------------------------------------------
@@ -8,7 +22,7 @@ Sun Nov 16 15:20:41 1997  Martin Junius  <mj@fido.de>
 	  option, disabled dupe check from command line (if enabled in
 	  config.main).
 
-	* src/toss/runtoss.sh: if ftntoss returns busy, sleep to 1 min and
+	* src/toss/runtoss.sh: if ftntoss returns busy, sleep 1 min and
 	  try again.
 
 	* ANNOUNCE: update.

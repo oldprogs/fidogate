@@ -10,14 +10,13 @@
 <H2><A NAME="s5">5. Installation von FidoGate</A></H2>
 
 
-<P>Ich beziehe mich hier auf Version 4.2.4, bei aelteren Versionen sind
+<P>Ich beziehe mich hier auf Version 4.2.7, bei aelteren Versionen sind
 einige der Konfigurationsmoeglichkeiten noch nicht vorhanden.</P>
 <P>Zunaechst ist jetzt <CODE>fidogate/config.h</CODE> zu editieren. Ich habe
 folgende &Auml;nderungen an der Orginal-Datei vorgenommen: (das ist nicht
 die komplette Datei, sondern nur die Zeilen die ich geaendert habe!)
 <PRE>
-#define MAXMSGSIZE      30000
-#define OUTDIR          &quot;outbound&quot;      /* rfc2ftn: output .pkt's */
+#define OUTDIR          &quot;in&quot;            /* rfc2ftn: output .pkt's */
 #ifdef SECURE           /* Secure permissions */
 # define PACKET_MODE    0600            /* Mode for outbound packets */
 # define BSY_MODE       0644            /* Mode for BSY files */
@@ -36,15 +35,15 @@ die komplette Datei, sondern nur die Zeilen die ich geaendert habe!)
 </PRE>
 
 Man sollte aus den Kommentaren von <CODE>config.h</CODE> erkennen, was das
-bedeuten soll. Das Outbound-Directory hei&szlig;t bei mir aus alter
+bedeuten soll. Das Outbound-Directory heisst bei mir aus alter
 Gewohnheit <CODE>outbound</CODE> und nicht nur <CODE>out</CODE>. Man kann das
 problemlos umbenennen, muss nur insgesamt konsistent bleiben. Weiterhin
 habe ich die Permissions noch auf meinen Geschmack abgeaendert.</P>
-<P>Als n&auml;chstes sind noch einige Aenderungen in
+<P>Als naechstes sind noch einige Aenderungen in
 <CODE>fidogate/config.make</CODE> vorzunehmen:
 <PRE>
 BINDIR          = /usr/local/bin/fidogate
-LIBDIR          = /etc/fidogate
+LIBDIR          = /usr/local/lib/fidogate
 SPOOLDIR        = /var/spool/fnet
 LOGDIR          = /var/log/fido
 OUTBOUND        = /var/spool/fnet/outbound
@@ -61,11 +60,11 @@ DEBUG           = -O2 -s -fomit-frame-pointer
 Im <CODE>fidogate/src/Makefile</CODE> unter install-dirs solltest Du noch
 <CODE>$(SPOOLDIR)/out</CODE> in
 <CODE>$(SPOOLDIR)/outbound</CODE> &auml;ndern.</P>
-<P>Damit werden die Verzeichnisse an meine Verzeichnis-Struktur angepa&szlig;t
+<P>Damit werden die Verzeichnisse an meine Verzeichnis-Struktur angepasst
 und <CODE>fido.fido</CODE> wird User von FidoGate. Spaeter wird auch
 <CODE>ifcico</CODE> unter dem User <CODE>fido.fido</CODE> arbeiten.</P>
 <P>Nun solltest Du als <CODE>root</CODE> in <CODE>fidogate/src</CODE> folgende
-Kommandos ausf&uuml;hren k&ouml;nnen: 
+Kommandos ausfuehren: 
 <PRE>
 make depend
 make all
@@ -76,13 +75,13 @@ make install
 Anschliessend stehen alle benoetigten Dateien in
 <CODE>/usr/local/bin/fidogate</CODE>. Jetzt mu&szlig;t du natuerlich noch einige
 Anpassungen an Dein System vornehmen. Hier zunaechst mal ein komplettes
-<CODE>/etc/fidogate/config.common</CODE>, welches die globalen
+<CODE>/usr/local/lib/fidogate/config.common</CODE>, welches die globalen
 Konfigurationsdaten enthaelt:
 <HR>
 <PRE>
 #:ts=8
 #
-# /etc/fidogate/config.common
+# /usr/local/lib/fidogate/config.common
 #
 # FIDOGATE config file common stuff,
 # included by config.gate, config.main
@@ -98,7 +97,7 @@ Konfigurationsdaten enthaelt:
 #
 # lib, spool defaults are defined in config.h
 #
-LibDir          /etc/fidogate
+LibDir          /usr/local/lib/fidogate
 SpoolDir        /var/spool/fnet
 LogDir          /var/log/fido
 Outbound        /var/spool/fnet
@@ -282,12 +281,28 @@ FTNJunkGroup            fido.junk
 #
 RFCLevel                1
 
+#
+# Parameters for ftnin/ftninpost/ftninrecomb
+#
+# sendmail program path and parameters
+#
+#    %s is replaced with the envelope sender
+#
 FTNInSendmail   /usr/sbin/sendmail -oee -oi -f%s -oMrFTN -t
 
+#
+# rnews program path
+#
 FTNInRnews      /usr/bin/rnews
 
+#
+# run ftninrecomb
+#
 #FTNInRecombine
 
+#
+# Use 8bit ISO-8859-1 characters when gating from FTN to RFC
+#
 NetMail8bit
 </PRE>
 <HR>
@@ -301,7 +316,7 @@ Fuer die Richtigkeit dieser Datei kann ich als GARKEINE Garantie uebernehmen!</P
 <PRE>
 #:ts=8
 #
-# /etc/fidogate/config.main
+# /usr/local/lib/fidogate/config.main
 #
 # FIDOGATE config file main AKA
 #
@@ -325,12 +340,12 @@ Address         37:109/980
 #
 # AREAS.BBS EchoMail distribution list
 #
-AreasBBS        /etc/fidogate/areas.bbs
+AreasBBS        /usr/local/lib/fidogate/areas.bbs
 
 #
 # FAREAS.BBS file distribution list
 #
-FAreasBBS       /etc/fidogate/fareas.bbs
+FAreasBBS       /usr/local/lib/fidogate/fareas.bbs
 
 #
 # ftnaf: CC of reply mails
@@ -367,7 +382,7 @@ CheckPath
 #
 # Enable dupe check using MSGID history database
 #
-#DupeCheck
+DupeCheck
 
 #
 # Number of days a MSGID entry stays in the history database
@@ -400,7 +415,7 @@ KillDupe
 <HR>
 </P>
 <P>Da wir aber einen Node betreiben wollen ist das noch laengst nicht alles. Da
-haben wir noch die <CODE>/etc/fidogate/areas.bbs</CODE> (Das hier ist aber jetzt
+haben wir noch die <CODE>/usr/local/lib/fidogate/areas.bbs</CODE> (Das hier ist aber jetzt
 nur der Anfang der Datei. Als Beispiel sollte es ausreichen.
 <HR>
 <PRE>
@@ -438,7 +453,7 @@ gelesen werden. Die Bretter die bestellt sind, sind mir einem "+" markiert
 die Bretter mit einem "-" sind nicht bestellt, aber vorbereitet fuer den Fall
 das sie bestellt werden.</P>
 <P>Fuer das Zustellen der Node &amp; Pointdiffs gibts dann noch die 
-<CODE>/etc/fidogate/fareabs.bbs</CODE>
+<CODE>/usr/local/lib/fidogate/fareabs.bbs</CODE>
 <HR>
 <PRE>
 # Diese Zeile muss leer bleiben!
@@ -478,17 +493,14 @@ EchoMail
 sendmove hold   2:2432/605.*
 sendmove hold   37:109/980.*
 # Mails fuer Points auf Hold legen.
-sendmove normal 37:109/900.*
-# Mails im Trek-Net an meinen Trek-net hub weiterleiten.
 sendmove normal *
-# Alle anderen Mails zum Hub weiterleiten.
 </PRE>
 <HR>
 </P>
-<P>Dann habe wir noch eine <CODE>/etc/fidogate/packing</CODE> Datei
+<P>Dann habe wir noch eine <CODE>/usr/local/lib/fidogate/packing</CODE> Datei
 <HR>
 <PRE>
-# /etc/fidogate/packing
+# /usr/local/lib/fidogate/packing
 #
 # FIDOGATE ftnpack config file
 #
@@ -520,7 +532,7 @@ pack    zip     *
 weil es schwachsinnig waehre. Weitere Ausnahme ist .3 dessen Mails werden mit
 <CODE>rar</CODE> gepackt.</P>
 <P>Aber damit sind wir immer noch nicht durch. Jetzt kommt die letzte Datei
-<CODE>/etc/fidogate/passwd</CODE>
+<CODE>/usr/local/lib/fidogate/passwd</CODE>
 <HR>
 <PRE>
 ff      2:2432/600      GEHEIM

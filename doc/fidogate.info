@@ -21,7 +21,7 @@ versions.
 
 Indirect:
 fidogate.info-1: 767
-fidogate.info-2: 50259
+fidogate.info-2: 50391
 
 Tag Table:
 (Indirect)
@@ -45,48 +45,48 @@ Node: ffxrun29542
 Node: ftn2ftn29896
 Node: ftn2rfc30917
 Node: ftnaf32159
-Node: ftnafmail33363
-Node: ftnbounce33897
-Node: ftnbsy34199
-Node: ftnconfig34662
-Node: ftnhatch35316
-Node: ftnin35615
-Node: ftninpost36181
-Node: ftninrecomb36539
-Node: ftnlock36878
-Node: ftnlog37582
-Node: ftnpack37998
-Node: ftnroute39714
-Node: ftnseq40437
-Node: ftntick40850
-Node: ftntoss41245
-Node: ftnfattach42683
-Node: pktdebug43214
-Node: rfc2ftn43862
-Node: rundf44833
-Node: runin45381
-Node: runout46029
-Node: runtoss46431
-Node: rununpack47044
-Node: sumcrc48069
-Node: Config files48931
-Node: Config50259
-Node: Hosts66046
-Node: Aliases68291
-Node: Areas69086
-Node: Bounce72074
-Node: Passwd73269
-Node: Routing74492
-Node: Packing78236
-Node: Areas.bbs79925
-Node: Basic81797
-Node: Sendmail82312
-Node: Example Point83626
-Node: Example Point 285703
-Node: Example Node88226
-Node: Usage91089
-Node: RFC Headers91304
-Node: X Headers92663
-Node: Index93508
+Node: ftnafmail33734
+Node: ftnbounce34268
+Node: ftnbsy34570
+Node: ftnconfig35033
+Node: ftnhatch35687
+Node: ftnin35986
+Node: ftninpost36552
+Node: ftninrecomb36910
+Node: ftnlock37249
+Node: ftnlog37953
+Node: ftnpack38369
+Node: ftnroute40085
+Node: ftnseq40808
+Node: ftntick41221
+Node: ftntoss41616
+Node: ftnfattach43054
+Node: pktdebug43585
+Node: rfc2ftn44233
+Node: rundf45204
+Node: runin45752
+Node: runout46400
+Node: runtoss46802
+Node: rununpack47148
+Node: sumcrc48201
+Node: Config files49063
+Node: Config50391
+Node: Hosts66178
+Node: Aliases68423
+Node: Areas69218
+Node: Bounce72206
+Node: Passwd73401
+Node: Routing74624
+Node: Packing78368
+Node: Areas.bbs80057
+Node: Basic81979
+Node: Sendmail82494
+Node: Example Point83808
+Node: Example Point 285885
+Node: Example Node88408
+Node: Usage91271
+Node: RFC Headers91486
+Node: X Headers92845
+Node: Index93690
 
 End Tag Table

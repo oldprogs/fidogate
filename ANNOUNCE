@@ -44,7 +44,7 @@ Changes in 4.2.9:
 * sendmail/cf: rfc2ftn writes output packets to SPOOLDIR/outpkt/mail
   to enable separate processing of mail and news.
 
-* Corresponding changes to run* scripts.
+* Corresponding changes to run* scripts, new runmail script.
 
 * ftnaf: areas.bbs now supports an area description, option -d "DESC".
 
@@ -67,7 +67,7 @@ Needed:
 Begin3
 Title:          FIDOGATE
 Version:        4.2.9
-Entered-date:   01NOV97
+Entered-date:   20NOV97
 Description:    FIDOGATE Version 4:
                  * Fido-Internet Gateway
 		 * Fido FTN-FTN Gateway
@@ -90,6 +90,6 @@ End
 
 ======================================================================
 
-$Date: 1997/11/16 18:25:35 $
+$Date: 1997/11/20 18:30:32 $
 Martin Junius
 mailto:mj@fido.de
