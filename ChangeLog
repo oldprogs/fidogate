@@ -2,6 +2,13 @@
 
 	------- CVS ci -------------------------------------------------------
 
+	* config.make (HTMLDIR): changed to /html/fidogate, sync'ed with
+	  http://www.fido.de/fidogate/
+
+	* Makefile (install-html): new target for installing online docs.
+
+	------- CVS ci -------------------------------------------------------
+
 	* src/ffx/ffxnews.sh: added tux.
 
 	* src/ffx/runffx.sh: added ftnpack for tux.

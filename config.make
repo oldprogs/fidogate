@@ -1,6 +1,6 @@
 # -*- Makefile -*-
 #
-# $Id: config.make,v 4.29 2000/01/30 19:24:55 mj Exp $
+# $Id: config.make,v 4.30 2000/04/11 12:02:25 mj Exp $
 #
 # FIDOGATE main configuration
 #
@@ -153,7 +153,7 @@ SENDMAIL_CF_DIR		= /usr/lib/sendmail-cf
 
 # Directories for installing documentation, not used by subst.pl
 INFODIR			= /usr/info
-HTMLDIR			= /html/mj/fidogate
+HTMLDIR			= /html/fidogate
 HTMLLOGDIR		= /html/log
 
 # RedHat RPM related dirs

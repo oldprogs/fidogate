@@ -1,5 +1,5 @@
 #
-# $Id: Makefile,v 4.19 2000/01/30 20:39:20 mj Exp $
+# $Id: Makefile,v 4.20 2000/04/11 12:02:25 mj Exp $
 #
 # Makefile FIDOGATE TOPDIR
 #
@@ -64,6 +64,11 @@ install-uuin:
 
 install::
 	cp ANNOUNCE $(PREFIX)$(HTMLDIR)
+
+install-html::
+	cp ANNOUNCE $(PREFIX)$(HTMLDIR)
+	$(MAKE) -C doc/html install
+	$(MAKE) -C doc/gatebau install
 
 install-spec-src:
 	if [ -d $(RPMSPECSDIR) ]; then \
