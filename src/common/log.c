@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: log.c,v 4.25 2004/08/22 20:19:11 n0ll Exp $
+ * $Id: log.c,v 4.26 2004/08/26 20:56:20 n0ll Exp $
  *
  * Log and debug functions
  *
@@ -276,7 +276,5 @@ void log_file(char *name)
  */
 void log_program(char *name)
 {
-    char *p;
-    
     BUF_COPY(logprog, name);
 }

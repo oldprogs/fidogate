@@ -1,7 +1,6 @@
 tc: clean-up
 tc: init
 tc: running
-rfc2ftn BOUNCE: to=test@spam.fido.de, reject=FTN address 242:1000/256.0: currently down, unreachable
 Internet -> FIDO gateway / FIDOGATE x.x.x @ orodruin.fido.de
    ----- ERROR -----
 Address test@spam.fido.de:

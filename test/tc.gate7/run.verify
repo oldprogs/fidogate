@@ -127,7 +127,6 @@ RFC From:     abc@fido.de
 RFC Sender:   abc@fido.de
     Name:     test_user
     Address:  abc.def.org
-rfc2ftn BOUNCE: to=test_user@abc.def.org, reject=unknown
 Internet -> FIDO gateway / FIDOGATE x.x.x @ orodruin.fido.de
    ----- ERROR -----
 Address test_user@abc.def.org:

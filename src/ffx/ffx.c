@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ffx.c,v 4.19 2004/08/22 20:19:11 n0ll Exp $
+ * $Id: ffx.c,v 4.20 2004/08/26 20:56:20 n0ll Exp $
  *
  * ffx FIDO-FIDO execution
  *
@@ -38,7 +38,7 @@
 
 
 #define PROGRAM		"ffx"
-#define VERSION		"$Revision: 4.19 $"
+#define VERSION		"$Revision: 4.20 $"
 #define CONFIG		DEFAULT_CONFIG_FFX
 
 
@@ -396,7 +396,7 @@ int main(int argc, char **argv)
     /* Don't allow options for setuid ffx */
     if(getuid() != geteuid())
     {
-	L_flag = c_flag = B_flag = L_flag = S_flag = a_flag = u_flag = NULL;
+	L_flag = c_flag = B_flag = S_flag = a_flag = u_flag = NULL;
     }
     
     /*

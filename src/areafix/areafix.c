@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: areafix.c,v 1.22 2004/08/22 20:19:10 n0ll Exp $
+ * $Id: areafix.c,v 1.23 2004/08/26 20:56:18 n0ll Exp $
  *
  * Common Areafix functions
  *
@@ -273,8 +273,7 @@ int areafix_auth_check(Node *node, char *passwd)
 
 void areafix_auth_cmd(void)
 {
-    authorized = authorized_cmdline = authorized_new    =
-		 authorized_new     = authorized_delete = TRUE;
+    authorized = authorized_cmdline = authorized_new = authorized_delete = TRUE;
 }
 
 

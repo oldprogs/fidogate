@@ -1,10 +1,10 @@
 X-Emacs-Mode: -*- indented-text -*-
-Subject: FIDOGATE 4.4.9 - Fido-Internet Gateway and Tosser
+Subject: FIDOGATE 4.4.10 - Fido-Internet Gateway and Tosser
 Keywords: fido ftn netmail echomail tosser areafix mail news gateway
 Followup-To: comp.os.linux.misc
 
   =================================================================
-    FIDOGATE 4.4.9, a stable version of the new FIDOGATE release
+    FIDOGATE 4.4.10, a stable version of the new FIDOGATE release
   =================================================================
 
 			   FIDOGATE Version 4
@@ -33,14 +33,43 @@ Followup-To: comp.os.linux.misc
     http://metalab.unc.edu/pub/Linux/system/fido/
     (maybe still in .../pub/Linux/Incoming)
 
-    fidogate-4.4.9.lsm			   1 Kbyte
-    fidogate-4.4.9.tar.gz		1164 Kbyte
-    fidogate-4.4.9-1.rh9x.src.rpm	1164 Kbyte
-    fidogate-4.4.9-1.rh9x.i386.rpm	1088 Kbyte
+    fidogate-4.4.10.lsm			   1 Kbyte
+    fidogate-4.4.10.tar.gz		1170 Kbyte
+    fidogate-4.4.10-1.fc2.src.rpm	1170 Kbyte
+    fidogate-4.4.10-1.fc2.i386.rpm	1100 Kbyte
 
 
 
 ======================================================================
+
+Changes in 4.4.10:
+
+* SECURITY BUG in all setuid news programs fixed (environment
+  variables FIDOGATE_LOGFILE, LOGFILE allowed local append to
+  all files writable by news).
+
+* rfc2ftn: new config option SilentBounces, causes EX_NOHOST,
+  EX_NOUSER errors to return OK without any message.  Useful in the
+  never ending fight against spam, when your gateway is flooded with
+  messages to unknown adresses, such as Fido.DE :-(
+
+* rfc2ftn: "Sysop" is always a valid name.
+
+* logsendmail2: new log analysis script.
+
+* send-fidogate: added optimized handling for INN 2.4, must be enabled
+  by modifying this script.
+
+* Compile time conflict with Standard-C function log() solved.
+
+* ftn2rfc: if the UseOriginForOrganization option is set, don't
+  convert empty * Origin lines to Organization header, use default
+  instead.
+
+Thanks to Viktor Kafke and Niels Heinen for their input, which
+triggered this release ... ;-)
+
+
 
 Changes in 4.4.9:
 
@@ -177,6 +206,6 @@ Needed:
 
 ======================================================================
 
-$Date: 2003/06/09 12:10:56 $
+$Date: 2004/08/26 20:56:00 $
 Martin Junius
 mailto:mj@fido.de

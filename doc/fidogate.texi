@@ -2,7 +2,7 @@
 @c
 @c FIDOGATE documentation for 4.4
 @c
-@c $Id: fidogate.texi,v 4.54 2002/12/14 21:05:46 n0ll Exp $
+@c $Id: fidogate.texi,v 4.55 2004/08/26 20:56:16 n0ll Exp $
 @c
 
 @setfilename fidogate.info
@@ -3511,6 +3511,12 @@ recipients (also including @i{postmaster}) for @code{rfc2ftn}.
 
 With this option, the gateway can be restricted to registered users,
 which is also very useful for fighting Spam.
+
+
+@item SilentBounces
+Causes EX_NOHOST, EX_NOUSER errors to return OK without any message.
+Useful in the never ending fight against spam, when your gateway
+is flooded with messages to unknown adresses, such as Fido.DE :-(
 
 
 @end table

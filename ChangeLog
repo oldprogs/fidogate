@@ -1,3 +1,23 @@
+2004-08-26  Martin Junius  <mj.at.n0ll.dot.net>
+
+	------- CVS ci -------------------------------------------------------
+
+	* src/ffx/ffx.c (main): fixed compiler warning.
+
+	* src/areafix/areafix.c (areafix_auth_cmd): fixed compiler warning.
+
+	* fidogate.spec: updated 4.4.10-1.fc2.
+
+	* fidogate.lsm: updated.
+
+	* ANNOUNCE: updated.
+
+	* doc/fidogate.texi (Config): added description of SilentBounces
+	  config option.
+
+	* test/*/run.verify: checked and re-created test verify files for
+	  bounce, gate7, gate8, rununpack.
+
 2004-08-22  Martin Junius  <mj.at.n0ll.dot.net>
 
 	------- CVS ci -------------------------------------------------------

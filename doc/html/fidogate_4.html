@@ -1,6 +1,6 @@
 <HTML>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<!-- Created on December, 14  2002 by texi2html 1.64 -->
+<!-- Created on August, 26  2004 by texi2html 1.64 -->
 <!-- 
 Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
             Karl Berry  <karl@freefriends.org>
@@ -791,6 +791,12 @@ recipients (also including <I>postmaster</I>) for <CODE>rfc2ftn</CODE>.
 With this option, the gateway can be restricted to registered users,
 which is also very useful for fighting Spam.
 </P><P>
+
+<DT><CODE>SilentBounces</CODE>
+<DD>Causes EX_NOHOST, EX_NOUSER errors to return OK without any message.
+Useful in the never ending fight against spam, when your gateway
+is flooded with messages to unknown adresses, such as Fido.DE :-(
+<P>
 
 </DL>
 <P>
@@ -1753,7 +1759,7 @@ address, then it must be included in <CODE>nodes</CODE>!)
 <BR>  
 <FONT SIZE="-1">
 This document was generated
-by <I>Martin Junius</I> on <I>December, 14  2002</I>
+by <I>Martin Junius</I> on <I>August, 26  2004</I>
 using <A HREF="http://www.mathematik.uni-kl.de/~obachman/Texi2html
 "><I>texi2html</I></A>
 

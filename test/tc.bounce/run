@@ -17,6 +17,7 @@ Message-ID: <Test--------@x.y.z>
 
 TEST ;-)
 EOF
+echo " "
 
 # Unknown
 $T test@unknown.fido.de <<EOF
@@ -26,6 +27,7 @@ Message-ID: <Test--------@x.y.z>
 
 TEST ;-)
 EOF
+echo " "
 
 # Not registered
 $T test@p2.f2.n2.z2.fido.de <<EOF
@@ -35,6 +37,7 @@ Message-ID: <Test--------@x.y.z>
 
 TEST ;-)
 EOF
+echo " "
 
 # Zone not supported
 $T test@p999.f999.n999.z999.fido.de <<EOF
@@ -44,6 +47,7 @@ Message-ID: <Test--------@x.y.z>
 
 TEST ;-)
 EOF
+echo " "
 
 
 ##### silent #####
@@ -57,5 +61,6 @@ Message-ID: <Test--------@x.y.z>
 
 TEST ;-)
 EOF
+echo " "
 
 exit 0
