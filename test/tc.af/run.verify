@@ -15,8 +15,8 @@ cmd=1 node=2:2452/110.90 arg=
 
 Areas available to 2:2452/110.90:
 
-* LINUX.GER                              : Fido-Linux
-* TOLKIEN.GER                            : Fido-Fantasy-Literatur
+* LINUX.GER                              : Fido Linux
+* TOLKIEN.GER                            : Fido Fantasy Literatur
 
 * = linked to this area
 
@@ -25,11 +25,11 @@ cmd=8 node=2:2452/110.90 arg=
 
 ALL available areas:
 
-* Z2   LINUX.GER                              : Fido-Linux
-* Z2   TOLKIEN.GER                            : Fido-Fantasy-Literatur
+* Z2   LINUX.GER                              : Fido Linux
+* Z2   TOLKIEN.GER                            : Fido Fantasy Literatur
   Z242 XX
   Z242 YY
-  Z242 ZZ                                     : Test-Area
+  Z242 ZZ                                     : Usenet Test Area
   Z242 ABC
   Z242 DEF
   Z99  GHI
@@ -119,10 +119,10 @@ TEST2                                  : access denied (level)
 
 Areas available to 2:1234/5678:
 
-* LINUX.GER
-* TOLKIEN.GER
+* LINUX.GER                              : Fido Linux
+* TOLKIEN.GER                            : Fido Fantasy Literatur
 * TEST1
-  AREA.NEW
+  AREA.NEW                               : New-Test-Area
   AREA.NEW1
 
 * = linked to this area
@@ -178,10 +178,10 @@ TOLKIEN.GER                            : added
 
 Areas available to 2:1234/5678:
 
-* LINUX.GER
-* TOLKIEN.GER
+* LINUX.GER                              : Fido Linux
+* TOLKIEN.GER                            : Fido Fantasy Literatur
   TEST1
-  AREA.NEW
+  AREA.NEW                               : New-Test-Area
   AREA.NEW1
 
 * = linked to this area

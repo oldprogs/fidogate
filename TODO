@@ -1,19 +1,22 @@
 						   -*- Indented-Text -*-
+
 	************** TODO list for FIDOGATE development **************
 
+	* ftnaf:
+	  - separate common functions af.c
+	  - command line frontend ftnaf
+	  - Internet mail frontend ftnafmail
+	  - Fido mail frontend ftnafnetmail
+	  
+	* senduu: accept several addresses on command line.
 
-DONE	* ftntoss: option to disable dupe check for mail only tossing.
+	* logcheck: option to only list domains.
+
+	* config.*: common address settings, e.g. Address for main
+	  AKA, GateAddress for gateway???
 
 	* new implementation of strtok(), xstrtok() function, using
 	  reentrant common routine.
-
-DONE	* areas.bbs: option for area description.
-	  Better parser for areas.bbs entries and options needed!
-	
-DONE	* tests: ftntoss echomail problems and Kill* config.
-
-DONE	* ftn2rfc: option to *not* delete input packet for usage with
-	  ftnpack and the prog packing command.
 
 	* ^ACHRS default configurable per area + character translation
 	  for RFC -> Fido.
@@ -107,10 +110,6 @@ STARTED * Replace calls to strncpy0/strncat0 with str_copy/str_append.
 	  setting AKA based on current zone, using the AKA with best
 	  fits the sender/receiver. For multi-point operation.
 
-DONE	* rfc2ftn: config parameter to disable/enable X-Flags
-	  processing. Add config parameter for specifying addresses
-	  allowed to use X-Flags.
-
 	* ftn2rfc: process ^ARFC headers. If RFC level 1, import
 	  important headers such as Date, Message-ID. If RFC level 2,
 	  import all headers present.
@@ -147,9 +146,6 @@ DONE	  copy netmail packets (do_noarc()), use rename(). If archiver
 	* Check packet passwords of incoming packets.
 
 	* ftntoss: check # of ^AVia lines
-
-DONE	* ftn2rfc, rfc2ftn: passthru operation for FTN messages, in
-	  particular EchoMail control information.
 
 	* ftntoss: strip ^APATH for ZoneGate
 

@@ -1,6 +1,6 @@
 #:ts=8
 #
-# $Id: orodruin-check.mc,v 4.1 1997/10/05 13:46:31 mj Exp $
+# $Id: orodruin-check.mc,v 4.2 1998/01/02 14:37:07 mj Exp $
 #
 # orodruin.Fido.DE
 #
@@ -18,17 +18,23 @@ define(`confDEF_USER_ID',``8:12'')
 
 define(`ALIAS_FILE',`/etc/aliases,/usr/local/majordomo/majordomo.aliases')
 
-VERSIONID(`$Id: orodruin-check.mc,v 4.1 1997/10/05 13:46:31 mj Exp $')
+VERSIONID(`$Id: orodruin-check.mc,v 4.2 1998/01/02 14:37:07 mj Exp $')
 
 OSTYPE(linux)dnl
 
 undefine(`UUCP_RELAY')
 undefine(`BITNET_RELAY')
 
+
 define(`_CHECK_FROM_')
 undefine(`_IP_LOOKUP_')
 undefine(`_DNSVALID_')
 HACK(check_mail3,`hash -o -a@JUNK /etc/mail/junk')
+
+HACK(use_ip,`/etc/mail/local.ip')
+HACK(use_relayto,`/etc/mail/local.relayto')
+HACK(check_rcpt4)
+
 
 FEATURE(redirect)dnl
 FEATURE(notsticky)dnl

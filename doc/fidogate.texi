@@ -2,7 +2,7 @@
 @c
 @c FIDOGATE documentation
 @c
-@c $Id: fidogate.texi,v 4.36 1997/11/20 18:30:36 mj Exp $
+@c $Id: fidogate.texi,v 4.37 1998/01/02 14:37:01 mj Exp $
 @c
 
 @setfilename fidogate.info
@@ -3595,11 +3595,10 @@ IMPLEMENTED.
 @item send
 Send normal mail addressed to @i{nodes} with @i{flavor}.
 
-WARNING: there is a bug in the current implementation of @code{send}
-(when compared to the operation of e.g. SQUISH). A command @code{send
-hold 2:123/456} actually equals @code{send hold 2:123/456.*}, i.e. mail
-for every single point of this node is put onto hold. Use the command
-@code{route hold 2:123/456} instead to get the desired behaviour!!!
+WARNING: e.g. @code{send hold 2:2452/110} actually is the same as
+@code{route hold 2:2452/110.0 2452/110.*}. So @code{send hold 2:2452/110
+110.*} will @b{not} have the desired effect, use @code{send hold
+2:2452/110.*} only instead!!!
 
 @item route
 Route normal mail addressed to @i{nodes} via @i{dest-node}, using
@@ -4121,7 +4120,7 @@ remap 2:2499/123.0 2:2499/123.11 "Sabine Meier"
 remap 2:2499/123.0 2:2499/123.1  "*"
 
 NetMail
-send  hold   2:2499/123 2:2499/123.*
+send  hold   2:2499/123.*
 route normal 2:2499/100 1:* 2:* 3:* 4:* 5:* 6:*
 
 EchoMail

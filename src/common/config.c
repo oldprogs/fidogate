@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: config.c,v 4.9 1997/08/03 13:29:45 mj Exp $
+ * $Id: config.c,v 4.10 1998/01/02 14:37:08 mj Exp $
  *
  * Configuration data and functions
  *
@@ -135,17 +135,25 @@ static struct st_cflist *scf_list_last  = NULL;
  */
 void cf_check_gate(void)
 {
+    if(scf_ia == 0)
+    {
+	log("ERROR: config: no Address");
+	if(!verbose)
+	    fprintf(stderr, "ERROR: config: no Address");
+	exit(EX_USAGE);
+    }
+    
     if(scf_ir == 0)
     {
-	log("ERROR: config: no uplink");
+	log("ERROR: config: no Uplink");
 	if(!verbose)
-	    fprintf(stderr, "ERROR: config: no uplink");
+	    fprintf(stderr, "ERROR: config: no Uplink");
 	exit(EX_USAGE);
     }
     
     if(scf_ia != scf_ir)
     {
-	log("WARNING: config: %d address != %d uplink");
+	log("WARNING: config: #Address (%d) != #Uplink (%d)", scf_ia, scf_ir);
     }
 }
 

@@ -1,3 +1,50 @@
+Fri Jan  2 15:32:58 1998  Martin Junius  <mj@fido.de>
+
+	------- CVS ci -------------------------------------------------------
+
+	* version.h: changed to 4.3.0alpha1, actually not that different
+	  from 4.2.9.
+
+	* doc/dirs.html: updated and extended.
+
+Wed Dec 31 13:40:15 1997  Martin Junius  <mj@fido.de>
+
+	* doc/fidogate.texi (Routing): changed WARNING notice for special
+	  send hold node-address behaviour.
+	  (Example Node): fixed example send hold for node configuration.
+
+	* test/tc.route/routing: added send hold test for 2:2471/2415.*
+
+Tue Dec 30 21:16:29 1997  Martin Junius  <mj@fido.de>
+
+	* scripts/maintenance/sendmailstat.pl: removed extra output for
+	  *.rwth-aachen.de, *.sub.org.
+
+	* scripts/maintenance/logcheck.pl: added logging of relay attempts
+	  (ruleset check_rcpt).
+
+	* sendmail/cf/morannon-check.mc: same.
+
+	* sendmail/cf/orodruin-check.mc: added HACK(check_rcpt4) to
+	  protect against being misused as a SPAM relay.
+
+Mon Dec 29 19:04:38 1997  Martin Junius  <mj@fido.de>
+
+	* src/gate/ftninrecomb.pl (unsplit_mail): when parsing X-SPLIT
+	  also accept 10 +'s or more than 11 (GIGO is broken here).
+
+Sun Dec 14 17:45:40 1997  Martin Junius  <mj@fido.de>
+
+	* src/common/config.c (cf_check_gate): check, that # of Address
+	  statements is > 0, fixed log() message for #Address != #Uplink.
+
+Sat Dec 13 22:49:17 1997  Martin Junius  <mj@fido.de>
+
+	* scripts/maintenance/logcheck.pl: dito.
+
+	* scripts/maintenance/logreport.pl: changed default newsgroup to
+	  fido.de.lists. 
+
 Sun Nov 23 17:47:14 1997  Martin Junius  <mj@fido.de>
 
 	------- CVS ci -------------------------------------------------------

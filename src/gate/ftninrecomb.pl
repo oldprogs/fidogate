@@ -1,6 +1,6 @@
 #!/usr/local/bin/perl
 #
-# $Id: ftninrecomb.pl,v 4.1 1997/08/10 17:34:24 mj Exp $
+# $Id: ftninrecomb.pl,v 4.2 1998/01/02 14:37:09 mj Exp $
 #
 # Recombine split mail and news messages.
 
@@ -88,8 +88,8 @@ sub unsplit_mail {
 	
 	# e.g.:
 	# X-SPLIT: 30 Mar 90 11:12:34 @494/4       123   02/03 +++++++++++
-	#
-	/^X-SPLIT: (.*) (\d\d)\/(\d\d) \+{11}/;
+	# (GIGO is broken, thus only 10 +)
+	/^X-SPLIT: (.*) (\d\d)\/(\d\d) \+{10,}/;
 	$id = ($1.$;.$2.$;.$3);
 	
 	print "ID: $id\n" if($opt_v);

@@ -1,7 +1,7 @@
 <HTML>
 <HEAD>
 <!-- This HTML file has been created by texi2html 1.51
-     from ../fidogate.texi on 20 November 1997 -->
+     from ../fidogate.texi on 2 January 1998 -->
 
 <TITLE>FIDOGATE
  - FIDOGATE Config Files</TITLE>
@@ -1507,11 +1507,10 @@ IMPLEMENTED.
 <DD>
 Send normal mail addressed to <I>nodes</I> with <I>flavor</I>.
 
-WARNING: there is a bug in the current implementation of <CODE>send</CODE>
-(when compared to the operation of e.g. SQUISH). A command <CODE>send
-hold 2:123/456</CODE> actually equals <CODE>send hold 2:123/456.*</CODE>, i.e. mail
-for every single point of this node is put onto hold. Use the command
-<CODE>route hold 2:123/456</CODE> instead to get the desired behaviour!!!
+WARNING: e.g. <CODE>send hold 2:2452/110</CODE> actually is the same as
+<CODE>route hold 2:2452/110.0 2452/110.*</CODE>. So <CODE>send hold 2:2452/110
+110.*</CODE> will <B>not</B> have the desired effect, use <CODE>send hold
+2:2452/110.*</CODE> only instead!!!
 
 <DT><CODE>route</CODE>
 <DD>

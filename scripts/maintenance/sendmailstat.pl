@@ -1,6 +1,6 @@
 #!/usr/bin/perl
 #
-# $Id: sendmailstat.pl,v 4.1 1996/10/13 12:01:09 mj Exp $
+# $Id: sendmailstat.pl,v 4.2 1998/01/02 14:37:05 mj Exp $
 #
 # Gather statistics from sendmail V8 syslog output
 #
@@ -143,13 +143,14 @@ while( <LOG> ) {
 		    $to_intern_size        += $size;
 		    $to_intern_msgs        ++;
 		}
-		elsif($from =~ /\.rwth-aachen\.de$/) {
-		    $to_rwth_size{$site} += $size;
-		    $to_rwth_msgs{$site} ++;
-		    $to_rwth_size        += $size;
-		    $to_rwth_msgs        ++;
-		}
-		elsif($from =~ /\.de$/ || $from =~ /\.sub\.org$/) {
+# 		elsif($from =~ /\.rwth-aachen\.de$/) {
+# 		    $to_rwth_size{$site} += $size;
+# 		    $to_rwth_msgs{$site} ++;
+# 		    $to_rwth_size        += $size;
+# 		    $to_rwth_msgs        ++;
+# 		}
+#		elsif($from =~ /\.de$/ || $from =~ /\.sub\.org$/) {
+		elsif($from =~ /\.de$/) {
 		    $to_de_size{$site} += $size;
 		    $to_de_msgs{$site} ++;
 		    $to_de_size        += $size;
@@ -178,13 +179,14 @@ while( <LOG> ) {
 		    $from_intern_size        += $size;
 		    $from_intern_msgs        ++;
 		}
-		elsif($to =~ /\.rwth-aachen\.de$/) {
-		    $from_rwth_size{$site} += $size;
-		    $from_rwth_msgs{$site} ++;
-		    $from_rwth_size        += $size;
-		    $from_rwth_msgs        ++;
-		}
-		elsif($to =~ /\.de$/ || $to =~ /\.sub\.org$/) {
+# 		elsif($to =~ /\.rwth-aachen\.de$/) {
+# 		    $from_rwth_size{$site} += $size;
+# 		    $from_rwth_msgs{$site} ++;
+# 		    $from_rwth_size        += $size;
+# 		    $from_rwth_msgs        ++;
+# 		}
+#		elsif($to =~ /\.de$/ || $to =~ /\.sub\.org$/) {
+		elsif($to =~ /\.de$/) {
 		    $from_de_size{$site} += $size;
 		    $from_de_msgs{$site} ++;
 		    $from_de_size        += $size;
@@ -217,48 +219,60 @@ if($opt_o) {
 
 print "# sendmail statistics: $first_date -- $last_date\n\n";
 
-print "#   FROM->         Total       Fido.DE          RWTH           .DE     Internat.\n";
-print "# TO-v        #    bytes    #    bytes    #    bytes    #    bytes    #    bytes\n";
-print "# -------- ------------- ------------- ------------- ------------- -------------\n";
+# print "#   FROM->         Total       Fido.DE          RWTH           .DE     Internat.\n";
+# print "# TO-v        #    bytes    #    bytes    #    bytes    #    bytes    #    bytes\n";
+# print "# -------- ------------- ------------- ------------- ------------- -------------\n";
+print "#   FROM->                   Total       Fido.DE           .DE     Internat.\n";
+print "# TO-v                  #    bytes    #    bytes    #    bytes    #    bytes\n";
+print "# ------------------ ------------- ------------- ------------- -------------\n";
 
 for $site (sort keys(%to_total_msgs)) {
-    printf "%-10.10s", $site;
+#    printf "%-10.10s", $site;
+    printf "%-20.20s", $site;
     printf " %4d %8d", $to_total_msgs{$site}, $to_total_size{$site};
     printf " %4d %8d", $to_intern_msgs{$site}, $to_intern_size{$site};
-    printf " %4d %8d", $to_rwth_msgs{$site}, $to_rwth_size{$site};
+#    printf " %4d %8d", $to_rwth_msgs{$site}, $to_rwth_size{$site};
     printf " %4d %8d", $to_de_msgs{$site}, $to_de_size{$site};
     printf " %4d %8d", $to_intl_msgs{$site}, $to_intl_size{$site};
     print "\n";
 }
 
-print "# -------- ------------- ------------- ------------- ------------- -------------\n";
-print "TOTAL     ";
+#print "# -------- ------------- ------------- ------------- ------------- -------------\n";
+#print "TOTAL     ";
+print "# ------------------ ------------- ------------- ------------- -------------\n";
+print "TOTAL               ";
 printf " %4d %8d", $to_total_msgs, $to_total_size;
 printf " %4d %8d", $to_intern_msgs, $to_intern_size;
-printf " %4d %8d", $to_rwth_msgs, $to_rwth_size;
+#printf " %4d %8d", $to_rwth_msgs, $to_rwth_size;
 printf " %4d %8d", $to_de_msgs, $to_de_size;
 printf " %4d %8d", $to_intl_msgs, $to_intl_size;
 print "\n\n";
 
-print "#     TO->         Total       Fido.DE          RWTH           .DE     Internat.\n";
-print "# FROM-v      #    bytes    #    bytes    #    bytes    #    bytes    #    bytes\n";
-print "# -------- ------------- ------------- ------------- ------------- -------------\n";
+# print "#     TO->         Total       Fido.DE          RWTH           .DE     Internat.\n";
+# print "# FROM-v      #    bytes    #    bytes    #    bytes    #    bytes    #    bytes\n";
+# print "# -------- ------------- ------------- ------------- ------------- -------------\n";
+print "#     TO->                   Total       Fido.DE           .DE     Internat.\n";
+print "# FROM-v                #    bytes    #    bytes    #    bytes    #    bytes\n";
+print "# ------------------ ------------- ------------- ------------- -------------\n";
 
 for $site (sort keys(%from_total_msgs)) {
-    printf "%-10.10s", $site;
+#    printf "%-10.10s", $site;
+    printf "%-20.20s", $site;
     printf " %4d %8d", $from_total_msgs{$site}, $from_total_size{$site};
     printf " %4d %8d", $from_intern_msgs{$site}, $from_intern_size{$site};
-    printf " %4d %8d", $from_rwth_msgs{$site}, $from_rwth_size{$site};
+#    printf " %4d %8d", $from_rwth_msgs{$site}, $from_rwth_size{$site};
     printf " %4d %8d", $from_de_msgs{$site}, $from_de_size{$site};
     printf " %4d %8d", $from_intl_msgs{$site}, $from_intl_size{$site};
     print "\n";
 }
 
-print "# -------- ------------- ------------- ------------- ------------- -------------\n";
-print "TOTAL     ";
+#print "# -------- ------------- ------------- ------------- ------------- -------------\n";
+#print "TOTAL     ";
+print "# ------------------ ------------- ------------- ------------- -------------\n";
+print "TOTAL               ";
 printf " %4d %8d", $from_total_msgs, $from_total_size;
 printf " %4d %8d", $from_intern_msgs, $from_intern_size;
-printf " %4d %8d", $from_rwth_msgs, $from_rwth_size;
+#printf " %4d %8d", $from_rwth_msgs, $from_rwth_size;
 printf " %4d %8d", $from_de_msgs, $from_de_size;
 printf " %4d %8d", $from_intl_msgs, $from_intl_size;
 print "\n\n";

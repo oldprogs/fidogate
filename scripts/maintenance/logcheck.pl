@@ -1,11 +1,11 @@
 #!/usr/local/bin/perl
 #
-# $Id: logcheck.pl,v 4.3 1997/11/23 18:51:44 mj Exp $
+# $Id: logcheck.pl,v 4.4 1998/01/02 14:37:04 mj Exp $
 #
 # Create report for sendmail check_mail rules
 #
 
-$NEWSGROUPS = "fido.de";
+$NEWSGROUPS = "fido.de.lists";
 $SUBJECT    = "Fido.DE Sendmail Reject Report";
 
 $INEWS      = "/usr/bin/inews -h -S";
@@ -56,6 +56,11 @@ while(<>) {
 	$nodns{$1}++;
 	print "no DNS: $1\n" if($opt_v);
     }
+
+    if( /check_rcpt \((<.*>)\) rejection: 551.*we do not relay/ ) {
+	$relay{$1}++;
+	print "relay : $1\n" if($opt_v);
+    }
 }
 
 # Report
@@ -76,6 +81,15 @@ if(scalar(%nodns)) {
 	"----------------------------------\n";
     for $k (sort { $nodns{$b} <=> $nodns{$a} } keys(%nodns)) {
 	printf "%8d %s\n", $nodns{$k}, $k;
+    }
+}
+
+if(scalar(%relay)) {
+    print
+	"\nAddresses from relay attempts:\n",
+	"------------------------------\n";
+    for $k (sort { $relay{$b} <=> $relay{$a} } keys(%relay)) {
+	printf "%8d %s\n", $relay{$k}, $k;
     }
 }
 

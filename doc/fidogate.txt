@@ -2711,12 +2711,10 @@ Commands:
 `send'
      Send normal mail addressed to nodes with flavor.
 
-     WARNING: there is a bug in the current implementation of `send'
-     (when compared to the operation of e.g. SQUISH). A command `send
-     hold 2:123/456' actually equals `send hold 2:123/456.*', i.e. mail
-     for every single point of this node is put onto hold. Use the
-     command `route hold 2:123/456' instead to get the desired
-     behaviour!!!
+     WARNING: e.g. `send hold 2:2452/110' actually is the same as
+     `route hold 2:2452/110.0 2452/110.*'. So `send hold 2:2452/110
+     110.*' will not have the desired effect, use `send hold
+     2:2452/110.*' only instead!!!
 
 `route'
      Route normal mail addressed to nodes via dest-node, using flavor.
@@ -3109,7 +3107,7 @@ onto hold.
      remap 2:2499/123.0 2:2499/123.1  "*"
      
      NetMail
-     send  hold   2:2499/123 2:2499/123.*
+     send  hold   2:2499/123.*
      route normal 2:2499/100 1:* 2:* 3:* 4:* 5:* 6:*
      
      EchoMail

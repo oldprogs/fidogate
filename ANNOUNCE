@@ -1,5 +1,6 @@
 Subject: FIDOGATE 4.2.9 --- Fido-Internet Gateway and Tosser
 Keywords: fido ftn netmail echomail tosser areafix mail news gateway
+Followup-To: comp.os.linux.misc
 
 FIDOGATE 4.2.9, an update to version 4 of the FIDOGATE package is
 available.
@@ -90,6 +91,6 @@ End
 
 ======================================================================
 
-$Date: 1997/11/20 18:30:32 $
+$Date: 1998/01/02 14:36:56 $
 Martin Junius
 mailto:mj@fido.de

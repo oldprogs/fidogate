@@ -1,6 +1,6 @@
 #!/usr/local/bin/perl
 #
-# $Id: logreport.pl,v 4.0 1996/04/17 18:17:38 mj Exp $
+# $Id: logreport.pl,v 4.1 1998/01/02 14:37:05 mj Exp $
 #
 # Create report for "problems" in FIDOGATE tosser log file:
 #   - Unknown areas
@@ -10,7 +10,7 @@
 #   - Messages from gateway
 #
 
-$NEWSGROUPS = "fido.de";
+$NEWSGROUPS = "fido.de.lists";
 $SUBJECT    = "EchoMail problem report";
 
 
