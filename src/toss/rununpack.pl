@@ -1,6 +1,6 @@
 #!/usr/bin/perl
 #
-# $Id: rununpack.pl,v 4.6 1998/09/23 19:23:16 mj Exp $
+# $Id: rununpack.pl,v 4.7 1998/10/18 18:12:56 mj Exp $
 #
 # Unpack ArcMail archives
 #
@@ -9,7 +9,7 @@
 
 require 5.000;
 
-my $VERSION = '$Revision: 4.6 $ ';
+my $VERSION = '$Revision: 4.7 $ ';
 my $PROGRAM = "rununpack";
 
 use strict;
@@ -251,12 +251,12 @@ for $arc (@files) {
     # Archive type
     $type = arc_type("$INPUT/$arc");
     if($type eq "UNKNOWN") {
-	log("unknown archive $INPUT/$arc, moving archive to $INPUT/$BADDIR");
+	&log("unknown archive $INPUT/$arc, moving archive to $INPUT/$BADDIR");
 	rename("$INPUT/$arc", "$INPUT/$BADDIR/$arc")
 	    || die "$PROGRAM: can't rename $INPUT/$arc -> $INPUT/$BADDIR/$arc\n";
 	next;
     }	
-    log("archive $INPUT/$arc ($type)");
+    &log("archive $INPUT/$arc ($type)");
     
     # List/extract program
     $cmd_l = $arc_l{$type};
@@ -266,7 +266,7 @@ for $arc (@files) {
     $ok = run_arc("/dev/null", $cmd_l, "$INPUT/$arc");
     print "List arc returned OK\n" if($opt_v && $ok);
     if(!$ok) {
-	log("WARNING: skipping archive $INPUT/$arc");
+	&log("WARNING: skipping archive $INPUT/$arc");
 	next;
     }
 
@@ -274,23 +274,23 @@ for $arc (@files) {
     $ok = run_arc("$TMPOUT", $cmd_x, "$INPUT/$arc");
     print "Extract arc returned OK\n" if($opt_v && $ok);
     if(!$ok) {
-	log("ERROR: unpacking archive $INPUT/$arc failed");
-	log("ERROR: ouput of command $cmd_x:");
+	&log("ERROR: unpacking archive $INPUT/$arc failed");
+	&log("ERROR: ouput of command $cmd_x:");
 	open(F, "$TMPOUT") || die "$PROGRAM: can't open $TMPOUT\n";
 	while(<F>) {
 	    chop;
-	    log("ERROR:     $_");
+	    &log("ERROR:     $_");
 	}
 	close(F);
 
-# 	log("ERROR: removing extracted files");
+# 	&log("ERROR: removing extracted files");
 # 	opendir(DIR, "$INPUT/$TMPDIR")
 # 	    || die "$PROGRAM: can't open $INPUT/$TMPDIR\n";
 # 	@xf = grep(/[^.].*/, readdir(DIR));
 # 	closedir(DIR);
 # 	unlink @xf || die "$PROGRAM: can't remove extracted files\n";
 
-	log("moving archive to $INPUT/$BADDIR");
+	&log("moving archive to $INPUT/$BADDIR");
 	rename("$INPUT/$arc", "$INPUT/$BADDIR/$arc")
 	    || die "$PROGRAM: can't rename $INPUT/$arc -> $INPUT/$BADDIR/$arc\n";
 	next;
@@ -310,7 +310,7 @@ for $arc (@files) {
 	    $n++;
 	    $new = "$INPUT/$n.$f";
 	}
-	log("packet $f renamed to $n.$f") if($n);
+	&log("packet $f renamed to $n.$f") if($n);
 	rename($old, $new) || die "$PROGRAM: can't rename $old -> $new\n";
     }
 

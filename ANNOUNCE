@@ -40,7 +40,26 @@ Fido File Request:
 
 Changes in 4.3a5:
 
-*
+* ftntoss/ftn2rfc: bug-fix for processing packets with point
+  addresses, should fix NetMail problems with non-point addresses in
+  packets from/to point addresses.
+
+* src/*/*.pl: improved and adapted to Perl5.
+
+* ftntoss: new config options AddOtherAKAs, forces ftntoss to all AKAs 
+  for the current zone to SEEN-BY.
+
+* Config functions updated to support new option GateAddr, which will
+  replace the multiple config files and the to some extent confusing
+  Address/Uplink settings in the next FIDOGATE release. NO CHANGES IN
+  THIS RELEASE YET!!!
+
+* ftn2rfc: new config option NewsPathTail. If set to
+  "fidogate!not-for-mail" it will make a correct setup of the INN
+  newsfeeds entry for FIDOGATE much more easy, avoiding news being send
+  back to the Fido uplink.
+
+* ftn2rfc: fix for AI_2 alias processing of recipient address.
 
 
 
@@ -237,6 +256,6 @@ Needed:
 
 ======================================================================
 
-$Date: 1998/07/19 11:28:02 $
+$Date: 1998/10/18 18:12:53 $
 Martin Junius
 mailto:mj@fido.de

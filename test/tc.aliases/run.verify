@@ -1,9 +1,131 @@
 tc: clean-up
 tc: init
 tc: running
+----- rfc2ftn: mail to test_1 @ 2:2/0.0 -----
+Message body size 6 (+CR!)
+RFC To:       test_1@p0.f0.n2.z2
+RFC From:     Test User <test@blah.org>
+RFC Sender:   Test User <test@blah.org>
+    Name:     test_1
+    Address:  p0.f0.n2.z2
+    FTN node: 2:2/0.0
+Name for alias checking: test_1
+No alias found: return Test 1
+    Name:     test
+    Address:  blah.org
+Name for alias checking: test
+E-mail for alias checking: test@blah.org
+addr_is_local(): From=Test User <test@blah.org> FQDN=orodruin.fido.de
 rfc2ftn MAIL: Test User <test@blah.org> -> test_1@p0.f0.n2.z2
+    Name:     test
+    Address:  blah.org
+Name for alias checking: test
+E-mail for alias checking: test@blah.org
+RFC MIME-Version:              -NONE-
+RFC Content-Type:              -NONE-
+RFC Content-Transfer-Encoding: -NONE-
+New packet file ./outpkt/mail/00000001.pkt (tmp ./outpkt/mail/00000001.tmp)
+Writing FTN packet header:
+    From: 2:2452/110.2
+    To  : 2:2452/110.2
+    Baud: 0
+    Prod: 00 fe
+    Rev : 4.3
+    Pass: ""
+    Capw: 0001
+Writing FTN message header:
+    From: Test User                            @ 2:2452/110.2
+    To  : Test 1                               @ 2:2/0.0
+    Subj: Mail -> Test 1
+    Attr: 0001
+using local time
+----- rfc2ftn: mail to test_2 @ 2:2/0.0 -----
+Message body size 6 (+CR!)
+RFC To:       test_2@p0.f0.n2.z2
+RFC From:     Test User <test@blah.org>
+RFC Sender:   Test User <test@blah.org>
+    Name:     test_2
+    Address:  p0.f0.n2.z2
+    FTN node: 2:2/0.0
+Name for alias checking: test_2
+No alias found: return Test 2
+    Name:     test
+    Address:  blah.org
+Name for alias checking: test
+E-mail for alias checking: test@blah.org
+addr_is_local(): From=Test User <test@blah.org> FQDN=orodruin.fido.de
 rfc2ftn MAIL: Test User <test@blah.org> -> test_2@p0.f0.n2.z2
+    Name:     test
+    Address:  blah.org
+Name for alias checking: test
+E-mail for alias checking: test@blah.org
+RFC MIME-Version:              -NONE-
+RFC Content-Type:              -NONE-
+RFC Content-Transfer-Encoding: -NONE-
+New packet file ./outpkt/mail/00000002.pkt (tmp ./outpkt/mail/00000002.tmp)
+Writing FTN packet header:
+    From: 2:2452/110.2
+    To  : 2:2452/110.2
+    Baud: 0
+    Prod: 00 fe
+    Rev : 4.3
+    Pass: ""
+    Capw: 0001
+Writing FTN message header:
+    From: Test User                            @ 2:2452/110.2
+    To  : Test 2                               @ 2:2/0.0
+    Subj: Mail -> Test 2
+    Attr: 0001
+using local time
+
+----- ftn2rfc -----
+Reading FTN packet header:
+    From: 2:2452/110.2
+    To  : 2:2452/110.2
+    Baud: 0
+    Prod: 00 fe
+    Rev : 4.3
+    Pass: ""
+    Capw: 0001
 ftn2rfc packet ./pin/00000001.pkt (509b) from 2:2452/110.2 to 2:2452/110.2
+Reading FTN message header:
+    From: Test User                            @ 2:2452/110.2
+    To  : Test 1                               @ 2:2/0.2
+    Subj: Mail -> Test 1
+    Attr: 0001
+FIDO sender (from/origin): 2:2452/110.2
+cvt8:
+FSC-0054 ^ACHRS/CHARSET: LATIN-1 2
+FSC-0054 level 2 charset=LATIN-1
+charset: in=LATIN-1 out=us-ascii
+charset: table found in=iso-8859-1 out=us-ascii
+charset: in=LATIN-1 out=us-ascii
+charset: table found in=iso-8859-1 out=us-ascii
+Checking for alias: Test 1 <Test_1@f0.n2.z2.fidonet.org>
+Alias (AI2) found: test1@abc.def.org 2:2/0.0 "Test 1"
 ftn2rfc MAIL: Test User <test@blah.org> -> test1@abc.def.org
+Reading FTN packet header:
+    From: 2:2452/110.2
+    To  : 2:2452/110.2
+    Baud: 0
+    Prod: 00 fe
+    Rev : 4.3
+    Pass: ""
+    Capw: 0001
 ftn2rfc packet ./pin/00000002.pkt (509b) from 2:2452/110.2 to 2:2452/110.2
+Reading FTN message header:
+    From: Test User                            @ 2:2452/110.2
+    To  : Test 2                               @ 2:2/0.2
+    Subj: Mail -> Test 2
+    Attr: 0001
+FIDO sender (from/origin): 2:2452/110.2
+cvt8:
+FSC-0054 ^ACHRS/CHARSET: LATIN-1 2
+FSC-0054 level 2 charset=LATIN-1
+charset: in=LATIN-1 out=us-ascii
+charset: table found in=iso-8859-1 out=us-ascii
+charset: in=LATIN-1 out=us-ascii
+charset: table found in=iso-8859-1 out=us-ascii
+Checking for alias: Test 2 <Test_2@f0.n2.z2.fidonet.org>
+Alias (old) found: test2 2:2/0.0 "Test 2"
 ftn2rfc MAIL: Test User <test@blah.org> -> test2@orodruin.fido.de

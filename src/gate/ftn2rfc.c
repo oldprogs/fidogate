@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftn2rfc.c,v 4.43 1998/10/18 16:31:38 mj Exp $
+ * $Id: ftn2rfc.c,v 4.44 1998/10/18 18:12:55 mj Exp $
  *
  * Convert FTN mail packets to RFC mail and news batches
  *
@@ -40,7 +40,7 @@
 
 
 #define PROGRAM 	"ftn2rfc"
-#define VERSION 	"$Revision: 4.43 $"
+#define VERSION 	"$Revision: 4.44 $"
 #define CONFIG		DEFAULT_CONFIG_GATE
 
 
@@ -399,6 +399,9 @@ int unpack(FILE *pkt_file, Packet *pkt)
 	/* Retrieve address information from kludges for NetMail */
 	if(body.area == NULL)
 	{
+	    /* Don't use point address from packet for Netmail */
+	    msg.node_from.point = 0;
+	    msg.node_to  .point = 0;
 	    /* Retrieve complete address from kludges */
 	    kludge_pt_intl(&body, &msg, FALSE);
 	    msg.node_orig = msg.node_from;
@@ -715,28 +718,32 @@ int unpack(FILE *pkt_file, Packet *pkt)
 	    
 	    debug(7, "Checking for alias: %s",
 		  rfcaddr_to_asc(&addr_to, TRUE));
-#ifndef AI_2
-	    a = alias_lookup(cf_addr(), NULL, addr_to.real);
-#else
+#ifdef AI_2
 	    a = alias_lookup_strict(&msg.node_to, NULL, addr_to.real);
+#else
+	    a = alias_lookup(cf_addr(), NULL, addr_to.real);
 #endif
 	    if(a)
 	    {
-#ifndef AI_2
-		debug(7, "Alias found: %s %s %s", a->username,
-		      node_to_asc(&a->node, FALSE), a->fullname);
-#else
+#ifdef AI_2
 		if(a->userdom)
 		{
-		    debug(7, "Alias found: %s@%s %s %s", a->username, a->userdom,
-			  node_to_asc(&a->node, FALSE), a->fullname);
-		    BUF_COPY(addr_to.addr, a->userdom);
+		    debug(7, "Alias (AI2) found: %s@%s %s \"%s\"",
+			  a->username, a->userdom,
+			  znfp(&a->node), a->fullname);
+		    /*BUF_COPY(addr_to.addr, a->userdom);*/
+		    BUF_COPY  (mail_to, a->username);
+		    BUF_APPEND(mail_to, "@");
+		    BUF_APPEND(mail_to, a->userdom);
 		}
 		else
-		    debug(7, "Alias found: %s %s %s", a->username,
-		          node_to_asc(&a->node, FALSE), a->fullname);
 #endif
-		BUF_COPY(mail_to, a->username);
+		{
+		    debug(7, "Alias (old) found: %s %s \"%s\"",
+			  a->username,
+		          znfp(&a->node), a->fullname);
+		    BUF_COPY(mail_to, a->username);
+		}
 	    }
 	    else
 		BUF_COPY(mail_to, addr_to.user);

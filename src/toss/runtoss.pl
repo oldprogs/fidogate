@@ -1,6 +1,6 @@
 #!/usr/bin/perl
 #
-# $Id: runtoss.pl,v 4.6 1998/09/23 19:23:16 mj Exp $
+# $Id: runtoss.pl,v 4.7 1998/10/18 18:12:56 mj Exp $
 #
 # Wrapper for ftntoss, ftnroute, ftnpack doing the toss process
 #
@@ -10,7 +10,7 @@
  
 require 5.000;
 
-my $VERSION = '$Revision: 4.6 $ ';
+my $VERSION = '$Revision: 4.7 $ ';
 my $PROGRAM = "runtoss";
 
 use strict;
@@ -234,7 +234,7 @@ sub df_check {
     # Check against DiskFreeMin
     print "Free disk space in $path is $free K\n" if($opt_v);
     if($free < $MINFREE) {
-	log("disk space low in $path, $free K free");
+	&log("disk space low in $path, $free K free");
 	return 0;
     }
     return 1;

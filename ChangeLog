@@ -1,5 +1,29 @@
 1998-10-18  Martin Junius  <mj@fido.de>
 
+	======= Release 4.3a5 ================================================
+	------- CVS tag R43a5 ------------------------------------------------
+	------- CVS ci -------------------------------------------------------
+
+	* src/gate/ftn2rfc.c (unpack): fixed AI_2 alias lookup code for
+ 	  recipient addresses.
+
+	* test/tc.aliases/run: modified.
+
+	* test/cf/aliases: added aliases for new tc.aliases test case.
+
+	* src/gate/ftn2rfc.c (unpack): set msg.node_from/node_to.point = 0 
+	  for NetMail. 
+
+	* src/toss/ftntoss.c (unpack): set msg.node_to.point = 0 for
+ 	  NetMail.
+
+	* src/toss/runtoss.pl: dito.
+
+	* src/toss/rununpack.pl (run_arc): call to log() changed to
+	  &log(), avoiding problems with log() math function.
+
+	* ANNOUNCE (Internet): updated.
+
 	------- CVS ci -------------------------------------------------------
 
 	* examples/orodruin/gate.conf: added NewsPathTail.
