@@ -1,6 +1,6 @@
 -*- Indented-Text -*- :ts=8
 
-	* ftnexpire utility for handling MSGID history.
+DONE.	* ftnexpire utility for handling MSGID history.
 
 	* areas.c: change automatic name conversion for -H to be
 	  configurable for -/_

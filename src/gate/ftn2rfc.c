@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftn2rfc.c,v 4.0 1996/04/17 18:17:41 mj Exp $
+ * $Id: ftn2rfc.c,v 4.1 1996/04/18 09:58:37 mj Exp $
  *
  * Convert FTN mail packet to RFC messages (mail and news batches)
  *
@@ -40,7 +40,7 @@
 
 
 #define PROGRAM 	"ftn2rfc"
-#define VERSION 	"$Revision: 4.0 $"
+#define VERSION 	"$Revision: 4.1 $"
 #define CONFIG		CONFIG_GATE
 
 
@@ -1225,14 +1225,14 @@ int main(int argc, char **argv)
 	debug(8, "config: TrackerMail %s", p);
 	tracker_mail_to = p;
     }
-    if(cf_get_string("NoUnknownMSGIDZones", TRUE))
+    if(cf_get_string("KillUnknownMSGIDZone", TRUE))
     {
-	debug(8, "config: NoUnknownMSGIDZones");
+	debug(8, "config: KillUnknownMSGIDZone");
 	no_unknown_msgid_zones = TRUE;
     }
-    if(cf_get_string("NoMessagesWithoutMSGID", TRUE))
+    if(cf_get_string("KillNoMSGID", TRUE))
     {
-	debug(8, "config: NoMessagesWithoutMSGID");
+	debug(8, "config: KillNoMSGID");
 	no_messages_without_msgid = TRUE;
     }
     if(cf_get_string("UseOriginForOrganization", TRUE))

@@ -1,6 +1,6 @@
 #:ts=8
 #
-#    $Id: Makefile,v 4.0 1996/04/17 18:17:42 mj Exp $
+#    $Id: Makefile,v 4.1 1996/04/18 09:58:37 mj Exp $
 #
 #    Makefile for FIDOGATE src/toss/
 #
@@ -16,11 +16,12 @@ include $(TOPDIR)/config.make
 include $(TOPDIR)/rules.make
 
 
-PROGS		= ftn2ftn ftnaf ftnpack ftnroute ftntoss\
+PROGS		= ftn2ftn ftnaf ftnexpire ftnpack ftnroute ftntoss\
 		  rundf runin runout runtoss rununpack
 # + ftnbounce
 
 OBJS_TOSS	= ftntoss.o dbz.o history.o
+OBJS_EXPIRE	= ftnexpire.o dbz.o
 
 LOCAL_CFLAGS	= -I.
 LOCAL_LFLAGS	=
@@ -35,6 +36,9 @@ ftnroute:	$(TOPDIR)/src/common/$(LIB)
 
 ftntoss:	$(TOPDIR)/src/common/$(LIB) $(OBJS_TOSS)
 	$(CC) $(LFLAGS) $(LOCAL_LFLAGS) -o ftntoss $(OBJS_TOSS) $(LIBS)
+
+ftnexpire:	$(TOPDIR)/src/common/$(LIB) $(OBJS_EXPIRE)
+	$(CC) $(LFLAGS) $(LOCAL_LFLAGS) -o ftnexpire $(OBJS_EXPIRE) $(LIBS)
 
 
 install:
@@ -73,7 +77,7 @@ depend:
 
 depend-all:
 	$(CC) $(CFLAGS) $(LOCAL_CFLAGS) -M *.c >.depend
-		
+
 ifeq (.depend,$(wildcard .depend))
 include .depend
 endif

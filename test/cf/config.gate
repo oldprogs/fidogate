@@ -40,6 +40,12 @@ Organization	"Martin Junius' orodruin.fido.de"
 
 
 #
+# Use text from * Origin line for Organization header
+#
+UseOriginForOrganization
+
+
+#
 # Type of 4D EchoMail control lines.
 #
 # With this enabled FIDOGATE generates SEEN-BY and ^APATH like:
@@ -78,18 +84,12 @@ EchoMail4D
 # Don't gate messages with unknown zone in ^AMSGID (known zones are defined
 # in config.common).
 #
-NoUnknownMSGIDZones
+KillUnknownMSGIDZone
 
 #
 # Don't gate messages without a valid ^AMSGID (or similar)
 #
-NoMessagesWithoutMSGID
-
-
-#
-# Use text from * Origin line for Organization header
-#
-UseOriginForOrganization
+KillNoMSGID
 
 
 #

@@ -21,7 +21,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: parsedate.c,v 4.0 1996/04/17 18:17:39 mj Exp $
+ * $Id: parsedate.c,v 4.1 1996/04/18 09:58:37 mj Exp $
  *
  * parsedate() date/time parser. Taken from ifmail 1.7 / inn 1.4 and
  * adopted for FIDOGATE. Added DST from old getdate.y.

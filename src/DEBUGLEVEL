@@ -16,13 +16,14 @@
 4	* detailed packet processing
 	* detailed processing of packet and archive files
 	* commands executed
+	* MSGID history expire parameters
 
 5	* messages processed (interesting information)
 
 6	* message header
 
 7	* detailed message processing
-	* MSGID records written to history
+	* MSGID records in history
 
 8	* configuration
 	  - standard config stuff

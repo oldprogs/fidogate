@@ -1,4 +1,23 @@
+Thu Apr 18 10:07:42 1996  Martin Junius  <mj@fido.de>
+
+	* src/gate/ftn2rfc.c (main): option "NoUnknownMSGIDZones" renamed
+	  to "KillUnknownMSGIDZone", "NoMessagesWithoutMSGID" to
+	  "KillNoMSGID", to be compliant with the option names used by
+	  ftntoss.
+
+	* src/toss/ftnexpire.c (do_expire): function opening old and
+	  creating new MSGID history, processing entries, and replacing
+	  old with new history database.
+	  (do_line): function processing one line from old history
+	  database, writing entry to new database if not expired.
+
+	* src/toss/Makefile: add ftnexpire.
+
+	* src/toss/ftnexpire.c: new utility for expiring MSGID history.
+
 Wed Apr 17 12:12:08 1996  Martin Junius  <mj@fido.de>
+
+	* ----- CVS commit ---------------------------------------------------
 
 	* src/include/version.h (VERSION): fixed text for VERSION, no RCS
 	  substitution.
