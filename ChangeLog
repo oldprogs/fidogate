@@ -1,4 +1,13 @@
+2001-07-27  Martin Junius  <mj@m-j-s.net>
+
+	------- CVS ci -------------------------------------------------------
+
+	* sendmail/cf/redhat6-morannon.mc: replaced mail-abuse rbls with
+	  ORBL, ORBZ, and ORDB.
+
 2001-06-03  Martin Junius  <mj@m-j-s.net>
+
+	* update-morannon: copy some files to /html/fidogate.
 
 	======= Release 4.4.4 ================================================
 	------- CVS tag R444 -------------------------------------------------

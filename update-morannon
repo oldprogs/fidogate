@@ -19,6 +19,10 @@ cp -av \
     /usr/src/redhat/RPMS/i386/fidogate-$REL-*.i386.rpm \
     /u2/archive/fidogate
 
+cp -av \
+    README ANNOUNCE ChangeLog \
+    /html/fidogate
+
 scp \
     /usr/src/redhat/SOURCES/fidogate-$REL.tar.gz \
     /usr/src/redhat/SRPMS/fidogate-$REL-*.src.rpm \

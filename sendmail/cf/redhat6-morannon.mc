@@ -1,17 +1,17 @@
 #
-# $Id: redhat6-morannon.mc,v 4.5 2000/04/19 17:07:28 mj Exp $
+# $Id: redhat6-morannon.mc,v 4.6 2001/07/27 21:00:16 mj Exp $
 #
 # Fido.DE (morannon.fido.de)
 #
 
 include(`../m4/cf.m4')
 
-VERSIONID(`$Id: redhat6-morannon.mc,v 4.5 2000/04/19 17:07:28 mj Exp $')
+VERSIONID(`$Id: redhat6-morannon.mc,v 4.6 2001/07/27 21:00:16 mj Exp $')
 
 dnl #
 dnl # Configuration
 dnl #
-define(`confCF_VERSION', `redhat6-morannon-4.4')
+define(`confCF_VERSION', `redhat6-morannon-4.6')
 define(`confMIME_FORMAT_ERRORS', `False')
 define(`confUSE_ERRORS_TO', `True')
 define(`confMAX_HOP', `30')
@@ -47,9 +47,17 @@ dnl # RBL
 dnl # To use multiple rbl's, you *must* apply mrbl.p3 to the original
 dnl # sendmail-cf files in /usr/lib/sendmail-cf
 dnl # See also http://www.sendmail.org/~ca/email/chk-89n.html
-FEATURE(rbl, `rbl.maps.vix.com', `Rejected - see http://www.mail-abuse.org/rbl/')
-FEATURE(rbl, `dul.maps.vix.com', `Dialup - see http://www.mail-abuse.org/dul/')
-FEATURE(rbl, `relays.mail-abuse.org', `Open spam relay - see http://www.mail-abuse.org/rss')
+
+dnl # mail-abuse is no longer free, starting 2001-08-01
+dnl FEATURE(rbl, `rbl.maps.vix.com', `Rejected - see http://www.mail-abuse.org/rbl/')
+dnl FEATURE(rbl, `dul.maps.vix.com', `Dialup - see http://www.mail-abuse.org/dul/')
+dnl FEATURE(rbl, `relays.mail-abuse.org', `Open spam relay - see http://www.mail-abuse.org/rss')
+
+dnl # some ORBS sucessors
+FEATURE(rbl, `or.orbl.org', `Open relay - see http://www.orbl.org/')
+FEATURE(rbl, `inputs.orbz.org', `Open relay - see http://www.orbz.org/')
+FEATURE(rbl, `outputs.orbz.org', `Open relay - see http://www.orbz.org/')
+FEATURE(rbl, `relays.ordb.org', `Open relay - see http://www.ordb.org/')
 
 
 MAILER(procmail)
