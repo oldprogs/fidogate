@@ -1,4 +1,31 @@
+Fri Oct 18 18:31:45 1996  Martin Junius  <mj@fido.de>
+
+	------- CVS ci -------------------------------------------------------
+
+	* doc/fidogate.texi (Config): added FTNIn* parameters.
+
+	* src/gate/ftninpost.pl: changed to use new config.gate parameters.
+
+	* src/util/ftnconfig.c (do_para): added functionality for -t option.
+
+	* doc/fidogate.texi (ftnconfig): added -t --test-only option.
+
+	* src/util/ftnconfig.c (main): new option -t --test-only.
+
+	* examples/morannon/config.gate: same.
+
+	* examples/orodruin/config.gate: added new parameters
+	  FTNInSendmail, FTNInRnews, FTNInRecombine.
+
+Thu Oct 17 22:12:02 1996  Martin Junius  <mj@fido.de>
+
+	* doc/fidogate.texi: several changes.
+
 Wed Oct 16 21:11:42 1996  Martin Junius  <mj@fido.de>
+
+	* src/common/version.c (version_global): added PATCHLEVEL to
+	  version number (seems to have vanished during the 4.0
+	  development ;-).
 
 	------- CVS ci -------------------------------------------------------
 

@@ -1,7 +1,7 @@
 <HTML>
 <HEAD>
 <!-- This HTML file has been created by texi2html 1.51
-     from ../fidogate.texi on 16 October 1996 -->
+     from ../fidogate.texi on 18 October 1996 -->
 
 <TITLE>FIDOGATE
  - FIDOGATE Programs</TITLE>
@@ -762,6 +762,10 @@ No output of newline after the parameter value.
 <DD>
 No output, exit code only.
 
+<DT><CODE>-t --test-only</CODE>
+<DD>
+Output <CODE>1</CODE> if the parameter is present, <CODE>0</CODE> if not.
+
 </DL>
 
 <P>
@@ -901,9 +905,8 @@ ftninrecomb  [<I>-options</I>]
 </PRE>
 
 <P>
-This script can be run by <CODE>ftninpost</CODE> to recombine split
-messages. The default is that it is not run, you must edit
-<CODE>src/ftninpost.pl</CODE> to enable it.
+If <CODE>FTNInRecombine</CODE> is enabled in <CODE>config.gate</CODE>, this script
+wil be run by <CODE>ftninpost</CODE> to recombine split messages.
 
 </P>
 

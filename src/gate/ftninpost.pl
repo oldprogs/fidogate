@@ -1,17 +1,11 @@
 #!/usr/local/bin/perl
 #
-# $Id: ftninpost.pl,v 4.0 1996/04/17 18:17:40 mj Exp $
+# $Id: ftninpost.pl,v 4.1 1996/10/18 16:58:05 mj Exp $
 #
 # Postprocessor for ftnin, feeds output of ftn2rfc to rnews and sendmail.
 # Call via ftnin's -x option or run after ftn2rfc. Replaces old fidorun
 # script.
-
-##### CONFIGURE ME! ##########################################################
-$RELAY    = "sungate-ftn.fido.de";
-$PROTO    = "FIDOGATE";
-$SENDMAIL = "/usr/lib/sendmail -odq -oee -oi -f%s -oMs$RELAY -oMr$PROTO -t";
-$RNEWS    = "/usr/bin/rnews";
-##############################################################################
+#
 
 require "getopts.pl";
 &Getopts('vL:S:I:');
@@ -30,20 +24,32 @@ if($opt_L) {
 }
 if($opt_S) {
     $SPOOLDIR = $opt_S;
-    $options  = "$options -L$SPOOLDIR";
+    $options  = "$options -S$SPOOLDIR";
 }
 $INDIR    = $opt_I if($opt_I);
 if($opt_v) {
     $options  = "$options -v";
 }
 
+# get config.gate parameters
+$SENDMAIL = `$LIBDIR/ftnconfig -c $LIBDIR/config.gate -l FTNInSendmail`;
+$RNEWS    = `$LIBDIR/ftnconfig -c $LIBDIR/config.gate -l FTNInRnews`;
+$RECOMB   = `$LIBDIR/ftnconfig -c $LIBDIR/config.gate -l -t FTNInRecombine`;
+
+print
+    "sendmail  = $SENDMAIL\n",
+    "rnews     = $RNEWS\n",
+    "recombine = $RECOMB\n"
+    if($opt_v);
+exit;
 
 
 # ----- main -----------------------------------------------------------------
 
 # do recombining of split messages
-##&do_cmd("$LIBDIR/ftninrecomb $options");
-
+if($RECOMB) {
+    &do_cmd("$LIBDIR/ftninrecomb $options");
+}
 
 # mail
 $dir = "$INDIR/mail";

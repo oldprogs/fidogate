@@ -113,12 +113,12 @@ under the GNU General Public License, see COPYING for details.
 
    The gateway converts between the worlds of Fido NetMail/EchoMail (or
 FTNs, Fido Technology Networks in general) and the UNIX mail/news
-system. FIDOGATE will convert Fido mail packets to RFC822-style messages
-and vice versa.
+system. FIDOGATE will convert Fido mail packets to RFC822/1036-style
+messages and vice versa.
 
    FIDOGATE also includes a complete FIDO mail processor
-(NetMail/EchoMail scanner and tosser), a file processor (TIC file
-areas) and an Areafix/Filefix.
+(NetMail/EchoMail scanner and tosser), an FTN-FTN gateway (NetMail
+only), a file processor (TIC file areas) and an Areafix/Filefix.
 
 How to Get FIDOGATE
 ===================
@@ -145,13 +145,17 @@ Requirements for FIDOGATE:
 
    * Installed news system. (CNews, INN)
 
-   * A news reader. (nn, tin, Emacs GNUS, netscape)
+   * A news reader. (nn, tin, Emacs GNUS, netscape, slrn, trn, knews,
+     xrn, ...)
 
    * A mail transport agent. (sendmail, smail)
 
-   * A mail user agent. (mail, elm, pine, Emacs VM, netscape)
+   * A mail user agent. (mail, elm, pine, Emacs VM, netscape, xfmail,
+     ...)
 
    * Perl. (version 4.036 or 5.000+)
+
+   * M4 for compiling the sendmail config files.
 
 FIDOGATE Mailing List
 =====================
@@ -240,7 +244,7 @@ connectivity:
      gateway.
 
    See also `doc/Fido-Point-HOWTO' (German) and
-`doc/Fido-Point-eng-HOWT' (English) for a complete description how to
+`doc/Fido-Point-eng-HOWTO' (English) for a complete description how to
 install a point system. Furthermore, there is a section on point
 configuration at the end of this document.
 
@@ -664,16 +668,7 @@ File: fidogate.info,  Node: Compiling,  Next: Integration,  Prev: config.make,  
 Compiling and Installing FIDOGATE
 =================================
 
-After editing `config.h' and `config.make', have a look at
-`src/ftninpost.pl'. Most likely the variables `$RELAY' (name of the
-FIDO side of the gateway), `$SENDMAIL' (MTA command for mail), and
-`$RNEWS' (command for news) will need some editing.
-
-   You may also want to uncomment the line running the `ftninrecomb'
-command in `src/ftninpost.pl' to enabled the recombining of split FIDO
-messages to a single mail/posting.
-
-   Then compile the beast by entering
+Compile the beast by entering
      make depend
      make
 
@@ -1184,6 +1179,9 @@ Options:
 `-n --no-output'
      No output, exit code only.
 
+`-t --test-only'
+     Output `1' if the parameter is present, `0' if not.
+
 Special parameters:
 
 `=fqdn'
@@ -1262,9 +1260,8 @@ Usage:
 
      ftninrecomb  [-options]
 
-   This script can be run by `ftninpost' to recombine split messages.
-The default is that it is not run, you must edit `src/ftninpost.pl' to
-enable it.
+   If `FTNInRecombine' is enabled in `config.gate', this script wil be
+run by `ftninpost' to recombine split messages.
 
 
 File: fidogate.info,  Node: ftnlock,  Next: ftnlog,  Prev: ftninrecomb,  Up: Programs

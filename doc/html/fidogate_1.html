@@ -1,7 +1,7 @@
 <HTML>
 <HEAD>
 <!-- This HTML file has been created by texi2html 1.51
-     from ../fidogate.texi on 16 October 1996 -->
+     from ../fidogate.texi on 18 October 1996 -->
 
 <TITLE>FIDOGATE
  - Introduction to FIDOGATE</TITLE>
@@ -24,16 +24,16 @@ under the GNU General Public License, see COPYING for details.
 
 </P>
 <P>
-The gateway converts between the worlds of Fido NetMail/EchoMail
-(or FTNs, Fido Technology Networks in general) and the UNIX mail/news
-system. FIDOGATE will convert Fido mail packets to RFC822-style messages
-and vice versa.
+The gateway converts between the worlds of Fido NetMail/EchoMail (or
+FTNs, Fido Technology Networks in general) and the UNIX mail/news
+system. FIDOGATE will convert Fido mail packets to RFC822/1036-style
+messages and vice versa.
 
 </P>
 <P>
 FIDOGATE also includes a complete FIDO mail processor (NetMail/EchoMail
-scanner and tosser), a file processor (TIC file areas) and an
-Areafix/Filefix.
+scanner and tosser), an FTN-FTN gateway (NetMail only), a file processor
+(TIC file areas) and an Areafix/Filefix.
 
 </P>
 
@@ -86,7 +86,7 @@ Installed news system. (CNews, INN)
 
 <LI>
 
-A news reader. (nn, tin, Emacs GNUS, netscape)
+A news reader. (nn, tin, Emacs GNUS, netscape, slrn, trn, knews, xrn, ...)
 
 <LI>
 
@@ -94,11 +94,15 @@ A mail transport agent. (sendmail, smail)
 
 <LI>
 
-A mail user agent. (mail, elm, pine, Emacs VM, netscape)
+A mail user agent. (mail, elm, pine, Emacs VM, netscape, xfmail, ...)
 
 <LI>
 
 Perl. (version 4.036 or 5.000+)
+
+<LI>
+
+M4 for compiling the sendmail config files.
 
 </UL>
 

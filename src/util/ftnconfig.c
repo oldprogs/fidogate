@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftnconfig.c,v 4.1 1996/10/13 12:01:15 mj Exp $
+ * $Id: ftnconfig.c,v 4.2 1996/10/18 16:58:06 mj Exp $
  *
  * Fetch FIDOGATE config.* parameters
  *
@@ -36,7 +36,7 @@
 
 
 #define PROGRAM 	"ftnconfig"
-#define VERSION 	"$Revision: 4.1 $"
+#define VERSION 	"$Revision: 4.2 $"
 #define CONFIG		CONFIG_MAIN
 
 
@@ -56,6 +56,7 @@ void	usage			(void);
  */
 static int n_flag = FALSE;		/* -n --no-output */
 static int l_flag = FALSE;		/* -l --no-newlines */
+static int t_flag = FALSE;		/* -t --test-only */
 
 
 
@@ -109,6 +110,8 @@ int do_para(char *name)
 	}
     }
 
+    if(t_flag)
+	printf("%s%s", ret ? "1" : "0", l_flag ? "" : "\n");
     return ret;
 }
 
@@ -133,6 +136,7 @@ void usage(void)
     fprintf(stderr, "\
 options: -l --no-newline              no newline after parameter value\n\
          -n --no-output               no output, exit code only\n\
+         -t --test-only               output '1' if present, '0' ifnot\n\
 \n\
 	 -v --verbose                 more verbose\n\
 	 -h --help                    this help\n\
@@ -155,6 +159,7 @@ int main(int argc, char **argv)
     {
 	{ "no-newline",   0, 0, 'l'},	/* No newline */
 	{ "no-output",    0, 0, 'n'},	/* No output */
+	{ "test-only",    0, 0, 't'},	/* No output */
 
 	{ "verbose",      0, 0, 'v'},	/* More verbose */
 	{ "help",         0, 0, 'h'},	/* Help */
@@ -168,7 +173,7 @@ int main(int argc, char **argv)
     cf_initialize();
 
 
-    while ((c = getopt_long(argc, argv, "lnvhc:S:L:",
+    while ((c = getopt_long(argc, argv, "lntvhc:S:L:",
 			    long_options, &option_index     )) != EOF)
 	switch (c) {
 	/***** ftnconfig options *****/
@@ -176,6 +181,10 @@ int main(int argc, char **argv)
 	    l_flag = TRUE;
             break;
         case 'n':
+	    n_flag = TRUE;
+            break;
+        case 't':
+	    t_flag = TRUE;
 	    n_flag = TRUE;
             break;
 	    

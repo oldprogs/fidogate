@@ -1,7 +1,7 @@
 <HTML>
 <HEAD>
 <!-- This HTML file has been created by texi2html 1.51
-     from ../fidogate.texi on 16 October 1996 -->
+     from ../fidogate.texi on 18 October 1996 -->
 
 <TITLE>FIDOGATE
  - Compiling and installing FIDOGATE</TITLE>
@@ -83,7 +83,7 @@ gateway.
 
 <P>
 See also <CODE>doc/Fido-Point-HOWTO</CODE> (German) and
-<CODE>doc/Fido-Point-eng-HOWT</CODE> (English) for a complete description how
+<CODE>doc/Fido-Point-eng-HOWTO</CODE> (English) for a complete description how
 to install a point system. Furthermore, there is a section on point
 configuration at the end of this document.
 
@@ -692,20 +692,7 @@ of <CODE>Makefile</CODE> must be changed as well.
 
 </P>
 <P>
-After editing <CODE>config.h</CODE> and <CODE>config.make</CODE>, have a look at
-<CODE>src/ftninpost.pl</CODE>. Most likely the variables <CODE>$RELAY</CODE> (name
-of the FIDO side of the gateway), <CODE>$SENDMAIL</CODE> (MTA command for
-mail), and <CODE>$RNEWS</CODE> (command for news) will need some editing.
-
-</P>
-<P>
-You may also want to uncomment the line running the <CODE>ftninrecomb</CODE>
-command in <CODE>src/ftninpost.pl</CODE> to enabled the recombining of split
-FIDO messages to a single mail/posting.
-
-</P>
-<P>
-Then compile the beast by entering
+Compile the beast by entering
 
 <PRE>
 make depend

@@ -204,3 +204,23 @@ RFCLevel		1
 # Don't generate FSC-0047 kludges (^ASPLIT)
 #
 #NoFSC0047
+
+
+#
+# Parameters for ftnin/ftninpost/ftninrecomb
+#
+# sendmail program path and parameters
+#
+#    %s is replaced with the envelope sender
+#
+FTNInSendmail	/usr/lib/sendmail -odq -oee -oi -f%s -oMrFTN -t
+
+#
+# rnews program path
+#
+FTNInRnews	/usr/bin/rnews
+
+#
+# run ftninrecomb
+#
+#FTNInRecombine

@@ -1,7 +1,7 @@
 <HTML>
 <HEAD>
 <!-- This HTML file has been created by texi2html 1.51
-     from ../fidogate.texi on 16 October 1996 -->
+     from ../fidogate.texi on 18 October 1996 -->
 
 <TITLE>FIDOGATE
  - FIDOGATE Config Files</TITLE>
@@ -101,7 +101,7 @@ Common settings.
 <DT><CODE>config.gate</CODE>
 <DD>
 The config file for the gateway related programs <CODE>ftn2rfc</CODE>,
-<CODE>ftnin</CODE>, <CODE>rfc2ftn</CODE>.
+<CODE>ftnin</CODE>, <CODE>ftninpost</CODE>, <CODE>ftninrecomb</CODE>, <CODE>rfc2ftn</CODE>.
 <DT><CODE>config.main</CODE>
 <DD>
 The config file for the tosser related programs <CODE>ftn2ftn</CODE>,
@@ -446,6 +446,27 @@ mails from gateway users to <I>user@do.main</I>.
 <DD>
 Do not allow <CODE>@ ! %</CODE> chars in the FTN to field, thus preventing
 users from putting Internet addresses in the to field.
+
+</DL>
+
+<P>
+Special configuration <CODE>ftninpost</CODE> (config file <CODE>config.gate</CODE>):
+
+</P>
+<DL COMPACT>
+
+<DT><CODE>FTNInSendmail <I>command ...</I></CODE>
+<DD>
+Sendmail program to be run by <CODE>ftninpost</CODE> with options. <CODE>%s</CODE>
+is replaced with the envelope sender.
+
+<DT><CODE>FTNInRnews <I>command ...</I></CODE>
+<DD>
+Rnews program to be run by <CODE>ftninpost</CODE>.
+
+<DT><CODE>FTNInRecombine</CODE>
+<DD>
+Automatically run <CODE>ftninrecomb</CODE> to recombine split messages.
 
 </DL>
 

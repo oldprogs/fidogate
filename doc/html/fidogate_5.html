@@ -1,7 +1,7 @@
 <HTML>
 <HEAD>
 <!-- This HTML file has been created by texi2html 1.51
-     from ../fidogate.texi on 16 October 1996 -->
+     from ../fidogate.texi on 18 October 1996 -->
 
 <TITLE>FIDOGATE
  - Basic Configuration</TITLE>
@@ -19,7 +19,7 @@ Go to the <A HREF="fidogate_1.html">first</A>, <A HREF="fidogate_4.html">previou
 </P>
 <P>
 There seems to be some confusion about how to configure the gateway and
-the tosser, so a added this chapter. Hopefully this will help ...
+the tosser, so I added this chapter. Hopefully this will help ...
 
 </P>
 
@@ -37,7 +37,17 @@ the tosser, so a added this chapter. Hopefully this will help ...
 <A NAME="IDX85"></A>
 
 </P>
+<P>
+<I>Please note that this point configuration uses the FIDOGATE
+tosser. Thus, it's different from the point configuration described in
+Roland Rosenfeld's Point HOWTO!!!</I>
 
+</P>
+<P>
+Actually, this point configuration is very similar to the node
+configuration described in the next section.
+
+</P>
 <P>
 Let's assume the following addresses:
 
@@ -94,7 +104,7 @@ Packer configuration <CODE>packing</CODE>: no packing for own address,
 </P>
 
 <PRE>
-arc  zip    "/usr/bin/zip -gkjq %s %s"
+arc  zip    "/usr/bin/zip -9gkjq %s %s"
 
 pack noarc  2:2499/123.9
 pack zip    *
@@ -102,9 +112,9 @@ pack zip    *
 
 <P>
 Next, the EchoMail areas must be listed in the <CODE>areas.bbs</CODE> file. Do
-<I>not</I> put your node address into <CODE>areas.bbs</CODE>! Example with two
-areas (the directory <CODE>X</CODE> is not used for EchoMail areas), which are
-non-passthrough:
+<I>not</I> put your point address into <CODE>areas.bbs</CODE>! Example with two
+areas (the directory <CODE>X</CODE> is not used for EchoMail areas), which
+must be non-passthrough:
 
 </P>
 
@@ -198,7 +208,7 @@ remap 2:2499/123.0 2:2499/123.11 "Sabine Meier"
 remap 2:2499/123.0 2:2499/123.1  "*"
 
 NetMail
-send  hold   2:2499/123.*
+send  hold   2:2499/1232:2499/123.*
 route normal 2:2499/100 1:* 2:* 3:* 4:* 5:* 6:*
 
 EchoMail
@@ -213,7 +223,7 @@ Packer configuration <CODE>packing</CODE>: no packing for the gateway address,
 </P>
 
 <PRE>
-arc zip "/usr/bin/zip -gkjq %s %s"
+arc zip "/usr/bin/zip -9gkjq %s %s"
 
 pack noarc  2:2499/123.1
 pack zip    *
@@ -233,6 +243,12 @@ Your system name!sysop name
 #X UNIX.GER  2:2499/100 123.1 .11
 </PRE>
 
+<P>
+<CODE>#</CODE> denotes a <I>passthrough</I> area, i.e. no packets for the own
+address (2:2499/123) are created. All EchoMail will be send to the
+gateway (.1).
+
+</P>
 <P>
 In the gateway configuration, these areas must be listed in the
 <CODE>areas</CODE> config file:

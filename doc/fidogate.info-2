@@ -31,7 +31,7 @@ FIDOGATE uses different config files:
 
 `config.gate'
      The config file for the gateway related programs `ftn2rfc',
-     `ftnin', `rfc2ftn'.
+     `ftnin', `ftninpost', `ftninrecomb', `rfc2ftn'.
 
 `config.main'
      The config file for the tosser related programs `ftn2ftn',
@@ -279,6 +279,18 @@ Special configuration `ftn2rfc' (config file `config.gate'):
 `NoAddressInToField'
      Do not allow `@ ! %' chars in the FTN to field, thus preventing
      users from putting Internet addresses in the to field.
+
+Special configuration `ftninpost' (config file `config.gate'):
+
+`FTNInSendmail command ...'
+     Sendmail program to be run by `ftninpost' with options. `%s' is
+     replaced with the envelope sender.
+
+`FTNInRnews command ...'
+     Rnews program to be run by `ftninpost'.
+
+`FTNInRecombine'
+     Automatically run `ftninrecomb' to recombine split messages.
 
 Special configuration `rfc2ftn' (config file `config.gate'):
 
@@ -987,7 +999,7 @@ Basic Configuration
 *******************
 
    There seems to be some confusion about how to configure the gateway
-and the tosser, so a added this chapter. Hopefully this will help ...
+and the tosser, so I added this chapter. Hopefully this will help ...
 
 * Menu:
 
@@ -1000,7 +1012,14 @@ File: fidogate.info,  Node: Example Point,  Next: Example Node,  Prev: Basic,  U
 Example Point Configuration
 ===========================
 
-Let's assume the following addresses:
+Please note that this point configuration uses the FIDOGATE tosser.
+Thus, it's different from the point configuration described in Roland
+Rosenfeld's Point HOWTO!!!
+
+   Actually, this point configuration is very similar to the node
+configuration described in the next section.
+
+   Let's assume the following addresses:
 
    Fido point address 2:2499/123.9
 
@@ -1030,14 +1049,14 @@ everything else is send to the boss node.
 Packer configuration `packing': no packing for own address, `zip' is
 the default archiver for everything else.
 
-     arc  zip    "/usr/bin/zip -gkjq %s %s"
+     arc  zip    "/usr/bin/zip -9gkjq %s %s"
      
      pack noarc  2:2499/123.9
      pack zip    *
 
 Next, the EchoMail areas must be listed in the `areas.bbs' file. Do not
-put your node address into `areas.bbs'! Example with two areas (the
-directory `X' is not used for EchoMail areas), which are
+put your point address into `areas.bbs'! Example with two areas (the
+directory `X' is not used for EchoMail areas), which must be
 non-passthrough:
 
      Your system name!sysop name
@@ -1091,7 +1110,7 @@ onto hold.
      remap 2:2499/123.0 2:2499/123.1  "*"
      
      NetMail
-     send  hold   2:2499/123.*
+     send  hold   2:2499/1232:2499/123.*
      route normal 2:2499/100 1:* 2:* 3:* 4:* 5:* 6:*
      
      EchoMail
@@ -1101,7 +1120,7 @@ onto hold.
 Packer configuration `packing': no packing for the gateway address,
 `zip' is the default archiver for everything else.
 
-     arc zip "/usr/bin/zip -gkjq %s %s"
+     arc zip "/usr/bin/zip -9gkjq %s %s"
      
      pack noarc  2:2499/123.1
      pack zip    *
@@ -1114,6 +1133,9 @@ used for EchoMail areas):
      Your system name!sysop name
      #X LINUX.GER 2:2499/100 123.1 .10 .11
      #X UNIX.GER  2:2499/100 123.1 .11
+
+   `#' denotes a passthrough area, i.e. no packets for the own address
+(2:2499/123) are created. All EchoMail will be send to the gateway (.1).
 
    In the gateway configuration, these areas must be listed in the
 `areas' config file:

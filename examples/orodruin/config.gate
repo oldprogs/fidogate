@@ -1,6 +1,6 @@
 #:ts=8
 #
-# $Id: config.gate,v 4.9 1996/08/28 21:05:11 mj Exp $
+# $Id: config.gate,v 4.10 1996/10/18 16:57:57 mj Exp $
 #
 # FIDOGATE config file gateway programs
 #
@@ -204,3 +204,23 @@ NoFromLine
 # Don't generate FSC-0047 kludges (^ASPLIT)
 #
 #NoFSC0047
+
+
+#
+# Parameters for ftnin/ftninpost/ftninrecomb
+#
+# sendmail program path and parameters
+#
+#    %s is replaced with the envelope sender
+#
+FTNInSendmail	/usr/lib/sendmail -odb -oee -oi -f%s -oMrFTN -t
+
+#
+# rnews program path
+#
+FTNInRnews	/usr/bin/rnews
+
+#
+# run ftninrecomb
+#
+#FTNInRecombine
