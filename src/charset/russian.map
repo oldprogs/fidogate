@@ -1,5 +1,5 @@
 #
-# $Id: russian.map,v 1.3 1998/07/12 13:12:11 mj Exp $
+# $Id: russian.map,v 1.4 1999/05/18 20:28:03 mj Exp $
 #
 # Character set mapping table (to be compiled by charsetc)
 #
@@ -134,18 +134,18 @@ map     \xEE    \xC0
 map     \xEF    \xD1
 map     \xF0    \xB3
 map     \xF1    \xA3
-map     \xF2    \x20    # Undefined for this mapping
-map     \xF3    \x20    # Undefined for this mapping
-map     \xF4    \x20    # Undefined for this mapping
-map     \xF5    \x20    # Undefined for this mapping
-map     \xF6    \x20    # Undefined for this mapping
-map     \xF7    \x20    # Undefined for this mapping
+map     \xF2    \x20
+map     \xF3    \x20
+map     \xF4    \x20
+map     \xF5    \x20
+map     \xF6    \x20
+map     \xF7    \x20
 map     \xF8    \x9C
 map     \xF9    \x95
 map     \xFA    \x9E
 map     \xFB    \x96
-map     \xFC    \x20    # Undefined for this mapping
-map     \xFD    \x20    # Undefined for this mapping
+map     \xFC    \x20
+map     \xFD    \x20
 map     \xFE    \x94
 map     \xFF    \x9A
 
@@ -176,19 +176,19 @@ map     \x8F    \xDE
 map     \x90    \xB0
 map     \x91    \xB1
 map     \x92    \xB2
-map     \x93    \x20    # Undefined for this mapping
+map     \x93    \x20
 map     \x94    \xFE
 map     \x95    \xF9
 map     \x96    \xFB
-map     \x97    \x20    # Undefined for this mapping
-map     \x98    \x20    # Undefined for this mapping
-map     \x99    \x20    # Undefined for this mapping
+map     \x97    \x20
+map     \x98    \x20
+map     \x99    \x20
 map     \x9A    \xFF
-map     \x9B    \x20    # Undefined for this mapping
+map     \x9B    \x20
 map     \x9C    \xF8
-map     \x9D    \x20    # Undefined for this mapping
+map     \x9D    \x20
 map     \x9E    \xFA
-map     \x9F    \x20    # Undefined for this mapping
+map     \x9F    \x20
 map     \xA0    \xCD
 map     \xA1    \xBA
 map     \xA2    \xD5
@@ -220,7 +220,7 @@ map     \xBB    \xCA
 map     \xBC    \xD8
 map     \xBD    \xD7
 map     \xBE    \xCE
-map     \xBF    \x20    # Undefined for this mapping
+map     \xBF    \x20
 map     \xC0    \xEE
 map     \xC1    \xA0
 map     \xC2    \xA1
@@ -268,7 +268,7 @@ map     \xEB    \x8A
 map     \xEC    \x8B
 map     \xED    \x8C
 #map     \xEE    \x8D
-map     \xEE    \x48    # Changed for Fidonet \x8D    # N
+map     \xEE    \x48
 map     \xEF    \x8E
 map     \xF0    \x8F
 map     \xF1    \x9F
@@ -342,54 +342,54 @@ map     \xAC    \xDC
 map     \xAD    \xDD
 map     \xAE    \xDE
 map     \xAF    \xDF
-map     \xB0    \x20    # Undefined for this mapping
-map     \xB1    \x20    # Undefined for this mapping
-map     \xB2    \x20    # Undefined for this mapping
-map     \xB3    \x20    # Undefined for this mapping
-map     \xB4    \x20    # Undefined for this mapping
-map     \xB5    \x20    # Undefined for this mapping
-map     \xB6    \x20    # Undefined for this mapping
-map     \xB7    \x20    # Undefined for this mapping
-map     \xB8    \x20    # Undefined for this mapping
-map     \xB9    \x20    # Undefined for this mapping
-map     \xBA    \x20    # Undefined for this mapping
-map     \xBB    \x20    # Undefined for this mapping
-map     \xBC    \x20    # Undefined for this mapping
-map     \xBD    \x20    # Undefined for this mapping
-map     \xBE    \x20    # Undefined for this mapping
-map     \xBF    \x20    # Undefined for this mapping
-map     \xC0    \x20    # Undefined for this mapping
-map     \xC1    \x20    # Undefined for this mapping
-map     \xC2    \x20    # Undefined for this mapping
-map     \xC3    \x20    # Undefined for this mapping
-map     \xC4    \x20    # Undefined for this mapping
-map     \xC5    \x20    # Undefined for this mapping
-map     \xC6    \x20    # Undefined for this mapping
-map     \xC7    \x20    # Undefined for this mapping
-map     \xC8    \x20    # Undefined for this mapping
-map     \xC9    \x20    # Undefined for this mapping
-map     \xCA    \x20    # Undefined for this mapping
-map     \xCB    \x20    # Undefined for this mapping
-map     \xCC    \x20    # Undefined for this mapping
-map     \xCD    \x20    # Undefined for this mapping
-map     \xCE    \x20    # Undefined for this mapping
-map     \xCF    \x20    # Undefined for this mapping
-map     \xD0    \x20    # Undefined for this mapping
-map     \xD1    \x20    # Undefined for this mapping
-map     \xD2    \x20    # Undefined for this mapping
-map     \xD3    \x20    # Undefined for this mapping
-map     \xD4    \x20    # Undefined for this mapping
-map     \xD5    \x20    # Undefined for this mapping
-map     \xD6    \x20    # Undefined for this mapping
-map     \xD7    \x20    # Undefined for this mapping
-map     \xD8    \x20    # Undefined for this mapping
-map     \xD9    \x20    # Undefined for this mapping
-map     \xDA    \x20    # Undefined for this mapping
-map     \xDB    \x20    # Undefined for this mapping
-map     \xDC    \x20    # Undefined for this mapping
-map     \xDD    \x20    # Undefined for this mapping
-map     \xDE    \x20    # Undefined for this mapping
-map     \xDF    \x20    # Undefined for this mapping
+map     \xB0    \x20
+map     \xB1    \x20
+map     \xB2    \x20
+map     \xB3    \x20
+map     \xB4    \x20
+map     \xB5    \x20
+map     \xB6    \x20
+map     \xB7    \x20
+map     \xB8    \x20
+map     \xB9    \x20
+map     \xBA    \x20
+map     \xBB    \x20
+map     \xBC    \x20
+map     \xBD    \x20
+map     \xBE    \x20
+map     \xBF    \x20
+map     \xC0    \x20
+map     \xC1    \x20
+map     \xC2    \x20
+map     \xC3    \x20
+map     \xC4    \x20
+map     \xC5    \x20
+map     \xC6    \x20
+map     \xC7    \x20
+map     \xC8    \x20
+map     \xC9    \x20
+map     \xCA    \x20
+map     \xCB    \x20
+map     \xCC    \x20
+map     \xCD    \x20
+map     \xCE    \x20
+map     \xCF    \x20
+map     \xD0    \x20
+map     \xD1    \x20
+map     \xD2    \x20
+map     \xD3    \x20
+map     \xD4    \x20
+map     \xD5    \x20
+map     \xD6    \x20
+map     \xD7    \x20
+map     \xD8    \x20
+map     \xD9    \x20
+map     \xDA    \x20
+map     \xDB    \x20
+map     \xDC    \x20
+map     \xDD    \x20
+map     \xDE    \x20
+map     \xDF    \x20
 map     \xE0    \xE0
 map     \xE1    \xE1
 map     \xE2    \xE2
@@ -414,13 +414,13 @@ map     \xF4    \xA7
 map     \xF5    \xF7
 map     \xF6    \xAE
 map     \xF7    \xFE
-map     \xF8    \x20    # Undefined for this mapping
-map     \xF9    \x20    # Undefined for this mapping
-map     \xFA    \x20    # Undefined for this mapping
-map     \xFB    \x20    # Undefined for this mapping
+map     \xF8    \x20
+map     \xF9    \x20
+map     \xFA    \x20
+map     \xFB    \x20
 map     \xFC    \xF0
-map     \xFD    \x20    # Undefined for this mapping
-map     \xFE    \x20    # Undefined for this mapping
+map     \xFD    \x20
+map     \xFE    \x20
 map     \xFF    \xA0
 
 
@@ -431,54 +431,54 @@ map     \xFF    \xA0
 #	latin 'H'.
 #
 table	iso-8859-5	cp866
-map     \x80    \x20    # Undefined for this mapping
-map     \x81    \x20    # Undefined for this mapping
-map     \x82    \x20    # Undefined for this mapping
-map     \x83    \x20    # Undefined for this mapping
-map     \x84    \x20    # Undefined for this mapping
-map     \x85    \x20    # Undefined for this mapping
-map     \x86    \x20    # Undefined for this mapping
-map     \x87    \x20    # Undefined for this mapping
-map     \x88    \x20    # Undefined for this mapping
-map     \x89    \x20    # Undefined for this mapping
-map     \x8A    \x20    # Undefined for this mapping
-map     \x8B    \x20    # Undefined for this mapping
-map     \x8C    \x20    # Undefined for this mapping
-map     \x8D    \x20    # Undefined for this mapping
-map     \x8E    \x20    # Undefined for this mapping
-map     \x8F    \x20    # Undefined for this mapping
-map     \x90    \x20    # Undefined for this mapping
-map     \x91    \x20    # Undefined for this mapping
-map     \x92    \x20    # Undefined for this mapping
-map     \x93    \x20    # Undefined for this mapping
-map     \x94    \x20    # Undefined for this mapping
-map     \x95    \x20    # Undefined for this mapping
-map     \x96    \x20    # Undefined for this mapping
-map     \x97    \x20    # Undefined for this mapping
-map     \x98    \x20    # Undefined for this mapping
-map     \x99    \x20    # Undefined for this mapping
-map     \x9A    \x20    # Undefined for this mapping
-map     \x9B    \x20    # Undefined for this mapping
-map     \x9C    \x20    # Undefined for this mapping
-map     \x9D    \x20    # Undefined for this mapping
-map     \x9E    \x20    # Undefined for this mapping
-map     \x9F    \x20    # Undefined for this mapping
+map     \x80    \x20
+map     \x81    \x20
+map     \x82    \x20
+map     \x83    \x20
+map     \x84    \x20
+map     \x85    \x20
+map     \x86    \x20
+map     \x87    \x20
+map     \x88    \x20
+map     \x89    \x20
+map     \x8A    \x20
+map     \x8B    \x20
+map     \x8C    \x20
+map     \x8D    \x20
+map     \x8E    \x20
+map     \x8F    \x20
+map     \x90    \x20
+map     \x91    \x20
+map     \x92    \x20
+map     \x93    \x20
+map     \x94    \x20
+map     \x95    \x20
+map     \x96    \x20
+map     \x97    \x20
+map     \x98    \x20
+map     \x99    \x20
+map     \x9A    \x20
+map     \x9B    \x20
+map     \x9C    \x20
+map     \x9D    \x20
+map     \x9E    \x20
+map     \x9F    \x20
 map     \xA0    \xFF
 map     \xA1    \xF0
-map     \xA2    \x20    # Undefined for this mapping
-map     \xA3    \x20    # Undefined for this mapping
+map     \xA2    \x20
+map     \xA3    \x20
 map     \xA4    \xF2
-map     \xA5    \x20    # Undefined for this mapping
-map     \xA6    \x20    # Undefined for this mapping
+map     \xA5    \x20
+map     \xA6    \x20
 map     \xA7    \xF4
-map     \xA8    \x20    # Undefined for this mapping
-map     \xA9    \x20    # Undefined for this mapping
-map     \xAA    \x20    # Undefined for this mapping
-map     \xAB    \x20    # Undefined for this mapping
-map     \xAC    \x20    # Undefined for this mapping
-map     \xAD    \x20    # Undefined for this mapping
+map     \xA8    \x20
+map     \xA9    \x20
+map     \xAA    \x20
+map     \xAB    \x20
+map     \xAC    \x20
+map     \xAD    \x20
 map     \xAE    \xF6
-map     \xAF    \x20    # Undefined for this mapping
+map     \xAF    \x20
 map     \xB0    \x80
 map     \xB1    \x81
 map     \xB2    \x82
@@ -493,7 +493,7 @@ map     \xBA    \x8A
 map     \xBB    \x8B
 map     \xBC    \x8C
 #map     \xBD    \x8D
-map     \xBD    \x48    # Changed for Fidonet \x8D    # N
+map     \xBD    \x48
 map     \xBE    \x8E
 map     \xBF    \x8F
 map     \xC0    \x90
@@ -546,20 +546,20 @@ map     \xEE    \xEE
 map     \xEF    \xEF
 map     \xF0    \xFC
 map     \xF1    \xF1
-map     \xF2    \x20    # Undefined for this mapping
-map     \xF3    \x20    # Undefined for this mapping
+map     \xF2    \x20
+map     \xF3    \x20
 map     \xF4    \xF3
-map     \xF5    \x20    # Undefined for this mapping
-map     \xF6    \x20    # Undefined for this mapping
+map     \xF5    \x20
+map     \xF6    \x20
 map     \xF7    \xF5
-map     \xF8    \x20    # Undefined for this mapping
-map     \xF9    \x20    # Undefined for this mapping
-map     \xFA    \x20    # Undefined for this mapping
-map     \xFB    \x20    # Undefined for this mapping
-map     \xFC    \x20    # Undefined for this mapping
-map     \xFD    \x20    # Undefined for this mapping
+map     \xF8    \x20
+map     \xF9    \x20
+map     \xFA    \x20
+map     \xFB    \x20
+map     \xFC    \x20
+map     \xFD    \x20
 map     \xFE    \xF7
-map     \xFF    \x20    # Undefined for this mapping
+map     \xFF    \x20
 
 
 # ----------------------------------------------------------------------------
@@ -615,54 +615,54 @@ map     \xAC    \xEC
 map     \xAD    \xED
 map     \xAE    \xEE
 map     \xAF    \xEF
-map     \xB0    \x20    # Undefined for this mapping
-map     \xB1    \x20    # Undefined for this mapping
-map     \xB2    \x20    # Undefined for this mapping
-map     \xB3    \x20    # Undefined for this mapping
-map     \xB4    \x20    # Undefined for this mapping
-map     \xB5    \x20    # Undefined for this mapping
-map     \xB6    \x20    # Undefined for this mapping
-map     \xB7    \x20    # Undefined for this mapping
-map     \xB8    \x20    # Undefined for this mapping
-map     \xB9    \x20    # Undefined for this mapping
-map     \xBA    \x20    # Undefined for this mapping
-map     \xBB    \x20    # Undefined for this mapping
-map     \xBC    \x20    # Undefined for this mapping
-map     \xBD    \x20    # Undefined for this mapping
-map     \xBE    \x20    # Undefined for this mapping
-map     \xBF    \x20    # Undefined for this mapping
-map     \xC0    \x20    # Undefined for this mapping
-map     \xC1    \x20    # Undefined for this mapping
-map     \xC2    \x20    # Undefined for this mapping
-map     \xC3    \x20    # Undefined for this mapping
-map     \xC4    \x20    # Undefined for this mapping
-map     \xC5    \x20    # Undefined for this mapping
-map     \xC6    \x20    # Undefined for this mapping
-map     \xC7    \x20    # Undefined for this mapping
-map     \xC8    \x20    # Undefined for this mapping
-map     \xC9    \x20    # Undefined for this mapping
-map     \xCA    \x20    # Undefined for this mapping
-map     \xCB    \x20    # Undefined for this mapping
-map     \xCC    \x20    # Undefined for this mapping
-map     \xCD    \x20    # Undefined for this mapping
-map     \xCE    \x20    # Undefined for this mapping
-map     \xCF    \x20    # Undefined for this mapping
-map     \xD0    \x20    # Undefined for this mapping
-map     \xD1    \x20    # Undefined for this mapping
-map     \xD2    \x20    # Undefined for this mapping
-map     \xD3    \x20    # Undefined for this mapping
-map     \xD4    \x20    # Undefined for this mapping
-map     \xD5    \x20    # Undefined for this mapping
-map     \xD6    \x20    # Undefined for this mapping
-map     \xD7    \x20    # Undefined for this mapping
-map     \xD8    \x20    # Undefined for this mapping
-map     \xD9    \x20    # Undefined for this mapping
-map     \xDA    \x20    # Undefined for this mapping
-map     \xDB    \x20    # Undefined for this mapping
-map     \xDC    \x20    # Undefined for this mapping
-map     \xDD    \x20    # Undefined for this mapping
-map     \xDE    \x20    # Undefined for this mapping
-map     \xDF    \x20    # Undefined for this mapping
+map     \xB0    \x20
+map     \xB1    \x20
+map     \xB2    \x20
+map     \xB3    \x20
+map     \xB4    \x20
+map     \xB5    \x20
+map     \xB6    \x20
+map     \xB7    \x20
+map     \xB8    \x20
+map     \xB9    \x20
+map     \xBA    \x20
+map     \xBB    \x20
+map     \xBC    \x20
+map     \xBD    \x20
+map     \xBE    \x20
+map     \xBF    \x20
+map     \xC0    \x20
+map     \xC1    \x20
+map     \xC2    \x20
+map     \xC3    \x20
+map     \xC4    \x20
+map     \xC5    \x20
+map     \xC6    \x20
+map     \xC7    \x20
+map     \xC8    \x20
+map     \xC9    \x20
+map     \xCA    \x20
+map     \xCB    \x20
+map     \xCC    \x20
+map     \xCD    \x20
+map     \xCE    \x20
+map     \xCF    \x20
+map     \xD0    \x20
+map     \xD1    \x20
+map     \xD2    \x20
+map     \xD3    \x20
+map     \xD4    \x20
+map     \xD5    \x20
+map     \xD6    \x20
+map     \xD7    \x20
+map     \xD8    \x20
+map     \xD9    \x20
+map     \xDA    \x20
+map     \xDB    \x20
+map     \xDC    \x20
+map     \xDD    \x20
+map     \xDE    \x20
+map     \xDF    \x20
 map     \xE0    \xF0
 map     \xE1    \xF1
 map     \xE2    \xF2
@@ -688,12 +688,12 @@ map     \xF5    \xBF
 map     \xF6    \xA1
 map     \xF7    \xA2
 map     \xF8    \xB0
-map     \xF9    \x20    # Undefined for this mapping
+map     \xF9    \x20
 map     \xFA    \xB7
-map     \xFB    \x20    # Undefined for this mapping
+map     \xFB    \x20
 map     \xFC    \xB9
 map     \xFD    \xA4
-map     \xFE    \x20    # Undefined for this mapping
+map     \xFE    \x20
 map     \xFF    \xA0
 
 
@@ -704,69 +704,69 @@ map     \xFF    \xA0
 #	latin 'H'.
 #
 table	cp1251	cp866
-map     \x80    \x20    # Undefined for this mapping
-map     \x81    \x20    # Undefined for this mapping
-map     \x82    \x20    # Undefined for this mapping
-map     \x83    \x20    # Undefined for this mapping
-map     \x84    \x20    # Undefined for this mapping
-map     \x85    \x20    # Undefined for this mapping
-map     \x86    \x20    # Undefined for this mapping
-map     \x87    \x20    # Undefined for this mapping
-map     \x88    \x20    # Undefined for this mapping
-map     \x89    \x20    # Undefined for this mapping
-map     \x8A    \x20    # Undefined for this mapping
-map     \x8B    \x20    # Undefined for this mapping
-map     \x8C    \x20    # Undefined for this mapping
-map     \x8D    \x20    # Undefined for this mapping
-map     \x8E    \x20    # Undefined for this mapping
-map     \x8F    \x20    # Undefined for this mapping
-map     \x90    \x20    # Undefined for this mapping
-map     \x91    \x20    # Undefined for this mapping
-map     \x92    \x20    # Undefined for this mapping
-map     \x93    \x20    # Undefined for this mapping
-map     \x94    \x20    # Undefined for this mapping
-map     \x95    \x20    # Undefined for this mapping
-map     \x96    \x20    # Undefined for this mapping
-map     \x97    \x20    # Undefined for this mapping
-map     \x98    \x20    # Undefined for this mapping
-map     \x99    \x20    # Undefined for this mapping
-map     \x9A    \x20    # Undefined for this mapping
-map     \x9B    \x20    # Undefined for this mapping
-map     \x9C    \x20    # Undefined for this mapping
-map     \x9D    \x20    # Undefined for this mapping
-map     \x9E    \x20    # Undefined for this mapping
-map     \x9F    \x20    # Undefined for this mapping
+map     \x80    \x20
+map     \x81    \x20
+map     \x82    \x20
+map     \x83    \x20
+map     \x84    \x20
+map     \x85    \x20
+map     \x86    \x20
+map     \x87    \x20
+map     \x88    \x20
+map     \x89    \x20
+map     \x8A    \x20
+map     \x8B    \x20
+map     \x8C    \x20
+map     \x8D    \x20
+map     \x8E    \x20
+map     \x8F    \x20
+map     \x90    \x20
+map     \x91    \x20
+map     \x92    \x20
+map     \x93    \x20
+map     \x94    \x20
+map     \x95    \x20
+map     \x96    \x20
+map     \x97    \x20
+map     \x98    \x20
+map     \x99    \x20
+map     \x9A    \x20
+map     \x9B    \x20
+map     \x9C    \x20
+map     \x9D    \x20
+map     \x9E    \x20
+map     \x9F    \x20
 map     \xA0    \xFF
 map     \xA1    \xF6
 map     \xA2    \xF7
-map     \xA3    \x20    # Undefined for this mapping
+map     \xA3    \x20
 map     \xA4    \xFD
-map     \xA5    \x20    # Undefined for this mapping
-map     \xA6    \x20    # Undefined for this mapping
-map     \xA7    \x20    # Undefined for this mapping
+map     \xA5    \x20
+map     \xA6    \x20
+map     \xA7    \x20
 map     \xA8    \xF0
-map     \xA9    \x20    # Undefined for this mapping
+map     \xA9    \x20
 map     \xAA    \xF2
-map     \xAB    \x20    # Undefined for this mapping
-map     \xAC    \x20    # Undefined for this mapping
-map     \xAD    \x20    # Undefined for this mapping
-map     \xAE    \x20    # Undefined for this mapping
+map     \xAB    \x20
+map     \xAC    \x20
+map     \xAD    \x20
+map     \xAE    \x20
 map     \xAF    \xF4
 map     \xB0    \xF8
-map     \xB1    \x20    # Undefined for this mapping
-map     \xB2    \x20    # Undefined for this mapping
-map     \xB3    \x20    # Undefined for this mapping
-map     \xB4    \x20    # Undefined for this mapping
-map     \xB5    \x20    # Undefined for this mapping
-map     \xB6    \x20    # Undefined for this mapping
+map     \xB1    \x20
+map     \xB2    \x20
+map     \xB3    \x20
+map     \xB4    \x20
+map     \xB5    \x20
+map     \xB6    \x20
 map     \xB7    \xFA
 map     \xB8    \xF1
 map     \xB9    \xFC
 map     \xBA    \xF3
-map     \xBB    \x20    # Undefined for this mapping
-map     \xBC    \x20    # Undefined for this mapping
-map     \xBD    \x20    # Undefined for this mapping
-map     \xBE    \x20    # Undefined for this mapping
+map     \xBB    \x20
+map     \xBC    \x20
+map     \xBD    \x20
+map     \xBE    \x20
 map     \xBF    \xF5
 map     \xC0    \x80
 map     \xC1    \x81
@@ -782,7 +782,7 @@ map     \xCA    \x8A
 map     \xCB    \x8B
 map     \xCC    \x8C
 #map     \xCD    \x8D
-map     \xCD    \x48    # Changed for Fidonet \x8D    # N
+map     \xCD    \x48
 map     \xCE    \x8E
 map     \xCF    \x8F
 map     \xD0    \x90
@@ -888,54 +888,54 @@ map     \xAC    \xEC
 map     \xAD    \xED
 map     \xAE    \xEE
 map     \xAF    \xEF
-map     \xB0    \x20    # Undefined for this mapping
-map     \xB1    \x20    # Undefined for this mapping
-map     \xB2    \x20    # Undefined for this mapping
-map     \xB3    \x20    # Undefined for this mapping
-map     \xB4    \x20    # Undefined for this mapping
-map     \xB5    \x20    # Undefined for this mapping
-map     \xB6    \x20    # Undefined for this mapping
-map     \xB7    \x20    # Undefined for this mapping
-map     \xB8    \x20    # Undefined for this mapping
-map     \xB9    \x20    # Undefined for this mapping
-map     \xBA    \x20    # Undefined for this mapping
-map     \xBB    \x20    # Undefined for this mapping
-map     \xBC    \x20    # Undefined for this mapping
-map     \xBD    \x20    # Undefined for this mapping
-map     \xBE    \x20    # Undefined for this mapping
-map     \xBF    \x20    # Undefined for this mapping
-map     \xC0    \x20    # Undefined for this mapping
-map     \xC1    \x20    # Undefined for this mapping
-map     \xC2    \x20    # Undefined for this mapping
-map     \xC3    \x20    # Undefined for this mapping
-map     \xC4    \x20    # Undefined for this mapping
-map     \xC5    \x20    # Undefined for this mapping
-map     \xC6    \x20    # Undefined for this mapping
-map     \xC7    \x20    # Undefined for this mapping
-map     \xC8    \x20    # Undefined for this mapping
-map     \xC9    \x20    # Undefined for this mapping
-map     \xCA    \x20    # Undefined for this mapping
-map     \xCB    \x20    # Undefined for this mapping
-map     \xCC    \x20    # Undefined for this mapping
-map     \xCD    \x20    # Undefined for this mapping
-map     \xCE    \x20    # Undefined for this mapping
-map     \xCF    \x20    # Undefined for this mapping
-map     \xD0    \x20    # Undefined for this mapping
-map     \xD1    \x20    # Undefined for this mapping
-map     \xD2    \x20    # Undefined for this mapping
-map     \xD3    \x20    # Undefined for this mapping
-map     \xD4    \x20    # Undefined for this mapping
-map     \xD5    \x20    # Undefined for this mapping
-map     \xD6    \x20    # Undefined for this mapping
-map     \xD7    \x20    # Undefined for this mapping
-map     \xD8    \x20    # Undefined for this mapping
-map     \xD9    \x20    # Undefined for this mapping
-map     \xDA    \x20    # Undefined for this mapping
-map     \xDB    \x20    # Undefined for this mapping
-map     \xDC    \x20    # Undefined for this mapping
-map     \xDD    \x20    # Undefined for this mapping
-map     \xDE    \x20    # Undefined for this mapping
-map     \xDF    \x20    # Undefined for this mapping
+map     \xB0    \x20
+map     \xB1    \x20
+map     \xB2    \x20
+map     \xB3    \x20
+map     \xB4    \x20
+map     \xB5    \x20
+map     \xB6    \x20
+map     \xB7    \x20
+map     \xB8    \x20
+map     \xB9    \x20
+map     \xBA    \x20
+map     \xBB    \x20
+map     \xBC    \x20
+map     \xBD    \x20
+map     \xBE    \x20
+map     \xBF    \x20
+map     \xC0    \x20
+map     \xC1    \x20
+map     \xC2    \x20
+map     \xC3    \x20
+map     \xC4    \x20
+map     \xC5    \x20
+map     \xC6    \x20
+map     \xC7    \x20
+map     \xC8    \x20
+map     \xC9    \x20
+map     \xCA    \x20
+map     \xCB    \x20
+map     \xCC    \x20
+map     \xCD    \x20
+map     \xCE    \x20
+map     \xCF    \x20
+map     \xD0    \x20
+map     \xD1    \x20
+map     \xD2    \x20
+map     \xD3    \x20
+map     \xD4    \x20
+map     \xD5    \x20
+map     \xD6    \x20
+map     \xD7    \x20
+map     \xD8    \x20
+map     \xD9    \x20
+map     \xDA    \x20
+map     \xDB    \x20
+map     \xDC    \x20
+map     \xDD    \x20
+map     \xDE    \x20
+map     \xDF    \x20
 map     \xE0    \xF0
 map     \xE1    \xF1
 map     \xE2    \xF2
@@ -961,12 +961,12 @@ map     \xF5    \xBB
 map     \xF6    \xD8
 map     \xF7    \xD9
 map     \xF8    \xA1
-map     \xF9    \x20    # Undefined for this mapping
-map     \xFA    \x20    # Undefined for this mapping
+map     \xF9    \x20
+map     \xFA    \x20
 map     \xFB    \xC3
 map     \xFC    \xDC
 map     \xFD    \xFF
-map     \xFE    \x20    # Undefined for this mapping
+map     \xFE    \x20
 map     \xFF    \xCA
 
 
@@ -991,7 +991,7 @@ map     \x8A    \x8A
 map     \x8B    \x8B
 map     \x8C    \x8C
 #map     \x8D    \x8D
-map     \x8D    \x48    # Changed for Fidonet \x8D    # N
+map     \x8D    \x48
 map     \x8E    \x8E
 map     \x8F    \x8F
 map     \x90    \x90
@@ -1010,66 +1010,66 @@ map     \x9C    \x9C
 map     \x9D    \x9D
 map     \x9E    \x9E
 map     \x9F    \x9F
-map     \xA0    \x20    # Undefined for this mapping
+map     \xA0    \x20
 map     \xA1    \xF8
-map     \xA2    \x20    # Undefined for this mapping
-map     \xA3    \x20    # Undefined for this mapping
-map     \xA4    \x20    # Undefined for this mapping
-map     \xA5    \x20    # Undefined for this mapping
-map     \xA6    \x20    # Undefined for this mapping
-map     \xA7    \x20    # Undefined for this mapping
-map     \xA8    \x20    # Undefined for this mapping
-map     \xA9    \x20    # Undefined for this mapping
-map     \xAA    \x20    # Undefined for this mapping
-map     \xAB    \x20    # Undefined for this mapping
-map     \xAC    \x20    # Undefined for this mapping
-map     \xAD    \x20    # Undefined for this mapping
-map     \xAE    \x20    # Undefined for this mapping
-map     \xAF    \x20    # Undefined for this mapping
-map     \xB0    \x20    # Undefined for this mapping
-map     \xB1    \x20    # Undefined for this mapping
-map     \xB2    \x20    # Undefined for this mapping
-map     \xB3    \x20    # Undefined for this mapping
-map     \xB4    \x20    # Undefined for this mapping
-map     \xB5    \x20    # Undefined for this mapping
-map     \xB6    \x20    # Undefined for this mapping
-map     \xB7    \x20    # Undefined for this mapping
+map     \xA2    \x20
+map     \xA3    \x20
+map     \xA4    \x20
+map     \xA5    \x20
+map     \xA6    \x20
+map     \xA7    \x20
+map     \xA8    \x20
+map     \xA9    \x20
+map     \xAA    \x20
+map     \xAB    \x20
+map     \xAC    \x20
+map     \xAD    \x20
+map     \xAE    \x20
+map     \xAF    \x20
+map     \xB0    \x20
+map     \xB1    \x20
+map     \xB2    \x20
+map     \xB3    \x20
+map     \xB4    \x20
+map     \xB5    \x20
+map     \xB6    \x20
+map     \xB7    \x20
 map     \xB8    \xF2
 map     \xB9    \xF3
 map     \xBA    \xF4
 map     \xBB    \xF5
-map     \xBC    \x20    # Undefined for this mapping
-map     \xBD    \x20    # Undefined for this mapping
-map     \xBE    \x20    # Undefined for this mapping
-map     \xBF    \x20    # Undefined for this mapping
-map     \xC0    \x20    # Undefined for this mapping
-map     \xC1    \x20    # Undefined for this mapping
-map     \xC2    \x20    # Undefined for this mapping
+map     \xBC    \x20
+map     \xBD    \x20
+map     \xBE    \x20
+map     \xBF    \x20
+map     \xC0    \x20
+map     \xC1    \x20
+map     \xC2    \x20
 map     \xC3    \xFB
-map     \xC4    \x20    # Undefined for this mapping
-map     \xC5    \x20    # Undefined for this mapping
-map     \xC6    \x20    # Undefined for this mapping
-map     \xC7    \x20    # Undefined for this mapping
-map     \xC8    \x20    # Undefined for this mapping
-map     \xC9    \x20    # Undefined for this mapping
+map     \xC4    \x20
+map     \xC5    \x20
+map     \xC6    \x20
+map     \xC7    \x20
+map     \xC8    \x20
+map     \xC9    \x20
 map     \xCA    \xFF
-map     \xCB    \x20    # Undefined for this mapping
-map     \xCC    \x20    # Undefined for this mapping
-map     \xCD    \x20    # Undefined for this mapping
-map     \xCE    \x20    # Undefined for this mapping
-map     \xCF    \x20    # Undefined for this mapping
-map     \xD0    \x20    # Undefined for this mapping
-map     \xD1    \x20    # Undefined for this mapping
-map     \xD2    \x20    # Undefined for this mapping
-map     \xD3    \x20    # Undefined for this mapping
-map     \xD4    \x20    # Undefined for this mapping
-map     \xD5    \x20    # Undefined for this mapping
-map     \xD6    \x20    # Undefined for this mapping
-map     \xD7    \x20    # Undefined for this mapping
+map     \xCB    \x20
+map     \xCC    \x20
+map     \xCD    \x20
+map     \xCE    \x20
+map     \xCF    \x20
+map     \xD0    \x20
+map     \xD1    \x20
+map     \xD2    \x20
+map     \xD3    \x20
+map     \xD4    \x20
+map     \xD5    \x20
+map     \xD6    \x20
+map     \xD7    \x20
 map     \xD8    \xF6
 map     \xD9    \xF7
-map     \xDA    \x20    # Undefined for this mapping
-map     \xDB    \x20    # Undefined for this mapping
+map     \xDA    \x20
+map     \xDB    \x20
 map     \xDC    \xFC
 map     \xDD    \xF0
 map     \xDE    \xF1

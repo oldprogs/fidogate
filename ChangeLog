@@ -1,6 +1,14 @@
 1999-05-18  Martin Junius  <mj@fido.de>
 
 	======= Release 4.3.2 ================================================
+	------- CVS tag R432a ------------------------------------------------
+	------- CVS ci -------------------------------------------------------
+
+	* src/charset/russian.map: removed inline comments, no longer
+	  allowed, causing compilation errors.
+
+	* cvsexp: cvs helper script for exporting FIDOGATE release.
+
 	------- CVS tag R432 -------------------------------------------------
 	------- CVS ci -------------------------------------------------------
 

@@ -1,0 +1,19 @@
+#!/bin/sh
+
+if [ $# -lt 1 ]; then
+    echo "usage: cvsexp M.M.P"
+    exit 1
+fi
+
+REL="$1"
+TAG="R"`echo $REL | tr -d .`"$2"
+
+echo "Exporting release $REL (tag $TAG)"
+
+cvs export -r $TAG -d /var/tmp/fidogate-$REL fidogate
+
+cd /var/tmp
+tar cvf fidogate-$REL-test.tar fidogate-$REL/test/
+rm -rf fidogate-$REL/test
+tar cvf fidogate-$REL.tar fidogate-$REL/
+gzip -v9 fidogate-$REL*.tar
