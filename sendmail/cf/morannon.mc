@@ -1,20 +1,22 @@
 #:ts=8
 #
-# $Id: morannon.mc,v 4.4 1997/05/14 18:07:19 mj Exp $
+# $Id: morannon.mc,v 4.5 1997/10/03 12:47:39 mj Exp $
 #
 # Fido.DE domain gateway morannon.fido.de sendmail V8 configuration
 #
 
 include(`../m4/cf.m4')
-VERSIONID(`$Id: morannon.mc,v 4.4 1997/05/14 18:07:19 mj Exp $')
+VERSIONID(`$Id: morannon.mc,v 4.5 1997/10/03 12:47:39 mj Exp $')
 OSTYPE(linux)
 
-define(`confCF_VERSION', `morannon-4.4')
+define(`confCF_VERSION', `morannon-4.5')
 
 define(`confMIME_FORMAT_ERRORS', `False')
 define(`confUSE_ERRORS_TO', `True')
 define(`confMAX_HOP', `30')
 define(`confMESSAGE_TIMEOUT', `5d/2d')
+
+define(`ALIAS_FILE',`/etc/aliases,/usr/local/majordomo/majordomo.aliases')
 
 FEATURE(notsticky)
 FEATURE(always_add_domain)
@@ -44,7 +46,7 @@ Krewrite hash -o /etc/mail/rewrite.db
 LOCAL_CONFIG
 # More trusted users
 Tnews
-
+Tmajordomo
 
 
 LOCAL_RULE_3
