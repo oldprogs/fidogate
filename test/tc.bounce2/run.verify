@@ -9,7 +9,7 @@ RFC To:       test@2:2452/110.2
     Address:  f99.n2499.z2.fidonet.org
     FTN node: 2:2499/99.0
 rfc2ftn X-Flags: mn, From: test@f99.n2499.z2.fidonet.org
-rfc2ftn MAIL: test@f99.n2499.z2.fidonet.org -> test@2:2452/110.2
+rfc2ftn MAIL: from=test@f99.n2499.z2.fidonet.org, to=test@2:2452/110.2
 Writing FTN packet header:
     From: 2:2499/99.0
     To  : 2:2452/110.2
@@ -26,7 +26,7 @@ RFC To:       uucp@2:2452/110.2
     Address:  f99.n2499.z2.fidonet.org
     FTN node: 2:2499/99.0
 rfc2ftn X-Flags: mn, From: test@f99.n2499.z2.fidonet.org
-rfc2ftn MAIL: test@f99.n2499.z2.fidonet.org -> uucp@2:2452/110.2
+rfc2ftn MAIL: from=test@f99.n2499.z2.fidonet.org, to=uucp@2:2452/110.2
 Writing FTN packet header:
     From: 2:2499/99.0
     To  : 2:2452/110.2
@@ -43,7 +43,7 @@ RFC To:       uucp@2:2452/110.2
     Address:  f99.n2499.z2.fidonet.org
     FTN node: 2:2499/99.0
 rfc2ftn X-Flags: mn, From: test@f99.n2499.z2.fidonet.org
-rfc2ftn MAIL: test@f99.n2499.z2.fidonet.org -> uucp@2:2452/110.2
+rfc2ftn MAIL: from=test@f99.n2499.z2.fidonet.org, to=uucp@2:2452/110.2
 Writing FTN packet header:
     From: 2:2499/99.0
     To  : 2:2452/110.2
@@ -60,7 +60,7 @@ RFC To:       uucp@2:2452/110.2
     Address:  f2.n242.z2.fidonet.org
     FTN node: 2:242/2.0
 rfc2ftn X-Flags: mn, From: test@f2.n242.z2.fidonet.org
-rfc2ftn MAIL: test@f2.n242.z2.fidonet.org -> uucp@2:2452/110.2
+rfc2ftn MAIL: from=test@f2.n242.z2.fidonet.org, to=uucp@2:2452/110.2
 Writing FTN packet header:
     From: 2:242/2.0
     To  : 2:2452/110.2

@@ -15,7 +15,7 @@ No alias found: return Test user
 Name for alias checking: keil
 E-mail for alias checking: keil@temic-ech.spacenet.de
 RFC Date: Thu, 8 May 1997 12:49:15 +0200
-rfc2ftn MAIL: Karsten Keil <keil@temic-ech.spacenet.de> -> Test_user@hippo.fido.de
+rfc2ftn MAIL: from=Karsten Keil <keil@temic-ech.spacenet.de>, to=Test_user@hippo.fido.de
 charset: in=iso-8859-1 out=LATIN-1
 charset: table found in=iso-8859-1 out=iso-8859-1
 New packet file ./outpkt/mail/00000001.pkt (tmp ./outpkt/mail/00000001.tmp)
@@ -42,7 +42,7 @@ No alias found: return Test user
 Name for alias checking: isdn4
 E-mail for alias checking: isdn4@temic-ech.spacenet.de
 RFC Date: Thu, 1 May 1997 16:19:38 +0200
-rfc2ftn MAIL: Karsten Keil <isdn4@temic-ech.spacenet.de> -> Test_user@hippo.fido.de
+rfc2ftn MAIL: from=Karsten Keil <isdn4@temic-ech.spacenet.de>, to=Test_user@hippo.fido.de
 charset: in=iso-8859-1 out=LATIN-1
 charset: table found in=iso-8859-1 out=iso-8859-1
 New packet file ./outpkt/mail/00000002.pkt (tmp ./outpkt/mail/00000002.tmp)
@@ -68,7 +68,7 @@ No alias found: return Test user
 Name for alias checking: reinhard
 E-mail for alias checking: reinhard@kammer.uni-hannover.de
 RFC Date: Fri, 9 May 1997 15:41:20 +0200
-rfc2ftn MAIL: Reinhard Kotucha <reinhard@kammer.uni-hannover.de> -> Test_user@hippo.fido.de
+rfc2ftn MAIL: from=Reinhard Kotucha <reinhard@kammer.uni-hannover.de>, to=Test_user@hippo.fido.de
 charset: in=iso-8859-1 out=LATIN-1
 charset: table found in=iso-8859-1 out=iso-8859-1
 New packet file ./outpkt/mail/00000003.pkt (tmp ./outpkt/mail/00000003.tmp)
@@ -94,7 +94,7 @@ No alias found: return Test user
 Name for alias checking: raichle
 E-mail for alias checking: raichle@Informatik.Uni-Stuttgart.DE
 RFC Date: Fri, 9 May 1997 15:29:23 +0200 (MET DST)
-rfc2ftn MAIL: Bernd Raichle <raichle@Informatik.Uni-Stuttgart.DE> -> Test_user@hippo.fido.de
+rfc2ftn MAIL: from=Bernd Raichle <raichle@Informatik.Uni-Stuttgart.DE>, to=Test_user@hippo.fido.de
 charset: in=iso-8859-1 out=LATIN-1
 charset: table found in=iso-8859-1 out=iso-8859-1
 New packet file ./outpkt/mail/00000004.pkt (tmp ./outpkt/mail/00000004.tmp)

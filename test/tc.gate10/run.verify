@@ -8,13 +8,13 @@ RFC Sender:   Stefan Monnier <monnier-stefan@cs.yale.edu>
     Address:  f110.n2452.z2.fidonet.org
     FTN node: 2:2452/110.0
 Name for alias checking: Martin_Junius
-No alias found: return Martin Junius
+Alias (full name) found: mj 2:2452/110.2 Martin Junius
     Name:     monnier-stefan
     Address:  cs.yale.edu
 Name for alias checking: monnier-stefan
 E-mail for alias checking: monnier-stefan@cs.yale.edu
 RFC Date: Sat, 30 Nov 1996 02:12:46 -0500
-rfc2ftn MAIL: Stefan Monnier <monnier-stefan@cs.yale.edu> -> Martin_Junius@f110.n2452.z2.fidonet.org
+rfc2ftn MAIL: from=Stefan Monnier <monnier-stefan@cs.yale.edu>, to=Martin_Junius@f110.n2452.z2.fidonet.org
 charset: in=us-ascii out=us-ascii
 charset: table found in=us-ascii out=us-ascii
 New packet file ./outpkt/mail/00000001.pkt (tmp ./outpkt/mail/00000001.tmp)
@@ -34,13 +34,13 @@ RFC Sender:   Paul Seelig <pseelig@goofy.zdv.Uni-Mainz.de>
     Address:  f110.n2452.z2.fidonet.org
     FTN node: 2:2452/110.0
 Name for alias checking: Martin_Junius
-No alias found: return Martin Junius
+Alias (full name) found: mj 2:2452/110.2 Martin Junius
     Name:     pseelig
     Address:  goofy.zdv.Uni-Mainz.de
 Name for alias checking: pseelig
 E-mail for alias checking: pseelig@goofy.zdv.Uni-Mainz.de
 RFC Date: Sat, 30 Nov 1996 08:02:12 +0100 (MET)
-rfc2ftn MAIL: Paul Seelig <pseelig@goofy.zdv.Uni-Mainz.de> -> Martin_Junius@f110.n2452.z2.fidonet.org
+rfc2ftn MAIL: from=Paul Seelig <pseelig@goofy.zdv.Uni-Mainz.de>, to=Martin_Junius@f110.n2452.z2.fidonet.org
 charset: in=US-ASCII out=us-ascii
 charset: table found in=us-ascii out=us-ascii
 New packet file ./outpkt/mail/00000002.pkt (tmp ./outpkt/mail/00000002.tmp)
@@ -60,13 +60,13 @@ RFC Sender:   Bjarne Pohlers <bjarne%libelle.uucp%von-neumann@ESCHER.UNI-MUENSTE
     Address:  f110.n2452.z2.fidonet.org
     FTN node: 2:2452/110.0
 Name for alias checking: Martin_Junius
-No alias found: return Martin Junius
+Alias (full name) found: mj 2:2452/110.2 Martin Junius
     Name:     bjarne%libelle.uucp%von-neumann
     Address:  ESCHER.UNI-MUENSTER.DE
 Name for alias checking: bjarne%libelle.uucp%von-neumann
 E-mail for alias checking: bjarne%libelle.uucp%von-neumann@ESCHER.UNI-MUENSTER.DE
 RFC Date: Sat, 30 Nov 1996 04:41:58 +0100
-rfc2ftn MAIL: Bjarne Pohlers <bjarne%libelle.uucp%von-neumann@ESCHER.UNI-MUENSTER.DE> -> Martin_Junius@f110.n2452.z2.fidonet.org
+rfc2ftn MAIL: from=Bjarne Pohlers <bjarne%libelle.uucp%von-neumann@ESCHER.UNI-MUENSTER.DE>, to=Martin_Junius@f110.n2452.z2.fidonet.org
 charset: in=iso-8859-1 out=LATIN-1
 charset: table found in=iso-8859-1 out=iso-8859-1
 New packet file ./outpkt/mail/00000003.pkt (tmp ./outpkt/mail/00000003.tmp)
@@ -85,12 +85,12 @@ RFC Sender:   isdn4linux@hub-wue.franken.de
     Address:  f110.n2452.z2.fidonet.org
     FTN node: 2:2452/110.0
 Name for alias checking: Martin_Junius
-No alias found: return Martin Junius
+Alias (full name) found: mj 2:2452/110.2 Martin Junius
     Name:     isdn4linux
     Address:  hub-wue.franken.de
 Name for alias checking: isdn4linux
 E-mail for alias checking: isdn4linux@hub-wue.franken.de
-rfc2ftn MAIL: isdn4linux@hub-wue.franken.de -> Martin_Junius@f110.n2452.z2.fidonet.org
+rfc2ftn MAIL: from=isdn4linux@hub-wue.franken.de, to=Martin_Junius@f110.n2452.z2.fidonet.org
 charset: in=iso-8859-1 out=LATIN-1
 charset: table found in=iso-8859-1 out=iso-8859-1
 New packet file ./outpkt/mail/00000004.pkt (tmp ./outpkt/mail/00000004.tmp)
@@ -114,12 +114,13 @@ FTN packet header:
 ==============================================================================
 FTN message header:
     From: Stefan Monnier                       @ 2:2452/110.2
-    To  : Martin Junius                        @ 2:2452/110.0
+    To  : Martin Junius                        @ 2:2452/110.2
     Subj: Re: [TETEX 1523] name space "clutter" 
     Attr: 0001
 ------------------------------------------------------------------------------
 ^AINTL 2:2452/110 2:2452/110
 ^AFMPT 2
+^ATOPT 2
 ^AMSGID: <199611300712.CAA56154@POWERED.ZOO.CS.YALE.EDU> c4b4294a
 ^AREPLY: <sxaenhdko0y.fsf@havik.cwi.nl> 0bf5ef8f
 ^AREPLYADDR <monnier-stefan@cs.yale.edu>
@@ -223,12 +224,13 @@ FTN packet header:
 ==============================================================================
 FTN message header:
     From: Paul Seelig                          @ 2:2452/110.2
-    To  : Martin Junius                        @ 2:2452/110.0
+    To  : Martin Junius                        @ 2:2452/110.2
     Subj: Re: [TETEX 1527] TIPA: System for Processing Phonetic Symbols in LaTeX
     Attr: 0001
 ------------------------------------------------------------------------------
 ^AINTL 2:2452/110 2:2452/110
 ^AFMPT 2
+^ATOPT 2
 ^AMSGID: <Pine.LNX.3.95.961130074954.336B-100000@dialin122.zdv.uni-mainz.de> 1c03e852
 ^AREPLY: <199611291648.QAA28818@lochnagarn.elsevier.co.uk> 86036501
 ^AREPLYADDR <pseelig@goofy.zdv.Uni-Mainz.de>
@@ -296,12 +298,13 @@ FTN packet header:
 ==============================================================================
 FTN message header:
     From: Bjarne Pohlers                       @ 2:2452/110.2
-    To  : Martin Junius                        @ 2:2452/110.0
+    To  : Martin Junius                        @ 2:2452/110.2
     Subj: Re: 2.0.26+HiSax-1.3+chargeint problems
     Attr: 0001
 ------------------------------------------------------------------------------
 ^AINTL 2:2452/110 2:2452/110
 ^AFMPT 2
+^ATOPT 2
 ^AMSGID: <199611300341.EAA00917@libelle.pohlers.org> 3ca0be61
 ^AREPLY: <9611291606.AA04299@HPLEY1.col.sw-ley.de> 719a6d83
 ^AREPLYADDR <bjarne%libelle.uucp%von-neumann@ESCHER.UNI-MUENSTER.DE>
@@ -361,12 +364,13 @@ FTN packet header:
 ==============================================================================
 FTN message header:
     From: Isdn4linux                           @ 2:2452/110.2
-    To  : Martin Junius                        @ 2:2452/110.0
+    To  : Martin Junius                        @ 2:2452/110.2
     Subj: (no subject)
     Attr: 0001
 ------------------------------------------------------------------------------
 ^AINTL 2:2452/110 2:2452/110
 ^AFMPT 2
+^ATOPT 2
 ^AMSGID: 2:2452/110.2 00000001
 ^AREPLYADDR <isdn4linux@hub-wue.franken.de>
 ^AREPLYTO 2:2452/110.2 Isdn4linux

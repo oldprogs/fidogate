@@ -32,7 +32,7 @@ To: mj@fido.de
 ----
 TEST
 ----
-# ffx 4.14
+# ffx 4.17
 U mj 242:1000/5.0 242:1/1.0 orodruin.fido.de
 Z
 J ff000001
@@ -47,7 +47,7 @@ To: mj@fido.de
 ----
 TEST
 ----
-# ffx 4.14
+# ffx 4.17
 U mj 242:1000/5.0 242:1/1.0 orodruin.fido.de
 Z
 J ff000002
@@ -62,7 +62,7 @@ To: mj@fido.de
 ----
 TEST
 ----
-# ffx 4.14
+# ffx 4.17
 U mj 242:1000/5.0 242:1/1.0 orodruin.fido.de
 Z
 J ff000003
@@ -77,7 +77,7 @@ To: mj@fido.de
 ----
 TEST
 ----
-# ffx 4.14
+# ffx 4.17
 U mj 242:1000/5.0 242:1/1.0 orodruin.fido.de
 Z
 J ff000004
@@ -118,8 +118,8 @@ ffx: user=./ff000001.ffx fqdn=orodruin.fido.de
      C rmail 123@fido.de
      P 
 ffxqt job ff000001: from 242:1000/5.0 data ff000001 (62b) / rmail 123@fido.de
-Command: /home/mj/src/fidogate/test/tc.ffx/rxxxx
------ /home/mj/src/fidogate/test/tc.ffx/rxxxx -f orodruin.fido.de 123@fido.de -----
+Command: /home/mj/src/sf.net/fidogate/test/tc.ffx/rxxxx
+----- /home/mj/src/sf.net/fidogate/test/tc.ffx/rxxxx -f orodruin.fido.de 123@fido.de -----
 Subject: Test
 From: mj@fido.de
 To: mj@fido.de
@@ -137,8 +137,8 @@ ffx: user=./ff000002.ffx fqdn=orodruin.fido.de
      C rmail abc@fido.de
      P 
 ffxqt job ff000002: from 242:1000/5.0 data ff000002 (62b) / rmail abc@fido.de
-Command: /home/mj/src/fidogate/test/tc.ffx/rxxxx
------ /home/mj/src/fidogate/test/tc.ffx/rxxxx -f orodruin.fido.de abc@fido.de -----
+Command: /home/mj/src/sf.net/fidogate/test/tc.ffx/rxxxx
+----- /home/mj/src/sf.net/fidogate/test/tc.ffx/rxxxx -f orodruin.fido.de abc@fido.de -----
 Subject: Test
 From: mj@fido.de
 To: mj@fido.de
@@ -156,8 +156,8 @@ ffx: user=./ff000003.ffx fqdn=orodruin.fido.de
      C rmail def@fido.de
      P 
 ffxqt job ff000003: from 242:1000/5.0 data ff000003 (62b) / rmail def@fido.de
-Command: /home/mj/src/fidogate/test/tc.ffx/rxxxx
------ /home/mj/src/fidogate/test/tc.ffx/rxxxx -f orodruin.fido.de def@fido.de -----
+Command: /home/mj/src/sf.net/fidogate/test/tc.ffx/rxxxx
+----- /home/mj/src/sf.net/fidogate/test/tc.ffx/rxxxx -f orodruin.fido.de def@fido.de -----
 Subject: Test
 From: mj@fido.de
 To: mj@fido.de
@@ -175,8 +175,8 @@ ffx: user=./ff000004.ffx fqdn=orodruin.fido.de
      C rmail ghi@fido.de
      P 
 ffxqt job ff000004: from 242:1000/5.0 data ff000004 (62b) / rmail ghi@fido.de
-Command: /home/mj/src/fidogate/test/tc.ffx/rxxxx
------ /home/mj/src/fidogate/test/tc.ffx/rxxxx -f orodruin.fido.de ghi@fido.de -----
+Command: /home/mj/src/sf.net/fidogate/test/tc.ffx/rxxxx
+----- /home/mj/src/sf.net/fidogate/test/tc.ffx/rxxxx -f orodruin.fido.de ghi@fido.de -----
 Subject: Test
 From: mj@fido.de
 To: mj@fido.de

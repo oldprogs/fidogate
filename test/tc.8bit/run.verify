@@ -9,14 +9,14 @@ RFC Sender:   Martin Junius <mj@orodruin.fido.de>
     Address:  f110.n2452.z2.fidonet.org
     FTN node: 2:2452/110.0
 Name for alias checking: Martin_Junius
-No alias found: return Martin Junius
+Alias (full name) found: mj 2:2452/110.2 Martin Junius
     Name:     mj
     Address:  orodruin.fido.de
     FTN node: 242:1000/5.0
 Name for alias checking: mj
 Alias found: mj 2:2452/110.2 Martin Junius
 RFC Date: Sun, 27 Oct 1996 14:20:22 +0100 (MET)
-rfc2ftn MAIL: Martin Junius <mj@orodruin.fido.de> -> Martin_Junius@f110.n2452.z2.fidonet.org
+rfc2ftn MAIL: from=Martin Junius <mj@orodruin.fido.de>, to=Martin_Junius@f110.n2452.z2.fidonet.org
 charset: in=iso-8859-1 out=LATIN-1
 charset: table found in=iso-8859-1 out=iso-8859-1
 New packet file ./outpkt/mail/00000001.pkt (tmp ./outpkt/mail/00000001.tmp)
@@ -35,14 +35,14 @@ RFC Sender:   Martin Junius <mj@orodruin.fido.de>
     Address:  f110.n2452.z2.fidonet.org
     FTN node: 2:2452/110.0
 Name for alias checking: Martin_Junius
-No alias found: return Martin Junius
+Alias (full name) found: mj 2:2452/110.2 Martin Junius
     Name:     mj
     Address:  orodruin.fido.de
     FTN node: 242:1000/5.0
 Name for alias checking: mj
 Alias found: mj 2:2452/110.2 Martin Junius
 RFC Date: Wed, 13 Nov 1996 22:13:13 +0100 (MET)
-rfc2ftn MAIL: Martin Junius <mj@orodruin.fido.de> -> Martin_Junius@f110.n2452.z2.fidonet.org
+rfc2ftn MAIL: from=Martin Junius <mj@orodruin.fido.de>, to=Martin_Junius@f110.n2452.z2.fidonet.org
 charset: in=iso-8859-1 out=LATIN-1
 charset: table found in=iso-8859-1 out=iso-8859-1
 New packet file ./outpkt/mail/00000002.pkt (tmp ./outpkt/mail/00000002.tmp)
@@ -67,12 +67,13 @@ FTN packet header:
 ==============================================================================
 FTN message header:
     From: Martin Junius                        @ 2:2452/110.2
-    To  : Martin Junius                        @ 2:2452/110.0
+    To  : Martin Junius                        @ 2:2452/110.2
     Subj: (no subject)
     Attr: 0001
 ------------------------------------------------------------------------------
 ^AINTL 2:2452/110 2:2452/110
 ^AFMPT 2
+^ATOPT 2
 ^AMSGID: <Pine.LNX.3.95.961027141912.291K-100000@orodruin.fido.de> e88fcd27
 ^AREPLYADDR <mj@orodruin.fido.de>
 ^AREPLYTO 2:2452/110.2 Martin Junius
@@ -131,12 +132,13 @@ FTN packet header:
 ==============================================================================
 FTN message header:
     From: Martin Junius                        @ 2:2452/110.2
-    To  : Martin Junius                        @ 2:2452/110.0
+    To  : Martin Junius                        @ 2:2452/110.2
     Subj: Test MIME
     Attr: 0001
 ------------------------------------------------------------------------------
 ^AINTL 2:2452/110 2:2452/110
 ^AFMPT 2
+^ATOPT 2
 ^AMSGID: <Pine.LNX.3.95.961113221254.294B-100000@orodruin.fido.de> f05b32f4
 ^AREPLYADDR <mj@orodruin.fido.de>
 ^AREPLYTO 2:2452/110.2 Martin Junius

@@ -1,3 +1,19 @@
+2003-04-10  Martin Junius  <mj@m-j-s.net>
+
+	------- CVS ci -------------------------------------------------------
+
+	* test/tc.*/run.verify: updated for this new release.
+
+	* test/tc.rununpack/run: use lha instead of arc.
+
+	* test/tc.ffx/rxxxx: was missing in sf.net CVS.
+
+	* fidogate.spec: updated.
+
+	* fidogate.lsm: updated.
+
+	* ANNOUNCE: updated.
+
 2003-02-16  Martin Junius  <mj@m-j-s.net>
 
 	------- CVS ci -------------------------------------------------------

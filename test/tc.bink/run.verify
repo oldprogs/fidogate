@@ -3,7 +3,7 @@ tc: init
 tc: running
 ----- Unix config ------------------------------------------------------
 ----- file1 -----
-attach name=/home/mj/src/fidogate/test/tc.bink/tmp_file1.txt
+attach name=/home/mj/src/sf.net/fidogate/test/tc.bink/tmp_file1.txt
 new FLO file ./bt/out/00020002.flo
 node=2:2/2.0 bsy file=./bt/out/00020002.bsy
 Opening FLO file, mode=a+
@@ -13,95 +13,95 @@ FLO file open and locking succeeded, attaching file
 node=2:2/2.0 bsy file=./bt/out/00020002.bsy
 Deleting BSY file ./bt/out/00020002.bsy succeeded.
 FLO file:
-/home/mj/src/fidogate/test/tc.bink/tmp_file1.txt
+/home/mj/src/sf.net/fidogate/test/tc.bink/tmp_file1.txt
 ----- file2 -----
 attach mode=# (^=delete, #=trunc)
-attach name=/home/mj/src/fidogate/test/tc.bink/tmp_file2.txt
+attach name=/home/mj/src/sf.net/fidogate/test/tc.bink/tmp_file2.txt
 found FLO file ./bt/out/00020002.flo
 node=2:2/2.0 bsy file=./bt/out/00020002.bsy
 Opening FLO file, mode=a+
 Locking FLO file
 FLO file ./bt/out/00020002.flo open and locking succeeded
-FLO entry:   /home/mj/src/fidogate/test/tc.bink/tmp_file1.txt
+FLO entry:   /home/mj/src/sf.net/fidogate/test/tc.bink/tmp_file1.txt
 FLO file open and locking succeeded, attaching file
 node=2:2/2.0 bsy file=./bt/out/00020002.bsy
 Deleting BSY file ./bt/out/00020002.bsy succeeded.
 FLO file:
-/home/mj/src/fidogate/test/tc.bink/tmp_file1.txt
-#/home/mj/src/fidogate/test/tc.bink/tmp_file2.txt
+/home/mj/src/sf.net/fidogate/test/tc.bink/tmp_file1.txt
+#/home/mj/src/sf.net/fidogate/test/tc.bink/tmp_file2.txt
 ----- file3 -----
 attach mode=^ (^=delete, #=trunc)
-attach name=/home/mj/src/fidogate/test/tc.bink/tmp_file3.txt
+attach name=/home/mj/src/sf.net/fidogate/test/tc.bink/tmp_file3.txt
 found FLO file ./bt/out/00020002.flo
 node=2:2/2.0 bsy file=./bt/out/00020002.bsy
 Opening FLO file, mode=a+
 Locking FLO file
 FLO file ./bt/out/00020002.flo open and locking succeeded
-FLO entry:   /home/mj/src/fidogate/test/tc.bink/tmp_file1.txt
-FLO entry: # /home/mj/src/fidogate/test/tc.bink/tmp_file2.txt
+FLO entry:   /home/mj/src/sf.net/fidogate/test/tc.bink/tmp_file1.txt
+FLO entry: # /home/mj/src/sf.net/fidogate/test/tc.bink/tmp_file2.txt
 FLO file open and locking succeeded, attaching file
 node=2:2/2.0 bsy file=./bt/out/00020002.bsy
 Deleting BSY file ./bt/out/00020002.bsy succeeded.
 FLO file:
-/home/mj/src/fidogate/test/tc.bink/tmp_file1.txt
-#/home/mj/src/fidogate/test/tc.bink/tmp_file2.txt
-^/home/mj/src/fidogate/test/tc.bink/tmp_file3.txt
+/home/mj/src/sf.net/fidogate/test/tc.bink/tmp_file1.txt
+#/home/mj/src/sf.net/fidogate/test/tc.bink/tmp_file2.txt
+^/home/mj/src/sf.net/fidogate/test/tc.bink/tmp_file3.txt
 ----- file1 again -----
 attach mode=# (^=delete, #=trunc)
-attach name=/home/mj/src/fidogate/test/tc.bink/tmp_file1.txt
+attach name=/home/mj/src/sf.net/fidogate/test/tc.bink/tmp_file1.txt
 found FLO file ./bt/out/00020002.flo
 node=2:2/2.0 bsy file=./bt/out/00020002.bsy
 Opening FLO file, mode=a+
 Locking FLO file
 FLO file ./bt/out/00020002.flo open and locking succeeded
-FLO entry:   /home/mj/src/fidogate/test/tc.bink/tmp_file1.txt
+FLO entry:   /home/mj/src/sf.net/fidogate/test/tc.bink/tmp_file1.txt
            found entry
-FLO entry: # /home/mj/src/fidogate/test/tc.bink/tmp_file2.txt
-FLO entry: ^ /home/mj/src/fidogate/test/tc.bink/tmp_file3.txt
+FLO entry: # /home/mj/src/sf.net/fidogate/test/tc.bink/tmp_file2.txt
+FLO entry: ^ /home/mj/src/sf.net/fidogate/test/tc.bink/tmp_file3.txt
 FLO file already contains an entry, not attaching file
 node=2:2/2.0 bsy file=./bt/out/00020002.bsy
 Deleting BSY file ./bt/out/00020002.bsy succeeded.
 FLO file:
-/home/mj/src/fidogate/test/tc.bink/tmp_file1.txt
-#/home/mj/src/fidogate/test/tc.bink/tmp_file2.txt
-^/home/mj/src/fidogate/test/tc.bink/tmp_file3.txt
+/home/mj/src/sf.net/fidogate/test/tc.bink/tmp_file1.txt
+#/home/mj/src/sf.net/fidogate/test/tc.bink/tmp_file2.txt
+^/home/mj/src/sf.net/fidogate/test/tc.bink/tmp_file3.txt
 ----- file2 again -----
 attach mode=^ (^=delete, #=trunc)
-attach name=/home/mj/src/fidogate/test/tc.bink/tmp_file2.txt
+attach name=/home/mj/src/sf.net/fidogate/test/tc.bink/tmp_file2.txt
 found FLO file ./bt/out/00020002.flo
 node=2:2/2.0 bsy file=./bt/out/00020002.bsy
 Opening FLO file, mode=a+
 Locking FLO file
 FLO file ./bt/out/00020002.flo open and locking succeeded
-FLO entry:   /home/mj/src/fidogate/test/tc.bink/tmp_file1.txt
-FLO entry: # /home/mj/src/fidogate/test/tc.bink/tmp_file2.txt
+FLO entry:   /home/mj/src/sf.net/fidogate/test/tc.bink/tmp_file1.txt
+FLO entry: # /home/mj/src/sf.net/fidogate/test/tc.bink/tmp_file2.txt
            found entry
-FLO entry: ^ /home/mj/src/fidogate/test/tc.bink/tmp_file3.txt
+FLO entry: ^ /home/mj/src/sf.net/fidogate/test/tc.bink/tmp_file3.txt
 FLO file already contains an entry, not attaching file
 node=2:2/2.0 bsy file=./bt/out/00020002.bsy
 Deleting BSY file ./bt/out/00020002.bsy succeeded.
 FLO file:
-/home/mj/src/fidogate/test/tc.bink/tmp_file1.txt
-#/home/mj/src/fidogate/test/tc.bink/tmp_file2.txt
-^/home/mj/src/fidogate/test/tc.bink/tmp_file3.txt
+/home/mj/src/sf.net/fidogate/test/tc.bink/tmp_file1.txt
+#/home/mj/src/sf.net/fidogate/test/tc.bink/tmp_file2.txt
+^/home/mj/src/sf.net/fidogate/test/tc.bink/tmp_file3.txt
 ----- file3 again -----
-attach name=/home/mj/src/fidogate/test/tc.bink/tmp_file3.txt
+attach name=/home/mj/src/sf.net/fidogate/test/tc.bink/tmp_file3.txt
 found FLO file ./bt/out/00020002.flo
 node=2:2/2.0 bsy file=./bt/out/00020002.bsy
 Opening FLO file, mode=a+
 Locking FLO file
 FLO file ./bt/out/00020002.flo open and locking succeeded
-FLO entry:   /home/mj/src/fidogate/test/tc.bink/tmp_file1.txt
-FLO entry: # /home/mj/src/fidogate/test/tc.bink/tmp_file2.txt
-FLO entry: ^ /home/mj/src/fidogate/test/tc.bink/tmp_file3.txt
+FLO entry:   /home/mj/src/sf.net/fidogate/test/tc.bink/tmp_file1.txt
+FLO entry: # /home/mj/src/sf.net/fidogate/test/tc.bink/tmp_file2.txt
+FLO entry: ^ /home/mj/src/sf.net/fidogate/test/tc.bink/tmp_file3.txt
            found entry
 FLO file already contains an entry, not attaching file
 node=2:2/2.0 bsy file=./bt/out/00020002.bsy
 Deleting BSY file ./bt/out/00020002.bsy succeeded.
 FLO file:
-/home/mj/src/fidogate/test/tc.bink/tmp_file1.txt
-#/home/mj/src/fidogate/test/tc.bink/tmp_file2.txt
-^/home/mj/src/fidogate/test/tc.bink/tmp_file3.txt
+/home/mj/src/sf.net/fidogate/test/tc.bink/tmp_file1.txt
+#/home/mj/src/sf.net/fidogate/test/tc.bink/tmp_file2.txt
+^/home/mj/src/sf.net/fidogate/test/tc.bink/tmp_file3.txt
 ----- packet -----
 ----- packet toss 1 -----
 ftntoss creating MSGID history ./history.dir
@@ -268,7 +268,7 @@ Deleting BSY file ./bt/out/0994006e.bsy succeeded.
 #./bt/out/00000000.xx0
 ----- DOS config -------------------------------------------------------
 ----- file1 -----
-attach name=/home/mj/src/fidogate/test/tc.bink/tmp_file1.txt
+attach name=/home/mj/src/sf.net/fidogate/test/tc.bink/tmp_file1.txt
 attach MSDOS name=X:\tmp_file1.txt
 new FLO file ./bt/out/00020002.flo
 node=2:2/2.0 bsy file=./bt/out/00020002.bsy
@@ -283,7 +283,7 @@ X:\tmp_file1.txt^M
 #./bt/out/00000000.xx0
 ----- file2 -----
 attach mode=# (^=delete, #=trunc)
-attach name=/home/mj/src/fidogate/test/tc.bink/tmp_file2.txt
+attach name=/home/mj/src/sf.net/fidogate/test/tc.bink/tmp_file2.txt
 attach MSDOS name=X:\tmp_file2.txt
 found FLO file ./bt/out/00020002.flo
 node=2:2/2.0 bsy file=./bt/out/00020002.bsy
@@ -300,7 +300,7 @@ X:\tmp_file1.txt^M
 #./bt/out/00000000.xx0
 ----- file3 -----
 attach mode=^ (^=delete, #=trunc)
-attach name=/home/mj/src/fidogate/test/tc.bink/tmp_file3.txt
+attach name=/home/mj/src/sf.net/fidogate/test/tc.bink/tmp_file3.txt
 attach MSDOS name=X:\tmp_file3.txt
 found FLO file ./bt/out/00020002.flo
 node=2:2/2.0 bsy file=./bt/out/00020002.bsy
@@ -319,7 +319,7 @@ X:\tmp_file1.txt^M
 #./bt/out/00000000.xx0
 ----- file1 again -----
 attach mode=# (^=delete, #=trunc)
-attach name=/home/mj/src/fidogate/test/tc.bink/tmp_file1.txt
+attach name=/home/mj/src/sf.net/fidogate/test/tc.bink/tmp_file1.txt
 attach MSDOS name=X:\tmp_file1.txt
 found FLO file ./bt/out/00020002.flo
 node=2:2/2.0 bsy file=./bt/out/00020002.bsy
@@ -340,7 +340,7 @@ X:\tmp_file1.txt^M
 #./bt/out/00000000.xx0
 ----- file2 again -----
 attach mode=^ (^=delete, #=trunc)
-attach name=/home/mj/src/fidogate/test/tc.bink/tmp_file2.txt
+attach name=/home/mj/src/sf.net/fidogate/test/tc.bink/tmp_file2.txt
 attach MSDOS name=X:\tmp_file2.txt
 found FLO file ./bt/out/00020002.flo
 node=2:2/2.0 bsy file=./bt/out/00020002.bsy
@@ -360,7 +360,7 @@ X:\tmp_file1.txt^M
 ^X:\tmp_file3.txt^M
 #./bt/out/00000000.xx0
 ----- file3 again -----
-attach name=/home/mj/src/fidogate/test/tc.bink/tmp_file3.txt
+attach name=/home/mj/src/sf.net/fidogate/test/tc.bink/tmp_file3.txt
 attach MSDOS name=X:\tmp_file3.txt
 found FLO file ./bt/out/00020002.flo
 node=2:2/2.0 bsy file=./bt/out/00020002.bsy

@@ -46,7 +46,8 @@ RFC Sender:   mj@fido.de
     Address:  f110.n2452.z2.fidonet.org
     FTN node: 2:2452/110.0
 Name for alias checking: Martin_Junius
-No alias found: return Martin Junius
+Converted receiver name: Martin Junius
+Alias (full name) found: mj 2:2452/110.2 Martin Junius
     Name:     mj
     Address:  fido.de
 Name for alias checking: mj
@@ -58,7 +59,7 @@ RFC Content-Type:              -NONE-
                     boundary = 
 RFC Content-Transfer-Encoding: -NONE-
 addr_is_local(): From=mj@fido.de FQDN=orodruin.fido.de
-rfc2ftn MAIL: mj@fido.de -> Martin_Junius@f110.n2452.z2.fidonet.org
+rfc2ftn MAIL: from=mj@fido.de, to=Martin_Junius@f110.n2452.z2.fidonet.org
 charset: in=iso-8859-1 out=LATIN-1
 charset: table found in=iso-8859-1 out=iso-8859-1
 charset: msg RFC=iso-8859-1 FSC=LATIN-1 enc=8bit
@@ -73,7 +74,7 @@ Writing FTN packet header:
     Capw: 0001
 Writing FTN message header:
     From: Martin Junius                        @ 2:2452/110.2
-    To  : Martin Junius                        @ 2:2452/110.0
+    To  : Martin Junius                        @ 2:2452/110.2
     Subj: Test Body 1
     Attr: 0001
 using local time
@@ -86,7 +87,8 @@ RFC Sender:   Martin Junius <mj@fido.de>
     Address:  f110.n2452.z2.fidonet.org
     FTN node: 2:2452/110.0
 Name for alias checking: Martin_Junius
-No alias found: return Martin Junius
+Converted receiver name: Martin Junius
+Alias (full name) found: mj 2:2452/110.2 Martin Junius
     Name:     mj
     Address:  fido.de
 Name for alias checking: mj
@@ -98,7 +100,7 @@ RFC Content-Type:              -NONE-
                     boundary = 
 RFC Content-Transfer-Encoding: -NONE-
 addr_is_local(): From=Martin Junius <mj@fido.de> FQDN=orodruin.fido.de
-rfc2ftn MAIL: Martin Junius <mj@fido.de> -> Martin_Junius@f110.n2452.z2.fidonet.org
+rfc2ftn MAIL: from=Martin Junius <mj@fido.de>, to=Martin_Junius@f110.n2452.z2.fidonet.org
 charset: in=iso-8859-1 out=LATIN-1
 charset: table found in=iso-8859-1 out=iso-8859-1
 charset: msg RFC=iso-8859-1 FSC=LATIN-1 enc=8bit
@@ -113,7 +115,7 @@ Writing FTN packet header:
     Capw: 0001
 Writing FTN message header:
     From: Martin Junius                        @ 2:2452/110.2
-    To  : Martin Junius                        @ 2:2452/110.0
+    To  : Martin Junius                        @ 2:2452/110.2
     Subj: Test Body 2
     Attr: 0001
 using local time
@@ -125,7 +127,8 @@ RFC Sender:   Martin_Junius@p2.f110.n2452.z2.fidonet.org
     Address:  f110.n2452.z2.fidonet.org
     FTN node: 2:2452/110.0
 Name for alias checking: Martin_Junius
-No alias found: return Martin Junius
+Converted receiver name: Martin Junius
+Alias (full name) found: mj 2:2452/110.2 Martin Junius
     Name:     Martin_Junius
     Address:  p2.f110.n2452.z2.fidonet.org
     FTN node: 2:2452/110.2
@@ -138,7 +141,7 @@ RFC Content-Type:              -NONE-
                     boundary = 
 RFC Content-Transfer-Encoding: -NONE-
 addr_is_local(): From=Martin_Junius@p2.f110.n2452.z2.fidonet.org FQDN=orodruin.fido.de
-rfc2ftn MAIL: Martin_Junius@p2.f110.n2452.z2.fidonet.org -> Martin_Junius@f110.n2452.z2.fidonet.org
+rfc2ftn MAIL: from=Martin_Junius@p2.f110.n2452.z2.fidonet.org, to=Martin_Junius@f110.n2452.z2.fidonet.org
 charset: in=iso-8859-1 out=LATIN-1
 charset: table found in=iso-8859-1 out=iso-8859-1
 charset: msg RFC=iso-8859-1 FSC=LATIN-1 enc=8bit
@@ -153,7 +156,7 @@ Writing FTN packet header:
     Capw: 0001
 Writing FTN message header:
     From: Martin Junius                        @ 2:2452/110.2
-    To  : Martin Junius                        @ 2:2452/110.0
+    To  : Martin Junius                        @ 2:2452/110.2
     Subj: Test Body 3
     Attr: 0001
 using local time
@@ -165,7 +168,8 @@ RFC Sender:   Test User <test@hippo.fido.de>
     Address:  f110.n2452.z2.fidonet.org
     FTN node: 2:2452/110.0
 Name for alias checking: Martin_Junius
-No alias found: return Martin Junius
+Converted receiver name: Martin Junius
+Alias (full name) found: mj 2:2452/110.2 Martin Junius
     Name:     test
     Address:  hippo.fido.de
     FTN node: 242:1000/1.0
@@ -178,7 +182,7 @@ RFC Content-Type:              -NONE-
                     boundary = 
 RFC Content-Transfer-Encoding: -NONE-
 addr_is_local(): From=Test User <test@hippo.fido.de> FQDN=orodruin.fido.de
-rfc2ftn MAIL: Test User <test@hippo.fido.de> -> Martin_Junius@f110.n2452.z2.fidonet.org
+rfc2ftn MAIL: from=Test User <test@hippo.fido.de>, to=Martin_Junius@f110.n2452.z2.fidonet.org
 charset: in=iso-8859-1 out=LATIN-1
 charset: table found in=iso-8859-1 out=iso-8859-1
 charset: msg RFC=iso-8859-1 FSC=LATIN-1 enc=8bit
@@ -193,7 +197,7 @@ Writing FTN packet header:
     Capw: 0001
 Writing FTN message header:
     From: Test User                            @ 2:2452/110.2
-    To  : Martin Junius                        @ 2:2452/110.0
+    To  : Martin Junius                        @ 2:2452/110.2
     Subj: Test Body 4
     Attr: 0001
 using local time
@@ -205,6 +209,7 @@ RFC Sender:   mj@fido.de
     Address:  hippo.fido.de
     FTN node: 242:1000/1.0
 Name for alias checking: Martin_Junius
+Converted receiver name: Martin Junius
 No alias found: return Martin Junius
     Name:     mj
     Address:  fido.de
@@ -217,7 +222,7 @@ RFC Content-Type:              -NONE-
                     boundary = 
 RFC Content-Transfer-Encoding: -NONE-
 addr_is_local(): From=mj@fido.de FQDN=orodruin.fido.de
-rfc2ftn MAIL: mj@fido.de -> Martin_Junius@hippo.fido.de
+rfc2ftn MAIL: from=mj@fido.de, to=Martin_Junius@hippo.fido.de
 charset: in=iso-8859-1 out=LATIN-1
 charset: table found in=iso-8859-1 out=iso-8859-1
 charset: msg RFC=iso-8859-1 FSC=LATIN-1 enc=8bit
@@ -245,6 +250,7 @@ RFC Sender:   Martin Junius <mj@fido.de>
     Address:  hippo.fido.de
     FTN node: 242:1000/1.0
 Name for alias checking: Martin_Junius
+Converted receiver name: Martin Junius
 No alias found: return Martin Junius
     Name:     mj
     Address:  fido.de
@@ -257,7 +263,7 @@ RFC Content-Type:              -NONE-
                     boundary = 
 RFC Content-Transfer-Encoding: -NONE-
 addr_is_local(): From=Martin Junius <mj@fido.de> FQDN=orodruin.fido.de
-rfc2ftn MAIL: Martin Junius <mj@fido.de> -> Martin_Junius@hippo.fido.de
+rfc2ftn MAIL: from=Martin Junius <mj@fido.de>, to=Martin_Junius@hippo.fido.de
 charset: in=iso-8859-1 out=LATIN-1
 charset: table found in=iso-8859-1 out=iso-8859-1
 charset: msg RFC=iso-8859-1 FSC=LATIN-1 enc=8bit
@@ -284,6 +290,7 @@ RFC Sender:   Martin_Junius@p2.f110.n2452.z2.fidonet.org
     Address:  hippo.fido.de
     FTN node: 242:1000/1.0
 Name for alias checking: Martin_Junius
+Converted receiver name: Martin Junius
 No alias found: return Martin Junius
     Name:     Martin_Junius
     Address:  p2.f110.n2452.z2.fidonet.org
@@ -297,7 +304,7 @@ RFC Content-Type:              -NONE-
                     boundary = 
 RFC Content-Transfer-Encoding: -NONE-
 addr_is_local(): From=Martin_Junius@p2.f110.n2452.z2.fidonet.org FQDN=orodruin.fido.de
-rfc2ftn MAIL: Martin_Junius@p2.f110.n2452.z2.fidonet.org -> Martin_Junius@hippo.fido.de
+rfc2ftn MAIL: from=Martin_Junius@p2.f110.n2452.z2.fidonet.org, to=Martin_Junius@hippo.fido.de
 charset: in=iso-8859-1 out=LATIN-1
 charset: table found in=iso-8859-1 out=iso-8859-1
 charset: msg RFC=iso-8859-1 FSC=LATIN-1 enc=8bit
@@ -324,6 +331,7 @@ RFC Sender:   Test User <test@hippo.fido.de>
     Address:  hippo.fido.de
     FTN node: 242:1000/1.0
 Name for alias checking: Martin_Junius
+Converted receiver name: Martin Junius
 No alias found: return Martin Junius
     Name:     test
     Address:  hippo.fido.de
@@ -337,7 +345,7 @@ RFC Content-Type:              -NONE-
                     boundary = 
 RFC Content-Transfer-Encoding: -NONE-
 addr_is_local(): From=Test User <test@hippo.fido.de> FQDN=orodruin.fido.de
-rfc2ftn MAIL: Test User <test@hippo.fido.de> -> Martin_Junius@hippo.fido.de
+rfc2ftn MAIL: from=Test User <test@hippo.fido.de>, to=Martin_Junius@hippo.fido.de
 charset: in=iso-8859-1 out=LATIN-1
 charset: table found in=iso-8859-1 out=iso-8859-1
 charset: msg RFC=iso-8859-1 FSC=LATIN-1 enc=8bit
@@ -368,12 +376,13 @@ FTN packet header:
 ==============================================================================
 FTN message header:
     From: Martin Junius                        @ 2:2452/110.2
-    To  : Martin Junius                        @ 2:2452/110.0
+    To  : Martin Junius                        @ 2:2452/110.2
     Subj: Test Body 1
     Attr: 0001
 ------------------------------------------------------------------------------
 ^AINTL 2:2452/110 2:2452/110
 ^AFMPT 2
+^ATOPT 2
 ^AMSGID: 2:2452/110.2 00000001
 ^AREPLYADDR <mj@fido.de>
 ^AREPLYTO 2:2452/110.2 Martin Junius
@@ -407,12 +416,13 @@ FTN packet header:
 ==============================================================================
 FTN message header:
     From: Martin Junius                        @ 2:2452/110.2
-    To  : Martin Junius                        @ 2:2452/110.0
+    To  : Martin Junius                        @ 2:2452/110.2
     Subj: Test Body 2
     Attr: 0001
 ------------------------------------------------------------------------------
 ^AINTL 2:2452/110 2:2452/110
 ^AFMPT 2
+^ATOPT 2
 ^AMSGID: 2:2452/110.2 00000002
 ^AREPLYADDR <mj@fido.de>
 ^AREPLYTO 2:2452/110.2 Martin Junius
@@ -448,12 +458,13 @@ FTN packet header:
 ==============================================================================
 FTN message header:
     From: Martin Junius                        @ 2:2452/110.2
-    To  : Martin Junius                        @ 2:2452/110.0
+    To  : Martin Junius                        @ 2:2452/110.2
     Subj: Test Body 3
     Attr: 0001
 ------------------------------------------------------------------------------
 ^AINTL 2:2452/110 2:2452/110
 ^AFMPT 2
+^ATOPT 2
 ^AMSGID: 2:2452/110.2 00000003
 ^AREPLYADDR <Martin_Junius@p2.f110.n2452.z2.fidonet.org>
 ^AREPLYTO 2:2452/110.2 Martin Junius
@@ -487,12 +498,13 @@ FTN packet header:
 ==============================================================================
 FTN message header:
     From: Test User                            @ 2:2452/110.2
-    To  : Martin Junius                        @ 2:2452/110.0
+    To  : Martin Junius                        @ 2:2452/110.2
     Subj: Test Body 4
     Attr: 0001
 ------------------------------------------------------------------------------
 ^AINTL 2:2452/110 2:2452/110
 ^AFMPT 2
+^ATOPT 2
 ^AMSGID: 2:2452/110.2 00000004
 ^AREPLYADDR <test@hippo.fido.de>
 ^AREPLYTO 2:2452/110.2 Test User

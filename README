@@ -1,6 +1,6 @@
 -*- Indented-Text -*-
 
-$Id: README,v 4.35 2002/09/16 20:19:34 n0ll Exp $
+$Id: README,v 4.36 2003/04/10 21:22:05 n0ll Exp $
 
 ======================================================================
 				   
@@ -127,13 +127,14 @@ PLEASE NOTE THE FOLLOWING RULES FOR CONTRIBUTING PATCHES:
 * Supply only context diffs (command diff -u), not complete changed
   files.
 
-* Supply patches against the latest version of FIDOGATE.
+* Supply patches against the latest version of FIDOGATE, or even
+  better against the FIDOGATE CVS repository.
 
 If you do not follow these simple rules, it is quite likely that I'll
 not integrate your patches.
 
 ======================================================================
 
-$Date: 2002/09/16 20:19:34 $
+$Date: 2003/04/10 21:22:05 $
 Martin Junius
 mailto:mj@fido.de

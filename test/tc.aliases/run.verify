@@ -42,6 +42,7 @@ Writing FTN message header:
     Subj: Mail -> mj
     Attr: 0001
 using local time
+Exit=0
  
 ----- rfc2ftn: mail to Martin_Junius@orodruin.fido.de -----
 Message body size 11 (+CR!)
@@ -84,6 +85,7 @@ Writing FTN message header:
     Subj: Mail -> Martin_Junius
     Attr: 0001
 using local time
+Exit=0
  
 ----- rfc2ftn: mail to postmaster@orodruin.fido.de -----
 Message body size 11 (+CR!)
@@ -126,6 +128,7 @@ Writing FTN message header:
     Subj: Mail -> postmaster
     Attr: 0001
 using local time
+Exit=0
  
 ----- rfc2ftn: mail to unknown@orodruin.fido.de -----
 Message body size 15 (+CR!)
@@ -143,6 +146,7 @@ Internet -> FIDO gateway / FIDOGATE x.x.x @ orodruin.fido.de
 Address unknown@orodruin.fido.de:
   recipient is unknown
 rfc2ftn BOUNCE: from=Test User <test@blah.org>, to=unknown@orodruin.fido.de, reject=recipient is unknown
+Exit=67
  
 ----- rfc2ftn: mail to Max_Tester@orodruin.fido.de -----
 Message body size 11 (+CR!)
@@ -185,6 +189,7 @@ Writing FTN message header:
     Subj: Mail -> unknown
     Attr: 0001
 using local time
+Exit=0
  
 ----- rfc2ftn: mail to Tester@orodruin.fido.de -----
 Message body size 11 (+CR!)
@@ -226,6 +231,7 @@ Writing FTN message header:
     Subj: Mail -> unknown
     Attr: 0001
 using local time
+Exit=0
  
 ----- rfc2ftn: mail to max_tester@orodruin.fido.de -----
 Message body size 11 (+CR!)
@@ -268,6 +274,7 @@ Writing FTN message header:
     Subj: Mail -> unknown
     Attr: 0001
 using local time
+Exit=0
  
 ----- rfc2ftn: mail to tester@orodruin. fido.de -----
 Message body size 11 (+CR!)
@@ -309,6 +316,7 @@ Writing FTN message header:
     Subj: Mail -> unknown
     Attr: 0001
 using local time
+Exit=0
 ----- rfc2ftn: mail to test_1 @ 2:2/0.0 -----
 Message body size 6 (+CR!)
 RFC To:       test_1@p0.f0.n2.z2
@@ -401,7 +409,7 @@ Reading FTN packet header:
     Rev : x.x
     Pass: ""
     Capw: 0001
-ftn2rfc packet ./pin/00000001.pkt (508b) from 242:1000/5.0 to 242:1000/5.0
+ftn2rfc packet ./pin/00000001.pkt (509b) from 242:1000/5.0 to 242:1000/5.0
 Reading FTN message header:
     From: Test User                            @ 242:1000/5.0
     To  : Martin Junius                        @ 242:1000/5.0
@@ -426,7 +434,7 @@ Reading FTN packet header:
     Rev : x.x
     Pass: ""
     Capw: 0001
-ftn2rfc packet ./pin/00000002.pkt (519b) from 242:1000/5.0 to 242:1000/5.0
+ftn2rfc packet ./pin/00000002.pkt (520b) from 242:1000/5.0 to 242:1000/5.0
 Reading FTN message header:
     From: Test User                            @ 242:1000/5.0
     To  : Martin Junius                        @ 242:1000/5.0
@@ -451,7 +459,7 @@ Reading FTN packet header:
     Rev : x.x
     Pass: ""
     Capw: 0001
-ftn2rfc packet ./pin/00000003.pkt (508b) from 242:1000/5.0 to 242:1000/5.0
+ftn2rfc packet ./pin/00000003.pkt (509b) from 242:1000/5.0 to 242:1000/5.0
 Reading FTN message header:
     From: Test User                            @ 242:1000/5.0
     To  : Sysop                                @ 242:1000/5.0
@@ -476,7 +484,7 @@ Reading FTN packet header:
     Rev : x.x
     Pass: ""
     Capw: 0001
-ftn2rfc packet ./pin/00000004.pkt (520b) from 242:1000/5.0 to 242:1000/5.0
+ftn2rfc packet ./pin/00000004.pkt (521b) from 242:1000/5.0 to 242:1000/5.0
 Reading FTN message header:
     From: Test User                            @ 242:1000/5.0
     To  : Max Tester                           @ 242:1000/5.0
@@ -501,7 +509,7 @@ Reading FTN packet header:
     Rev : x.x
     Pass: ""
     Capw: 0001
-ftn2rfc packet ./pin/00000005.pkt (520b) from 242:1000/5.0 to 242:1000/5.0
+ftn2rfc packet ./pin/00000005.pkt (521b) from 242:1000/5.0 to 242:1000/5.0
 Reading FTN message header:
     From: Test User                            @ 242:1000/5.0
     To  : Max Tester                           @ 242:1000/5.0
@@ -526,7 +534,7 @@ Reading FTN packet header:
     Rev : x.x
     Pass: ""
     Capw: 0001
-ftn2rfc packet ./pin/00000006.pkt (520b) from 242:1000/5.0 to 242:1000/5.0
+ftn2rfc packet ./pin/00000006.pkt (521b) from 242:1000/5.0 to 242:1000/5.0
 Reading FTN message header:
     From: Test User                            @ 242:1000/5.0
     To  : Max Tester                           @ 242:1000/5.0
@@ -551,7 +559,7 @@ Reading FTN packet header:
     Rev : x.x
     Pass: ""
     Capw: 0001
-ftn2rfc packet ./pin/00000007.pkt (520b) from 242:1000/5.0 to 242:1000/5.0
+ftn2rfc packet ./pin/00000007.pkt (521b) from 242:1000/5.0 to 242:1000/5.0
 Reading FTN message header:
     From: Test User                            @ 242:1000/5.0
     To  : Max Tester                           @ 242:1000/5.0
@@ -576,7 +584,7 @@ Reading FTN packet header:
     Rev : x.x
     Pass: ""
     Capw: 0001
-ftn2rfc packet ./pin/00000008.pkt (508b) from 2:2452/110.2 to 2:2452/110.2
+ftn2rfc packet ./pin/00000008.pkt (509b) from 2:2452/110.2 to 2:2452/110.2
 Reading FTN message header:
     From: Test User                            @ 2:2452/110.2
     To  : Test 1                               @ 2:2/0.2
@@ -601,7 +609,7 @@ Reading FTN packet header:
     Rev : x.x
     Pass: ""
     Capw: 0001
-ftn2rfc packet ./pin/00000009.pkt (508b) from 2:2452/110.2 to 2:2452/110.2
+ftn2rfc packet ./pin/00000009.pkt (509b) from 2:2452/110.2 to 2:2452/110.2
 Reading FTN message header:
     From: Test User                            @ 2:2452/110.2
     To  : Test 2                               @ 2:2/0.2

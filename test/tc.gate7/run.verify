@@ -9,6 +9,7 @@ RFC Sender:   abc@fido.de
     Address:  f123.n2499.z2.fidonet.org
     FTN node: 2:2499/123.0
 Name for alias checking: test
+Converted receiver name: Test
 No alias found: return Test
     Name:     abc
     Address:  fido.de
@@ -21,7 +22,7 @@ RFC Content-Type:              -NONE-
                     boundary = 
 RFC Content-Transfer-Encoding: -NONE-
 addr_is_local(): From=abc@fido.de FQDN=orodruin.fido.de
-rfc2ftn MAIL: abc@fido.de -> test@f123.n2499.z2.fidonet.org
+rfc2ftn MAIL: from=abc@fido.de, to=test@f123.n2499.z2.fidonet.org
 charset: in=iso-8859-1 out=LATIN-1
 charset: table found in=iso-8859-1 out=iso-8859-1
 charset: msg RFC=iso-8859-1 FSC=LATIN-1 enc=8bit
@@ -48,6 +49,7 @@ RFC Sender:   abc@fido.de
     Address:  f123.n2499.z2.fidonet.org
     FTN node: 2:2499/123.0
 Name for alias checking: test_user
+Converted receiver name: Test User
 No alias found: return Test User
     Name:     abc
     Address:  fido.de
@@ -60,7 +62,7 @@ RFC Content-Type:              -NONE-
                     boundary = 
 RFC Content-Transfer-Encoding: -NONE-
 addr_is_local(): From=abc@fido.de FQDN=orodruin.fido.de
-rfc2ftn MAIL: abc@fido.de -> test_user@f123.n2499.z2.fidonet.org
+rfc2ftn MAIL: from=abc@fido.de, to=test_user@f123.n2499.z2.fidonet.org
 charset: in=iso-8859-1 out=LATIN-1
 charset: table found in=iso-8859-1 out=iso-8859-1
 charset: msg RFC=iso-8859-1 FSC=LATIN-1 enc=8bit
@@ -87,6 +89,7 @@ RFC Sender:   abc@fido.de
     Address:  f123.n2499.z2.fidonet.org
     FTN node: 2:2499/123.0
 Name for alias checking: test.user
+Converted receiver name: Test User
 No alias found: return Test User
     Name:     abc
     Address:  fido.de
@@ -99,7 +102,7 @@ RFC Content-Type:              -NONE-
                     boundary = 
 RFC Content-Transfer-Encoding: -NONE-
 addr_is_local(): From=abc@fido.de FQDN=orodruin.fido.de
-rfc2ftn MAIL: abc@fido.de -> test.user@f123.n2499.z2.fidonet.org
+rfc2ftn MAIL: from=abc@fido.de, to=test.user@f123.n2499.z2.fidonet.org
 charset: in=iso-8859-1 out=LATIN-1
 charset: table found in=iso-8859-1 out=iso-8859-1
 charset: msg RFC=iso-8859-1 FSC=LATIN-1 enc=8bit
@@ -124,11 +127,12 @@ RFC From:     abc@fido.de
 RFC Sender:   abc@fido.de
     Name:     test_user
     Address:  abc.def.org
-rfc2ftn BOUNCE: <test_user@abc.def.org>, unknown
+rfc2ftn BOUNCE: to=test_user@abc.def.org, reject=unknown
 Internet -> FIDO gateway / FIDOGATE x.x.x @ orodruin.fido.de
    ----- ERROR -----
 Address test_user@abc.def.org:
   address/host is unknown
+rfc2ftn BOUNCE: from=abc@fido.de, to=test_user@abc.def.org, reject=address/host is unknown
 Message body size 10 (+CR!)
 RFC To:       test_user@f123.n2499.z2.fidonet.org
 RFC From:     abc@fido.de (Test User)
@@ -137,6 +141,7 @@ RFC Sender:   Test User <abc@fido.de>
     Address:  f123.n2499.z2.fidonet.org
     FTN node: 2:2499/123.0
 Name for alias checking: test_user
+Converted receiver name: Test User
 No alias found: return Test User
     Name:     abc
     Address:  fido.de
@@ -149,7 +154,7 @@ RFC Content-Type:              -NONE-
                     boundary = 
 RFC Content-Transfer-Encoding: -NONE-
 addr_is_local(): From=Test User <abc@fido.de> FQDN=orodruin.fido.de
-rfc2ftn MAIL: Test User <abc@fido.de> -> test_user@f123.n2499.z2.fidonet.org
+rfc2ftn MAIL: from=Test User <abc@fido.de>, to=test_user@f123.n2499.z2.fidonet.org
 charset: in=iso-8859-1 out=LATIN-1
 charset: table found in=iso-8859-1 out=iso-8859-1
 charset: msg RFC=iso-8859-1 FSC=LATIN-1 enc=8bit
@@ -176,6 +181,7 @@ RFC Sender:   _Test_ _User_ <abc@fido.de>
     Address:  f123.n2499.z2.fidonet.org
     FTN node: 2:2499/123.0
 Name for alias checking: test_user
+Converted receiver name: Test User
 No alias found: return Test User
     Name:     abc
     Address:  fido.de
@@ -188,7 +194,7 @@ RFC Content-Type:              -NONE-
                     boundary = 
 RFC Content-Transfer-Encoding: -NONE-
 addr_is_local(): From=_Test_ _User_ <abc@fido.de> FQDN=orodruin.fido.de
-rfc2ftn MAIL: _Test_ _User_ <abc@fido.de> -> test_user@f123.n2499.z2.fidonet.org
+rfc2ftn MAIL: from=_Test_ _User_ <abc@fido.de>, to=test_user@f123.n2499.z2.fidonet.org
 charset: in=iso-8859-1 out=LATIN-1
 charset: table found in=iso-8859-1 out=iso-8859-1
 charset: msg RFC=iso-8859-1 FSC=LATIN-1 enc=8bit
@@ -215,6 +221,7 @@ RFC Sender:   Test.User <abc@fido.de>
     Address:  f123.n2499.z2.fidonet.org
     FTN node: 2:2499/123.0
 Name for alias checking: test_user
+Converted receiver name: Test User
 No alias found: return Test User
     Name:     abc
     Address:  fido.de
@@ -227,7 +234,7 @@ RFC Content-Type:              -NONE-
                     boundary = 
 RFC Content-Transfer-Encoding: -NONE-
 addr_is_local(): From=Test.User <abc@fido.de> FQDN=orodruin.fido.de
-rfc2ftn MAIL: Test.User <abc@fido.de> -> test_user@f123.n2499.z2.fidonet.org
+rfc2ftn MAIL: from=Test.User <abc@fido.de>, to=test_user@f123.n2499.z2.fidonet.org
 charset: in=iso-8859-1 out=LATIN-1
 charset: table found in=iso-8859-1 out=iso-8859-1
 charset: msg RFC=iso-8859-1 FSC=LATIN-1 enc=8bit
@@ -254,6 +261,7 @@ RFC Sender:   Test User <abc@f678.n9999.z242.fido.de>
     Address:  f123.n2499.z2.fidonet.org
     FTN node: 2:2499/123.0
 Name for alias checking: test_user
+Converted receiver name: Test User
 No alias found: return Test User
     Name:     abc
     Address:  f678.n9999.z242.fido.de
@@ -267,7 +275,7 @@ RFC Content-Type:              -NONE-
                     boundary = 
 RFC Content-Transfer-Encoding: -NONE-
 addr_is_local(): From=Test User <abc@f678.n9999.z242.fido.de> FQDN=orodruin.fido.de
-rfc2ftn MAIL: Test User <abc@f678.n9999.z242.fido.de> -> test_user@f123.n2499.z2.fidonet.org
+rfc2ftn MAIL: from=Test User <abc@f678.n9999.z242.fido.de>, to=test_user@f123.n2499.z2.fidonet.org
 charset: in=iso-8859-1 out=LATIN-1
 charset: table found in=iso-8859-1 out=iso-8859-1
 charset: msg RFC=iso-8859-1 FSC=LATIN-1 enc=8bit
@@ -295,6 +303,7 @@ RFC Sender:   Test User <abc@fido.de>
     Address:  f123.n2499.z2.fidonet.org
     FTN node: 2:2499/123.0
 Name for alias checking: test_user
+Converted receiver name: Test User
 No alias found: return Test User
     Name:     abc
     Address:  fido.de
@@ -307,7 +316,7 @@ RFC Content-Type:              -NONE-
                     boundary = 
 RFC Content-Transfer-Encoding: -NONE-
 addr_is_local(): From=Test User <abc@fido.de> FQDN=orodruin.fido.de
-rfc2ftn MAIL: Test User <abc@fido.de> -> test_user@f123.n2499.z2.fidonet.org
+rfc2ftn MAIL: from=Test User <abc@fido.de>, to=test_user@f123.n2499.z2.fidonet.org
 charset: in=iso-8859-1 out=LATIN-1
 charset: table found in=iso-8859-1 out=iso-8859-1
 charset: msg RFC=iso-8859-1 FSC=LATIN-1 enc=8bit
@@ -335,6 +344,7 @@ RFC Sender:   Test User X <abc@fido.de>
     Address:  f123.n2499.z2.fidonet.org
     FTN node: 2:2499/123.0
 Name for alias checking: test_user
+Converted receiver name: Test User
 No alias found: return Test User
     Name:     abc
     Address:  fido.de
@@ -347,7 +357,7 @@ RFC Content-Type:              -NONE-
                     boundary = 
 RFC Content-Transfer-Encoding: -NONE-
 addr_is_local(): From=Test User X <abc@fido.de> FQDN=orodruin.fido.de
-rfc2ftn MAIL: Test User X <abc@fido.de> -> test_user@f123.n2499.z2.fidonet.org
+rfc2ftn MAIL: from=Test User X <abc@fido.de>, to=test_user@f123.n2499.z2.fidonet.org
 charset: in=iso-8859-1 out=LATIN-1
 charset: table found in=iso-8859-1 out=iso-8859-1
 charset: msg RFC=iso-8859-1 FSC=LATIN-1 enc=8bit
@@ -375,6 +385,7 @@ RFC Sender:   Test User X <abc@fido.de>
     Address:  f123.n2499.z2.fidonet.org
     FTN node: 2:2499/123.0
 Name for alias checking: test_user
+Converted receiver name: Test User
 No alias found: return Test User
     Name:     abc
     Address:  fido.de
@@ -387,7 +398,7 @@ RFC Content-Type:              -NONE-
                     boundary = 
 RFC Content-Transfer-Encoding: -NONE-
 addr_is_local(): From=Test User X <abc@fido.de> FQDN=orodruin.fido.de
-rfc2ftn MAIL: Test User X <abc@fido.de> -> test_user@f123.n2499.z2.fidonet.org
+rfc2ftn MAIL: from=Test User X <abc@fido.de>, to=test_user@f123.n2499.z2.fidonet.org
 charset: in=iso-8859-1 out=LATIN-1
 charset: table found in=iso-8859-1 out=iso-8859-1
 charset: msg RFC=iso-8859-1 FSC=LATIN-1 enc=8bit
@@ -415,6 +426,7 @@ RFC Sender:   Test User X <abc@f678.n9999.z242.fido.de>
     Address:  f123.n2499.z2.fidonet.org
     FTN node: 2:2499/123.0
 Name for alias checking: test_user
+Converted receiver name: Test User
 No alias found: return Test User
     Name:     abc
     Address:  f678.n9999.z242.fido.de
@@ -428,7 +440,7 @@ RFC Content-Type:              -NONE-
                     boundary = 
 RFC Content-Transfer-Encoding: -NONE-
 addr_is_local(): From=Test User X <abc@f678.n9999.z242.fido.de> FQDN=orodruin.fido.de
-rfc2ftn MAIL: Test User X <abc@f678.n9999.z242.fido.de> -> test_user@f123.n2499.z2.fidonet.org
+rfc2ftn MAIL: from=Test User X <abc@f678.n9999.z242.fido.de>, to=test_user@f123.n2499.z2.fidonet.org
 charset: in=iso-8859-1 out=LATIN-1
 charset: table found in=iso-8859-1 out=iso-8859-1
 charset: msg RFC=iso-8859-1 FSC=LATIN-1 enc=8bit
@@ -453,6 +465,7 @@ RFC Sender:   Test User X <abc@f678.n9999.z242.fido.de>
     Name:     test_user
     Address:  f123.n2499.z2.fidonet.org
 Name for alias checking: test_user
+Converted receiver name: Test User
 No alias found: return Test User
     Name:     abc
     Address:  f678.n9999.z242.fido.de
@@ -492,6 +505,7 @@ RFC Sender:   Test User X <abc@f678.n9999.z242.fido.de>
     Name:     test_user
     Address:  
 Name for alias checking: test_user
+Converted receiver name: Test User
 No alias found: return Test User
     Name:     abc
     Address:  f678.n9999.z242.fido.de
@@ -532,6 +546,7 @@ RFC Sender:   Test User X <abc@f678.n9999.z242.fido.de>
     Name:     Hans Test User
     Address:  
 Name for alias checking: Hans Test User
+Converted receiver name: Hans Test User
 No alias found: return Hans Test User
     Name:     abc
     Address:  f678.n9999.z242.fido.de
@@ -572,6 +587,7 @@ RFC Sender:   Test User X <abc@f678.n9999.z242.fido.de>
     Name:     test
     Address:  p1.f2.n3.z4.fidonet.org
 Name for alias checking: Hans Test User
+Converted receiver name: Hans Test User
 No alias found: return Hans Test User
     Name:     abc
     Address:  f678.n9999.z242.fido.de
@@ -611,6 +627,7 @@ RFC Sender:   Test User X <abc@f678.n9999.z242.fido.de>
     Name:     
     Address:  
 Name for alias checking: Test User X
+Converted receiver name: Test User X
 No alias found: return Test User X
     Name:     abc
     Address:  f678.n9999.z242.fido.de
@@ -652,6 +669,7 @@ RFC Sender:   Kristian =?ISO-8859-1?Q?K=F6hntopp?= <kris@schulung.netuse.de>
     Address:  f123.n2499.z2.fidonet.org
     FTN node: 2:2499/123.0
 Name for alias checking: test_user
+Converted receiver name: Test User
 No alias found: return Test User
     Name:     kris
     Address:  schulung.netuse.de
@@ -664,7 +682,7 @@ RFC Content-Type:              -NONE-
                     boundary = 
 RFC Content-Transfer-Encoding: -NONE-
 addr_is_local(): From=Kristian =?ISO-8859-1?Q?K=F6hntopp?= <kris@schulung.netuse.de> FQDN=orodruin.fido.de
-rfc2ftn MAIL: Kristian =?ISO-8859-1?Q?K=F6hntopp?= <kris@schulung.netuse.de> -> test_user@f123.n2499.z2.fidonet.org
+rfc2ftn MAIL: from=Kristian =?ISO-8859-1?Q?K=F6hntopp?= <kris@schulung.netuse.de>, to=test_user@f123.n2499.z2.fidonet.org
 charset: in=iso-8859-1 out=LATIN-1
 charset: table found in=iso-8859-1 out=iso-8859-1
 charset: msg RFC=iso-8859-1 FSC=LATIN-1 enc=8bit
@@ -691,6 +709,7 @@ RFC Sender:   =?ISO-8859-1?Q?Kristian K=F6hntopp?= <kris@schulung.netuse.de>
     Address:  f123.n2499.z2.fidonet.org
     FTN node: 2:2499/123.0
 Name for alias checking: test_user
+Converted receiver name: Test User
 No alias found: return Test User
     Name:     kris
     Address:  schulung.netuse.de
@@ -703,7 +722,7 @@ RFC Content-Type:              -NONE-
                     boundary = 
 RFC Content-Transfer-Encoding: -NONE-
 addr_is_local(): From==?ISO-8859-1?Q?Kristian K=F6hntopp?= <kris@schulung.netuse.de> FQDN=orodruin.fido.de
-rfc2ftn MAIL: =?ISO-8859-1?Q?Kristian K=F6hntopp?= <kris@schulung.netuse.de> -> test_user@f123.n2499.z2.fidonet.org
+rfc2ftn MAIL: from==?ISO-8859-1?Q?Kristian K=F6hntopp?= <kris@schulung.netuse.de>, to=test_user@f123.n2499.z2.fidonet.org
 charset: in=iso-8859-1 out=LATIN-1
 charset: table found in=iso-8859-1 out=iso-8859-1
 charset: msg RFC=iso-8859-1 FSC=LATIN-1 enc=8bit
@@ -730,6 +749,7 @@ RFC Sender:   Martin Junius <mj@orodruin.fido.de>
     Address:  f123.n2499.z2.fidonet.org
     FTN node: 2:2499/123.0
 Name for alias checking: test_user
+Converted receiver name: Test User
 No alias found: return Test User
     Name:     mj
     Address:  orodruin.fido.de
@@ -744,7 +764,7 @@ RFC Content-Type:              TEXT/PLAIN; charset=iso-8859-1
                     boundary = 
 RFC Content-Transfer-Encoding: 8bit
 addr_is_local(): From=Martin Junius <mj@orodruin.fido.de> FQDN=orodruin.fido.de
-rfc2ftn MAIL: Martin Junius <mj@orodruin.fido.de> -> test_user@f123.n2499.z2.fidonet.org
+rfc2ftn MAIL: from=Martin Junius <mj@orodruin.fido.de>, to=test_user@f123.n2499.z2.fidonet.org
 charset: in=iso-8859-1 out=LATIN-1
 charset: table found in=iso-8859-1 out=iso-8859-1
 charset: msg RFC=iso-8859-1 FSC=LATIN-1 enc=8bit
@@ -768,6 +788,7 @@ RFC Sender:   Test User X <abc@f678.n9999.z242.fido.de>
     Name:     test_user
     Address:  f123.n2499.z2.fidonet.org
 Name for alias checking: test_user
+Converted receiver name: Test User
 No alias found: return Test User
     Name:     abc
     Address:  f678.n9999.z242.fido.de
@@ -807,6 +828,7 @@ RFC Sender:   Test User X <abc@f678.n9999.z242.fido.de>
     Name:     test_user
     Address:  
 Name for alias checking: test_user
+Converted receiver name: Test User
 No alias found: return Test User
     Name:     abc
     Address:  f678.n9999.z242.fido.de
@@ -847,6 +869,7 @@ RFC Sender:   Test User X <abc@f678.n9999.z242.fido.de>
     Name:     Hans Test User
     Address:  
 Name for alias checking: Hans Test User
+Converted receiver name: Hans Test User
 No alias found: return Hans Test User
     Name:     abc
     Address:  f678.n9999.z242.fido.de
@@ -887,6 +910,7 @@ RFC Sender:   Test User X <abc@f678.n9999.z242.fido.de>
     Name:     test
     Address:  p1.f2.n3.z4.fidonet.org
 Name for alias checking: Hans Test User
+Converted receiver name: Hans Test User
 No alias found: return Hans Test User
     Name:     abc
     Address:  f678.n9999.z242.fido.de
@@ -926,6 +950,7 @@ RFC Sender:   Test User X <abc@f678.n9999.z242.fido.de>
     Name:     
     Address:  
 Name for alias checking: Test User X
+Converted receiver name: Test User X
 No alias found: return Test User X
     Name:     abc
     Address:  f678.n9999.z242.fido.de

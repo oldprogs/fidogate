@@ -8,6 +8,7 @@ RFC Sender:   Martin Junius <mj@fido.de>
     Name:     test
     Address:  abc.def.org
 Name for alias checking: UUCP
+Converted receiver name: UUCP
 No alias found: return UUCP
     Name:     mj
     Address:  fido.de
@@ -20,7 +21,7 @@ RFC Content-Type:              -NONE-
                     boundary = 
 RFC Content-Transfer-Encoding: -NONE-
 addr_is_local(): From=Martin Junius <mj@fido.de> FQDN=orodruin.fido.de
-rfc2ftn MAIL: Martin Junius <mj@fido.de> -> test@abc.def.org
+rfc2ftn MAIL: from=Martin Junius <mj@fido.de>, to=test@abc.def.org
 charset: in=iso-8859-1 out=LATIN-1
 charset: table found in=iso-8859-1 out=iso-8859-1
 charset: msg RFC=iso-8859-1 FSC=LATIN-1 enc=8bit

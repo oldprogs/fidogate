@@ -1,10 +1,10 @@
 X-Emacs-Mode: -*- indented-text -*-
-Subject: FIDOGATE 4.4.6 - Fido-Internet Gateway and Tosser
+Subject: FIDOGATE 4.4.7 - Fido-Internet Gateway and Tosser
 Keywords: fido ftn netmail echomail tosser areafix mail news gateway
 Followup-To: comp.os.linux.misc
 
   =================================================================
-    FIDOGATE 4.4.6, a stable version of the new FIDOGATE release
+    FIDOGATE 4.4.7, a stable version of the new FIDOGATE release
   =================================================================
 
 			   FIDOGATE Version 4
@@ -33,14 +33,25 @@ Followup-To: comp.os.linux.misc
     http://metalab.unc.edu/pub/Linux/system/fido/
     (maybe still in .../pub/Linux/Incoming)
 
-    fidogate-4.4.6.lsm			   1 Kbyte
-    fidogate-4.4.6.tar.gz		1148 Kbyte
-    fidogate-4.4.6-1.7x.src.rpm		1148 Kbyte
-    fidogate-4.4.6-1.7x.i386.rpm	 900 Kbyte
+    fidogate-4.4.7.lsm			   1 Kbyte
+    fidogate-4.4.7.tar.gz		1160 Kbyte
+    fidogate-4.4.7-1.7x.src.rpm		1164 Kbyte
+    fidogate-4.4.7-1.7x.i386.rpm	1088 Kbyte
 
 
 
 ======================================================================
+
+Changes in 4.4.7:
+
+* rfc2ftn: new options RegisteredHostsOnly (not yet implemented!),
+  kinda reverse function to -i --ignore-hosts, and
+  RegisteredAliasesOny, allowing only mail to recipient addresses
+  registered via the ALIASES file, both alias@host.do.main and
+  User_Name@host.do.main; bounced mails (host, user) are now logged,
+  logging of messages now more sendmail-like.
+
+
 
 Changes in 4.4.6:
 
@@ -147,6 +158,6 @@ Needed:
 
 ======================================================================
 
-$Date: 2002/09/16 20:19:34 $
+$Date: 2003/04/10 21:22:04 $
 Martin Junius
 mailto:mj@fido.de

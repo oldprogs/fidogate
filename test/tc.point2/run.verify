@@ -1,7 +1,7 @@
 tc: clean-up
 tc: init
-rfc2ftn MAIL: Martin Junius <mj@fido.de> -> Test_User@2:2449/123.4
-rfc2ftn MAIL: Martin Junius <mj@fido.de> -> Test_User@2:2449/567.8
+rfc2ftn MAIL: from=Martin Junius <mj@fido.de>, to=Test_User@2:2449/123.4
+rfc2ftn MAIL: from=Martin Junius <mj@fido.de>, to=Test_User@2:2449/567.8
 ftntoss creating MSGID history ./history.dir
 ftntoss creating MSGID history ./history.pag
 ftntoss packet ./pin/00000001.pkt (558b) from 2:2449/417.2 to 2:2449/417.2

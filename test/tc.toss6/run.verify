@@ -1,9 +1,9 @@
 tc: clean-up
 tc: init
-rfc2ftn MAIL: Test_User@2:2499/123 -> Test_User_1@2:2452/110
-rfc2ftn MAIL: Test_User@2:2499/123 -> Test_User_2@2:2452/110
-rfc2ftn MAIL: IMAIL Arealink@2:2476/2 -> Test_User@2:2452/110
-rfc2ftn MAIL: IMAIL Arealink@2:2476/2 -> Test_User@2:2452/110
+rfc2ftn MAIL: from=Test_User@2:2499/123, to=Test_User_1@2:2452/110
+rfc2ftn MAIL: from=Test_User@2:2499/123, to=Test_User_2@2:2452/110
+rfc2ftn MAIL: from=IMAIL Arealink@2:2476/2, to=Test_User@2:2452/110
+rfc2ftn MAIL: from=IMAIL Arealink@2:2476/2, to=Test_User@2:2452/110
 ftntoss creating MSGID history ./history.dir
 ftntoss creating MSGID history ./history.pag
 ftntoss packet ./pin/00000001.pkt (535b) from 2:2499/123.0 to 2:2452/110.0

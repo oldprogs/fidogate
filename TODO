@@ -1,7 +1,7 @@
 							 -*- Indented-Text -*-
 ===== TODO list for FIDOGATE development =====================================
 
-	* common/message.c:627: config option for 0x8d check, heavily
+DONE	* common/message.c:627: config option for 0x8d check, heavily
 	  used eg in Russian charset CP866.
 
 DONE	* rfc2ftn: config option for passing charset in

@@ -711,6 +711,7 @@ aliases: mj 2:2452/110.2 Martin Junius
 aliases: mj 2:2452/110.2 Sysop
 aliases: mj 242:1000/5.0 Martin Junius
 aliases: mj 242:1000/5.0 Sysop
+aliases: tester 242:1000/5.99 Max Tester
 aliases: test1@abc.def.org 2:2452/110.2 Test 1
 aliases: test2 2:2452/110.2 Test 2
 aliases: test1@abc.def.org 2:2/0.0 Test 1
@@ -1101,6 +1102,7 @@ aliases: mj 2:2452/110.2 Martin Junius
 aliases: mj 2:2452/110.2 Sysop
 aliases: mj 242:1000/5.0 Martin Junius
 aliases: mj 242:1000/5.0 Sysop
+aliases: tester 242:1000/5.99 Max Tester
 aliases: test1@abc.def.org 2:2452/110.2 Test 1
 aliases: test2 2:2452/110.2 Test 2
 aliases: test1@abc.def.org 2:2/0.0 Test 1

@@ -9,6 +9,7 @@ RFC Sender:   Carsten H. Wuestner <chw@veteran.sax.de>
     Name:     Andreas M. Kirchwitz
     Address:  
 Name for alias checking: amk@cs.tu-berlin.de
+Converted receiver name: Amk@cs.Tu-berlin.De
 No alias found: return Amk@cs.Tu-berlin.De
     Name:     chw
     Address:  veteran.sax.de
@@ -50,6 +51,7 @@ RFC Sender:   Alexander Schwanke <ge276@appl2.hrz.uni-siegen.de>
     Name:     udob
     Address:  pepe.wupper.de
 Name for alias checking: Udo Boehlefeld
+Converted receiver name: Udo Boehlefeld
 No alias found: return Udo Boehlefeld
     Name:     ge276
     Address:  appl2.hrz.uni-siegen.de
@@ -120,6 +122,7 @@ RFC Sender:   Ukrapp <ukrapp@aol.com>
     Name:     E.Ascheid
     Address:  titan.ndh.com
 Name for alias checking: Elmar Ascheid
+Converted receiver name: Elmar Ascheid
 No alias found: return Elmar Ascheid
     Name:     ukrapp
     Address:  aol.com
@@ -160,6 +163,7 @@ RFC Sender:   Jan Richert <jrichert@krefcom.westfalen.de>
     Name:     Malcolm
     Address:  modebox.rhein-ruhr.de
 Name for alias checking: Marvin Erdt
+Converted receiver name: Marvin Erdt
 No alias found: return Marvin Erdt
     Name:     jrichert
     Address:  krefcom.westfalen.de
@@ -198,6 +202,7 @@ Message body size 1475 (+CR!)
 RFC From:     news@allusenet.com
 RFC Sender:   news@allusenet.com
 Name for alias checking: All
+Converted receiver name: All
 No alias found: return All
     Name:     news
     Address:  allusenet.com
@@ -238,6 +243,7 @@ RFC Sender:   Maik Musall <maik@cape.de>
     Name:     Holger Lubitz
     Address:  
 Name for alias checking: Holger Lubitz
+Converted receiver name: Holger Lubitz
 No alias found: return Holger Lubitz
     Name:     maik
     Address:  cape.de
@@ -298,6 +304,7 @@ Message body size 599 (+CR!)
 RFC From:     rene@flatta.in-berlin.de (Rene Kacza)
 RFC Sender:   Rene Kacza <rene@flatta.in-berlin.de>
 Name for alias checking: All
+Converted receiver name: All
 No alias found: return All
     Name:     rene
     Address:  flatta.in-berlin.de
@@ -368,6 +375,7 @@ RFC Sender:   Roger Schwentker <roger@larry.westfalen.de>
     Name:     ACiD APPlE
     Address:  
 Name for alias checking: an456495@anon.penet.fi
+Converted receiver name: An456495@anon.Penet.Fi
 No alias found: return An456495@anon.Penet.Fi
     Name:     roger
     Address:  larry.westfalen.de
@@ -406,6 +414,7 @@ Message body size 1711 (+CR!)
 RFC From:     gau_t@gauhh.hanse.de (Thorsten Gau)
 RFC Sender:   Thorsten Gau <gau_t@gauhh.hanse.de>
 Name for alias checking: All
+Converted receiver name: All
 No alias found: return All
     Name:     gau_t
     Address:  gauhh.hanse.de
@@ -459,6 +468,7 @@ RFC Sender:   Holger Schmid <holger.schmid@student.uni-tuebingen.de>
     Name:     E.Ascheid
     Address:  titan.ndh.com
 Name for alias checking: Elmar Ascheid
+Converted receiver name: Elmar Ascheid
 No alias found: return Elmar Ascheid
     Name:     holger.schmid
     Address:  student.uni-tuebingen.de
@@ -497,6 +507,7 @@ Message body size 86 (+CR!)
 RFC From:     "K. Seeland" <kaisggdf@sp.zrz.tu-berlin.de>
 RFC Sender:   K. Seeland <kaisggdf@sp.zrz.tu-berlin.de>
 Name for alias checking: All
+Converted receiver name: All
 No alias found: return All
     Name:     kaisggdf
     Address:  sp.zrz.tu-berlin.de
@@ -537,6 +548,7 @@ RFC Sender:   Thomas Adams <adams@t-online.de>
     Name:     udsch
     Address:  falcon.lahn.de
 Name for alias checking: Udo Schoeffmann
+Converted receiver name: Udo Schoeffmann
 No alias found: return Udo Schoeffmann
     Name:     adams
     Address:  t-online.de
@@ -577,6 +589,7 @@ Message body size 204 (+CR!)
 RFC From:     adams@t-online.de (Thomas Adams)
 RFC Sender:   Thomas Adams <adams@t-online.de>
 Name for alias checking: All
+Converted receiver name: All
 No alias found: return All
     Name:     adams
     Address:  t-online.de
@@ -617,6 +630,7 @@ RFC Sender:   Michael Soentgerath <boss@msoenix.du.gtn.com>
     Name:     roger
     Address:  larry.westfalen.de
 Name for alias checking: Roger Schwentker
+Converted receiver name: Roger Schwentker
 No alias found: return Roger Schwentker
     Name:     boss
     Address:  msoenix.du.gtn.com
@@ -657,6 +671,7 @@ RFC Sender:   Stefan Görg <sgeorg@berlin.snafu.de>
     Name:     didi
     Address:  bbsro.wst.ni.schule.de
 Name for alias checking: Dietrich Restemeyer
+Converted receiver name: Dietrich Restemeyer
 No alias found: return Dietrich Restemeyer
     Name:     sgeorg
     Address:  berlin.snafu.de
@@ -696,6 +711,7 @@ RFC From:     eckubitz@aol.com (EcKubitz)
 RFC Reply-To: eckubitz@aol.com (EcKubitz)
 RFC Sender:   EcKubitz <eckubitz@aol.com>
 Name for alias checking: All
+Converted receiver name: All
 No alias found: return All
     Name:     eckubitz
     Address:  aol.com
@@ -734,6 +750,7 @@ Message body size 875 (+CR!)
 RFC From:     CANDYMAN@LaDune.Westfalen.De  (Ralf Pieper)
 RFC Sender:   Ralf Pieper <CANDYMAN@LaDune.Westfalen.De>
 Name for alias checking: All
+Converted receiver name: All
 No alias found: return All
     Name:     CANDYMAN
     Address:  LaDune.Westfalen.De
@@ -773,6 +790,7 @@ RFC From:     steiner@bb-data.de (Steffen Steiner)
 RFC Reply-To: steiner@bb-data.de
 RFC Sender:   Steffen Steiner <steiner@bb-data.de>
 Name for alias checking: All
+Converted receiver name: All
 No alias found: return All
     Name:     steiner
     Address:  bb-data.de
@@ -823,6 +841,7 @@ RFC Sender:   Holger Lubitz <hal@caty.ol.sub.de>
     Name:     Maik Musall
     Address:  
 Name for alias checking: Maik Musall
+Converted receiver name: Maik Musall
 No alias found: return Maik Musall
     Name:     hal
     Address:  caty.ol.sub.de
@@ -884,6 +903,7 @@ RFC From:     winkler@ira.uka.de  (Frank Winkler @home)
 RFC Reply-To: winkler@ira.uka.de (Frank Winkler)
 RFC Sender:   Frank Winkler @home <winkler@ira.uka.de>
 Name for alias checking: All
+Converted receiver name: All
 No alias found: return All
     Name:     winkler
     Address:  ira.uka.de
@@ -935,6 +955,7 @@ RFC Sender:   Marc A. Rieger <rieger@stud.uni-frankfurt.de>
     Name:     Rene Kacza
     Address:  
 Name for alias checking: Rene Kacza
+Converted receiver name: Rene Kacza
 No alias found: return Rene Kacza
     Name:     rieger
     Address:  stud.uni-frankfurt.de
@@ -1003,6 +1024,7 @@ Message body size 772 (+CR!)
 RFC From:     malcolm@modebox.rhein-ruhr.de (Marvin Erdt)
 RFC Sender:   Marvin Erdt <malcolm@modebox.rhein-ruhr.de>
 Name for alias checking: All
+Converted receiver name: All
 No alias found: return All
     Name:     malcolm
     Address:  modebox.rhein-ruhr.de
@@ -1042,6 +1064,7 @@ RFC From:     thilo.pohl@fernuni-hagen.de (Thilo Pohl)
 RFC Reply-To: thilo.pohl@fernuni-hagen.de
 RFC Sender:   Thilo Pohl <thilo.pohl@fernuni-hagen.de>
 Name for alias checking: All
+Converted receiver name: All
 No alias found: return All
     Name:     thilo.pohl
     Address:  fernuni-hagen.de
@@ -1080,6 +1103,7 @@ Message body size 819 (+CR!)
 RFC From:     Markus Zimmermann <zmm@grs.de>
 RFC Sender:   Markus Zimmermann <zmm@grs.de>
 Name for alias checking: All
+Converted receiver name: All
 No alias found: return All
     Name:     zmm
     Address:  grs.de
@@ -1118,6 +1142,7 @@ Message body size 204 (+CR!)
 RFC From:     n.balthasar@public.ndh.com (Dirk Balthasar)
 RFC Sender:   Dirk Balthasar <n.balthasar@public.ndh.com>
 Name for alias checking: All
+Converted receiver name: All
 No alias found: return All
     Name:     n.balthasar
     Address:  public.ndh.com
@@ -1169,6 +1194,7 @@ RFC Sender:   Kai Ruettger <Kai.Ruettger@paediat.med.uni-giessen.de>
     Name:     achim
     Address:  kd.fh-hannover.de
 Name for alias checking: Joachim Gothe
+Converted receiver name: Joachim Gothe
 No alias found: return Joachim Gothe
     Name:     Kai.Ruettger
     Address:  paediat.med.uni-giessen.de
@@ -1207,6 +1233,7 @@ Message body size 1826 (+CR!)
 RFC From:     muench@wolf.informatik.rwth-aachen.de (Manfred Muench)
 RFC Sender:   Manfred Muench <muench@wolf.informatik.rwth-aachen.de>
 Name for alias checking: All
+Converted receiver name: All
 No alias found: return All
     Name:     muench
     Address:  wolf.informatik.rwth-aachen.de
@@ -1245,6 +1272,7 @@ Message body size 825 (+CR!)
 RFC From:     matthias.bolten@bigapple.Cologne.DE (Matthias Bolten)
 RFC Sender:   Matthias Bolten <matthias.bolten@bigapple.Cologne.DE>
 Name for alias checking: All
+Converted receiver name: All
 No alias found: return All
     Name:     matthias.bolten
     Address:  bigapple.Cologne.DE
@@ -1355,6 +1383,7 @@ RFC Sender:   Christian Weisgerber <naddy@mips.pfalz.de>
     Name:     andy
     Address:  pandy.on-luebeck.de
 Name for alias checking: Andreas Schrot
+Converted receiver name: Andreas Schrot
 No alias found: return Andreas Schrot
     Name:     naddy
     Address:  mips.pfalz.de
@@ -1407,6 +1436,7 @@ Message body size 238 (+CR!)
 RFC From:     Peter Klinke <pklinke@econ2.uni-bonn.de>
 RFC Sender:   Peter Klinke <pklinke@econ2.uni-bonn.de>
 Name for alias checking: All
+Converted receiver name: All
 No alias found: return All
     Name:     pklinke
     Address:  econ2.uni-bonn.de
@@ -1447,6 +1477,7 @@ RFC Sender:   Ralf Sipple <usai1035@servus02.rus.uni-stuttgart.de>
     Name:     Matthias Bolten
     Address:  
 Name for alias checking: matthias.bolten@bigapple.Cologne.DE
+Converted receiver name: Matthias.Bolten@bigapple.Cologne.DE
 No alias found: return Matthias.Bolten@bigapple.Cologne.DE
     Name:     usai1035
     Address:  servus02.rus.uni-stuttgart.de
@@ -1557,6 +1588,7 @@ RFC Sender:   Armin Wies <ghost@dawn.mayn.de>
     Name:     Ralf Pieper
     Address:  
 Name for alias checking: CANDYMAN@LaDune.Westfalen.De
+Converted receiver name: CANDYMAN@LaDune.Westfalen.De
 No alias found: return CANDYMAN@LaDune.Westfalen.De
     Name:     ghost
     Address:  dawn.mayn.de
@@ -1597,6 +1629,7 @@ RFC Sender:   Armin Wies <ghost@dawn.mayn.de>
     Name:     EcKubitz
     Address:  
 Name for alias checking: eckubitz@aol.com
+Converted receiver name: Eckubitz@aol.Com
 No alias found: return Eckubitz@aol.Com
     Name:     ghost
     Address:  dawn.mayn.de
@@ -1637,6 +1670,7 @@ RFC Sender:   Thomas Witt <mozart@mozart.berlinet.de>
     Name:     matthias.bolten
     Address:  bigapple.Cologne.DE
 Name for alias checking: Matthias Bolten
+Converted receiver name: Matthias Bolten
 No alias found: return Matthias Bolten
     Name:     mozart
     Address:  mozart.berlinet.de
@@ -1745,6 +1779,7 @@ Message body size 256 (+CR!)
 RFC From:     zoc@zocki.toppoint.de (Rainer Zocholl)
 RFC Sender:   Rainer Zocholl <zoc@zocki.toppoint.de>
 Name for alias checking: All
+Converted receiver name: All
 No alias found: return All
     Name:     zoc
     Address:  zocki.toppoint.de
@@ -1784,6 +1819,7 @@ RFC From:     root@bespin.in-berlin.de (Sascha Matzke)
 RFC Reply-To: root@bespin.in-berlin.de
 RFC Sender:   Sascha Matzke <root@bespin.in-berlin.de>
 Name for alias checking: All
+Converted receiver name: All
 No alias found: return All
     Name:     root
     Address:  bespin.in-berlin.de
@@ -1903,6 +1939,7 @@ RFC Sender:   Michael Beckmann <petzi@zit.th-darmstadt.de>
     Name:     n.balthasar
     Address:  public.ndh.com
 Name for alias checking: Dirk Balthasar
+Converted receiver name: Dirk Balthasar
 No alias found: return Dirk Balthasar
     Name:     petzi
     Address:  zit.th-darmstadt.de
@@ -1953,6 +1990,7 @@ RFC Sender:   Christian Grodau <groggy@eikon.e-technik.tu-muenchen.de>
     Name:     eckubitz
     Address:  aol.com
 Name for alias checking: EcKubitz
+Converted receiver name: EcKubitz
 No alias found: return EcKubitz
     Name:     groggy
     Address:  eikon.e-technik.tu-muenchen.de
@@ -1993,6 +2031,7 @@ RFC Sender:   Daniel Roedding <daniel@fiction.pb.owl.de>
     Name:     usai1035
     Address:  servus02.rus.uni-stuttgart.de
 Name for alias checking: Ralf Sipple
+Converted receiver name: Ralf Sipple
 No alias found: return Ralf Sipple
     Name:     daniel
     Address:  fiction.pb.owl.de
@@ -2101,6 +2140,7 @@ Message body size 1234 (+CR!)
 RFC From:     Klaus.Heimes@uni-koeln.de (Klaus Heimes)
 RFC Sender:   Klaus Heimes <Klaus.Heimes@uni-koeln.de>
 Name for alias checking: All
+Converted receiver name: All
 No alias found: return All
     Name:     Klaus.Heimes
     Address:  uni-koeln.de
@@ -2139,6 +2179,7 @@ Message body size 1012 (+CR!)
 RFC From:     gutschk@uni-muenster.de (Markus Gutschke)
 RFC Sender:   Markus Gutschke <gutschk@uni-muenster.de>
 Name for alias checking: All
+Converted receiver name: All
 No alias found: return All
     Name:     gutschk
     Address:  uni-muenster.de
@@ -2179,6 +2220,7 @@ RFC Sender:   Karlheinz Hagen <kalle@rd.cls.de>
     Name:     Ralf Sipple
     Address:  
 Name for alias checking: usai1035@servus02.rus.uni-stuttgart
+Converted receiver name: Usai1035@servus02.Rus.Uni-stuttgart
 No alias found: return Usai1035@servus02.Rus.Uni-stuttgart
     Name:     kalle
     Address:  rd.cls.de
@@ -2287,6 +2329,7 @@ Message body size 876 (+CR!)
 RFC From:     hf@ulysses.reactor.in-passau.de (Helmut Fromberger)
 RFC Sender:   Helmut Fromberger <hf@ulysses.reactor.in-passau.de>
 Name for alias checking: All
+Converted receiver name: All
 No alias found: return All
     Name:     hf
     Address:  ulysses.reactor.in-passau.de
@@ -2325,6 +2368,7 @@ Message body size 2707 (+CR!)
 RFC From:     joerg@tretow.in-berlin.de (Joerg Tretow)
 RFC Sender:   Joerg Tretow <joerg@tretow.in-berlin.de>
 Name for alias checking: All
+Converted receiver name: All
 No alias found: return All
     Name:     joerg
     Address:  tretow.in-berlin.de
@@ -2385,6 +2429,7 @@ Message body size 344 (+CR!)
 RFC From:     Bubblebear@guru.rhein-main.de (Bubblebear)
 RFC Sender:   Bubblebear <Bubblebear@guru.rhein-main.de>
 Name for alias checking: All
+Converted receiver name: All
 No alias found: return All
     Name:     Bubblebear
     Address:  guru.rhein-main.de
@@ -2425,6 +2470,7 @@ RFC Sender:   Maik Musall <maik@cape.de>
     Name:     Holger Lubitz
     Address:  
 Name for alias checking: Holger Lubitz
+Converted receiver name: Holger Lubitz
 No alias found: return Holger Lubitz
     Name:     maik
     Address:  cape.de
@@ -2485,6 +2531,7 @@ Message body size 790 (+CR!)
 RFC From:     T.Kammerer@charly.in-ulm.de (Thomas Kammerer)
 RFC Sender:   Thomas Kammerer <T.Kammerer@charly.in-ulm.de>
 Name for alias checking: All
+Converted receiver name: All
 No alias found: return All
     Name:     T.Kammerer
     Address:  charly.in-ulm.de
@@ -2545,6 +2592,7 @@ RFC Sender:   Christian A. Eroes <chris@cae.muc.de>
     Name:     usai1035
     Address:  
 Name for alias checking: usai1035
+Converted receiver name: Usai1035
 No alias found: return Usai1035
     Name:     chris
     Address:  cae.muc.de
@@ -2653,6 +2701,7 @@ Message body size 815 (+CR!)
 RFC From:     chris@cae.muc.de (Christian A. Eroes)
 RFC Sender:   Christian A. Eroes <chris@cae.muc.de>
 Name for alias checking: All
+Converted receiver name: All
 No alias found: return All
     Name:     chris
     Address:  cae.muc.de
@@ -2693,6 +2742,7 @@ RFC Sender:   Dirk Jacob <jacob@tmfs.mpgfk.tu-dresden.de>
     Name:     K. Seeland
     Address:  
 Name for alias checking: K. Seeland
+Converted receiver name: K. Seeland
 No alias found: return K. Seeland
     Name:     jacob
     Address:  tmfs.mpgfk.tu-dresden.de
@@ -2733,6 +2783,7 @@ RFC Sender:   Christian A. Eroes <chris@cae.muc.de>
     Name:     chris
     Address:  
 Name for alias checking: chris
+Converted receiver name: Chris
 No alias found: return Chris
     Name:     chris
     Address:  cae.muc.de
@@ -2773,6 +2824,7 @@ RFC Sender:   =?ISO-8859-1?Q?Kristian_K=F6hntopp?= <kris@schulung.netuse.de>
     Name:     ghost
     Address:  dawn.mayn.de
 Name for alias checking: Armin Wies
+Converted receiver name: Armin Wies
 No alias found: return Armin Wies
     Name:     kris
     Address:  schulung.netuse.de
@@ -2811,6 +2863,7 @@ Message body size 196 (+CR!)
 RFC From:     rene@flatta.in-berlin.de (Rene Kacza)
 RFC Sender:   Rene Kacza <rene@flatta.in-berlin.de>
 Name for alias checking: All
+Converted receiver name: All
 No alias found: return All
     Name:     rene
     Address:  flatta.in-berlin.de
@@ -2921,6 +2974,7 @@ RFC Sender:   =?iso-8859-1?q?J=E9r=F4me_Waibel?= <schrom@lisa.simpson.inka.de>
     Name:     Bubblebear
     Address:  guru.rhein-main.de
 Name for alias checking: Bubblebear
+Converted receiver name: Bubblebear
 No alias found: return Bubblebear
     Name:     schrom
     Address:  lisa.simpson.inka.de
@@ -2959,6 +3013,7 @@ Message body size 492 (+CR!)
 RFC From:     100657.202@compuserve.com (Michael Stein)
 RFC Sender:   Michael Stein <100657.202@compuserve.com>
 Name for alias checking: All
+Converted receiver name: All
 No alias found: return All
     Name:     100657.202
     Address:  compuserve.com
@@ -2999,6 +3054,7 @@ RFC Sender:   Stefan Wintermeyer <S.Wintermeyer@swreisedienst.com>
     Name:     Michael Stein
     Address:  
 Name for alias checking: Michael Stein
+Converted receiver name: Michael Stein
 No alias found: return Michael Stein
     Name:     S.Wintermeyer
     Address:  swreisedienst.com
@@ -3037,6 +3093,7 @@ Message body size 1515 (+CR!)
 RFC From:     UPS500@ibm.rhrz.uni-bonn.de (Markus Schlegel)
 RFC Sender:   Markus Schlegel <UPS500@ibm.rhrz.uni-bonn.de>
 Name for alias checking: All
+Converted receiver name: All
 No alias found: return All
     Name:     UPS500
     Address:  ibm.rhrz.uni-bonn.de
@@ -3097,6 +3154,7 @@ RFC Sender:   Thomas Witt <mozart@mozart.berlinet.de>
     Name:     joerg
     Address:  tretow.in-berlin.de
 Name for alias checking: Joerg Tretow
+Converted receiver name: Joerg Tretow
 No alias found: return Joerg Tretow
     Name:     mozart
     Address:  mozart.berlinet.de
@@ -3159,6 +3217,7 @@ RFC Sender:   Martin Schulte Moenting <uh5y@rz.uni-karlsruhe.de>
     Name:     On 12 Apr 1996 08:24:00 +0100 Christian A. Eroes
     Address:  
 Name for alias checking: On 12 Apr 1996 08:24:00 +0100 Chris
+Converted receiver name: On 12 Apr 1996 08:24:00 +0100 Chris
 No alias found: return On 12 Apr 1996 08:24:00 +0100 Chris
     Name:     uh5y
     Address:  rz.uni-karlsruhe.de
@@ -3197,6 +3256,7 @@ Message body size 516 (+CR!)
 RFC From:     rufus@informatik.uni-koblenz.de (Sven Lehmann)
 RFC Sender:   Sven Lehmann <rufus@informatik.uni-koblenz.de>
 Name for alias checking: All
+Converted receiver name: All
 No alias found: return All
     Name:     rufus
     Address:  informatik.uni-koblenz.de
@@ -3237,6 +3297,7 @@ RFC Sender:   Christian Grodau <groggy@eikon.e-technik.tu-muenchen.de>
     Name:     winkler
     Address:  ira.uka.de
 Name for alias checking: Frank Winkler @home
+Converted receiver name: Frank Winkler @home
 No alias found: return Frank Winkler @home
     Name:     groggy
     Address:  eikon.e-technik.tu-muenchen.de
@@ -3287,6 +3348,7 @@ RFC Sender:   Daniel Funke <funked@bonsai.fernuni-hagen.de>
     Name:     100657.202
     Address:  compuserve.com
 Name for alias checking: Michael Stein
+Converted receiver name: Michael Stein
 No alias found: return Michael Stein
     Name:     funked
     Address:  bonsai.fernuni-hagen.de
@@ -3325,6 +3387,7 @@ Message body size 1594 (+CR!)
 RFC From:     ben@osn.de (Ben)
 RFC Sender:   Ben <ben@osn.de>
 Name for alias checking: All
+Converted receiver name: All
 No alias found: return All
     Name:     ben
     Address:  osn.de
@@ -3365,6 +3428,7 @@ RFC Sender:   Roger Schwentker <roger@larry.westfalen.de>
     Name:     Dirk Jacob
     Address:  
 Name for alias checking: jacob@tmfs.mpgfk.tu-dresden.de
+Converted receiver name: Jacob@tmfs.Mpgfk.Tu-dresden.De
 No alias found: return Jacob@tmfs.Mpgfk.Tu-dresden.De
     Name:     roger
     Address:  larry.westfalen.de
@@ -3405,6 +3469,7 @@ RFC Sender:   Mark Deskowski <mark@umd.allcon.com>
     Name:     ben
     Address:  osn.de
 Name for alias checking: Ben
+Converted receiver name: Ben
 No alias found: return Ben
     Name:     mark
     Address:  umd.allcon.com
@@ -3443,6 +3508,7 @@ Message body size 356 (+CR!)
 RFC From:     ruhs@thor.tech.chemie.tu-muenchen.de (Michael Ruhs)
 RFC Sender:   Michael Ruhs <ruhs@thor.tech.chemie.tu-muenchen.de>
 Name for alias checking: All
+Converted receiver name: All
 No alias found: return All
     Name:     ruhs
     Address:  thor.tech.chemie.tu-muenchen.de
@@ -3483,6 +3549,7 @@ RFC Sender:   Clemens Dorfner <dorfner@susi.fmi.uni-passau.de>
     Name:     mark
     Address:  umd.allcon.com
 Name for alias checking: Mark Deskowski
+Converted receiver name: Mark Deskowski
 No alias found: return Mark Deskowski
     Name:     dorfner
     Address:  susi.fmi.uni-passau.de
@@ -3524,6 +3591,7 @@ RFC Sender:   Andreas Graef <graef@Informatik.TU-Muenchen.DE>
     Name:     naddy
     Address:  mips.pfalz.de
 Name for alias checking: Christian Weisgerber
+Converted receiver name: Christian Weisgerber
 No alias found: return Christian Weisgerber
     Name:     graef
     Address:  Informatik.TU-Muenchen.DE
@@ -3562,6 +3630,7 @@ Message body size 499 (+CR!)
 RFC From:     finc27@zx2.hrz.uni-dortmund.de (Thomas Adams)
 RFC Sender:   Thomas Adams <finc27@zx2.hrz.uni-dortmund.de>
 Name for alias checking: All
+Converted receiver name: All
 No alias found: return All
     Name:     finc27
     Address:  zx2.hrz.uni-dortmund.de
@@ -3600,6 +3669,7 @@ Message body size 1217 (+CR!)
 RFC From:     kay@ula1b18.zhv.basf-ag.de (Kay Marquardt)
 RFC Sender:   Kay Marquardt <kay@ula1b18.zhv.basf-ag.de>
 Name for alias checking: All
+Converted receiver name: All
 No alias found: return All
     Name:     kay
     Address:  ula1b18.zhv.basf-ag.de
@@ -3640,6 +3710,7 @@ RFC Sender:   Daniel Funke <funked@bonsai.fernuni-hagen.de>
     Name:     ben
     Address:  osn.de
 Name for alias checking: Ben
+Converted receiver name: Ben
 No alias found: return Ben
     Name:     funked
     Address:  bonsai.fernuni-hagen.de
@@ -3680,6 +3751,7 @@ RFC Sender:   Armin Wies <ghost@dawn.mayn.de>
     Name:     Michael Ruhs
     Address:  
 Name for alias checking: ruhs@thor.tech.chemie.tu-muenchen.d
+Converted receiver name: Ruhs@thor.Tech.Chemie.Tu-muenchen.D
 No alias found: return Ruhs@thor.Tech.Chemie.Tu-muenchen.D
     Name:     ghost
     Address:  dawn.mayn.de
@@ -3718,6 +3790,7 @@ Message body size 628 (+CR!)
 RFC From:     rene@flatta.in-berlin.de (Rene Kacza)
 RFC Sender:   Rene Kacza <rene@flatta.in-berlin.de>
 Name for alias checking: All
+Converted receiver name: All
 No alias found: return All
     Name:     rene
     Address:  flatta.in-berlin.de
@@ -3756,6 +3829,7 @@ Message body size 1211 (+CR!)
 RFC From:     WASTL@RMAN2.gun.de (Sebastian Koopmann)
 RFC Sender:   Sebastian Koopmann <WASTL@RMAN2.gun.de>
 Name for alias checking: All
+Converted receiver name: All
 No alias found: return All
     Name:     WASTL
     Address:  RMAN2.gun.de
@@ -3794,6 +3868,7 @@ Message body size 677 (+CR!)
 RFC From:     WASTL@RMAN2.gun.de (Sebastian Koopmann)
 RFC Sender:   Sebastian Koopmann <WASTL@RMAN2.gun.de>
 Name for alias checking: All
+Converted receiver name: All
 No alias found: return All
     Name:     WASTL
     Address:  RMAN2.gun.de
@@ -3834,6 +3909,7 @@ RFC Sender:   =?iso-8859-1?q?J=E9r=F4me_Waibel?= <schrom@lisa.simpson.inka.de>
     Name:     graef
     Address:  informatik.tu-muenchen.de
 Name for alias checking: Andreas Graef
+Converted receiver name: Andreas Graef
 No alias found: return Andreas Graef
     Name:     schrom
     Address:  lisa.simpson.inka.de
@@ -3874,6 +3950,7 @@ RFC Sender:   Helge Oldach <hmo@sep.hamburg.com>
     Name:     chris
     Address:  cae.muc.de
 Name for alias checking: Christian A. Eroes
+Converted receiver name: Christian A. Eroes
 No alias found: return Christian A. Eroes
     Name:     hmo
     Address:  sep.hamburg.com
@@ -3982,6 +4059,7 @@ Message body size 1269 (+CR!)
 RFC From:     kakau@crest4.lbcmbx.bln.sub.org (Karsten Kaulich)
 RFC Sender:   Karsten Kaulich <kakau@crest4.lbcmbx.bln.sub.org>
 Name for alias checking: All
+Converted receiver name: All
 No alias found: return All
     Name:     kakau
     Address:  crest4.lbcmbx.bln.sub.org
@@ -4020,6 +4098,7 @@ Message body size 820 (+CR!)
 RFC From:     kakau@crest4.lbcmbx.bln.sub.org (Karsten Kaulich)
 RFC Sender:   Karsten Kaulich <kakau@crest4.lbcmbx.bln.sub.org>
 Name for alias checking: All
+Converted receiver name: All
 No alias found: return All
     Name:     kakau
     Address:  crest4.lbcmbx.bln.sub.org
@@ -4058,6 +4137,7 @@ Message body size 1911 (+CR!)
 RFC From:     kakau@crest4.lbcmbx.bln.sub.org (Karsten Kaulich)
 RFC Sender:   Karsten Kaulich <kakau@crest4.lbcmbx.bln.sub.org>
 Name for alias checking: All
+Converted receiver name: All
 No alias found: return All
     Name:     kakau
     Address:  crest4.lbcmbx.bln.sub.org
@@ -4096,6 +4176,7 @@ Message body size 1692 (+CR!)
 RFC From:     kakau@crest4.lbcmbx.bln.sub.org (Karsten Kaulich)
 RFC Sender:   Karsten Kaulich <kakau@crest4.lbcmbx.bln.sub.org>
 Name for alias checking: All
+Converted receiver name: All
 No alias found: return All
     Name:     kakau
     Address:  crest4.lbcmbx.bln.sub.org
@@ -4134,6 +4215,7 @@ Message body size 808 (+CR!)
 RFC From:     Timo Christoph <i21atchr@rz.unibw-muenchen.de>
 RFC Sender:   Timo Christoph <i21atchr@rz.unibw-muenchen.de>
 Name for alias checking: All
+Converted receiver name: All
 No alias found: return All
     Name:     i21atchr
     Address:  rz.unibw-muenchen.de
@@ -4196,6 +4278,7 @@ RFC Sender:   Leif Juergensen <leif@elliot.allcon.com>
     Name:     finc27
     Address:  zx2.hrz.uni-dortmund.de
 Name for alias checking: Thomas Adams
+Converted receiver name: Thomas Adams
 No alias found: return Thomas Adams
     Name:     leif
     Address:  elliot.allcon.com
@@ -4236,6 +4319,7 @@ RFC Sender:   Ralf Zessin <zessin@helena.rbi.informatik.uni-frankfurt.de>
     Name:     finc27
     Address:  zx2.hrz.uni-dortmund.de
 Name for alias checking: Thomas Adams
+Converted receiver name: Thomas Adams
 No alias found: return Thomas Adams
     Name:     zessin
     Address:  helena.rbi.informatik.uni-frankfurt.de
@@ -4274,6 +4358,7 @@ Message body size 696 (+CR!)
 RFC From:     UZS106@ibm.rhrz.uni-bonn.de (Heiko Recktenwald)
 RFC Sender:   Heiko Recktenwald <UZS106@ibm.rhrz.uni-bonn.de>
 Name for alias checking: All
+Converted receiver name: All
 No alias found: return All
     Name:     UZS106
     Address:  ibm.rhrz.uni-bonn.de
@@ -4332,6 +4417,7 @@ Message body size 421 (+CR!)
 RFC From:     localhost <roberto_zicari@omg.org>
 RFC Sender:   localhost <roberto_zicari@omg.org>
 Name for alias checking: All
+Converted receiver name: All
 No alias found: return All
     Name:     roberto_zicari
     Address:  omg.org
@@ -4382,6 +4468,7 @@ RFC Sender:   =?ISO-8859-1?Q?Kristian_K=F6hntopp?= <kris@schulung.netuse.de>
     Name:     kakau
     Address:  crest4.lbcmbx.bln.sub.org
 Name for alias checking: Karsten Kaulich
+Converted receiver name: Karsten Kaulich
 No alias found: return Karsten Kaulich
     Name:     kris
     Address:  schulung.netuse.de
@@ -4423,6 +4510,7 @@ RFC Sender:   Marc 'Nepomuk' Heuler <marc@aargh.incubus.sub.org>
     Name:     Christian Weisgerber
     Address:  
 Name for alias checking: Christian Weisgerber
+Converted receiver name: Christian Weisgerber
 No alias found: return Christian Weisgerber
     Name:     marc
     Address:  aargh.incubus.sub.org
@@ -4461,6 +4549,7 @@ Message body size 498 (+CR!)
 RFC From:     klaus@arco.de (Klaus Koenig)
 RFC Sender:   Klaus Koenig <klaus@arco.de>
 Name for alias checking: All
+Converted receiver name: All
 No alias found: return All
     Name:     klaus
     Address:  arco.de
@@ -4499,6 +4588,7 @@ Message body size 625 (+CR!)
 RFC From:     Christian@eder.pumuckl.cube.net (Christian Frankenberg)
 RFC Sender:   Christian Frankenberg <Christian@eder.pumuckl.cube.net>
 Name for alias checking: All
+Converted receiver name: All
 No alias found: return All
     Name:     Christian
     Address:  eder.pumuckl.cube.net

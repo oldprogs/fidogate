@@ -5786,6 +5786,7 @@ RFC Sender:   David Tiberio <dtiberio@ic.sunysb.edu>
     Name:     wwarner
     Address:  en.ecn.purdue.edu
 Name for alias checking: Art Warner
+Converted receiver name: Art Warner
 No alias found: return Art Warner
     Name:     dtiberio
     Address:  ic.sunysb.edu
@@ -5806,6 +5807,7 @@ Batch: message #2 size 1255
 RFC From:     jkrutz@burner.com (Jamie Krutz)
 RFC Sender:   Jamie Krutz <jkrutz@burner.com>
 Name for alias checking: All
+Converted receiver name: All
 No alias found: return All
     Name:     jkrutz
     Address:  burner.com
@@ -5826,6 +5828,7 @@ Batch: message #3 size 1641
 RFC From:     janaka@ursula.ee.pdx.edu (Born Again Hacker)
 RFC Sender:   Born Again Hacker <janaka@ursula.ee.pdx.edu>
 Name for alias checking: All
+Converted receiver name: All
 No alias found: return All
     Name:     janaka
     Address:  ursula.ee.pdx.edu
@@ -5848,6 +5851,7 @@ Batch: message #4 size 4720
 RFC From:     Kent.Dalton@FtCollinsCO.NCR.COM (Kent.Dalton)
 RFC Sender:   Kent.Dalton <Kent.Dalton@FtCollinsCO.NCR.COM>
 Name for alias checking: All
+Converted receiver name: All
 No alias found: return All
     Name:     Kent.Dalton
     Address:  FtCollinsCO.NCR.COM
@@ -5868,6 +5872,7 @@ Batch: message #5 size 5348
 RFC From:     Kent.Dalton@FtCollinsCO.NCR.COM (Kent.Dalton)
 RFC Sender:   Kent.Dalton <Kent.Dalton@FtCollinsCO.NCR.COM>
 Name for alias checking: All
+Converted receiver name: All
 No alias found: return All
     Name:     Kent.Dalton
     Address:  FtCollinsCO.NCR.COM
@@ -5890,6 +5895,7 @@ RFC Sender:   Ricardo Hernandez Muchado <ricardo@rchland.vnet.ibm.com>
     Name:     mashton
     Address:  dcs.warwick.ac.uk
 Name for alias checking: Beeby
+Converted receiver name: Beeby
 No alias found: return Beeby
     Name:     ricardo
     Address:  rchland.vnet.ibm.com
@@ -5912,6 +5918,7 @@ RFC Sender:   Ricardo Hernandez Muchado <ricardo@rchland.vnet.ibm.com>
     Name:     ntustu1
     Address:  iti.gov.sg
 Name for alias checking: NTU Student 1
+Converted receiver name: NTU Student 1
 No alias found: return NTU Student 1
     Name:     ricardo
     Address:  rchland.vnet.ibm.com
@@ -5934,6 +5941,7 @@ RFC Sender:   Dave Andrews <dandrews@bilver.uucp>
     Name:     jurlwin
     Address:  gandalf.UMCS.Maine.EDU
 Name for alias checking: Jeff Urlwin
+Converted receiver name: Jeff Urlwin
 No alias found: return Jeff Urlwin
     Name:     dandrews
     Address:  bilver.uucp
@@ -5974,6 +5982,7 @@ RFC Sender:   Michael B. Taylor <Michael.B.Taylor@dartmouth.edu>
     Name:     leebr
     Address:  ecf.toronto.edu
 Name for alias checking: LEE BRIAN
+Converted receiver name: LEE BRIAN
 No alias found: return LEE BRIAN
     Name:     Michael.B.Taylor
     Address:  dartmouth.edu
@@ -5996,6 +6005,7 @@ RFC Sender:   Happiness Just Left <r9202004@ccms.ntu.edu.tw>
     Name:     Christopher David Gesek
     Address:  
 Name for alias checking: cgesek@wpi.WPI.EDU
+Converted receiver name: Cgesek@wpi.WPI.EDU
 No alias found: return Cgesek@wpi.WPI.EDU
     Name:     r9202004
     Address:  ccms.ntu.edu.tw
@@ -6019,6 +6029,7 @@ RFC Sender:   Marc Thibault <marc@tanda.isis.org>
     Name:     
     Address:  
 Name for alias checking: Brian Holland
+Converted receiver name: Brian Holland
 No alias found: return Brian Holland
     Name:     marc
     Address:  tanda.isis.org
@@ -6039,6 +6050,7 @@ Batch: message #12 size 440
 RFC From:     clin@unixg.ubc.ca (Chris Lin)
 RFC Sender:   Chris Lin <clin@unixg.ubc.ca>
 Name for alias checking: All
+Converted receiver name: All
 No alias found: return All
     Name:     clin
     Address:  unixg.ubc.ca
@@ -6061,6 +6073,7 @@ RFC Sender:   Mika Iisakkila <iisakkil@lk-hp-1.hut.fi>
     Name:     sspatter
     Address:  netcom.com
 Name for alias checking: Samuel Scott Patterson
+Converted receiver name: Samuel Scott Patterson
 No alias found: return Samuel Scott Patterson
     Name:     iisakkil
     Address:  lk-hp-1.hut.fi
@@ -6084,6 +6097,7 @@ RFC Sender:   Darryl Okahata <darrylo@sr.hp.com>
     Name:     I
     Address:  
 Name for alias checking: I
+Converted receiver name: I
 No alias found: return I
     Name:     darrylo
     Address:  sr.hp.com
@@ -6104,6 +6118,7 @@ Batch: message #15 size 1144
 RFC From:     Michael P Collins <mc7f+@andrew.cmu.edu>
 RFC Sender:   Michael P Collins <mc7f+@andrew.cmu.edu>
 Name for alias checking: All
+Converted receiver name: All
 No alias found: return All
     Name:     mc7f+
     Address:  andrew.cmu.edu
@@ -6132,6 +6147,7 @@ Batch: message #16 size 1149
 RFC From:     zrsjp01@tapio.zdv.uni-tuebingen.de (P. Jesinger)
 RFC Sender:   P. Jesinger <zrsjp01@tapio.zdv.uni-tuebingen.de>
 Name for alias checking: All
+Converted receiver name: All
 No alias found: return All
     Name:     zrsjp01
     Address:  tapio.zdv.uni-tuebingen.de
@@ -6154,6 +6170,7 @@ RFC Sender:   Peter Berlich <berlich@hpopf1.cern.ch>
     Name:     poser
     Address:  vxdsyc.desy.de
 Name for alias checking: Till Poser
+Converted receiver name: Till Poser
 No alias found: return Till Poser
     Name:     berlich
     Address:  hpopf1.cern.ch
@@ -6176,6 +6193,7 @@ RFC Sender:   Jason D Corley <corleyj@helium.gas.uug.arizona.edu>
     Name:     lyndon smith
     Address:  
 Name for alias checking: lyndon smith
+Converted receiver name: Lyndon smith
 No alias found: return Lyndon smith
     Name:     corleyj
     Address:  helium.gas.uug.arizona.edu
@@ -6198,6 +6216,7 @@ RFC Sender:   Jim Sullivan <jim@sco.COM>
     Name:     lasner
     Address:  watsun.cc.columbia.edu
 Name for alias checking: Charles Lasner
+Converted receiver name: Charles Lasner
 No alias found: return Charles Lasner
     Name:     jim
     Address:  sco.COM
@@ -6220,6 +6239,7 @@ RFC Sender:   Ross Smith <alien@acheron.amigans.gen.nz>
     Name:     borris
     Address:  aleph1.co.uk
 Name for alias checking: David Fell
+Converted receiver name: David Fell
 No alias found: return David Fell
     Name:     alien
     Address:  acheron.amigans.gen.nz
@@ -6242,6 +6262,7 @@ RFC Sender:   Ross Smith <alien@acheron.amigans.gen.nz>
     Name:     aa441
     Address:  Freenet.carleton.ca
 Name for alias checking: Jeff Stimson
+Converted receiver name: Jeff Stimson
 No alias found: return Jeff Stimson
     Name:     alien
     Address:  acheron.amigans.gen.nz
@@ -6264,6 +6285,7 @@ RFC Sender:   Ross Smith <alien@acheron.amigans.gen.nz>
     Name:     davgar
     Address:  scorch.apana.org.au
 Name for alias checking: Dave Garner
+Converted receiver name: Dave Garner
 No alias found: return Dave Garner
     Name:     alien
     Address:  acheron.amigans.gen.nz
@@ -6286,6 +6308,7 @@ RFC Sender:   Ross Smith <alien@acheron.amigans.gen.nz>
     Name:     kessner
     Address:  rintintin.Colorado.EDU
 Name for alias checking: KESSNER ERIC M
+Converted receiver name: KESSNER ERIC M
 No alias found: return KESSNER ERIC M
     Name:     alien
     Address:  acheron.amigans.gen.nz
@@ -6306,6 +6329,7 @@ Batch: message #24 size 867
 RFC From:     wtyuan@Uz.nthu.edu.tw (Transformer)
 RFC Sender:   Transformer <wtyuan@Uz.nthu.edu.tw>
 Name for alias checking: All
+Converted receiver name: All
 No alias found: return All
     Name:     wtyuan
     Address:  Uz.nthu.edu.tw
@@ -6337,6 +6361,7 @@ RFC Sender:   Paula Lieberman <Paula_Lieberman@amicol.UUCP>
     Name:     In a message dated Sat  7 Mar 93  7:22, Abs0
     Address:  coos.dartmouth.edu (kelvin Leu
 Name for alias checking: In a message dated Sat  7 Mar 93  7
+Converted receiver name: In a message dated Sat  7 Mar 93  7
 No alias found: return In a message dated Sat  7 Mar 93  7
     Name:     Paula_Lieberman
     Address:  amicol.UUCP
@@ -6359,6 +6384,7 @@ RFC Sender:   Steve VanDevender <stevev@miser.uoregon.edu>
     Name:     rrd
     Address:  hpfcso.FC.HP.COM
 Name for alias checking: Ray Depew
+Converted receiver name: Ray Depew
 No alias found: return Ray Depew
     Name:     stevev
     Address:  miser.uoregon.edu
@@ -6379,6 +6405,7 @@ Batch: message #27 size 960
 RFC From:     christa@horga.ruhr.de (Christa Keil)
 RFC Sender:   Christa Keil <christa@horga.ruhr.de>
 Name for alias checking: All
+Converted receiver name: All
 No alias found: return All
     Name:     christa
     Address:  horga.ruhr.de
@@ -6401,6 +6428,7 @@ RFC Sender:   Christa Keil <zotty@popp.ins.de>
     Name:     berlich
     Address:  hpopf1.cern.ch
 Name for alias checking: Peter Berlich
+Converted receiver name: Peter Berlich
 No alias found: return Peter Berlich
     Name:     zotty
     Address:  popp.ins.de
@@ -6426,6 +6454,7 @@ RFC Sender:   Christa Keil <zotty@popp.ins.de>
     Name:     j_horlit
     Address:  informatik.uni-kl.de
 Name for alias checking: Joerg Horlitz
+Converted receiver name: Joerg Horlitz
 No alias found: return Joerg Horlitz
     Name:     zotty
     Address:  popp.ins.de
@@ -6446,6 +6475,7 @@ Batch: message #30 size 923
 RFC From:     thomas@tonido.en.open.de (Thomas Niehaus)
 RFC Sender:   Thomas Niehaus <thomas@tonido.en.open.de>
 Name for alias checking: All
+Converted receiver name: All
 No alias found: return All
     Name:     thomas
     Address:  tonido.en.open.de
@@ -6468,6 +6498,7 @@ RFC Sender:   Frank Wegmann <wegmann@aki>
     Name:     gemoe
     Address:  proximus.north.de
 Name for alias checking: Gerhard Moeller
+Converted receiver name: Gerhard Moeller
 No alias found: return Gerhard Moeller
     Name:     wegmann
     Address:  aki
@@ -6488,6 +6519,7 @@ Batch: message #32 size 1044
 RFC From:     r.a.frank@link-f.comlink.de
 RFC Sender:   r.a.frank@link-f.comlink.de
 Name for alias checking: All
+Converted receiver name: All
 No alias found: return All
     Name:     r.a.frank
     Address:  link-f.comlink.de
@@ -6508,6 +6540,7 @@ Batch: message #33 size 1584
 RFC From:     Sukumar_Munshi@247/43.fido.de
 RFC Sender:   Sukumar_Munshi@247/43.fido.de
 Name for alias checking: All
+Converted receiver name: All
 No alias found: return All
     Name:     Sukumar_Munshi
     Address:  247/43.fido.de
@@ -6528,6 +6561,7 @@ Batch: message #34 size 2227
 RFC From:     m.rudolph@kiste.zer.sub.org
 RFC Sender:   m.rudolph@kiste.zer.sub.org
 Name for alias checking: All
+Converted receiver name: All
 No alias found: return All
     Name:     m.rudolph
     Address:  kiste.zer.sub.org
@@ -6548,6 +6582,7 @@ Batch: message #35 size 962
 RFC From:     Andreas_Ulmer@2400/21.fido.de
 RFC Sender:   Andreas_Ulmer@2400/21.fido.de
 Name for alias checking: All
+Converted receiver name: All
 No alias found: return All
     Name:     Andreas_Ulmer
     Address:  2400/21.fido.de
@@ -6568,6 +6603,7 @@ Batch: message #36 size 1957
 RFC From:     m.rudolph@kiste.zer.sub.org
 RFC Sender:   m.rudolph@kiste.zer.sub.org
 Name for alias checking: All
+Converted receiver name: All
 No alias found: return All
     Name:     m.rudolph
     Address:  kiste.zer.sub.org
@@ -6588,6 +6624,7 @@ Batch: message #37 size 4060
 RFC From:     francis@ese.ogi.edu (Francis Moraes)
 RFC Sender:   Francis Moraes <francis@ese.ogi.edu>
 Name for alias checking: All
+Converted receiver name: All
 No alias found: return All
     Name:     francis
     Address:  ese.ogi.edu
@@ -6617,6 +6654,7 @@ Batch: message #38 size 1285
 RFC From:     coburnn@spot.Colorado.EDU (COBURN  NICHOLAS SCO)
 RFC Sender:   COBURN  NICHOLAS SCO <coburnn@spot.Colorado.EDU>
 Name for alias checking: All
+Converted receiver name: All
 No alias found: return All
     Name:     coburnn
     Address:  spot.Colorado.EDU
@@ -6639,6 +6677,7 @@ RFC Sender:   Dale Gass <dale@mkseast.uucp>
     Name:     ungar
     Address:  leland.Stanford.EDU
 Name for alias checking: Jeffrey Ungar
+Converted receiver name: Jeffrey Ungar
 No alias found: return Jeffrey Ungar
     Name:     dale
     Address:  mkseast.uucp
@@ -6674,6 +6713,7 @@ Batch: message #40 size 1003
 RFC From:     rang@bonnie.ics.uci.edu (Jyan-ken)
 RFC Sender:   Jyan-ken <rang@bonnie.ics.uci.edu>
 Name for alias checking: All
+Converted receiver name: All
 No alias found: return All
     Name:     rang
     Address:  bonnie.ics.uci.edu
@@ -6694,6 +6734,7 @@ Batch: message #41 size 1234
 RFC From:     sanjuan!pmacdona@sol.UVic.CA (Peter MacDonald)
 RFC Sender:   Peter MacDonald <sanjuan!pmacdona@sol.UVic.CA>
 Name for alias checking: All
+Converted receiver name: All
 No alias found: return All
     Name:     sanjuan!pmacdona
     Address:  sol.UVic.CA
@@ -6714,6 +6755,7 @@ Batch: message #42 size 1041
 RFC From:     alsaggaf@athena.mit.edu (M. Saggaf)
 RFC Sender:   M. Saggaf <alsaggaf@athena.mit.edu>
 Name for alias checking: All
+Converted receiver name: All
 No alias found: return All
     Name:     alsaggaf
     Address:  athena.mit.edu
@@ -6736,6 +6778,7 @@ RFC Sender:   Joachim Glaubrecht  #Alwd# <jogl@merry.imib.rwth-aachen.de>
     Name:     ripley
     Address:  nostromo.sub.org
 Name for alias checking: ripley
+Converted receiver name: Ripley
 No alias found: return Ripley
     Name:     jogl
     Address:  merry.imib.rwth-aachen.de
@@ -6761,6 +6804,7 @@ RFC Sender:   Geoff Cashman <cashman@silver.ucs.indiana.edu>
     Name:     duelge
     Address:  schaefer.math.wisc.edu
 Name for alias checking: Jason Duelge
+Converted receiver name: Jason Duelge
 No alias found: return Jason Duelge
     Name:     cashman
     Address:  silver.ucs.indiana.edu
@@ -6783,6 +6827,7 @@ RFC Sender:   The Grim Reaper <scythe@stein2.u.washington.edu>
     Name:     n36ia
     Address:  pnet16.cts.com
 Name for alias checking: Et3 Francis
+Converted receiver name: Et3 Francis
 No alias found: return Et3 Francis
     Name:     scythe
     Address:  stein2.u.washington.edu
@@ -6803,6 +6848,7 @@ Batch: message #46 size 1442
 RFC From:     ts_rost@pavo.concordia.ca (*TsR)
 RFC Sender:   *TsR <ts_rost@pavo.concordia.ca>
 Name for alias checking: All
+Converted receiver name: All
 No alias found: return All
     Name:     ts_rost
     Address:  pavo.concordia.ca
@@ -6825,6 +6871,7 @@ RFC Sender:   Peter Berlich <berlich@hpopf1.cern.ch>
     Name:     WARNECKE
     Address:  FHI-Berlin.MPG.DE
 Name for alias checking: Gerald Warnecke
+Converted receiver name: Gerald Warnecke
 No alias found: return Gerald Warnecke
     Name:     berlich
     Address:  hpopf1.cern.ch
@@ -6847,6 +6894,7 @@ RFC Sender:   Gus Gassmann <gg@iok.unit.no>
     Name:     rvenable
     Address:  helix.nih.gov
 Name for alias checking: Richard M. Venable
+Converted receiver name: Richard M. Venable
 No alias found: return Richard M. Venable
     Name:     gg
     Address:  iok.unit.no
@@ -6869,6 +6917,7 @@ RFC Sender:   Graham West <G.I.West@bradford.ac.uk>
     Name:     Dov Sherman
     Address:  
 Name for alias checking: GRS00042@CONRAD.APPSTATE.EDU
+Converted receiver name: GRS00042@CONRAD.APPSTATE.EDU
 No alias found: return GRS00042@CONRAD.APPSTATE.EDU
     Name:     G.I.West
     Address:  bradford.ac.uk
@@ -6889,6 +6938,7 @@ Batch: message #50 size 1287
 RFC From:     rang@bonnie.ics.uci.edu (Jyan-ken)
 RFC Sender:   Jyan-ken <rang@bonnie.ics.uci.edu>
 Name for alias checking: All
+Converted receiver name: All
 No alias found: return All
     Name:     rang
     Address:  bonnie.ics.uci.edu
@@ -6911,6 +6961,7 @@ RFC Sender:   Jonathan Hendry <tjhendry@queen.mcs.drexel.edu>
     Name:     rwh
     Address:  moose.cccs.umn.edu
 Name for alias checking: RICHARD HOFFBECK
+Converted receiver name: RICHARD HOFFBECK
 No alias found: return RICHARD HOFFBECK
     Name:     tjhendry
     Address:  queen.mcs.drexel.edu
@@ -6933,6 +6984,7 @@ RFC Sender:   Jonathan Hendry <tjhendry@queen.mcs.drexel.edu>
     Name:     tjhendry
     Address:  queen.mcs.drexel.edu
 Name for alias checking: Jonathan Hendry
+Converted receiver name: Jonathan Hendry
 No alias found: return Jonathan Hendry
     Name:     tjhendry
     Address:  queen.mcs.drexel.edu
@@ -6955,6 +7007,7 @@ RFC Sender:   STEVE CHANG <sc03@ns1.cc.lehigh.edu>
     Name:     hanscs
     Address:  dhhalden.no
 Name for alias checking: HANS CHRISTIA N SANDER
+Converted receiver name: HANS CHRISTIA N SANDER
 No alias found: return HANS CHRISTIA N SANDER
     Name:     sc03
     Address:  ns1.cc.lehigh.edu
@@ -6975,6 +7028,7 @@ Batch: message #54 size 729
 RFC From:     ua025@freenet.Victoria.BC.CA (Cody Jones)
 RFC Sender:   Cody Jones <ua025@freenet.Victoria.BC.CA>
 Name for alias checking: All
+Converted receiver name: All
 No alias found: return All
     Name:     ua025
     Address:  freenet.Victoria.BC.CA
@@ -6995,6 +7049,7 @@ Batch: message #55 size 1483
 RFC From:     lbv2@ns1.cc.lehigh.edu (BRIAN PAUL VAN LIEU)
 RFC Sender:   BRIAN PAUL VAN LIEU <lbv2@ns1.cc.lehigh.edu>
 Name for alias checking: All
+Converted receiver name: All
 No alias found: return All
     Name:     lbv2
     Address:  ns1.cc.lehigh.edu
@@ -7028,6 +7083,7 @@ RFC Sender:   Terry Pratchett <TerryP@unseen.demon.co.uk>
     Name:     d20kku%tuda
     Address:  newcastle.ac.uk
 Name for alias checking: d20kku%tuda
+Converted receiver name: D20kku%TUDA
 No alias found: return D20kku%TUDA
     Name:     TerryP
     Address:  unseen.demon.co.uk
@@ -7051,6 +7107,7 @@ RFC Sender:   Terry Pratchett <TerryP@unseen.demon.co.uk>
     Name:     morrow
     Address:  fnalc.fnal.gov
 Name for alias checking: morrow
+Converted receiver name: Morrow
 No alias found: return Morrow
     Name:     TerryP
     Address:  unseen.demon.co.uk
@@ -7072,6 +7129,7 @@ RFC From:     TerryP@unseen.demon.co.uk (Terry Pratchett)
 RFC Reply-To: tpratchett@unseen.demon.co.uk
 RFC Sender:   Terry Pratchett <TerryP@unseen.demon.co.uk>
 Name for alias checking: All
+Converted receiver name: All
 No alias found: return All
     Name:     TerryP
     Address:  unseen.demon.co.uk
@@ -7095,6 +7153,7 @@ RFC Sender:   Terry Pratchett <TerryP@unseen.demon.co.uk>
     Name:     ec110
     Address:  cs.city.ac.uk
 Name for alias checking: ec110
+Converted receiver name: Ec110
 No alias found: return Ec110
     Name:     TerryP
     Address:  unseen.demon.co.uk
@@ -7115,6 +7174,7 @@ Batch: message #5 size 2350
 RFC From:     venkman@lamar.ColoState.EDU (Mezo)
 RFC Sender:   Mezo <venkman@lamar.ColoState.EDU>
 Name for alias checking: All
+Converted receiver name: All
 No alias found: return All
     Name:     venkman
     Address:  lamar.ColoState.EDU
@@ -7135,6 +7195,7 @@ Batch: message #6 size 1140
 RFC From:     sjw_nc@engin.umich.edu (Scott J Wilderman)
 RFC Sender:   Scott J Wilderman <sjw_nc@engin.umich.edu>
 Name for alias checking: All
+Converted receiver name: All
 No alias found: return All
     Name:     sjw_nc
     Address:  engin.umich.edu
@@ -7157,6 +7218,7 @@ RFC Sender:   The One and Only <jcopelan@nyx.cs.du.edu>
     Name:     earl
     Address:  rtsg.mot.com
 Name for alias checking: Brent R. Earl
+Converted receiver name: Brent R. Earl
 No alias found: return Brent R. Earl
     Name:     jcopelan
     Address:  nyx.cs.du.edu
@@ -7178,6 +7240,7 @@ RFC From:     TerryP@unseen.demon.co.uk (Terry Pratchett)
 RFC Reply-To: tpratchett@unseen.demon.co.uk
 RFC Sender:   Terry Pratchett <TerryP@unseen.demon.co.uk>
 Name for alias checking: All
+Converted receiver name: All
 No alias found: return All
     Name:     TerryP
     Address:  unseen.demon.co.uk
@@ -7200,6 +7263,7 @@ RFC Sender:   Peter Berlich <berlich@hpopf1.cern.ch>
     Name:     zotty
     Address:  popp.ins.de
 Name for alias checking: Christa Keil
+Converted receiver name: Christa Keil
 No alias found: return Christa Keil
     Name:     berlich
     Address:  hpopf1.cern.ch
@@ -7225,6 +7289,7 @@ RFC Sender:   Pele Jr. <dayja@ucunix.san.uc.edu>
     Name:     mdtaylor
     Address:  utdallas.edu
 Name for alias checking: Michael David Taylor
+Converted receiver name: Michael David Taylor
 No alias found: return Michael David Taylor
     Name:     dayja
     Address:  ucunix.san.uc.edu
@@ -7263,6 +7328,7 @@ Batch: message #11 size 2520
 RFC From:     Reuven William Goren <rg3b+@andrew.cmu.edu>
 RFC Sender:   Reuven William Goren <rg3b+@andrew.cmu.edu>
 Name for alias checking: All
+Converted receiver name: All
 No alias found: return All
     Name:     rg3b+
     Address:  andrew.cmu.edu
@@ -7285,6 +7351,7 @@ RFC Sender:   Christopher Christensen <cnc@balboa.eng.uci.edu>
     Name:     ploof
     Address:  griffin.emba.uvm.edu.uvm.edu
 Name for alias checking: Scott B Ploof
+Converted receiver name: Scott B Ploof
 No alias found: return Scott B Ploof
     Name:     cnc
     Address:  balboa.eng.uci.edu
@@ -7305,6 +7372,7 @@ Batch: message #13 size 909
 RFC From:     larryg@batpad.lgb.ca.us (Larry Greenfield)
 RFC Sender:   Larry Greenfield <larryg@batpad.lgb.ca.us>
 Name for alias checking: All
+Converted receiver name: All
 No alias found: return All
     Name:     larryg
     Address:  batpad.lgb.ca.us
@@ -7327,6 +7395,7 @@ RFC Sender:   Kris Gleason <gleasokr@rintintin.Colorado.EDU>
     Name:     kims
     Address:  panix.com
 Name for alias checking: Sang Kim
+Converted receiver name: Sang Kim
 No alias found: return Sang Kim
     Name:     gleasokr
     Address:  rintintin.Colorado.EDU
@@ -7347,6 +7416,7 @@ Batch: message #15 size 2227
 RFC From:     swanger@ducvax.auburn.edu
 RFC Sender:   swanger@ducvax.auburn.edu
 Name for alias checking: All
+Converted receiver name: All
 No alias found: return All
     Name:     swanger
     Address:  ducvax.auburn.edu
@@ -7367,6 +7437,7 @@ Batch: message #16 size 545
 RFC From:     royg@netcom.com (Roy H. Gordon)
 RFC Sender:   Roy H. Gordon <royg@netcom.com>
 Name for alias checking: All
+Converted receiver name: All
 No alias found: return All
     Name:     royg
     Address:  netcom.com
@@ -7389,6 +7460,7 @@ RFC Sender:   Thorsten Ebers <ebers@gfxbase.in-berlin.de>
     Name:     Markus Illenseer
     Address:  
 Name for alias checking: Markus Illenseer
+Converted receiver name: Markus Illenseer
 No alias found: return Markus Illenseer
     Name:     ebers
     Address:  gfxbase.in-berlin.de
@@ -7412,6 +7484,7 @@ RFC Sender:   Tony Jones <nova@nova.ibmpcug.co.uk>
     Name:     sjchmura
     Address:  ellis.uchicago.edu
 Name for alias checking: steven joseph chmura
+Converted receiver name: Steven joseph chmura
 No alias found: return Steven joseph chmura
     Name:     nova
     Address:  nova.ibmpcug.co.uk
@@ -7433,6 +7506,7 @@ RFC From:     barker@acc.fau.edu (Lulu)
 RFC Reply-To: ericka@socpsy.sci.fau.edu
 RFC Sender:   Lulu <barker@acc.fau.edu>
 Name for alias checking: All
+Converted receiver name: All
 No alias found: return All
     Name:     barker
     Address:  acc.fau.edu
@@ -7455,6 +7529,7 @@ Batch: message #20 size 1950
 RFC From:     gg15hzmf@sbusol.rz.uni-sb.de (Markus Fuenfrocken)
 RFC Sender:   Markus Fuenfrocken <gg15hzmf@sbusol.rz.uni-sb.de>
 Name for alias checking: All
+Converted receiver name: All
 No alias found: return All
     Name:     gg15hzmf
     Address:  sbusol.rz.uni-sb.de
@@ -7480,6 +7555,7 @@ RFC Sender:   Neil Boyle <neil@swamp.demon.co.uk>
     Name:     casivils
     Address:  lescsse.jsc.nasa.gov
 Name for alias checking: casivils
+Converted receiver name: Casivils
 No alias found: return Casivils
     Name:     neil
     Address:  swamp.demon.co.uk
@@ -7501,6 +7577,7 @@ RFC From:     goldfarb@ocf.berkeley.edu (David Goldfarb)
 RFC Reply-To: goldfarb@ocf.berkeley.edu (David Goldfarb)
 RFC Sender:   David Goldfarb <goldfarb@ocf.berkeley.edu>
 Name for alias checking: All
+Converted receiver name: All
 No alias found: return All
     Name:     goldfarb
     Address:  ocf.berkeley.edu
@@ -7521,6 +7598,7 @@ Batch: message #23 size 1402
 RFC From:     lim@graphics.rent.com (Julie Lim)
 RFC Sender:   Julie Lim <lim@graphics.rent.com>
 Name for alias checking: All
+Converted receiver name: All
 No alias found: return All
     Name:     lim
     Address:  graphics.rent.com
@@ -7543,6 +7621,7 @@ RFC Sender:   Robert Lee <reljr@css1.UUCP>
     Name:     jhk6
     Address:  cunixb.cc.columbia.edu
 Name for alias checking: John H Kim
+Converted receiver name: John H Kim
 No alias found: return John H Kim
     Name:     reljr
     Address:  css1.UUCP
@@ -7563,6 +7642,7 @@ Batch: message #25 size 469
 RFC From:     matacas@csv.warwick.ac.uk (Mr M C Graham)
 RFC Sender:   Mr M C Graham <matacas@csv.warwick.ac.uk>
 Name for alias checking: All
+Converted receiver name: All
 No alias found: return All
     Name:     matacas
     Address:  csv.warwick.ac.uk
@@ -7583,6 +7663,7 @@ Batch: message #26 size 8756
 RFC From:     muir@idiom.berkeley.ca.us (David Muir Sharnoff)
 RFC Sender:   David Muir Sharnoff <muir@idiom.berkeley.ca.us>
 Name for alias checking: All
+Converted receiver name: All
 No alias found: return All
     Name:     muir
     Address:  idiom.berkeley.ca.us
@@ -7605,6 +7686,7 @@ RFC Sender:   RedSwordTarga <dv52151@uxa.cso.uiuc.edu>
     Name:     carl
     Address:  gergo.tamu.edu
 Name for alias checking: Carl D. Perkins
+Converted receiver name: Carl D. Perkins
 No alias found: return Carl D. Perkins
     Name:     dv52151
     Address:  uxa.cso.uiuc.edu
@@ -7625,6 +7707,7 @@ Batch: message #28 size 874
 RFC From:     akcs.joehorn@hpcvbbs.cv.hp.com (Joseph K. Horn)
 RFC Sender:   Joseph K. Horn <akcs.joehorn@hpcvbbs.cv.hp.com>
 Name for alias checking: All
+Converted receiver name: All
 No alias found: return All
     Name:     akcs.joehorn
     Address:  hpcvbbs.cv.hp.com
@@ -7645,6 +7728,7 @@ Batch: message #29 size 1682
 RFC From:     akcs.joehorn@hpcvbbs.cv.hp.com (Joseph K. Horn)
 RFC Sender:   Joseph K. Horn <akcs.joehorn@hpcvbbs.cv.hp.com>
 Name for alias checking: All
+Converted receiver name: All
 No alias found: return All
     Name:     akcs.joehorn
     Address:  hpcvbbs.cv.hp.com
@@ -7665,6 +7749,7 @@ Batch: message #30 size 1136
 RFC From:     Krysztof Emil Kamieniecki <kk49+@andrew.cmu.edu>
 RFC Sender:   Krysztof Emil Kamieniecki <kk49+@andrew.cmu.edu>
 Name for alias checking: All
+Converted receiver name: All
 No alias found: return All
     Name:     kk49+
     Address:  andrew.cmu.edu
@@ -7685,6 +7770,7 @@ Batch: message #31 size 884
 RFC From:     Geoffrey Spear <gspear+@CMU.EDU>
 RFC Sender:   Geoffrey Spear <gspear+@CMU.EDU>
 Name for alias checking: All
+Converted receiver name: All
 No alias found: return All
     Name:     gspear+
     Address:  CMU.EDU
@@ -7708,6 +7794,7 @@ RFC Sender:   Russell Schulz <russell@alpha3.ersys.edmonton.ab.ca>
     Name:     pw0l+
     Address:  andrew.cmu.edu
 Name for alias checking: Paul Christopher Workman
+Converted receiver name: Paul Christopher Workman
 No alias found: return Paul Christopher Workman
     Name:     russell
     Address:  alpha3.ersys.edmonton.ab.ca
@@ -7728,6 +7815,7 @@ Batch: message #33 size 1050
 RFC From:     pmkierst@flash.LakeheadU.Ca
 RFC Sender:   pmkierst@flash.LakeheadU.Ca
 Name for alias checking: All
+Converted receiver name: All
 No alias found: return All
     Name:     pmkierst
     Address:  flash.LakeheadU.Ca
@@ -7750,6 +7838,7 @@ RFC Sender:   Erland Sommarskog <sommar@enea.se>
     Name:     Larry Wall
     Address:  
 Name for alias checking: lwall@netlabs.com
+Converted receiver name: Lwall@netlabs.Com
 No alias found: return Lwall@netlabs.Com
     Name:     sommar
     Address:  enea.se
@@ -7770,6 +7859,7 @@ Batch: message #35 size 875
 RFC From:     wolfy@IMNV110 (Wolfy)
 RFC Sender:   Wolfy <wolfy@IMNV110>
 Name for alias checking: All
+Converted receiver name: All
 No alias found: return All
     Name:     wolfy
     Address:  IMNV110
@@ -7790,6 +7880,7 @@ Batch: message #36 size 2033
 RFC From:     nilayp@violet.berkeley.edu (Nilay Patel;;36540;6430162;RC38)
 RFC Sender:   Nilay Patel;;36540;6430162;RC38 <nilayp@violet.berkeley.edu>
 Name for alias checking: All
+Converted receiver name: All
 No alias found: return All
     Name:     nilayp
     Address:  violet.berkeley.edu
@@ -7821,6 +7912,7 @@ RFC Sender:   Geoffrey Sean Brandenburg <gsbrande@acs.ucalgary.ca>
     Name:     rich.bellacera
     Address:  amail.amdahl.com
 Name for alias checking: rich.bellacera
+Converted receiver name: Rich Bellacera
 No alias found: return Rich Bellacera
     Name:     gsbrande
     Address:  acs.ucalgary.ca
@@ -7841,6 +7933,7 @@ Batch: message #38 size 910
 RFC From:     ploof@griffin.emba.uvm.edu.uvm.edu (Scott B Ploof)
 RFC Sender:   Scott B Ploof <ploof@griffin.emba.uvm.edu.uvm.edu>
 Name for alias checking: All
+Converted receiver name: All
 No alias found: return All
     Name:     ploof
     Address:  griffin.emba.uvm.edu.uvm.edu
@@ -7863,6 +7956,7 @@ RFC Sender:   Joseph T. Malloy <jmalloy@itsmail1.hamilton.edu>
     Name:     eric
     Address:  sactoh0.sac.ca.us
 Name for alias checking: Eric J. Nihill
+Converted receiver name: Eric J. Nihill
 No alias found: return Eric J. Nihill
     Name:     jmalloy
     Address:  itsmail1.hamilton.edu
@@ -7883,6 +7977,7 @@ Batch: message #40 size 1340
 RFC From:     jja@fnbc.com (Joseph Alotta)
 RFC Sender:   Joseph Alotta <jja@fnbc.com>
 Name for alias checking: All
+Converted receiver name: All
 No alias found: return All
     Name:     jja
     Address:  fnbc.com
@@ -7903,6 +7998,7 @@ Batch: message #41 size 817
 RFC From:     depken@rigel.econ.uga.edu (Craig Depken)
 RFC Sender:   Craig Depken <depken@rigel.econ.uga.edu>
 Name for alias checking: All
+Converted receiver name: All
 No alias found: return All
     Name:     depken
     Address:  rigel.econ.uga.edu
@@ -7925,6 +8021,7 @@ RFC Sender:   Peter Hildebrandt <peterh@agora.rain.com>
     Name:     slo
     Address:  otter.hpl.hp.com
 Name for alias checking: Steve Loughran
+Converted receiver name: Steve Loughran
 No alias found: return Steve Loughran
     Name:     peterh
     Address:  agora.rain.com
@@ -7948,6 +8045,7 @@ RFC Sender:   Syed Zaeem Hosain <szh@zcon.com>
     Name:     bob.calbridge
     Address:  u2u.lonestar.org
 Name for alias checking: Bob Calbridge
+Converted receiver name: Bob Calbridge
 No alias found: return Bob Calbridge
     Name:     szh
     Address:  zcon.com
@@ -7968,6 +8066,7 @@ Batch: message #44 size 995
 RFC From:     Glens@nesbbx.rain.COM (**)
 RFC Sender:   ** <Glens@nesbbx.rain.COM>
 Name for alias checking: All
+Converted receiver name: All
 No alias found: return All
     Name:     Glens
     Address:  nesbbx.rain.COM
@@ -7990,6 +8089,7 @@ RFC Sender:   Hu Man <robart@agora.rain.com>
     Name:     tslttery
     Address:  unix1.tcd.ie
 Name for alias checking: Tom Slattery
+Converted receiver name: Tom Slattery
 No alias found: return Tom Slattery
     Name:     robart
     Address:  agora.rain.com
@@ -8013,6 +8113,7 @@ Batch: message #46 size 1058
 RFC From:     mire@sun1.ruf.uni-freiburg.de (Mischa Reinhardt)
 RFC Sender:   Mischa Reinhardt <mire@sun1.ruf.uni-freiburg.de>
 Name for alias checking: All
+Converted receiver name: All
 No alias found: return All
     Name:     mire
     Address:  sun1.ruf.uni-freiburg.de
@@ -8035,6 +8136,7 @@ RFC Sender:   BENJAMIN BROOKER FRADKIN <bbf2@ns1.cc.lehigh.edu>
     Name:     dempsey
     Address:  stsci.edu
 Name for alias checking: dempsey
+Converted receiver name: Dempsey
 No alias found: return Dempsey
     Name:     bbf2
     Address:  ns1.cc.lehigh.edu
@@ -8057,6 +8159,7 @@ RFC Sender:   Joshua Edward Barnes <barnes@galileo.ifa.hawaii.edu>
     Name:     sjeck
     Address:  isi.com
 Name for alias checking: Steve Jeck
+Converted receiver name: Steve Jeck
 No alias found: return Steve Jeck
     Name:     barnes
     Address:  galileo.ifa.hawaii.edu
@@ -8079,6 +8182,7 @@ RFC Sender:   der Mouse <mouse@thunder.mcrcim.mcgill.edu>
     Name:     bairds
     Address:  ursula.ee.pdx.edu
 Name for alias checking: Scarrow
+Converted receiver name: Scarrow
 No alias found: return Scarrow
     Name:     mouse
     Address:  thunder.mcrcim.mcgill.edu
@@ -8099,6 +8203,7 @@ Batch: message #50 size 848
 RFC From:     hamesjg@cnsvax.uwec.edu
 RFC Sender:   hamesjg@cnsvax.uwec.edu
 Name for alias checking: All
+Converted receiver name: All
 No alias found: return All
     Name:     hamesjg
     Address:  cnsvax.uwec.edu
@@ -8121,6 +8226,7 @@ RFC Sender:   Oliver Laumann <net@cs.tu-berlin.de>
     Name:     martini
     Address:  heaven7.in-berlin.de
 Name for alias checking: Martin P. Ibert
+Converted receiver name: Martin P. Ibert
 No alias found: return Martin P. Ibert
     Name:     net
     Address:  cs.tu-berlin.de
@@ -8141,6 +8247,7 @@ Batch: message #52 size 757
 RFC From:     David Reeve Sward <sward+@CMU.EDU>
 RFC Sender:   David Reeve Sward <sward+@CMU.EDU>
 Name for alias checking: All
+Converted receiver name: All
 No alias found: return All
     Name:     sward+
     Address:  CMU.EDU
@@ -8161,6 +8268,7 @@ Batch: message #53 size 1180
 RFC From:     cs044@cleveland.Freenet.Edu (William Miller)
 RFC Sender:   William Miller <cs044@cleveland.Freenet.Edu>
 Name for alias checking: All
+Converted receiver name: All
 No alias found: return All
     Name:     cs044
     Address:  cleveland.Freenet.Edu
@@ -8183,6 +8291,7 @@ RFC Sender:   Phillip D. Russell <flip@sage.cc.purdue.edu>
     Name:     arnold
     Address:  pyramid.unr.edu
 Name for alias checking: Bruce M Arnold
+Converted receiver name: Bruce M Arnold
 No alias found: return Bruce M Arnold
     Name:     flip
     Address:  sage.cc.purdue.edu
@@ -8203,6 +8312,7 @@ Batch: message #55 size 1466
 RFC From:     cgautier@cymbal.calpoly.edu (Sy Kauttick)
 RFC Sender:   Sy Kauttick <cgautier@cymbal.calpoly.edu>
 Name for alias checking: All
+Converted receiver name: All
 No alias found: return All
     Name:     cgautier
     Address:  cymbal.calpoly.edu
@@ -8225,6 +8335,7 @@ RFC Sender:   Roland Besserer <roland@quadsys.com>
     Name:     ak118
     Address:  cus.cam.ac.uk
 Name for alias checking: A. Kitching
+Converted receiver name: A. Kitching
 No alias found: return A. Kitching
     Name:     roland
     Address:  quadsys.com
@@ -8248,6 +8359,7 @@ RFC From:     maxime@geosys.msk.su (Maxime Zakharov)
 RFC Reply-To: maxime@geosys.msk.su
 RFC Sender:   Maxime Zakharov <maxime@geosys.msk.su>
 Name for alias checking: All
+Converted receiver name: All
 No alias found: return All
     Name:     maxime
     Address:  geosys.msk.su
@@ -8268,6 +8380,7 @@ Batch: message #58 size 956
 RFC From:     ab536@Freenet.carleton.ca (John Tyrrell)
 RFC Sender:   John Tyrrell <ab536@Freenet.carleton.ca>
 Name for alias checking: All
+Converted receiver name: All
 No alias found: return All
     Name:     ab536
     Address:  Freenet.carleton.ca
@@ -8288,6 +8401,7 @@ Batch: message #59 size 1292
 RFC From:     lebeld@JSP.UMontreal.CA (David Lebel)
 RFC Sender:   David Lebel <lebeld@JSP.UMontreal.CA>
 Name for alias checking: All
+Converted receiver name: All
 No alias found: return All
     Name:     lebeld
     Address:  JSP.UMontreal.CA
@@ -8317,6 +8431,7 @@ Batch: message #60 size 1788
 RFC From:     <NCCUT132@TWNMOE10.BITNET>
 RFC Sender:   NCCUT132@TWNMOE10.BITNET
 Name for alias checking: All
+Converted receiver name: All
 No alias found: return All
     Name:     NCCUT132
     Address:  TWNMOE10.BITNET
@@ -8343,6 +8458,7 @@ RFC From:     Larry.Clevenger@mtask.omahug.org (Larry Clevenger)
 RFC Reply-To: larry.clevenger@mtask.omahug.org
 RFC Sender:   Larry Clevenger <Larry.Clevenger@mtask.omahug.org>
 Name for alias checking: All
+Converted receiver name: All
 No alias found: return All
     Name:     Larry.Clevenger
     Address:  mtask.omahug.org

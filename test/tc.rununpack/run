@@ -6,10 +6,12 @@ U="../../src/toss/rununpack -v -c../cf/fidogate.conf"
 T="../../src/toss/runtoss   -v -c../cf/fidogate.conf"
 
 zip -k9j abcd1234.mo0 ../ti.pkt-z2/*.PKT
-arc a    abcd1234.tu1 ../ti.pkt-z2/*.PKT
+#arc a    abcd1234.tu1 ../ti.pkt-z2/*.PKT
+lha ai   abcd1234.tu1 ../ti.pkt-z2/*.PKT
 lha ai   abcd1234.we2 ../ti.pkt-z2/*.PKT
 # broken lha
-mv       abcd1234.lzh abcd1234.we2
+#mv       abcd1234.lzh abcd1234.we2
+
 # unknown archive
 echo "--TEST--" >abcd1234.th9
 # partial archive

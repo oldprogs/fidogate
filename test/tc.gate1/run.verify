@@ -23,14 +23,14 @@ ftn2rfc packet ./pin/01182740.PKT (5844b) from 2:2452/110.0 to 2:2452/110.2
 ftn2rfc packet ./pin/01184390.PKT (71064b) from 2:2452/110.0 to 2:2452/110.2
 ftn2rfc packet ./pin/01186013.PKT (33334b) from 2:2452/110.0 to 2:2452/110.2
 tc: running ftninpost
-Reading mail file
-Processing split mails
 sendmail  = ./rdummy
 rnews     = ./rdummy
 recombine = ../../src/gate/ftninrecomb
 mail      = ./outrfc/mail
 news      = ./outrfc/news
 Running ../../src/gate/ftninrecomb -c config2 -v
+Reading mail file
+Processing split mails
 CMD: ./rdummy - SUCCESS
 CMD: ./rdummy - SUCCESS
 CMD: ./rdummy - SUCCESS
