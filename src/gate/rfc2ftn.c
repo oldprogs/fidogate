@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway software UNIX <-> FIDO
  *
- * $Id: rfc2ftn.c,v 4.55 1999/06/20 13:49:51 mj Exp $
+ * $Id: rfc2ftn.c,v 4.56 1999/08/08 09:14:32 mj Exp $
  *
  * Read mail or news from standard input and convert it to a FIDO packet.
  *
@@ -39,7 +39,7 @@
 
 
 #define PROGRAM 	"rfc2ftn"
-#define VERSION 	"$Revision: 4.55 $"
+#define VERSION 	"$Revision: 4.56 $"
 #define CONFIG		DEFAULT_CONFIG_GATE
 
 
@@ -1581,11 +1581,14 @@ int print_tear_line(FILE *fp)
 	if( (p = header_get("X-FTN-Tearline")) ||
 	    (p = header_get("X-Mailer"))       ||
 	    (p = header_get("User-Agent"))     ||
-	    (p = header_get("X-Newsreader"))      )
-	  fprintf(fp, "\r\n--- %s\r\n", p);
+	    (p = header_get("X-Newsreader"))   ||
+	    (p = header_get("X-GateSoftware"))    )
+	{
+	    fprintf(fp, "\r\n--- %s\r\n", p);
+	    return ferror(fp);
+	}
     }
-    else
-	fprintf(fp, "\r\n--- FIDOGATE %s\r\n", version_global());
+    fprintf(fp, "\r\n--- FIDOGATE %s\r\n", version_global());
 
     return ferror(fp);
 }

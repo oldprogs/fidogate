@@ -3,7 +3,7 @@
 /*
  * FIDOGATE
  *
- * $Id: paths.h,v 4.15 1999/08/01 19:42:00 mj Exp $
+ * $Id: paths.h,v 4.16 1999/08/08 09:14:32 mj Exp $
  */
 
 #define DEFAULT_LOGDIR                  "/var/log/fidogate"
@@ -39,7 +39,7 @@
 #define DEFAULT_LOCKDIR                 "/var/lock/fidogate"
 #define DEFAULT_VARDIR                  "/var/lib/fidogate"
 #define DEFAULT_CHARSETMAP              "%L/charset.bin"
-#define DEFAULT_NEWSSPOOLDIR            "/var/spool/news"
+#define DEFAULT_NEWSSPOOLDIR            "/var/spool/news/articles"
 #define DEFAULT_SEQ_MAIL                "%V/seq/mail"
 #define DEFAULT_INBOUND                 "/var/spool/bt/in"
 #define DEFAULT_ACL                     "%C/acl"
@@ -47,7 +47,7 @@
 #define DEFAULT_TICK_HOLD               "%B/tick"
 #define DEFAULT_SEQ_TOSS                "%V/seq/toss"
 #define DEFAULT_HOSTS                   "%C/hosts"
-#define DEFAULT_NEWSLIBDIR              "/usr/lib/news"
+#define DEFAULT_NEWSLIBDIR              "/usr/lib"
 #define DEFAULT_SEQ_SPLIT               "%V/seq/split"
 #define DEFAULT_CONFIGDIR               "/etc/fidogate"
 #define DEFAULT_NEWSETCDIR              "/etc/news"

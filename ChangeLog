@@ -1,3 +1,16 @@
+1999-08-08  Martin Junius  <mj@fido.de>
+
+	------- CVS ci -------------------------------------------------------
+
+	* config.make
+	  (DEFAULT_F_NEWSLIBDIR): changed for INN 2.2, RedHat 6.0.
+	  (DEFAULT_F_NEWSSPOOLDIR): dito.
+
+1999-08-04  Martin Junius  <mj@fido.de>
+
+	* src/gate/rfc2ftn.c (print_tear_line): output standard tear line, 
+	  if none of the X headers can be found, added X-GateSoftware.
+
 1999-08-01  Martin Junius  <mj@fido.de>
 
 	------- CVS ci -------------------------------------------------------
