@@ -90,12 +90,14 @@ Common configuration:
      `out.'nnn zone directory.
 
 `Inbound directory'
-     The BinkleyTerm-style inbound directory. (Currently the protected
-     inbound, will be replaced by `PInbound'.)
+     The BinkleyTerm-style inbound directory.
 
 `PInbound directory'
-     The BinkleyTerm-style protected inbound directory. NOT YET
-     IMPLEMENTED.
+     The BinkleyTerm-style protected inbound directory (default is the
+     directory specified by `Inbound').
+
+`UUInbound directory'
+     The BinkleyTerm-style inbound directory for UUENCODEd packets.
 
 `Hostname name'
      The host name part of your Internet address.
@@ -279,6 +281,15 @@ Special configuration `ftn2rfc' (config file `config.gate'):
 `NoAddressInToField'
      Do not allow `@ ! %' chars in the FTN to field, thus preventing
      users from putting Internet addresses in the to field.
+
+`NetMail8bit'
+     Use the ISO-8859-1 MIME 8BIT character set when gating Fido
+     NetMail.
+
+`NetMailQuotedPrintable'
+`NetMailQP'
+     Use the ISO-8859-1 MIME quoted-printable character set when gating
+     Fido NetMail.
 
 Special configuration `ftninpost' (config file `config.gate'):
 
@@ -627,8 +638,12 @@ options
           No crosspostings are allowed in this newsgroup/area.
 
     `-8'
-          Use the ISO-8859-1 charset when gating to this newsgroup. NOT
-          YET IMPLEMENTED.
+          Use the ISO-8859-1 MIME 8BIT character set when gating to this
+          newsgroup.
+
+    `-Q'
+          Use the ISO-8859-1 MIME quoted-printable character set when
+          gating to this newsgroup.
 
     `-H'
           Area/newsgroup matches entire hierarchy. Names are converted

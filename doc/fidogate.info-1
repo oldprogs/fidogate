@@ -286,11 +286,6 @@ Common configuration:
 `CHARSET_DEFAULT_IBMPC'
      Make IBMPC the default char set (no `^ACHRS' kludge).
 
-`CHARSET_8BIT'
-     Use an 8bit char set translation table.  USE WITH CARE!!! ftn2rfc
-     doesn't generate proper MIME headers yet and will simply put the
-     8bit ISO-8859-1 chars into the output messages.
-
 `rfc2ftn' configuration:
 
 `PASSTHRU_NETMAIL'

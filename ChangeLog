@@ -1,3 +1,32 @@
+Sun Oct 27 13:33:33 1996  Martin Junius  <mj@fido.de>
+
+	------- CVS ci -------------------------------------------------------
+
+	* test/tc.8bit/run: new test case for testing char conversion
+ 	  quoted-printable -> rfc2ftn -> ftn2rfc ->
+ 	  ascii/8bit/quoted-printable.
+
+	* src/common/charset.c (xtab[][][]): improved ISO LATIN-1 ->
+	  ASCII/8BIT/QP conversion table.
+
+	* src/toss/rununpack.sh: check that an archiver program for the
+	  archiver type was found.
+
+	* src/common/config.c (cf_p_aliases, areas, hosts, passwd,
+	  packing, routing): char buf[] replaced with
+	  char *pval.
+	  (cf_p_inbound): new function returning config Inbound.
+	  (cf_p_pinbound): new function returning config PInbound,
+	  fallback is Inbound.
+	  (cf_p_uuinbound): new function returning config UUInbound,
+	  fallback is Inbound.
+
+	* doc/fidogate.texi (Areas): added -Q.
+	  (Config): added NetMail8bit, NetMailQuotedPrintable.
+	  (Config): changed Inbound, PInbound, added UUInbound.
+
+	* config.h (CHARSET_8BIT): removed.
+
 Tue Oct 22 20:52:14 1996  Martin Junius  <mj@fido.de>
 
 	------- CVS ci -------------------------------------------------------

@@ -21,7 +21,7 @@ versions.
 
 Indirect:
 fidogate.info-1: 759
-fidogate.info-2: 46677
+fidogate.info-2: 46467
 
 Tag Table:
 (Indirect)
@@ -30,57 +30,57 @@ Node: Introduction3800
 Node: Installation6776
 Node: Point7686
 Node: config.h8739
-Node: config.make15975
-Node: Compiling18935
-Node: Integration19552
-Node: Testing20166
-Node: Connecting21594
-Node: Programs22434
-Node: ffx24965
-Node: ffxbatch25827
-Node: ffxmail26721
-Node: ffxqt27123
-Node: ffxrmail27926
-Node: ffxrun28340
-Node: ftn2ftn28694
-Node: ftn2rfc29715
-Node: ftnaf30614
-Node: ftnbounce31818
-Node: ftnbsy32116
-Node: ftnconfig32579
-Node: ftnhatch33233
-Node: ftnin33532
-Node: ftninpost34102
-Node: ftninrecomb34460
-Node: ftnlock34799
-Node: ftnlog35180
-Node: ftnpack35596
-Node: ftnroute36857
-Node: ftnseq37580
-Node: ftntick37993
-Node: ftntoss38388
-Node: ftnfattach39659
-Node: pktdebug40190
-Node: rfc2ftn40838
-Node: rundf41809
-Node: runin42357
-Node: runout43005
-Node: runtoss43407
-Node: rununpack44020
-Node: sumcrc45045
-Node: Config files45907
-Node: Config46677
-Node: Hosts59345
-Node: Aliases61590
-Node: Areas62385
-Node: Bounce65186
-Node: Passwd66381
-Node: Routing67604
-Node: Packing71042
-Node: Areas.bbs72731
-Node: Basic74193
-Node: Example Point74579
-Node: Example Node76563
-Node: Index79418
+Node: config.make15765
+Node: Compiling18725
+Node: Integration19342
+Node: Testing19956
+Node: Connecting21384
+Node: Programs22224
+Node: ffx24755
+Node: ffxbatch25617
+Node: ffxmail26511
+Node: ffxqt26913
+Node: ffxrmail27716
+Node: ffxrun28130
+Node: ftn2ftn28484
+Node: ftn2rfc29505
+Node: ftnaf30404
+Node: ftnbounce31608
+Node: ftnbsy31906
+Node: ftnconfig32369
+Node: ftnhatch33023
+Node: ftnin33322
+Node: ftninpost33892
+Node: ftninrecomb34250
+Node: ftnlock34589
+Node: ftnlog34970
+Node: ftnpack35386
+Node: ftnroute36647
+Node: ftnseq37370
+Node: ftntick37783
+Node: ftntoss38178
+Node: ftnfattach39449
+Node: pktdebug39980
+Node: rfc2ftn40628
+Node: rundf41599
+Node: runin42147
+Node: runout42795
+Node: runtoss43197
+Node: rununpack43810
+Node: sumcrc44835
+Node: Config files45697
+Node: Config46467
+Node: Hosts59406
+Node: Aliases61651
+Node: Areas62446
+Node: Bounce65358
+Node: Passwd66553
+Node: Routing67776
+Node: Packing71214
+Node: Areas.bbs72903
+Node: Basic74365
+Node: Example Point74751
+Node: Example Node76735
+Node: Index79590
 
 End Tag Table

@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: config.c,v 4.3 1996/08/26 19:10:30 mj Exp $
+ * $Id: config.c,v 4.4 1996/10/27 13:44:22 mj Exp $
  *
  * Configuration data and functions
  *
@@ -1081,103 +1081,133 @@ char *cf_get_string(char *name, int first)
  */
 char *cf_p_aliases(void)
 {
-    static char buf[MAXPATH];
-    char *p;
+    static char *pval;
 
-    if(!*buf)
+    if(! pval)
     {
-	if( (p = cf_get_string("Aliases", TRUE)) )
-	    BUF_COPY(buf, p);
-	else
-	    BUF_COPY(buf, DEF_ALIASES);
-	debug(8, "config: Aliases %s", buf);
+	if( ! (pval = cf_get_string("Aliases", TRUE)) )
+	    pval = DEF_ALIASES;
+	debug(8, "config: Aliases %s", pval);
     }
 
-    return buf;
+    return pval;
 }
 
 char *cf_p_areas(void)
 {
-    static char buf[MAXPATH];
-    char *p;
+    static char *pval;
 
-    if(!*buf)
+    if(! pval)
     {
-	if( (p = cf_get_string("Areas", TRUE)) )
-	    BUF_COPY(buf, p);
-	else
-	    BUF_COPY(buf, DEF_AREAS);
-	debug(8, "config: Areas %s", buf);
+	if( ! (pval = cf_get_string("Areas", TRUE)) )
+	    pval = DEF_AREAS;
+	debug(8, "config: Areas %s", pval);
     }
 
-    return buf;
+    return pval;
 }
 
 char *cf_p_hosts(void)
 {
-    static char buf[MAXPATH];
-    char *p;
+    static char *pval;
 
-    if(!*buf)
+    if(! pval)
     {
-	if( (p = cf_get_string("Hosts", TRUE)) )
-	    BUF_COPY(buf, p);
-	else
-	    BUF_COPY(buf, DEF_HOSTS);
-	debug(8, "config: Hosts %s", buf);
+	if( ! (pval = cf_get_string("Hosts", TRUE)) )
+	    pval = DEF_HOSTS;
+	debug(8, "config: Hosts %s", pval);
     }
 
-    return buf;
+    return pval;
 }
 
 char *cf_p_passwd(void)
 {
-    static char buf[MAXPATH];
-    char *p;
+    static char *pval;
 
-    if(!*buf)
+    if(! pval)
     {
-	if( (p = cf_get_string("Passwd", TRUE)) )
-	    BUF_COPY(buf, p);
-	else
-	    BUF_COPY(buf, DEF_PASSWD);
-	debug(8, "config: Passwd %s", buf);
+	if( ! (pval = cf_get_string("Passwd", TRUE)) )
+	    pval = DEF_PASSWD;
+	debug(8, "config: Passwd %s", pval);
     }
 
-    return buf;
+    return pval;
 }
 
 char *cf_p_packing(void)
 {
-    static char buf[MAXPATH];
-    char *p;
+    static char *pval;
 
-    if(!*buf)
+    if(! pval)
     {
-	if( (p = cf_get_string("Packing", TRUE)) )
-	    BUF_COPY(buf, p);
-	else
-	    BUF_COPY(buf, DEF_PACKING);
-	debug(8, "config: Packing %s", buf);
+	if( ! (pval = cf_get_string("Packing", TRUE)) )
+	    pval = DEF_PACKING;
+	debug(8, "config: Packing %s", pval);
     }
 
-    return buf;
+    return pval;
 }
 
 char *cf_p_routing(void)
 {
-    static char buf[MAXPATH];
-    char *p;
+    static char *pval;
 
-    if(!*buf)
+    if(! pval)
     {
-	if( (p = cf_get_string("Routing", TRUE)) )
-	    BUF_COPY(buf, p);
-	else
-	    BUF_COPY(buf, DEF_ROUTING);
-	debug(8, "config: Routing %s", buf);
+	if( ! (pval = cf_get_string("Routing", TRUE)) )
+	    pval = DEF_ROUTING;
+	debug(8, "config: Routing %s", pval);
     }
 
-    return buf;
+    return pval;
 }
-    
+
+
+
+/*
+ * Get config values for Inbound, PInbound, UUInbound
+ */
+char *cf_p_inbound(void)
+{
+    static char *pval;
+
+    if(! pval)
+    {
+	if( ! (pval = cf_get_string("Inbound", TRUE)) )
+	    pval = INBOUND;
+	debug(8, "config: Inbound %s", pval);
+    }
+
+    return pval;
+}
+
+char *cf_p_pinbound(void)
+{
+    static char *pval;
+
+    if(! pval)
+    {
+	if( ! (pval = cf_get_string("PInbound", TRUE)) )
+	    if( ! (pval = cf_get_string("Inbound", TRUE)) )
+		pval = PINBOUND;
+	debug(8, "config: PInbound %s", pval);
+    }
+
+    return pval;
+}
+
+char *cf_p_uuinbound(void)
+{
+    static char *pval;
+
+    if(! pval)
+    {
+	if( ! (pval = cf_get_string("UUInbound", TRUE)) )
+	    if( ! (pval = cf_get_string("Inbound", TRUE)) )
+		pval = INBOUND;
+	debug(8, "config: UUInbound %s", pval);
+    }
+
+    return pval;
+}

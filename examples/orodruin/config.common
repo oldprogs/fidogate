@@ -1,6 +1,6 @@
 #:ts=8
 #
-# $Id: config.common,v 4.3 1996/04/26 13:24:09 mj Exp $
+# $Id: config.common,v 4.4 1996/10/27 13:44:19 mj Exp $
 #
 # FIDOGATE config file common stuff,
 # included by config.gate, config.main, config.ffx
@@ -25,7 +25,7 @@ Outbound	/var/spool/bt
 Inbound		/var/spool/bt/pin
 
 #
-# Configuration files   !!! NOT YET IMPLEMENTED !!!
+# Configuration files
 #
 # defaults are defined in config.h
 #

@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# $Id: rununpack.sh,v 4.3 1996/10/06 15:18:23 mj Exp $
+# $Id: rununpack.sh,v 4.4 1996/10/27 13:44:25 mj Exp $
 #
 # Unpack ArcMail archives
 #
@@ -79,6 +79,7 @@ if [ -f $arc ]; then
 
 	# Find out archive type and the unpacking command
 	type=`file -m $PRG/magic $arc | awk '{print $2}'`
+	cmd="unknown"
 	case $type in
 	ARJ | Arj | arj)
 		[ -x /bin/unarj           ] && cmd=/bin/unarj
@@ -101,7 +102,7 @@ if [ -f $arc ]; then
 		xcmd="$cmd -xj $arc"
 		lcmd="$cmd -l  $arc"
 		;;
-	LHA | Lha | lha)
+	LHA | LHa | Lha | lha)
 		[ -x /bin/lharc           ] && cmd=/bin/lharc
 		[ -x /usr/bin/lharc       ] && cmd=/usr/bin/lharc
 		[ -x /usr/local/bin/lharc ] && cmd=/usr/local/bin/lharc
@@ -120,12 +121,19 @@ if [ -f $arc ]; then
 		;;
 	*)
 		echo    "rununpack: unknown archive type"
-		file $arc
+		file -m $PRG/magic $arc
 		echo    "rununpack: moving to $INPUT/bad"
 		mv $arc $INPUT/bad
 		continue
 		;;
 	esac
+
+	if [ $cmd = "unknown" ] ; then
+	  echo    "rununpack: no archiver program found for type $type"
+	  echo    "rununpack: moving to $INPUT/bad"
+	  mv $arc $INPUT/bad
+	  continue
+	fi
 
 	# First, try to list archive, if not o.k. skip it.
 	eval $lcmd </dev/null >/dev/null 2>&1

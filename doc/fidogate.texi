@@ -2,7 +2,7 @@
 @c
 @c FIDOGATE documentation
 @c
-@c $Id: fidogate.texi,v 4.10 1996/10/20 19:15:13 mj Exp $
+@c $Id: fidogate.texi,v 4.11 1996/10/27 13:44:12 mj Exp $
 @c
 
 @setfilename fidogate.info
@@ -398,11 +398,6 @@ that the sender's address is the gateway.
 
 @item CHARSET_DEFAULT_IBMPC
 Make IBMPC the default char set (no @code{^ACHRS} kludge).
-
-@item CHARSET_8BIT
-Use an 8bit char set translation table.  USE WITH CARE!!! ftn2rfc
-doesn't generate proper MIME headers yet and will simply put the 8bit
-ISO-8859-1 chars into the output messages.
 
 @end table
 
@@ -2402,11 +2397,14 @@ The BinkleyTerm-style outbound base directory, without the
 @code{out.}@i{nnn} zone directory.
 
 @item Inbound @i{directory}
-The BinkleyTerm-style inbound directory. (Currently the protected
-inbound, will be replaced by @code{PInbound}.)
+The BinkleyTerm-style inbound directory.
 
 @item PInbound @i{directory}
-The BinkleyTerm-style protected inbound directory. NOT YET IMPLEMENTED.
+The BinkleyTerm-style protected inbound directory (default is the
+directory specified by @code{Inbound}).
+
+@item UUInbound @i{directory}
+The BinkleyTerm-style inbound directory for UUENCODEd packets.
 
 @item Hostname @i{name}
 The host name part of your Internet address.
@@ -2607,6 +2605,14 @@ mails from gateway users to @i{user@@do.main}.
 @item NoAddressInToField
 Do not allow @code{@@ ! %} chars in the FTN to field, thus preventing
 users from putting Internet addresses in the to field.
+
+@item NetMail8bit
+Use the ISO-8859-1 MIME 8BIT character set when gating Fido NetMail.
+
+@item NetMailQuotedPrintable
+@item NetMailQP
+Use the ISO-8859-1 MIME quoted-printable character set when gating Fido
+NetMail.
 
 @end table
 
@@ -3056,8 +3062,12 @@ Only local crosspostings are allowed in this newsgroup/area.
 No crosspostings are allowed in this newsgroup/area.
 
 @item -8
-Use the ISO-8859-1 charset when gating to this newsgroup. NOT YET
-IMPLEMENTED.
+Use the ISO-8859-1 MIME 8BIT character set when gating to this
+newsgroup.
+
+@item -Q
+Use the ISO-8859-1 MIME quoted-printable character set when gating to
+this newsgroup.
 
 @item -H
 Area/newsgroup matches entire hierarchy. Names are converted

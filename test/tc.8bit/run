@@ -1,0 +1,17 @@
+#!/bin/sh
+
+../tr.init
+
+T1="../../src/gate/rfc2ftn -L../cf -vvvvv"
+T2="../../src/gate/ftn2rfc -L../cf -vvvvv"
+
+echo "tc: running"
+
+$T1 Martin_Junius@f110.n2452.z2.fidonet.org <body1
+
+cp out/*.pkt in
+$T2 -c config1
+cp out/*.pkt in
+$T2 -c config2
+cp out/*.pkt in
+$T2 -c config3

@@ -2,6 +2,16 @@
 
 X = for next release
 
+	* rfc2ftn: option to use node address, not gateway point
+	  address for local users.
+
+	* run*: Use ftnconfig.
+
+	* config.c: implement cf_pinbound() returning value of
+	  PInbound. Fallback to Inbound, if PInbound is not set.
+
+	* config.common: implement PInbound, UUInbound
+
 DONE.	* config.gate: NetMailOptions, same as options in AREAS file.
 
 DONE.	* ftn2rfc: MIME header

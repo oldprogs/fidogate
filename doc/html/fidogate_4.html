@@ -1,7 +1,7 @@
 <HTML>
 <HEAD>
 <!-- This HTML file has been created by texi2html 1.51
-     from ../fidogate.texi on 20 October 1996 -->
+     from ../fidogate.texi on 27 October 1996 -->
 
 <TITLE>FIDOGATE
  - FIDOGATE Config Files</TITLE>
@@ -191,12 +191,16 @@ The BinkleyTerm-style outbound base directory, without the
 
 <DT><CODE>Inbound <I>directory</I></CODE>
 <DD>
-The BinkleyTerm-style inbound directory. (Currently the protected
-inbound, will be replaced by <CODE>PInbound</CODE>.)
+The BinkleyTerm-style inbound directory.
 
 <DT><CODE>PInbound <I>directory</I></CODE>
 <DD>
-The BinkleyTerm-style protected inbound directory. NOT YET IMPLEMENTED.
+The BinkleyTerm-style protected inbound directory (default is the
+directory specified by <CODE>Inbound</CODE>).
+
+<DT><CODE>UUInbound <I>directory</I></CODE>
+<DD>
+The BinkleyTerm-style inbound directory for UUENCODEd packets.
 
 <DT><CODE>Hostname <I>name</I></CODE>
 <DD>
@@ -446,6 +450,17 @@ mails from gateway users to <I>user@do.main</I>.
 <DD>
 Do not allow <CODE>@ ! %</CODE> chars in the FTN to field, thus preventing
 users from putting Internet addresses in the to field.
+
+<DT><CODE>NetMail8bit</CODE>
+<DD>
+Use the ISO-8859-1 MIME 8BIT character set when gating Fido NetMail.
+
+<DT><CODE>NetMailQuotedPrintable</CODE>
+<DD>
+<DT><CODE>NetMailQP</CODE>
+<DD>
+Use the ISO-8859-1 MIME quoted-printable character set when gating Fido
+NetMail.
 
 </DL>
 
@@ -1013,8 +1028,13 @@ No crosspostings are allowed in this newsgroup/area.
 
 <DT><CODE>-8</CODE>
 <DD>
-Use the ISO-8859-1 charset when gating to this newsgroup. NOT YET
-IMPLEMENTED.
+Use the ISO-8859-1 MIME 8BIT character set when gating to this
+newsgroup.
+
+<DT><CODE>-Q</CODE>
+<DD>
+Use the ISO-8859-1 MIME quoted-printable character set when gating to
+this newsgroup.
 
 <DT><CODE>-H</CODE>
 <DD>
