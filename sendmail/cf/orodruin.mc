@@ -1,6 +1,6 @@
 #:ts=8
 #
-# $Id: orodruin.mc,v 4.5 1997/10/03 12:11:27 mj Exp $
+# $Id: orodruin.mc,v 4.6 1997/10/03 12:25:41 mj Exp $
 #
 # orodruin.Fido.DE
 #
@@ -18,7 +18,7 @@ define(`confDEF_USER_ID',``8:12'')
 
 define(`ALIAS_FILE',`/etc/aliases,/usr/local/majordomo/majordomo.aliases')
 
-VERSIONID(`$Id: orodruin.mc,v 4.5 1997/10/03 12:11:27 mj Exp $')
+VERSIONID(`$Id: orodruin.mc,v 4.6 1997/10/03 12:25:41 mj Exp $')
 
 OSTYPE(linux)dnl
 
@@ -48,6 +48,7 @@ Krewrite hash -o /etc/mail/rewrite.db
 LOCAL_CONFIG
 # More trusted users
 Tnews
+Tmajordomo
 
 
 LOCAL_RULE_3
