@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway software UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: version.c,v 4.4 1998/01/18 09:47:55 mj Exp $
+ * $Id: version.c,v 4.5 1998/01/31 20:22:33 mj Exp $
  *
  * FIDOGATE version number handling stuff
  *
@@ -53,11 +53,11 @@ char *version_global(void)
     static char id[128];
 
 #if   defined(ALPHA)
-    sprintf(id, "%salpha%d", get_keyword_arg(global_id), ALPHA     );
+    sprintf(id, "%sa%d", get_keyword_arg(global_id), ALPHA     );
 #elif defined(BETA)
-    sprintf(id, "%sbeta%d",  get_keyword_arg(global_id), BETA      );
+    sprintf(id, "%sb%d", get_keyword_arg(global_id), BETA      );
 #else
-    sprintf(id, "%s.%d",     get_keyword_arg(global_id), PATCHLEVEL);
+    sprintf(id, "%s.%d", get_keyword_arg(global_id), PATCHLEVEL);
 #endif
 
     return id;

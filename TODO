@@ -2,6 +2,8 @@
 
 	************** TODO list for FIDOGATE development **************
 
+DONE	* ftn2rfc: get rid of buf_sprintf().
+
 	* ftnaf: send reply to Fido address!
 
 DONE	* rundf: get df program from config.make
@@ -53,7 +55,7 @@ TODO	* senduu: accept several addresses on command line.
 
 	* Allow config parameters on command line for all programs.
 
-4.3.x	* rfc2ftn: different output dirs for mail and news.
+DONE	* rfc2ftn: different output dirs for mail and news.
 
 DONE	* log.c: add alternate logging via openlog(), syslog().
 

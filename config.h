@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway software UNIX <-> FIDO
  *
- * $Id: config.h,v 4.32 1998/01/24 14:07:19 mj Exp $
+ * $Id: config.h,v 4.33 1998/01/31 20:22:29 mj Exp $
  *
  * Configuration header file
  *
@@ -158,6 +158,8 @@
  *				"Received: by NeXT.Mailer"
  *
  *   HAS_SYSLOG		        syslogd, syslog(), vsyslog() supported
+ *
+ *   HAS_SNPRINTF		snprintf(), vsnprintf() supported
  */
 
 /* Standard config: POSIX UNIX */
@@ -174,7 +176,7 @@
 # undef  DO_BINARY
 # undef  DO_DOSIFY
 # undef  HAS_SYSLOG		/* syslog(), vsyslog() not supported */
-
+# undef  HAS_SNPRINTF		/* snprintf(), vsnprintf() not supported */
 
 #ifdef __sun__			/* SUNOS 4.1.x, GNU gcc */
 # define HAS_FCNTL_LOCK
@@ -190,6 +192,7 @@
 # undef  DO_BINARY
 # undef  DO_DOSIFY
 # define HAS_SYSLOG
+# undef  HAS_SNPRINTF
 #endif
 
 #ifdef __linux__		/* LINUX LIBC 5.x.x, GNU gcc */
@@ -206,6 +209,7 @@
 # undef  DO_BINARY
 # undef  DO_DOSIFY
 # define HAS_SYSLOG
+# define HAS_SNPRINTF
 #endif
 
 #ifdef __FreeBSD__		/* FreeBSD 2.1.6., GNU gcc */
@@ -222,6 +226,7 @@
 # undef  DO_BINARY
 # undef  DO_DOSIFY
 # define HAS_SYSLOG
+# define HAS_SNPRINTF		/* ? */
 #endif
 
 #ifdef ISC			/* ISC 3.x, GNU gcc, -DISC necessary */
@@ -238,6 +243,7 @@
 # undef  DO_BINARY
 # undef  DO_DOSIFY
 # define HAS_SYSLOG
+# undef  HAS_SNPRINTF
 #endif
 
 #ifdef MSDOS			/* MSDOS, DJGPP GNU gcc */
@@ -253,6 +259,7 @@
 # define DO_BINARY
 # define DO_DOSIFY
 # undef  HAS_SYSLOG		/* syslog(), vsyslog() not supported */
+# undef  HAS_SNPRINTF
 #endif
 
 #ifdef __EMX__			/* OS/2, EMX GNU gcc */
@@ -271,6 +278,7 @@
 # define DO_BINARY
 # define DO_DOSIFY
 # undef  HAS_SYSLOG		/* syslog(), vsyslog() not supported */
+# undef  HAS_SNPRINTF
 #endif
 
 #ifdef __NeXT__                 /* NEXTSTEP 3.3 (Intel only?) */
@@ -287,6 +295,7 @@
 # define RECEIVED_BY_MAILER "Received: by NeXT.Mailer"
 # undef  DO_DOSIFY
 # define HAS_SYSLOG
+# undef  HAS_SNPRINTF
 #endif /* __NeXT__ */
 
 #ifdef __CYGWIN32__		/* GNU-Win32 Beta 18 */
@@ -303,6 +312,7 @@
 # define DO_BINARY
 # undef  DO_DOSIFY
 # undef  HAS_SYSLOG		/* syslog(), vsyslog() not supported */
+# undef  HAS_SNPRINTF		/* ? */
 #endif
 
 /***** End of configuration *************************************************/

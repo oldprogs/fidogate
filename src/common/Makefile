@@ -1,6 +1,6 @@
 #:ts=8
 #
-#    $Id: Makefile,v 4.9 1998/01/28 22:00:17 mj Exp $
+#    $Id: Makefile,v 4.10 1998/01/31 20:22:32 mj Exp $
 #
 #    Makefile for FIDOGATE src/common/
 #
@@ -22,7 +22,6 @@ OBJS		= address.o \
 		  areasbbs.o \
 		  binkley.o \
 		  bounce.o \
-		  bufstring.o \
 		  cf_funcs.o \
 		  charset.o \
 		  config.o \
@@ -68,6 +67,9 @@ OBJS		= address.o \
 
 LIBOBJS		= $(OBJS:%=$(LIB)(%))
 
+TESTS		= testparse testmatch testflo testheader testdir testtmps
+TESTOBJS	= $(TESTS:%=%.o)
+
 
 all:		cf_funcs.mak cf_abbrev.mak cf_env.mak $(LIB)
 
@@ -96,14 +98,14 @@ install:
 
 clean veryclean:
 	rm -f $(PROGS) $(LIB)
-	rm -f testparse
+	rm -f $(TESTS) $(TESTOBJS)
 	rm -f *~ *.bak *.o tags TAGS core
 
 
 #
 # Test programs
 #
-check:		all testparse testmatch testflo testheader testdir
+check:		all $(TESTS)
 
 testparse:	testparse.o $(LIB)
 	$(CC) $(LFLAGS) -o testparse testparse.o $(LIBS)

@@ -2,8 +2,8 @@
 
 ../tr.init
 
-R="../../src/gate/rfc2ftn -L../cf -v"
-F="../../src/gate/ftn2rfc -L../cf -v"
+R="../../src/gate/rfc2ftn -c../cf/gate.conf -v"
+F="../../src/gate/ftn2rfc -c../cf/gate.conf -v"
 
 echo "tc: running"
 
@@ -23,5 +23,5 @@ TEST
 EOF
 
 # Move to SPOOLDIR/in and run ftn2rfc
-mv ./out/*.pkt ./in
+mv ./outpkt/mail/*.pkt ./pin
 $F

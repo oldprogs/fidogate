@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: prototypes.h,v 4.36 1998/01/28 22:00:23 mj Exp $
+ * $Id: prototypes.h,v 4.37 1998/01/31 20:22:35 mj Exp $
  *
  * Prototypes for functions in libfidogate.a
  *
@@ -92,10 +92,6 @@ int	print_file_subst	(FILE *, FILE*, Message*, char*, Textlist*);
 int	bounce_header		(char *);
 int	bounce_mail		(char *, RFCAddr *, Message *,
 				 char *, Textlist *);
-
-/* bufstring.c */
-char   *buf_sprintf		(char *, ...);
-char   *buf_copy		(char *);
 
 /* charset.c */
 void	charset_reset		(void);
@@ -472,12 +468,17 @@ void	tick_add_path		(Tick *);
 void    fatal			(char *, int);
 TmpS   *tmps_alloc		(size_t);
 TmpS   *tmps_realloc		(TmpS *, size_t);
+TmpS   *tmps_find		(char *);
 void    tmps_free		(TmpS *);
 void    tmps_freeall		(void);
+TmpS   *tmps_printf		(const char *, ...);
+TmpS   *tmps_copy		(char *);
 char   *s_alloc			(size_t);
 char   *s_realloc		(char *, size_t);
 void    s_free			(char *s);
 void    s_freeall		(void);
+char   *s_printf		(const char *, ...);
+char   *s_copy			(char *);
 
 /* version.c */
 char   *version_global		(void);

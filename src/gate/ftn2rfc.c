@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftn2rfc.c,v 4.33 1998/01/24 14:07:30 mj Exp $
+ * $Id: ftn2rfc.c,v 4.34 1998/01/31 20:22:35 mj Exp $
  *
  * Convert FTN mail packets to RFC mail and news batches
  *
@@ -40,7 +40,7 @@
 
 
 #define PROGRAM 	"ftn2rfc"
-#define VERSION 	"$Revision: 4.33 $"
+#define VERSION 	"$Revision: 4.34 $"
 #define CONFIG		DEFAULT_CONFIG_GATE
 
 
@@ -343,6 +343,8 @@ int unpack(FILE *pkt_file, Packet *pkt)
 
     while(type == MSG_TYPE)
     {
+	s_freeall();
+
 	x_orig_to[0] = 0;
 	tl_clear(&theader);
 	tl_clear(&tbody);
@@ -803,9 +805,9 @@ int unpack(FILE *pkt_file, Packet *pkt)
 	if(msgbody_rfc_to) {
 	    if(strchr(msgbody_rfc_to, '(') || strchr(msgbody_rfc_to, '<') ||
 	       !*addr_to.real || uucp_flag                                   )
-		to_line = buf_sprintf("%s", msgbody_rfc_to);
+		to_line = s_printf("%s", msgbody_rfc_to);
 	    else
-		to_line = buf_sprintf("%s (%s)", msgbody_rfc_to, addr_to.real);
+		to_line = s_printf("%s (%s)", msgbody_rfc_to, addr_to.real);
 	}
 	else {
 	    if(area)
@@ -816,10 +818,10 @@ int unpack(FILE *pkt_file, Packet *pkt)
 		   !strcmp(addr_to.user, "*")      )
 		    to_line = NULL;
 		else
-		    to_line = buf_sprintf("(%s)", addr_to.real);
+		    to_line = s_printf("(%s)", addr_to.real);
 	    }
 	    else
-		to_line = buf_sprintf("%s", mail_to);
+		to_line = s_printf("%s", mail_to);
 	}
 
 	/*
@@ -1092,11 +1094,14 @@ int unpack(FILE *pkt_file, Packet *pkt)
 	    mail_close('m');
 	}
 
+	s_freeall();
     } /**while(type == MSG_TYPE)**/
 
     if(mail_file('n')) 
 	mail_close('n');
-    
+
+    s_freeall();
+
     return ret;
 }
 

@@ -1,0 +1,261 @@
+tc: clean-up
+tc: init
+tc: running
+RFC To:       Martin_Junius@f110.n2452.z2.fidonet.org
+RFC From:     Martin Junius <mj@orodruin.fido.de>
+RFC Sender:   Martin Junius <mj@orodruin.fido.de>
+    Name:     Martin_Junius
+    Address:  f110.n2452.z2.fidonet.org
+    FTN node: 2:2452/110.0
+Name for alias checking: Martin_Junius
+No alias found: return Martin Junius
+    Name:     mj
+    Address:  orodruin.fido.de
+RFC Date: Sun, 27 Oct 1996 14:20:22 +0100 (MET)
+rfc2ftn MAIL: Martin Junius <mj@orodruin.fido.de> -> Martin_Junius@f110.n2452.z2.fidonet.org
+New packet file ./outpkt/mail/00000001.pkt (tmp ./outpkt/mail/00000001.tmp)
+Writing FTN packet header:
+    From: 2:2452/110.2
+    To  : 2:2452/110.2
+    Baud: 0
+    Prod: 00 fe
+    Rev : 4.3
+    Pass: ""
+    Capw: 0001
+RFC To:       Martin_Junius@f110.n2452.z2.fidonet.org
+RFC From:     Martin Junius <mj@orodruin.fido.de>
+RFC Sender:   Martin Junius <mj@orodruin.fido.de>
+    Name:     Martin_Junius
+    Address:  f110.n2452.z2.fidonet.org
+    FTN node: 2:2452/110.0
+Name for alias checking: Martin_Junius
+No alias found: return Martin Junius
+    Name:     mj
+    Address:  orodruin.fido.de
+RFC Date: Wed, 13 Nov 1996 22:13:13 +0100 (MET)
+rfc2ftn MAIL: Martin Junius <mj@orodruin.fido.de> -> Martin_Junius@f110.n2452.z2.fidonet.org
+New packet file ./outpkt/mail/00000002.pkt (tmp ./outpkt/mail/00000002.tmp)
+Writing FTN packet header:
+    From: 2:2452/110.2
+    To  : 2:2452/110.2
+    Baud: 0
+    Prod: 00 fe
+    Rev : 4.3
+    Pass: ""
+    Capw: 0001
+Reading FTN packet header:
+    From: 2:2452/110.2
+    To  : 2:2452/110.2
+    Baud: 0
+    Prod: 00 fe
+    Rev : 4.2
+    Pass: ""
+    Capw: 0001
+ftn2rfc packet ./pin/1a.pkt (1208b) from 2:2452/110.2 to 2:2452/110.2
+^ACHARSET: LATIN-1 2
+charset=1 (LATIN-1)
+ftn2rfc MAIL: mj@orodruin.fido.de (Martin Junius) -> mj@orodruin.fido.de
+Reading FTN packet header:
+    From: 2:2452/110.2
+    To  : 2:2452/110.2
+    Baud: 0
+    Prod: 00 fe
+    Rev : 4.2
+    Pass: ""
+    Capw: 0001
+ftn2rfc packet ./pin/1b.pkt (1241b) from 2:2452/110.2 to 2:2452/110.2
+^ACHARSET: LATIN-1 2
+charset=1 (LATIN-1)
+ftn2rfc MAIL: mj@orodruin.fido.de (Martin Junius) -> mj@orodruin.fido.de
+Reading FTN packet header:
+    From: 2:2452/110.2
+    To  : 2:2452/110.2
+    Baud: 0
+    Prod: 00 fe
+    Rev : 4.2
+    Pass: ""
+    Capw: 0001
+ftn2rfc packet ./pin/1c.pkt (1241b) from 2:2452/110.2 to 2:2452/110.2
+^ACHARSET: LATIN-1 2
+charset=1 (LATIN-1)
+ftn2rfc MAIL: mj@orodruin.fido.de (Martin Junius) -> mj@orodruin.fido.de
+Reading FTN packet header:
+    From: 2:2452/110.2
+    To  : 2:2452/110.2
+    Baud: 0
+    Prod: 00 fe
+    Rev : 4.2
+    Pass: ""
+    Capw: 0001
+ftn2rfc packet ./pin/1d.pkt (1253b) from 2:2452/110.2 to 2:2452/110.2
+^ACHARSET: LATIN-1 2
+charset=1 (LATIN-1)
+ftn2rfc MAIL: mj@orodruin.fido.de (Martin Junius) -> mj@orodruin.fido.de
+Reading FTN packet header:
+    From: 2:2452/110.2
+    To  : 2:2452/110.2
+    Baud: 0
+    Prod: 00 fe
+    Rev : 4.2
+    Pass: ""
+    Capw: 0001
+ftn2rfc packet ./pin/2a.pkt (901b) from 2:2452/110.2 to 2:2452/110.2
+^ACHARSET: LATIN-1 2
+charset=1 (LATIN-1)
+ftn2rfc MAIL: mj@orodruin.fido.de (Martin Junius) -> mj@orodruin.fido.de
+Reading FTN packet header:
+    From: 2:2452/110.2
+    To  : 2:2452/110.2
+    Baud: 0
+    Prod: 00 fe
+    Rev : 4.2
+    Pass: ""
+    Capw: 0001
+ftn2rfc packet ./pin/2b.pkt (961b) from 2:2452/110.2 to 2:2452/110.2
+^ACHARSET: LATIN-1 2
+charset=1 (LATIN-1)
+ftn2rfc MAIL: mj@orodruin.fido.de (Martin Junius) -> mj@orodruin.fido.de
+Reading FTN packet header:
+    From: 2:2452/110.2
+    To  : 2:2452/110.2
+    Baud: 0
+    Prod: 00 fe
+    Rev : 4.2
+    Pass: ""
+    Capw: 0001
+ftn2rfc packet ./pin/1a.pkt (1208b) from 2:2452/110.2 to 2:2452/110.2
+^ACHARSET: LATIN-1 2
+charset=1 (LATIN-1)
+ftn2rfc MAIL: mj@orodruin.fido.de (Martin Junius) -> mj@orodruin.fido.de
+Reading FTN packet header:
+    From: 2:2452/110.2
+    To  : 2:2452/110.2
+    Baud: 0
+    Prod: 00 fe
+    Rev : 4.2
+    Pass: ""
+    Capw: 0001
+ftn2rfc packet ./pin/1b.pkt (1241b) from 2:2452/110.2 to 2:2452/110.2
+^ACHARSET: LATIN-1 2
+charset=1 (LATIN-1)
+ftn2rfc MAIL: mj@orodruin.fido.de (Martin Junius) -> mj@orodruin.fido.de
+Reading FTN packet header:
+    From: 2:2452/110.2
+    To  : 2:2452/110.2
+    Baud: 0
+    Prod: 00 fe
+    Rev : 4.2
+    Pass: ""
+    Capw: 0001
+ftn2rfc packet ./pin/1c.pkt (1241b) from 2:2452/110.2 to 2:2452/110.2
+^ACHARSET: LATIN-1 2
+charset=1 (LATIN-1)
+ftn2rfc MAIL: mj@orodruin.fido.de (Martin Junius) -> mj@orodruin.fido.de
+Reading FTN packet header:
+    From: 2:2452/110.2
+    To  : 2:2452/110.2
+    Baud: 0
+    Prod: 00 fe
+    Rev : 4.2
+    Pass: ""
+    Capw: 0001
+ftn2rfc packet ./pin/1d.pkt (1253b) from 2:2452/110.2 to 2:2452/110.2
+^ACHARSET: LATIN-1 2
+charset=1 (LATIN-1)
+ftn2rfc MAIL: mj@orodruin.fido.de (Martin Junius) -> mj@orodruin.fido.de
+Reading FTN packet header:
+    From: 2:2452/110.2
+    To  : 2:2452/110.2
+    Baud: 0
+    Prod: 00 fe
+    Rev : 4.2
+    Pass: ""
+    Capw: 0001
+ftn2rfc packet ./pin/2a.pkt (901b) from 2:2452/110.2 to 2:2452/110.2
+^ACHARSET: LATIN-1 2
+charset=1 (LATIN-1)
+ftn2rfc MAIL: mj@orodruin.fido.de (Martin Junius) -> mj@orodruin.fido.de
+Reading FTN packet header:
+    From: 2:2452/110.2
+    To  : 2:2452/110.2
+    Baud: 0
+    Prod: 00 fe
+    Rev : 4.2
+    Pass: ""
+    Capw: 0001
+ftn2rfc packet ./pin/2b.pkt (961b) from 2:2452/110.2 to 2:2452/110.2
+^ACHARSET: LATIN-1 2
+charset=1 (LATIN-1)
+ftn2rfc MAIL: mj@orodruin.fido.de (Martin Junius) -> mj@orodruin.fido.de
+Reading FTN packet header:
+    From: 2:2452/110.2
+    To  : 2:2452/110.2
+    Baud: 0
+    Prod: 00 fe
+    Rev : 4.2
+    Pass: ""
+    Capw: 0001
+ftn2rfc packet ./pin/1a.pkt (1208b) from 2:2452/110.2 to 2:2452/110.2
+^ACHARSET: LATIN-1 2
+charset=1 (LATIN-1)
+ftn2rfc MAIL: mj@orodruin.fido.de (Martin Junius) -> mj@orodruin.fido.de
+Reading FTN packet header:
+    From: 2:2452/110.2
+    To  : 2:2452/110.2
+    Baud: 0
+    Prod: 00 fe
+    Rev : 4.2
+    Pass: ""
+    Capw: 0001
+ftn2rfc packet ./pin/1b.pkt (1241b) from 2:2452/110.2 to 2:2452/110.2
+^ACHARSET: LATIN-1 2
+charset=1 (LATIN-1)
+ftn2rfc MAIL: mj@orodruin.fido.de (Martin Junius) -> mj@orodruin.fido.de
+Reading FTN packet header:
+    From: 2:2452/110.2
+    To  : 2:2452/110.2
+    Baud: 0
+    Prod: 00 fe
+    Rev : 4.2
+    Pass: ""
+    Capw: 0001
+ftn2rfc packet ./pin/1c.pkt (1241b) from 2:2452/110.2 to 2:2452/110.2
+^ACHARSET: LATIN-1 2
+charset=1 (LATIN-1)
+ftn2rfc MAIL: mj@orodruin.fido.de (Martin Junius) -> mj@orodruin.fido.de
+Reading FTN packet header:
+    From: 2:2452/110.2
+    To  : 2:2452/110.2
+    Baud: 0
+    Prod: 00 fe
+    Rev : 4.2
+    Pass: ""
+    Capw: 0001
+ftn2rfc packet ./pin/1d.pkt (1253b) from 2:2452/110.2 to 2:2452/110.2
+^ACHARSET: LATIN-1 2
+charset=1 (LATIN-1)
+ftn2rfc MAIL: mj@orodruin.fido.de (Martin Junius) -> mj@orodruin.fido.de
+Reading FTN packet header:
+    From: 2:2452/110.2
+    To  : 2:2452/110.2
+    Baud: 0
+    Prod: 00 fe
+    Rev : 4.2
+    Pass: ""
+    Capw: 0001
+ftn2rfc packet ./pin/2a.pkt (901b) from 2:2452/110.2 to 2:2452/110.2
+^ACHARSET: LATIN-1 2
+charset=1 (LATIN-1)
+ftn2rfc MAIL: mj@orodruin.fido.de (Martin Junius) -> mj@orodruin.fido.de
+Reading FTN packet header:
+    From: 2:2452/110.2
+    To  : 2:2452/110.2
+    Baud: 0
+    Prod: 00 fe
+    Rev : 4.2
+    Pass: ""
+    Capw: 0001
+ftn2rfc packet ./pin/2b.pkt (961b) from 2:2452/110.2 to 2:2452/110.2
+^ACHARSET: LATIN-1 2
+charset=1 (LATIN-1)
+ftn2rfc MAIL: mj@orodruin.fido.de (Martin Junius) -> mj@orodruin.fido.de

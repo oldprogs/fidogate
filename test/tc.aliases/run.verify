@@ -1,0 +1,9 @@
+tc: clean-up
+tc: init
+tc: running
+rfc2ftn MAIL: Test User <test@blah.org> -> test_1@p0.f0.n2.z2
+rfc2ftn MAIL: Test User <test@blah.org> -> test_2@p0.f0.n2.z2
+ftn2rfc packet ./pin/00000001.pkt (508b) from 2:2452/110.2 to 2:2452/110.2
+ftn2rfc MAIL: Test User <test@blah.org> -> test1@abc.def.org
+ftn2rfc packet ./pin/00000002.pkt (508b) from 2:2452/110.2 to 2:2452/110.2
+ftn2rfc MAIL: Test User <test@blah.org> -> test2@orodruin.fido.de

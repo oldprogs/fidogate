@@ -1,3 +1,38 @@
+Sat Jan 31 18:00:56 1998  Martin Junius  <mj@fido.de>
+
+	------- CVS ci -------------------------------------------------------
+
+	* test/tc.aliases/run: new configuration.
+
+	* test/tc.8bit/config*,run: new configuration.
+
+	* src/common/Makefile (OBJS): removed bufstring.o.
+
+	* src/common/bufstring.c: removed, obsoleted by new temp string
+	  functions. 
+
+	* src/gate/ftn2rfc.c (unpack): buf_sprintf() replaced with s_printf().
+	  (unpack): added calls to s_freeall(), hopefully (;-) we don't
+	  have a memory leak.
+
+	* src/common/tmps.c (s_printf): implemented using vsnprintf() if
+	  available, vsprintf() if not.
+	  (tmps_printf): dito.
+
+	* config.h (HAS_SNPRINTF): new #define for snprintf(), vsnprintf().
+
+	* src/common/tmps.c (tmps_realloc): implemented.
+	  (tmps_find): new function finding char * in list of temp strings.
+	  (s_realloc): implemented.
+	  (tmps_printf): new function, sprintf() with result in temp string.
+	  (tmps_copy): new function, copy of char * in temp string.
+	  (s_printf): new function, s_ variant of tmps_printf().
+	  (s_copy): new function, s_ variant of temps_copy().
+
+	* src/common/version.c (version_global): version number changed to
+	  4.3aX or 4.3bX for alpha and beta versions, same length as
+	  normal 4.3.X.
+
 Wed Jan 28 22:02:38 1998  Martin Junius  <mj@fido.de>
 
 	------- CVS ci -------------------------------------------------------
