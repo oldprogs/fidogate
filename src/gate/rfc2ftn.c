@@ -2,12 +2,12 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway software UNIX <-> FIDO
  *
- * $Id: rfc2ftn.c,v 4.70 2003/02/16 15:39:01 n0ll Exp $
+ * $Id: rfc2ftn.c,v 4.69 2003/02/16 15:36:22 n0ll Exp $
  *
  * Read mail or news from standard input and convert it to a FIDO packet.
  *
  *****************************************************************************
- * Copyright (C) 1990-2003
+ * Copyright (C) 1990-2002
  *  _____ _____
  * |     |___  |   Martin Junius             <mj@fidogate.org>
  * | | | |   | |   Radiumstr. 18
@@ -39,7 +39,7 @@
 
 
 #define PROGRAM 	"rfc2ftn"
-#define VERSION 	"$Revision: 4.70 $"
+#define VERSION 	"$Revision: 4.69 $"
 #define CONFIG		DEFAULT_CONFIG_GATE
 
 
