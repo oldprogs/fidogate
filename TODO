@@ -2,7 +2,7 @@
 
 X = for next release
 
-	* ftnlock: put PID / command arg in lock file:
+DONE.	* ftnlock: put PID / command arg in lock file:
 -------------------------------------------------------------------------
 Date: Sun, 17 Nov 1996 18:04:24 +0000
 From: Ingmar Hupp <hyper@mignon.franken.de>

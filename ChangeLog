@@ -2,6 +2,8 @@ Sat Nov 30 14:35:27 1996  Martin Junius  <mj@fido.de>
 
 	------- CVS ci -------------------------------------------------------
 
+	* config.h (RFC_LVL_1_HEADERS): added "Sender", "Resent-From".
+
 	* src/common/lock.c: all debug() levels set to 7.
 
 	* doc/fidogate.texi (ftnlock): updated.

@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway software UNIX <-> FIDO
  *
- * $Id: config.h,v 4.9 1996/10/27 13:44:10 mj Exp $
+ * $Id: config.h,v 4.10 1996/11/30 14:11:33 mj Exp $
  *
  * Configuration header file
  *
@@ -307,7 +307,8 @@
  * RFC headers output for ^ARFC level 1 (partial RFC headers)
  */
 #define RFC_LVL_1_HEADERS \
-    "From", "Reply-To", "To", "Cc", "Newsgroups", "Date"
+    "From", "Reply-To", "To", "Cc", "Newsgroups", "Date", \
+    "Sender", "Resent-From"
 
 /*
  * Open modes for fopen(), binary for system requiring this.
