@@ -1,7 +1,7 @@
-Subject: FIDOGATE 4.1.1 --- Fido-Internet Gateway and more
+Subject: FIDOGATE 4.1.2 --- Fido-Internet Gateway and more
 Keywords: fido ftn netmail echomail tosser areafix mail news gateway
 
-FIDOGATE 4.1.1, an update to version 4 of the FIDOGATE package is
+FIDOGATE 4.1.2, an update to version 4 of the FIDOGATE package is
 available.
 
 			   FIDOGATE Version 4
@@ -18,23 +18,29 @@ Internet:
 ---------
     http://www.fido.de/fidogate/
     ftp://ftp.fido.de/pub/fidogate/
+
     ftp://ftp.comnets.rwth-aachen.de/pub/mail+news/fidogate/
     ftp://sunsite.unc.edu/pub/Linux/system/Fido/
     (maybe still in /pub/Linux/Incoming)
 
-    fidogate-4.1.1.tar.gz	657 Kbyte
+    fidogate-4.1.2.tar.gz	657 Kbyte
 
 Fido File Request:
 ------------------
-    2:2452/110, 111  +49-241-876604  (V.34, ISDN V.110, X.75)
+    2:2452/110, 111  +49-241-876604  (V.34, ISDN V.110/X.75)
     
-    fgate411.tgz		657 Kbyte
+    fgate412.tgz		657 Kbyte
 
 
 
 ----------------------------------------------------------------------
 
-Changes from 4.1.0:
+Changes from 4.1.1 to 4.1.2:
+
+* Bugfix for QUOTED-PRINTABLE encoding.
+
+
+Changes from 4.1.0 to 4.1.1:
 
 * Support for ISO-8859-1 8BIT and QUOTED-PRINTABLE character set when
   gating Fido -> Internet.
@@ -70,8 +76,8 @@ for subscription requests.
 
 Begin3
 Title:          FIDOGATE
-Version:        4.1.1
-Entered-date:   10NOV96
+Version:        4.1.2
+Entered-date:   17NOV96
 Description:    FIDOGATE Version 4:
                 * Fido-Internet Gateway
 		* Fido FTN-FTN Gateway
@@ -82,9 +88,9 @@ Keywords:       fido ftn netmail echomail tosser areafix mail news gateway
 Author:         mj@fido.de (Martin Junius)
 Maintained-by:  mj@fido.de (Martin Junius)
 Primary-site:   ftp.fido.de /pub/fidogate
-		657kB fidogate-4.1.1.tar.gz
+		657kB fidogate-4.1.2.tar.gz
 Alternate-site: sunsite.unc.edu /pub/Linux/system/Fido
-		657kB fidogate-4.1.1.tar.gz
+		657kB fidogate-4.1.2.tar.gz
 Platforms:      Linux, SunOS, but should be easily portable to most
 		UNIX systems. Supports OS/2 (EMX gcc port) and MSDOS
 		(DJGPP gcc port), too. perl is required.
@@ -93,4 +99,4 @@ End
 
 ----------------------------------------------------------------------
 
-Martin Junius <mj@fido.de>, $Date: 1996/11/13 21:45:47 $
+Martin Junius <mj@fido.de>, $Date: 1996/11/17 12:31:03 $
