@@ -1,0 +1,15 @@
+#!/bin/sh
+
+../tr.init
+
+T="../../src/toss/testhistory -L../cf -S."
+# 10 min = -m 0.007
+X="../../src/toss/ftnexpire   -L../cf -S. -v -m 0.007"
+
+
+while true; do
+  ./rndmsgid -n 50000 | time -p $T
+  $X
+done
+
+

@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway software UNIX <-> FIDO
  *
- * $Id: config.h,v 4.11 1996/11/30 15:46:10 mj Exp $
+ * $Id: config.h,v 4.12 1996/12/02 19:51:18 mj Exp $
  *
  * Configuration header file
  *
@@ -229,6 +229,7 @@
 #define DEF_PASSWD	"%L/passwd"	/* Password config file */
 #define DEF_PACKING	"%L/packing"	/* Tosser packing config file */
 #define DEF_ROUTING	"%L/routing"	/* Tosser routing config file */
+#define DEF_HISTORY	"%S/history"	/* MSGID history */
 
 /* Values retrieved from config */
 #define ALIASES		cf_p_aliases()
@@ -237,8 +238,6 @@
 #define PASSWD		cf_p_passwd()
 #define PACKING		cf_p_packing()
 #define ROUTING		cf_p_routing()
-
-#define HISTORY		"history"	/* MSGID history in SPOOLDIR */
 
 #define LOG		"log"		/* Default log file */
 

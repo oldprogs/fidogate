@@ -369,6 +369,9 @@ Files and directories used by FIDOGATE:
 `DEF_ROUTING'
      Default routing config file.
 
+`DEF_HISTORY'
+     Default database of `^AMSGID's for dupe checking.
+
 `HOSTS'
 `ALIASES'
 `AREAS'
@@ -376,9 +379,6 @@ Files and directories used by FIDOGATE:
 `PACKING'
 `ROUTING'
      Definitions from config file.
-
-`HISTORY'
-     Database of `^AMSGID's for dupe checking.
 
 `LOG'
      Default log file.
@@ -1840,6 +1840,9 @@ Common configuration:
 
 `Routing file'
      Use file instead of the default `routing' config file.
+
+`History file'
+     Use file instead of the default `history' database.
 
 Special configuration `ffx' (config file `config.ffx'):
 

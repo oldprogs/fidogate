@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: history.c,v 4.1 1996/05/05 12:26:58 mj Exp $
+ * $Id: history.c,v 4.2 1996/12/02 19:51:28 mj Exp $
  *
  * MSGID history functions and dupe checking
  *
@@ -50,7 +50,8 @@ int hi_init(void)
     FILE *fp;
     
     /* Test for history.dir, history.pag */
-    BUF_COPY4(buffer, cf_spooldir(), "/", HISTORY, ".dir");
+    BUF_EXPAND(buffer, cf_p_history());
+    BUF_APPEND(buffer, ".dir");
     if(check_access(buffer, CHECK_FILE) != TRUE)
     {
 	/* Doesn't exist, create */
@@ -63,7 +64,8 @@ int hi_init(void)
 	    log("creating MSGID history %s", buffer);
     }
     
-    BUF_COPY4(buffer, cf_spooldir(), "/", HISTORY, ".pag");
+    BUF_EXPAND(buffer, cf_p_history());
+    BUF_APPEND(buffer, ".pag");
     if(check_access(buffer, CHECK_FILE) != TRUE)
     {
 	/* Doesn't exist, create */
@@ -77,7 +79,7 @@ int hi_init(void)
     }
 
     /* Open the history text file */
-    BUF_COPY3(buffer, cf_spooldir(), "/", HISTORY);
+    BUF_EXPAND(buffer, cf_p_history());
     if( (hi_file = fopen(buffer, A_MODE)) == NULL ) 
     {
 	log("$ERROR: open MSGID history %s failed", buffer);
@@ -135,16 +137,12 @@ int hi_close(void)
 /*
  * Write record to MSGID history
  */
-int hi_write(time_t msgdate, char *msgid)
-    /* msgdate currently not used */
+static int hi_write_t(time_t t, time_t msgdate, char *msgid)
 {
     long offset;
-    TIMEINFO ti;
     int ret;
     datum key, val;
 
-    GetTimeInfo(&ti);
-    
     /* Get offset in history text file */
     if( (offset = ftell(hi_file)) == ERROR)
     {
@@ -153,8 +151,8 @@ int hi_write(time_t msgdate, char *msgid)
     }
 
     /* Write MSGID line to history text file */
-    debug(7, "history: offset=%ld: %s %ld", offset, msgid, ti.time);
-    ret = fprintf(hi_file, "%s\t%ld\n", msgid, ti.time);
+    debug(7, "history: offset=%ld: %s %ld", offset, msgid, t);
+    ret = fprintf(hi_file, "%s\t%ld\n", msgid, t);
     if (ret == ERROR || fflush(hi_file) == ERROR)
     {
 	log("$ERROR: write to MSGID history failed");
@@ -174,6 +172,17 @@ int hi_write(time_t msgdate, char *msgid)
     /**FIXME: dbzsync() every n msgids */
     
     return OK;
+}
+
+
+int hi_write(time_t msgdate, char *msgid)
+    /* msgdate currently not used */
+{
+    TIMEINFO ti;
+
+    GetTimeInfo(&ti);
+
+    return hi_write_t(ti.time, msgdate, msgid);
 }
 
 
@@ -205,13 +214,17 @@ int main(int argc, char *argv[])
     char *S_flag=NULL, *L_flag=NULL;
     int i, c;
     char *m;
-    
+    time_t t = 0;
 
     /* Init configuration */
     cf_initialize();
 
-    while ((c = getopt(argc, argv, "vc:S:L:")) != EOF)
+    while ((c = getopt(argc, argv, "t:vc:S:L:")) != EOF)
 	switch (c) {
+	case 't':
+	    t = atol(optarg);
+	    break;
+	    
 	/***** Common options *****/
 	case 'v':
 	    verbose++;
@@ -250,19 +263,57 @@ int main(int argc, char *argv[])
 
     hi_init();
 
-    for(i=optind; i<argc; i++)
+    if(optind < argc) 
     {
-	m = argv[i];
-	if(hi_test(m))
+	for(i=optind; i<argc; i++)
 	{
-	    printf("%s FOUND\n", m);
-	}
-	else
-	{
-	    printf("%s NOT FOUND, storing\n", m);
-	    hi_write(0, m);
+	    m = argv[i];
+	    if(hi_test(m))
+	    {
+		debug(1, "dupe: %s", m);
+	    }
+	    else
+	    {
+		if(t)
+		{
+		    debug(2, "new: %s (time=%ld)", m, t);
+		    hi_write_t(t, 0, m);
+		}
+		else
+		{
+		    debug(2, "new: %s (time=now)", m);
+		    hi_write(0, m);
+		}
+	    }
 	}
     }
+    else 
+    {
+	while(gets(buffer))
+	{
+	    strip_crlf(buffer);
+	    m = buffer;
+	    if(hi_test(m))
+	    {
+		debug(1, "dupe: %s", m);
+	    }
+	    else
+	    {
+		if(t)
+		{
+		    debug(2, "new: %s (time=%ld)", m, t);
+		    hi_write_t(t, 0, m);
+		}
+		else
+		{
+		    debug(2, "new: %s (time=now)", m);
+		    hi_write(0, m);
+		}
+	    }
+	}
+	
+    }
+    
     
     hi_close();
     

@@ -157,6 +157,9 @@ Common configuration:
 `Routing file'
      Use file instead of the default `routing' config file.
 
+`History file'
+     Use file instead of the default `history' database.
+
 Special configuration `ffx' (config file `config.ffx'):
 
 `FFXDataFlav flavour'

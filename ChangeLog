@@ -1,4 +1,42 @@
+Mon Dec  2 20:04:10 1996  Martin Junius  <mj@fido.de>
+
+	------- CVS ci -------------------------------------------------------
+
+	* doc/fidogate.texi (config.h): updated, DEF_HISTORY.
+	  (Config): added History.
+
+	* examples/orodruin/config.common: added History to example.
+
+	* src/toss/history.c (hi_init): use new cf_p_history().
+
+	* src/toss/ftnexpire.c (do_expire): use new cf_p_history() to get
+	  complete history database file name.
+
+	* src/include/prototypes.h (BUF_EXPAND): new wrapper for
+	  str_expand_name(). 
+
+	* src/common/config.c (cf_p_history): new function retrieving
+	  History value from config file (default DEF_HISTORY).
+
+	* config.h (DEF_HISTORY): old HISTORY changed to new default
+	  value. Can be overwritten with History in config file.
+
+	* src/toss/ftnexpire.c (do_expire): use dbzagain() to initialize
+	  new history database. This should solve the performance problem.
+
 Sun Dec  1 11:29:54 1996  Martin Junius  <mj@fido.de>
+
+	* test/tc.history/rndmsgid: script for random msgid generation.
+
+	* src/toss/history.c (main): new -t TIME option.
+	  (hi_write_t): modified low-level version of hi_write(), taking
+	  additional time of entry in history database.
+	  (hi_write): use new hi_write_t().
+	  (main): if no msgid on command line, read from stdin.
+
+	* test/tc.history/run: new test case for history database.
+
+	* src/toss/history.c (main): changed printf()s to debug().
 
 	------- CVS ci -------------------------------------------------------
 

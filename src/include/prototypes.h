@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: prototypes.h,v 4.18 1996/11/30 14:01:16 mj Exp $
+ * $Id: prototypes.h,v 4.19 1996/12/02 19:51:27 mj Exp $
  *
  * Prototypes for functions in libfidogate.a
  *
@@ -144,6 +144,7 @@ char   *cf_p_hosts		(void);
 char   *cf_p_passwd		(void);
 char   *cf_p_packing		(void);
 char   *cf_p_routing		(void);
+char   *cf_p_history		(void);
 char   *cf_p_inbound		(void);
 char   *cf_p_pinbound		(void);
 char   *cf_s_pinbound		(char *);
@@ -321,6 +322,12 @@ char   *strncat0		(char *, char *, int);
 int	strnicmp		(char *, char *, int);
 int	stricmp			(char *, char *);
 #endif
+
+#define streq(a,b)		(strcmp  ((a),(b)) == 0)
+#define strieq(a,b)		(stricmp ((a),(b)) == 0)
+#define strneq(a,b,n)		(strncmp ((a),(b),(n)) == 0)
+#define strnieq(a,b,n)		(strnicmp((a),(b),(n)) == 0)
+
 long	xtol			(char *);
 void	strip_crlf		(char *);
 void	strip_space		(char *);
@@ -328,10 +335,7 @@ int	is_space		(int);
 int	is_blank		(int);
 char   *str_expand_name		(char *, size_t, char *);
 
-#define streq(a,b)		(strcmp  ((a),(b)) == 0)
-#define strieq(a,b)		(stricmp ((a),(b)) == 0)
-#define strneq(a,b,n)		(strncmp ((a),(b),(n)) == 0)
-#define strnieq(a,b,n)		(strnicmp((a),(b),(n)) == 0)
+#define BUF_EXPAND(d,s)			str_expand_name(d,sizeof(d),s)
 
 /* msgid.c */
 char   *msgid_fido_to_rfc	(char *, int *);

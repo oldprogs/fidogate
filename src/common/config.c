@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: config.c,v 4.6 1996/11/25 19:51:58 mj Exp $
+ * $Id: config.c,v 4.7 1996/12/02 19:51:25 mj Exp $
  *
  * Configuration data and functions
  *
@@ -1063,6 +1063,20 @@ char *cf_p_routing(void)
 	if( ! (pval = cf_get_string("Routing", TRUE)) )
 	    pval = DEF_ROUTING;
 	debug(8, "config: Routing %s", pval);
+    }
+
+    return pval;
+}
+
+char *cf_p_history(void)
+{
+    static char *pval;
+
+    if(! pval)
+    {
+	if( ! (pval = cf_get_string("History", TRUE)) )
+	    pval = DEF_HISTORY;
+	debug(8, "config: History %s", pval);
     }
 
     return pval;

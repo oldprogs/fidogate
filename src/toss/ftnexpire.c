@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: ftnexpire.c,v 4.4 1996/06/06 15:59:31 mj Exp $
+ * $Id: ftnexpire.c,v 4.5 1996/12/02 19:51:27 mj Exp $
  *
  * Expire MSGID history database
  *
@@ -36,7 +36,7 @@
 
 
 #define PROGRAM 	"ftnexpire"
-#define VERSION 	"$Revision: 4.4 $"
+#define VERSION 	"$Revision: 4.5 $"
 #define CONFIG		CONFIG_MAIN
 
 
@@ -87,12 +87,17 @@ int do_expire(void)
     TIMEINFO ti;
     
     /* Filenames */
-    BUF_COPY3(history      , cf_spooldir(), "/", HISTORY          );
-    BUF_COPY4(history_dir  , cf_spooldir(), "/", HISTORY, ".dir"  );
-    BUF_COPY4(history_pag  , cf_spooldir(), "/", HISTORY, ".pag"  );
-    BUF_COPY4(history_n    , cf_spooldir(), "/", HISTORY, ".n"    );
-    BUF_COPY4(history_n_dir, cf_spooldir(), "/", HISTORY, ".n.dir");
-    BUF_COPY4(history_n_pag, cf_spooldir(), "/", HISTORY, ".n.pag");
+    BUF_EXPAND(history      , cf_p_history());
+    BUF_EXPAND(history_dir  , cf_p_history());
+    BUF_EXPAND(history_pag  , cf_p_history());
+    BUF_EXPAND(history_n    , cf_p_history());
+    BUF_EXPAND(history_n_dir, cf_p_history());
+    BUF_EXPAND(history_n_pag, cf_p_history());
+    BUF_APPEND(history_dir  , ".dir"  );
+    BUF_APPEND(history_pag  , ".pag"  );
+    BUF_APPEND(history_n    , ".n"    );
+    BUF_APPEND(history_n_dir, ".n.dir");
+    BUF_APPEND(history_n_pag, ".n.pag");
 
     debug(4, "old history: %s\n             %s\n             %s",
 	  history, history_dir, history_pag                      );
@@ -142,11 +147,11 @@ int do_expire(void)
     }
     fclose(fp);
     
-    /* Open the new DBZ file */
+    /* Initialize the new DBZ file */
     dbzincore(1);
-    /**dbzwritethrough(1);**/
-    if (dbminit(history_n) < 0) {
-	log("$ERROR: dbminit %s failed", history_n);
+    if (dbzagain(history_n, history) < 0)
+    {
+	log("$ERROR: dbzagain %s failed", history_n);
 	fclose(hi_o);
 	fclose(hi_n);
 	return ERROR;

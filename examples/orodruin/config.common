@@ -1,6 +1,6 @@
 #:ts=8
 #
-# $Id: config.common,v 4.4 1996/10/27 13:44:19 mj Exp $
+# $Id: config.common,v 4.5 1996/12/02 19:51:24 mj Exp $
 #
 # FIDOGATE config file common stuff,
 # included by config.gate, config.main, config.ffx
@@ -35,6 +35,8 @@ Hosts		%L/hosts
 Packing		%L/packing
 Passwd		%L/passwd
 Routing		%L/routing
+
+History		%S/history
 
 
 #
