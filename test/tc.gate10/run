@@ -2,7 +2,7 @@
 
 ../tr.init
 
-T="../../src/gate/rfc2ftn -L../cf -vvvvv"
+T="../../src/gate/rfc2ftn -c../cf/gate.conf -vvvvv"
 #X="-w normal"
 P="-a 2:2452/110.2 -u 2:2452/110.0 $X"
 

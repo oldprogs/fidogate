@@ -1,4 +1,4 @@
-include		%L/config.gate
+include		../cf/gate.conf
 
 #
 # FTN - Internet gateway. If set, Internet mail will be routed via FTN

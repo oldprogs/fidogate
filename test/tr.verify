@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# $Id: tr.verify,v 4.1 1998/01/24 14:07:39 mj Exp $
+# $Id: tr.verify,v 4.2 1998/01/28 22:00:25 mj Exp $
 #
 # FIDOGATE test check script, compares run output against run.verify
 #
@@ -18,11 +18,11 @@ fi
 
 if [ -f $VERIFY ]; then
 
-    ./run > $OUT 2>&1
+    ./run 2>&1 | grep -v '^ *Date:' >$OUT
     diff -u $VERIFY $OUT >$DIFF 2>&1
     status=$?
     if [ $status -ne 0 ]; then
-	echo "$DIR: not OK, see $DIR/$DIFF"
+	echo "$DIR: FAILED, see $DIR/$DIFF"
 	exit 1
     else
 	echo "$DIR: OK"

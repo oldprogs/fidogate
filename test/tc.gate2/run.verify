@@ -1,0 +1,22 @@
+tc: clean-up
+tc: init
+tc: copying input packets
+tc: running
+Reading FTN packet header:
+    From: 2:2452/110.0
+    To  : 2:2452/110.2
+    Baud: 0
+    Prod: 00 fe
+    Rev : 3.9
+    Pass: ""
+    Capw: 0001
+ftn2rfc packet ./pin/t-msgid1.pkt (7438b) from 2:2452/110.0 to 2:2452/110.2
+Reading FTN packet header:
+    From: 2:2452/110.0
+    To  : 2:2452/110.2
+    Baud: 0
+    Prod: 00 fe
+    Rev : 3.9
+    Pass: ""
+    Capw: 0001
+ftn2rfc packet ./pin/t-msgid2.pkt (5849b) from 2:2452/110.0 to 2:2452/110.2

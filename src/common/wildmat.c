@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: wildmat.c,v 4.3 1998/01/18 09:47:55 mj Exp $
+ * $Id: wildmat.c,v 4.4 1998/01/28 22:00:20 mj Exp $
  *
  * Wildcard matching
  *
@@ -217,12 +217,14 @@ int main(void)
 
     while (TRUE) {
         printf("Enter pattern: "); fflush(stdout);
-        if (gets(pattern) == NULL)
+        if (fgets(pattern, sizeof(pattern), stdin) == NULL)
             break;
+	strip_crlf(pattern);
         while (TRUE) {
             printf("Enter text:    "); fflush(stdout);
-            if (gets(text) == NULL)
+            if (fgets(text, sizeof(text), stdin) == NULL)
                 exit(0);
+	    strip_crlf(text);
             if (text[0] == '\0')
                 /* Blank line; go back and get a new pattern. */
                 break;

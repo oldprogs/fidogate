@@ -1,5 +1,5 @@
 #
-# $Id: config,v 1.1 1997/02/09 10:40:53 mj Exp $
+# $Id: config,v 1.2 1998/01/28 22:00:26 mj Exp $
 #
 # Test config with UseOrganizationForOrigin
 #
@@ -7,4 +7,5 @@
 # *first* match is used!
 UseFTNToAddress
 
-include %L/config.gate
+include ../cf/gate.conf
+

@@ -1,5 +1,5 @@
 #
-# $Id: Makefile,v 4.12 1998/01/18 17:49:05 mj Exp $
+# $Id: Makefile,v 4.13 1998/01/28 22:00:09 mj Exp $
 #
 # Makefile FIDOGATE TOPDIR
 #
@@ -11,30 +11,30 @@ include $(TOPDIR)/rules.make
 
 SUBDIRS		= src scripts test doc sendmail
 
-INSTALLDIRS	= $(DEFAULT_CONFIGDIR) \
-		  $(DEFAULT_LIBDIR) \
-		  $(DEFAULT_BINDIR) \
-		  $(DEFAULT_LOGDIR) \
-		  $(DEFAULT_VARDIR) \
-		  $(DEFAULT_VARDIR)/seq \
-		  $(DEFAULT_LOCKDIR) \
-		  $(DEFAULT_SPOOLDIR) \
-		  $(DEFAULT_SPOOLDIR)/outrfc \
-		  $(DEFAULT_SPOOLDIR)/outrfc/mail \
-		  $(DEFAULT_SPOOLDIR)/outrfc/news \
-		  $(DEFAULT_SPOOLDIR)/outpkt \
-		  $(DEFAULT_SPOOLDIR)/outpkt/mail \
-		  $(DEFAULT_SPOOLDIR)/outpkt/news \
-		  $(DEFAULT_SPOOLDIR)/toss \
-		  $(DEFAULT_SPOOLDIR)/toss/toss \
-		  $(DEFAULT_SPOOLDIR)/toss/route \
-		  $(DEFAULT_SPOOLDIR)/toss/pack \
-		  $(DEFAULT_SPOOLDIR)/toss/bad \
-		  $(DEFAULT_BTBASEDIR) \
-		  $(DEFAULT_INBOUND) \
-		  $(DEFAULT_PINBOUND) \
-		  $(DEFAULT_UUINBOUND) \
-		  $(DEFAULT_FTPINBOUND)
+INSTALLDIRS	= $(DEFAULT_V_CONFIGDIR) \
+		  $(DEFAULT_V_LIBDIR) \
+		  $(DEFAULT_V_BINDIR) \
+		  $(DEFAULT_V_LOGDIR) \
+		  $(DEFAULT_V_VARDIR) \
+		  $(DEFAULT_V_VARDIR)/seq \
+		  $(DEFAULT_V_LOCKDIR) \
+		  $(DEFAULT_V_SPOOLDIR) \
+		  $(DEFAULT_V_SPOOLDIR)/outrfc \
+		  $(DEFAULT_V_SPOOLDIR)/outrfc/mail \
+		  $(DEFAULT_V_SPOOLDIR)/outrfc/news \
+		  $(DEFAULT_V_SPOOLDIR)/outpkt \
+		  $(DEFAULT_V_SPOOLDIR)/outpkt/mail \
+		  $(DEFAULT_V_SPOOLDIR)/outpkt/news \
+		  $(DEFAULT_V_SPOOLDIR)/toss \
+		  $(DEFAULT_V_SPOOLDIR)/toss/toss \
+		  $(DEFAULT_V_SPOOLDIR)/toss/route \
+		  $(DEFAULT_V_SPOOLDIR)/toss/pack \
+		  $(DEFAULT_V_SPOOLDIR)/toss/bad \
+		  $(DEFAULT_V_BTBASEDIR) \
+		  $(DEFAULT_V_INBOUND) \
+		  $(DEFAULT_V_PINBOUND) \
+		  $(DEFAULT_V_UUINBOUND) \
+		  $(DEFAULT_V_FTPINBOUND)
 
 
 

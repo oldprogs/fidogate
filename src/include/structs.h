@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: structs.h,v 4.10 1998/01/18 09:48:07 mj Exp $
+ * $Id: structs.h,v 4.11 1998/01/28 22:00:24 mj Exp $
  *
  * An assortment of FIDOGATE data structure definitions
  *
@@ -330,3 +330,26 @@ typedef struct st_tick 		/* .TIC file description, see also FSC-0028 */
     Textlist app;			/* Application specific */
 }
 Tick;
+
+
+
+/*
+ * Temporary string
+ */
+typedef struct st_tmps
+{
+    char *s;
+    size_t len;
+    struct st_tmps *next;
+}
+TmpS;
+
+
+
+/*
+ * FTN address
+ */
+typedef struct st_ftnaddr {
+    char name[MAXUSERNAME];		/* No FTS-0001 limits here! */
+    Node node;
+} FTNAddr;

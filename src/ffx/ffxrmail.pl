@@ -1,30 +1,25 @@
-#!/usr/local/bin/perl
+#!/usr/bin/perl
 #
-# $Id: ffxrmail.pl,v 4.2 1997/07/08 18:39:26 mj Exp $
+# $Id: ffxrmail.pl,v 4.3 1998/01/28 22:00:20 mj Exp $
 #
 # sendmail frontend for processing ffx rmail commands
 #
 
 require "getopts.pl";
-&Getopts('vL:S:');
+&Getopts('vL:c:');
 
 # defaults
-$LIBDIR   = "<LIBDIR>";
-$SPOOLDIR = "<SPOOLDIR>";
+$CONFIG      = $opt_c ? $opt_c : "<CONFIG_FFX>";
+$LIBDIR      = $opt_L ? $opt_L : "<LIBDIR>";
 
-# options
-if($opt_L) {
-    $LIBDIR   = $opt_L;
-}
-if($opt_S) {
-    $SPOOLDIR = $opt_S;
-}
+# config.pl
+require "$LIBDIR/config.pl";
+&CONFIG_read($CONFIG);
 
 # configuration
-$SENDMAIL = `$LIBDIR/ftnconfig -c $LIBDIR/config.ffx -l FFXRmailSendmail`;
-if(! $SENDMAIL) {
-    $SENDMAIL = "/usr/lib/sendmail -oee -oi";
-}
+$SENDMAIL = &CONFIG_get("FFXRmailSendmail");
+die "ffxrmail:$CONFIG:FFXRmailSendmail not defined\n" if(! $SENDMAIL);
+
 
 # ignore SIGPIPE
 $SIG{"PIPE"} = "IGNORE";

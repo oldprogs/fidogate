@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: dir.c,v 4.2 1998/01/18 09:47:47 mj Exp $
+ * $Id: dir.c,v 4.3 1998/01/28 22:00:19 mj Exp $
  *
  * Reading/sorting directories
  *
@@ -128,20 +128,21 @@ int dir_compare(const void *pa, const void *pb)
 /*
  * Read dir into memory and sort
  */
-int dir_open(char *name, char *pattern, int ic)
+int dir_open(char *dirname, char *pattern, int ic)
     /* ic --- TRUE=ignore case, FALSE=don't */
 {
+    char name[MAXPATH];
     char buf[MAXPATH];
     struct dirent *dir;
     DIR *dp;
     struct stat st;
-    
+
+    BUF_EXPAND(name, dirname);
+
     if(dir_array)
 	dir_close();
     
-    /*
-     * Open and read directory
-     */
+    /* Open and read directory */
     if( ! (dp = opendir(name)) )
 	return ERROR;
 
@@ -150,9 +151,9 @@ int dir_open(char *name, char *pattern, int ic)
     while((dir = readdir(dp)))
 	if(pattern==NULL || wildmatch(dir->d_name, pattern, ic))
 	{
-	    strncpy0(buf, name       , sizeof(buf));
-	    strncat0(buf, "/"        , sizeof(buf));
-	    strncat0(buf, dir->d_name, sizeof(buf));
+	    BUF_COPY(buf, name);
+	    BUF_APPEND(buf, "/");
+	    BUF_APPEND(buf, dir->d_name);
 	    
 	    if(stat(buf, &st) == ERROR)
 	    {
@@ -172,9 +173,7 @@ int dir_open(char *name, char *pattern, int ic)
     
     closedir(dp);
 
-    /*
-     * Sort it
-     */
+    /* Sort it */
     qsort(dir_array, dir_nentry, sizeof(DirEntry), dir_compare);
     
     return OK;
@@ -232,24 +231,25 @@ char *dir_get(int first)
 /*
  * Search for file in directory, ignoring case
  */
-char *dir_search(char *dirname, char *name)
+char *dir_search(char *dirname, char *filename)
     /* name --- file name to find, overwritten with correct case if found */
 {
+    char name[MAXPATH];
     struct dirent *dir;
     DIR *dp;
 
-    /*
-     * Open and read directory
-     */
-    if( ! (dp = opendir(dirname)) )
+    BUF_EXPAND(name, dirname);
+
+    /* Open and read directory */
+    if( ! (dp = opendir(name)) )
 	return NULL;
 
     while((dir = readdir(dp)))
-	if(!stricmp(dir->d_name, name))
+	if(!stricmp(dir->d_name, filename))
 	{
-	    strcpy(name, dir->d_name);
+	    strcpy(filename, dir->d_name);
 	    closedir(dp);
-	    return name;
+	    return filename;
 	}
     
     closedir(dp);
@@ -272,21 +272,21 @@ int main(int argc, char *argv[])
 
 	printf("%s (name):\n", argv[1]);
 	dir_sortmode(DIR_SORTNAME);
-	dir_open(argv[1], NULL);
+	dir_open(argv[1], NULL, FALSE);
 	for(n=dir_get(TRUE); n; n=dir_get(FALSE))
 	    printf(" %s\n", n);
 	printf("\n");
 	
 	printf("%s (size):\n", argv[1]);
 	dir_sortmode(DIR_SORTSIZE);
-	dir_open(argv[1], NULL);
+	dir_open(argv[1], NULL, FALSE);
 	for(n=dir_get(TRUE); n; n=dir_get(FALSE))
 	    printf(" %s\n", n);
 	printf("\n");
 	
 	printf("%s (*.pkt, mtime):\n", argv[1]);
 	dir_sortmode(DIR_SORTMTIME);
-	dir_open(argv[1], "*.pkt");
+	dir_open(argv[1], "*.pkt", TRUE);
 	for(n=dir_get(TRUE); n; n=dir_get(FALSE))
 	    printf(" %s\n", n);
 	printf("\n");

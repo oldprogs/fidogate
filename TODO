@@ -2,13 +2,15 @@
 
 	************** TODO list for FIDOGATE development **************
 
-	* rundf: get df program from config.make
+	* ftnaf: send reply to Fido address!
+
+DONE	* rundf: get df program from config.make
 
 DONE	* lock.c: implement NFS-safe lock file.
 
 	* binkley.c: use lock_lockfile_nfs() for BSY files.
 
-	* dir.c,
+DONE	* dir.c,
 DONE	  ftntick: allow %X as directory name.
 
 DONE	* bounce.c: read from CONFIGDIR.

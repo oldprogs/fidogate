@@ -5,20 +5,20 @@
 #
 ../tr.init
 
-T="../../src/gate/rfc2ftn -L../cf -vvvvv"
+T="../../src/gate/rfc2ftn -vvvvv"
 
 echo "tc: running"
 
 for f in ../ti.news-l/[0-9]*; do
   echo "News article file $f"
-  $T -n <$f
+  $T -c../cf/gate.conf -n <$f
   $T -cconfig -n <$f
   $T -cconfig2 -n <$f
 done
 
 for f in ../ti.mail-l/[0-9]*; do
   echo "Mail message file $f"
-  $T test@hippo.fido.de <$f
+  $T -c../cf/gate.conf test@hippo.fido.de <$f
   $T -cconfig test@hippo.fido.de <$f
   $T -cconfig3 test@hippo.fido.de <$f
 done

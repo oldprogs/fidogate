@@ -1,7 +1,7 @@
 #
 # Local test config
 #
-include %L/config.gate
+include ../cf/gate.conf
 
 
 #

@@ -1,6 +1,6 @@
 #:ts=8
 #
-# $Id: config.gate,v 1.1 1996/11/01 13:08:00 mj Exp $
+# $Id: config.gate,v 1.2 1998/01/28 22:00:33 mj Exp $
 #
 # FIDOGATE config file gateway programs
 #
@@ -13,7 +13,7 @@
 #
 # Include common stuff (%L = LIBDIR)
 #
-include		%L/config.common
+include		../cf/common.conf
 
 
 #

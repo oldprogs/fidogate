@@ -1,4 +1,72 @@
+Wed Jan 28 22:02:38 1998  Martin Junius  <mj@fido.de>
+
+	------- CVS ci -------------------------------------------------------
+
+	* src/common/address.c (ftn_to_inet_pfnz): new function,
+	  converting node to p.f.n.z.do.main-style Internet address (no host
+	  names!) using temp string.
+
+	* src/include/structs.h (TmpS): moved to structs.h.
+	  (FTNAddr): new struct for FTN addresses User Name @ Z:N/F.P
+
+	* src/common/tmps.c (fatal): new function for fatal error message
+	  and exit.
+
+	* src/common/Makefile (testtmps): added testtmps target.
+	  (OBJS): added tmps.o
+
+	* src/common/tmps.c: new modules, functions for handling temporary
+	  strings, shall replace shuffle.h.
+	  (TmpS): new struct for holding temporary strings.
+	  (tmps_alloc): allocate new temporary string, init to 0.
+	  (tmps_free): free temporary string.
+	  (tmps_freeall): free all temporary strings.
+	  (s_alloc): same as tmps_alloc(), returns char *.
+	  (s_free): same as tmps_free(), uses char *.
+	  (s_freeall): same as tmps_freeall().
+
+Sun Jan 25 10:24:22 1998  Martin Junius  <mj@fido.de>
+
+	------- CVS ci -------------------------------------------------------
+
+	* test/tc.gate11/run: dito.
+
+	* test/tc.gate10/run: dito.
+
+	* test/tc.gate9/run: dito.
+
+	* test/tc.gate8/run: dito.
+
+	* test/tc.gate7/run: dito.
+
+	* test/tc.gate6/run: dito.
+
+	* test/tc.gate5/run: dito.
+
+	* test/tc.gate4/run: dito.
+
+	* test/tc.gate3/run: dito.
+
+	* test/tc.gate2/run: adapted to new configuration, added run.verify.
+
+	* src/common/wildmat.c (main): use fgets().
+
+	* src/common/Makefile (check): added testdir target.
+
+	* src/common/dir.c (dir_open): expand %X in dirname.
+	  (dir_search): dito.
+
 Sat Jan 24 12:33:39 1998  Martin Junius  <mj@fido.de>
+
+	* sendmail/cf/Makefile (M4OPTIONS): don't set confFIDOGATE_OUTDIR,
+	  now automatically done by rfc2ftn.
+
+	* src/ffx/ffxrmail.pl: use new config.pl configuration.
+
+	* src/util/ftnconfig.c (do_para): apply BUF_EXPAND() to parameter,
+	  only print 1st parameter value found.
+
+	* subst.pl: fixed macro expansion for DEFAULT_X_XXX.
 
 	------- CVS ci -------------------------------------------------------
 

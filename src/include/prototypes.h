@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: prototypes.h,v 4.35 1998/01/20 21:47:52 mj Exp $
+ * $Id: prototypes.h,v 4.36 1998/01/28 22:00:23 mj Exp $
  *
  * Prototypes for functions in libfidogate.a
  *
@@ -38,6 +38,7 @@ void	addr_restricted		(int);
 int	addr_is_restricted	(void);
 void	addr_ignore		(int);
 char   *ftn_to_inet		(Node *, int);
+char   *ftn_to_inet_pfnz	(Node *);
 Node   *inet_to_ftn		(char *);
 int	addr_is_local		(char *);
 int	addr_is_domain		(char *);
@@ -466,6 +467,17 @@ int	tick_get		(Tick *, char *);
 void	tick_debug		(Tick *, int);
 int	tick_send		(Tick *, Node *, char *);
 void	tick_add_path		(Tick *);
+
+/* tmps.c */
+void    fatal			(char *, int);
+TmpS   *tmps_alloc		(size_t);
+TmpS   *tmps_realloc		(TmpS *, size_t);
+void    tmps_free		(TmpS *);
+void    tmps_freeall		(void);
+char   *s_alloc			(size_t);
+char   *s_realloc		(char *, size_t);
+void    s_free			(char *s);
+void    s_freeall		(void);
 
 /* version.c */
 char   *version_global		(void);

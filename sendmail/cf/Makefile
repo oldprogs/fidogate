@@ -1,6 +1,6 @@
 #:ts=8
 #
-#    $Id: Makefile,v 4.6 1997/11/16 15:53:26 mj Exp $
+#    $Id: Makefile,v 4.7 1998/01/28 22:00:14 mj Exp $
 #
 #    Makefile for FIDOGATE sendmail/cf/
 #
@@ -15,9 +15,9 @@ TOPDIR		= ../..
 include $(TOPDIR)/config.make
 include $(TOPDIR)/rules.make
 
-#M4OPTIONS	= -DconfFIDOGATE_LIBDIR=$(LIBDIR)
-M4OPTIONS	= -DconfFIDOGATE_LIBDIR=$(LIBDIR) \
-		  -DconfFIDOGATE_OUTDIR=%S/outpkt/mail
+M4OPTIONS	= -DconfFIDOGATE_LIBDIR=$(LIBDIR)
+#M4OPTIONS	= -DconfFIDOGATE_LIBDIR=$(LIBDIR) \
+#		  -DconfFIDOGATE_OUTDIR=%S/outpkt/mail
 
 
 CF		= orodruin.cf orodruin-smtp.cf orodruin-check.cf\

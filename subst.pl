@@ -1,6 +1,6 @@
 #!/usr/bin/perl
 #
-# $Id: subst.pl,v 4.6 1998/01/24 15:45:49 mj Exp $
+# $Id: subst.pl,v 4.7 1998/01/28 22:00:10 mj Exp $
 #
 # Substitute directory names for FIDOGATE scripts
 #
@@ -139,7 +139,7 @@ for $s (keys %macros) {
     if( $r =~ /\$\((.*)\)/ ) {
 	$o = $1;
 	$m = $1;
-	$m =~ s/^DEFAULT_//;
+	$m =~ s/^DEFAULT_(._)?//;
 	$r =~ s/\$\($o\)/$macros{$m}/;
 	$macros{$s} = $r;
 	print "subst: $s=$r\n" if($opt_v);

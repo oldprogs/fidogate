@@ -1,8 +1,7 @@
 #
 # Local test config
 #
-include %L/config.gate
-
+include ../cf/gate.conf
 
 #
 # Don't generate From: line at beginning of text body.

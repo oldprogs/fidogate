@@ -1,6 +1,6 @@
 #:ts=8
 #
-#    $Id: Makefile,v 4.3 1997/11/16 15:53:24 mj Exp $
+#    $Id: Makefile,v 4.4 1998/01/28 22:00:13 mj Exp $
 #
 #    Makefile for FIDOGATE scripts/filebase/
 #
@@ -24,10 +24,10 @@ all:		$(PROGS)
 
 
 install:
-	$(INSTALL_PROG) run1 $(PREFIX)$(LIBDIR)
-	$(INSTALL_PROG) run2 $(PREFIX)$(LIBDIR)
-	$(INSTALL_PROG) runpoll $(PREFIX)$(LIBDIR)
-	$(INSTALL_PROG) runffx $(PREFIX)$(LIBDIR)
+	$(INSTALL_PROG) run1 $(PREFIX)$(BINDIR)
+	$(INSTALL_PROG) run2 $(PREFIX)$(BINDIR)
+	$(INSTALL_PROG) runpoll $(PREFIX)$(BINDIR)
+	$(INSTALL_PROG) runffx $(PREFIX)$(BINDIR)
 
 
 clean:

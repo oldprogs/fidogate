@@ -1,5 +1,5 @@
 #
-# $Id: config.0,v 1.1 1996/04/26 08:41:43 mj Exp $
+# $Id: config.0,v 1.2 1998/01/28 22:00:30 mj Exp $
 #
 # Test config.gate with RFCLevel 0, NoFromLine, NoFSC0035, NoFSC0047
 #
@@ -10,4 +10,5 @@ NoFromLine
 NoFSC0035
 NoFSC0047
 
-include %L/config.gate
+include ../cf/gate.conf
+

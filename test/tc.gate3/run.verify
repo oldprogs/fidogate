@@ -1,0 +1,3711 @@
+tc: clean-up
+tc: init
+tc: running
+News article file ../ti.news-a/10
+Message body size 1077 (+CR!)
+RFC From:     chw@veteran.sax.de (Carsten H. Wuestner)
+RFC Sender:   Carsten H. Wuestner <chw@veteran.sax.de>
+    Name:     Andreas M. Kirchwitz
+    Address:  
+Name for alias checking: amk@cs.tu-berlin.de
+No alias found: return Amk@cs.Tu-berlin.De
+    Name:     chw
+    Address:  veteran.sax.de
+RFC Date: Sat, 6 Apr 1996 11:20:39 GMT
+RFC Newsgroups: de.comm.misc
+Look up newsgroup de.comm.misc
+Found: DE.COMM.MISC de.comm.misc Z242
+RFC MIME-Version:              -NONE-
+RFC Content-Type:              -NONE-
+RFC Content-Transfer-Encoding: -NONE-
+New packet file ./outpkt/news/00000001.pkt (tmp ./outpkt/news/00000001.tmp)
+Writing FTN packet header:
+    From: 242:1000/5.0
+    To  : 242:1000/5.0
+    Baud: 0
+    Prod: 00 fe
+    Rev : 4.3
+    Pass: ""
+    Capw: 0001
+Writing FTN message header:
+    From: Carsten H. Wuestner                  @ 242:1000/5.0
+    To  : Amk@cs.Tu-berlin.De                  @ 242:1000/5.0
+    Subj: Re: Vertrieb von DInfo2.0 verboten....
+    Attr: 0000
+News article file ../ti.news-a/11
+Message body size 533 (+CR!)
+RFC From:     ge276@appl2.hrz.uni-siegen.de (Alexander Schwanke)
+RFC Reply-To: ge276@appl2.hrz.uni-siegen.de
+RFC Sender:   Alexander Schwanke <ge276@appl2.hrz.uni-siegen.de>
+Name for alias checking: All
+No alias found: return All
+    Name:     ge276
+    Address:  appl2.hrz.uni-siegen.de
+RFC Date: Fri, 05 Apr 1996 16:20:37 +0100
+RFC Newsgroups: de.comm.isdn,de.markt.comp.misc,de.comm.misc,de.markt.misc
+Look up newsgroup de.comm.isdn
+Found: DE.COMM.ISDN de.comm.isdn Z242
+RFC MIME-Version:              1.0
+RFC Content-Type:              text/plain; charset=ISO-8859-1
+RFC Content-Transfer-Encoding: 8bit
+New packet file ./outpkt/news/00000002.pkt (tmp ./outpkt/news/00000002.tmp)
+Writing FTN packet header:
+    From: 242:1000/5.0
+    To  : 242:1000/5.0
+    Baud: 0
+    Prod: 00 fe
+    Rev : 4.3
+    Pass: ""
+    Capw: 0001
+Writing FTN message header:
+    From: Alexander Schwanke                   @ 242:1000/5.0
+    To  : All                                  @ 242:1000/5.0
+    Subj: Re: S: besseres Angebot ISDN ANlage & Karte
+    Attr: 0000
+Look up newsgroup de.markt.comp.misc
+Found: DE.MARKT.COMP.MISC de.markt.comp.misc Z242
+RFC MIME-Version:              1.0
+RFC Content-Type:              text/plain; charset=ISO-8859-1
+RFC Content-Transfer-Encoding: 8bit
+Writing FTN message header:
+    From: Alexander Schwanke                   @ 242:1000/5.0
+    To  : All                                  @ 242:1000/5.0
+    Subj: Re: S: besseres Angebot ISDN ANlage & Karte
+    Attr: 0000
+Look up newsgroup de.comm.misc
+Found: DE.COMM.MISC de.comm.misc Z242
+RFC MIME-Version:              1.0
+RFC Content-Type:              text/plain; charset=ISO-8859-1
+RFC Content-Transfer-Encoding: 8bit
+Writing FTN message header:
+    From: Alexander Schwanke                   @ 242:1000/5.0
+    To  : All                                  @ 242:1000/5.0
+    Subj: Re: S: besseres Angebot ISDN ANlage & Karte
+    Attr: 0000
+Look up newsgroup de.markt.misc
+Found: DE.MARKT.MISC de.markt.misc Z242
+RFC MIME-Version:              1.0
+RFC Content-Type:              text/plain; charset=ISO-8859-1
+RFC Content-Transfer-Encoding: 8bit
+Writing FTN message header:
+    From: Alexander Schwanke                   @ 242:1000/5.0
+    To  : All                                  @ 242:1000/5.0
+    Subj: Re: S: besseres Angebot ISDN ANlage & Karte
+    Attr: 0000
+News article file ../ti.news-a/12
+Message body size 296 (+CR!)
+RFC From:     ukrapp@aol.com (Ukrapp)
+RFC Sender:   Ukrapp <ukrapp@aol.com>
+Name for alias checking: All
+No alias found: return All
+    Name:     ukrapp
+    Address:  aol.com
+RFC Date: 7 Apr 1996 10:35:46 -0400
+RFC Newsgroups: de.comm.misc
+Look up newsgroup de.comm.misc
+Found: DE.COMM.MISC de.comm.misc Z242
+RFC MIME-Version:              -NONE-
+RFC Content-Type:              -NONE-
+RFC Content-Transfer-Encoding: -NONE-
+New packet file ./outpkt/news/00000003.pkt (tmp ./outpkt/news/00000003.tmp)
+Writing FTN packet header:
+    From: 242:1000/5.0
+    To  : 242:1000/5.0
+    Baud: 0
+    Prod: 00 fe
+    Rev : 4.3
+    Pass: ""
+    Capw: 0001
+Writing FTN message header:
+    From: Ukrapp                               @ 242:1000/5.0
+    To  : All                                  @ 242:1000/5.0
+    Subj: Re: Vertrieb von DInfo2.0 verboten....
+    Attr: 0000
+News article file ../ti.news-a/13
+Message body size 1042 (+CR!)
+RFC From:     jrichert@krefcom.westfalen.de (Jan Richert)
+RFC Sender:   Jan Richert <jrichert@krefcom.westfalen.de>
+    Name:     Malcolm
+    Address:  modebox.rhein-ruhr.de
+Name for alias checking: Marvin Erdt
+No alias found: return Marvin Erdt
+    Name:     jrichert
+    Address:  krefcom.westfalen.de
+RFC Date: Sat, 6 Apr 1996 20:33:07 GMT
+RFC Newsgroups: de.comm.misc
+Look up newsgroup de.comm.misc
+Found: DE.COMM.MISC de.comm.misc Z242
+RFC MIME-Version:              -NONE-
+RFC Content-Type:              -NONE-
+RFC Content-Transfer-Encoding: -NONE-
+New packet file ./outpkt/news/00000004.pkt (tmp ./outpkt/news/00000004.tmp)
+Writing FTN packet header:
+    From: 242:1000/5.0
+    To  : 242:1000/5.0
+    Baud: 0
+    Prod: 00 fe
+    Rev : 4.3
+    Pass: ""
+    Capw: 0001
+Writing FTN message header:
+    From: Jan Richert                          @ 242:1000/5.0
+    To  : Marvin Erdt                          @ 242:1000/5.0
+    Subj: Re: Vertrieb von DInfo2.0 verboten....
+    Attr: 0000
+News article file ../ti.news-a/14
+Message body size 1475 (+CR!)
+RFC From:     news@allusenet.com
+RFC Sender:   news@allusenet.com
+Name for alias checking: All
+No alias found: return All
+    Name:     news
+    Address:  allusenet.com
+RFC Date: Sun, 07 Apr 1996 21:43:09 GMT
+RFC Newsgroups: de.comm.misc
+Look up newsgroup de.comm.misc
+Found: DE.COMM.MISC de.comm.misc Z242
+RFC MIME-Version:              -NONE-
+RFC Content-Type:              -NONE-
+RFC Content-Transfer-Encoding: -NONE-
+New packet file ./outpkt/news/00000005.pkt (tmp ./outpkt/news/00000005.tmp)
+Writing FTN packet header:
+    From: 242:1000/5.0
+    To  : 242:1000/5.0
+    Baud: 0
+    Prod: 00 fe
+    Rev : 4.3
+    Pass: ""
+    Capw: 0001
+Writing FTN message header:
+    From: News                                 @ 242:1000/5.0
+    To  : All                                  @ 242:1000/5.0
+    Subj: get all usenet at http://www.net-link.com
+    Attr: 0000
+News article file ../ti.news-a/15
+Message body size 1714 (+CR!)
+RFC From:     Maik Musall <maik@cape.de>
+RFC Sender:   Maik Musall <maik@cape.de>
+Name for alias checking: All
+No alias found: return All
+    Name:     maik
+    Address:  cape.de
+RFC Date: Mon, 08 Apr 1996 00:49:15 +0200
+RFC Newsgroups: de.comm.misc,de.comm.mobil,de.comm.modem,ger.pc.hard
+Look up newsgroup de.comm.misc
+Found: DE.COMM.MISC de.comm.misc Z242
+RFC MIME-Version:              1.0
+RFC Content-Type:              text/plain; charset=us-ascii
+RFC Content-Transfer-Encoding: 7bit
+New packet file ./outpkt/news/00000006.pkt (tmp ./outpkt/news/00000006.tmp)
+Writing FTN packet header:
+    From: 242:1000/5.0
+    To  : 242:1000/5.0
+    Baud: 0
+    Prod: 00 fe
+    Rev : 4.3
+    Pass: ""
+    Capw: 0001
+Writing FTN message header:
+    From: Maik Musall                          @ 242:1000/5.0
+    To  : All                                  @ 242:1000/5.0
+    Subj: Re: Modem an E-Plus-Handy???
+    Attr: 0000
+Look up newsgroup de.comm.mobil
+Found: DE.COMM.MOBIL de.comm.mobil Z242
+RFC MIME-Version:              1.0
+RFC Content-Type:              text/plain; charset=us-ascii
+RFC Content-Transfer-Encoding: 7bit
+Writing FTN message header:
+    From: Maik Musall                          @ 242:1000/5.0
+    To  : All                                  @ 242:1000/5.0
+    Subj: Re: Modem an E-Plus-Handy???
+    Attr: 0000
+Look up newsgroup de.comm.modem
+Found: DE.COMM.MODEM de.comm.modem Z242
+RFC MIME-Version:              1.0
+RFC Content-Type:              text/plain; charset=us-ascii
+RFC Content-Transfer-Encoding: 7bit
+Writing FTN message header:
+    From: Maik Musall                          @ 242:1000/5.0
+    To  : All                                  @ 242:1000/5.0
+    Subj: Re: Modem an E-Plus-Handy???
+    Attr: 0000
+Look up newsgroup ger.pc.hard
+No FTN area
+News article file ../ti.news-a/16
+Message body size 599 (+CR!)
+RFC From:     rene@flatta.in-berlin.de (Rene Kacza)
+RFC Sender:   Rene Kacza <rene@flatta.in-berlin.de>
+Name for alias checking: All
+No alias found: return All
+    Name:     rene
+    Address:  flatta.in-berlin.de
+RFC Date: 08 Apr 1996 00:37:00 +0200
+RFC Newsgroups: de.comm.isdn,de.comm.misc,de.markt.comp.misc,de.markt.misc
+Look up newsgroup de.comm.isdn
+Found: DE.COMM.ISDN de.comm.isdn Z242
+RFC MIME-Version:              -NONE-
+RFC Content-Type:              -NONE-
+RFC Content-Transfer-Encoding: -NONE-
+New packet file ./outpkt/news/00000007.pkt (tmp ./outpkt/news/00000007.tmp)
+Writing FTN packet header:
+    From: 242:1000/5.0
+    To  : 242:1000/5.0
+    Baud: 0
+    Prod: 00 fe
+    Rev : 4.3
+    Pass: ""
+    Capw: 0001
+Writing FTN message header:
+    From: Rene Kacza                           @ 242:1000/5.0
+    To  : All                                  @ 242:1000/5.0
+    Subj: Re: S: besseres Angebot ISDN ANlage & Karte
+    Attr: 0000
+Look up newsgroup de.comm.misc
+Found: DE.COMM.MISC de.comm.misc Z242
+RFC MIME-Version:              -NONE-
+RFC Content-Type:              -NONE-
+RFC Content-Transfer-Encoding: -NONE-
+Writing FTN message header:
+    From: Rene Kacza                           @ 242:1000/5.0
+    To  : All                                  @ 242:1000/5.0
+    Subj: Re: S: besseres Angebot ISDN ANlage & Karte
+    Attr: 0000
+Look up newsgroup de.markt.comp.misc
+Found: DE.MARKT.COMP.MISC de.markt.comp.misc Z242
+RFC MIME-Version:              -NONE-
+RFC Content-Type:              -NONE-
+RFC Content-Transfer-Encoding: -NONE-
+Writing FTN message header:
+    From: Rene Kacza                           @ 242:1000/5.0
+    To  : All                                  @ 242:1000/5.0
+    Subj: Re: S: besseres Angebot ISDN ANlage & Karte
+    Attr: 0000
+Look up newsgroup de.markt.misc
+Found: DE.MARKT.MISC de.markt.misc Z242
+RFC MIME-Version:              -NONE-
+RFC Content-Type:              -NONE-
+RFC Content-Transfer-Encoding: -NONE-
+Writing FTN message header:
+    From: Rene Kacza                           @ 242:1000/5.0
+    To  : All                                  @ 242:1000/5.0
+    Subj: Re: S: besseres Angebot ISDN ANlage & Karte
+    Attr: 0000
+News article file ../ti.news-a/17
+Message body size 807 (+CR!)
+RFC From:     roger@larry.westfalen.de (Roger Schwentker)
+RFC Sender:   Roger Schwentker <roger@larry.westfalen.de>
+Name for alias checking: All
+No alias found: return All
+    Name:     roger
+    Address:  larry.westfalen.de
+RFC Date: Mon, 8 Apr 1996 18:59:46 GMT
+RFC Newsgroups: de.comm.misc
+Look up newsgroup de.comm.misc
+Found: DE.COMM.MISC de.comm.misc Z242
+RFC MIME-Version:              -NONE-
+RFC Content-Type:              -NONE-
+RFC Content-Transfer-Encoding: -NONE-
+New packet file ./outpkt/news/00000008.pkt (tmp ./outpkt/news/00000008.tmp)
+Writing FTN packet header:
+    From: 242:1000/5.0
+    To  : 242:1000/5.0
+    Baud: 0
+    Prod: 00 fe
+    Rev : 4.3
+    Pass: ""
+    Capw: 0001
+Writing FTN message header:
+    From: Roger Schwentker                     @ 242:1000/5.0
+    To  : All                                  @ 242:1000/5.0
+    Subj: Trottel (war Re: http://194.163.56.129/~ronz/index.htm)
+    Attr: 0000
+News article file ../ti.news-a/18
+Message body size 1711 (+CR!)
+RFC From:     gau_t@gauhh.hanse.de (Thorsten Gau)
+RFC Sender:   Thorsten Gau <gau_t@gauhh.hanse.de>
+Name for alias checking: All
+No alias found: return All
+    Name:     gau_t
+    Address:  gauhh.hanse.de
+RFC Date: Mon, 8 Apr 1996 11:28:58 GMT
+RFC Newsgroups: de.comm.misc,de.comp.os.linux.networking,hanse.hardware
+Look up newsgroup de.comm.misc
+Found: DE.COMM.MISC de.comm.misc Z242
+RFC MIME-Version:              -NONE-
+RFC Content-Type:              -NONE-
+RFC Content-Transfer-Encoding: -NONE-
+New packet file ./outpkt/news/00000009.pkt (tmp ./outpkt/news/00000009.tmp)
+Writing FTN packet header:
+    From: 242:1000/5.0
+    To  : 242:1000/5.0
+    Baud: 0
+    Prod: 00 fe
+    Rev : 4.3
+    Pass: ""
+    Capw: 0001
+Writing FTN message header:
+    From: Thorsten Gau                         @ 242:1000/5.0
+    To  : All                                  @ 242:1000/5.0
+    Subj: 802.3-frame >= 64 Bytes
+    Attr: 0000
+Look up newsgroup de.comp.os.linux.networking
+Found: DE.COMP.OS.LINUX.NETWORKING de.comp.os.linux.networking Z242
+RFC MIME-Version:              -NONE-
+RFC Content-Type:              -NONE-
+RFC Content-Transfer-Encoding: -NONE-
+Writing FTN message header:
+    From: Thorsten Gau                         @ 242:1000/5.0
+    To  : All                                  @ 242:1000/5.0
+    Subj: 802.3-frame >= 64 Bytes
+    Attr: 0000
+Look up newsgroup hanse.hardware
+No FTN area
+News article file ../ti.news-a/19
+Message body size 697 (+CR!)
+RFC From:     holger.schmid@student.uni-tuebingen.de (Holger Schmid)
+RFC Reply-To: holger.schmid@student.uni-tuebingen.de
+RFC Sender:   Holger Schmid <holger.schmid@student.uni-tuebingen.de>
+    Name:     E.Ascheid
+    Address:  titan.ndh.com
+Name for alias checking: Elmar Ascheid
+No alias found: return Elmar Ascheid
+    Name:     holger.schmid
+    Address:  student.uni-tuebingen.de
+RFC Date: Tue, 09 Apr 1996 09:54:48 GMT
+RFC Newsgroups: de.comm.misc
+Look up newsgroup de.comm.misc
+Found: DE.COMM.MISC de.comm.misc Z242
+RFC MIME-Version:              -NONE-
+RFC Content-Type:              -NONE-
+RFC Content-Transfer-Encoding: -NONE-
+New packet file ./outpkt/news/00000010.pkt (tmp ./outpkt/news/00000010.tmp)
+Writing FTN packet header:
+    From: 242:1000/5.0
+    To  : 242:1000/5.0
+    Baud: 0
+    Prod: 00 fe
+    Rev : 4.3
+    Pass: ""
+    Capw: 0001
+Writing FTN message header:
+    From: Holger Schmid                        @ 242:1000/5.0
+    To  : Elmar Ascheid                        @ 242:1000/5.0
+    Subj: Re: Vertrieb von DInfo2.0 verboten....
+    Attr: 0000
+News article file ../ti.news-a/20
+Message body size 86 (+CR!)
+RFC From:     "K. Seeland" <kaisggdf@sp.zrz.tu-berlin.de>
+RFC Sender:   K. Seeland <kaisggdf@sp.zrz.tu-berlin.de>
+Name for alias checking: All
+No alias found: return All
+    Name:     kaisggdf
+    Address:  sp.zrz.tu-berlin.de
+RFC Date: Thu, 28 Mar 1996 21:20:39 -0800
+RFC Newsgroups: de.comm.misc
+Look up newsgroup de.comm.misc
+Found: DE.COMM.MISC de.comm.misc Z242
+RFC MIME-Version:              1.0
+RFC Content-Type:              text/plain; charset=us-ascii
+RFC Content-Transfer-Encoding: 7bit
+New packet file ./outpkt/news/00000011.pkt (tmp ./outpkt/news/00000011.tmp)
+Writing FTN packet header:
+    From: 242:1000/5.0
+    To  : 242:1000/5.0
+    Baud: 0
+    Prod: 00 fe
+    Rev : 4.3
+    Pass: ""
+    Capw: 0001
+Writing FTN message header:
+    From: K. Seeland                           @ 242:1000/5.0
+    To  : All                                  @ 242:1000/5.0
+    Subj: tcpip, ftp unter dos
+    Attr: 0000
+News article file ../ti.news-a/21
+Message body size 1188 (+CR!)
+RFC From:     adams@t-online.de (Thomas Adams)
+RFC Sender:   Thomas Adams <adams@t-online.de>
+Name for alias checking: All
+No alias found: return All
+    Name:     adams
+    Address:  t-online.de
+RFC Date: 7 Apr 1996 08:08:34 GMT
+RFC Newsgroups: de.comm.misc,z-netz.telecom.allgemein
+Look up newsgroup de.comm.misc
+Found: DE.COMM.MISC de.comm.misc Z242
+RFC MIME-Version:              1.0
+RFC Content-Type:              text/plain; charset=iso-8859-1
+RFC Content-Transfer-Encoding: 8bit
+New packet file ./outpkt/news/00000012.pkt (tmp ./outpkt/news/00000012.tmp)
+Writing FTN packet header:
+    From: 242:1000/5.0
+    To  : 242:1000/5.0
+    Baud: 0
+    Prod: 00 fe
+    Rev : 4.3
+    Pass: ""
+    Capw: 0001
+Writing FTN message header:
+    From: Thomas Adams                         @ 242:1000/5.0
+    To  : All                                  @ 242:1000/5.0
+    Subj: Re: AWS analog wieder moeglich!?
+    Attr: 0000
+Look up newsgroup z-netz.telecom.allgemein
+No FTN area
+News article file ../ti.news-a/22
+Message body size 204 (+CR!)
+RFC From:     adams@t-online.de (Thomas Adams)
+RFC Sender:   Thomas Adams <adams@t-online.de>
+Name for alias checking: All
+No alias found: return All
+    Name:     adams
+    Address:  t-online.de
+RFC Date: 8 Apr 1996 11:26:52 GMT
+RFC Newsgroups: de.comm.misc
+Look up newsgroup de.comm.misc
+Found: DE.COMM.MISC de.comm.misc Z242
+RFC MIME-Version:              1.0
+RFC Content-Type:              text/plain; charset=iso-8859-1
+RFC Content-Transfer-Encoding: 8bit
+New packet file ./outpkt/news/00000013.pkt (tmp ./outpkt/news/00000013.tmp)
+Writing FTN packet header:
+    From: 242:1000/5.0
+    To  : 242:1000/5.0
+    Baud: 0
+    Prod: 00 fe
+    Rev : 4.3
+    Pass: ""
+    Capw: 0001
+Writing FTN message header:
+    From: Thomas Adams                         @ 242:1000/5.0
+    To  : All                                  @ 242:1000/5.0
+    Subj: Gelsenkirchener gesucht
+    Attr: 0000
+News article file ../ti.news-a/23
+Message body size 782 (+CR!)
+RFC From:     boss@msoenix.du.gtn.com (Michael Soentgerath)
+RFC Sender:   Michael Soentgerath <boss@msoenix.du.gtn.com>
+Name for alias checking: All
+No alias found: return All
+    Name:     boss
+    Address:  msoenix.du.gtn.com
+RFC Date: Tue, 09 Apr 1996 21:22:31 +0100
+RFC Newsgroups: de.comm.misc
+Look up newsgroup de.comm.misc
+Found: DE.COMM.MISC de.comm.misc Z242
+RFC MIME-Version:              -NONE-
+RFC Content-Type:              -NONE-
+RFC Content-Transfer-Encoding: -NONE-
+New packet file ./outpkt/news/00000014.pkt (tmp ./outpkt/news/00000014.tmp)
+Writing FTN packet header:
+    From: 242:1000/5.0
+    To  : 242:1000/5.0
+    Baud: 0
+    Prod: 00 fe
+    Rev : 4.3
+    Pass: ""
+    Capw: 0001
+Writing FTN message header:
+    From: Michael Soentgerath                  @ 242:1000/5.0
+    To  : All                                  @ 242:1000/5.0
+    Subj: Re: Trottel (war Re: http://194.163.56.129/~ronz/index.htm)
+    Attr: 0000
+News article file ../ti.news-a/24
+Message body size 712 (+CR!)
+RFC From:     sgeorg@berlin.snafu.de (Stefan Görg)
+RFC Sender:   Stefan Görg <sgeorg@berlin.snafu.de>
+    Name:     didi
+    Address:  bbsro.wst.ni.schule.de
+Name for alias checking: Dietrich Restemeyer
+No alias found: return Dietrich Restemeyer
+    Name:     sgeorg
+    Address:  berlin.snafu.de
+RFC Date: Tue, 09 Apr 1996 18:55:18 GMT
+RFC Newsgroups: de.comm.misc
+Look up newsgroup de.comm.misc
+Found: DE.COMM.MISC de.comm.misc Z242
+RFC MIME-Version:              -NONE-
+RFC Content-Type:              -NONE-
+RFC Content-Transfer-Encoding: -NONE-
+New packet file ./outpkt/news/00000015.pkt (tmp ./outpkt/news/00000015.tmp)
+Writing FTN packet header:
+    From: 242:1000/5.0
+    To  : 242:1000/5.0
+    Baud: 0
+    Prod: 00 fe
+    Rev : 4.3
+    Pass: ""
+    Capw: 0001
+Writing FTN message header:
+    From: Stefan Görg                          @ 242:1000/5.0
+    To  : Dietrich Restemeyer                  @ 242:1000/5.0
+    Subj: Re: Vertrieb von DInfo2.0 verboten....
+    Attr: 0000
+News article file ../ti.news-a/25
+Message body size 233 (+CR!)
+RFC From:     eckubitz@aol.com (EcKubitz)
+RFC Reply-To: eckubitz@aol.com (EcKubitz)
+RFC Sender:   EcKubitz <eckubitz@aol.com>
+Name for alias checking: All
+No alias found: return All
+    Name:     eckubitz
+    Address:  aol.com
+RFC Date: 10 Apr 1996 08:29:22 -0400
+RFC Newsgroups: de.comm.misc
+Look up newsgroup de.comm.misc
+Found: DE.COMM.MISC de.comm.misc Z242
+RFC MIME-Version:              -NONE-
+RFC Content-Type:              -NONE-
+RFC Content-Transfer-Encoding: -NONE-
+New packet file ./outpkt/news/00000016.pkt (tmp ./outpkt/news/00000016.tmp)
+Writing FTN packet header:
+    From: 242:1000/5.0
+    To  : 242:1000/5.0
+    Baud: 0
+    Prod: 00 fe
+    Rev : 4.3
+    Pass: ""
+    Capw: 0001
+Writing FTN message header:
+    From: EcKubitz                             @ 242:1000/5.0
+    To  : All                                  @ 242:1000/5.0
+    Subj: Telefonieren im Internet
+    Attr: 0000
+News article file ../ti.news-a/26
+Message body size 875 (+CR!)
+RFC From:     CANDYMAN@LaDune.Westfalen.De  (Ralf Pieper)
+RFC Sender:   Ralf Pieper <CANDYMAN@LaDune.Westfalen.De>
+Name for alias checking: All
+No alias found: return All
+    Name:     CANDYMAN
+    Address:  LaDune.Westfalen.De
+RFC Date: Sun,  7 Apr 96  17:03:17 GMT
+RFC Newsgroups: de.comm.misc
+Look up newsgroup de.comm.misc
+Found: DE.COMM.MISC de.comm.misc Z242
+RFC MIME-Version:              1.0
+RFC Content-Type:              text/plain; charset=ISO-8859-1
+RFC Content-Transfer-Encoding: 8bit
+New packet file ./outpkt/news/00000017.pkt (tmp ./outpkt/news/00000017.tmp)
+Writing FTN packet header:
+    From: 242:1000/5.0
+    To  : 242:1000/5.0
+    Baud: 0
+    Prod: 00 fe
+    Rev : 4.3
+    Pass: ""
+    Capw: 0001
+Writing FTN message header:
+    From: Ralf Pieper                          @ 242:1000/5.0
+    To  : All                                  @ 242:1000/5.0
+    Subj: Re: Anrufbeantworter
+    Attr: 0000
+News article file ../ti.news-a/27
+Message body size 416 (+CR!)
+RFC From:     steiner@bb-data.de (Steffen Steiner)
+RFC Reply-To: steiner@bb-data.de
+RFC Sender:   Steffen Steiner <steiner@bb-data.de>
+Name for alias checking: All
+No alias found: return All
+    Name:     steiner
+    Address:  bb-data.de
+RFC Date: Wed, 10 Apr 1996 09:48:48 GMT
+RFC Newsgroups: de.comm.mobil,de.comm.misc
+Look up newsgroup de.comm.mobil
+Found: DE.COMM.MOBIL de.comm.mobil Z242
+RFC MIME-Version:              -NONE-
+RFC Content-Type:              -NONE-
+RFC Content-Transfer-Encoding: -NONE-
+New packet file ./outpkt/news/00000018.pkt (tmp ./outpkt/news/00000018.tmp)
+Writing FTN packet header:
+    From: 242:1000/5.0
+    To  : 242:1000/5.0
+    Baud: 0
+    Prod: 00 fe
+    Rev : 4.3
+    Pass: ""
+    Capw: 0001
+Writing FTN message header:
+    From: Steffen Steiner                      @ 242:1000/5.0
+    To  : All                                  @ 242:1000/5.0
+    Subj: PT11 / 2110 Passivhalterung
+    Attr: 0000
+Look up newsgroup de.comm.misc
+Found: DE.COMM.MISC de.comm.misc Z242
+RFC MIME-Version:              -NONE-
+RFC Content-Type:              -NONE-
+RFC Content-Transfer-Encoding: -NONE-
+Writing FTN message header:
+    From: Steffen Steiner                      @ 242:1000/5.0
+    To  : All                                  @ 242:1000/5.0
+    Subj: PT11 / 2110 Passivhalterung
+    Attr: 0000
+News article file ../ti.news-a/28
+Message body size 2298 (+CR!)
+RFC From:     hal@caty.ol.sub.de (Holger Lubitz)
+RFC Sender:   Holger Lubitz <hal@caty.ol.sub.de>
+    Name:     Maik Musall
+    Address:  
+Name for alias checking: Maik Musall
+No alias found: return Maik Musall
+    Name:     hal
+    Address:  caty.ol.sub.de
+RFC Date: Wed, 10 Apr 1996 13:59:00 GMT
+RFC Newsgroups: de.comm.misc,de.comm.mobil,de.comm.modem,ger.pc.hard
+Look up newsgroup de.comm.misc
+Found: DE.COMM.MISC de.comm.misc Z242
+RFC MIME-Version:              -NONE-
+RFC Content-Type:              -NONE-
+RFC Content-Transfer-Encoding: -NONE-
+New packet file ./outpkt/news/00000019.pkt (tmp ./outpkt/news/00000019.tmp)
+Writing FTN packet header:
+    From: 242:1000/5.0
+    To  : 242:1000/5.0
+    Baud: 0
+    Prod: 00 fe
+    Rev : 4.3
+    Pass: ""
+    Capw: 0001
+Writing FTN message header:
+    From: Holger Lubitz                        @ 242:1000/5.0
+    To  : Maik Musall                          @ 242:1000/5.0
+    Subj: Re: Modem an E-Plus-Handy???
+    Attr: 0000
+Look up newsgroup de.comm.mobil
+Found: DE.COMM.MOBIL de.comm.mobil Z242
+RFC MIME-Version:              -NONE-
+RFC Content-Type:              -NONE-
+RFC Content-Transfer-Encoding: -NONE-
+Writing FTN message header:
+    From: Holger Lubitz                        @ 242:1000/5.0
+    To  : Maik Musall                          @ 242:1000/5.0
+    Subj: Re: Modem an E-Plus-Handy???
+    Attr: 0000
+Look up newsgroup de.comm.modem
+Found: DE.COMM.MODEM de.comm.modem Z242
+RFC MIME-Version:              -NONE-
+RFC Content-Type:              -NONE-
+RFC Content-Transfer-Encoding: -NONE-
+Writing FTN message header:
+    From: Holger Lubitz                        @ 242:1000/5.0
+    To  : Maik Musall                          @ 242:1000/5.0
+    Subj: Re: Modem an E-Plus-Handy???
+    Attr: 0000
+Look up newsgroup ger.pc.hard
+No FTN area
+News article file ../ti.news-a/29
+Message body size 883 (+CR!)
+RFC From:     winkler@ira.uka.de  (Frank Winkler @home)
+RFC Reply-To: winkler@ira.uka.de (Frank Winkler)
+RFC Sender:   Frank Winkler <winkler@ira.uka.de>
+Name for alias checking: All
+No alias found: return All
+    Name:     winkler
+    Address:  ira.uka.de
+RFC Date: 10 Apr 1996 19:13:08 GMT
+RFC Newsgroups: de.comp.os.os2.misc,de.comm.misc
+Look up newsgroup de.comp.os.os2.misc
+Found: DE.COMP.OS.OS2.MISC de.comp.os.os2.misc Z242
+RFC MIME-Version:              1.0
+RFC Content-Type:              text/plain; charset=iso-8859-1
+RFC Content-Transfer-Encoding: 8bit
+New packet file ./outpkt/news/00000020.pkt (tmp ./outpkt/news/00000020.tmp)
+Writing FTN packet header:
+    From: 242:1000/5.0
+    To  : 242:1000/5.0
+    Baud: 0
+    Prod: 00 fe
+    Rev : 4.3
+    Pass: ""
+    Capw: 0001
+Writing FTN message header:
+    From: Frank Winkler                        @ 242:1000/5.0
+    To  : All                                  @ 242:1000/5.0
+    Subj: Scall/SMS fur OS/2 ?
+    Attr: 0000
+Look up newsgroup de.comm.misc
+Found: DE.COMM.MISC de.comm.misc Z242
+RFC MIME-Version:              1.0
+RFC Content-Type:              text/plain; charset=iso-8859-1
+RFC Content-Transfer-Encoding: 8bit
+Writing FTN message header:
+    From: Frank Winkler                        @ 242:1000/5.0
+    To  : All                                  @ 242:1000/5.0
+    Subj: Scall/SMS fur OS/2 ?
+    Attr: 0000
+News article file ../ti.news-a/30
+Message body size 254 (+CR!)
+RFC From:     "Marc A. Rieger" <rieger@stud.uni-frankfurt.de>
+RFC Reply-To: rieger@stud.uni-frankfurt.de
+RFC Sender:   Marc A. Rieger <rieger@stud.uni-frankfurt.de>
+Name for alias checking: All
+No alias found: return All
+    Name:     rieger
+    Address:  stud.uni-frankfurt.de
+RFC Date: Wed, 10 Apr 1996 23:58:07 +0200
+RFC Newsgroups: de.comm.isdn,de.comm.misc,de.markt.comp.misc,de.markt.misc
+Look up newsgroup de.comm.isdn
+Found: DE.COMM.ISDN de.comm.isdn Z242
+RFC MIME-Version:              1.0
+RFC Content-Type:              text/plain; charset=us-ascii
+RFC Content-Transfer-Encoding: 7bit
+New packet file ./outpkt/news/00000021.pkt (tmp ./outpkt/news/00000021.tmp)
+Writing FTN packet header:
+    From: 242:1000/5.0
+    To  : 242:1000/5.0
+    Baud: 0
+    Prod: 00 fe
+    Rev : 4.3
+    Pass: ""
+    Capw: 0001
+Writing FTN message header:
+    From: Marc A. Rieger                       @ 242:1000/5.0
+    To  : All                                  @ 242:1000/5.0
+    Subj: Re: S: besseres Angebot ISDN ANlage & Karte
+    Attr: 0000
+Look up newsgroup de.comm.misc
+Found: DE.COMM.MISC de.comm.misc Z242
+RFC MIME-Version:              1.0
+RFC Content-Type:              text/plain; charset=us-ascii
+RFC Content-Transfer-Encoding: 7bit
+Writing FTN message header:
+    From: Marc A. Rieger                       @ 242:1000/5.0
+    To  : All                                  @ 242:1000/5.0
+    Subj: Re: S: besseres Angebot ISDN ANlage & Karte
+    Attr: 0000
+Look up newsgroup de.markt.comp.misc
+Found: DE.MARKT.COMP.MISC de.markt.comp.misc Z242
+RFC MIME-Version:              1.0
+RFC Content-Type:              text/plain; charset=us-ascii
+RFC Content-Transfer-Encoding: 7bit
+Writing FTN message header:
+    From: Marc A. Rieger                       @ 242:1000/5.0
+    To  : All                                  @ 242:1000/5.0
+    Subj: Re: S: besseres Angebot ISDN ANlage & Karte
+    Attr: 0000
+Look up newsgroup de.markt.misc
+Found: DE.MARKT.MISC de.markt.misc Z242
+RFC MIME-Version:              1.0
+RFC Content-Type:              text/plain; charset=us-ascii
+RFC Content-Transfer-Encoding: 7bit
+Writing FTN message header:
+    From: Marc A. Rieger                       @ 242:1000/5.0
+    To  : All                                  @ 242:1000/5.0
+    Subj: Re: S: besseres Angebot ISDN ANlage & Karte
+    Attr: 0000
+News article file ../ti.news-a/31
+Message body size 772 (+CR!)
+RFC From:     malcolm@modebox.rhein-ruhr.de (Marvin Erdt)
+RFC Sender:   Marvin Erdt <malcolm@modebox.rhein-ruhr.de>
+Name for alias checking: All
+No alias found: return All
+    Name:     malcolm
+    Address:  modebox.rhein-ruhr.de
+RFC Date: 09 Apr 1996 16:20:00 +0200
+RFC Newsgroups: de.comm.misc
+Look up newsgroup de.comm.misc
+Found: DE.COMM.MISC de.comm.misc Z242
+RFC MIME-Version:              1.0
+RFC Content-Type:              text/plain; charset=ISO-8859-1
+RFC Content-Transfer-Encoding: 8bit
+New packet file ./outpkt/news/00000022.pkt (tmp ./outpkt/news/00000022.tmp)
+Writing FTN packet header:
+    From: 242:1000/5.0
+    To  : 242:1000/5.0
+    Baud: 0
+    Prod: 00 fe
+    Rev : 4.3
+    Pass: ""
+    Capw: 0001
+Writing FTN message header:
+    From: Marvin Erdt                          @ 242:1000/5.0
+    To  : All                                  @ 242:1000/5.0
+    Subj: Re: Vertrieb von DInfo2.0 verboten....
+    Attr: 0000
+News article file ../ti.news-a/32
+Message body size 970 (+CR!)
+RFC From:     thilo.pohl@fernuni-hagen.de (Thilo Pohl)
+RFC Reply-To: thilo.pohl@fernuni-hagen.de
+RFC Sender:   Thilo Pohl <thilo.pohl@fernuni-hagen.de>
+Name for alias checking: All
+No alias found: return All
+    Name:     thilo.pohl
+    Address:  fernuni-hagen.de
+RFC Date: Thu, 11 Apr 1996 06:42:07 GMT
+RFC Newsgroups: de.comm.misc
+Look up newsgroup de.comm.misc
+Found: DE.COMM.MISC de.comm.misc Z242
+RFC MIME-Version:              -NONE-
+RFC Content-Type:              -NONE-
+RFC Content-Transfer-Encoding: -NONE-
+New packet file ./outpkt/news/00000023.pkt (tmp ./outpkt/news/00000023.tmp)
+Writing FTN packet header:
+    From: 242:1000/5.0
+    To  : 242:1000/5.0
+    Baud: 0
+    Prod: 00 fe
+    Rev : 4.3
+    Pass: ""
+    Capw: 0001
+Writing FTN message header:
+    From: Thilo Pohl                           @ 242:1000/5.0
+    To  : All                                  @ 242:1000/5.0
+    Subj: Niederlande: Vorwahlen
+    Attr: 0000
+News article file ../ti.news-a/33
+Message body size 819 (+CR!)
+RFC From:     Markus Zimmermann <zmm@grs.de>
+RFC Sender:   Markus Zimmermann <zmm@grs.de>
+Name for alias checking: All
+No alias found: return All
+    Name:     zmm
+    Address:  grs.de
+RFC Date: Thu, 11 Apr 1996 09:19:04 +0200
+RFC Newsgroups: de.comm.misc
+Look up newsgroup de.comm.misc
+Found: DE.COMM.MISC de.comm.misc Z242
+RFC MIME-Version:              1.0
+RFC Content-Type:              text/plain; charset=iso-8859-1
+RFC Content-Transfer-Encoding: 8bit
+New packet file ./outpkt/news/00000024.pkt (tmp ./outpkt/news/00000024.tmp)
+Writing FTN packet header:
+    From: 242:1000/5.0
+    To  : 242:1000/5.0
+    Baud: 0
+    Prod: 00 fe
+    Rev : 4.3
+    Pass: ""
+    Capw: 0001
+Writing FTN message header:
+    From: Markus Zimmermann                    @ 242:1000/5.0
+    To  : All                                  @ 242:1000/5.0
+    Subj: Probleme mit SHARP Fax F0 100
+    Attr: 0000
+News article file ../ti.news-a/34
+Message body size 204 (+CR!)
+RFC From:     n.balthasar@public.ndh.com (Dirk Balthasar)
+RFC Sender:   Dirk Balthasar <n.balthasar@public.ndh.com>
+Name for alias checking: All
+No alias found: return All
+    Name:     n.balthasar
+    Address:  public.ndh.com
+RFC Date: Thu, 11 Apr 1996 08:51:14 GMT
+RFC Newsgroups: de.comm.internet.misc,de.comm.misc
+Look up newsgroup de.comm.internet.misc
+Found: DE.COMM.INTERNET.MISC de.comm.internet.misc Z242
+RFC MIME-Version:              -NONE-
+RFC Content-Type:              -NONE-
+RFC Content-Transfer-Encoding: -NONE-
+New packet file ./outpkt/news/00000025.pkt (tmp ./outpkt/news/00000025.tmp)
+Writing FTN packet header:
+    From: 242:1000/5.0
+    To  : 242:1000/5.0
+    Baud: 0
+    Prod: 00 fe
+    Rev : 4.3
+    Pass: ""
+    Capw: 0001
+Writing FTN message header:
+    From: Dirk Balthasar                       @ 242:1000/5.0
+    To  : All                                  @ 242:1000/5.0
+    Subj: Eudora
+    Attr: 0000
+Look up newsgroup de.comm.misc
+Found: DE.COMM.MISC de.comm.misc Z242
+RFC MIME-Version:              -NONE-
+RFC Content-Type:              -NONE-
+RFC Content-Transfer-Encoding: -NONE-
+Writing FTN message header:
+    From: Dirk Balthasar                       @ 242:1000/5.0
+    To  : All                                  @ 242:1000/5.0
+    Subj: Eudora
+    Attr: 0000
+News article file ../ti.news-a/35
+Message body size 565 (+CR!)
+RFC From:     Kai.Ruettger@paediat.med.uni-giessen.de (Kai Ruettger)
+RFC Reply-To: Kai.Ruettger@paediat.med.uni-giessen.de
+RFC Sender:   Kai Ruettger <Kai.Ruettger@paediat.med.uni-giessen.de>
+    Name:     achim
+    Address:  kd.fh-hannover.de
+Name for alias checking: Joachim Gothe
+No alias found: return Joachim Gothe
+    Name:     Kai.Ruettger
+    Address:  paediat.med.uni-giessen.de
+RFC Date: Wed, 03 Apr 1996 23:07:12 GMT
+RFC Newsgroups: de.comm.misc
+Look up newsgroup de.comm.misc
+Found: DE.COMM.MISC de.comm.misc Z242
+RFC MIME-Version:              -NONE-
+RFC Content-Type:              -NONE-
+RFC Content-Transfer-Encoding: -NONE-
+New packet file ./outpkt/news/00000026.pkt (tmp ./outpkt/news/00000026.tmp)
+Writing FTN packet header:
+    From: 242:1000/5.0
+    To  : 242:1000/5.0
+    Baud: 0
+    Prod: 00 fe
+    Rev : 4.3
+    Pass: ""
+    Capw: 0001
+Writing FTN message header:
+    From: Kai Ruettger                         @ 242:1000/5.0
+    To  : Joachim Gothe                        @ 242:1000/5.0
+    Subj: Re: Vertrieb von DInfo2.0 verboten....
+    Attr: 0000
+News article file ../ti.news-a/36
+Message body size 1826 (+CR!)
+RFC From:     muench@wolf.informatik.rwth-aachen.de (Manfred Muench)
+RFC Sender:   Manfred Muench <muench@wolf.informatik.rwth-aachen.de>
+Name for alias checking: All
+No alias found: return All
+    Name:     muench
+    Address:  wolf.informatik.rwth-aachen.de
+RFC Date: 11 Apr 1996 12:32:34 GMT
+RFC Newsgroups: de.comm.misc
+Look up newsgroup de.comm.misc
+Found: DE.COMM.MISC de.comm.misc Z242
+RFC MIME-Version:              -NONE-
+RFC Content-Type:              -NONE-
+RFC Content-Transfer-Encoding: -NONE-
+New packet file ./outpkt/news/00000027.pkt (tmp ./outpkt/news/00000027.tmp)
+Writing FTN packet header:
+    From: 242:1000/5.0
+    To  : 242:1000/5.0
+    Baud: 0
+    Prod: 00 fe
+    Rev : 4.3
+    Pass: ""
+    Capw: 0001
+Writing FTN message header:
+    From: Manfred Muench                       @ 242:1000/5.0
+    To  : All                                  @ 242:1000/5.0
+    Subj: Re: Niederlande: Vorwahlen
+    Attr: 0000
+News article file ../ti.news-a/37
+Message body size 825 (+CR!)
+RFC From:     matthias.bolten@bigapple.Cologne.DE (Matthias Bolten)
+RFC Sender:   Matthias Bolten <matthias.bolten@bigapple.Cologne.DE>
+Name for alias checking: All
+No alias found: return All
+    Name:     matthias.bolten
+    Address:  bigapple.Cologne.DE
+RFC Date: Thu, 11 Apr 1996 13:54:19 +0200
+RFC Newsgroups: de.comm.gateways,de.comm.infosystems.misc,de.comm.internet.misc,de.comm.internet.routing,de.comm.internet.zugang,de.comm.isdn,de.comm.misc,de.comm.modem
+Look up newsgroup de.comm.gateways
+Found: DE.COMM.GATEWAYS de.comm.gateways Z242
+RFC MIME-Version:              -NONE-
+RFC Content-Type:              -NONE-
+RFC Content-Transfer-Encoding: -NONE-
+New packet file ./outpkt/news/00000028.pkt (tmp ./outpkt/news/00000028.tmp)
+Writing FTN packet header:
+    From: 242:1000/5.0
+    To  : 242:1000/5.0
+    Baud: 0
+    Prod: 00 fe
+    Rev : 4.3
+    Pass: ""
+    Capw: 0001
+Writing FTN message header:
+    From: Matthias Bolten                      @ 242:1000/5.0
+    To  : All                                  @ 242:1000/5.0
+    Subj: Kosten einer Standleitung
+    Attr: 0000
+Look up newsgroup de.comm.infosystems.misc
+Found: DE.COMM.INFOSYSTEMS.MISC de.comm.infosystems.misc Z242
+RFC MIME-Version:              -NONE-
+RFC Content-Type:              -NONE-
+RFC Content-Transfer-Encoding: -NONE-
+Writing FTN message header:
+    From: Matthias Bolten                      @ 242:1000/5.0
+    To  : All                                  @ 242:1000/5.0
+    Subj: Kosten einer Standleitung
+    Attr: 0000
+Look up newsgroup de.comm.internet.misc
+Found: DE.COMM.INTERNET.MISC de.comm.internet.misc Z242
+RFC MIME-Version:              -NONE-
+RFC Content-Type:              -NONE-
+RFC Content-Transfer-Encoding: -NONE-
+Writing FTN message header:
+    From: Matthias Bolten                      @ 242:1000/5.0
+    To  : All                                  @ 242:1000/5.0
+    Subj: Kosten einer Standleitung
+    Attr: 0000
+Look up newsgroup de.comm.internet.routing
+Found: DE.COMM.INTERNET.ROUTING de.comm.internet.routing Z242
+RFC MIME-Version:              -NONE-
+RFC Content-Type:              -NONE-
+RFC Content-Transfer-Encoding: -NONE-
+Writing FTN message header:
+    From: Matthias Bolten                      @ 242:1000/5.0
+    To  : All                                  @ 242:1000/5.0
+    Subj: Kosten einer Standleitung
+    Attr: 0000
+Look up newsgroup de.comm.internet.zugang
+Found: DE.COMM.INTERNET.ZUGANG de.comm.internet.zugang Z242
+RFC MIME-Version:              -NONE-
+RFC Content-Type:              -NONE-
+RFC Content-Transfer-Encoding: -NONE-
+Writing FTN message header:
+    From: Matthias Bolten                      @ 242:1000/5.0
+    To  : All                                  @ 242:1000/5.0
+    Subj: Kosten einer Standleitung
+    Attr: 0000
+Look up newsgroup de.comm.isdn
+Found: DE.COMM.ISDN de.comm.isdn Z242
+RFC MIME-Version:              -NONE-
+RFC Content-Type:              -NONE-
+RFC Content-Transfer-Encoding: -NONE-
+Writing FTN message header:
+    From: Matthias Bolten                      @ 242:1000/5.0
+    To  : All                                  @ 242:1000/5.0
+    Subj: Kosten einer Standleitung
+    Attr: 0000
+Look up newsgroup de.comm.misc
+Found: DE.COMM.MISC de.comm.misc Z242
+RFC MIME-Version:              -NONE-
+RFC Content-Type:              -NONE-
+RFC Content-Transfer-Encoding: -NONE-
+Writing FTN message header:
+    From: Matthias Bolten                      @ 242:1000/5.0
+    To  : All                                  @ 242:1000/5.0
+    Subj: Kosten einer Standleitung
+    Attr: 0000
+Look up newsgroup de.comm.modem
+Found: DE.COMM.MODEM de.comm.modem Z242
+RFC MIME-Version:              -NONE-
+RFC Content-Type:              -NONE-
+RFC Content-Transfer-Encoding: -NONE-
+Writing FTN message header:
+    From: Matthias Bolten                      @ 242:1000/5.0
+    To  : All                                  @ 242:1000/5.0
+    Subj: Kosten einer Standleitung
+    Attr: 0000
+News article file ../ti.news-a/38
+Message body size 552 (+CR!)
+RFC From:     naddy@mips.pfalz.de (Christian Weisgerber)
+RFC Sender:   Christian Weisgerber <naddy@mips.pfalz.de>
+    Name:     andy
+    Address:  pandy.on-luebeck.de
+Name for alias checking: Andreas Schrot
+No alias found: return Andreas Schrot
+    Name:     naddy
+    Address:  mips.pfalz.de
+RFC Date: 11 Apr 1996 11:42:15 +0200
+RFC Newsgroups: de.comm.isdn,on.fragen+antworten,on.tips,de.comm.misc
+Look up newsgroup de.comm.isdn
+Found: DE.COMM.ISDN de.comm.isdn Z242
+RFC MIME-Version:              1.0
+RFC Content-Type:              text/plain; charset=iso-8859-1
+RFC Content-Transfer-Encoding: 8bit
+New packet file ./outpkt/news/00000029.pkt (tmp ./outpkt/news/00000029.tmp)
+Writing FTN packet header:
+    From: 242:1000/5.0
+    To  : 242:1000/5.0
+    Baud: 0
+    Prod: 00 fe
+    Rev : 4.3
+    Pass: ""
+    Capw: 0001
+Writing FTN message header:
+    From: Christian Weisgerber                 @ 242:1000/5.0
+    To  : Andreas Schrot                       @ 242:1000/5.0
+    Subj: Re: Hörbarer Gebührenimpuls
+    Attr: 0000
+Look up newsgroup on.fragen+antworten
+No FTN area
+Look up newsgroup on.tips
+No FTN area
+Look up newsgroup de.comm.misc
+Found: DE.COMM.MISC de.comm.misc Z242
+RFC MIME-Version:              1.0
+RFC Content-Type:              text/plain; charset=iso-8859-1
+RFC Content-Transfer-Encoding: 8bit
+Writing FTN message header:
+    From: Christian Weisgerber                 @ 242:1000/5.0
+    To  : Andreas Schrot                       @ 242:1000/5.0
+    Subj: Re: Hörbarer Gebührenimpuls
+    Attr: 0000
+News article file ../ti.news-a/39
+Message body size 238 (+CR!)
+RFC From:     Peter Klinke <pklinke@econ2.uni-bonn.de>
+RFC Sender:   Peter Klinke <pklinke@econ2.uni-bonn.de>
+Name for alias checking: All
+No alias found: return All
+    Name:     pklinke
+    Address:  econ2.uni-bonn.de
+RFC Date: Thu, 11 Apr 1996 15:27:49 -0700
+RFC Newsgroups: de.comm.misc
+Look up newsgroup de.comm.misc
+Found: DE.COMM.MISC de.comm.misc Z242
+RFC MIME-Version:              1.0
+RFC Content-Type:              text/plain; charset=us-ascii
+RFC Content-Transfer-Encoding: 7bit
+New packet file ./outpkt/news/00000030.pkt (tmp ./outpkt/news/00000030.tmp)
+Writing FTN packet header:
+    From: 242:1000/5.0
+    To  : 242:1000/5.0
+    Baud: 0
+    Prod: 00 fe
+    Rev : 4.3
+    Pass: ""
+    Capw: 0001
+Writing FTN message header:
+    From: Peter Klinke                         @ 242:1000/5.0
+    To  : All                                  @ 242:1000/5.0
+    Subj: SMC Token-Ring Karte 8115
+    Attr: 0000
+News article file ../ti.news-a/40
+Message body size 1159 (+CR!)
+RFC From:     usai1035@servus02.rus.uni-stuttgart.de (Ralf Sipple)
+RFC Sender:   Ralf Sipple <usai1035@servus02.rus.uni-stuttgart.de>
+    Name:     Matthias Bolten
+    Address:  
+Name for alias checking: matthias.bolten@bigapple.Cologne.DE
+No alias found: return Matthias.Bolten@bigapple.Cologne.DE
+    Name:     usai1035
+    Address:  servus02.rus.uni-stuttgart.de
+RFC Date: 11 Apr 1996 14:31:43 GMT
+RFC Newsgroups: de.comm.gateways,de.comm.infosystems.misc,de.comm.internet.misc,de.comm.internet.routing,de.comm.internet.zugang,de.comm.isdn,de.comm.misc,de.comm.modem
+Look up newsgroup de.comm.gateways
+Found: DE.COMM.GATEWAYS de.comm.gateways Z242
+RFC MIME-Version:              -NONE-
+RFC Content-Type:              -NONE-
+RFC Content-Transfer-Encoding: -NONE-
+New packet file ./outpkt/news/00000031.pkt (tmp ./outpkt/news/00000031.tmp)
+Writing FTN packet header:
+    From: 242:1000/5.0
+    To  : 242:1000/5.0
+    Baud: 0
+    Prod: 00 fe
+    Rev : 4.3
+    Pass: ""
+    Capw: 0001
+Writing FTN message header:
+    From: Ralf Sipple                          @ 242:1000/5.0
+    To  : Matthias.Bolten@bigapple.Cologne.DE  @ 242:1000/5.0
+    Subj: Re: Kosten einer Standleitung
+    Attr: 0000
+Look up newsgroup de.comm.infosystems.misc
+Found: DE.COMM.INFOSYSTEMS.MISC de.comm.infosystems.misc Z242
+RFC MIME-Version:              -NONE-
+RFC Content-Type:              -NONE-
+RFC Content-Transfer-Encoding: -NONE-
+Writing FTN message header:
+    From: Ralf Sipple                          @ 242:1000/5.0
+    To  : Matthias.Bolten@bigapple.Cologne.DE  @ 242:1000/5.0
+    Subj: Re: Kosten einer Standleitung
+    Attr: 0000
+Look up newsgroup de.comm.internet.misc
+Found: DE.COMM.INTERNET.MISC de.comm.internet.misc Z242
+RFC MIME-Version:              -NONE-
+RFC Content-Type:              -NONE-
+RFC Content-Transfer-Encoding: -NONE-
+Writing FTN message header:
+    From: Ralf Sipple                          @ 242:1000/5.0
+    To  : Matthias.Bolten@bigapple.Cologne.DE  @ 242:1000/5.0
+    Subj: Re: Kosten einer Standleitung
+    Attr: 0000
+Look up newsgroup de.comm.internet.routing
+Found: DE.COMM.INTERNET.ROUTING de.comm.internet.routing Z242
+RFC MIME-Version:              -NONE-
+RFC Content-Type:              -NONE-
+RFC Content-Transfer-Encoding: -NONE-
+Writing FTN message header:
+    From: Ralf Sipple                          @ 242:1000/5.0
+    To  : Matthias.Bolten@bigapple.Cologne.DE  @ 242:1000/5.0
+    Subj: Re: Kosten einer Standleitung
+    Attr: 0000
+Look up newsgroup de.comm.internet.zugang
+Found: DE.COMM.INTERNET.ZUGANG de.comm.internet.zugang Z242
+RFC MIME-Version:              -NONE-
+RFC Content-Type:              -NONE-
+RFC Content-Transfer-Encoding: -NONE-
+Writing FTN message header:
+    From: Ralf Sipple                          @ 242:1000/5.0
+    To  : Matthias.Bolten@bigapple.Cologne.DE  @ 242:1000/5.0
+    Subj: Re: Kosten einer Standleitung
+    Attr: 0000
+Look up newsgroup de.comm.isdn
+Found: DE.COMM.ISDN de.comm.isdn Z242
+RFC MIME-Version:              -NONE-
+RFC Content-Type:              -NONE-
+RFC Content-Transfer-Encoding: -NONE-
+Writing FTN message header:
+    From: Ralf Sipple                          @ 242:1000/5.0
+    To  : Matthias.Bolten@bigapple.Cologne.DE  @ 242:1000/5.0
+    Subj: Re: Kosten einer Standleitung
+    Attr: 0000
+Look up newsgroup de.comm.misc
+Found: DE.COMM.MISC de.comm.misc Z242
+RFC MIME-Version:              -NONE-
+RFC Content-Type:              -NONE-
+RFC Content-Transfer-Encoding: -NONE-
+Writing FTN message header:
+    From: Ralf Sipple                          @ 242:1000/5.0
+    To  : Matthias.Bolten@bigapple.Cologne.DE  @ 242:1000/5.0
+    Subj: Re: Kosten einer Standleitung
+    Attr: 0000
+Look up newsgroup de.comm.modem
+Found: DE.COMM.MODEM de.comm.modem Z242
+RFC MIME-Version:              -NONE-
+RFC Content-Type:              -NONE-
+RFC Content-Transfer-Encoding: -NONE-
+Writing FTN message header:
+    From: Ralf Sipple                          @ 242:1000/5.0
+    To  : Matthias.Bolten@bigapple.Cologne.DE  @ 242:1000/5.0
+    Subj: Re: Kosten einer Standleitung
+    Attr: 0000
+News article file ../ti.news-a/41
+Message body size 1219 (+CR!)
+RFC From:     ghost@dawn.mayn.de (Armin Wies)
+RFC Sender:   Armin Wies <ghost@dawn.mayn.de>
+    Name:     Ralf Pieper
+    Address:  
+Name for alias checking: CANDYMAN@LaDune.Westfalen.De
+No alias found: return CANDYMAN@LaDune.Westfalen.De
+    Name:     ghost
+    Address:  dawn.mayn.de
+RFC Date: Thu, 11 Apr 96 11:28:59 +0100
+RFC Newsgroups: de.comm.misc
+Look up newsgroup de.comm.misc
+Found: DE.COMM.MISC de.comm.misc Z242
+RFC MIME-Version:              -NONE-
+RFC Content-Type:              -NONE-
+RFC Content-Transfer-Encoding: -NONE-
+New packet file ./outpkt/news/00000032.pkt (tmp ./outpkt/news/00000032.tmp)
+Writing FTN packet header:
+    From: 242:1000/5.0
+    To  : 242:1000/5.0
+    Baud: 0
+    Prod: 00 fe
+    Rev : 4.3
+    Pass: ""
+    Capw: 0001
+Writing FTN message header:
+    From: Armin Wies                           @ 242:1000/5.0
+    To  : CANDYMAN@LaDune.Westfalen.De         @ 242:1000/5.0
+    Subj: Re: Anrufbeantworter
+    Attr: 0000
+News article file ../ti.news-a/42
+Message body size 334 (+CR!)
+RFC From:     ghost@dawn.mayn.de (Armin Wies)
+RFC Sender:   Armin Wies <ghost@dawn.mayn.de>
+    Name:     EcKubitz
+    Address:  
+Name for alias checking: eckubitz@aol.com
+No alias found: return Eckubitz@aol.Com
+    Name:     ghost
+    Address:  dawn.mayn.de
+RFC Date: Thu, 11 Apr 96 11:32:34 +0100
+RFC Newsgroups: de.comm.misc
+Look up newsgroup de.comm.misc
+Found: DE.COMM.MISC de.comm.misc Z242
+RFC MIME-Version:              -NONE-
+RFC Content-Type:              -NONE-
+RFC Content-Transfer-Encoding: -NONE-
+New packet file ./outpkt/news/00000033.pkt (tmp ./outpkt/news/00000033.tmp)
+Writing FTN packet header:
+    From: 242:1000/5.0
+    To  : 242:1000/5.0
+    Baud: 0
+    Prod: 00 fe
+    Rev : 4.3
+    Pass: ""
+    Capw: 0001
+Writing FTN message header:
+    From: Armin Wies                           @ 242:1000/5.0
+    To  : Eckubitz@aol.Com                     @ 242:1000/5.0
+    Subj: Re: Telefonieren im Internet
+    Attr: 0000
+News article file ../ti.news-a/43
+Message body size 656 (+CR!)
+RFC From:     mozart@mozart.berlinet.de (Thomas Witt)
+RFC Sender:   Thomas Witt <mozart@mozart.berlinet.de>
+Name for alias checking: All
+No alias found: return All
+    Name:     mozart
+    Address:  mozart.berlinet.de
+RFC Date: Thu, 11 Apr 96 16:58:21 MEZ
+RFC Newsgroups: de.comm.gateways,de.comm.infosystems.misc,de.comm.internet.misc,de.comm.internet.routing,de.comm.internet.zugang,de.comm.isdn,de.comm.misc,de.comm.modem
+Look up newsgroup de.comm.gateways
+Found: DE.COMM.GATEWAYS de.comm.gateways Z242
+RFC MIME-Version:              1.0
+RFC Content-Type:              text/plain; charset=iso-8859-1
+RFC Content-Transfer-Encoding: 8bit
+New packet file ./outpkt/news/00000034.pkt (tmp ./outpkt/news/00000034.tmp)
+Writing FTN packet header:
+    From: 242:1000/5.0
+    To  : 242:1000/5.0
+    Baud: 0
+    Prod: 00 fe
+    Rev : 4.3
+    Pass: ""
+    Capw: 0001
+Writing FTN message header:
+    From: Thomas Witt                          @ 242:1000/5.0
+    To  : All                                  @ 242:1000/5.0
+    Subj: Re: Kosten einer Standleitung
+    Attr: 0000
+Look up newsgroup de.comm.infosystems.misc
+Found: DE.COMM.INFOSYSTEMS.MISC de.comm.infosystems.misc Z242
+RFC MIME-Version:              1.0
+RFC Content-Type:              text/plain; charset=iso-8859-1
+RFC Content-Transfer-Encoding: 8bit
+Writing FTN message header:
+    From: Thomas Witt                          @ 242:1000/5.0
+    To  : All                                  @ 242:1000/5.0
+    Subj: Re: Kosten einer Standleitung
+    Attr: 0000
+Look up newsgroup de.comm.internet.misc
+Found: DE.COMM.INTERNET.MISC de.comm.internet.misc Z242
+RFC MIME-Version:              1.0
+RFC Content-Type:              text/plain; charset=iso-8859-1
+RFC Content-Transfer-Encoding: 8bit
+Writing FTN message header:
+    From: Thomas Witt                          @ 242:1000/5.0
+    To  : All                                  @ 242:1000/5.0
+    Subj: Re: Kosten einer Standleitung
+    Attr: 0000
+Look up newsgroup de.comm.internet.routing
+Found: DE.COMM.INTERNET.ROUTING de.comm.internet.routing Z242
+RFC MIME-Version:              1.0
+RFC Content-Type:              text/plain; charset=iso-8859-1
+RFC Content-Transfer-Encoding: 8bit
+Writing FTN message header:
+    From: Thomas Witt                          @ 242:1000/5.0
+    To  : All                                  @ 242:1000/5.0
+    Subj: Re: Kosten einer Standleitung
+    Attr: 0000
+Look up newsgroup de.comm.internet.zugang
+Found: DE.COMM.INTERNET.ZUGANG de.comm.internet.zugang Z242
+RFC MIME-Version:              1.0
+RFC Content-Type:              text/plain; charset=iso-8859-1
+RFC Content-Transfer-Encoding: 8bit
+Writing FTN message header:
+    From: Thomas Witt                          @ 242:1000/5.0
+    To  : All                                  @ 242:1000/5.0
+    Subj: Re: Kosten einer Standleitung
+    Attr: 0000
+Look up newsgroup de.comm.isdn
+Found: DE.COMM.ISDN de.comm.isdn Z242
+RFC MIME-Version:              1.0
+RFC Content-Type:              text/plain; charset=iso-8859-1
+RFC Content-Transfer-Encoding: 8bit
+Writing FTN message header:
+    From: Thomas Witt                          @ 242:1000/5.0
+    To  : All                                  @ 242:1000/5.0
+    Subj: Re: Kosten einer Standleitung
+    Attr: 0000
+Look up newsgroup de.comm.misc
+Found: DE.COMM.MISC de.comm.misc Z242
+RFC MIME-Version:              mozart@mozart.berlinet.de (Thomas Witt)
+RFC Content-Type:              text/plain; charset=iso-8859-1
+RFC Content-Transfer-Encoding: 8bit
+Writing FTN message header:
+    From: Thomas Witt                          @ 242:1000/5.0
+    To  : All                                  @ 242:1000/5.0
+    Subj: Re: Kosten einer Standleitung
+    Attr: 0000
+Look up newsgroup de.comm.modem
+Found: DE.COMM.MODEM de.comm.modem Z242
+RFC MIME-Version:              mozart@mozart.berlinet.de (Thomas Witt)
+RFC Content-Type:              <mozart.0cc7@mozart.berlinet.de>
+RFC Content-Transfer-Encoding: <matthias.bolten-1104961354190001@bigapple.cologne.de>
+Writing FTN message header:
+    From: Thomas Witt                          @ 242:1000/5.0
+    To  : All                                  @ 242:1000/5.0
+    Subj: Re: Kosten einer Standleitung
+    Attr: 0000
+News article file ../ti.news-a/44
+Message body size 256 (+CR!)
+RFC From:     zoc@zocki.toppoint.de (Rainer Zocholl)
+RFC Sender:   Rainer Zocholl <zoc@zocki.toppoint.de>
+Name for alias checking: All
+No alias found: return All
+    Name:     zoc
+    Address:  zocki.toppoint.de
+RFC Date: 11 Apr 1996 15:59:00 +0100
+RFC Newsgroups: de.comm.misc
+Look up newsgroup de.comm.misc
+Found: DE.COMM.MISC de.comm.misc Z242
+RFC MIME-Version:              1.0
+RFC Content-Type:              text/plain; charset=ISO-8859-1
+RFC Content-Transfer-Encoding: 8bit
+New packet file ./outpkt/news/00000035.pkt (tmp ./outpkt/news/00000035.tmp)
+Writing FTN packet header:
+    From: 242:1000/5.0
+    To  : 242:1000/5.0
+    Baud: 0
+    Prod: 00 fe
+    Rev : 4.3
+    Pass: ""
+    Capw: 0001
+Writing FTN message header:
+    From: Rainer Zocholl                       @ 242:1000/5.0
+    To  : All                                  @ 242:1000/5.0
+    Subj: Re: Anrufbeantworter
+    Attr: 0000
+News article file ../ti.news-a/45
+Message body size 994 (+CR!)
+RFC From:     root@bespin.in-berlin.de (Sascha Matzke)
+RFC Reply-To: root@bespin.in-berlin.de
+RFC Sender:   Sascha Matzke <root@bespin.in-berlin.de>
+Name for alias checking: All
+No alias found: return All
+    Name:     root
+    Address:  bespin.in-berlin.de
+RFC Date: Thu, 11 Apr 96 19:27:15 DST
+          can't parse this date string
+RFC Newsgroups: de.comm.gateways,de.comm.infosystems.misc,de.comm.internet.misc,de.comm.internet.routing,de.comm.internet.zugang,de.comm.isdn,de.comm.misc,de.comm.modem
+Look up newsgroup de.comm.gateways
+Found: DE.COMM.GATEWAYS de.comm.gateways Z242
+RFC MIME-Version:              -NONE-
+RFC Content-Type:              -NONE-
+RFC Content-Transfer-Encoding: -NONE-
+New packet file ./outpkt/news/00000036.pkt (tmp ./outpkt/news/00000036.tmp)
+Writing FTN packet header:
+    From: 242:1000/5.0
+    To  : 242:1000/5.0
+    Baud: 0
+    Prod: 00 fe
+    Rev : 4.3
+    Pass: ""
+    Capw: 0001
+Writing FTN message header:
+    From: Sascha Matzke                        @ 242:1000/5.0
+    To  : All                                  @ 242:1000/5.0
+    Subj: Re: Kosten einer Standleitung
+    Attr: 0000
+using local time
+Look up newsgroup de.comm.infosystems.misc
+Found: DE.COMM.INFOSYSTEMS.MISC de.comm.infosystems.misc Z242
+RFC MIME-Version:              -NONE-
+RFC Content-Type:              -NONE-
+RFC Content-Transfer-Encoding: -NONE-
+Writing FTN message header:
+    From: Sascha Matzke                        @ 242:1000/5.0
+    To  : All                                  @ 242:1000/5.0
+    Subj: Re: Kosten einer Standleitung
+    Attr: 0000
+using local time
+Look up newsgroup de.comm.internet.misc
+Found: DE.COMM.INTERNET.MISC de.comm.internet.misc Z242
+RFC MIME-Version:              -NONE-
+RFC Content-Type:              -NONE-
+RFC Content-Transfer-Encoding: -NONE-
+Writing FTN message header:
+    From: Sascha Matzke                        @ 242:1000/5.0
+    To  : All                                  @ 242:1000/5.0
+    Subj: Re: Kosten einer Standleitung
+    Attr: 0000
+using local time
+Look up newsgroup de.comm.internet.routing
+Found: DE.COMM.INTERNET.ROUTING de.comm.internet.routing Z242
+RFC MIME-Version:              -NONE-
+RFC Content-Type:              -NONE-
+RFC Content-Transfer-Encoding: -NONE-
+Writing FTN message header:
+    From: Sascha Matzke                        @ 242:1000/5.0
+    To  : All                                  @ 242:1000/5.0
+    Subj: Re: Kosten einer Standleitung
+    Attr: 0000
+using local time
+Look up newsgroup de.comm.internet.zugang
+Found: DE.COMM.INTERNET.ZUGANG de.comm.internet.zugang Z242
+RFC MIME-Version:              -NONE-
+RFC Content-Type:              -NONE-
+RFC Content-Transfer-Encoding: -NONE-
+Writing FTN message header:
+    From: Sascha Matzke                        @ 242:1000/5.0
+    To  : All                                  @ 242:1000/5.0
+    Subj: Re: Kosten einer Standleitung
+    Attr: 0000
+using local time
+Look up newsgroup de.comm.isdn
+Found: DE.COMM.ISDN de.comm.isdn Z242
+RFC MIME-Version:              -NONE-
+RFC Content-Type:              -NONE-
+RFC Content-Transfer-Encoding: -NONE-
+Writing FTN message header:
+    From: Sascha Matzke                        @ 242:1000/5.0
+    To  : All                                  @ 242:1000/5.0
+    Subj: Re: Kosten einer Standleitung
+    Attr: 0000
+using local time
+Look up newsgroup de.comm.misc
+Found: DE.COMM.MISC de.comm.misc Z242
+RFC MIME-Version:              -NONE-
+RFC Content-Type:              -NONE-
+RFC Content-Transfer-Encoding: -NONE-
+Writing FTN message header:
+    From: Sascha Matzke                        @ 242:1000/5.0
+    To  : All                                  @ 242:1000/5.0
+    Subj: Re: Kosten einer Standleitung
+    Attr: 0000
+using local time
+Look up newsgroup de.comm.modem
+Found: DE.COMM.MODEM de.comm.modem Z242
+RFC MIME-Version:              -NONE-
+RFC Content-Type:              -NONE-
+RFC Content-Transfer-Encoding: -NONE-
+Writing FTN message header:
+    From: Sascha Matzke                        @ 242:1000/5.0
+    To  : All                                  @ 242:1000/5.0
+    Subj: Re: Kosten einer Standleitung
+    Attr: 0000
+using local time
+News article file ../ti.news-a/46
+Message body size 427 (+CR!)
+RFC From:     petzi@zit.th-darmstadt.de (Michael Beckmann)
+RFC Sender:   Michael Beckmann <petzi@zit.th-darmstadt.de>
+Name for alias checking: All
+No alias found: return All
+    Name:     petzi
+    Address:  zit.th-darmstadt.de
+RFC Date: Thu, 11 Apr 1996 19:57:54 +0200
+RFC Newsgroups: de.comm.internet.misc,de.comm.misc
+Look up newsgroup de.comm.internet.misc
+Found: DE.COMM.INTERNET.MISC de.comm.internet.misc Z242
+RFC MIME-Version:              1.0
+RFC Content-Type:              text/plain; charset=ISO-8859-1
+RFC Content-Transfer-Encoding: 8bit
+New packet file ./outpkt/news/00000037.pkt (tmp ./outpkt/news/00000037.tmp)
+Writing FTN packet header:
+    From: 242:1000/5.0
+    To  : 242:1000/5.0
+    Baud: 0
+    Prod: 00 fe
+    Rev : 4.3
+    Pass: ""
+    Capw: 0001
+Writing FTN message header:
+    From: Michael Beckmann                     @ 242:1000/5.0
+    To  : All                                  @ 242:1000/5.0
+    Subj: Re: Eudora
+    Attr: 0000
+Look up newsgroup de.comm.misc
+Found: DE.COMM.MISC de.comm.misc Z242
+RFC MIME-Version:              1.0
+RFC Content-Type:              text/plain; charset=ISO-8859-1
+RFC Content-Transfer-Encoding: 8bit
+Writing FTN message header:
+    From: Michael Beckmann                     @ 242:1000/5.0
+    To  : All                                  @ 242:1000/5.0
+    Subj: Re: Eudora
+    Attr: 0000
+News article file ../ti.news-a/47
+Message body size 775 (+CR!)
+RFC From:     groggy@eikon.e-technik.tu-muenchen.de (Christian Grodau)
+RFC Sender:   Christian Grodau <groggy@eikon.e-technik.tu-muenchen.de>
+    Name:     eckubitz
+    Address:  aol.com
+Name for alias checking: EcKubitz
+No alias found: return EcKubitz
+    Name:     groggy
+    Address:  eikon.e-technik.tu-muenchen.de
+RFC Date: Thu, 11 Apr 1996 18:25:33 GMT
+RFC Newsgroups: de.comm.misc
+Look up newsgroup de.comm.misc
+Found: DE.COMM.MISC de.comm.misc Z242
+RFC MIME-Version:              -NONE-
+RFC Content-Type:              -NONE-
+RFC Content-Transfer-Encoding: -NONE-
+New packet file ./outpkt/news/00000038.pkt (tmp ./outpkt/news/00000038.tmp)
+Writing FTN packet header:
+    From: 242:1000/5.0
+    To  : 242:1000/5.0
+    Baud: 0
+    Prod: 00 fe
+    Rev : 4.3
+    Pass: ""
+    Capw: 0001
+Writing FTN message header:
+    From: Christian Grodau                     @ 242:1000/5.0
+    To  : EcKubitz                             @ 242:1000/5.0
+    Subj: Re: Telefonieren im Internet
+    Attr: 0000
+News article file ../ti.news-a/48
+Message body size 937 (+CR!)
+RFC From:     daniel@fiction.pb.owl.de (Daniel Roedding)
+RFC Sender:   Daniel Roedding <daniel@fiction.pb.owl.de>
+    Name:     usai1035
+    Address:  servus02.rus.uni-stuttgart.de
+Name for alias checking: Ralf Sipple
+No alias found: return Ralf Sipple
+    Name:     daniel
+    Address:  fiction.pb.owl.de
+RFC Date: Thu, 11 Apr 1996 19:53:23 GMT
+RFC Newsgroups: de.comm.gateways,de.comm.infosystems.misc,de.comm.internet.misc,de.comm.internet.routing,de.comm.internet.zugang,de.comm.isdn,de.comm.misc,de.comm.modem
+Look up newsgroup de.comm.gateways
+Found: DE.COMM.GATEWAYS de.comm.gateways Z242
+RFC MIME-Version:              -NONE-
+RFC Content-Type:              -NONE-
+RFC Content-Transfer-Encoding: -NONE-
+New packet file ./outpkt/news/00000039.pkt (tmp ./outpkt/news/00000039.tmp)
+Writing FTN packet header:
+    From: 242:1000/5.0
+    To  : 242:1000/5.0
+    Baud: 0
+    Prod: 00 fe
+    Rev : 4.3
+    Pass: ""
+    Capw: 0001
+Writing FTN message header:
+    From: Daniel Roedding                      @ 242:1000/5.0
+    To  : Ralf Sipple                          @ 242:1000/5.0
+    Subj: Re: Kosten einer Standleitung
+    Attr: 0000
+Look up newsgroup de.comm.infosystems.misc
+Found: DE.COMM.INFOSYSTEMS.MISC de.comm.infosystems.misc Z242
+RFC MIME-Version:              -NONE-
+RFC Content-Type:              -NONE-
+RFC Content-Transfer-Encoding: -NONE-
+Writing FTN message header:
+    From: Daniel Roedding                      @ 242:1000/5.0
+    To  : Ralf Sipple                          @ 242:1000/5.0
+    Subj: Re: Kosten einer Standleitung
+    Attr: 0000
+Look up newsgroup de.comm.internet.misc
+Found: DE.COMM.INTERNET.MISC de.comm.internet.misc Z242
+RFC MIME-Version:              -NONE-
+RFC Content-Type:              -NONE-
+RFC Content-Transfer-Encoding: -NONE-
+Writing FTN message header:
+    From: Daniel Roedding                      @ 242:1000/5.0
+    To  : Ralf Sipple                          @ 242:1000/5.0
+    Subj: Re: Kosten einer Standleitung
+    Attr: 0000
+Look up newsgroup de.comm.internet.routing
+Found: DE.COMM.INTERNET.ROUTING de.comm.internet.routing Z242
+RFC MIME-Version:              -NONE-
+RFC Content-Type:              -NONE-
+RFC Content-Transfer-Encoding: -NONE-
+Writing FTN message header:
+    From: Daniel Roedding                      @ 242:1000/5.0
+    To  : Ralf Sipple                          @ 242:1000/5.0
+    Subj: Re: Kosten einer Standleitung
+    Attr: 0000
+Look up newsgroup de.comm.internet.zugang
+Found: DE.COMM.INTERNET.ZUGANG de.comm.internet.zugang Z242
+RFC MIME-Version:              -NONE-
+RFC Content-Type:              -NONE-
+RFC Content-Transfer-Encoding: -NONE-
+Writing FTN message header:
+    From: Daniel Roedding                      @ 242:1000/5.0
+    To  : Ralf Sipple                          @ 242:1000/5.0
+    Subj: Re: Kosten einer Standleitung
+    Attr: 0000
+Look up newsgroup de.comm.isdn
+Found: DE.COMM.ISDN de.comm.isdn Z242
+RFC MIME-Version:              -NONE-
+RFC Content-Type:              -NONE-
+RFC Content-Transfer-Encoding: -NONE-
+Writing FTN message header:
+    From: Daniel Roedding                      @ 242:1000/5.0
+    To  : Ralf Sipple                          @ 242:1000/5.0
+    Subj: Re: Kosten einer Standleitung
+    Attr: 0000
+Look up newsgroup de.comm.misc
+Found: DE.COMM.MISC de.comm.misc Z242
+RFC MIME-Version:              -NONE-
+RFC Content-Type:              -NONE-
+RFC Content-Transfer-Encoding: -NONE-
+Writing FTN message header:
+    From: Daniel Roedding                      @ 242:1000/5.0
+    To  : Ralf Sipple                          @ 242:1000/5.0
+    Subj: Re: Kosten einer Standleitung
+    Attr: 0000
+Look up newsgroup de.comm.modem
+Found: DE.COMM.MODEM de.comm.modem Z242
+RFC MIME-Version:              -NONE-
+RFC Content-Type:              -NONE-
+RFC Content-Transfer-Encoding: -NONE-
+Writing FTN message header:
+    From: Daniel Roedding                      @ 242:1000/5.0
+    To  : Ralf Sipple                          @ 242:1000/5.0
+    Subj: Re: Kosten einer Standleitung
+    Attr: 0000
+News article file ../ti.news-a/49
+Message body size 1234 (+CR!)
+RFC From:     Klaus.Heimes@uni-koeln.de (Klaus Heimes)
+RFC Sender:   Klaus Heimes <Klaus.Heimes@uni-koeln.de>
+Name for alias checking: All
+No alias found: return All
+    Name:     Klaus.Heimes
+    Address:  uni-koeln.de
+RFC Date: Mon, 08 Apr 1996 14:50:52 GMT
+RFC Newsgroups: de.comm.misc
+Look up newsgroup de.comm.misc
+Found: DE.COMM.MISC de.comm.misc Z242
+RFC MIME-Version:              -NONE-
+RFC Content-Type:              -NONE-
+RFC Content-Transfer-Encoding: -NONE-
+New packet file ./outpkt/news/00000040.pkt (tmp ./outpkt/news/00000040.tmp)
+Writing FTN packet header:
+    From: 242:1000/5.0
+    To  : 242:1000/5.0
+    Baud: 0
+    Prod: 00 fe
+    Rev : 4.3
+    Pass: ""
+    Capw: 0001
+Writing FTN message header:
+    From: Klaus Heimes                         @ 242:1000/5.0
+    To  : All                                  @ 242:1000/5.0
+    Subj: Probleme mit T-Fax AF 320 TA
+    Attr: 0000
+News article file ../ti.news-a/50
+Message body size 1012 (+CR!)
+RFC From:     gutschk@uni-muenster.de (Markus Gutschke)
+RFC Sender:   Markus Gutschke <gutschk@uni-muenster.de>
+Name for alias checking: All
+No alias found: return All
+    Name:     gutschk
+    Address:  uni-muenster.de
+RFC Date: 05 Apr 1996 13:45:04 GMT
+RFC Newsgroups: de.comm.misc
+Look up newsgroup de.comm.misc
+Found: DE.COMM.MISC de.comm.misc Z242
+RFC MIME-Version:              1.0 (generated by tm-edit 7.41)
+RFC Content-Type:              text/plain; charset=US-ASCII
+RFC Content-Transfer-Encoding: -NONE-
+New packet file ./outpkt/news/00000041.pkt (tmp ./outpkt/news/00000041.tmp)
+Writing FTN packet header:
+    From: 242:1000/5.0
+    To  : 242:1000/5.0
+    Baud: 0
+    Prod: 00 fe
+    Rev : 4.3
+    Pass: ""
+    Capw: 0001
+Writing FTN message header:
+    From: Markus Gutschke                      @ 242:1000/5.0
+    To  : All                                  @ 242:1000/5.0
+    Subj: Re: Vertrieb von DInfo2.0 verboten....
+    Attr: 0000
+News article file ../ti.news-a/51
+Message body size 505 (+CR!)
+RFC From:     kalle@rd.cls.de (Karlheinz Hagen)
+RFC Sender:   Karlheinz Hagen <kalle@rd.cls.de>
+    Name:     Ralf Sipple
+    Address:  
+Name for alias checking: usai1035@servus02.rus.uni-stuttgart
+No alias found: return Usai1035@servus02.Rus.Uni-stuttgart
+    Name:     kalle
+    Address:  rd.cls.de
+RFC Date: 11 Apr 1996 23:18:34 +0200
+RFC Newsgroups: de.comm.gateways,de.comm.infosystems.misc,de.comm.internet.misc,de.comm.internet.routing,de.comm.internet.zugang,de.comm.isdn,de.comm.misc,de.comm.modem
+Look up newsgroup de.comm.gateways
+Found: DE.COMM.GATEWAYS de.comm.gateways Z242
+RFC MIME-Version:              -NONE-
+RFC Content-Type:              -NONE-
+RFC Content-Transfer-Encoding: -NONE-
+New packet file ./outpkt/news/00000042.pkt (tmp ./outpkt/news/00000042.tmp)
+Writing FTN packet header:
+    From: 242:1000/5.0
+    To  : 242:1000/5.0
+    Baud: 0
+    Prod: 00 fe
+    Rev : 4.3
+    Pass: ""
+    Capw: 0001
+Writing FTN message header:
+    From: Karlheinz Hagen                      @ 242:1000/5.0
+    To  : Usai1035@servus02.Rus.Uni-stuttgart  @ 242:1000/5.0
+    Subj: Re: Kosten einer Standleitung
+    Attr: 0000
+Look up newsgroup de.comm.infosystems.misc
+Found: DE.COMM.INFOSYSTEMS.MISC de.comm.infosystems.misc Z242
+RFC MIME-Version:              -NONE-
+RFC Content-Type:              -NONE-
+RFC Content-Transfer-Encoding: -NONE-
+Writing FTN message header:
+    From: Karlheinz Hagen                      @ 242:1000/5.0
+    To  : Usai1035@servus02.Rus.Uni-stuttgart  @ 242:1000/5.0
+    Subj: Re: Kosten einer Standleitung
+    Attr: 0000
+Look up newsgroup de.comm.internet.misc
+Found: DE.COMM.INTERNET.MISC de.comm.internet.misc Z242
+RFC MIME-Version:              -NONE-
+RFC Content-Type:              -NONE-
+RFC Content-Transfer-Encoding: -NONE-
+Writing FTN message header:
+    From: Karlheinz Hagen                      @ 242:1000/5.0
+    To  : Usai1035@servus02.Rus.Uni-stuttgart  @ 242:1000/5.0
+    Subj: Re: Kosten einer Standleitung
+    Attr: 0000
+Look up newsgroup de.comm.internet.routing
+Found: DE.COMM.INTERNET.ROUTING de.comm.internet.routing Z242
+RFC MIME-Version:              -NONE-
+RFC Content-Type:              -NONE-
+RFC Content-Transfer-Encoding: -NONE-
+Writing FTN message header:
+    From: Karlheinz Hagen                      @ 242:1000/5.0
+    To  : Usai1035@servus02.Rus.Uni-stuttgart  @ 242:1000/5.0
+    Subj: Re: Kosten einer Standleitung
+    Attr: 0000
+Look up newsgroup de.comm.internet.zugang
+Found: DE.COMM.INTERNET.ZUGANG de.comm.internet.zugang Z242
+RFC MIME-Version:              -NONE-
+RFC Content-Type:              -NONE-
+RFC Content-Transfer-Encoding: -NONE-
+Writing FTN message header:
+    From: Karlheinz Hagen                      @ 242:1000/5.0
+    To  : Usai1035@servus02.Rus.Uni-stuttgart  @ 242:1000/5.0
+    Subj: Re: Kosten einer Standleitung
+    Attr: 0000
+Look up newsgroup de.comm.isdn
+Found: DE.COMM.ISDN de.comm.isdn Z242
+RFC MIME-Version:              -NONE-
+RFC Content-Type:              -NONE-
+RFC Content-Transfer-Encoding: -NONE-
+Writing FTN message header:
+    From: Karlheinz Hagen                      @ 242:1000/5.0
+    To  : Usai1035@servus02.Rus.Uni-stuttgart  @ 242:1000/5.0
+    Subj: Re: Kosten einer Standleitung
+    Attr: 0000
+Look up newsgroup de.comm.misc
+Found: DE.COMM.MISC de.comm.misc Z242
+RFC MIME-Version:              -NONE-
+RFC Content-Type:              -NONE-
+RFC Content-Transfer-Encoding: -NONE-
+Writing FTN message header:
+    From: Karlheinz Hagen                      @ 242:1000/5.0
+    To  : Usai1035@servus02.Rus.Uni-stuttgart  @ 242:1000/5.0
+    Subj: Re: Kosten einer Standleitung
+    Attr: 0000
+Look up newsgroup de.comm.modem
+Found: DE.COMM.MODEM de.comm.modem Z242
+RFC MIME-Version:              -NONE-
+RFC Content-Type:              -NONE-
+RFC Content-Transfer-Encoding: -NONE-
+Writing FTN message header:
+    From: Karlheinz Hagen                      @ 242:1000/5.0
+    To  : Usai1035@servus02.Rus.Uni-stuttgart  @ 242:1000/5.0
+    Subj: Re: Kosten einer Standleitung
+    Attr: 0000
+News article file ../ti.news-a/52
+Message body size 876 (+CR!)
+RFC From:     hf@ulysses.reactor.in-passau.de (Helmut Fromberger)
+RFC Sender:   Helmut Fromberger <hf@ulysses.reactor.in-passau.de>
+Name for alias checking: All
+No alias found: return All
+    Name:     hf
+    Address:  ulysses.reactor.in-passau.de
+RFC Date: Thu, 11 Apr 1996 21:05:03 +0200
+RFC Newsgroups: de.comm.misc
+Look up newsgroup de.comm.misc
+Found: DE.COMM.MISC de.comm.misc Z242
+RFC MIME-Version:              1.0
+RFC Content-Type:              text/plain; charset=iso-8859-1
+RFC Content-Transfer-Encoding: 8bit
+New packet file ./outpkt/news/00000043.pkt (tmp ./outpkt/news/00000043.tmp)
+Writing FTN packet header:
+    From: 242:1000/5.0
+    To  : 242:1000/5.0
+    Baud: 0
+    Prod: 00 fe
+    Rev : 4.3
+    Pass: ""
+    Capw: 0001
+Writing FTN message header:
+    From: Helmut Fromberger                    @ 242:1000/5.0
+    To  : All                                  @ 242:1000/5.0
+    Subj: Verbindungsabbrueche
+    Attr: 0000
+News article file ../ti.news-a/53
+Message body size 2707 (+CR!)
+RFC From:     joerg@tretow.in-berlin.de (Joerg Tretow)
+RFC Sender:   Joerg Tretow <joerg@tretow.in-berlin.de>
+Name for alias checking: All
+No alias found: return All
+    Name:     joerg
+    Address:  tretow.in-berlin.de
+RFC Date: 11 Apr 1996 13:57:00 +0100
+RFC Newsgroups: de.comm.modem,de.comm.misc,de.comm.mobil,ger.pc.hard
+Look up newsgroup de.comm.modem
+Found: DE.COMM.MODEM de.comm.modem Z242
+RFC MIME-Version:              -NONE-
+RFC Content-Type:              -NONE-
+RFC Content-Transfer-Encoding: -NONE-
+New packet file ./outpkt/news/00000044.pkt (tmp ./outpkt/news/00000044.tmp)
+Writing FTN packet header:
+    From: 242:1000/5.0
+    To  : 242:1000/5.0
+    Baud: 0
+    Prod: 00 fe
+    Rev : 4.3
+    Pass: ""
+    Capw: 0001
+Writing FTN message header:
+    From: Joerg Tretow                         @ 242:1000/5.0
+    To  : All                                  @ 242:1000/5.0
+    Subj: Re: Modem an E-Plus-Handy???
+    Attr: 0000
+Look up newsgroup de.comm.misc
+Found: DE.COMM.MISC de.comm.misc Z242
+RFC MIME-Version:              -NONE-
+RFC Content-Type:              -NONE-
+RFC Content-Transfer-Encoding: -NONE-
+Writing FTN message header:
+    From: Joerg Tretow                         @ 242:1000/5.0
+    To  : All                                  @ 242:1000/5.0
+    Subj: Re: Modem an E-Plus-Handy???
+    Attr: 0000
+Look up newsgroup de.comm.mobil
+Found: DE.COMM.MOBIL de.comm.mobil Z242
+RFC MIME-Version:              -NONE-
+RFC Content-Type:              -NONE-
+RFC Content-Transfer-Encoding: -NONE-
+Writing FTN message header:
+    From: Joerg Tretow                         @ 242:1000/5.0
+    To  : All                                  @ 242:1000/5.0
+    Subj: Re: Modem an E-Plus-Handy???
+    Attr: 0000
+Look up newsgroup ger.pc.hard
+No FTN area
+News article file ../ti.news-a/54
+Message body size 344 (+CR!)
+RFC From:     Bubblebear@guru.rhein-main.de (Bubblebear)
+RFC Sender:   Bubblebear <Bubblebear@guru.rhein-main.de>
+Name for alias checking: All
+No alias found: return All
+    Name:     Bubblebear
+    Address:  guru.rhein-main.de
+RFC Date: Thu, 11 Apr 1996 18:20:24 +0100
+RFC Newsgroups: de.comm.misc
+Look up newsgroup de.comm.misc
+Found: DE.COMM.MISC de.comm.misc Z242
+RFC MIME-Version:              1.0
+RFC Content-Type:              text/plain; charset=ISO-8859-1
+RFC Content-Transfer-Encoding: 8bit
+New packet file ./outpkt/news/00000045.pkt (tmp ./outpkt/news/00000045.tmp)
+Writing FTN packet header:
+    From: 242:1000/5.0
+    To  : 242:1000/5.0
+    Baud: 0
+    Prod: 00 fe
+    Rev : 4.3
+    Pass: ""
+    Capw: 0001
+Writing FTN message header:
+    From: Bubblebear                           @ 242:1000/5.0
+    To  : All                                  @ 242:1000/5.0
+    Subj: Vernetzung AMIGA-PC
+    Attr: 0000
+News article file ../ti.news-a/55
+Message body size 1944 (+CR!)
+RFC From:     Maik Musall <maik@cape.de>
+RFC Sender:   Maik Musall <maik@cape.de>
+Name for alias checking: All
+No alias found: return All
+    Name:     maik
+    Address:  cape.de
+RFC Date: Fri, 12 Apr 1996 03:22:22 +0200
+RFC Newsgroups: de.comm.misc,de.comm.mobil,de.comm.modem,ger.pc.hard
+Look up newsgroup de.comm.misc
+Found: DE.COMM.MISC de.comm.misc Z242
+RFC MIME-Version:              1.0
+RFC Content-Type:              text/plain; charset=us-ascii
+RFC Content-Transfer-Encoding: 7bit
+New packet file ./outpkt/news/00000046.pkt (tmp ./outpkt/news/00000046.tmp)
+Writing FTN packet header:
+    From: 242:1000/5.0
+    To  : 242:1000/5.0
+    Baud: 0
+    Prod: 00 fe
+    Rev : 4.3
+    Pass: ""
+    Capw: 0001
+Writing FTN message header:
+    From: Maik Musall                          @ 242:1000/5.0
+    To  : All                                  @ 242:1000/5.0
+    Subj: Re: Modem an E-Plus-Handy???
+    Attr: 0000
+Look up newsgroup de.comm.mobil
+Found: DE.COMM.MOBIL de.comm.mobil Z242
+RFC MIME-Version:              1.0
+RFC Content-Type:              text/plain; charset=us-ascii
+RFC Content-Transfer-Encoding: 7bit
+Writing FTN message header:
+    From: Maik Musall                          @ 242:1000/5.0
+    To  : All                                  @ 242:1000/5.0
+    Subj: Re: Modem an E-Plus-Handy???
+    Attr: 0000
+Look up newsgroup de.comm.modem
+Found: DE.COMM.MODEM de.comm.modem Z242
+RFC MIME-Version:              1.0
+RFC Content-Type:              text/plain; charset=us-ascii
+RFC Content-Transfer-Encoding: 7bit
+Writing FTN message header:
+    From: Maik Musall                          @ 242:1000/5.0
+    To  : All                                  @ 242:1000/5.0
+    Subj: Re: Modem an E-Plus-Handy???
+    Attr: 0000
+Look up newsgroup ger.pc.hard
+No FTN area
+News article file ../ti.news-a/56
+Message body size 790 (+CR!)
+RFC From:     T.Kammerer@charly.in-ulm.de (Thomas Kammerer)
+RFC Sender:   Thomas Kammerer <T.Kammerer@charly.in-ulm.de>
+Name for alias checking: All
+No alias found: return All
+    Name:     T.Kammerer
+    Address:  charly.in-ulm.de
+RFC Date: 11 Apr 1996 21:55:00 +0100
+RFC Newsgroups: de.comm.internet.software,de.comm.misc,de.newusers.questions
+Look up newsgroup de.comm.internet.software
+Found: DE.COMM.INTERNET.SOFTWARE de.comm.internet.software Z242
+RFC MIME-Version:              -NONE-
+RFC Content-Type:              -NONE-
+RFC Content-Transfer-Encoding: -NONE-
+New packet file ./outpkt/news/00000047.pkt (tmp ./outpkt/news/00000047.tmp)
+Writing FTN packet header:
+    From: 242:1000/5.0
+    To  : 242:1000/5.0
+    Baud: 0
+    Prod: 00 fe
+    Rev : 4.3
+    Pass: ""
+    Capw: 0001
+Writing FTN message header:
+    From: Thomas Kammerer                      @ 242:1000/5.0
+    To  : All                                  @ 242:1000/5.0
+    Subj: ftp Probleme
+    Attr: 0000
+Look up newsgroup de.comm.misc
+Found: DE.COMM.MISC de.comm.misc Z242
+RFC MIME-Version:              -NONE-
+RFC Content-Type:              -NONE-
+RFC Content-Transfer-Encoding: -NONE-
+Writing FTN message header:
+    From: Thomas Kammerer                      @ 242:1000/5.0
+    To  : All                                  @ 242:1000/5.0
+    Subj: ftp Probleme
+    Attr: 0000
+Look up newsgroup de.newusers.questions
+Found: DE.NEWUSERS.QUESTIONS de.newusers.questions Z242
+RFC MIME-Version:              -NONE-
+RFC Content-Type:              -NONE-
+RFC Content-Transfer-Encoding: -NONE-
+Writing FTN message header:
+    From: Thomas Kammerer                      @ 242:1000/5.0
+    To  : All                                  @ 242:1000/5.0
+    Subj: ftp Probleme
+    Attr: 0000
+News article file ../ti.news-a/57
+Message body size 498 (+CR!)
+RFC From:     chris@cae.muc.de (Christian A. Eroes)
+RFC Sender:   Christian A. Eroes <chris@cae.muc.de>
+Name for alias checking: All
+No alias found: return All
+    Name:     chris
+    Address:  cae.muc.de
+RFC Date: 11 Apr 1996 22:26:00 +0100
+RFC Newsgroups: de.comm.internet.misc,de.comm.gateways,de.comm.infosystems.misc,de.comm.internet.routing,de.comm.internet.zugang,de.comm.modem,de.comm.isdn,de.comm.misc
+Look up newsgroup de.comm.internet.misc
+Found: DE.COMM.INTERNET.MISC de.comm.internet.misc Z242
+RFC MIME-Version:              -NONE-
+RFC Content-Type:              -NONE-
+RFC Content-Transfer-Encoding: -NONE-
+New packet file ./outpkt/news/00000048.pkt (tmp ./outpkt/news/00000048.tmp)
+Writing FTN packet header:
+    From: 242:1000/5.0
+    To  : 242:1000/5.0
+    Baud: 0
+    Prod: 00 fe
+    Rev : 4.3
+    Pass: ""
+    Capw: 0001
+Writing FTN message header:
+    From: Christian A. Eroes                   @ 242:1000/5.0
+    To  : All                                  @ 242:1000/5.0
+    Subj: Re: Kosten einer Standleitung
+    Attr: 0000
+Look up newsgroup de.comm.gateways
+Found: DE.COMM.GATEWAYS de.comm.gateways Z242
+RFC MIME-Version:              -NONE-
+RFC Content-Type:              -NONE-
+RFC Content-Transfer-Encoding: -NONE-
+Writing FTN message header:
+    From: Christian A. Eroes                   @ 242:1000/5.0
+    To  : All                                  @ 242:1000/5.0
+    Subj: Re: Kosten einer Standleitung
+    Attr: 0000
+Look up newsgroup de.comm.infosystems.misc
+Found: DE.COMM.INFOSYSTEMS.MISC de.comm.infosystems.misc Z242
+RFC MIME-Version:              -NONE-
+RFC Content-Type:              -NONE-
+RFC Content-Transfer-Encoding: -NONE-
+Writing FTN message header:
+    From: Christian A. Eroes                   @ 242:1000/5.0
+    To  : All                                  @ 242:1000/5.0
+    Subj: Re: Kosten einer Standleitung
+    Attr: 0000
+Look up newsgroup de.comm.internet.routing
+Found: DE.COMM.INTERNET.ROUTING de.comm.internet.routing Z242
+RFC MIME-Version:              -NONE-
+RFC Content-Type:              -NONE-
+RFC Content-Transfer-Encoding: -NONE-
+Writing FTN message header:
+    From: Christian A. Eroes                   @ 242:1000/5.0
+    To  : All                                  @ 242:1000/5.0
+    Subj: Re: Kosten einer Standleitung
+    Attr: 0000
+Look up newsgroup de.comm.internet.zugang
+Found: DE.COMM.INTERNET.ZUGANG de.comm.internet.zugang Z242
+RFC MIME-Version:              -NONE-
+RFC Content-Type:              -NONE-
+RFC Content-Transfer-Encoding: -NONE-
+Writing FTN message header:
+    From: Christian A. Eroes                   @ 242:1000/5.0
+    To  : All                                  @ 242:1000/5.0
+    Subj: Re: Kosten einer Standleitung
+    Attr: 0000
+Look up newsgroup de.comm.modem
+Found: DE.COMM.MODEM de.comm.modem Z242
+RFC MIME-Version:              -NONE-
+RFC Content-Type:              -NONE-
+RFC Content-Transfer-Encoding: -NONE-
+Writing FTN message header:
+    From: Christian A. Eroes                   @ 242:1000/5.0
+    To  : All                                  @ 242:1000/5.0
+    Subj: Re: Kosten einer Standleitung
+    Attr: 0000
+Look up newsgroup de.comm.isdn
+Found: DE.COMM.ISDN de.comm.isdn Z242
+RFC MIME-Version:              -NONE-
+RFC Content-Type:              -NONE-
+RFC Content-Transfer-Encoding: -NONE-
+Writing FTN message header:
+    From: Christian A. Eroes                   @ 242:1000/5.0
+    To  : All                                  @ 242:1000/5.0
+    Subj: Re: Kosten einer Standleitung
+    Attr: 0000
+Look up newsgroup de.comm.misc
+Found: DE.COMM.MISC de.comm.misc Z242
+RFC MIME-Version:              -NONE-
+RFC Content-Type:              -NONE-
+RFC Content-Transfer-Encoding: -NONE-
+Writing FTN message header:
+    From: Christian A. Eroes                   @ 242:1000/5.0
+    To  : All                                  @ 242:1000/5.0
+    Subj: Re: Kosten einer Standleitung
+    Attr: 0000
+News article file ../ti.news-a/58
+Message body size 815 (+CR!)
+RFC From:     chris@cae.muc.de (Christian A. Eroes)
+RFC Sender:   Christian A. Eroes <chris@cae.muc.de>
+Name for alias checking: All
+No alias found: return All
+    Name:     chris
+    Address:  cae.muc.de
+RFC Date: 12 Apr 1996 08:24:00 +0100
+RFC Newsgroups: de.comm.misc
+Look up newsgroup de.comm.misc
+Found: DE.COMM.MISC de.comm.misc Z242
+RFC MIME-Version:              -NONE-
+RFC Content-Type:              -NONE-
+RFC Content-Transfer-Encoding: -NONE-
+New packet file ./outpkt/news/00000049.pkt (tmp ./outpkt/news/00000049.tmp)
+Writing FTN packet header:
+    From: 242:1000/5.0
+    To  : 242:1000/5.0
+    Baud: 0
+    Prod: 00 fe
+    Rev : 4.3
+    Pass: ""
+    Capw: 0001
+Writing FTN message header:
+    From: Christian A. Eroes                   @ 242:1000/5.0
+    To  : All                                  @ 242:1000/5.0
+    Subj: SINUS 42AB
+    Attr: 0000
+News article file ../ti.news-a/59
+Message body size 577 (+CR!)
+RFC From:     Dirk Jacob <jacob@tmfs.mpgfk.tu-dresden.de>
+RFC Sender:   Dirk Jacob <jacob@tmfs.mpgfk.tu-dresden.de>
+Name for alias checking: All
+No alias found: return All
+    Name:     jacob
+    Address:  tmfs.mpgfk.tu-dresden.de
+RFC Date: Wed, 10 Apr 1996 13:25:03 +0100
+RFC Newsgroups: de.comm.misc
+Look up newsgroup de.comm.misc
+Found: DE.COMM.MISC de.comm.misc Z242
+RFC MIME-Version:              1.0
+RFC Content-Type:              text/plain; charset=us-ascii
+RFC Content-Transfer-Encoding: 7bit
+New packet file ./outpkt/news/00000050.pkt (tmp ./outpkt/news/00000050.tmp)
+Writing FTN packet header:
+    From: 242:1000/5.0
+    To  : 242:1000/5.0
+    Baud: 0
+    Prod: 00 fe
+    Rev : 4.3
+    Pass: ""
+    Capw: 0001
+Writing FTN message header:
+    From: Dirk Jacob                           @ 242:1000/5.0
+    To  : All                                  @ 242:1000/5.0
+    Subj: Re: tcpip, ftp unter dos
+    Attr: 0000
+News article file ../ti.news-a/60
+Message body size 962 (+CR!)
+RFC From:     chris@cae.muc.de (Christian A. Eroes)
+RFC Sender:   Christian A. Eroes <chris@cae.muc.de>
+Name for alias checking: All
+No alias found: return All
+    Name:     chris
+    Address:  cae.muc.de
+RFC Date: 12 Apr 1996 09:57:00 +0100
+RFC Newsgroups: de.comm.misc
+Look up newsgroup de.comm.misc
+Found: DE.COMM.MISC de.comm.misc Z242
+RFC MIME-Version:              -NONE-
+RFC Content-Type:              -NONE-
+RFC Content-Transfer-Encoding: -NONE-
+New packet file ./outpkt/news/00000051.pkt (tmp ./outpkt/news/00000051.tmp)
+Writing FTN packet header:
+    From: 242:1000/5.0
+    To  : 242:1000/5.0
+    Baud: 0
+    Prod: 00 fe
+    Rev : 4.3
+    Pass: ""
+    Capw: 0001
+Writing FTN message header:
+    From: Christian A. Eroes                   @ 242:1000/5.0
+    To  : All                                  @ 242:1000/5.0
+    Subj: Re: SINUS 42AB
+    Attr: 0000
+News article file ../ti.news-a/61
+Message body size 1107 (+CR!)
+RFC From:     kris@schulung.netuse.de (=?ISO-8859-1?Q?Kristian_K=F6hntopp?=)
+RFC Sender:   =?ISO-8859-1?Q?Kristian_K=F6hntopp?= <kris@schulung.netuse.de>
+    Name:     ghost
+    Address:  dawn.mayn.de
+Name for alias checking: Armin Wies
+No alias found: return Armin Wies
+    Name:     kris
+    Address:  schulung.netuse.de
+RFC Date: Fri, 12 Apr 1996 07:26:28 GMT
+RFC Newsgroups: de.comm.misc
+Look up newsgroup de.comm.misc
+Found: DE.COMM.MISC de.comm.misc Z242
+RFC MIME-Version:              1.0
+RFC Content-Type:              -NONE-
+RFC Content-Transfer-Encoding: -NONE-
+New packet file ./outpkt/news/00000052.pkt (tmp ./outpkt/news/00000052.tmp)
+Writing FTN packet header:
+    From: 242:1000/5.0
+    To  : 242:1000/5.0
+    Baud: 0
+    Prod: 00 fe
+    Rev : 4.3
+    Pass: ""
+    Capw: 0001
+Writing FTN message header:
+    From: Kristian Köhntopp                    @ 242:1000/5.0
+    To  : Armin Wies                           @ 242:1000/5.0
+    Subj: Re: Telefonieren im Internet
+    Attr: 0000
+News article file ../ti.news-a/62
+Message body size 196 (+CR!)
+RFC From:     rene@flatta.in-berlin.de (Rene Kacza)
+RFC Sender:   Rene Kacza <rene@flatta.in-berlin.de>
+Name for alias checking: All
+No alias found: return All
+    Name:     rene
+    Address:  flatta.in-berlin.de
+RFC Date: 11 Apr 1996 23:43:00 +0200
+RFC Newsgroups: de.comm.gateways,de.comm.infosystems.misc,de.comm.internet.misc,de.comm.internet.routing,de.comm.internet.zugang,de.comm.isdn,de.comm.misc,de.comm.modem
+Look up newsgroup de.comm.gateways
+Found: DE.COMM.GATEWAYS de.comm.gateways Z242
+RFC MIME-Version:              -NONE-
+RFC Content-Type:              -NONE-
+RFC Content-Transfer-Encoding: -NONE-
+New packet file ./outpkt/news/00000053.pkt (tmp ./outpkt/news/00000053.tmp)
+Writing FTN packet header:
+    From: 242:1000/5.0
+    To  : 242:1000/5.0
+    Baud: 0
+    Prod: 00 fe
+    Rev : 4.3
+    Pass: ""
+    Capw: 0001
+Writing FTN message header:
+    From: Rene Kacza                           @ 242:1000/5.0
+    To  : All                                  @ 242:1000/5.0
+    Subj: Re: Kosten einer Standleitung
+    Attr: 0000
+Look up newsgroup de.comm.infosystems.misc
+Found: DE.COMM.INFOSYSTEMS.MISC de.comm.infosystems.misc Z242
+RFC MIME-Version:              -NONE-
+RFC Content-Type:              -NONE-
+RFC Content-Transfer-Encoding: -NONE-
+Writing FTN message header:
+    From: Rene Kacza                           @ 242:1000/5.0
+    To  : All                                  @ 242:1000/5.0
+    Subj: Re: Kosten einer Standleitung
+    Attr: 0000
+Look up newsgroup de.comm.internet.misc
+Found: DE.COMM.INTERNET.MISC de.comm.internet.misc Z242
+RFC MIME-Version:              -NONE-
+RFC Content-Type:              -NONE-
+RFC Content-Transfer-Encoding: -NONE-
+Writing FTN message header:
+    From: Rene Kacza                           @ 242:1000/5.0
+    To  : All                                  @ 242:1000/5.0
+    Subj: Re: Kosten einer Standleitung
+    Attr: 0000
+Look up newsgroup de.comm.internet.routing
+Found: DE.COMM.INTERNET.ROUTING de.comm.internet.routing Z242
+RFC MIME-Version:              -NONE-
+RFC Content-Type:              -NONE-
+RFC Content-Transfer-Encoding: -NONE-
+Writing FTN message header:
+    From: Rene Kacza                           @ 242:1000/5.0
+    To  : All                                  @ 242:1000/5.0
+    Subj: Re: Kosten einer Standleitung
+    Attr: 0000
+Look up newsgroup de.comm.internet.zugang
+Found: DE.COMM.INTERNET.ZUGANG de.comm.internet.zugang Z242
+RFC MIME-Version:              -NONE-
+RFC Content-Type:              -NONE-
+RFC Content-Transfer-Encoding: -NONE-
+Writing FTN message header:
+    From: Rene Kacza                           @ 242:1000/5.0
+    To  : All                                  @ 242:1000/5.0
+    Subj: Re: Kosten einer Standleitung
+    Attr: 0000
+Look up newsgroup de.comm.isdn
+Found: DE.COMM.ISDN de.comm.isdn Z242
+RFC MIME-Version:              -NONE-
+RFC Content-Type:              -NONE-
+RFC Content-Transfer-Encoding: -NONE-
+Writing FTN message header:
+    From: Rene Kacza                           @ 242:1000/5.0
+    To  : All                                  @ 242:1000/5.0
+    Subj: Re: Kosten einer Standleitung
+    Attr: 0000
+Look up newsgroup de.comm.misc
+Found: DE.COMM.MISC de.comm.misc Z242
+RFC MIME-Version:              -NONE-
+RFC Content-Type:              -NONE-
+RFC Content-Transfer-Encoding: -NONE-
+Writing FTN message header:
+    From: Rene Kacza                           @ 242:1000/5.0
+    To  : All                                  @ 242:1000/5.0
+    Subj: Re: Kosten einer Standleitung
+    Attr: 0000
+Look up newsgroup de.comm.modem
+Found: DE.COMM.MODEM de.comm.modem Z242
+RFC MIME-Version:              -NONE-
+RFC Content-Type:              -NONE-
+RFC Content-Transfer-Encoding: -NONE-
+Writing FTN message header:
+    From: Rene Kacza                           @ 242:1000/5.0
+    To  : All                                  @ 242:1000/5.0
+    Subj: Re: Kosten einer Standleitung
+    Attr: 0000
+News article file ../ti.news-a/63
+Message body size 1172 (+CR!)
+RFC From:     =?iso-8859-1?q?J=E9r=F4me_Waibel?= <schrom@lisa.simpson.inka.de>
+RFC Sender:   =?iso-8859-1?q?J=E9r=F4me_Waibel?= <schrom@lisa.simpson.inka.de>
+Name for alias checking: All
+No alias found: return All
+    Name:     schrom
+    Address:  lisa.simpson.inka.de
+RFC Date: 12 Apr 1996 14:46:43 +0100
+RFC Newsgroups: de.comm.misc
+Look up newsgroup de.comm.misc
+Found: DE.COMM.MISC de.comm.misc Z242
+RFC MIME-Version:              1.0
+RFC Content-Type:              text/plain; charset=iso-8859-1
+RFC Content-Transfer-Encoding: 8bit
+New packet file ./outpkt/news/00000054.pkt (tmp ./outpkt/news/00000054.tmp)
+Writing FTN packet header:
+    From: 242:1000/5.0
+    To  : 242:1000/5.0
+    Baud: 0
+    Prod: 00 fe
+    Rev : 4.3
+    Pass: ""
+    Capw: 0001
+Writing FTN message header:
+    From: Jérôme Waibel                        @ 242:1000/5.0
+    To  : All                                  @ 242:1000/5.0
+    Subj: Re: Vernetzung AMIGA-PC
+    Attr: 0000
+News article file ../ti.news-a/64
+Message body size 492 (+CR!)
+RFC From:     100657.202@compuserve.com (Michael Stein)
+RFC Sender:   Michael Stein <100657.202@compuserve.com>
+Name for alias checking: All
+No alias found: return All
+    Name:     100657.202
+    Address:  compuserve.com
+RFC Date: Sat, 13 Apr 1996 01:45:23 GMT
+RFC Newsgroups: de.comm.misc
+Look up newsgroup de.comm.misc
+Found: DE.COMM.MISC de.comm.misc Z242
+RFC MIME-Version:              -NONE-
+RFC Content-Type:              -NONE-
+RFC Content-Transfer-Encoding: -NONE-
+New packet file ./outpkt/news/00000055.pkt (tmp ./outpkt/news/00000055.tmp)
+Writing FTN packet header:
+    From: 242:1000/5.0
+    To  : 242:1000/5.0
+    Baud: 0
+    Prod: 00 fe
+    Rev : 4.3
+    Pass: ""
+    Capw: 0001
+Writing FTN message header:
+    From: Michael Stein                        @ 242:1000/5.0
+    To  : All                                  @ 242:1000/5.0
+    Subj: Direkte Steuerung der Windows 95-FAX-Software
+    Attr: 0000
+News article file ../ti.news-a/65
+Message body size 1032 (+CR!)
+RFC From:     Stefan Wintermeyer <S.Wintermeyer@swreisedienst.com>
+RFC Sender:   Stefan Wintermeyer <S.Wintermeyer@swreisedienst.com>
+Name for alias checking: All
+No alias found: return All
+    Name:     S.Wintermeyer
+    Address:  swreisedienst.com
+RFC Date: Sat, 13 Apr 1996 11:09:04 +0200
+RFC Newsgroups: de.comm.misc
+Look up newsgroup de.comm.misc
+Found: DE.COMM.MISC de.comm.misc Z242
+RFC MIME-Version:              1.0
+RFC Content-Type:              text/plain; charset=iso-8859-1
+RFC Content-Transfer-Encoding: quoted-printable
+New packet file ./outpkt/news/00000056.pkt (tmp ./outpkt/news/00000056.tmp)
+Writing FTN packet header:
+    From: 242:1000/5.0
+    To  : 242:1000/5.0
+    Baud: 0
+    Prod: 00 fe
+    Rev : 4.3
+    Pass: ""
+    Capw: 0001
+Writing FTN message header:
+    From: Stefan Wintermeyer                   @ 242:1000/5.0
+    To  : All                                  @ 242:1000/5.0
+    Subj: Re: Direkte Steuerung der Windows 95-FAX-Software
+    Attr: 0000
+News article file ../ti.news-a/66
+Message body size 1515 (+CR!)
+RFC From:     UPS500@ibm.rhrz.uni-bonn.de (Markus Schlegel)
+RFC Sender:   Markus Schlegel <UPS500@ibm.rhrz.uni-bonn.de>
+Name for alias checking: All
+No alias found: return All
+    Name:     UPS500
+    Address:  ibm.rhrz.uni-bonn.de
+RFC Date: Sat, 13 Apr 96 16:10:12 MEZ
+RFC Newsgroups: de.comm.service+tarife,de.comm.misc,de.comm.mobil
+Look up newsgroup de.comm.service+tarife
+Found: DE.COMM.SERVICE+TARIFE de.comm.service+tarife Z242
+RFC MIME-Version:              -NONE-
+RFC Content-Type:              -NONE-
+RFC Content-Transfer-Encoding: -NONE-
+New packet file ./outpkt/news/00000057.pkt (tmp ./outpkt/news/00000057.tmp)
+Writing FTN packet header:
+    From: 242:1000/5.0
+    To  : 242:1000/5.0
+    Baud: 0
+    Prod: 00 fe
+    Rev : 4.3
+    Pass: ""
+    Capw: 0001
+Writing FTN message header:
+    From: Markus Schlegel                      @ 242:1000/5.0
+    To  : All                                  @ 242:1000/5.0
+    Subj: *** News ***: Norwegen schafft Telefon-Ortsgebuehren ab
+    Attr: 0000
+Look up newsgroup de.comm.misc
+Found: DE.COMM.MISC de.comm.misc Z242
+RFC MIME-Version:              -NONE-
+RFC Content-Type:              -NONE-
+RFC Content-Transfer-Encoding: -NONE-
+Writing FTN message header:
+    From: Markus Schlegel                      @ 242:1000/5.0
+    To  : All                                  @ 242:1000/5.0
+    Subj: *** News ***: Norwegen schafft Telefon-Ortsgebuehren ab
+    Attr: 0000
+Look up newsgroup de.comm.mobil
+Found: DE.COMM.MOBIL de.comm.mobil Z242
+RFC MIME-Version:              -NONE-
+RFC Content-Type:              -NONE-
+RFC Content-Transfer-Encoding: -NONE-
+Writing FTN message header:
+    From: Markus Schlegel                      @ 242:1000/5.0
+    To  : All                                  @ 242:1000/5.0
+    Subj: *** News ***: Norwegen schafft Telefon-Ortsgebuehren ab
+    Attr: 0000
+News article file ../ti.news-a/67
+Message body size 544 (+CR!)
+RFC From:     mozart@mozart.berlinet.de (Thomas Witt)
+RFC Sender:   Thomas Witt <mozart@mozart.berlinet.de>
+Name for alias checking: All
+No alias found: return All
+    Name:     mozart
+    Address:  mozart.berlinet.de
+RFC Date: Sat, 13 Apr 96 19:13:50 MEZ
+RFC Newsgroups: de.comm.modem,de.comm.misc,de.comm.mobil,ger.pc.hard
+Look up newsgroup de.comm.modem
+Found: DE.COMM.MODEM de.comm.modem Z242
+RFC MIME-Version:              1.0
+RFC Content-Type:              text/plain; charset=iso-8859-1
+RFC Content-Transfer-Encoding: 8bit
+New packet file ./outpkt/news/00000058.pkt (tmp ./outpkt/news/00000058.tmp)
+Writing FTN packet header:
+    From: 242:1000/5.0
+    To  : 242:1000/5.0
+    Baud: 0
+    Prod: 00 fe
+    Rev : 4.3
+    Pass: ""
+    Capw: 0001
+Writing FTN message header:
+    From: Thomas Witt                          @ 242:1000/5.0
+    To  : All                                  @ 242:1000/5.0
+    Subj: Re: Modem an E-Plus-Handy???
+    Attr: 0000
+Look up newsgroup de.comm.misc
+Found: DE.COMM.MISC de.comm.misc Z242
+RFC MIME-Version:              1.0
+RFC Content-Type:              text/plain; charset=iso-8859-1
+RFC Content-Transfer-Encoding: 8bit
+Writing FTN message header:
+    From: Thomas Witt                          @ 242:1000/5.0
+    To  : All                                  @ 242:1000/5.0
+    Subj: Re: Modem an E-Plus-Handy???
+    Attr: 0000
+Look up newsgroup de.comm.mobil
+Found: DE.COMM.MOBIL de.comm.mobil Z242
+RFC MIME-Version:              1.0
+RFC Content-Type:              text/plain; charset=iso-8859-1
+RFC Content-Transfer-Encoding: 8bit
+Writing FTN message header:
+    From: Thomas Witt                          @ 242:1000/5.0
+    To  : All                                  @ 242:1000/5.0
+    Subj: Re: Modem an E-Plus-Handy???
+    Attr: 0000
+Look up newsgroup ger.pc.hard
+No FTN area
+News article file ../ti.news-a/68
+Message body size 881 (+CR!)
+RFC From:     uh5y@rz.uni-karlsruhe.de (Martin Schulte Moenting)
+RFC Sender:   Martin Schulte Moenting <uh5y@rz.uni-karlsruhe.de>
+Name for alias checking: All
+No alias found: return All
+    Name:     uh5y
+    Address:  rz.uni-karlsruhe.de
+RFC Date: Sat, 13 Apr 1996 19:30:42 GMT
+RFC Newsgroups: de.comm.misc
+Look up newsgroup de.comm.misc
+Found: DE.COMM.MISC de.comm.misc Z242
+RFC MIME-Version:              1.0
+RFC Content-Type:              text/plain; charset=iso-8859-1
+RFC Content-Transfer-Encoding: 8bit
+New packet file ./outpkt/news/00000059.pkt (tmp ./outpkt/news/00000059.tmp)
+Writing FTN packet header:
+    From: 242:1000/5.0
+    To  : 242:1000/5.0
+    Baud: 0
+    Prod: 00 fe
+    Rev : 4.3
+    Pass: ""
+    Capw: 0001
+Writing FTN message header:
+    From: Martin Schulte Moenting              @ 242:1000/5.0
+    To  : All                                  @ 242:1000/5.0
+    Subj: Re: SINUS 42AB
+    Attr: 0000
+News article file ../ti.news-a/69
+Message body size 516 (+CR!)
+RFC From:     rufus@informatik.uni-koblenz.de (Sven Lehmann)
+RFC Sender:   Sven Lehmann <rufus@informatik.uni-koblenz.de>
+Name for alias checking: All
+No alias found: return All
+    Name:     rufus
+    Address:  informatik.uni-koblenz.de
+RFC Date: 13 Apr 1996 22:09:08 GMT
+RFC Newsgroups: de.comm.misc
+Look up newsgroup de.comm.misc
+Found: DE.COMM.MISC de.comm.misc Z242
+RFC MIME-Version:              -NONE-
+RFC Content-Type:              -NONE-
+RFC Content-Transfer-Encoding: -NONE-
+New packet file ./outpkt/news/00000060.pkt (tmp ./outpkt/news/00000060.tmp)
+Writing FTN packet header:
+    From: 242:1000/5.0
+    To  : 242:1000/5.0
+    Baud: 0
+    Prod: 00 fe
+    Rev : 4.3
+    Pass: ""
+    Capw: 0001
+Writing FTN message header:
+    From: Sven Lehmann                         @ 242:1000/5.0
+    To  : All                                  @ 242:1000/5.0
+    Subj: Suche CD-Labels
+    Attr: 0000
+News article file ../ti.news-a/70
+Message body size 1029 (+CR!)
+RFC From:     groggy@eikon.e-technik.tu-muenchen.de (Christian Grodau)
+RFC Sender:   Christian Grodau <groggy@eikon.e-technik.tu-muenchen.de>
+    Name:     winkler
+    Address:  ira.uka.de
+Name for alias checking: Frank Winkler @home
+No alias found: return Frank Winkler @home
+    Name:     groggy
+    Address:  eikon.e-technik.tu-muenchen.de
+RFC Date: Sun, 14 Apr 1996 09:00:16 GMT
+RFC Newsgroups: de.comp.os.os2.misc,de.comm.misc
+Look up newsgroup de.comp.os.os2.misc
+Found: DE.COMP.OS.OS2.MISC de.comp.os.os2.misc Z242
+RFC MIME-Version:              -NONE-
+RFC Content-Type:              -NONE-
+RFC Content-Transfer-Encoding: -NONE-
+New packet file ./outpkt/news/00000061.pkt (tmp ./outpkt/news/00000061.tmp)
+Writing FTN packet header:
+    From: 242:1000/5.0
+    To  : 242:1000/5.0
+    Baud: 0
+    Prod: 00 fe
+    Rev : 4.3
+    Pass: ""
+    Capw: 0001
+Writing FTN message header:
+    From: Christian Grodau                     @ 242:1000/5.0
+    To  : Frank Winkler @home                  @ 242:1000/5.0
+    Subj: Re: Scall/SMS fur OS/2 ?
+    Attr: 0000
+Look up newsgroup de.comm.misc
+Found: DE.COMM.MISC de.comm.misc Z242
+RFC MIME-Version:              -NONE-
+RFC Content-Type:              -NONE-
+RFC Content-Transfer-Encoding: -NONE-
+Writing FTN message header:
+    From: Christian Grodau                     @ 242:1000/5.0
+    To  : Frank Winkler @home                  @ 242:1000/5.0
+    Subj: Re: Scall/SMS fur OS/2 ?
+    Attr: 0000
+News article file ../ti.news-a/71
+Message body size 733 (+CR!)
+RFC From:     funked@bonsai.fernuni-hagen.de (Daniel Funke)
+RFC Sender:   Daniel Funke <funked@bonsai.fernuni-hagen.de>
+    Name:     100657.202
+    Address:  compuserve.com
+Name for alias checking: Michael Stein
+No alias found: return Michael Stein
+    Name:     funked
+    Address:  bonsai.fernuni-hagen.de
+RFC Date: Sun, 14 Apr 1996 15:05:50 GMT
+RFC Newsgroups: de.comm.misc
+Look up newsgroup de.comm.misc
+Found: DE.COMM.MISC de.comm.misc Z242
+RFC MIME-Version:              -NONE-
+RFC Content-Type:              -NONE-
+RFC Content-Transfer-Encoding: -NONE-
+New packet file ./outpkt/news/00000062.pkt (tmp ./outpkt/news/00000062.tmp)
+Writing FTN packet header:
+    From: 242:1000/5.0
+    To  : 242:1000/5.0
+    Baud: 0
+    Prod: 00 fe
+    Rev : 4.3
+    Pass: ""
+    Capw: 0001
+Writing FTN message header:
+    From: Daniel Funke                         @ 242:1000/5.0
+    To  : Michael Stein                        @ 242:1000/5.0
+    Subj: Re: Direkte Steuerung der Windows 95-FAX-Software
+    Attr: 0000
+News article file ../ti.news-a/72
+Message body size 1594 (+CR!)
+RFC From:     ben@osn.de (Ben)
+RFC Sender:   Ben <ben@osn.de>
+Name for alias checking: All
+No alias found: return All
+    Name:     ben
+    Address:  osn.de
+RFC Date: Sun, 14 Apr 1996 19:04:09 GMT
+RFC Newsgroups: de.comm.misc
+Look up newsgroup de.comm.misc
+Found: DE.COMM.MISC de.comm.misc Z242
+RFC MIME-Version:              -NONE-
+RFC Content-Type:              -NONE-
+RFC Content-Transfer-Encoding: -NONE-
+New packet file ./outpkt/news/00000063.pkt (tmp ./outpkt/news/00000063.tmp)
+Writing FTN packet header:
+    From: 242:1000/5.0
+    To  : 242:1000/5.0
+    Baud: 0
+    Prod: 00 fe
+    Rev : 4.3
+    Pass: ""
+    Capw: 0001
+Writing FTN message header:
+    From: Ben                                  @ 242:1000/5.0
+    To  : All                                  @ 242:1000/5.0
+    Subj: Modem / Telefon - Wer schmeisst wen aus der Leitung ?
+    Attr: 0000
+News article file ../ti.news-a/73
+Message body size 796 (+CR!)
+RFC From:     roger@larry.westfalen.de (Roger Schwentker)
+RFC Sender:   Roger Schwentker <roger@larry.westfalen.de>
+Name for alias checking: All
+No alias found: return All
+    Name:     roger
+    Address:  larry.westfalen.de
+RFC Date: Sun, 14 Apr 1996 07:10:24 GMT
+RFC Newsgroups: de.comm.misc
+Look up newsgroup de.comm.misc
+Found: DE.COMM.MISC de.comm.misc Z242
+RFC MIME-Version:              -NONE-
+RFC Content-Type:              -NONE-
+RFC Content-Transfer-Encoding: -NONE-
+New packet file ./outpkt/news/00000064.pkt (tmp ./outpkt/news/00000064.tmp)
+Writing FTN packet header:
+    From: 242:1000/5.0
+    To  : 242:1000/5.0
+    Baud: 0
+    Prod: 00 fe
+    Rev : 4.3
+    Pass: ""
+    Capw: 0001
+Writing FTN message header:
+    From: Roger Schwentker                     @ 242:1000/5.0
+    To  : All                                  @ 242:1000/5.0
+    Subj: Re: tcpip, ftp unter dos
+    Attr: 0000
+News article file ../ti.news-a/74
+Message body size 563 (+CR!)
+RFC From:     mark@umd.allcon.com (Mark Deskowski)
+RFC Sender:   Mark Deskowski <mark@umd.allcon.com>
+    Name:     ben
+    Address:  osn.de
+Name for alias checking: Ben
+No alias found: return Ben
+    Name:     mark
+    Address:  umd.allcon.com
+RFC Date: Sun, 14 Apr 1996 22:01:39 GMT
+RFC Newsgroups: de.comm.misc
+Look up newsgroup de.comm.misc
+Found: DE.COMM.MISC de.comm.misc Z242
+RFC MIME-Version:              -NONE-
+RFC Content-Type:              -NONE-
+RFC Content-Transfer-Encoding: -NONE-
+New packet file ./outpkt/news/00000065.pkt (tmp ./outpkt/news/00000065.tmp)
+Writing FTN packet header:
+    From: 242:1000/5.0
+    To  : 242:1000/5.0
+    Baud: 0
+    Prod: 00 fe
+    Rev : 4.3
+    Pass: ""
+    Capw: 0001
+Writing FTN message header:
+    From: Mark Deskowski                       @ 242:1000/5.0
+    To  : Ben                                  @ 242:1000/5.0
+    Subj: Re: Modem / Telefon - Wer schmeisst wen aus der Leitung ?
+    Attr: 0000
+News article file ../ti.news-a/75
+Message body size 356 (+CR!)
+RFC From:     ruhs@thor.tech.chemie.tu-muenchen.de (Michael Ruhs)
+RFC Sender:   Michael Ruhs <ruhs@thor.tech.chemie.tu-muenchen.de>
+Name for alias checking: All
+No alias found: return All
+    Name:     ruhs
+    Address:  thor.tech.chemie.tu-muenchen.de
+RFC Date: 15 Apr 1996 07:46:57 GMT
+RFC Newsgroups: de.comm.misc
+Look up newsgroup de.comm.misc
+Found: DE.COMM.MISC de.comm.misc Z242
+RFC MIME-Version:              1.0
+RFC Content-Type:              Text/Plain; charset=ISO-8859-1
+RFC Content-Transfer-Encoding: -NONE-
+New packet file ./outpkt/news/00000066.pkt (tmp ./outpkt/news/00000066.tmp)
+Writing FTN packet header:
+    From: 242:1000/5.0
+    To  : 242:1000/5.0
+    Baud: 0
+    Prod: 00 fe
+    Rev : 4.3
+    Pass: ""
+    Capw: 0001
+Writing FTN message header:
+    From: Michael Ruhs                         @ 242:1000/5.0
+    To  : All                                  @ 242:1000/5.0
+    Subj: S: Belegung der neuen TAE-UP - Dosen
+    Attr: 0000
+News article file ../ti.news-a/76
+Message body size 3038 (+CR!)
+RFC From:     dorfner@susi.fmi.uni-passau.de (Clemens Dorfner)
+RFC Sender:   Clemens Dorfner <dorfner@susi.fmi.uni-passau.de>
+Name for alias checking: All
+No alias found: return All
+    Name:     dorfner
+    Address:  susi.fmi.uni-passau.de
+RFC Date: 15 Apr 96 09:20:41 GMT
+RFC Newsgroups: de.comm.misc
+Look up newsgroup de.comm.misc
+Found: DE.COMM.MISC de.comm.misc Z242
+RFC MIME-Version:              -NONE-
+RFC Content-Type:              -NONE-
+RFC Content-Transfer-Encoding: -NONE-
+New packet file ./outpkt/news/00000067.pkt (tmp ./outpkt/news/00000067.tmp)
+Writing FTN packet header:
+    From: 242:1000/5.0
+    To  : 242:1000/5.0
+    Baud: 0
+    Prod: 00 fe
+    Rev : 4.3
+    Pass: ""
+    Capw: 0001
+Writing FTN message header:
+    From: Clemens Dorfner                      @ 242:1000/5.0
+    To  : All                                  @ 242:1000/5.0
+    Subj: Re: Modem / Telefon - Wer schmeisst wen aus der Leitung ?
+    Attr: 0000
+News article file ../ti.news-a/77
+Message body size 1241 (+CR!)
+RFC From:     graef@Informatik.TU-Muenchen.DE (Andreas Graef)
+RFC Reply-To: graef@informatik.tu-muenchen.de
+RFC Sender:   Andreas Graef <graef@Informatik.TU-Muenchen.DE>
+Name for alias checking: All
+No alias found: return All
+    Name:     graef
+    Address:  Informatik.TU-Muenchen.DE
+RFC Date: Sat, 13 Apr 1996 17:26:28 +0100
+RFC Newsgroups: de.comm.misc
+Look up newsgroup de.comm.misc
+Found: DE.COMM.MISC de.comm.misc Z242
+RFC MIME-Version:              -NONE-
+RFC Content-Type:              -NONE-
+RFC Content-Transfer-Encoding: -NONE-
+New packet file ./outpkt/news/00000068.pkt (tmp ./outpkt/news/00000068.tmp)
+Writing FTN packet header:
+    From: 242:1000/5.0
+    To  : 242:1000/5.0
+    Baud: 0
+    Prod: 00 fe
+    Rev : 4.3
+    Pass: ""
+    Capw: 0001
+Writing FTN message header:
+    From: Andreas Graef                        @ 242:1000/5.0
+    To  : All                                  @ 242:1000/5.0
+    Subj: Re: Hörbarer Gebührenimpuls
+    Attr: 0000
+News article file ../ti.news-a/78
+Message body size 499 (+CR!)
+RFC From:     finc27@zx2.hrz.uni-dortmund.de (Thomas Adams)
+RFC Sender:   Thomas Adams <finc27@zx2.hrz.uni-dortmund.de>
+Name for alias checking: All
+No alias found: return All
+    Name:     finc27
+    Address:  zx2.hrz.uni-dortmund.de
+RFC Date: 15 Apr 1996 12:33:18 GMT
+RFC Newsgroups: de.comm.misc
+Look up newsgroup de.comm.misc
+Found: DE.COMM.MISC de.comm.misc Z242
+RFC MIME-Version:              -NONE-
+RFC Content-Type:              -NONE-
+RFC Content-Transfer-Encoding: -NONE-
+New packet file ./outpkt/news/00000069.pkt (tmp ./outpkt/news/00000069.tmp)
+Writing FTN packet header:
+    From: 242:1000/5.0
+    To  : 242:1000/5.0
+    Baud: 0
+    Prod: 00 fe
+    Rev : 4.3
+    Pass: ""
+    Capw: 0001
+Writing FTN message header:
+    From: Thomas Adams                         @ 242:1000/5.0
+    To  : All                                  @ 242:1000/5.0
+    Subj: warum sind Telekom Modems so teuer?
+    Attr: 0000
+News article file ../ti.news-a/79
+Message body size 1217 (+CR!)
+RFC From:     kay@ula1b18.zhv.basf-ag.de (Kay Marquardt)
+RFC Sender:   Kay Marquardt <kay@ula1b18.zhv.basf-ag.de>
+    Name:     ben
+    Address:  osn.de
+Name for alias checking: Ben
+No alias found: return Ben
+    Name:     kay
+    Address:  ula1b18.zhv.basf-ag.de
+RFC Date: 15 Apr 1996 13:50:30 GMT
+RFC Newsgroups: de.comm.misc
+Look up newsgroup de.comm.misc
+Found: DE.COMM.MISC de.comm.misc Z242
+RFC MIME-Version:              -NONE-
+RFC Content-Type:              -NONE-
+RFC Content-Transfer-Encoding: -NONE-
+New packet file ./outpkt/news/00000070.pkt (tmp ./outpkt/news/00000070.tmp)
+Writing FTN packet header:
+    From: 242:1000/5.0
+    To  : 242:1000/5.0
+    Baud: 0
+    Prod: 00 fe
+    Rev : 4.3
+    Pass: ""
+    Capw: 0001
+Writing FTN message header:
+    From: Kay Marquardt                        @ 242:1000/5.0
+    To  : Ben                                  @ 242:1000/5.0
+    Subj: Re: Modem / Telefon - Wer schmeisst wen aus der Leitung ?
+    Attr: 0000
+News article file ../ti.news-a/80
+Message body size 1651 (+CR!)
+RFC From:     funked@bonsai.fernuni-hagen.de (Daniel Funke)
+RFC Sender:   Daniel Funke <funked@bonsai.fernuni-hagen.de>
+    Name:     ben
+    Address:  osn.de
+Name for alias checking: Ben
+No alias found: return Ben
+    Name:     funked
+    Address:  bonsai.fernuni-hagen.de
+RFC Date: Mon, 15 Apr 1996 15:39:24 GMT
+RFC Newsgroups: de.comm.misc
+Look up newsgroup de.comm.misc
+Found: DE.COMM.MISC de.comm.misc Z242
+RFC MIME-Version:              -NONE-
+RFC Content-Type:              -NONE-
+RFC Content-Transfer-Encoding: -NONE-
+New packet file ./outpkt/news/00000071.pkt (tmp ./outpkt/news/00000071.tmp)
+Writing FTN packet header:
+    From: 242:1000/5.0
+    To  : 242:1000/5.0
+    Baud: 0
+    Prod: 00 fe
+    Rev : 4.3
+    Pass: ""
+    Capw: 0001
+Writing FTN message header:
+    From: Daniel Funke                         @ 242:1000/5.0
+    To  : Ben                                  @ 242:1000/5.0
+    Subj: Re: Modem / Telefon - Wer schmeisst wen aus der Leitung ?
+    Attr: 0000
+News article file ../ti.news-a/81
+Message body size 659 (+CR!)
+RFC From:     ghost@dawn.mayn.de (Armin Wies)
+RFC Sender:   Armin Wies <ghost@dawn.mayn.de>
+    Name:     Michael Ruhs
+    Address:  
+Name for alias checking: ruhs@thor.tech.chemie.tu-muenchen.d
+No alias found: return Ruhs@thor.Tech.Chemie.Tu-muenchen.D
+    Name:     ghost
+    Address:  dawn.mayn.de
+RFC Date: Mon, 15 Apr 96 19:48:39 +0100
+RFC Newsgroups: de.comm.misc
+Look up newsgroup de.comm.misc
+Found: DE.COMM.MISC de.comm.misc Z242
+RFC MIME-Version:              -NONE-
+RFC Content-Type:              -NONE-
+RFC Content-Transfer-Encoding: -NONE-
+New packet file ./outpkt/news/00000072.pkt (tmp ./outpkt/news/00000072.tmp)
+Writing FTN packet header:
+    From: 242:1000/5.0
+    To  : 242:1000/5.0
+    Baud: 0
+    Prod: 00 fe
+    Rev : 4.3
+    Pass: ""
+    Capw: 0001
+Writing FTN message header:
+    From: Armin Wies                           @ 242:1000/5.0
+    To  : Ruhs@thor.Tech.Chemie.Tu-muenchen.D  @ 242:1000/5.0
+    Subj: Re: S: Belegung der neuen TAE-UP - Dosen
+    Attr: 0000
+News article file ../ti.news-a/82
+Message body size 628 (+CR!)
+RFC From:     rene@flatta.in-berlin.de (Rene Kacza)
+RFC Sender:   Rene Kacza <rene@flatta.in-berlin.de>
+Name for alias checking: All
+No alias found: return All
+    Name:     rene
+    Address:  flatta.in-berlin.de
+RFC Date: 15 Apr 1996 21:47:00 +0200
+RFC Newsgroups: de.comm.misc
+Look up newsgroup de.comm.misc
+Found: DE.COMM.MISC de.comm.misc Z242
+RFC MIME-Version:              -NONE-
+RFC Content-Type:              -NONE-
+RFC Content-Transfer-Encoding: -NONE-
+New packet file ./outpkt/news/00000073.pkt (tmp ./outpkt/news/00000073.tmp)
+Writing FTN packet header:
+    From: 242:1000/5.0
+    To  : 242:1000/5.0
+    Baud: 0
+    Prod: 00 fe
+    Rev : 4.3
+    Pass: ""
+    Capw: 0001
+Writing FTN message header:
+    From: Rene Kacza                           @ 242:1000/5.0
+    To  : All                                  @ 242:1000/5.0
+    Subj: Re: Modem / Telefon - Wer schmeisst wen aus der Leitung ?
+    Attr: 0000
+News article file ../ti.news-a/83
+Message body size 1211 (+CR!)
+RFC From:     WASTL@RMAN2.gun.de (Sebastian Koopmann)
+RFC Sender:   Sebastian Koopmann <WASTL@RMAN2.gun.de>
+Name for alias checking: All
+No alias found: return All
+    Name:     WASTL
+    Address:  RMAN2.gun.de
+RFC Date: 15 Apr 96 21:42:00 +0200
+RFC Newsgroups: de.comm.misc
+Look up newsgroup de.comm.misc
+Found: DE.COMM.MISC de.comm.misc Z242
+RFC MIME-Version:              -NONE-
+RFC Content-Type:              -NONE-
+RFC Content-Transfer-Encoding: -NONE-
+New packet file ./outpkt/news/00000074.pkt (tmp ./outpkt/news/00000074.tmp)
+Writing FTN packet header:
+    From: 242:1000/5.0
+    To  : 242:1000/5.0
+    Baud: 0
+    Prod: 00 fe
+    Rev : 4.3
+    Pass: ""
+    Capw: 0001
+Writing FTN message header:
+    From: Sebastian Koopmann                   @ 242:1000/5.0
+    To  : All                                  @ 242:1000/5.0
+    Subj: Re: Modem / Telefon - Wer schmeisst wen aus der Leitung ?
+    Attr: 0000
+News article file ../ti.news-a/84
+Message body size 677 (+CR!)
+RFC From:     WASTL@RMAN2.gun.de (Sebastian Koopmann)
+RFC Sender:   Sebastian Koopmann <WASTL@RMAN2.gun.de>
+Name for alias checking: All
+No alias found: return All
+    Name:     WASTL
+    Address:  RMAN2.gun.de
+RFC Date: 15 Apr 96 22:20:00 +0200
+RFC Newsgroups: de.comm.misc
+Look up newsgroup de.comm.misc
+Found: DE.COMM.MISC de.comm.misc Z242
+RFC MIME-Version:              -NONE-
+RFC Content-Type:              -NONE-
+RFC Content-Transfer-Encoding: -NONE-
+New packet file ./outpkt/news/00000075.pkt (tmp ./outpkt/news/00000075.tmp)
+Writing FTN packet header:
+    From: 242:1000/5.0
+    To  : 242:1000/5.0
+    Baud: 0
+    Prod: 00 fe
+    Rev : 4.3
+    Pass: ""
+    Capw: 0001
+Writing FTN message header:
+    From: Sebastian Koopmann                   @ 242:1000/5.0
+    To  : All                                  @ 242:1000/5.0
+    Subj: Re: Modem / Telefon - Wer schmeisst wen aus der Leitung ?
+    Attr: 0000
+News article file ../ti.news-a/85
+Message body size 688 (+CR!)
+RFC From:     =?iso-8859-1?q?J=E9r=F4me_Waibel?= <schrom@lisa.simpson.inka.de>
+RFC Sender:   =?iso-8859-1?q?J=E9r=F4me_Waibel?= <schrom@lisa.simpson.inka.de>
+Name for alias checking: All
+No alias found: return All
+    Name:     schrom
+    Address:  lisa.simpson.inka.de
+RFC Date: 16 Apr 1996 00:21:10 +0100
+RFC Newsgroups: de.comm.misc
+Look up newsgroup de.comm.misc
+Found: DE.COMM.MISC de.comm.misc Z242
+RFC MIME-Version:              1.0
+RFC Content-Type:              text/plain; charset=iso-8859-1
+RFC Content-Transfer-Encoding: 8bit
+New packet file ./outpkt/news/00000076.pkt (tmp ./outpkt/news/00000076.tmp)
+Writing FTN packet header:
+    From: 242:1000/5.0
+    To  : 242:1000/5.0
+    Baud: 0
+    Prod: 00 fe
+    Rev : 4.3
+    Pass: ""
+    Capw: 0001
+Writing FTN message header:
+    From: Jérôme Waibel                        @ 242:1000/5.0
+    To  : All                                  @ 242:1000/5.0
+    Subj: Re: Hörbarer Gebührenimpuls
+    Attr: 0000
+News article file ../ti.news-a/86
+Message body size 890 (+CR!)
+RFC From:     hmo@sep.hamburg.com (Helge Oldach)
+RFC Sender:   Helge Oldach <hmo@sep.hamburg.com>
+    Name:     chris
+    Address:  cae.muc.de
+Name for alias checking: Christian A. Eroes
+No alias found: return Christian A. Eroes
+    Name:     hmo
+    Address:  sep.hamburg.com
+RFC Date: Mon, 15 Apr 1996 22:04:26 GMT
+RFC Newsgroups: de.comm.internet.misc,de.comm.gateways,de.comm.infosystems.misc,de.comm.internet.routing,de.comm.internet.zugang,de.comm.modem,de.comm.isdn,de.comm.misc
+Look up newsgroup de.comm.internet.misc
+Found: DE.COMM.INTERNET.MISC de.comm.internet.misc Z242
+RFC MIME-Version:              1.0
+RFC Content-Type:              text/plain; charset=iso-8859-1
+RFC Content-Transfer-Encoding: 8bit
+New packet file ./outpkt/news/00000077.pkt (tmp ./outpkt/news/00000077.tmp)
+Writing FTN packet header:
+    From: 242:1000/5.0
+    To  : 242:1000/5.0
+    Baud: 0
+    Prod: 00 fe
+    Rev : 4.3
+    Pass: ""
+    Capw: 0001
+Writing FTN message header:
+    From: Helge Oldach                         @ 242:1000/5.0
+    To  : Christian A. Eroes                   @ 242:1000/5.0
+    Subj: Re: Kosten einer Standleitung
+    Attr: 0000
+Look up newsgroup de.comm.gateways
+Found: DE.COMM.GATEWAYS de.comm.gateways Z242
+RFC MIME-Version:              1.0
+RFC Content-Type:              text/plain; charset=iso-8859-1
+RFC Content-Transfer-Encoding: 8bit
+Writing FTN message header:
+    From: Helge Oldach                         @ 242:1000/5.0
+    To  : Christian A. Eroes                   @ 242:1000/5.0
+    Subj: Re: Kosten einer Standleitung
+    Attr: 0000
+Look up newsgroup de.comm.infosystems.misc
+Found: DE.COMM.INFOSYSTEMS.MISC de.comm.infosystems.misc Z242
+RFC MIME-Version:              1.0
+RFC Content-Type:              text/plain; charset=iso-8859-1
+RFC Content-Transfer-Encoding: 8bit
+Writing FTN message header:
+    From: Helge Oldach                         @ 242:1000/5.0
+    To  : Christian A. Eroes                   @ 242:1000/5.0
+    Subj: Re: Kosten einer Standleitung
+    Attr: 0000
+Look up newsgroup de.comm.internet.routing
+Found: DE.COMM.INTERNET.ROUTING de.comm.internet.routing Z242
+RFC MIME-Version:              1.0
+RFC Content-Type:              text/plain; charset=iso-8859-1
+RFC Content-Transfer-Encoding: 8bit
+Writing FTN message header:
+    From: Helge Oldach                         @ 242:1000/5.0
+    To  : Christian A. Eroes                   @ 242:1000/5.0
+    Subj: Re: Kosten einer Standleitung
+    Attr: 0000
+Look up newsgroup de.comm.internet.zugang
+Found: DE.COMM.INTERNET.ZUGANG de.comm.internet.zugang Z242
+RFC MIME-Version:              1.0
+RFC Content-Type:              text/plain; charset=iso-8859-1
+RFC Content-Transfer-Encoding: 8bit
+Writing FTN message header:
+    From: Helge Oldach                         @ 242:1000/5.0
+    To  : Christian A. Eroes                   @ 242:1000/5.0
+    Subj: Re: Kosten einer Standleitung
+    Attr: 0000
+Look up newsgroup de.comm.modem
+Found: DE.COMM.MODEM de.comm.modem Z242
+RFC MIME-Version:              1.0
+RFC Content-Type:              text/plain; charset=iso-8859-1
+RFC Content-Transfer-Encoding: 8bit
+Writing FTN message header:
+    From: Helge Oldach                         @ 242:1000/5.0
+    To  : Christian A. Eroes                   @ 242:1000/5.0
+    Subj: Re: Kosten einer Standleitung
+    Attr: 0000
+Look up newsgroup de.comm.isdn
+Found: DE.COMM.ISDN de.comm.isdn Z242
+RFC MIME-Version:              hmo@sep.hamburg.com (Helge Oldach)
+RFC Content-Type:              text/plain; charset=iso-8859-1
+RFC Content-Transfer-Encoding: 8bit
+Writing FTN message header:
+    From: Helge Oldach                         @ 242:1000/5.0
+    To  : Christian A. Eroes                   @ 242:1000/5.0
+    Subj: Re: Kosten einer Standleitung
+    Attr: 0000
+Look up newsgroup de.comm.misc
+Found: DE.COMM.MISC de.comm.misc Z242
+RFC MIME-Version:              hmo@sep.hamburg.com (Helge Oldach)
+RFC Content-Type:              <DpxBzF.4C1@sep.hamburg.com>
+RFC Content-Transfer-Encoding: <matthias.bolten-1104961354190001@bigapple.cologne.de> 	<4kj54f$1f98@info4.rus.uni-stuttgart.de> <66dsNxvSiRB@cae.muc.de>
+Writing FTN message header:
+    From: Helge Oldach                         @ 242:1000/5.0
+    To  : Christian A. Eroes                   @ 242:1000/5.0
+    Subj: Re: Kosten einer Standleitung
+    Attr: 0000
+News article file ../ti.news-a/87
+Message body size 1269 (+CR!)
+RFC From:     kakau@crest4.lbcmbx.bln.sub.org (Karsten Kaulich)
+RFC Sender:   Karsten Kaulich <kakau@crest4.lbcmbx.bln.sub.org>
+Name for alias checking: All
+No alias found: return All
+    Name:     kakau
+    Address:  crest4.lbcmbx.bln.sub.org
+RFC Date: 14 Apr 1996 00:35:00 +0100
+RFC Newsgroups: de.comm.misc
+Look up newsgroup de.comm.misc
+Found: DE.COMM.MISC de.comm.misc Z242
+RFC MIME-Version:              -NONE-
+RFC Content-Type:              -NONE-
+RFC Content-Transfer-Encoding: -NONE-
+New packet file ./outpkt/news/00000078.pkt (tmp ./outpkt/news/00000078.tmp)
+Writing FTN packet header:
+    From: 242:1000/5.0
+    To  : 242:1000/5.0
+    Baud: 0
+    Prod: 00 fe
+    Rev : 4.3
+    Pass: ""
+    Capw: 0001
+Writing FTN message header:
+    From: Karsten Kaulich                      @ 242:1000/5.0
+    To  : All                                  @ 242:1000/5.0
+    Subj: Re: Vertrieb von DInfo2.0 verboten....
+    Attr: 0000
+News article file ../ti.news-a/88
+Message body size 820 (+CR!)
+RFC From:     kakau@crest4.lbcmbx.bln.sub.org (Karsten Kaulich)
+RFC Sender:   Karsten Kaulich <kakau@crest4.lbcmbx.bln.sub.org>
+Name for alias checking: All
+No alias found: return All
+    Name:     kakau
+    Address:  crest4.lbcmbx.bln.sub.org
+RFC Date: 14 Apr 1996 01:51:00 +0100
+RFC Newsgroups: de.comm.misc
+Look up newsgroup de.comm.misc
+Found: DE.COMM.MISC de.comm.misc Z242
+RFC MIME-Version:              -NONE-
+RFC Content-Type:              -NONE-
+RFC Content-Transfer-Encoding: -NONE-
+New packet file ./outpkt/news/00000079.pkt (tmp ./outpkt/news/00000079.tmp)
+Writing FTN packet header:
+    From: 242:1000/5.0
+    To  : 242:1000/5.0
+    Baud: 0
+    Prod: 00 fe
+    Rev : 4.3
+    Pass: ""
+    Capw: 0001
+Writing FTN message header:
+    From: Karsten Kaulich                      @ 242:1000/5.0
+    To  : All                                  @ 242:1000/5.0
+    Subj: Re: Vertrieb von DInfo2.0 verboten....
+    Attr: 0000
+News article file ../ti.news-a/89
+Message body size 1911 (+CR!)
+RFC From:     kakau@crest4.lbcmbx.bln.sub.org (Karsten Kaulich)
+RFC Sender:   Karsten Kaulich <kakau@crest4.lbcmbx.bln.sub.org>
+Name for alias checking: All
+No alias found: return All
+    Name:     kakau
+    Address:  crest4.lbcmbx.bln.sub.org
+RFC Date: 14 Apr 1996 01:52:00 +0100
+RFC Newsgroups: de.comm.misc
+Look up newsgroup de.comm.misc
+Found: DE.COMM.MISC de.comm.misc Z242
+RFC MIME-Version:              -NONE-
+RFC Content-Type:              -NONE-
+RFC Content-Transfer-Encoding: -NONE-
+New packet file ./outpkt/news/00000080.pkt (tmp ./outpkt/news/00000080.tmp)
+Writing FTN packet header:
+    From: 242:1000/5.0
+    To  : 242:1000/5.0
+    Baud: 0
+    Prod: 00 fe
+    Rev : 4.3
+    Pass: ""
+    Capw: 0001
+Writing FTN message header:
+    From: Karsten Kaulich                      @ 242:1000/5.0
+    To  : All                                  @ 242:1000/5.0
+    Subj: Re: Vertrieb von DInfo2.0 verboten....
+    Attr: 0000
+News article file ../ti.news-a/90
+Message body size 1692 (+CR!)
+RFC From:     kakau@crest4.lbcmbx.bln.sub.org (Karsten Kaulich)
+RFC Sender:   Karsten Kaulich <kakau@crest4.lbcmbx.bln.sub.org>
+Name for alias checking: All
+No alias found: return All
+    Name:     kakau
+    Address:  crest4.lbcmbx.bln.sub.org
+RFC Date: 14 Apr 1996 01:54:00 +0100
+RFC Newsgroups: de.comm.misc
+Look up newsgroup de.comm.misc
+Found: DE.COMM.MISC de.comm.misc Z242
+RFC MIME-Version:              -NONE-
+RFC Content-Type:              -NONE-
+RFC Content-Transfer-Encoding: -NONE-
+New packet file ./outpkt/news/00000081.pkt (tmp ./outpkt/news/00000081.tmp)
+Writing FTN packet header:
+    From: 242:1000/5.0
+    To  : 242:1000/5.0
+    Baud: 0
+    Prod: 00 fe
+    Rev : 4.3
+    Pass: ""
+    Capw: 0001
+Writing FTN message header:
+    From: Karsten Kaulich                      @ 242:1000/5.0
+    To  : All                                  @ 242:1000/5.0
+    Subj: Re: Vertrieb von DInfo2.0 verboten....
+    Attr: 0000
+News article file ../ti.news-a/91
+Message body size 808 (+CR!)
+RFC From:     Timo Christoph <i21atchr@rz.unibw-muenchen.de>
+RFC Sender:   Timo Christoph <i21atchr@rz.unibw-muenchen.de>
+Name for alias checking: All
+No alias found: return All
+    Name:     i21atchr
+    Address:  rz.unibw-muenchen.de
+RFC Date: Tue, 16 Apr 1996 10:16:55 +0200
+RFC Newsgroups: de.comm.modem,de.comm.misc,de.comm.mobil,ger.pc.hard
+Look up newsgroup de.comm.modem
+Found: DE.COMM.MODEM de.comm.modem Z242
+RFC MIME-Version:              1.0
+RFC Content-Type:              text/plain; charset=iso-8859-1
+RFC Content-Transfer-Encoding: quoted-printable
+New packet file ./outpkt/news/00000082.pkt (tmp ./outpkt/news/00000082.tmp)
+Writing FTN packet header:
+    From: 242:1000/5.0
+    To  : 242:1000/5.0
+    Baud: 0
+    Prod: 00 fe
+    Rev : 4.3
+    Pass: ""
+    Capw: 0001
+Writing FTN message header:
+    From: Timo Christoph                       @ 242:1000/5.0
+    To  : All                                  @ 242:1000/5.0
+    Subj: Re: Modem an E-Plus-Handy???
+    Attr: 0000
+Look up newsgroup de.comm.misc
+Found: DE.COMM.MISC de.comm.misc Z242
+RFC MIME-Version:              1.0
+RFC Content-Type:              text/plain; charset=iso-8859-1
+RFC Content-Transfer-Encoding: quoted-printable
+Writing FTN message header:
+    From: Timo Christoph                       @ 242:1000/5.0
+    To  : All                                  @ 242:1000/5.0
+    Subj: Re: Modem an E-Plus-Handy???
+    Attr: 0000
+Look up newsgroup de.comm.mobil
+Found: DE.COMM.MOBIL de.comm.mobil Z242
+RFC MIME-Version:              1.0
+RFC Content-Type:              text/plain; charset=iso-8859-1
+RFC Content-Transfer-Encoding: quoted-printable
+Writing FTN message header:
+    From: Timo Christoph                       @ 242:1000/5.0
+    To  : All                                  @ 242:1000/5.0
+    Subj: Re: Modem an E-Plus-Handy???
+    Attr: 0000
+Look up newsgroup ger.pc.hard
+No FTN area
+News article file ../ti.news-a/92
+Message body size 143 (+CR!)
+RFC From:     leif@elliot.allcon.com (Leif Juergensen)
+RFC Sender:   Leif Juergensen <leif@elliot.allcon.com>
+Name for alias checking: All
+No alias found: return All
+    Name:     leif
+    Address:  elliot.allcon.com
+RFC Date: 16 Apr 1996 10:08:00 +0200
+RFC Newsgroups: de.comm.misc
+Look up newsgroup de.comm.misc
+Found: DE.COMM.MISC de.comm.misc Z242
+RFC MIME-Version:              -NONE-
+RFC Content-Type:              -NONE-
+RFC Content-Transfer-Encoding: -NONE-
+New packet file ./outpkt/news/00000083.pkt (tmp ./outpkt/news/00000083.tmp)
+Writing FTN packet header:
+    From: 242:1000/5.0
+    To  : 242:1000/5.0
+    Baud: 0
+    Prod: 00 fe
+    Rev : 4.3
+    Pass: ""
+    Capw: 0001
+Writing FTN message header:
+    From: Leif Juergensen                      @ 242:1000/5.0
+    To  : All                                  @ 242:1000/5.0
+    Subj: Re: warum sind Telekom Modems so teuer?
+    Attr: 0000
+News article file ../ti.news-a/93
+Message body size 764 (+CR!)
+RFC From:     zessin@helena.rbi.informatik.uni-frankfurt.de (Ralf Zessin)
+RFC Sender:   Ralf Zessin <zessin@helena.rbi.informatik.uni-frankfurt.de>
+    Name:     4ktfme$90g
+    Address:  nx2.HRZ.Uni-Dortmund.DE
+Name for alias checking: In
+No alias found: return In
+    Name:     zessin
+    Address:  helena.rbi.informatik.uni-frankfurt.de
+RFC Date: 16 Apr 1996 12:56:42 GMT
+RFC Newsgroups: de.comm.misc
+Look up newsgroup de.comm.misc
+Found: DE.COMM.MISC de.comm.misc Z242
+RFC MIME-Version:              -NONE-
+RFC Content-Type:              -NONE-
+RFC Content-Transfer-Encoding: -NONE-
+New packet file ./outpkt/news/00000084.pkt (tmp ./outpkt/news/00000084.tmp)
+Writing FTN packet header:
+    From: 242:1000/5.0
+    To  : 242:1000/5.0
+    Baud: 0
+    Prod: 00 fe
+    Rev : 4.3
+    Pass: ""
+    Capw: 0001
+Writing FTN message header:
+    From: Ralf Zessin                          @ 242:1000/5.0
+    To  : In                                   @ 242:1000/5.0
+    Subj: Re: warum sind Telekom Modems so teuer?
+    Attr: 0000
+News article file ../ti.news-a/94
+Message body size 696 (+CR!)
+RFC From:     UZS106@ibm.rhrz.uni-bonn.de (Heiko Recktenwald)
+RFC Sender:   Heiko Recktenwald <UZS106@ibm.rhrz.uni-bonn.de>
+Name for alias checking: All
+No alias found: return All
+    Name:     UZS106
+    Address:  ibm.rhrz.uni-bonn.de
+RFC Date: Tue, 16 Apr 96 15:04:50 MEZ
+RFC Newsgroups: de.org.ccc,de.soc.netzwesen,de.comm.misc
+Look up newsgroup de.org.ccc
+Found: DE.ORG.CCC de.org.ccc Z242
+RFC MIME-Version:              -NONE-
+RFC Content-Type:              -NONE-
+RFC Content-Transfer-Encoding: -NONE-
+New packet file ./outpkt/news/00000085.pkt (tmp ./outpkt/news/00000085.tmp)
+Writing FTN packet header:
+    From: 242:1000/5.0
+    To  : 242:1000/5.0
+    Baud: 0
+    Prod: 00 fe
+    Rev : 4.3
+    Pass: ""
+    Capw: 0001
+Writing FTN message header:
+    From: Heiko Recktenwald                    @ 242:1000/5.0
+    To  : All                                  @ 242:1000/5.0
+    Subj: Nochmal: Ortsnetze und Internet
+    Attr: 0000
+Look up newsgroup de.soc.netzwesen
+Found: DE.SOC.NETZWESEN de.soc.netzwesen Z242
+RFC MIME-Version:              -NONE-
+RFC Content-Type:              -NONE-
+RFC Content-Transfer-Encoding: -NONE-
+Writing FTN message header:
+    From: Heiko Recktenwald                    @ 242:1000/5.0
+    To  : All                                  @ 242:1000/5.0
+    Subj: Nochmal: Ortsnetze und Internet
+    Attr: 0000
+Look up newsgroup de.comm.misc
+Found: DE.COMM.MISC de.comm.misc Z242
+RFC MIME-Version:              -NONE-
+RFC Content-Type:              -NONE-
+RFC Content-Transfer-Encoding: -NONE-
+Writing FTN message header:
+    From: Heiko Recktenwald                    @ 242:1000/5.0
+    To  : All                                  @ 242:1000/5.0
+    Subj: Nochmal: Ortsnetze und Internet
+    Attr: 0000
+News article file ../ti.news-a/95
+Message body size 421 (+CR!)
+RFC From:     localhost <roberto_zicari@omg.org>
+RFC Sender:   localhost <roberto_zicari@omg.org>
+Name for alias checking: All
+No alias found: return All
+    Name:     roberto_zicari
+    Address:  omg.org
+RFC Date: Tue, 16 Apr 1996 16:27:19 +0000
+RFC Newsgroups: de.comm.internet.misc,de.comm.misc
+Look up newsgroup de.comm.internet.misc
+Found: DE.COMM.INTERNET.MISC de.comm.internet.misc Z242
+RFC MIME-Version:              1.0
+RFC Content-Type:              text/plain; charset=us-ascii
+RFC Content-Transfer-Encoding: 7bit
+New packet file ./outpkt/news/00000086.pkt (tmp ./outpkt/news/00000086.tmp)
+Writing FTN packet header:
+    From: 242:1000/5.0
+    To  : 242:1000/5.0
+    Baud: 0
+    Prod: 00 fe
+    Rev : 4.3
+    Pass: ""
+    Capw: 0001
+Writing FTN message header:
+    From: localhost                            @ 242:1000/5.0
+    To  : All                                  @ 242:1000/5.0
+    Subj: ife96
+    Attr: 0000
+Look up newsgroup de.comm.misc
+Found: DE.COMM.MISC de.comm.misc Z242
+RFC MIME-Version:              1.0
+RFC Content-Type:              text/plain; charset=us-ascii
+RFC Content-Transfer-Encoding: 7bit
+Writing FTN message header:
+    From: localhost                            @ 242:1000/5.0
+    To  : All                                  @ 242:1000/5.0
+    Subj: ife96
+    Attr: 0000
+News article file ../ti.news-a/96
+Message body size 731 (+CR!)
+RFC From:     kris@schulung.netuse.de (=?ISO-8859-1?Q?Kristian_K=F6hntopp?=)
+RFC Sender:   =?ISO-8859-1?Q?Kristian_K=F6hntopp?= <kris@schulung.netuse.de>
+    Name:     kakau
+    Address:  crest4.lbcmbx.bln.sub.org
+Name for alias checking: Karsten Kaulich
+No alias found: return Karsten Kaulich
+    Name:     kris
+    Address:  schulung.netuse.de
+RFC Date: Tue, 16 Apr 1996 11:13:57 GMT
+RFC Newsgroups: de.comm.misc
+Look up newsgroup de.comm.misc
+Found: DE.COMM.MISC de.comm.misc Z242
+RFC MIME-Version:              1.0
+RFC Content-Type:              -NONE-
+RFC Content-Transfer-Encoding: -NONE-
+New packet file ./outpkt/news/00000087.pkt (tmp ./outpkt/news/00000087.tmp)
+Writing FTN packet header:
+    From: 242:1000/5.0
+    To  : 242:1000/5.0
+    Baud: 0
+    Prod: 00 fe
+    Rev : 4.3
+    Pass: ""
+    Capw: 0001
+Writing FTN message header:
+    From: Kristian Köhntopp                    @ 242:1000/5.0
+    To  : Karsten Kaulich                      @ 242:1000/5.0
+    Subj: Re: Vertrieb von DInfo2.0 verboten....
+    Attr: 0000
+News article file ../ti.news-a/97
+Message body size 300 (+CR!)
+RFC From:     marc@aargh.incubus.sub.org (Marc 'Nepomuk' Heuler)
+RFC Reply-To: marc@aargh.incubus.sub.org
+RFC Sender:   Marc 'Nepomuk' Heuler <marc@aargh.incubus.sub.org>
+    Name:     Christian Weisgerber
+    Address:  
+Name for alias checking: Christian Weisgerber
+No alias found: return Christian Weisgerber
+    Name:     marc
+    Address:  aargh.incubus.sub.org
+RFC Date: Tue, 16 Apr 1996 19:41:25 CET
+RFC Newsgroups: de.comm.misc
+Look up newsgroup de.comm.misc
+Found: DE.COMM.MISC de.comm.misc Z242
+RFC MIME-Version:              -NONE-
+RFC Content-Type:              -NONE-
+RFC Content-Transfer-Encoding: -NONE-
+New packet file ./outpkt/news/00000088.pkt (tmp ./outpkt/news/00000088.tmp)
+Writing FTN packet header:
+    From: 242:1000/5.0
+    To  : 242:1000/5.0
+    Baud: 0
+    Prod: 00 fe
+    Rev : 4.3
+    Pass: ""
+    Capw: 0001
+Writing FTN message header:
+    From: Marc 'Nepomuk' Heuler                @ 242:1000/5.0
+    To  : Christian Weisgerber                 @ 242:1000/5.0
+    Subj: Re: DTMF-Geschwindigkeit an DTAG-VSt?
+    Attr: 0000
+News article file ../ti.news-a/98
+Message body size 498 (+CR!)
+RFC From:     klaus@arco.de (Klaus Koenig)
+RFC Sender:   Klaus Koenig <klaus@arco.de>
+Name for alias checking: All
+No alias found: return All
+    Name:     klaus
+    Address:  arco.de
+RFC Date: 15 Apr 96 15:14:59 
+RFC Newsgroups: de.comm.misc
+Look up newsgroup de.comm.misc
+Found: DE.COMM.MISC de.comm.misc Z242
+RFC MIME-Version:              -NONE-
+RFC Content-Type:              -NONE-
+RFC Content-Transfer-Encoding: -NONE-
+New packet file ./outpkt/news/00000089.pkt (tmp ./outpkt/news/00000089.tmp)
+Writing FTN packet header:
+    From: 242:1000/5.0
+    To  : 242:1000/5.0
+    Baud: 0
+    Prod: 00 fe
+    Rev : 4.3
+    Pass: ""
+    Capw: 0001
+Writing FTN message header:
+    From: Klaus Koenig                         @ 242:1000/5.0
+    To  : All                                  @ 242:1000/5.0
+    Subj: Re: Modem an E-Plus-Handy???
+    Attr: 0000
+News article file ../ti.news-a/99
+Message body size 625 (+CR!)
+RFC From:     Christian@eder.pumuckl.cube.net (Christian Frankenberg)
+RFC Sender:   Christian Frankenberg <Christian@eder.pumuckl.cube.net>
+Name for alias checking: All
+No alias found: return All
+    Name:     Christian
+    Address:  eder.pumuckl.cube.net
+RFC Date: 16 Apr 1996 21:29:00 +0200
+RFC Newsgroups: de.comm.isdn,de.comm.misc,de.markt.misc,de.markt.comp.misc
+Look up newsgroup de.comm.isdn
+Found: DE.COMM.ISDN de.comm.isdn Z242
+RFC MIME-Version:              -NONE-
+RFC Content-Type:              -NONE-
+RFC Content-Transfer-Encoding: -NONE-
+New packet file ./outpkt/news/00000090.pkt (tmp ./outpkt/news/00000090.tmp)
+Writing FTN packet header:
+    From: 242:1000/5.0
+    To  : 242:1000/5.0
+    Baud: 0
+    Prod: 00 fe
+    Rev : 4.3
+    Pass: ""
+    Capw: 0001
+Writing FTN message header:
+    From: Christian Frankenberg                @ 242:1000/5.0
+    To  : All                                  @ 242:1000/5.0
+    Subj: Meinungen zur ISTEC
+    Attr: 0000
+Look up newsgroup de.comm.misc
+Found: DE.COMM.MISC de.comm.misc Z242
+RFC MIME-Version:              -NONE-
+RFC Content-Type:              -NONE-
+RFC Content-Transfer-Encoding: -NONE-
+Writing FTN message header:
+    From: Christian Frankenberg                @ 242:1000/5.0
+    To  : All                                  @ 242:1000/5.0
+    Subj: Meinungen zur ISTEC
+    Attr: 0000
+Look up newsgroup de.markt.misc
+Found: DE.MARKT.MISC de.markt.misc Z242
+RFC MIME-Version:              -NONE-
+RFC Content-Type:              -NONE-
+RFC Content-Transfer-Encoding: -NONE-
+Writing FTN message header:
+    From: Christian Frankenberg                @ 242:1000/5.0
+    To  : All                                  @ 242:1000/5.0
+    Subj: Meinungen zur ISTEC
+    Attr: 0000
+Look up newsgroup de.markt.comp.misc
+Found: DE.MARKT.COMP.MISC de.markt.comp.misc Z242
+RFC MIME-Version:              -NONE-
+RFC Content-Type:              -NONE-
+RFC Content-Transfer-Encoding: -NONE-
+Writing FTN message header:
+    From: Christian Frankenberg                @ 242:1000/5.0
+    To  : All                                  @ 242:1000/5.0
+    Subj: Meinungen zur ISTEC
+    Attr: 0000

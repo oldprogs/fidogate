@@ -3,7 +3,7 @@
 /*
  * FIDOGATE
  *
- * $Id: cf_funcs.mak,v 4.5 1998/01/24 14:07:33 mj Exp $
+ * $Id: cf_funcs.mak,v 4.6 1998/01/28 22:00:21 mj Exp $
  */
 
 char *cf_p_logdir(void);

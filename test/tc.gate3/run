@@ -2,8 +2,10 @@
 
 ../tr.init
 
+T="../../src/gate/rfc2ftn -c../cf/gate.conf -v"
+
 echo "tc: running"
 for f in ../ti.news-a/[0-9]*; do
   echo "News article file $f"
-  ../../src/gate/rfc2ftn -L../cf -vvvvv -n <$f
+  $T -vvvvvv -n <$f
 done

@@ -1,6 +1,6 @@
 #:ts=8
 #
-#    $Id: Makefile,v 4.8 1998/01/18 10:58:05 mj Exp $
+#    $Id: Makefile,v 4.9 1998/01/28 22:00:17 mj Exp $
 #
 #    Makefile for FIDOGATE src/common/
 #
@@ -58,6 +58,7 @@ OBJS		= address.o \
 		  sequencer.o \
 		  textlist.o \
 		  tick.o \
+		  tmps.o \
 		  version.o \
 		  wildmat.o \
 		  xalloc.o \
@@ -102,27 +103,37 @@ clean veryclean:
 #
 # Test programs
 #
-check:		testparse testmatch testflo
+check:		all testparse testmatch testflo testheader testdir
 
-testparse:	testparse.o
+testparse:	testparse.o $(LIB)
 	$(CC) $(LFLAGS) -o testparse testparse.o $(LIBS)
 testparse.o:	parsenode.c
 	$(CC) $(CFLAGS) $(LOCAL_CFLAGS) -DTEST -c parsenode.c -o testparse.o
 
-testmatch:	testmatch.o
+testmatch:	testmatch.o $(LIB)
 	$(CC) $(LFLAGS) -o testmatch testmatch.o $(LIBS)
 testmatch.o:	wildmat.c
 	$(CC) $(CFLAGS) $(LOCAL_CFLAGS) -DTEST -c wildmat.c -o testmatch.o
 
-testflo:	testflo.o
+testflo:	testflo.o $(LIB)
 	$(CC) $(LFLAGS) -o testflo testflo.o $(LIBS)
 testflo.o:	flo.c
 	$(CC) $(CFLAGS) $(LOCAL_CFLAGS) -DTEST -c flo.c -o testflo.o
 
-testheader:	testheader.o
+testheader:	testheader.o $(LIB)
 	$(CC) $(LFLAGS) -o testheader testheader.o $(LIBS)
 testheader.o:	rfcheader.c
 	$(CC) $(CFLAGS) $(LOCAL_CFLAGS) -DTEST -c rfcheader.c -o testheader.o
+
+testdir:	testdir.o $(LIB)
+	$(CC) $(LFLAGS) -o testdir testdir.o $(LIBS)
+testdir.o:	dir.c
+	$(CC) $(CFLAGS) $(LOCAL_CFLAGS) -DTEST -c dir.c -o testdir.o
+
+testtmps:	testtmps.o $(LIB)
+	$(CC) $(LFLAGS) -o testtmps testtmps.o $(LIBS)
+testtmps.o:	tmps.c
+	$(CC) $(CFLAGS) $(LOCAL_CFLAGS) -DTEST -c tmps.c -o testtmps.o
 
 
 #

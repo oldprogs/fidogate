@@ -1,11 +1,12 @@
 #!/bin/sh
 #
-# $Id: runpoll.sh,v 4.10 1998/01/24 15:45:52 mj Exp $
+# $Id: runpoll.sh,v 4.11 1998/01/28 22:00:13 mj Exp $
 #
 # Poll uplink
 #
 
-FIDOGATE=<LIBDIR>
+LIBDIR=<LIBDIR>
+BINDIR=<BINDIR>
 IFMAIL=<IFMAILDIR>
 NEWS=<NEWSETCDIR>
 
@@ -13,7 +14,7 @@ UPLINK=f2.n1000.z242
 
 # -xterm: run in XTerm window
 if [ "$1" = "-xterm" ]; then
-  exec /usr/bin/X11/xterm -display :0 -g 80x20 -title "FIDOGATE runpoll" -e $FIDOGATE/runpoll
+  exec /usr/bin/X11/xterm -display :0 -g 80x20 -title "FIDOGATE runpoll" -e $BINDIR/runpoll
   exit 0
 fi
 
@@ -26,33 +27,33 @@ set -x
 $NEWS/send-ffx
 
 # Batch ffx mail
-$FIDOGATE/ftnpack -f 242:1000/1 -I %O/out.0f2/morannon
+$LIBDIR/ftnpack -f 242:1000/1 -I %B/out.0f2/morannon
 
 # Gateway
 $NEWS/send-fidogate
 
 # Tosser w/o file attachments
-$FIDOGATE/runtoss outpkt/mail
-$FIDOGATE/runtoss outpkt/news
+$BINDIR/runtoss outpkt/mail
+$BINDIR/runtoss outpkt/news
 
 # Poll
 $IFMAIL/ifcico $UPLINK
 
 # Tosser, only protected inbound
-$FIDOGATE/rununpack pin
-$FIDOGATE/runtoss   pin
+$BINDIR/rununpack pin
+$BINDIR/runtoss   pin
 
 # Gateway
-$FIDOGATE/ftnin -x %L/ftninpost
+$LIBDIR/ftnin -x %L/ftninpost
 
 # Unbatch and process ffx files
-$FIDOGATE/ffxqt
+$LIBDIR/ffxqt
 
 # Process tic files
-$FIDOGATE/ftntick
+$LIBDIR/ftntick
 
 # Process mail queue
 /usr/sbin/sendmail -q
 
 # Tosser expire
-$FIDOGATE/ftnexpire
+$LIBDIR/ftnexpire

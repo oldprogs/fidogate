@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftnconfig.c,v 4.6 1998/01/24 15:45:59 mj Exp $
+ * $Id: ftnconfig.c,v 4.7 1998/01/28 22:00:24 mj Exp $
  *
  * Fetch FIDOGATE config.* parameters
  *
@@ -36,7 +36,7 @@
 
 
 #define PROGRAM 	"ftnconfig"
-#define VERSION 	"$Revision: 4.6 $"
+#define VERSION 	"$Revision: 4.7 $"
 #define CONFIG		DEFAULT_CONFIG_MAIN
 
 
@@ -109,10 +109,11 @@ int do_para(char *name)
     {
 	char *p;
 
-	for(p=cf_get_string(name, TRUE); p; p=cf_get_string(name, FALSE))
+	if( (p = cf_get_string(name, TRUE)) )
 	{
+	    BUF_EXPAND(buffer, p);
 	    if(!n_flag)
-		printf("%s%s", p, l_flag ? "" : "\n");
+		printf("%s%s", buffer, l_flag ? "" : "\n");
 	    ret = TRUE;
 	}
     }

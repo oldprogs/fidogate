@@ -2,9 +2,10 @@
 
 ../tr.init
 
+T="../../src/gate/ftn2rfc -c../cf/gate.conf -v"
+
 echo "tc: copying input packets"
-cp ../ti.pkt-misc/t-msgid*.pkt in
+cp ../ti.pkt-misc/t-msgid*.pkt pin
 
 echo "tc: running"
-../../src/gate/ftn2rfc -L../cf -I./in -vvvv
-
+$T -vvv
