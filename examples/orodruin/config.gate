@@ -42,7 +42,7 @@ Organization	"Martin Junius' orodruin.fido.de"
 #
 # Use text from * Origin line for Organization header
 #
-UseOriginForOrganization
+#UseOriginForOrganization
 
 
 #
@@ -84,12 +84,12 @@ EchoMail4D
 # Don't gate messages with unknown zone in ^AMSGID (known zones are defined
 # in config.common).
 #
-KillUnknownMSGIDZone
+#KillUnknownMSGIDZone
 
 #
 # Don't gate messages without a valid ^AMSGID (or similar)
 #
-KillNoMSGID
+#KillNoMSGID
 
 
 #
