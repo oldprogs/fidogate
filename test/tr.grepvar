@@ -10,11 +10,12 @@ while(<>) {
     next if( /^\^AVia / );
     next if( /msgs\/s/ );
     next if( /Kbyte\/s/ );
-    next if( /Internet -> FIDO gateway \/ FIDOGATE/ );
-    next if( /^--- FIDOGATE/ );
-    next if( /^\^AGATEWAY:/ );
     next if( /^Free disk space/ );
     next if( /unique.*lock/ );
+    next if( /^From / );
+    next if( /^\s*id / );
+
+    s/FIDOGATE \d+\.\d+\.\d+/FIDOGATE x.x.x/g;
 
     print;
 }

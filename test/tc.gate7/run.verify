@@ -12,8 +12,14 @@ Name for alias checking: test
 No alias found: return Test
     Name:     abc
     Address:  fido.de
+Name for alias checking: abc
+E-mail for alias checking: abc@fido.de
 addr_is_local(): From=abc@fido.de FQDN=orodruin.fido.de
 rfc2ftn MAIL: abc@fido.de -> test@f123.n2499.z2.fidonet.org
+    Name:     abc
+    Address:  fido.de
+Name for alias checking: abc
+E-mail for alias checking: abc@fido.de
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
@@ -43,8 +49,14 @@ Name for alias checking: test_user
 No alias found: return Test User
     Name:     abc
     Address:  fido.de
+Name for alias checking: abc
+E-mail for alias checking: abc@fido.de
 addr_is_local(): From=abc@fido.de FQDN=orodruin.fido.de
 rfc2ftn MAIL: abc@fido.de -> test_user@f123.n2499.z2.fidonet.org
+    Name:     abc
+    Address:  fido.de
+Name for alias checking: abc
+E-mail for alias checking: abc@fido.de
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
@@ -74,8 +86,14 @@ Name for alias checking: test.user
 No alias found: return Test User
     Name:     abc
     Address:  fido.de
+Name for alias checking: abc
+E-mail for alias checking: abc@fido.de
 addr_is_local(): From=abc@fido.de FQDN=orodruin.fido.de
 rfc2ftn MAIL: abc@fido.de -> test.user@f123.n2499.z2.fidonet.org
+    Name:     abc
+    Address:  fido.de
+Name for alias checking: abc
+E-mail for alias checking: abc@fido.de
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
@@ -101,6 +119,7 @@ RFC Sender:   abc@fido.de
     Name:     test_user
     Address:  abc.def.org
 rfc2ftn BOUNCE: <test_user@abc.def.org>, unknown
+Internet -> FIDO gateway / FIDOGATE x.x.x @ orodruin.fido.de
    ----- ERROR -----
 Address test_user@abc.def.org:
   address/host is unknown
@@ -115,8 +134,14 @@ Name for alias checking: test_user
 No alias found: return Test User
     Name:     abc
     Address:  fido.de
+Name for alias checking: abc
+E-mail for alias checking: abc@fido.de
 addr_is_local(): From=Test User <abc@fido.de> FQDN=orodruin.fido.de
 rfc2ftn MAIL: Test User <abc@fido.de> -> test_user@f123.n2499.z2.fidonet.org
+    Name:     abc
+    Address:  fido.de
+Name for alias checking: abc
+E-mail for alias checking: abc@fido.de
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
@@ -146,8 +171,14 @@ Name for alias checking: test_user
 No alias found: return Test User
     Name:     abc
     Address:  fido.de
+Name for alias checking: abc
+E-mail for alias checking: abc@fido.de
 addr_is_local(): From=_Test_ _User_ <abc@fido.de> FQDN=orodruin.fido.de
 rfc2ftn MAIL: _Test_ _User_ <abc@fido.de> -> test_user@f123.n2499.z2.fidonet.org
+    Name:     abc
+    Address:  fido.de
+Name for alias checking: abc
+E-mail for alias checking: abc@fido.de
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
@@ -177,8 +208,14 @@ Name for alias checking: test_user
 No alias found: return Test User
     Name:     abc
     Address:  fido.de
+Name for alias checking: abc
+E-mail for alias checking: abc@fido.de
 addr_is_local(): From=Test.User <abc@fido.de> FQDN=orodruin.fido.de
 rfc2ftn MAIL: Test.User <abc@fido.de> -> test_user@f123.n2499.z2.fidonet.org
+    Name:     abc
+    Address:  fido.de
+Name for alias checking: abc
+E-mail for alias checking: abc@fido.de
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
@@ -209,8 +246,15 @@ No alias found: return Test User
     Name:     abc
     Address:  f678.n9999.z242.fido.de
     FTN node: 242:9999/678.0
+Name for alias checking: abc
+E-mail for alias checking: abc@f678.n9999.z242.fido.de
 addr_is_local(): From=Test User <abc@f678.n9999.z242.fido.de> FQDN=orodruin.fido.de
 rfc2ftn MAIL: Test User <abc@f678.n9999.z242.fido.de> -> test_user@f123.n2499.z2.fidonet.org
+    Name:     abc
+    Address:  f678.n9999.z242.fido.de
+    FTN node: 242:9999/678.0
+Name for alias checking: abc
+E-mail for alias checking: abc@f678.n9999.z242.fido.de
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
@@ -233,17 +277,22 @@ Message body size 10 (+CR!)
 RFC To:       test_user@f123.n2499.z2.fidonet.org
 RFC From:     abc@fido.de (Test User)
 RFC Reply-To: abc@f678.n9999.z242.fido.de (Test User)
-RFC Sender:   Test User <abc@f678.n9999.z242.fido.de>
+RFC Sender:   Test User <abc@fido.de>
     Name:     test_user
     Address:  f123.n2499.z2.fidonet.org
     FTN node: 2:2499/123.0
 Name for alias checking: test_user
 No alias found: return Test User
     Name:     abc
-    Address:  f678.n9999.z242.fido.de
-    FTN node: 242:9999/678.0
+    Address:  fido.de
+Name for alias checking: abc
+E-mail for alias checking: abc@fido.de
 addr_is_local(): From=Test User <abc@fido.de> FQDN=orodruin.fido.de
-rfc2ftn MAIL: Test User <abc@f678.n9999.z242.fido.de> -> test_user@f123.n2499.z2.fidonet.org
+rfc2ftn MAIL: Test User <abc@fido.de> -> test_user@f123.n2499.z2.fidonet.org
+    Name:     abc
+    Address:  fido.de
+Name for alias checking: abc
+E-mail for alias checking: abc@fido.de
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
@@ -266,17 +315,22 @@ Message body size 10 (+CR!)
 RFC To:       test_user@f123.n2499.z2.fidonet.org
 RFC From:     abc@fido.de (Test User X)
 RFC Reply-To: test_user@f678.n9999.z242.fido.de
-RFC Sender:   test_user@f678.n9999.z242.fido.de
+RFC Sender:   Test User X <abc@fido.de>
     Name:     test_user
     Address:  f123.n2499.z2.fidonet.org
     FTN node: 2:2499/123.0
 Name for alias checking: test_user
 No alias found: return Test User
-    Name:     test_user
-    Address:  f678.n9999.z242.fido.de
-    FTN node: 242:9999/678.0
+    Name:     abc
+    Address:  fido.de
+Name for alias checking: abc
+E-mail for alias checking: abc@fido.de
 addr_is_local(): From=Test User X <abc@fido.de> FQDN=orodruin.fido.de
-rfc2ftn MAIL: test_user@f678.n9999.z242.fido.de -> test_user@f123.n2499.z2.fidonet.org
+rfc2ftn MAIL: Test User X <abc@fido.de> -> test_user@f123.n2499.z2.fidonet.org
+    Name:     abc
+    Address:  fido.de
+Name for alias checking: abc
+E-mail for alias checking: abc@fido.de
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
@@ -290,7 +344,7 @@ Writing FTN packet header:
     Pass: ""
     Capw: 0001
 Writing FTN message header:
-    From: Test User                            @ 2:2452/110.2
+    From: Test User X                          @ 2:2452/110.2
     To  : Test User                            @ 2:2499/123.0
     Subj: Test tc.gate7 / 00000009
     Attr: 0001
@@ -299,17 +353,22 @@ Message body size 10 (+CR!)
 RFC To:       test_user@f123.n2499.z2.fidonet.org
 RFC From:     abc@fido.de (Test User X)
 RFC Reply-To: abc@f678.n9999.z242.fido.de
-RFC Sender:   abc@f678.n9999.z242.fido.de
+RFC Sender:   Test User X <abc@fido.de>
     Name:     test_user
     Address:  f123.n2499.z2.fidonet.org
     FTN node: 2:2499/123.0
 Name for alias checking: test_user
 No alias found: return Test User
     Name:     abc
-    Address:  f678.n9999.z242.fido.de
-    FTN node: 242:9999/678.0
+    Address:  fido.de
+Name for alias checking: abc
+E-mail for alias checking: abc@fido.de
 addr_is_local(): From=Test User X <abc@fido.de> FQDN=orodruin.fido.de
-rfc2ftn MAIL: abc@f678.n9999.z242.fido.de -> test_user@f123.n2499.z2.fidonet.org
+rfc2ftn MAIL: Test User X <abc@fido.de> -> test_user@f123.n2499.z2.fidonet.org
+    Name:     abc
+    Address:  fido.de
+Name for alias checking: abc
+E-mail for alias checking: abc@fido.de
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
@@ -323,7 +382,7 @@ Writing FTN packet header:
     Pass: ""
     Capw: 0001
 Writing FTN message header:
-    From: Abc                                  @ 2:2452/110.2
+    From: Test User X                          @ 2:2452/110.2
     To  : Test User                            @ 2:2499/123.0
     Subj: Test tc.gate7 / 00000010
     Attr: 0001
@@ -341,8 +400,15 @@ No alias found: return Test User
     Name:     abc
     Address:  f678.n9999.z242.fido.de
     FTN node: 242:9999/678.0
+Name for alias checking: abc
+E-mail for alias checking: abc@f678.n9999.z242.fido.de
 addr_is_local(): From=Test User X <abc@f678.n9999.z242.fido.de> FQDN=orodruin.fido.de
 rfc2ftn MAIL: Test User X <abc@f678.n9999.z242.fido.de> -> test_user@f123.n2499.z2.fidonet.org
+    Name:     abc
+    Address:  f678.n9999.z242.fido.de
+    FTN node: 242:9999/678.0
+Name for alias checking: abc
+E-mail for alias checking: abc@f678.n9999.z242.fido.de
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
@@ -371,9 +437,16 @@ No alias found: return Test User
     Name:     abc
     Address:  f678.n9999.z242.fido.de
     FTN node: 242:9999/678.0
+Name for alias checking: abc
+E-mail for alias checking: abc@f678.n9999.z242.fido.de
 RFC Newsgroups: test
 Look up newsgroup test
 Found: TEST test Z2
+    Name:     abc
+    Address:  f678.n9999.z242.fido.de
+    FTN node: 242:9999/678.0
+Name for alias checking: abc
+E-mail for alias checking: abc@f678.n9999.z242.fido.de
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
@@ -402,9 +475,16 @@ No alias found: return Test User
     Name:     abc
     Address:  f678.n9999.z242.fido.de
     FTN node: 242:9999/678.0
+Name for alias checking: abc
+E-mail for alias checking: abc@f678.n9999.z242.fido.de
 RFC Newsgroups: test
 Look up newsgroup test
 Found: TEST test Z2
+    Name:     abc
+    Address:  f678.n9999.z242.fido.de
+    FTN node: 242:9999/678.0
+Name for alias checking: abc
+E-mail for alias checking: abc@f678.n9999.z242.fido.de
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
@@ -434,9 +514,16 @@ No alias found: return Hans Test User
     Name:     abc
     Address:  f678.n9999.z242.fido.de
     FTN node: 242:9999/678.0
+Name for alias checking: abc
+E-mail for alias checking: abc@f678.n9999.z242.fido.de
 RFC Newsgroups: test
 Look up newsgroup test
 Found: TEST test Z2
+    Name:     abc
+    Address:  f678.n9999.z242.fido.de
+    FTN node: 242:9999/678.0
+Name for alias checking: abc
+E-mail for alias checking: abc@f678.n9999.z242.fido.de
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
@@ -466,9 +553,16 @@ No alias found: return Hans Test User
     Name:     abc
     Address:  f678.n9999.z242.fido.de
     FTN node: 242:9999/678.0
+Name for alias checking: abc
+E-mail for alias checking: abc@f678.n9999.z242.fido.de
 RFC Newsgroups: test
 Look up newsgroup test
 Found: TEST test Z2
+    Name:     abc
+    Address:  f678.n9999.z242.fido.de
+    FTN node: 242:9999/678.0
+Name for alias checking: abc
+E-mail for alias checking: abc@f678.n9999.z242.fido.de
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
@@ -497,9 +591,16 @@ No alias found: return Test User X
     Name:     abc
     Address:  f678.n9999.z242.fido.de
     FTN node: 242:9999/678.0
+Name for alias checking: abc
+E-mail for alias checking: abc@f678.n9999.z242.fido.de
 RFC Newsgroups: test
 Look up newsgroup test
 Found: TEST test Z2
+    Name:     abc
+    Address:  f678.n9999.z242.fido.de
+    FTN node: 242:9999/678.0
+Name for alias checking: abc
+E-mail for alias checking: abc@f678.n9999.z242.fido.de
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
@@ -529,8 +630,14 @@ Name for alias checking: test_user
 No alias found: return Test User
     Name:     kris
     Address:  schulung.netuse.de
+Name for alias checking: kris
+E-mail for alias checking: kris@schulung.netuse.de
 addr_is_local(): From=Kristian =?ISO-8859-1?Q?K=F6hntopp?= <kris@schulung.netuse.de> FQDN=orodruin.fido.de
 rfc2ftn MAIL: Kristian =?ISO-8859-1?Q?K=F6hntopp?= <kris@schulung.netuse.de> -> test_user@f123.n2499.z2.fidonet.org
+    Name:     kris
+    Address:  schulung.netuse.de
+Name for alias checking: kris
+E-mail for alias checking: kris@schulung.netuse.de
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
@@ -560,8 +667,14 @@ Name for alias checking: test_user
 No alias found: return Test User
     Name:     kris
     Address:  schulung.netuse.de
+Name for alias checking: kris
+E-mail for alias checking: kris@schulung.netuse.de
 addr_is_local(): From==?ISO-8859-1?Q?Kristian K=F6hntopp?= <kris@schulung.netuse.de> FQDN=orodruin.fido.de
 rfc2ftn MAIL: =?ISO-8859-1?Q?Kristian K=F6hntopp?= <kris@schulung.netuse.de> -> test_user@f123.n2499.z2.fidonet.org
+    Name:     kris
+    Address:  schulung.netuse.de
+Name for alias checking: kris
+E-mail for alias checking: kris@schulung.netuse.de
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
@@ -591,9 +704,17 @@ Name for alias checking: test_user
 No alias found: return Test User
     Name:     mj
     Address:  orodruin.fido.de
+    FTN node: 242:1000/5.0
+Name for alias checking: mj
+Alias found: mj 2:2452/110.2 Martin Junius
 RFC Date: Sun, 17 Aug 1997 13:56:56 +0200 (MET DST)
 addr_is_local(): From=Martin Junius <mj@orodruin.fido.de> FQDN=orodruin.fido.de
 rfc2ftn MAIL: Martin Junius <mj@orodruin.fido.de> -> test_user@f123.n2499.z2.fidonet.org
+    Name:     mj
+    Address:  orodruin.fido.de
+    FTN node: 242:1000/5.0
+Name for alias checking: mj
+Alias found: mj 2:2452/110.2 Martin Junius
 RFC MIME-Version:              1.0
 RFC Content-Type:              TEXT/PLAIN; charset=iso-8859-1
 RFC Content-Transfer-Encoding: 8bit
@@ -621,9 +742,16 @@ No alias found: return Test User
     Name:     abc
     Address:  f678.n9999.z242.fido.de
     FTN node: 242:9999/678.0
+Name for alias checking: abc
+E-mail for alias checking: abc@f678.n9999.z242.fido.de
 RFC Newsgroups: test
 Look up newsgroup test
 Found: TEST test Z2
+    Name:     abc
+    Address:  f678.n9999.z242.fido.de
+    FTN node: 242:9999/678.0
+Name for alias checking: abc
+E-mail for alias checking: abc@f678.n9999.z242.fido.de
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
@@ -652,9 +780,16 @@ No alias found: return Test User
     Name:     abc
     Address:  f678.n9999.z242.fido.de
     FTN node: 242:9999/678.0
+Name for alias checking: abc
+E-mail for alias checking: abc@f678.n9999.z242.fido.de
 RFC Newsgroups: test
 Look up newsgroup test
 Found: TEST test Z2
+    Name:     abc
+    Address:  f678.n9999.z242.fido.de
+    FTN node: 242:9999/678.0
+Name for alias checking: abc
+E-mail for alias checking: abc@f678.n9999.z242.fido.de
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
@@ -684,9 +819,16 @@ No alias found: return Hans Test User
     Name:     abc
     Address:  f678.n9999.z242.fido.de
     FTN node: 242:9999/678.0
+Name for alias checking: abc
+E-mail for alias checking: abc@f678.n9999.z242.fido.de
 RFC Newsgroups: test
 Look up newsgroup test
 Found: TEST test Z2
+    Name:     abc
+    Address:  f678.n9999.z242.fido.de
+    FTN node: 242:9999/678.0
+Name for alias checking: abc
+E-mail for alias checking: abc@f678.n9999.z242.fido.de
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
@@ -716,9 +858,16 @@ No alias found: return Hans Test User
     Name:     abc
     Address:  f678.n9999.z242.fido.de
     FTN node: 242:9999/678.0
+Name for alias checking: abc
+E-mail for alias checking: abc@f678.n9999.z242.fido.de
 RFC Newsgroups: test
 Look up newsgroup test
 Found: TEST test Z2
+    Name:     abc
+    Address:  f678.n9999.z242.fido.de
+    FTN node: 242:9999/678.0
+Name for alias checking: abc
+E-mail for alias checking: abc@f678.n9999.z242.fido.de
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
@@ -747,9 +896,16 @@ No alias found: return Test User X
     Name:     abc
     Address:  f678.n9999.z242.fido.de
     FTN node: 242:9999/678.0
+Name for alias checking: abc
+E-mail for alias checking: abc@f678.n9999.z242.fido.de
 RFC Newsgroups: test
 Look up newsgroup test
 Found: TEST test Z2
+    Name:     abc
+    Address:  f678.n9999.z242.fido.de
+    FTN node: 242:9999/678.0
+Name for alias checking: abc
+E-mail for alias checking: abc@f678.n9999.z242.fido.de
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-

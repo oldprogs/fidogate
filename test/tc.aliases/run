@@ -2,8 +2,8 @@
 
 ../tr.init
 
-R="../../src/gate/rfc2ftn -c../cf/gate.conf -vvvvvvv"
-F="../../src/gate/ftn2rfc -c../cf/gate.conf -vvvvvvv"
+R="../../src/gate/rfc2ftn -c../cf/fidogate.conf -vvvvvvv"
+F="../../src/gate/ftn2rfc -c../cf/fidogate.conf -vvvvvvv"
 
 echo "tc: running"
 

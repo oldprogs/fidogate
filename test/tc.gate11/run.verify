@@ -22,6 +22,176 @@ ftn2rfc packet ./pin/3e.pkt (241b) from 2:2499/123.0 to 2:2452/110.2
 ftn2rfc MAIL: Martin Junius <Martin_Junius@f123.n2499.z2.fidonet.org> -> mj%fido.de
 ftn2rfc packet ./pin/3f.pkt (241b) from 2:2499/123.0 to 2:2452/110.2
 ftn2rfc MAIL: Martin Junius <Martin_Junius@f123.n2499.z2.fidonet.org> -> mj@fido.de
+Received: by p2.hippo.fido.de (FIDOGATE x.x.x)
+From: Martin Junius <Martin_Junius@f123.n2499.z2.fidonet.org>
+Subject: Test
+Message-ID: <MSGID_2=3A2499=2F123_00000001@fidonet.org>
+To: Test_User@orodruin.fido.de
+Organization: Martin Junius' orodruin.fido.de
+Lines: 1
+X-Gateway: FIDO orodruin.fido.de [FIDOGATE x.x.x]
+X-FTN-From: Martin Junius @ 2:2499/123.0
+X-FTN-To: Test User @ 2:2452/110.2
+X-FTN-Tearline: Test 0.0
+X-FTN-Domain: Z2@FidoNet
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Transfer-Encoding: 7bit
+
+TEST
+Received: by p2.hippo.fido.de (FIDOGATE x.x.x)
+From: Martin Junius <Martin_Junius@f123.n2499.z2.fidonet.org>
+Subject: Test
+Message-ID: <MSGID_2=3A2499=2F123_00000001@fidonet.org>
+To: mj@fido.de (Martin Junius)
+Organization: Martin Junius' orodruin.fido.de
+Lines: 1
+X-Gateway: FIDO orodruin.fido.de [FIDOGATE x.x.x]
+X-FTN-From: Martin Junius @ 2:2499/123.0
+X-FTN-To: Test User @ 2:2452/110.2
+X-FTN-Tearline: Test 0.0
+X-FTN-Domain: Z2@FidoNet
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Transfer-Encoding: 7bit
+
+TEST
+Received: by p2.hippo.fido.de (FIDOGATE x.x.x)
+From: Martin Junius <Martin_Junius@f123.n2499.z2.fidonet.org>
+Subject: Test
+Message-ID: <MSGID_2=3A2499=2F123_00000002@fidonet.org>
+To: Test_User@orodruin.fido.de
+Organization: Martin Junius' orodruin.fido.de
+Lines: 1
+X-Gateway: FIDO orodruin.fido.de [FIDOGATE x.x.x]
+X-FTN-From: Martin Junius @ 2:2499/123.0
+X-FTN-To: Test User @ 2:2452/123.0
+X-FTN-Tearline: Test 0.0
+X-FTN-Domain: Z2@FidoNet
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Transfer-Encoding: 7bit
+
+TEST
+Received: by p2.hippo.fido.de (FIDOGATE x.x.x)
+From: Martin Junius <Martin_Junius@f123.n2499.z2.fidonet.org>
+Subject: Test
+Message-ID: <MSGID_2=3A2499=2F123_00000002@fidonet.org>
+To: mj@fido.de (Martin Junius)
+Organization: Martin Junius' orodruin.fido.de
+Lines: 1
+X-Gateway: FIDO orodruin.fido.de [FIDOGATE x.x.x]
+X-FTN-From: Martin Junius @ 2:2499/123.0
+X-FTN-To: Test User @ 2:2452/123.0
+X-FTN-Tearline: Test 0.0
+X-FTN-Domain: Z2@FidoNet
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Transfer-Encoding: 7bit
+
+TEST
+Received: by p2.hippo.fido.de (FIDOGATE x.x.x)
+From: Martin Junius <Martin_Junius@f123.n2499.z2.fidonet.org>
+Subject: Test
+Message-ID: <MSGID_2=3A2499=2F123_00000001@fidonet.org>
+To: "Test_User%99:1/1"
+Organization: Martin Junius' orodruin.fido.de
+Lines: 1
+X-Gateway: FIDO orodruin.fido.de [FIDOGATE x.x.x]
+X-FTN-From: Martin Junius @ 2:2499/123.0
+X-FTN-To: Test User @ 2:2452/110.2
+X-FTN-Tearline: Test 0.0
+X-FTN-Domain: Z2@FidoNet
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Transfer-Encoding: 7bit
+
+TEST
+Received: by p2.hippo.fido.de (FIDOGATE x.x.x)
+From: Martin Junius <"Martin_Junius%99:1/1"@f123.n2499.z2.fidonet.org>
+Subject: Test
+Message-ID: <MSGID_2=3A2499=2F123_00000001@fidonet.org>
+To: Test_User@orodruin.fido.de
+Organization: Martin Junius' orodruin.fido.de
+Lines: 1
+X-Gateway: FIDO orodruin.fido.de [FIDOGATE x.x.x]
+X-FTN-From: Martin Junius @ 2:2499/123.0
+X-FTN-To: Test User @ 2:2452/110.2
+X-FTN-Tearline: Test 0.0
+X-FTN-Domain: Z2@FidoNet
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Transfer-Encoding: 7bit
+
+TEST
+Received: by p2.hippo.fido.de (FIDOGATE x.x.x)
+From: mj <mj%fido.de@f123.n2499.z2.fidonet.org>
+Subject: Test
+Message-ID: <MSGID_2=3A2499=2F123_00000001@fidonet.org>
+To: Test_User@orodruin.fido.de
+Organization: Martin Junius' orodruin.fido.de
+Lines: 1
+X-Gateway: FIDO orodruin.fido.de [FIDOGATE x.x.x]
+X-FTN-From: mj @ 2:2499/123.0
+X-FTN-To: Test User @ 2:2452/110.2
+X-FTN-Tearline: Test 0.0
+X-FTN-Domain: Z2@FidoNet
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Transfer-Encoding: 7bit
+
+TEST
+Received: by p2.hippo.fido.de (FIDOGATE x.x.x)
+From: mj <"mj@fido.de"@f123.n2499.z2.fidonet.org>
+Subject: Test
+Message-ID: <MSGID_2=3A2499=2F123_00000001@fidonet.org>
+To: Test_User@orodruin.fido.de
+Organization: Martin Junius' orodruin.fido.de
+Lines: 1
+X-Gateway: FIDO orodruin.fido.de [FIDOGATE x.x.x]
+X-FTN-From: mj @ 2:2499/123.0
+X-FTN-To: Test User @ 2:2452/110.2
+X-FTN-Tearline: Test 0.0
+X-FTN-Domain: Z2@FidoNet
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Transfer-Encoding: 7bit
+
+TEST
+Received: by p2.hippo.fido.de (FIDOGATE x.x.x)
+From: Martin Junius <Martin_Junius@f123.n2499.z2.fidonet.org>
+Subject: Test
+Message-ID: <MSGID_2=3A2499=2F123_00000001@fidonet.org>
+To: mj%fido.de
+Organization: Martin Junius' orodruin.fido.de
+Lines: 1
+X-Gateway: FIDO orodruin.fido.de [FIDOGATE x.x.x]
+X-FTN-From: Martin Junius @ 2:2499/123.0
+X-FTN-To: mj @ 2:2452/110.2
+X-FTN-Tearline: Test 0.0
+X-FTN-Domain: Z2@FidoNet
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Transfer-Encoding: 7bit
+
+TEST
+Received: by p2.hippo.fido.de (FIDOGATE x.x.x)
+From: Martin Junius <Martin_Junius@f123.n2499.z2.fidonet.org>
+Subject: Test
+Message-ID: <MSGID_2=3A2499=2F123_00000001@fidonet.org>
+To: mj@fido.de
+Organization: Martin Junius' orodruin.fido.de
+Lines: 1
+X-Gateway: FIDO orodruin.fido.de [FIDOGATE x.x.x]
+X-FTN-From: Martin Junius @ 2:2499/123.0
+X-FTN-To: mj @ 2:2452/110.2
+X-FTN-Tearline: Test 0.0
+X-FTN-Domain: Z2@FidoNet
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Transfer-Encoding: 7bit
+
+TEST
 tc: copying input packets
 tc: running
 ftn2rfc packet ./pin/1a.pkt (240b) from 2:2499/123.0 to 2:2452/110.2
@@ -44,3 +214,343 @@ ftn2rfc packet ./pin/3e.pkt (241b) from 2:2499/123.0 to 2:2452/110.2
 ftn2rfc MAIL: Martin Junius <Martin_Junius@f123.n2499.z2.fidonet.org> -> mj%fido.de
 ftn2rfc packet ./pin/3f.pkt (241b) from 2:2499/123.0 to 2:2452/110.2
 ftn2rfc MAIL: Martin Junius <Martin_Junius@f123.n2499.z2.fidonet.org> -> mj@fido.de
+Received: by p2.hippo.fido.de (FIDOGATE x.x.x)
+From: Martin Junius <Martin_Junius@f123.n2499.z2.fidonet.org>
+Subject: Test
+Message-ID: <MSGID_2=3A2499=2F123_00000001@fidonet.org>
+To: Test_User@orodruin.fido.de
+Organization: Martin Junius' orodruin.fido.de
+Lines: 1
+X-Gateway: FIDO orodruin.fido.de [FIDOGATE x.x.x]
+X-FTN-From: Martin Junius @ 2:2499/123.0
+X-FTN-To: Test User @ 2:2452/110.2
+X-FTN-Tearline: Test 0.0
+X-FTN-Domain: Z2@FidoNet
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Transfer-Encoding: 7bit
+
+TEST
+Received: by p2.hippo.fido.de (FIDOGATE x.x.x)
+From: Martin Junius <Martin_Junius@f123.n2499.z2.fidonet.org>
+Subject: Test
+Message-ID: <MSGID_2=3A2499=2F123_00000001@fidonet.org>
+To: mj@fido.de (Martin Junius)
+Organization: Martin Junius' orodruin.fido.de
+Lines: 1
+X-Gateway: FIDO orodruin.fido.de [FIDOGATE x.x.x]
+X-FTN-From: Martin Junius @ 2:2499/123.0
+X-FTN-To: Test User @ 2:2452/110.2
+X-FTN-Tearline: Test 0.0
+X-FTN-Domain: Z2@FidoNet
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Transfer-Encoding: 7bit
+
+TEST
+Received: by p2.hippo.fido.de (FIDOGATE x.x.x)
+From: Martin Junius <Martin_Junius@f123.n2499.z2.fidonet.org>
+Subject: Test
+Message-ID: <MSGID_2=3A2499=2F123_00000002@fidonet.org>
+To: Test_User@orodruin.fido.de
+Organization: Martin Junius' orodruin.fido.de
+Lines: 1
+X-Gateway: FIDO orodruin.fido.de [FIDOGATE x.x.x]
+X-FTN-From: Martin Junius @ 2:2499/123.0
+X-FTN-To: Test User @ 2:2452/123.0
+X-FTN-Tearline: Test 0.0
+X-FTN-Domain: Z2@FidoNet
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Transfer-Encoding: 7bit
+
+TEST
+Received: by p2.hippo.fido.de (FIDOGATE x.x.x)
+From: Martin Junius <Martin_Junius@f123.n2499.z2.fidonet.org>
+Subject: Test
+Message-ID: <MSGID_2=3A2499=2F123_00000002@fidonet.org>
+To: mj@fido.de (Martin Junius)
+Organization: Martin Junius' orodruin.fido.de
+Lines: 1
+X-Gateway: FIDO orodruin.fido.de [FIDOGATE x.x.x]
+X-FTN-From: Martin Junius @ 2:2499/123.0
+X-FTN-To: Test User @ 2:2452/123.0
+X-FTN-Tearline: Test 0.0
+X-FTN-Domain: Z2@FidoNet
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Transfer-Encoding: 7bit
+
+TEST
+Received: by p2.hippo.fido.de (FIDOGATE x.x.x)
+From: Martin Junius <Martin_Junius@f123.n2499.z2.fidonet.org>
+Subject: Test
+Message-ID: <MSGID_2=3A2499=2F123_00000001@fidonet.org>
+To: "Test_User%99:1/1"
+Organization: Martin Junius' orodruin.fido.de
+Lines: 1
+X-Gateway: FIDO orodruin.fido.de [FIDOGATE x.x.x]
+X-FTN-From: Martin Junius @ 2:2499/123.0
+X-FTN-To: Test User @ 2:2452/110.2
+X-FTN-Tearline: Test 0.0
+X-FTN-Domain: Z2@FidoNet
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Transfer-Encoding: 7bit
+
+TEST
+Received: by p2.hippo.fido.de (FIDOGATE x.x.x)
+From: Martin Junius <"Martin_Junius%99:1/1"@f123.n2499.z2.fidonet.org>
+Subject: Test
+Message-ID: <MSGID_2=3A2499=2F123_00000001@fidonet.org>
+To: Test_User@orodruin.fido.de
+Organization: Martin Junius' orodruin.fido.de
+Lines: 1
+X-Gateway: FIDO orodruin.fido.de [FIDOGATE x.x.x]
+X-FTN-From: Martin Junius @ 2:2499/123.0
+X-FTN-To: Test User @ 2:2452/110.2
+X-FTN-Tearline: Test 0.0
+X-FTN-Domain: Z2@FidoNet
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Transfer-Encoding: 7bit
+
+TEST
+Received: by p2.hippo.fido.de (FIDOGATE x.x.x)
+From: mj <mj%fido.de@f123.n2499.z2.fidonet.org>
+Subject: Test
+Message-ID: <MSGID_2=3A2499=2F123_00000001@fidonet.org>
+To: Test_User@orodruin.fido.de
+Organization: Martin Junius' orodruin.fido.de
+Lines: 1
+X-Gateway: FIDO orodruin.fido.de [FIDOGATE x.x.x]
+X-FTN-From: mj @ 2:2499/123.0
+X-FTN-To: Test User @ 2:2452/110.2
+X-FTN-Tearline: Test 0.0
+X-FTN-Domain: Z2@FidoNet
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Transfer-Encoding: 7bit
+
+TEST
+Received: by p2.hippo.fido.de (FIDOGATE x.x.x)
+From: mj <"mj@fido.de"@f123.n2499.z2.fidonet.org>
+Subject: Test
+Message-ID: <MSGID_2=3A2499=2F123_00000001@fidonet.org>
+To: Test_User@orodruin.fido.de
+Organization: Martin Junius' orodruin.fido.de
+Lines: 1
+X-Gateway: FIDO orodruin.fido.de [FIDOGATE x.x.x]
+X-FTN-From: mj @ 2:2499/123.0
+X-FTN-To: Test User @ 2:2452/110.2
+X-FTN-Tearline: Test 0.0
+X-FTN-Domain: Z2@FidoNet
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Transfer-Encoding: 7bit
+
+TEST
+Received: by p2.hippo.fido.de (FIDOGATE x.x.x)
+From: Martin Junius <Martin_Junius@f123.n2499.z2.fidonet.org>
+Subject: Test
+Message-ID: <MSGID_2=3A2499=2F123_00000001@fidonet.org>
+To: mj%fido.de
+Organization: Martin Junius' orodruin.fido.de
+Lines: 1
+X-Gateway: FIDO orodruin.fido.de [FIDOGATE x.x.x]
+X-FTN-From: Martin Junius @ 2:2499/123.0
+X-FTN-To: mj @ 2:2452/110.2
+X-FTN-Tearline: Test 0.0
+X-FTN-Domain: Z2@FidoNet
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Transfer-Encoding: 7bit
+
+TEST
+Received: by p2.hippo.fido.de (FIDOGATE x.x.x)
+From: Martin Junius <Martin_Junius@f123.n2499.z2.fidonet.org>
+Subject: Test
+Message-ID: <MSGID_2=3A2499=2F123_00000001@fidonet.org>
+To: mj@fido.de
+Organization: Martin Junius' orodruin.fido.de
+Lines: 1
+X-Gateway: FIDO orodruin.fido.de [FIDOGATE x.x.x]
+X-FTN-From: Martin Junius @ 2:2499/123.0
+X-FTN-To: mj @ 2:2452/110.2
+X-FTN-Tearline: Test 0.0
+X-FTN-Domain: Z2@FidoNet
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Transfer-Encoding: 7bit
+
+TEST
+Received: by p2.hippo.fido.de (FIDOGATE x.x.x)
+From: Martin Junius <Martin_Junius@f123.n2499.z2.fidonet.org>
+Subject: Test
+Message-ID: <MSGID_2=3A2499=2F123_00000001@fidonet.org>
+To: Test_User@hippo.fido.de
+Organization: Martin Junius' orodruin.fido.de
+Lines: 1
+X-Gateway: FIDO orodruin.fido.de [FIDOGATE x.x.x]
+X-FTN-From: Martin Junius @ 2:2499/123.0
+X-FTN-To: Test User @ 2:2452/110.2
+X-FTN-Tearline: Test 0.0
+X-FTN-Domain: Z2@FidoNet
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Transfer-Encoding: 7bit
+
+TEST
+Received: by p2.hippo.fido.de (FIDOGATE x.x.x)
+From: Martin Junius <Martin_Junius@f123.n2499.z2.fidonet.org>
+Subject: Test
+Message-ID: <MSGID_2=3A2499=2F123_00000001@fidonet.org>
+To: mj@fido.de (Martin Junius)
+Organization: Martin Junius' orodruin.fido.de
+Lines: 1
+X-Gateway: FIDO orodruin.fido.de [FIDOGATE x.x.x]
+X-FTN-From: Martin Junius @ 2:2499/123.0
+X-FTN-To: Test User @ 2:2452/110.2
+X-FTN-Tearline: Test 0.0
+X-FTN-Domain: Z2@FidoNet
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Transfer-Encoding: 7bit
+
+TEST
+Received: by p2.hippo.fido.de (FIDOGATE x.x.x)
+From: Martin Junius <Martin_Junius@f123.n2499.z2.fidonet.org>
+Subject: Test
+Message-ID: <MSGID_2=3A2499=2F123_00000002@fidonet.org>
+To: Test_User@f123.n2452.z2.fidonet.org
+Organization: Martin Junius' orodruin.fido.de
+Lines: 1
+X-Gateway: FIDO orodruin.fido.de [FIDOGATE x.x.x]
+X-FTN-From: Martin Junius @ 2:2499/123.0
+X-FTN-To: Test User @ 2:2452/123.0
+X-FTN-Tearline: Test 0.0
+X-FTN-Domain: Z2@FidoNet
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Transfer-Encoding: 7bit
+
+TEST
+Received: by p2.hippo.fido.de (FIDOGATE x.x.x)
+From: Martin Junius <Martin_Junius@f123.n2499.z2.fidonet.org>
+Subject: Test
+Message-ID: <MSGID_2=3A2499=2F123_00000002@fidonet.org>
+To: mj@fido.de (Martin Junius)
+Organization: Martin Junius' orodruin.fido.de
+Lines: 1
+X-Gateway: FIDO orodruin.fido.de [FIDOGATE x.x.x]
+X-FTN-From: Martin Junius @ 2:2499/123.0
+X-FTN-To: Test User @ 2:2452/123.0
+X-FTN-Tearline: Test 0.0
+X-FTN-Domain: Z2@FidoNet
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Transfer-Encoding: 7bit
+
+TEST
+Received: by p2.hippo.fido.de (FIDOGATE x.x.x)
+From: Martin Junius <Martin_Junius@f123.n2499.z2.fidonet.org>
+Subject: Test
+Message-ID: <MSGID_2=3A2499=2F123_00000001@fidonet.org>
+To: "Test_User%99:1/1"
+Organization: Martin Junius' orodruin.fido.de
+Lines: 1
+X-Gateway: FIDO orodruin.fido.de [FIDOGATE x.x.x]
+X-FTN-From: Martin Junius @ 2:2499/123.0
+X-FTN-To: Test User @ 2:2452/110.2
+X-FTN-Tearline: Test 0.0
+X-FTN-Domain: Z2@FidoNet
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Transfer-Encoding: 7bit
+
+TEST
+Received: by p2.hippo.fido.de (FIDOGATE x.x.x)
+From: Martin Junius <"Martin_Junius%99:1/1"@f123.n2499.z2.fidonet.org>
+Subject: Test
+Message-ID: <MSGID_2=3A2499=2F123_00000001@fidonet.org>
+To: Test_User@hippo.fido.de
+Organization: Martin Junius' orodruin.fido.de
+Lines: 1
+X-Gateway: FIDO orodruin.fido.de [FIDOGATE x.x.x]
+X-FTN-From: Martin Junius @ 2:2499/123.0
+X-FTN-To: Test User @ 2:2452/110.2
+X-FTN-Tearline: Test 0.0
+X-FTN-Domain: Z2@FidoNet
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Transfer-Encoding: 7bit
+
+TEST
+Received: by p2.hippo.fido.de (FIDOGATE x.x.x)
+From: mj <mj%fido.de@f123.n2499.z2.fidonet.org>
+Subject: Test
+Message-ID: <MSGID_2=3A2499=2F123_00000001@fidonet.org>
+To: Test_User@hippo.fido.de
+Organization: Martin Junius' orodruin.fido.de
+Lines: 1
+X-Gateway: FIDO orodruin.fido.de [FIDOGATE x.x.x]
+X-FTN-From: mj @ 2:2499/123.0
+X-FTN-To: Test User @ 2:2452/110.2
+X-FTN-Tearline: Test 0.0
+X-FTN-Domain: Z2@FidoNet
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Transfer-Encoding: 7bit
+
+TEST
+Received: by p2.hippo.fido.de (FIDOGATE x.x.x)
+From: mj <"mj@fido.de"@f123.n2499.z2.fidonet.org>
+Subject: Test
+Message-ID: <MSGID_2=3A2499=2F123_00000001@fidonet.org>
+To: Test_User@hippo.fido.de
+Organization: Martin Junius' orodruin.fido.de
+Lines: 1
+X-Gateway: FIDO orodruin.fido.de [FIDOGATE x.x.x]
+X-FTN-From: mj @ 2:2499/123.0
+X-FTN-To: Test User @ 2:2452/110.2
+X-FTN-Tearline: Test 0.0
+X-FTN-Domain: Z2@FidoNet
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Transfer-Encoding: 7bit
+
+TEST
+Received: by p2.hippo.fido.de (FIDOGATE x.x.x)
+From: Martin Junius <Martin_Junius@f123.n2499.z2.fidonet.org>
+Subject: Test
+Message-ID: <MSGID_2=3A2499=2F123_00000001@fidonet.org>
+To: mj%fido.de
+Organization: Martin Junius' orodruin.fido.de
+Lines: 1
+X-Gateway: FIDO orodruin.fido.de [FIDOGATE x.x.x]
+X-FTN-From: Martin Junius @ 2:2499/123.0
+X-FTN-To: mj @ 2:2452/110.2
+X-FTN-Tearline: Test 0.0
+X-FTN-Domain: Z2@FidoNet
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Transfer-Encoding: 7bit
+
+TEST
+Received: by p2.hippo.fido.de (FIDOGATE x.x.x)
+From: Martin Junius <Martin_Junius@f123.n2499.z2.fidonet.org>
+Subject: Test
+Message-ID: <MSGID_2=3A2499=2F123_00000001@fidonet.org>
+To: mj@fido.de
+Organization: Martin Junius' orodruin.fido.de
+Lines: 1
+X-Gateway: FIDO orodruin.fido.de [FIDOGATE x.x.x]
+X-FTN-From: Martin Junius @ 2:2499/123.0
+X-FTN-To: mj @ 2:2452/110.2
+X-FTN-Tearline: Test 0.0
+X-FTN-Domain: Z2@FidoNet
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Transfer-Encoding: 7bit
+
+TEST

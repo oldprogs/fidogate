@@ -5,6 +5,7 @@ ln -sf ../../src/charset/charset.bin .
 ln -sf ../../src/areafix/ftnaf .
 ln -sf ../../src/areafix/ftnafmail .
 ln -sf ../../src/areafix/ftnafpkt .
+ln -sf ../../src/areafix/areafix.help .
 
 ln -sf ../../src/ffx/ffx .
 ln -sf ../../src/ffx/ffxmail .

@@ -2,14 +2,14 @@
 
 ../tr.init
 
-T="../../src/gate/rfc2ftn -c../cf/gate.conf -v"
+T="../../src/gate/rfc2ftn -c../cf/fidogate.conf -v"
 
 echo "tc: running"
 
 ##### Test rfc2ftn bounce #####
 
 # Down
-$T test@yftn.fido.de <<EOF
+$T test@spam.fido.de <<EOF
 Subject: Test --------
 From: abc@blubber.fasel.org
 Message-ID: <Test--------@x.y.z>

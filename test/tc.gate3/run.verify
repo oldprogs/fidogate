@@ -1,7 +1,8 @@
 tc: clean-up
 tc: init
 tc: running
-News article file ../ti.news-a/10
+
+---------- News article file ../ti.news-a/10 ----------
 Message body size 1077 (+CR!)
 RFC From:     chw@veteran.sax.de (Carsten H. Wuestner)
 RFC Sender:   Carsten H. Wuestner <chw@veteran.sax.de>
@@ -38,7 +39,8 @@ Writing FTN message header:
     To  : Amk@cs.Tu-berlin.De                  @ 242:1000/5.0
     Subj: Re: Vertrieb von DInfo2.0 verboten....
     Attr: 0000
-News article file ../ti.news-a/11
+
+---------- News article file ../ti.news-a/11 ----------
 Message body size 533 (+CR!)
 RFC From:     ge276@appl2.hrz.uni-siegen.de (Alexander Schwanke)
 RFC Reply-To: ge276@appl2.hrz.uni-siegen.de
@@ -116,7 +118,8 @@ Writing FTN message header:
     To  : All                                  @ 242:1000/5.0
     Subj: Re: S: besseres Angebot ISDN ANlage & Karte
     Attr: 0000
-News article file ../ti.news-a/12
+
+---------- News article file ../ti.news-a/12 ----------
 Message body size 296 (+CR!)
 RFC From:     ukrapp@aol.com (Ukrapp)
 RFC Sender:   Ukrapp <ukrapp@aol.com>
@@ -151,7 +154,8 @@ Writing FTN message header:
     To  : All                                  @ 242:1000/5.0
     Subj: Re: Vertrieb von DInfo2.0 verboten....
     Attr: 0000
-News article file ../ti.news-a/13
+
+---------- News article file ../ti.news-a/13 ----------
 Message body size 1042 (+CR!)
 RFC From:     jrichert@krefcom.westfalen.de (Jan Richert)
 RFC Sender:   Jan Richert <jrichert@krefcom.westfalen.de>
@@ -188,7 +192,8 @@ Writing FTN message header:
     To  : Marvin Erdt                          @ 242:1000/5.0
     Subj: Re: Vertrieb von DInfo2.0 verboten....
     Attr: 0000
-News article file ../ti.news-a/14
+
+---------- News article file ../ti.news-a/14 ----------
 Message body size 1475 (+CR!)
 RFC From:     news@allusenet.com
 RFC Sender:   news@allusenet.com
@@ -223,7 +228,8 @@ Writing FTN message header:
     To  : All                                  @ 242:1000/5.0
     Subj: get all usenet at http://www.net-link.com
     Attr: 0000
-News article file ../ti.news-a/15
+
+---------- News article file ../ti.news-a/15 ----------
 Message body size 1714 (+CR!)
 RFC From:     Maik Musall <maik@cape.de>
 RFC Sender:   Maik Musall <maik@cape.de>
@@ -288,7 +294,8 @@ Writing FTN message header:
     Attr: 0000
 Look up newsgroup ger.pc.hard
 No FTN area
-News article file ../ti.news-a/16
+
+---------- News article file ../ti.news-a/16 ----------
 Message body size 599 (+CR!)
 RFC From:     rene@flatta.in-berlin.de (Rene Kacza)
 RFC Sender:   Rene Kacza <rene@flatta.in-berlin.de>
@@ -365,7 +372,8 @@ Writing FTN message header:
     To  : All                                  @ 242:1000/5.0
     Subj: Re: S: besseres Angebot ISDN ANlage & Karte
     Attr: 0000
-News article file ../ti.news-a/17
+
+---------- News article file ../ti.news-a/17 ----------
 Message body size 807 (+CR!)
 RFC From:     roger@larry.westfalen.de (Roger Schwentker)
 RFC Sender:   Roger Schwentker <roger@larry.westfalen.de>
@@ -400,7 +408,8 @@ Writing FTN message header:
     To  : All                                  @ 242:1000/5.0
     Subj: Trottel (war Re: http://194.163.56.129/~ronz/index.htm)
     Attr: 0000
-News article file ../ti.news-a/18
+
+---------- News article file ../ti.news-a/18 ----------
 Message body size 1711 (+CR!)
 RFC From:     gau_t@gauhh.hanse.de (Thorsten Gau)
 RFC Sender:   Thorsten Gau <gau_t@gauhh.hanse.de>
@@ -451,7 +460,8 @@ Writing FTN message header:
     Attr: 0000
 Look up newsgroup hanse.hardware
 No FTN area
-News article file ../ti.news-a/19
+
+---------- News article file ../ti.news-a/19 ----------
 Message body size 697 (+CR!)
 RFC From:     holger.schmid@student.uni-tuebingen.de (Holger Schmid)
 RFC Reply-To: holger.schmid@student.uni-tuebingen.de
@@ -489,7 +499,8 @@ Writing FTN message header:
     To  : Elmar Ascheid                        @ 242:1000/5.0
     Subj: Re: Vertrieb von DInfo2.0 verboten....
     Attr: 0000
-News article file ../ti.news-a/20
+
+---------- News article file ../ti.news-a/20 ----------
 Message body size 86 (+CR!)
 RFC From:     "K. Seeland" <kaisggdf@sp.zrz.tu-berlin.de>
 RFC Sender:   K. Seeland <kaisggdf@sp.zrz.tu-berlin.de>
@@ -524,7 +535,8 @@ Writing FTN message header:
     To  : All                                  @ 242:1000/5.0
     Subj: tcpip, ftp unter dos
     Attr: 0000
-News article file ../ti.news-a/21
+
+---------- News article file ../ti.news-a/21 ----------
 Message body size 1188 (+CR!)
 RFC From:     adams@t-online.de (Thomas Adams)
 RFC Sender:   Thomas Adams <adams@t-online.de>
@@ -561,7 +573,8 @@ Writing FTN message header:
     Attr: 0000
 Look up newsgroup z-netz.telecom.allgemein
 No FTN area
-News article file ../ti.news-a/22
+
+---------- News article file ../ti.news-a/22 ----------
 Message body size 204 (+CR!)
 RFC From:     adams@t-online.de (Thomas Adams)
 RFC Sender:   Thomas Adams <adams@t-online.de>
@@ -596,7 +609,8 @@ Writing FTN message header:
     To  : All                                  @ 242:1000/5.0
     Subj: Gelsenkirchener gesucht
     Attr: 0000
-News article file ../ti.news-a/23
+
+---------- News article file ../ti.news-a/23 ----------
 Message body size 782 (+CR!)
 RFC From:     boss@msoenix.du.gtn.com (Michael Soentgerath)
 RFC Sender:   Michael Soentgerath <boss@msoenix.du.gtn.com>
@@ -631,7 +645,8 @@ Writing FTN message header:
     To  : All                                  @ 242:1000/5.0
     Subj: Re: Trottel (war Re: http://194.163.56.129/~ronz/index.htm)
     Attr: 0000
-News article file ../ti.news-a/24
+
+---------- News article file ../ti.news-a/24 ----------
 Message body size 712 (+CR!)
 RFC From:     sgeorg@berlin.snafu.de (Stefan Görg)
 RFC Sender:   Stefan Görg <sgeorg@berlin.snafu.de>
@@ -668,7 +683,8 @@ Writing FTN message header:
     To  : Dietrich Restemeyer                  @ 242:1000/5.0
     Subj: Re: Vertrieb von DInfo2.0 verboten....
     Attr: 0000
-News article file ../ti.news-a/25
+
+---------- News article file ../ti.news-a/25 ----------
 Message body size 233 (+CR!)
 RFC From:     eckubitz@aol.com (EcKubitz)
 RFC Reply-To: eckubitz@aol.com (EcKubitz)
@@ -704,7 +720,8 @@ Writing FTN message header:
     To  : All                                  @ 242:1000/5.0
     Subj: Telefonieren im Internet
     Attr: 0000
-News article file ../ti.news-a/26
+
+---------- News article file ../ti.news-a/26 ----------
 Message body size 875 (+CR!)
 RFC From:     CANDYMAN@LaDune.Westfalen.De  (Ralf Pieper)
 RFC Sender:   Ralf Pieper <CANDYMAN@LaDune.Westfalen.De>
@@ -739,7 +756,8 @@ Writing FTN message header:
     To  : All                                  @ 242:1000/5.0
     Subj: Re: Anrufbeantworter
     Attr: 0000
-News article file ../ti.news-a/27
+
+---------- News article file ../ti.news-a/27 ----------
 Message body size 416 (+CR!)
 RFC From:     steiner@bb-data.de (Steffen Steiner)
 RFC Reply-To: steiner@bb-data.de
@@ -789,7 +807,8 @@ Writing FTN message header:
     To  : All                                  @ 242:1000/5.0
     Subj: PT11 / 2110 Passivhalterung
     Attr: 0000
-News article file ../ti.news-a/28
+
+---------- News article file ../ti.news-a/28 ----------
 Message body size 2298 (+CR!)
 RFC From:     hal@caty.ol.sub.de (Holger Lubitz)
 RFC Sender:   Holger Lubitz <hal@caty.ol.sub.de>
@@ -856,7 +875,8 @@ Writing FTN message header:
     Attr: 0000
 Look up newsgroup ger.pc.hard
 No FTN area
-News article file ../ti.news-a/29
+
+---------- News article file ../ti.news-a/29 ----------
 Message body size 883 (+CR!)
 RFC From:     winkler@ira.uka.de  (Frank Winkler @home)
 RFC Reply-To: winkler@ira.uka.de (Frank Winkler)
@@ -906,7 +926,8 @@ Writing FTN message header:
     To  : All                                  @ 242:1000/5.0
     Subj: Scall/SMS fur OS/2 ?
     Attr: 0000
-News article file ../ti.news-a/30
+
+---------- News article file ../ti.news-a/30 ----------
 Message body size 254 (+CR!)
 RFC From:     "Marc A. Rieger" <rieger@stud.uni-frankfurt.de>
 RFC Reply-To: rieger@stud.uni-frankfurt.de
@@ -984,7 +1005,8 @@ Writing FTN message header:
     To  : All                                  @ 242:1000/5.0
     Subj: Re: S: besseres Angebot ISDN ANlage & Karte
     Attr: 0000
-News article file ../ti.news-a/31
+
+---------- News article file ../ti.news-a/31 ----------
 Message body size 772 (+CR!)
 RFC From:     malcolm@modebox.rhein-ruhr.de (Marvin Erdt)
 RFC Sender:   Marvin Erdt <malcolm@modebox.rhein-ruhr.de>
@@ -1019,7 +1041,8 @@ Writing FTN message header:
     To  : All                                  @ 242:1000/5.0
     Subj: Re: Vertrieb von DInfo2.0 verboten....
     Attr: 0000
-News article file ../ti.news-a/32
+
+---------- News article file ../ti.news-a/32 ----------
 Message body size 970 (+CR!)
 RFC From:     thilo.pohl@fernuni-hagen.de (Thilo Pohl)
 RFC Reply-To: thilo.pohl@fernuni-hagen.de
@@ -1055,7 +1078,8 @@ Writing FTN message header:
     To  : All                                  @ 242:1000/5.0
     Subj: Niederlande: Vorwahlen
     Attr: 0000
-News article file ../ti.news-a/33
+
+---------- News article file ../ti.news-a/33 ----------
 Message body size 819 (+CR!)
 RFC From:     Markus Zimmermann <zmm@grs.de>
 RFC Sender:   Markus Zimmermann <zmm@grs.de>
@@ -1090,7 +1114,8 @@ Writing FTN message header:
     To  : All                                  @ 242:1000/5.0
     Subj: Probleme mit SHARP Fax F0 100
     Attr: 0000
-News article file ../ti.news-a/34
+
+---------- News article file ../ti.news-a/34 ----------
 Message body size 204 (+CR!)
 RFC From:     n.balthasar@public.ndh.com (Dirk Balthasar)
 RFC Sender:   Dirk Balthasar <n.balthasar@public.ndh.com>
@@ -1139,7 +1164,8 @@ Writing FTN message header:
     To  : All                                  @ 242:1000/5.0
     Subj: Eudora
     Attr: 0000
-News article file ../ti.news-a/35
+
+---------- News article file ../ti.news-a/35 ----------
 Message body size 565 (+CR!)
 RFC From:     Kai.Ruettger@paediat.med.uni-giessen.de (Kai Ruettger)
 RFC Reply-To: Kai.Ruettger@paediat.med.uni-giessen.de
@@ -1177,7 +1203,8 @@ Writing FTN message header:
     To  : Joachim Gothe                        @ 242:1000/5.0
     Subj: Re: Vertrieb von DInfo2.0 verboten....
     Attr: 0000
-News article file ../ti.news-a/36
+
+---------- News article file ../ti.news-a/36 ----------
 Message body size 1826 (+CR!)
 RFC From:     muench@wolf.informatik.rwth-aachen.de (Manfred Muench)
 RFC Sender:   Manfred Muench <muench@wolf.informatik.rwth-aachen.de>
@@ -1212,7 +1239,8 @@ Writing FTN message header:
     To  : All                                  @ 242:1000/5.0
     Subj: Re: Niederlande: Vorwahlen
     Attr: 0000
-News article file ../ti.news-a/37
+
+---------- News article file ../ti.news-a/37 ----------
 Message body size 825 (+CR!)
 RFC From:     matthias.bolten@bigapple.Cologne.DE (Matthias Bolten)
 RFC Sender:   Matthias Bolten <matthias.bolten@bigapple.Cologne.DE>
@@ -1345,7 +1373,8 @@ Writing FTN message header:
     To  : All                                  @ 242:1000/5.0
     Subj: Kosten einer Standleitung
     Attr: 0000
-News article file ../ti.news-a/38
+
+---------- News article file ../ti.news-a/38 ----------
 Message body size 552 (+CR!)
 RFC From:     naddy@mips.pfalz.de (Christian Weisgerber)
 RFC Sender:   Christian Weisgerber <naddy@mips.pfalz.de>
@@ -1400,7 +1429,8 @@ Writing FTN message header:
     To  : Andreas Schrot                       @ 242:1000/5.0
     Subj: Re: Hörbarer Gebührenimpuls
     Attr: 0000
-News article file ../ti.news-a/39
+
+---------- News article file ../ti.news-a/39 ----------
 Message body size 238 (+CR!)
 RFC From:     Peter Klinke <pklinke@econ2.uni-bonn.de>
 RFC Sender:   Peter Klinke <pklinke@econ2.uni-bonn.de>
@@ -1435,7 +1465,8 @@ Writing FTN message header:
     To  : All                                  @ 242:1000/5.0
     Subj: SMC Token-Ring Karte 8115
     Attr: 0000
-News article file ../ti.news-a/40
+
+---------- News article file ../ti.news-a/40 ----------
 Message body size 1159 (+CR!)
 RFC From:     usai1035@servus02.rus.uni-stuttgart.de (Ralf Sipple)
 RFC Sender:   Ralf Sipple <usai1035@servus02.rus.uni-stuttgart.de>
@@ -1570,7 +1601,8 @@ Writing FTN message header:
     To  : Matthias.Bolten@bigapple.Cologne.DE  @ 242:1000/5.0
     Subj: Re: Kosten einer Standleitung
     Attr: 0000
-News article file ../ti.news-a/41
+
+---------- News article file ../ti.news-a/41 ----------
 Message body size 1219 (+CR!)
 RFC From:     ghost@dawn.mayn.de (Armin Wies)
 RFC Sender:   Armin Wies <ghost@dawn.mayn.de>
@@ -1607,7 +1639,8 @@ Writing FTN message header:
     To  : CANDYMAN@LaDune.Westfalen.De         @ 242:1000/5.0
     Subj: Re: Anrufbeantworter
     Attr: 0000
-News article file ../ti.news-a/42
+
+---------- News article file ../ti.news-a/42 ----------
 Message body size 334 (+CR!)
 RFC From:     ghost@dawn.mayn.de (Armin Wies)
 RFC Sender:   Armin Wies <ghost@dawn.mayn.de>
@@ -1644,7 +1677,8 @@ Writing FTN message header:
     To  : Eckubitz@aol.Com                     @ 242:1000/5.0
     Subj: Re: Telefonieren im Internet
     Attr: 0000
-News article file ../ti.news-a/43
+
+---------- News article file ../ti.news-a/43 ----------
 Message body size 656 (+CR!)
 RFC From:     mozart@mozart.berlinet.de (Thomas Witt)
 RFC Sender:   Thomas Witt <mozart@mozart.berlinet.de>
@@ -1777,7 +1811,8 @@ Writing FTN message header:
     To  : All                                  @ 242:1000/5.0
     Subj: Re: Kosten einer Standleitung
     Attr: 0000
-News article file ../ti.news-a/44
+
+---------- News article file ../ti.news-a/44 ----------
 Message body size 256 (+CR!)
 RFC From:     zoc@zocki.toppoint.de (Rainer Zocholl)
 RFC Sender:   Rainer Zocholl <zoc@zocki.toppoint.de>
@@ -1812,7 +1847,8 @@ Writing FTN message header:
     To  : All                                  @ 242:1000/5.0
     Subj: Re: Anrufbeantworter
     Attr: 0000
-News article file ../ti.news-a/45
+
+---------- News article file ../ti.news-a/45 ----------
 Message body size 994 (+CR!)
 RFC From:     root@bespin.in-berlin.de (Sascha Matzke)
 RFC Reply-To: root@bespin.in-berlin.de
@@ -1955,7 +1991,8 @@ Writing FTN message header:
     Subj: Re: Kosten einer Standleitung
     Attr: 0000
 using local time
-News article file ../ti.news-a/46
+
+---------- News article file ../ti.news-a/46 ----------
 Message body size 427 (+CR!)
 RFC From:     petzi@zit.th-darmstadt.de (Michael Beckmann)
 RFC Sender:   Michael Beckmann <petzi@zit.th-darmstadt.de>
@@ -2004,7 +2041,8 @@ Writing FTN message header:
     To  : All                                  @ 242:1000/5.0
     Subj: Re: Eudora
     Attr: 0000
-News article file ../ti.news-a/47
+
+---------- News article file ../ti.news-a/47 ----------
 Message body size 775 (+CR!)
 RFC From:     groggy@eikon.e-technik.tu-muenchen.de (Christian Grodau)
 RFC Sender:   Christian Grodau <groggy@eikon.e-technik.tu-muenchen.de>
@@ -2041,7 +2079,8 @@ Writing FTN message header:
     To  : EcKubitz                             @ 242:1000/5.0
     Subj: Re: Telefonieren im Internet
     Attr: 0000
-News article file ../ti.news-a/48
+
+---------- News article file ../ti.news-a/48 ----------
 Message body size 937 (+CR!)
 RFC From:     daniel@fiction.pb.owl.de (Daniel Roedding)
 RFC Sender:   Daniel Roedding <daniel@fiction.pb.owl.de>
@@ -2176,7 +2215,8 @@ Writing FTN message header:
     To  : Ralf Sipple                          @ 242:1000/5.0
     Subj: Re: Kosten einer Standleitung
     Attr: 0000
-News article file ../ti.news-a/49
+
+---------- News article file ../ti.news-a/49 ----------
 Message body size 1234 (+CR!)
 RFC From:     Klaus.Heimes@uni-koeln.de (Klaus Heimes)
 RFC Sender:   Klaus Heimes <Klaus.Heimes@uni-koeln.de>
@@ -2211,7 +2251,8 @@ Writing FTN message header:
     To  : All                                  @ 242:1000/5.0
     Subj: Probleme mit T-Fax AF 320 TA
     Attr: 0000
-News article file ../ti.news-a/50
+
+---------- News article file ../ti.news-a/50 ----------
 Message body size 1012 (+CR!)
 RFC From:     gutschk@uni-muenster.de (Markus Gutschke)
 RFC Sender:   Markus Gutschke <gutschk@uni-muenster.de>
@@ -2246,7 +2287,8 @@ Writing FTN message header:
     To  : All                                  @ 242:1000/5.0
     Subj: Re: Vertrieb von DInfo2.0 verboten....
     Attr: 0000
-News article file ../ti.news-a/51
+
+---------- News article file ../ti.news-a/51 ----------
 Message body size 505 (+CR!)
 RFC From:     kalle@rd.cls.de (Karlheinz Hagen)
 RFC Sender:   Karlheinz Hagen <kalle@rd.cls.de>
@@ -2381,7 +2423,8 @@ Writing FTN message header:
     To  : Usai1035@servus02.Rus.Uni-stuttgart  @ 242:1000/5.0
     Subj: Re: Kosten einer Standleitung
     Attr: 0000
-News article file ../ti.news-a/52
+
+---------- News article file ../ti.news-a/52 ----------
 Message body size 876 (+CR!)
 RFC From:     hf@ulysses.reactor.in-passau.de (Helmut Fromberger)
 RFC Sender:   Helmut Fromberger <hf@ulysses.reactor.in-passau.de>
@@ -2416,7 +2459,8 @@ Writing FTN message header:
     To  : All                                  @ 242:1000/5.0
     Subj: Verbindungsabbrueche
     Attr: 0000
-News article file ../ti.news-a/53
+
+---------- News article file ../ti.news-a/53 ----------
 Message body size 2707 (+CR!)
 RFC From:     joerg@tretow.in-berlin.de (Joerg Tretow)
 RFC Sender:   Joerg Tretow <joerg@tretow.in-berlin.de>
@@ -2481,7 +2525,8 @@ Writing FTN message header:
     Attr: 0000
 Look up newsgroup ger.pc.hard
 No FTN area
-News article file ../ti.news-a/54
+
+---------- News article file ../ti.news-a/54 ----------
 Message body size 344 (+CR!)
 RFC From:     Bubblebear@guru.rhein-main.de (Bubblebear)
 RFC Sender:   Bubblebear <Bubblebear@guru.rhein-main.de>
@@ -2516,7 +2561,8 @@ Writing FTN message header:
     To  : All                                  @ 242:1000/5.0
     Subj: Vernetzung AMIGA-PC
     Attr: 0000
-News article file ../ti.news-a/55
+
+---------- News article file ../ti.news-a/55 ----------
 Message body size 1944 (+CR!)
 RFC From:     Maik Musall <maik@cape.de>
 RFC Sender:   Maik Musall <maik@cape.de>
@@ -2581,7 +2627,8 @@ Writing FTN message header:
     Attr: 0000
 Look up newsgroup ger.pc.hard
 No FTN area
-News article file ../ti.news-a/56
+
+---------- News article file ../ti.news-a/56 ----------
 Message body size 790 (+CR!)
 RFC From:     T.Kammerer@charly.in-ulm.de (Thomas Kammerer)
 RFC Sender:   Thomas Kammerer <T.Kammerer@charly.in-ulm.de>
@@ -2644,7 +2691,8 @@ Writing FTN message header:
     To  : All                                  @ 242:1000/5.0
     Subj: ftp Probleme
     Attr: 0000
-News article file ../ti.news-a/57
+
+---------- News article file ../ti.news-a/57 ----------
 Message body size 498 (+CR!)
 RFC From:     chris@cae.muc.de (Christian A. Eroes)
 RFC Sender:   Christian A. Eroes <chris@cae.muc.de>
@@ -2777,7 +2825,8 @@ Writing FTN message header:
     To  : All                                  @ 242:1000/5.0
     Subj: Re: Kosten einer Standleitung
     Attr: 0000
-News article file ../ti.news-a/58
+
+---------- News article file ../ti.news-a/58 ----------
 Message body size 815 (+CR!)
 RFC From:     chris@cae.muc.de (Christian A. Eroes)
 RFC Sender:   Christian A. Eroes <chris@cae.muc.de>
@@ -2812,7 +2861,8 @@ Writing FTN message header:
     To  : All                                  @ 242:1000/5.0
     Subj: SINUS 42AB
     Attr: 0000
-News article file ../ti.news-a/59
+
+---------- News article file ../ti.news-a/59 ----------
 Message body size 577 (+CR!)
 RFC From:     Dirk Jacob <jacob@tmfs.mpgfk.tu-dresden.de>
 RFC Sender:   Dirk Jacob <jacob@tmfs.mpgfk.tu-dresden.de>
@@ -2847,7 +2897,8 @@ Writing FTN message header:
     To  : All                                  @ 242:1000/5.0
     Subj: Re: tcpip, ftp unter dos
     Attr: 0000
-News article file ../ti.news-a/60
+
+---------- News article file ../ti.news-a/60 ----------
 Message body size 962 (+CR!)
 RFC From:     chris@cae.muc.de (Christian A. Eroes)
 RFC Sender:   Christian A. Eroes <chris@cae.muc.de>
@@ -2882,7 +2933,8 @@ Writing FTN message header:
     To  : All                                  @ 242:1000/5.0
     Subj: Re: SINUS 42AB
     Attr: 0000
-News article file ../ti.news-a/61
+
+---------- News article file ../ti.news-a/61 ----------
 Message body size 1107 (+CR!)
 RFC From:     kris@schulung.netuse.de (=?ISO-8859-1?Q?Kristian_K=F6hntopp?=)
 RFC Sender:   =?ISO-8859-1?Q?Kristian_K=F6hntopp?= <kris@schulung.netuse.de>
@@ -2919,7 +2971,8 @@ Writing FTN message header:
     To  : Armin Wies                           @ 242:1000/5.0
     Subj: Re: Telefonieren im Internet
     Attr: 0000
-News article file ../ti.news-a/62
+
+---------- News article file ../ti.news-a/62 ----------
 Message body size 196 (+CR!)
 RFC From:     rene@flatta.in-berlin.de (Rene Kacza)
 RFC Sender:   Rene Kacza <rene@flatta.in-berlin.de>
@@ -3052,7 +3105,8 @@ Writing FTN message header:
     To  : All                                  @ 242:1000/5.0
     Subj: Re: Kosten einer Standleitung
     Attr: 0000
-News article file ../ti.news-a/63
+
+---------- News article file ../ti.news-a/63 ----------
 Message body size 1172 (+CR!)
 RFC From:     =?iso-8859-1?q?J=E9r=F4me_Waibel?= <schrom@lisa.simpson.inka.de>
 RFC Sender:   =?iso-8859-1?q?J=E9r=F4me_Waibel?= <schrom@lisa.simpson.inka.de>
@@ -3087,7 +3141,8 @@ Writing FTN message header:
     To  : All                                  @ 242:1000/5.0
     Subj: Re: Vernetzung AMIGA-PC
     Attr: 0000
-News article file ../ti.news-a/64
+
+---------- News article file ../ti.news-a/64 ----------
 Message body size 492 (+CR!)
 RFC From:     100657.202@compuserve.com (Michael Stein)
 RFC Sender:   Michael Stein <100657.202@compuserve.com>
@@ -3122,7 +3177,8 @@ Writing FTN message header:
     To  : All                                  @ 242:1000/5.0
     Subj: Direkte Steuerung der Windows 95-FAX-Software
     Attr: 0000
-News article file ../ti.news-a/65
+
+---------- News article file ../ti.news-a/65 ----------
 Message body size 1032 (+CR!)
 RFC From:     Stefan Wintermeyer <S.Wintermeyer@swreisedienst.com>
 RFC Sender:   Stefan Wintermeyer <S.Wintermeyer@swreisedienst.com>
@@ -3157,7 +3213,8 @@ Writing FTN message header:
     To  : All                                  @ 242:1000/5.0
     Subj: Re: Direkte Steuerung der Windows 95-FAX-Software
     Attr: 0000
-News article file ../ti.news-a/66
+
+---------- News article file ../ti.news-a/66 ----------
 Message body size 1515 (+CR!)
 RFC From:     UPS500@ibm.rhrz.uni-bonn.de (Markus Schlegel)
 RFC Sender:   Markus Schlegel <UPS500@ibm.rhrz.uni-bonn.de>
@@ -3220,7 +3277,8 @@ Writing FTN message header:
     To  : All                                  @ 242:1000/5.0
     Subj: *** News ***: Norwegen schafft Telefon-Ortsgebuehren ab
     Attr: 0000
-News article file ../ti.news-a/67
+
+---------- News article file ../ti.news-a/67 ----------
 Message body size 544 (+CR!)
 RFC From:     mozart@mozart.berlinet.de (Thomas Witt)
 RFC Sender:   Thomas Witt <mozart@mozart.berlinet.de>
@@ -3285,7 +3343,8 @@ Writing FTN message header:
     Attr: 0000
 Look up newsgroup ger.pc.hard
 No FTN area
-News article file ../ti.news-a/68
+
+---------- News article file ../ti.news-a/68 ----------
 Message body size 881 (+CR!)
 RFC From:     uh5y@rz.uni-karlsruhe.de (Martin Schulte Moenting)
 RFC Sender:   Martin Schulte Moenting <uh5y@rz.uni-karlsruhe.de>
@@ -3320,7 +3379,8 @@ Writing FTN message header:
     To  : All                                  @ 242:1000/5.0
     Subj: Re: SINUS 42AB
     Attr: 0000
-News article file ../ti.news-a/69
+
+---------- News article file ../ti.news-a/69 ----------
 Message body size 516 (+CR!)
 RFC From:     rufus@informatik.uni-koblenz.de (Sven Lehmann)
 RFC Sender:   Sven Lehmann <rufus@informatik.uni-koblenz.de>
@@ -3355,7 +3415,8 @@ Writing FTN message header:
     To  : All                                  @ 242:1000/5.0
     Subj: Suche CD-Labels
     Attr: 0000
-News article file ../ti.news-a/70
+
+---------- News article file ../ti.news-a/70 ----------
 Message body size 1029 (+CR!)
 RFC From:     groggy@eikon.e-technik.tu-muenchen.de (Christian Grodau)
 RFC Sender:   Christian Grodau <groggy@eikon.e-technik.tu-muenchen.de>
@@ -3406,7 +3467,8 @@ Writing FTN message header:
     To  : Frank Winkler @home                  @ 242:1000/5.0
     Subj: Re: Scall/SMS fur OS/2 ?
     Attr: 0000
-News article file ../ti.news-a/71
+
+---------- News article file ../ti.news-a/71 ----------
 Message body size 733 (+CR!)
 RFC From:     funked@bonsai.fernuni-hagen.de (Daniel Funke)
 RFC Sender:   Daniel Funke <funked@bonsai.fernuni-hagen.de>
@@ -3443,7 +3505,8 @@ Writing FTN message header:
     To  : Michael Stein                        @ 242:1000/5.0
     Subj: Re: Direkte Steuerung der Windows 95-FAX-Software
     Attr: 0000
-News article file ../ti.news-a/72
+
+---------- News article file ../ti.news-a/72 ----------
 Message body size 1594 (+CR!)
 RFC From:     ben@osn.de (Ben)
 RFC Sender:   Ben <ben@osn.de>
@@ -3478,7 +3541,8 @@ Writing FTN message header:
     To  : All                                  @ 242:1000/5.0
     Subj: Modem / Telefon - Wer schmeisst wen aus der Leitung ?
     Attr: 0000
-News article file ../ti.news-a/73
+
+---------- News article file ../ti.news-a/73 ----------
 Message body size 796 (+CR!)
 RFC From:     roger@larry.westfalen.de (Roger Schwentker)
 RFC Sender:   Roger Schwentker <roger@larry.westfalen.de>
@@ -3513,7 +3577,8 @@ Writing FTN message header:
     To  : All                                  @ 242:1000/5.0
     Subj: Re: tcpip, ftp unter dos
     Attr: 0000
-News article file ../ti.news-a/74
+
+---------- News article file ../ti.news-a/74 ----------
 Message body size 563 (+CR!)
 RFC From:     mark@umd.allcon.com (Mark Deskowski)
 RFC Sender:   Mark Deskowski <mark@umd.allcon.com>
@@ -3550,7 +3615,8 @@ Writing FTN message header:
     To  : Ben                                  @ 242:1000/5.0
     Subj: Re: Modem / Telefon - Wer schmeisst wen aus der Leitung ?
     Attr: 0000
-News article file ../ti.news-a/75
+
+---------- News article file ../ti.news-a/75 ----------
 Message body size 356 (+CR!)
 RFC From:     ruhs@thor.tech.chemie.tu-muenchen.de (Michael Ruhs)
 RFC Sender:   Michael Ruhs <ruhs@thor.tech.chemie.tu-muenchen.de>
@@ -3585,7 +3651,8 @@ Writing FTN message header:
     To  : All                                  @ 242:1000/5.0
     Subj: S: Belegung der neuen TAE-UP - Dosen
     Attr: 0000
-News article file ../ti.news-a/76
+
+---------- News article file ../ti.news-a/76 ----------
 Message body size 3038 (+CR!)
 RFC From:     dorfner@susi.fmi.uni-passau.de (Clemens Dorfner)
 RFC Sender:   Clemens Dorfner <dorfner@susi.fmi.uni-passau.de>
@@ -3620,7 +3687,8 @@ Writing FTN message header:
     To  : All                                  @ 242:1000/5.0
     Subj: Re: Modem / Telefon - Wer schmeisst wen aus der Leitung ?
     Attr: 0000
-News article file ../ti.news-a/77
+
+---------- News article file ../ti.news-a/77 ----------
 Message body size 1241 (+CR!)
 RFC From:     graef@Informatik.TU-Muenchen.DE (Andreas Graef)
 RFC Reply-To: graef@informatik.tu-muenchen.de
@@ -3656,7 +3724,8 @@ Writing FTN message header:
     To  : All                                  @ 242:1000/5.0
     Subj: Re: Hörbarer Gebührenimpuls
     Attr: 0000
-News article file ../ti.news-a/78
+
+---------- News article file ../ti.news-a/78 ----------
 Message body size 499 (+CR!)
 RFC From:     finc27@zx2.hrz.uni-dortmund.de (Thomas Adams)
 RFC Sender:   Thomas Adams <finc27@zx2.hrz.uni-dortmund.de>
@@ -3691,7 +3760,8 @@ Writing FTN message header:
     To  : All                                  @ 242:1000/5.0
     Subj: warum sind Telekom Modems so teuer?
     Attr: 0000
-News article file ../ti.news-a/79
+
+---------- News article file ../ti.news-a/79 ----------
 Message body size 1217 (+CR!)
 RFC From:     kay@ula1b18.zhv.basf-ag.de (Kay Marquardt)
 RFC Sender:   Kay Marquardt <kay@ula1b18.zhv.basf-ag.de>
@@ -3728,7 +3798,8 @@ Writing FTN message header:
     To  : Ben                                  @ 242:1000/5.0
     Subj: Re: Modem / Telefon - Wer schmeisst wen aus der Leitung ?
     Attr: 0000
-News article file ../ti.news-a/80
+
+---------- News article file ../ti.news-a/80 ----------
 Message body size 1651 (+CR!)
 RFC From:     funked@bonsai.fernuni-hagen.de (Daniel Funke)
 RFC Sender:   Daniel Funke <funked@bonsai.fernuni-hagen.de>
@@ -3765,7 +3836,8 @@ Writing FTN message header:
     To  : Ben                                  @ 242:1000/5.0
     Subj: Re: Modem / Telefon - Wer schmeisst wen aus der Leitung ?
     Attr: 0000
-News article file ../ti.news-a/81
+
+---------- News article file ../ti.news-a/81 ----------
 Message body size 659 (+CR!)
 RFC From:     ghost@dawn.mayn.de (Armin Wies)
 RFC Sender:   Armin Wies <ghost@dawn.mayn.de>
@@ -3802,7 +3874,8 @@ Writing FTN message header:
     To  : Ruhs@thor.Tech.Chemie.Tu-muenchen.D  @ 242:1000/5.0
     Subj: Re: S: Belegung der neuen TAE-UP - Dosen
     Attr: 0000
-News article file ../ti.news-a/82
+
+---------- News article file ../ti.news-a/82 ----------
 Message body size 628 (+CR!)
 RFC From:     rene@flatta.in-berlin.de (Rene Kacza)
 RFC Sender:   Rene Kacza <rene@flatta.in-berlin.de>
@@ -3837,7 +3910,8 @@ Writing FTN message header:
     To  : All                                  @ 242:1000/5.0
     Subj: Re: Modem / Telefon - Wer schmeisst wen aus der Leitung ?
     Attr: 0000
-News article file ../ti.news-a/83
+
+---------- News article file ../ti.news-a/83 ----------
 Message body size 1211 (+CR!)
 RFC From:     WASTL@RMAN2.gun.de (Sebastian Koopmann)
 RFC Sender:   Sebastian Koopmann <WASTL@RMAN2.gun.de>
@@ -3872,7 +3946,8 @@ Writing FTN message header:
     To  : All                                  @ 242:1000/5.0
     Subj: Re: Modem / Telefon - Wer schmeisst wen aus der Leitung ?
     Attr: 0000
-News article file ../ti.news-a/84
+
+---------- News article file ../ti.news-a/84 ----------
 Message body size 677 (+CR!)
 RFC From:     WASTL@RMAN2.gun.de (Sebastian Koopmann)
 RFC Sender:   Sebastian Koopmann <WASTL@RMAN2.gun.de>
@@ -3907,7 +3982,8 @@ Writing FTN message header:
     To  : All                                  @ 242:1000/5.0
     Subj: Re: Modem / Telefon - Wer schmeisst wen aus der Leitung ?
     Attr: 0000
-News article file ../ti.news-a/85
+
+---------- News article file ../ti.news-a/85 ----------
 Message body size 688 (+CR!)
 RFC From:     =?iso-8859-1?q?J=E9r=F4me_Waibel?= <schrom@lisa.simpson.inka.de>
 RFC Sender:   =?iso-8859-1?q?J=E9r=F4me_Waibel?= <schrom@lisa.simpson.inka.de>
@@ -3942,7 +4018,8 @@ Writing FTN message header:
     To  : All                                  @ 242:1000/5.0
     Subj: Re: Hörbarer Gebührenimpuls
     Attr: 0000
-News article file ../ti.news-a/86
+
+---------- News article file ../ti.news-a/86 ----------
 Message body size 890 (+CR!)
 RFC From:     hmo@sep.hamburg.com (Helge Oldach)
 RFC Sender:   Helge Oldach <hmo@sep.hamburg.com>
@@ -4077,7 +4154,8 @@ Writing FTN message header:
     To  : Christian A. Eroes                   @ 242:1000/5.0
     Subj: Re: Kosten einer Standleitung
     Attr: 0000
-News article file ../ti.news-a/87
+
+---------- News article file ../ti.news-a/87 ----------
 Message body size 1269 (+CR!)
 RFC From:     kakau@crest4.lbcmbx.bln.sub.org (Karsten Kaulich)
 RFC Sender:   Karsten Kaulich <kakau@crest4.lbcmbx.bln.sub.org>
@@ -4112,7 +4190,8 @@ Writing FTN message header:
     To  : All                                  @ 242:1000/5.0
     Subj: Re: Vertrieb von DInfo2.0 verboten....
     Attr: 0000
-News article file ../ti.news-a/88
+
+---------- News article file ../ti.news-a/88 ----------
 Message body size 820 (+CR!)
 RFC From:     kakau@crest4.lbcmbx.bln.sub.org (Karsten Kaulich)
 RFC Sender:   Karsten Kaulich <kakau@crest4.lbcmbx.bln.sub.org>
@@ -4147,7 +4226,8 @@ Writing FTN message header:
     To  : All                                  @ 242:1000/5.0
     Subj: Re: Vertrieb von DInfo2.0 verboten....
     Attr: 0000
-News article file ../ti.news-a/89
+
+---------- News article file ../ti.news-a/89 ----------
 Message body size 1911 (+CR!)
 RFC From:     kakau@crest4.lbcmbx.bln.sub.org (Karsten Kaulich)
 RFC Sender:   Karsten Kaulich <kakau@crest4.lbcmbx.bln.sub.org>
@@ -4182,7 +4262,8 @@ Writing FTN message header:
     To  : All                                  @ 242:1000/5.0
     Subj: Re: Vertrieb von DInfo2.0 verboten....
     Attr: 0000
-News article file ../ti.news-a/90
+
+---------- News article file ../ti.news-a/90 ----------
 Message body size 1692 (+CR!)
 RFC From:     kakau@crest4.lbcmbx.bln.sub.org (Karsten Kaulich)
 RFC Sender:   Karsten Kaulich <kakau@crest4.lbcmbx.bln.sub.org>
@@ -4217,7 +4298,8 @@ Writing FTN message header:
     To  : All                                  @ 242:1000/5.0
     Subj: Re: Vertrieb von DInfo2.0 verboten....
     Attr: 0000
-News article file ../ti.news-a/91
+
+---------- News article file ../ti.news-a/91 ----------
 Message body size 808 (+CR!)
 RFC From:     Timo Christoph <i21atchr@rz.unibw-muenchen.de>
 RFC Sender:   Timo Christoph <i21atchr@rz.unibw-muenchen.de>
@@ -4282,7 +4364,8 @@ Writing FTN message header:
     Attr: 0000
 Look up newsgroup ger.pc.hard
 No FTN area
-News article file ../ti.news-a/92
+
+---------- News article file ../ti.news-a/92 ----------
 Message body size 143 (+CR!)
 RFC From:     leif@elliot.allcon.com (Leif Juergensen)
 RFC Sender:   Leif Juergensen <leif@elliot.allcon.com>
@@ -4317,7 +4400,8 @@ Writing FTN message header:
     To  : All                                  @ 242:1000/5.0
     Subj: Re: warum sind Telekom Modems so teuer?
     Attr: 0000
-News article file ../ti.news-a/93
+
+---------- News article file ../ti.news-a/93 ----------
 Message body size 764 (+CR!)
 RFC From:     zessin@helena.rbi.informatik.uni-frankfurt.de (Ralf Zessin)
 RFC Sender:   Ralf Zessin <zessin@helena.rbi.informatik.uni-frankfurt.de>
@@ -4354,7 +4438,8 @@ Writing FTN message header:
     To  : In                                   @ 242:1000/5.0
     Subj: Re: warum sind Telekom Modems so teuer?
     Attr: 0000
-News article file ../ti.news-a/94
+
+---------- News article file ../ti.news-a/94 ----------
 Message body size 696 (+CR!)
 RFC From:     UZS106@ibm.rhrz.uni-bonn.de (Heiko Recktenwald)
 RFC Sender:   Heiko Recktenwald <UZS106@ibm.rhrz.uni-bonn.de>
@@ -4417,7 +4502,8 @@ Writing FTN message header:
     To  : All                                  @ 242:1000/5.0
     Subj: Nochmal: Ortsnetze und Internet
     Attr: 0000
-News article file ../ti.news-a/95
+
+---------- News article file ../ti.news-a/95 ----------
 Message body size 421 (+CR!)
 RFC From:     localhost <roberto_zicari@omg.org>
 RFC Sender:   localhost <roberto_zicari@omg.org>
@@ -4466,7 +4552,8 @@ Writing FTN message header:
     To  : All                                  @ 242:1000/5.0
     Subj: ife96
     Attr: 0000
-News article file ../ti.news-a/96
+
+---------- News article file ../ti.news-a/96 ----------
 Message body size 731 (+CR!)
 RFC From:     kris@schulung.netuse.de (=?ISO-8859-1?Q?Kristian_K=F6hntopp?=)
 RFC Sender:   =?ISO-8859-1?Q?Kristian_K=F6hntopp?= <kris@schulung.netuse.de>
@@ -4503,7 +4590,8 @@ Writing FTN message header:
     To  : Karsten Kaulich                      @ 242:1000/5.0
     Subj: Re: Vertrieb von DInfo2.0 verboten....
     Attr: 0000
-News article file ../ti.news-a/97
+
+---------- News article file ../ti.news-a/97 ----------
 Message body size 300 (+CR!)
 RFC From:     marc@aargh.incubus.sub.org (Marc 'Nepomuk' Heuler)
 RFC Reply-To: marc@aargh.incubus.sub.org
@@ -4541,7 +4629,8 @@ Writing FTN message header:
     To  : Christian Weisgerber                 @ 242:1000/5.0
     Subj: Re: DTMF-Geschwindigkeit an DTAG-VSt?
     Attr: 0000
-News article file ../ti.news-a/98
+
+---------- News article file ../ti.news-a/98 ----------
 Message body size 498 (+CR!)
 RFC From:     klaus@arco.de (Klaus Koenig)
 RFC Sender:   Klaus Koenig <klaus@arco.de>
@@ -4576,7 +4665,8 @@ Writing FTN message header:
     To  : All                                  @ 242:1000/5.0
     Subj: Re: Modem an E-Plus-Handy???
     Attr: 0000
-News article file ../ti.news-a/99
+
+---------- News article file ../ti.news-a/99 ----------
 Message body size 625 (+CR!)
 RFC From:     Christian@eder.pumuckl.cube.net (Christian Frankenberg)
 RFC Sender:   Christian Frankenberg <Christian@eder.pumuckl.cube.net>
@@ -4679,6 +4769,7 @@ AREA:DE.COMM.MISC
 ^ARFC-Newsgroups: de.comm.misc
 ^ARFC-From: chw@veteran.sax.de (Carsten H. Wuestner)
 ^ARFC-Date: Sat, 6 Apr 1996 11:20:39 GMT
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 Andreas M. Kirchwitz (amk@cs.tu-berlin.de) writes:
 
@@ -4708,6 +4799,7 @@ Carsten H.  W"ustner ^I^I^I^I> For every complex problem,
 <chw@veteran.sax.de>^I^I^I^I> simple, neat and wrong.
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -4742,6 +4834,7 @@ AREA:DE.COMM.ISDN
 ^ARFC-Mime-Version: 1.0
 ^ARFC-Content-Type: text/plain; charset=ISO-8859-1
 ^ARFC-Content-Transfer-Encoding: 8bit
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 In article <66FzjFL6WhB@pepe.wupper.de>,
 udob@pepe.wupper.de (Udo Boehlefeld) wrote:
@@ -4763,6 +4856,7 @@ Alexander Schwanke
 Alexander Schwanke | ge276@appl2.hrz.uni-siegen.de | finger for public PGP-Key
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -4787,6 +4881,7 @@ AREA:DE.MARKT.COMP.MISC
 ^ARFC-Mime-Version: 1.0
 ^ARFC-Content-Type: text/plain; charset=ISO-8859-1
 ^ARFC-Content-Transfer-Encoding: 8bit
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 In article <66FzjFL6WhB@pepe.wupper.de>,
 udob@pepe.wupper.de (Udo Boehlefeld) wrote:
@@ -4808,6 +4903,7 @@ Alexander Schwanke
 Alexander Schwanke | ge276@appl2.hrz.uni-siegen.de | finger for public PGP-Key
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -4832,6 +4928,7 @@ AREA:DE.COMM.MISC
 ^ARFC-Mime-Version: 1.0
 ^ARFC-Content-Type: text/plain; charset=ISO-8859-1
 ^ARFC-Content-Transfer-Encoding: 8bit
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 In article <66FzjFL6WhB@pepe.wupper.de>,
 udob@pepe.wupper.de (Udo Boehlefeld) wrote:
@@ -4853,6 +4950,7 @@ Alexander Schwanke
 Alexander Schwanke | ge276@appl2.hrz.uni-siegen.de | finger for public PGP-Key
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -4877,6 +4975,7 @@ AREA:DE.MARKT.MISC
 ^ARFC-Mime-Version: 1.0
 ^ARFC-Content-Type: text/plain; charset=ISO-8859-1
 ^ARFC-Content-Transfer-Encoding: 8bit
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 In article <66FzjFL6WhB@pepe.wupper.de>,
 udob@pepe.wupper.de (Udo Boehlefeld) wrote:
@@ -4898,6 +4997,7 @@ Alexander Schwanke
 Alexander Schwanke | ge276@appl2.hrz.uni-siegen.de | finger for public PGP-Key
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -4929,6 +5029,7 @@ AREA:DE.COMM.MISC
 ^ARFC-Newsgroups: de.comm.misc
 ^ARFC-Date: 7 Apr 1996 10:35:46 -0400
 ^ARFC-Sender: root@newsbf02.news.aol.com
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 Im Artikel <66Lr6paJzbB@titan.ndh.com>, E.Ascheid@titan.ndh.com (Elmar
 Ascheid) schreibt:
@@ -4941,6 +5042,7 @@ von DeTeMedien (Telekom-Tochter).
 Gruss Ulifax ISDN EFT 0541 586 002
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -4971,6 +5073,7 @@ AREA:DE.COMM.MISC
 ^ARFC-Newsgroups: de.comm.misc
 ^ARFC-From: jrichert@krefcom.westfalen.de (Jan Richert)
 ^ARFC-Date: Sat, 6 Apr 1996 20:33:07 GMT
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 Malcolm@modebox.rhein-ruhr.de (Marvin Erdt) writes:
 
@@ -5000,6 +5103,7 @@ Fax:      +49 2501 25423      | IRC-Nick:   jrichert
 Data:     +49 2501 25252      | GSM:        +49 172 9204915
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -5029,6 +5133,7 @@ AREA:DE.COMM.MISC
 ^ARFC-From: news@allusenet.com
 ^ARFC-Newsgroups: de.comm.misc
 ^ARFC-Date: Sun, 07 Apr 1996 21:43:09 GMT
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 
 ^INet-link offers the FULL usenet feed.  There is
@@ -5068,6 +5173,7 @@ net-link via telnet to net-link.com (telnet://net-link.com).
 
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -5101,6 +5207,7 @@ AREA:DE.COMM.MISC
 ^ARFC-Mime-Version: 1.0
 ^ARFC-Content-Type: text/plain; charset=us-ascii
 ^ARFC-Content-Transfer-Encoding: 7bit
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 Holger Lubitz wrote:
 > 
@@ -5138,6 +5245,7 @@ Gruss
 ***********************************************************************
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -5161,6 +5269,7 @@ AREA:DE.COMM.MOBIL
 ^ARFC-Mime-Version: 1.0
 ^ARFC-Content-Type: text/plain; charset=us-ascii
 ^ARFC-Content-Transfer-Encoding: 7bit
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 Holger Lubitz wrote:
 > 
@@ -5198,6 +5307,7 @@ Gruss
 ***********************************************************************
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -5221,6 +5331,7 @@ AREA:DE.COMM.MODEM
 ^ARFC-Mime-Version: 1.0
 ^ARFC-Content-Type: text/plain; charset=us-ascii
 ^ARFC-Content-Transfer-Encoding: 7bit
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 Holger Lubitz wrote:
 > 
@@ -5258,6 +5369,7 @@ Gruss
 ***********************************************************************
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -5288,6 +5400,7 @@ AREA:DE.COMM.ISDN
 ^ARFC-Date: 08 Apr 1996 00:37:00 +0200
 ^ARFC-From: rene@flatta.in-berlin.de (Rene Kacza)
 ^ARFC-Newsgroups: de.comm.isdn,de.comm.misc,de.markt.comp.misc,de.markt.misc
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 ABS: rieger@stud.uni-frankfurt.de (Marc A. Rieger)
 ORG: Computing & Hardware Experts Frankfurt
@@ -5313,6 +5426,7 @@ Rene
            Hilfe / help / hilf jeweils im Body
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -5333,6 +5447,7 @@ AREA:DE.COMM.MISC
 ^ARFC-Date: 08 Apr 1996 00:37:00 +0200
 ^ARFC-From: rene@flatta.in-berlin.de (Rene Kacza)
 ^ARFC-Newsgroups: de.comm.isdn,de.comm.misc,de.markt.comp.misc,de.markt.misc
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 ABS: rieger@stud.uni-frankfurt.de (Marc A. Rieger)
 ORG: Computing & Hardware Experts Frankfurt
@@ -5358,6 +5473,7 @@ Rene
            Hilfe / help / hilf jeweils im Body
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -5378,6 +5494,7 @@ AREA:DE.MARKT.COMP.MISC
 ^ARFC-Date: 08 Apr 1996 00:37:00 +0200
 ^ARFC-From: rene@flatta.in-berlin.de (Rene Kacza)
 ^ARFC-Newsgroups: de.comm.isdn,de.comm.misc,de.markt.comp.misc,de.markt.misc
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 ABS: rieger@stud.uni-frankfurt.de (Marc A. Rieger)
 ORG: Computing & Hardware Experts Frankfurt
@@ -5403,6 +5520,7 @@ Rene
            Hilfe / help / hilf jeweils im Body
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -5423,6 +5541,7 @@ AREA:DE.MARKT.MISC
 ^ARFC-Date: 08 Apr 1996 00:37:00 +0200
 ^ARFC-From: rene@flatta.in-berlin.de (Rene Kacza)
 ^ARFC-Newsgroups: de.comm.isdn,de.comm.misc,de.markt.comp.misc,de.markt.misc
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 ABS: rieger@stud.uni-frankfurt.de (Marc A. Rieger)
 ORG: Computing & Hardware Experts Frankfurt
@@ -5448,6 +5567,7 @@ Rene
            Hilfe / help / hilf jeweils im Body
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -5479,6 +5599,7 @@ AREA:DE.COMM.MISC
 ^ARFC-From: roger@larry.westfalen.de (Roger Schwentker)
 ^ARFC-Sender: usenet@silvana.westfalen.de (News Error Collector)
 ^ARFC-Date: Mon, 8 Apr 1996 18:59:46 GMT
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 ACiD APPlE (an456495@anon.penet.fi) schrieb am Fri, 29 Mar 1996 13:45:55 +0100:
 > http://194.163.56.129/~ronz/index.htm
@@ -5503,6 +5624,7 @@ dass Netscape drauf laeuft und jeder Dummuser dann wild in Kommerzseiten
 'rumklicken kann.                       [Pascal Gienger in de.comm.internet]
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -5532,6 +5654,7 @@ AREA:DE.COMM.MISC
 ^ARFC-Newsgroups: de.comm.misc,de.comp.os.linux.networking,hanse.hardware
 ^ARFC-From: gau_t@gauhh.hanse.de (Thorsten Gau)
 ^ARFC-Date: Mon, 8 Apr 1996 11:28:58 GMT
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 Hallo LAN-Gurus,
 ich brauche eure Hilfe.
@@ -5574,6 +5697,7 @@ EMail: gau_t@gauhh.hanse.de / gau_t@users.informatik.fh-hamburg.de        |
 2B or not 2B... gives FF    / finger me for PGP-Key                     \___/       
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -5593,6 +5717,7 @@ AREA:DE.COMP.OS.LINUX.NETWORKING
 ^ARFC-Newsgroups: de.comm.misc,de.comp.os.linux.networking,hanse.hardware
 ^ARFC-From: gau_t@gauhh.hanse.de (Thorsten Gau)
 ^ARFC-Date: Mon, 8 Apr 1996 11:28:58 GMT
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 Hallo LAN-Gurus,
 ich brauche eure Hilfe.
@@ -5635,6 +5760,7 @@ EMail: gau_t@gauhh.hanse.de / gau_t@users.informatik.fh-hamburg.de        |
 2B or not 2B... gives FF    / finger me for PGP-Key                     \___/       
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -5666,6 +5792,7 @@ AREA:DE.COMM.MISC
 ^ARFC-Newsgroups: de.comm.misc
 ^ARFC-Date: Tue, 09 Apr 1996 09:54:48 GMT
 ^ARFC-Reply-To: holger.schmid@student.uni-tuebingen.de
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 E.Ascheid@titan.ndh.com (Elmar Ascheid) wrote:
 
@@ -5691,6 +5818,7 @@ Holger
 
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -5723,12 +5851,14 @@ AREA:DE.COMM.MISC
 ^ARFC-Mime-Version: 1.0
 ^ARFC-Content-Type: text/plain; charset=us-ascii
 ^ARFC-Content-Transfer-Encoding: 7bit
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 wo bekomm tcpip und ftp die auf einem Dosrechner mit nur 2 Mb Festplatte 
 laufen?
 
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -5762,6 +5892,7 @@ AREA:DE.COMM.MISC
 ^ARFC-Mime-Version: 1.0
 ^ARFC-Content-Type: text/plain; charset=iso-8859-1
 ^ARFC-Content-Transfer-Encoding: 8bit
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 On Thu, 04 Apr 1996 15:09:08 +0100, udsch@falcon.lahn.de (Udo
 Schoeffmann) wrote:
@@ -5791,6 +5922,7 @@ Thomas Adams                              <adams@t-online.de>
                      locken locken
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -5823,6 +5955,7 @@ AREA:DE.COMM.MISC
 ^ARFC-Mime-Version: 1.0
 ^ARFC-Content-Type: text/plain; charset=iso-8859-1
 ^ARFC-Content-Transfer-Encoding: 8bit
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 Liest hier jemand, der bei dem DECT Versuch in Gelsenkirchen mitmacht?
 Schreibt doch mal was dazu.
@@ -5831,6 +5964,7 @@ Thomas Adams                              <adams@t-online.de>
                      locken locken
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -5861,6 +5995,7 @@ AREA:DE.COMM.MISC
 ^ARFC-From: boss@msoenix.du.gtn.com (Michael Soentgerath)
 ^ARFC-Newsgroups: de.comm.misc
 ^ARFC-Date: Tue, 09 Apr 1996 21:22:31 +0100
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 In article <1996Apr8.185946.499@silvana.westfalen.de>,
 roger@larry.westfalen.de (Roger Schwentker) wrote:
@@ -5891,6 +6026,7 @@ boss@msoenix.du.gtn.com
 boss@msoenix.GUN.de
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -5921,6 +6057,7 @@ AREA:DE.COMM.MISC
 ^ARFC-From: sgeorg@berlin.snafu.de (Stefan Görg)
 ^ARFC-Newsgroups: de.comm.misc
 ^ARFC-Date: Tue, 09 Apr 1996 18:55:18 GMT
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 didi@bbsro.wst.ni.schule.de (Dietrich Restemeyer) wrote:
 
@@ -5942,6 +6079,7 @@ Stefan (sgeorg@berlin.snafu.de)
 
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -5973,6 +6111,7 @@ AREA:DE.COMM.MISC
 ^ARFC-Date: 10 Apr 1996 08:29:22 -0400
 ^ARFC-Sender: root@newsbf02.news.aol.com
 ^ARFC-Reply-To: eckubitz@aol.com (EcKubitz)
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 Ich habe gehoert, mit den entsprechenden Programmen kann man auch im
 Internet telefonieren. 
@@ -5986,6 +6125,7 @@ eric
 ecu
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -6019,6 +6159,7 @@ AREA:DE.COMM.MISC
 ^ARFC-MIME-Version: 1.0
 ^ARFC-Content-Type: text/plain; charset=ISO-8859-1
 ^ARFC-Content-Transfer-Encoding: 8bit
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x], ZCONNECT UE uukomet.teuto.de [PolyNet Amiga RFC/ZC V4.23 no. ]
 ------------------------------------------------------------------------------
 > p.ruhnau@jinxed.netland.de meinte am 01.04.96 zum Thema "Anrufbeantworter" 
 > im Brett /de/comm/misc: 
@@ -6050,6 +6191,7 @@ ciao
  
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -6080,6 +6222,7 @@ AREA:DE.COMM.MOBIL
 ^ARFC-Newsgroups: de.comm.mobil,de.comm.misc
 ^ARFC-Date: Wed, 10 Apr 1996 09:48:48 GMT
 ^ARFC-Reply-To: steiner@bb-data.de
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 ich suche eine Handytischhalterung f. o.g. Geraete. Beispielsweise wie
 sie in Haendlerschaukaesten etc. steht.
@@ -6099,6 +6242,7 @@ fax: +49-(0)30-6710268
 
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -6119,6 +6263,7 @@ AREA:DE.COMM.MISC
 ^ARFC-Newsgroups: de.comm.mobil,de.comm.misc
 ^ARFC-Date: Wed, 10 Apr 1996 09:48:48 GMT
 ^ARFC-Reply-To: steiner@bb-data.de
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 ich suche eine Handytischhalterung f. o.g. Geraete. Beispielsweise wie
 sie in Haendlerschaukaesten etc. steht.
@@ -6138,6 +6283,7 @@ fax: +49-(0)30-6710268
 
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -6168,6 +6314,7 @@ AREA:DE.COMM.MISC
 ^ARFC-From: hal@caty.ol.sub.de (Holger Lubitz)
 ^ARFC-Newsgroups: de.comm.misc,de.comm.mobil,de.comm.modem,ger.pc.hard
 ^ARFC-Date: Wed, 10 Apr 1996 13:59:00 GMT
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 In article <3168466B.239FF435@cape.de>, Maik Musall writes:
 > Die netto Datenrate in den digitalen Netzen (sprich D und E) ist 9.6
@@ -6218,6 +6365,7 @@ Holger
 PGP public key available on request.
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -6238,6 +6386,7 @@ AREA:DE.COMM.MOBIL
 ^ARFC-From: hal@caty.ol.sub.de (Holger Lubitz)
 ^ARFC-Newsgroups: de.comm.misc,de.comm.mobil,de.comm.modem,ger.pc.hard
 ^ARFC-Date: Wed, 10 Apr 1996 13:59:00 GMT
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 In article <3168466B.239FF435@cape.de>, Maik Musall writes:
 > Die netto Datenrate in den digitalen Netzen (sprich D und E) ist 9.6
@@ -6288,6 +6437,7 @@ Holger
 PGP public key available on request.
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -6308,6 +6458,7 @@ AREA:DE.COMM.MODEM
 ^ARFC-From: hal@caty.ol.sub.de (Holger Lubitz)
 ^ARFC-Newsgroups: de.comm.misc,de.comm.mobil,de.comm.modem,ger.pc.hard
 ^ARFC-Date: Wed, 10 Apr 1996 13:59:00 GMT
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 In article <3168466B.239FF435@cape.de>, Maik Musall writes:
 > Die netto Datenrate in den digitalen Netzen (sprich D und E) ist 9.6
@@ -6358,6 +6509,7 @@ Holger
 PGP public key available on request.
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -6391,6 +6543,7 @@ AREA:DE.COMP.OS.OS2.MISC
 ^ARFC-Mime-Version: 1.0
 ^ARFC-Content-Type: text/plain; charset=iso-8859-1
 ^ARFC-Content-Transfer-Encoding: 8bit
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 Hallo !
 
@@ -6415,6 +6568,7 @@ Gruss
 
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -6438,6 +6592,7 @@ AREA:DE.COMM.MISC
 ^ARFC-Mime-Version: 1.0
 ^ARFC-Content-Type: text/plain; charset=iso-8859-1
 ^ARFC-Content-Transfer-Encoding: 8bit
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 Hallo !
 
@@ -6462,6 +6617,7 @@ Gruss
 
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -6497,6 +6653,7 @@ AREA:DE.COMM.ISDN
 ^ARFC-Content-Type: text/plain; charset=us-ascii
 ^ARFC-Content-Transfer-Encoding: 7bit
 ^ARFC-To: Rene Kacza <rene@flatta.in-berlin.de>
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 Rene Kacza wrote:
 > Was sagt die UNI eigentlich zu kommerziellen Angeboten?
@@ -6507,6 +6664,7 @@ War nicht begeistert.
 Seiten inzwischen ausgelagert !
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -6532,6 +6690,7 @@ AREA:DE.COMM.MISC
 ^ARFC-Content-Type: text/plain; charset=us-ascii
 ^ARFC-Content-Transfer-Encoding: 7bit
 ^ARFC-To: Rene Kacza <rene@flatta.in-berlin.de>
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 Rene Kacza wrote:
 > Was sagt die UNI eigentlich zu kommerziellen Angeboten?
@@ -6542,6 +6701,7 @@ War nicht begeistert.
 Seiten inzwischen ausgelagert !
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -6567,6 +6727,7 @@ AREA:DE.MARKT.COMP.MISC
 ^ARFC-Content-Type: text/plain; charset=us-ascii
 ^ARFC-Content-Transfer-Encoding: 7bit
 ^ARFC-To: Rene Kacza <rene@flatta.in-berlin.de>
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 Rene Kacza wrote:
 > Was sagt die UNI eigentlich zu kommerziellen Angeboten?
@@ -6577,6 +6738,7 @@ War nicht begeistert.
 Seiten inzwischen ausgelagert !
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -6602,6 +6764,7 @@ AREA:DE.MARKT.MISC
 ^ARFC-Content-Type: text/plain; charset=us-ascii
 ^ARFC-Content-Transfer-Encoding: 7bit
 ^ARFC-To: Rene Kacza <rene@flatta.in-berlin.de>
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 Rene Kacza wrote:
 > Was sagt die UNI eigentlich zu kommerziellen Angeboten?
@@ -6612,6 +6775,7 @@ War nicht begeistert.
 Seiten inzwischen ausgelagert !
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -6645,6 +6809,7 @@ AREA:DE.COMM.MISC
 ^ARFC-From: malcolm@modebox.rhein-ruhr.de (Marvin Erdt)
 ^ARFC-Date: 09 Apr 1996 16:20:00 +0200
 ^ARFC-Newsgroups: de.comm.misc
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x], ZCONNECT UU gismo.gun.de [DUUCP vom 01.07.1994]
 ------------------------------------------------------------------------------
 jrichert tipperte am 06.04.96 auf seine Tastatur
 zum Thema " Re: Vertrieb von DInfo2.0 verboten.... "  dieses kleine Sätzlein :
@@ -6670,6 +6835,7 @@ Tschoe
 
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -6700,6 +6866,7 @@ AREA:DE.COMM.MISC
 ^ARFC-Newsgroups: de.comm.misc
 ^ARFC-Date: Thu, 11 Apr 1996 06:42:07 GMT
 ^ARFC-Reply-To: thilo.pohl@fernuni-hagen.de
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 Ich habe gerade in meiner Tageszeitung (WestfRundschau) gelesen, dass
 in den Niederlanden seit heute (11.04.) neue Telefonvorwahlen gelten.
@@ -6726,6 +6893,7 @@ Thilo
 
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -6758,6 +6926,7 @@ AREA:DE.COMM.MISC
 ^ARFC-Mime-Version: 1.0
 ^ARFC-Content-Type: text/plain; charset=iso-8859-1
 ^ARFC-Content-Transfer-Encoding: 8bit
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 Hallo alle Fax-Spezialisten,
 
@@ -6781,6 +6950,7 @@ Markus Zimmermann
 zmm@grs.de
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -6810,6 +6980,7 @@ AREA:DE.COMM.INTERNET.MISC
 ^ARFC-From: n.balthasar@public.ndh.com (Dirk Balthasar)
 ^ARFC-Newsgroups: de.comm.internet.misc,de.comm.misc
 ^ARFC-Date: Thu, 11 Apr 1996 08:51:14 GMT
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 Hallo User!
 
@@ -6823,6 +6994,7 @@ Dirk
 
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -6842,6 +7014,7 @@ AREA:DE.COMM.MISC
 ^ARFC-From: n.balthasar@public.ndh.com (Dirk Balthasar)
 ^ARFC-Newsgroups: de.comm.internet.misc,de.comm.misc
 ^ARFC-Date: Thu, 11 Apr 1996 08:51:14 GMT
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 Hallo User!
 
@@ -6855,6 +7028,7 @@ Dirk
 
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -6886,6 +7060,7 @@ AREA:DE.COMM.MISC
 ^ARFC-Newsgroups: de.comm.misc
 ^ARFC-Date: Wed, 03 Apr 1996 23:07:12 GMT
 ^ARFC-Reply-To: Kai.Ruettger@paediat.med.uni-giessen.de
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 achim@kd.fh-hannover.de (Joachim Gothe) wrote:
 
@@ -6907,6 +7082,7 @@ private G3-Fax: +49-641-43237
 
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -6937,6 +7113,7 @@ AREA:DE.COMM.MISC
 ^ARFC-From: muench@wolf.informatik.rwth-aachen.de (Manfred Muench)
 ^ARFC-Newsgroups: de.comm.misc
 ^ARFC-Date: 11 Apr 1996 12:32:34 GMT
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 Hallo Thilo!
 
@@ -6981,6 +7158,7 @@ Manfred
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -7010,6 +7188,7 @@ AREA:DE.COMM.GATEWAYS
 ^ARFC-From: matthias.bolten@bigapple.Cologne.DE (Matthias Bolten)
 ^ARFC-Newsgroups: de.comm.gateways,de.comm.infosystems.misc,de.comm.internet.misc,de.comm.internet.routing,de.comm.internet.zugang,de.comm.isdn,de.comm.misc,de.comm.modem
 ^ARFC-Date: Thu, 11 Apr 1996 13:54:19 +0200
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 Hallo!
 
@@ -7035,6 +7214,7 @@ Webdesigner    //    URL:   <http://www.Cologne.DE/~bigapple/>
 Macuser       //     Tel.:  +49-2133-210535
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -7054,6 +7234,7 @@ AREA:DE.COMM.INFOSYSTEMS.MISC
 ^ARFC-From: matthias.bolten@bigapple.Cologne.DE (Matthias Bolten)
 ^ARFC-Newsgroups: de.comm.gateways,de.comm.infosystems.misc,de.comm.internet.misc,de.comm.internet.routing,de.comm.internet.zugang,de.comm.isdn,de.comm.misc,de.comm.modem
 ^ARFC-Date: Thu, 11 Apr 1996 13:54:19 +0200
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 Hallo!
 
@@ -7079,6 +7260,7 @@ Webdesigner    //    URL:   <http://www.Cologne.DE/~bigapple/>
 Macuser       //     Tel.:  +49-2133-210535
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -7098,6 +7280,7 @@ AREA:DE.COMM.INTERNET.MISC
 ^ARFC-From: matthias.bolten@bigapple.Cologne.DE (Matthias Bolten)
 ^ARFC-Newsgroups: de.comm.gateways,de.comm.infosystems.misc,de.comm.internet.misc,de.comm.internet.routing,de.comm.internet.zugang,de.comm.isdn,de.comm.misc,de.comm.modem
 ^ARFC-Date: Thu, 11 Apr 1996 13:54:19 +0200
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 Hallo!
 
@@ -7123,6 +7306,7 @@ Webdesigner    //    URL:   <http://www.Cologne.DE/~bigapple/>
 Macuser       //     Tel.:  +49-2133-210535
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -7142,6 +7326,7 @@ AREA:DE.COMM.INTERNET.ROUTING
 ^ARFC-From: matthias.bolten@bigapple.Cologne.DE (Matthias Bolten)
 ^ARFC-Newsgroups: de.comm.gateways,de.comm.infosystems.misc,de.comm.internet.misc,de.comm.internet.routing,de.comm.internet.zugang,de.comm.isdn,de.comm.misc,de.comm.modem
 ^ARFC-Date: Thu, 11 Apr 1996 13:54:19 +0200
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 Hallo!
 
@@ -7167,6 +7352,7 @@ Webdesigner    //    URL:   <http://www.Cologne.DE/~bigapple/>
 Macuser       //     Tel.:  +49-2133-210535
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -7186,6 +7372,7 @@ AREA:DE.COMM.INTERNET.ZUGANG
 ^ARFC-From: matthias.bolten@bigapple.Cologne.DE (Matthias Bolten)
 ^ARFC-Newsgroups: de.comm.gateways,de.comm.infosystems.misc,de.comm.internet.misc,de.comm.internet.routing,de.comm.internet.zugang,de.comm.isdn,de.comm.misc,de.comm.modem
 ^ARFC-Date: Thu, 11 Apr 1996 13:54:19 +0200
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 Hallo!
 
@@ -7211,6 +7398,7 @@ Webdesigner    //    URL:   <http://www.Cologne.DE/~bigapple/>
 Macuser       //     Tel.:  +49-2133-210535
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -7230,6 +7418,7 @@ AREA:DE.COMM.ISDN
 ^ARFC-From: matthias.bolten@bigapple.Cologne.DE (Matthias Bolten)
 ^ARFC-Newsgroups: de.comm.gateways,de.comm.infosystems.misc,de.comm.internet.misc,de.comm.internet.routing,de.comm.internet.zugang,de.comm.isdn,de.comm.misc,de.comm.modem
 ^ARFC-Date: Thu, 11 Apr 1996 13:54:19 +0200
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 Hallo!
 
@@ -7255,6 +7444,7 @@ Webdesigner    //    URL:   <http://www.Cologne.DE/~bigapple/>
 Macuser       //     Tel.:  +49-2133-210535
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -7274,6 +7464,7 @@ AREA:DE.COMM.MISC
 ^ARFC-From: matthias.bolten@bigapple.Cologne.DE (Matthias Bolten)
 ^ARFC-Newsgroups: de.comm.gateways,de.comm.infosystems.misc,de.comm.internet.misc,de.comm.internet.routing,de.comm.internet.zugang,de.comm.isdn,de.comm.misc,de.comm.modem
 ^ARFC-Date: Thu, 11 Apr 1996 13:54:19 +0200
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 Hallo!
 
@@ -7299,6 +7490,7 @@ Webdesigner    //    URL:   <http://www.Cologne.DE/~bigapple/>
 Macuser       //     Tel.:  +49-2133-210535
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -7318,6 +7510,7 @@ AREA:DE.COMM.MODEM
 ^ARFC-From: matthias.bolten@bigapple.Cologne.DE (Matthias Bolten)
 ^ARFC-Newsgroups: de.comm.gateways,de.comm.infosystems.misc,de.comm.internet.misc,de.comm.internet.routing,de.comm.internet.zugang,de.comm.isdn,de.comm.misc,de.comm.modem
 ^ARFC-Date: Thu, 11 Apr 1996 13:54:19 +0200
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 Hallo!
 
@@ -7343,6 +7536,7 @@ Webdesigner    //    URL:   <http://www.Cologne.DE/~bigapple/>
 Macuser       //     Tel.:  +49-2133-210535
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -7376,6 +7570,7 @@ AREA:DE.COMM.ISDN
 ^ARFC-Mime-Version: 1.0
 ^ARFC-Content-Type: text/plain; charset=iso-8859-1
 ^ARFC-Content-Transfer-Encoding: 8bit
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 andy@pandy.on-luebeck.de (Andreas Schrot) writes:
 
@@ -7392,6 +7587,7 @@ Christian 'naddy' Weisgerber                         naddy@mips.pfalz.de
   See another pointless homepage at <URL:http://home.pages.de/~naddy/>.
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -7415,6 +7611,7 @@ AREA:DE.COMM.MISC
 ^ARFC-Mime-Version: 1.0
 ^ARFC-Content-Type: text/plain; charset=iso-8859-1
 ^ARFC-Content-Transfer-Encoding: 8bit
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 andy@pandy.on-luebeck.de (Andreas Schrot) writes:
 
@@ -7431,6 +7628,7 @@ Christian 'naddy' Weisgerber                         naddy@mips.pfalz.de
   See another pointless homepage at <URL:http://home.pages.de/~naddy/>.
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -7463,6 +7661,7 @@ AREA:DE.COMM.MISC
 ^ARFC-Mime-Version: 1.0
 ^ARFC-Content-Type: text/plain; charset=us-ascii
 ^ARFC-Content-Transfer-Encoding: 7bit
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 Tach zusammen,
 
@@ -7474,6 +7673,7 @@ Weiss jemand eine Quelle ? Oder eine andere Gruppe ? :-)
 Danke & Tschuess, Peter
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -7504,6 +7704,7 @@ AREA:DE.COMM.GATEWAYS
 ^ARFC-From: usai1035@servus02.rus.uni-stuttgart.de (Ralf Sipple)
 ^ARFC-Newsgroups: de.comm.gateways,de.comm.infosystems.misc,de.comm.internet.misc,de.comm.internet.routing,de.comm.internet.zugang,de.comm.isdn,de.comm.misc,de.comm.modem
 ^ARFC-Date: 11 Apr 1996 14:31:43 GMT
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 Matthias Bolten (matthias.bolten@bigapple.Cologne.DE) wrote:
 : einfach nicht wohin mit der Frage. Hier ist Sie: Kann mir einer von Euch
@@ -7527,6 +7728,7 @@ Ralf Sipple * FaVeVe * U Stuttgart                --------(_)--------
 Fax +49-711-711937 * Ralf.Sipple@Fernuni-Hagen.DE   O  O       O  O
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -7547,6 +7749,7 @@ AREA:DE.COMM.INFOSYSTEMS.MISC
 ^ARFC-From: usai1035@servus02.rus.uni-stuttgart.de (Ralf Sipple)
 ^ARFC-Newsgroups: de.comm.gateways,de.comm.infosystems.misc,de.comm.internet.misc,de.comm.internet.routing,de.comm.internet.zugang,de.comm.isdn,de.comm.misc,de.comm.modem
 ^ARFC-Date: 11 Apr 1996 14:31:43 GMT
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 Matthias Bolten (matthias.bolten@bigapple.Cologne.DE) wrote:
 : einfach nicht wohin mit der Frage. Hier ist Sie: Kann mir einer von Euch
@@ -7570,6 +7773,7 @@ Ralf Sipple * FaVeVe * U Stuttgart                --------(_)--------
 Fax +49-711-711937 * Ralf.Sipple@Fernuni-Hagen.DE   O  O       O  O
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -7590,6 +7794,7 @@ AREA:DE.COMM.INTERNET.MISC
 ^ARFC-From: usai1035@servus02.rus.uni-stuttgart.de (Ralf Sipple)
 ^ARFC-Newsgroups: de.comm.gateways,de.comm.infosystems.misc,de.comm.internet.misc,de.comm.internet.routing,de.comm.internet.zugang,de.comm.isdn,de.comm.misc,de.comm.modem
 ^ARFC-Date: 11 Apr 1996 14:31:43 GMT
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 Matthias Bolten (matthias.bolten@bigapple.Cologne.DE) wrote:
 : einfach nicht wohin mit der Frage. Hier ist Sie: Kann mir einer von Euch
@@ -7613,6 +7818,7 @@ Ralf Sipple * FaVeVe * U Stuttgart                --------(_)--------
 Fax +49-711-711937 * Ralf.Sipple@Fernuni-Hagen.DE   O  O       O  O
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -7633,6 +7839,7 @@ AREA:DE.COMM.INTERNET.ROUTING
 ^ARFC-From: usai1035@servus02.rus.uni-stuttgart.de (Ralf Sipple)
 ^ARFC-Newsgroups: de.comm.gateways,de.comm.infosystems.misc,de.comm.internet.misc,de.comm.internet.routing,de.comm.internet.zugang,de.comm.isdn,de.comm.misc,de.comm.modem
 ^ARFC-Date: 11 Apr 1996 14:31:43 GMT
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 Matthias Bolten (matthias.bolten@bigapple.Cologne.DE) wrote:
 : einfach nicht wohin mit der Frage. Hier ist Sie: Kann mir einer von Euch
@@ -7656,6 +7863,7 @@ Ralf Sipple * FaVeVe * U Stuttgart                --------(_)--------
 Fax +49-711-711937 * Ralf.Sipple@Fernuni-Hagen.DE   O  O       O  O
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -7676,6 +7884,7 @@ AREA:DE.COMM.INTERNET.ZUGANG
 ^ARFC-From: usai1035@servus02.rus.uni-stuttgart.de (Ralf Sipple)
 ^ARFC-Newsgroups: de.comm.gateways,de.comm.infosystems.misc,de.comm.internet.misc,de.comm.internet.routing,de.comm.internet.zugang,de.comm.isdn,de.comm.misc,de.comm.modem
 ^ARFC-Date: 11 Apr 1996 14:31:43 GMT
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 Matthias Bolten (matthias.bolten@bigapple.Cologne.DE) wrote:
 : einfach nicht wohin mit der Frage. Hier ist Sie: Kann mir einer von Euch
@@ -7699,6 +7908,7 @@ Ralf Sipple * FaVeVe * U Stuttgart                --------(_)--------
 Fax +49-711-711937 * Ralf.Sipple@Fernuni-Hagen.DE   O  O       O  O
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -7719,6 +7929,7 @@ AREA:DE.COMM.ISDN
 ^ARFC-From: usai1035@servus02.rus.uni-stuttgart.de (Ralf Sipple)
 ^ARFC-Newsgroups: de.comm.gateways,de.comm.infosystems.misc,de.comm.internet.misc,de.comm.internet.routing,de.comm.internet.zugang,de.comm.isdn,de.comm.misc,de.comm.modem
 ^ARFC-Date: 11 Apr 1996 14:31:43 GMT
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 Matthias Bolten (matthias.bolten@bigapple.Cologne.DE) wrote:
 : einfach nicht wohin mit der Frage. Hier ist Sie: Kann mir einer von Euch
@@ -7742,6 +7953,7 @@ Ralf Sipple * FaVeVe * U Stuttgart                --------(_)--------
 Fax +49-711-711937 * Ralf.Sipple@Fernuni-Hagen.DE   O  O       O  O
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -7762,6 +7974,7 @@ AREA:DE.COMM.MISC
 ^ARFC-From: usai1035@servus02.rus.uni-stuttgart.de (Ralf Sipple)
 ^ARFC-Newsgroups: de.comm.gateways,de.comm.infosystems.misc,de.comm.internet.misc,de.comm.internet.routing,de.comm.internet.zugang,de.comm.isdn,de.comm.misc,de.comm.modem
 ^ARFC-Date: 11 Apr 1996 14:31:43 GMT
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 Matthias Bolten (matthias.bolten@bigapple.Cologne.DE) wrote:
 : einfach nicht wohin mit der Frage. Hier ist Sie: Kann mir einer von Euch
@@ -7785,6 +7998,7 @@ Ralf Sipple * FaVeVe * U Stuttgart                --------(_)--------
 Fax +49-711-711937 * Ralf.Sipple@Fernuni-Hagen.DE   O  O       O  O
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -7805,6 +8019,7 @@ AREA:DE.COMM.MODEM
 ^ARFC-From: usai1035@servus02.rus.uni-stuttgart.de (Ralf Sipple)
 ^ARFC-Newsgroups: de.comm.gateways,de.comm.infosystems.misc,de.comm.internet.misc,de.comm.internet.routing,de.comm.internet.zugang,de.comm.isdn,de.comm.misc,de.comm.modem
 ^ARFC-Date: 11 Apr 1996 14:31:43 GMT
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 Matthias Bolten (matthias.bolten@bigapple.Cologne.DE) wrote:
 : einfach nicht wohin mit der Frage. Hier ist Sie: Kann mir einer von Euch
@@ -7828,6 +8043,7 @@ Ralf Sipple * FaVeVe * U Stuttgart                --------(_)--------
 Fax +49-711-711937 * Ralf.Sipple@Fernuni-Hagen.DE   O  O       O  O
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -7858,6 +8074,7 @@ AREA:DE.COMM.MISC
 ^ARFC-Newsgroups: de.comm.misc
 ^ARFC-From: ghost@dawn.mayn.de (Armin Wies)
 ^ARFC-Date: Thu, 11 Apr 96 11:28:59 +0100
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 Ralf Pieper (CANDYMAN@LaDune.Westfalen.De) wrote:
 : > p.ruhnau@jinxed.netland.de meinte am 01.04.96 zum Thema "Anrufbeantworter" 
@@ -7893,6 +8110,7 @@ ghost
   
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -7923,6 +8141,7 @@ AREA:DE.COMM.MISC
 ^ARFC-Newsgroups: de.comm.misc
 ^ARFC-From: ghost@dawn.mayn.de (Armin Wies)
 ^ARFC-Date: Thu, 11 Apr 96 11:32:34 +0100
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 EcKubitz (eckubitz@aol.com) wrote:
 : Ich habe gehoert, mit den entsprechenden Programmen kann man auch im
@@ -7940,6 +8159,7 @@ ghost
 
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -7973,6 +8193,7 @@ AREA:DE.COMM.GATEWAYS
 ^ARFC-Content-Type: text/plain; charset=iso-8859-1
 ^ARFC-Content-Transfer-Encoding: 8bit
 ^ARFC-Date: Thu, 11 Apr 96 16:58:21 MEZ
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 
 In article <matthias.bolten-1104961354190001@bigapple.cologne.de> matthias.bolten@bigapple.Cologne.DE (Matthias Bolten) writes:
@@ -7994,6 +8215,7 @@ Ciao, Thomas.
  Thomas Witt · mozart@mozart.berlinet.de · (0172) 311 90 99 · IRC: Bach · PGP
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -8017,6 +8239,7 @@ AREA:DE.COMM.INFOSYSTEMS.MISC
 ^ARFC-Content-Type: text/plain; charset=iso-8859-1
 ^ARFC-Content-Transfer-Encoding: 8bit
 ^ARFC-Date: Thu, 11 Apr 96 16:58:21 MEZ
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 
 In article <matthias.bolten-1104961354190001@bigapple.cologne.de> matthias.bolten@bigapple.Cologne.DE (Matthias Bolten) writes:
@@ -8038,6 +8261,7 @@ Ciao, Thomas.
  Thomas Witt · mozart@mozart.berlinet.de · (0172) 311 90 99 · IRC: Bach · PGP
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -8061,6 +8285,7 @@ AREA:DE.COMM.INTERNET.MISC
 ^ARFC-Content-Type: text/plain; charset=iso-8859-1
 ^ARFC-Content-Transfer-Encoding: 8bit
 ^ARFC-Date: Thu, 11 Apr 96 16:58:21 MEZ
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 
 In article <matthias.bolten-1104961354190001@bigapple.cologne.de> matthias.bolten@bigapple.Cologne.DE (Matthias Bolten) writes:
@@ -8082,6 +8307,7 @@ Ciao, Thomas.
  Thomas Witt · mozart@mozart.berlinet.de · (0172) 311 90 99 · IRC: Bach · PGP
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -8105,6 +8331,7 @@ AREA:DE.COMM.INTERNET.ROUTING
 ^ARFC-Content-Type: text/plain; charset=iso-8859-1
 ^ARFC-Content-Transfer-Encoding: 8bit
 ^ARFC-Date: Thu, 11 Apr 96 16:58:21 MEZ
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 
 In article <matthias.bolten-1104961354190001@bigapple.cologne.de> matthias.bolten@bigapple.Cologne.DE (Matthias Bolten) writes:
@@ -8126,6 +8353,7 @@ Ciao, Thomas.
  Thomas Witt · mozart@mozart.berlinet.de · (0172) 311 90 99 · IRC: Bach · PGP
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -8149,6 +8377,7 @@ AREA:DE.COMM.INTERNET.ZUGANG
 ^ARFC-Content-Type: text/plain; charset=iso-8859-1
 ^ARFC-Content-Transfer-Encoding: 8bit
 ^ARFC-Date: Thu, 11 Apr 96 16:58:21 MEZ
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 
 In article <matthias.bolten-1104961354190001@bigapple.cologne.de> matthias.bolten@bigapple.Cologne.DE (Matthias Bolten) writes:
@@ -8170,6 +8399,7 @@ Ciao, Thomas.
  Thomas Witt · mozart@mozart.berlinet.de · (0172) 311 90 99 · IRC: Bach · PGP
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -8193,6 +8423,7 @@ AREA:DE.COMM.ISDN
 ^ARFC-Content-Type: text/plain; charset=iso-8859-1
 ^ARFC-Content-Transfer-Encoding: 8bit
 ^ARFC-Date: Thu, 11 Apr 96 16:58:21 MEZ
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 
 In article <matthias.bolten-1104961354190001@bigapple.cologne.de> matthias.bolten@bigapple.Cologne.DE (Matthias Bolten) writes:
@@ -8214,6 +8445,7 @@ Ciao, Thomas.
  Thomas Witt · mozart@mozart.berlinet.de · (0172) 311 90 99 · IRC: Bach · PGP
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -8237,6 +8469,7 @@ AREA:DE.COMM.MISC
 ^ARFC-Content-Type: text/plain; charset=iso-8859-1
 ^ARFC-Content-Transfer-Encoding: 8bit
 ^ARFC-Date: Thu, 11 Apr 96 16:58:21 MEZ
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 
 In article <matthias.bolten-1104961354190001@bigapple.cologne.de> matthias.bolten@bigapple.Cologne.DE (Matthias Bolten) writes:
@@ -8258,6 +8491,7 @@ Ciao, Thomas.
  Thomas Witt · mozart@mozart.berlinet.de · (0172) 311 90 99 · IRC: Bach · PGP
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -8281,6 +8515,7 @@ AREA:DE.COMM.MODEM
 ^ARFC-Content-Type: text/plain; charset=iso-8859-1
 ^ARFC-Content-Transfer-Encoding: 8bit
 ^ARFC-Date: Thu, 11 Apr 96 16:58:21 MEZ
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 
 In article <matthias.bolten-1104961354190001@bigapple.cologne.de> matthias.bolten@bigapple.Cologne.DE (Matthias Bolten) writes:
@@ -8302,6 +8537,7 @@ Ciao, Thomas.
  Thomas Witt · mozart@mozart.berlinet.de · (0172) 311 90 99 · IRC: Bach · PGP
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -8335,6 +8571,7 @@ AREA:DE.COMM.MISC
 ^ARFC-MIME-Version: 1.0
 ^ARFC-Content-Type: text/plain; charset=ISO-8859-1
 ^ARFC-Content-Transfer-Encoding: 8bit
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 CANDYMAN@LaDune.Westfalen.De(Ralf Pieper)  07.04.96 in /de/comm/misc:
 
@@ -8352,6 +8589,7 @@ Doch nicht nur um Einheiten schinden.
 Rainer
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -8383,6 +8621,7 @@ AREA:DE.COMM.GATEWAYS
 ^ARFC-Newsgroups: de.comm.gateways,de.comm.infosystems.misc,de.comm.internet.misc,de.comm.internet.routing,de.comm.internet.zugang,de.comm.isdn,de.comm.misc,de.comm.modem
 ^ARFC-Date: Thu, 11 Apr 96 19:27:15 DST
 ^ARFC-Reply-To: root@bespin.in-berlin.de
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 >Hallo!
 >
@@ -8411,6 +8650,7 @@ Sascha
 
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -8432,6 +8672,7 @@ AREA:DE.COMM.INFOSYSTEMS.MISC
 ^ARFC-Newsgroups: de.comm.gateways,de.comm.infosystems.misc,de.comm.internet.misc,de.comm.internet.routing,de.comm.internet.zugang,de.comm.isdn,de.comm.misc,de.comm.modem
 ^ARFC-Date: Thu, 11 Apr 96 19:27:15 DST
 ^ARFC-Reply-To: root@bespin.in-berlin.de
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 >Hallo!
 >
@@ -8460,6 +8701,7 @@ Sascha
 
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -8481,6 +8723,7 @@ AREA:DE.COMM.INTERNET.MISC
 ^ARFC-Newsgroups: de.comm.gateways,de.comm.infosystems.misc,de.comm.internet.misc,de.comm.internet.routing,de.comm.internet.zugang,de.comm.isdn,de.comm.misc,de.comm.modem
 ^ARFC-Date: Thu, 11 Apr 96 19:27:15 DST
 ^ARFC-Reply-To: root@bespin.in-berlin.de
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 >Hallo!
 >
@@ -8509,6 +8752,7 @@ Sascha
 
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -8530,6 +8774,7 @@ AREA:DE.COMM.INTERNET.ROUTING
 ^ARFC-Newsgroups: de.comm.gateways,de.comm.infosystems.misc,de.comm.internet.misc,de.comm.internet.routing,de.comm.internet.zugang,de.comm.isdn,de.comm.misc,de.comm.modem
 ^ARFC-Date: Thu, 11 Apr 96 19:27:15 DST
 ^ARFC-Reply-To: root@bespin.in-berlin.de
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 >Hallo!
 >
@@ -8558,6 +8803,7 @@ Sascha
 
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -8579,6 +8825,7 @@ AREA:DE.COMM.INTERNET.ZUGANG
 ^ARFC-Newsgroups: de.comm.gateways,de.comm.infosystems.misc,de.comm.internet.misc,de.comm.internet.routing,de.comm.internet.zugang,de.comm.isdn,de.comm.misc,de.comm.modem
 ^ARFC-Date: Thu, 11 Apr 96 19:27:15 DST
 ^ARFC-Reply-To: root@bespin.in-berlin.de
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 >Hallo!
 >
@@ -8607,6 +8854,7 @@ Sascha
 
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -8628,6 +8876,7 @@ AREA:DE.COMM.ISDN
 ^ARFC-Newsgroups: de.comm.gateways,de.comm.infosystems.misc,de.comm.internet.misc,de.comm.internet.routing,de.comm.internet.zugang,de.comm.isdn,de.comm.misc,de.comm.modem
 ^ARFC-Date: Thu, 11 Apr 96 19:27:15 DST
 ^ARFC-Reply-To: root@bespin.in-berlin.de
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 >Hallo!
 >
@@ -8656,6 +8905,7 @@ Sascha
 
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -8677,6 +8927,7 @@ AREA:DE.COMM.MISC
 ^ARFC-Newsgroups: de.comm.gateways,de.comm.infosystems.misc,de.comm.internet.misc,de.comm.internet.routing,de.comm.internet.zugang,de.comm.isdn,de.comm.misc,de.comm.modem
 ^ARFC-Date: Thu, 11 Apr 96 19:27:15 DST
 ^ARFC-Reply-To: root@bespin.in-berlin.de
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 >Hallo!
 >
@@ -8705,6 +8956,7 @@ Sascha
 
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -8726,6 +8978,7 @@ AREA:DE.COMM.MODEM
 ^ARFC-Newsgroups: de.comm.gateways,de.comm.infosystems.misc,de.comm.internet.misc,de.comm.internet.routing,de.comm.internet.zugang,de.comm.isdn,de.comm.misc,de.comm.modem
 ^ARFC-Date: Thu, 11 Apr 96 19:27:15 DST
 ^ARFC-Reply-To: root@bespin.in-berlin.de
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 >Hallo!
 >
@@ -8754,6 +9007,7 @@ Sascha
 
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -8787,6 +9041,7 @@ AREA:DE.COMM.INTERNET.MISC
 ^ARFC-Mime-Version: 1.0
 ^ARFC-Content-Type: text/plain; charset=ISO-8859-1
 ^ARFC-Content-Transfer-Encoding: 8bit
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 In article <4kiknr$t40@public.ndh.com>, n.balthasar@public.ndh.com (Dirk
 Balthasar) wrote:
@@ -8806,6 +9061,7 @@ Gruß,
 Michael
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -8829,6 +9085,7 @@ AREA:DE.COMM.MISC
 ^ARFC-Mime-Version: 1.0
 ^ARFC-Content-Type: text/plain; charset=ISO-8859-1
 ^ARFC-Content-Transfer-Encoding: 8bit
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 In article <4kiknr$t40@public.ndh.com>, n.balthasar@public.ndh.com (Dirk
 Balthasar) wrote:
@@ -8848,6 +9105,7 @@ Gruß,
 Michael
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -8878,6 +9136,7 @@ AREA:DE.COMM.MISC
 ^ARFC-From: groggy@eikon.e-technik.tu-muenchen.de (Christian Grodau)
 ^ARFC-Newsgroups: de.comm.misc
 ^ARFC-Date: Thu, 11 Apr 1996 18:25:33 GMT
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 eckubitz@aol.com (EcKubitz) wrote:
 
@@ -8906,6 +9165,7 @@ Christian
 
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -8936,6 +9196,7 @@ AREA:DE.COMM.GATEWAYS
 ^ARFC-Newsgroups: de.comm.gateways,de.comm.infosystems.misc,de.comm.internet.misc,de.comm.internet.routing,de.comm.internet.zugang,de.comm.isdn,de.comm.misc,de.comm.modem
 ^ARFC-From: daniel@fiction.pb.owl.de (Daniel Roedding)
 ^ARFC-Date: Thu, 11 Apr 1996 19:53:23 GMT
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 usai1035@servus02.rus.uni-stuttgart.de (Ralf Sipple) writes:
 
@@ -8964,6 +9225,7 @@ Daniel Roedding     daniel@fiction.pb.owl.de               INTJ
 Padertown City      +49-5251-541965 voice, 541334 data     http://www.owl.de
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -8984,6 +9246,7 @@ AREA:DE.COMM.INFOSYSTEMS.MISC
 ^ARFC-Newsgroups: de.comm.gateways,de.comm.infosystems.misc,de.comm.internet.misc,de.comm.internet.routing,de.comm.internet.zugang,de.comm.isdn,de.comm.misc,de.comm.modem
 ^ARFC-From: daniel@fiction.pb.owl.de (Daniel Roedding)
 ^ARFC-Date: Thu, 11 Apr 1996 19:53:23 GMT
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 usai1035@servus02.rus.uni-stuttgart.de (Ralf Sipple) writes:
 
@@ -9012,6 +9275,7 @@ Daniel Roedding     daniel@fiction.pb.owl.de               INTJ
 Padertown City      +49-5251-541965 voice, 541334 data     http://www.owl.de
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -9032,6 +9296,7 @@ AREA:DE.COMM.INTERNET.MISC
 ^ARFC-Newsgroups: de.comm.gateways,de.comm.infosystems.misc,de.comm.internet.misc,de.comm.internet.routing,de.comm.internet.zugang,de.comm.isdn,de.comm.misc,de.comm.modem
 ^ARFC-From: daniel@fiction.pb.owl.de (Daniel Roedding)
 ^ARFC-Date: Thu, 11 Apr 1996 19:53:23 GMT
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 usai1035@servus02.rus.uni-stuttgart.de (Ralf Sipple) writes:
 
@@ -9060,6 +9325,7 @@ Daniel Roedding     daniel@fiction.pb.owl.de               INTJ
 Padertown City      +49-5251-541965 voice, 541334 data     http://www.owl.de
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -9080,6 +9346,7 @@ AREA:DE.COMM.INTERNET.ROUTING
 ^ARFC-Newsgroups: de.comm.gateways,de.comm.infosystems.misc,de.comm.internet.misc,de.comm.internet.routing,de.comm.internet.zugang,de.comm.isdn,de.comm.misc,de.comm.modem
 ^ARFC-From: daniel@fiction.pb.owl.de (Daniel Roedding)
 ^ARFC-Date: Thu, 11 Apr 1996 19:53:23 GMT
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 usai1035@servus02.rus.uni-stuttgart.de (Ralf Sipple) writes:
 
@@ -9108,6 +9375,7 @@ Daniel Roedding     daniel@fiction.pb.owl.de               INTJ
 Padertown City      +49-5251-541965 voice, 541334 data     http://www.owl.de
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -9128,6 +9396,7 @@ AREA:DE.COMM.INTERNET.ZUGANG
 ^ARFC-Newsgroups: de.comm.gateways,de.comm.infosystems.misc,de.comm.internet.misc,de.comm.internet.routing,de.comm.internet.zugang,de.comm.isdn,de.comm.misc,de.comm.modem
 ^ARFC-From: daniel@fiction.pb.owl.de (Daniel Roedding)
 ^ARFC-Date: Thu, 11 Apr 1996 19:53:23 GMT
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 usai1035@servus02.rus.uni-stuttgart.de (Ralf Sipple) writes:
 
@@ -9156,6 +9425,7 @@ Daniel Roedding     daniel@fiction.pb.owl.de               INTJ
 Padertown City      +49-5251-541965 voice, 541334 data     http://www.owl.de
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -9176,6 +9446,7 @@ AREA:DE.COMM.ISDN
 ^ARFC-Newsgroups: de.comm.gateways,de.comm.infosystems.misc,de.comm.internet.misc,de.comm.internet.routing,de.comm.internet.zugang,de.comm.isdn,de.comm.misc,de.comm.modem
 ^ARFC-From: daniel@fiction.pb.owl.de (Daniel Roedding)
 ^ARFC-Date: Thu, 11 Apr 1996 19:53:23 GMT
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 usai1035@servus02.rus.uni-stuttgart.de (Ralf Sipple) writes:
 
@@ -9204,6 +9475,7 @@ Daniel Roedding     daniel@fiction.pb.owl.de               INTJ
 Padertown City      +49-5251-541965 voice, 541334 data     http://www.owl.de
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -9224,6 +9496,7 @@ AREA:DE.COMM.MISC
 ^ARFC-Newsgroups: de.comm.gateways,de.comm.infosystems.misc,de.comm.internet.misc,de.comm.internet.routing,de.comm.internet.zugang,de.comm.isdn,de.comm.misc,de.comm.modem
 ^ARFC-From: daniel@fiction.pb.owl.de (Daniel Roedding)
 ^ARFC-Date: Thu, 11 Apr 1996 19:53:23 GMT
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 usai1035@servus02.rus.uni-stuttgart.de (Ralf Sipple) writes:
 
@@ -9252,6 +9525,7 @@ Daniel Roedding     daniel@fiction.pb.owl.de               INTJ
 Padertown City      +49-5251-541965 voice, 541334 data     http://www.owl.de
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -9272,6 +9546,7 @@ AREA:DE.COMM.MODEM
 ^ARFC-Newsgroups: de.comm.gateways,de.comm.infosystems.misc,de.comm.internet.misc,de.comm.internet.routing,de.comm.internet.zugang,de.comm.isdn,de.comm.misc,de.comm.modem
 ^ARFC-From: daniel@fiction.pb.owl.de (Daniel Roedding)
 ^ARFC-Date: Thu, 11 Apr 1996 19:53:23 GMT
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 usai1035@servus02.rus.uni-stuttgart.de (Ralf Sipple) writes:
 
@@ -9300,6 +9575,7 @@ Daniel Roedding     daniel@fiction.pb.owl.de               INTJ
 Padertown City      +49-5251-541965 voice, 541334 data     http://www.owl.de
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -9329,6 +9605,7 @@ AREA:DE.COMM.MISC
 ^ARFC-From: Klaus.Heimes@uni-koeln.de (Klaus Heimes)
 ^ARFC-Newsgroups: de.comm.misc
 ^ARFC-Date: Mon, 08 Apr 1996 14:50:52 GMT
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 Tach Ihr Profis !
 
@@ -9369,6 +9646,7 @@ Privat: 0221/5101447       http://www.uni-koeln.de/~agc02/
 
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -9401,6 +9679,7 @@ AREA:DE.COMM.MISC
 ^ARFC-Date: 05 Apr 1996 13:45:04 GMT
 ^ARFC-Mime-Version: 1.0 (generated by tm-edit 7.41)
 ^ARFC-Content-Type: text/plain; charset=US-ASCII
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 -----BEGIN PGP SIGNED MESSAGE-----
 
@@ -9430,6 +9709,7 @@ be2Vc8Oddmg=
 -----END PGP SIGNATURE-----
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -9460,6 +9740,7 @@ AREA:DE.COMM.GATEWAYS
 ^ARFC-From: kalle@rd.cls.de (Karlheinz Hagen)
 ^ARFC-Newsgroups: de.comm.gateways,de.comm.infosystems.misc,de.comm.internet.misc,de.comm.internet.routing,de.comm.internet.zugang,de.comm.isdn,de.comm.misc,de.comm.modem
 ^ARFC-Date: 11 Apr 1996 23:18:34 +0200
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 Ralf Sipple (usai1035@servus02.rus.uni-stuttgart.de) wrote:
 
@@ -9478,6 +9759,7 @@ Wentorf/Wittensee                               AX25 : dg8lav@db0hes.deu.eu
 
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -9498,6 +9780,7 @@ AREA:DE.COMM.INFOSYSTEMS.MISC
 ^ARFC-From: kalle@rd.cls.de (Karlheinz Hagen)
 ^ARFC-Newsgroups: de.comm.gateways,de.comm.infosystems.misc,de.comm.internet.misc,de.comm.internet.routing,de.comm.internet.zugang,de.comm.isdn,de.comm.misc,de.comm.modem
 ^ARFC-Date: 11 Apr 1996 23:18:34 +0200
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 Ralf Sipple (usai1035@servus02.rus.uni-stuttgart.de) wrote:
 
@@ -9516,6 +9799,7 @@ Wentorf/Wittensee                               AX25 : dg8lav@db0hes.deu.eu
 
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -9536,6 +9820,7 @@ AREA:DE.COMM.INTERNET.MISC
 ^ARFC-From: kalle@rd.cls.de (Karlheinz Hagen)
 ^ARFC-Newsgroups: de.comm.gateways,de.comm.infosystems.misc,de.comm.internet.misc,de.comm.internet.routing,de.comm.internet.zugang,de.comm.isdn,de.comm.misc,de.comm.modem
 ^ARFC-Date: 11 Apr 1996 23:18:34 +0200
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 Ralf Sipple (usai1035@servus02.rus.uni-stuttgart.de) wrote:
 
@@ -9554,6 +9839,7 @@ Wentorf/Wittensee                               AX25 : dg8lav@db0hes.deu.eu
 
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -9574,6 +9860,7 @@ AREA:DE.COMM.INTERNET.ROUTING
 ^ARFC-From: kalle@rd.cls.de (Karlheinz Hagen)
 ^ARFC-Newsgroups: de.comm.gateways,de.comm.infosystems.misc,de.comm.internet.misc,de.comm.internet.routing,de.comm.internet.zugang,de.comm.isdn,de.comm.misc,de.comm.modem
 ^ARFC-Date: 11 Apr 1996 23:18:34 +0200
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 Ralf Sipple (usai1035@servus02.rus.uni-stuttgart.de) wrote:
 
@@ -9592,6 +9879,7 @@ Wentorf/Wittensee                               AX25 : dg8lav@db0hes.deu.eu
 
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -9612,6 +9900,7 @@ AREA:DE.COMM.INTERNET.ZUGANG
 ^ARFC-From: kalle@rd.cls.de (Karlheinz Hagen)
 ^ARFC-Newsgroups: de.comm.gateways,de.comm.infosystems.misc,de.comm.internet.misc,de.comm.internet.routing,de.comm.internet.zugang,de.comm.isdn,de.comm.misc,de.comm.modem
 ^ARFC-Date: 11 Apr 1996 23:18:34 +0200
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 Ralf Sipple (usai1035@servus02.rus.uni-stuttgart.de) wrote:
 
@@ -9630,6 +9919,7 @@ Wentorf/Wittensee                               AX25 : dg8lav@db0hes.deu.eu
 
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -9650,6 +9940,7 @@ AREA:DE.COMM.ISDN
 ^ARFC-From: kalle@rd.cls.de (Karlheinz Hagen)
 ^ARFC-Newsgroups: de.comm.gateways,de.comm.infosystems.misc,de.comm.internet.misc,de.comm.internet.routing,de.comm.internet.zugang,de.comm.isdn,de.comm.misc,de.comm.modem
 ^ARFC-Date: 11 Apr 1996 23:18:34 +0200
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 Ralf Sipple (usai1035@servus02.rus.uni-stuttgart.de) wrote:
 
@@ -9668,6 +9959,7 @@ Wentorf/Wittensee                               AX25 : dg8lav@db0hes.deu.eu
 
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -9688,6 +9980,7 @@ AREA:DE.COMM.MISC
 ^ARFC-From: kalle@rd.cls.de (Karlheinz Hagen)
 ^ARFC-Newsgroups: de.comm.gateways,de.comm.infosystems.misc,de.comm.internet.misc,de.comm.internet.routing,de.comm.internet.zugang,de.comm.isdn,de.comm.misc,de.comm.modem
 ^ARFC-Date: 11 Apr 1996 23:18:34 +0200
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 Ralf Sipple (usai1035@servus02.rus.uni-stuttgart.de) wrote:
 
@@ -9706,6 +9999,7 @@ Wentorf/Wittensee                               AX25 : dg8lav@db0hes.deu.eu
 
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -9726,6 +10020,7 @@ AREA:DE.COMM.MODEM
 ^ARFC-From: kalle@rd.cls.de (Karlheinz Hagen)
 ^ARFC-Newsgroups: de.comm.gateways,de.comm.infosystems.misc,de.comm.internet.misc,de.comm.internet.routing,de.comm.internet.zugang,de.comm.isdn,de.comm.misc,de.comm.modem
 ^ARFC-Date: 11 Apr 1996 23:18:34 +0200
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 Ralf Sipple (usai1035@servus02.rus.uni-stuttgart.de) wrote:
 
@@ -9744,6 +10039,7 @@ Wentorf/Wittensee                               AX25 : dg8lav@db0hes.deu.eu
 
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -9776,6 +10072,7 @@ AREA:DE.COMM.MISC
 ^ARFC-Mime-Version: 1.0
 ^ARFC-Content-Type: text/plain; charset=iso-8859-1
 ^ARFC-Content-Transfer-Encoding: 8bit
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 
 
@@ -9805,6 +10102,7 @@ nachbarn sich zu einem lauten und vernehmlichen "get broetchen"
 hinreissen lassen. :-)"    Arno Eigenwillig <arno@yaps.dinoco.de>
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -9835,6 +10133,7 @@ AREA:DE.COMM.MODEM
 ^ARFC-Date: 11 Apr 1996 13:57:00 +0100
 ^ARFC-From: joerg@tretow.in-berlin.de (Joerg Tretow)
 ^ARFC-Newsgroups: de.comm.modem,de.comm.misc,de.comm.mobil,ger.pc.hard
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 am 11.04.96 hast Du folgendes geschrieben:
 
@@ -9901,6 +10200,7 @@ Tel. 01723152945
 
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -9921,6 +10221,7 @@ AREA:DE.COMM.MISC
 ^ARFC-Date: 11 Apr 1996 13:57:00 +0100
 ^ARFC-From: joerg@tretow.in-berlin.de (Joerg Tretow)
 ^ARFC-Newsgroups: de.comm.modem,de.comm.misc,de.comm.mobil,ger.pc.hard
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 am 11.04.96 hast Du folgendes geschrieben:
 
@@ -9987,6 +10288,7 @@ Tel. 01723152945
 
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -10007,6 +10309,7 @@ AREA:DE.COMM.MOBIL
 ^ARFC-Date: 11 Apr 1996 13:57:00 +0100
 ^ARFC-From: joerg@tretow.in-berlin.de (Joerg Tretow)
 ^ARFC-Newsgroups: de.comm.modem,de.comm.misc,de.comm.mobil,ger.pc.hard
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 am 11.04.96 hast Du folgendes geschrieben:
 
@@ -10073,6 +10376,7 @@ Tel. 01723152945
 
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -10105,6 +10409,7 @@ AREA:DE.COMM.MISC
 ^ARFC-MIME-Version: 1.0
 ^ARFC-Content-Type: text/plain; charset=ISO-8859-1
 ^ARFC-Content-Transfer-Encoding: 8bit
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x], ZCONNECT UO odb.rhein-main.de [UNIX/Connect v0.55]
 ------------------------------------------------------------------------------
 
 Hi Leute,
@@ -10126,6 +10431,7 @@ Bubblebear
 
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -10159,6 +10465,7 @@ AREA:DE.COMM.MISC
 ^ARFC-Mime-Version: 1.0
 ^ARFC-Content-Type: text/plain; charset=us-ascii
 ^ARFC-Content-Transfer-Encoding: 7bit
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 Holger Lubitz wrote:
 
@@ -10203,6 +10510,7 @@ Gruss
 ***********************************************************************
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -10226,6 +10534,7 @@ AREA:DE.COMM.MOBIL
 ^ARFC-Mime-Version: 1.0
 ^ARFC-Content-Type: text/plain; charset=us-ascii
 ^ARFC-Content-Transfer-Encoding: 7bit
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 Holger Lubitz wrote:
 
@@ -10270,6 +10579,7 @@ Gruss
 ***********************************************************************
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -10293,6 +10603,7 @@ AREA:DE.COMM.MODEM
 ^ARFC-Mime-Version: 1.0
 ^ARFC-Content-Type: text/plain; charset=us-ascii
 ^ARFC-Content-Transfer-Encoding: 7bit
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 Holger Lubitz wrote:
 
@@ -10337,6 +10648,7 @@ Gruss
 ***********************************************************************
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -10366,6 +10678,7 @@ AREA:DE.COMM.INTERNET.SOFTWARE
 ^ARFC-Date: 11 Apr 1996 21:55:00 +0100
 ^ARFC-From: T.Kammerer@charly.in-ulm.de (Thomas Kammerer)
 ^ARFC-Newsgroups: de.comm.internet.software,de.comm.misc,de.newusers.questions
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 
 Hallo Netzgemeinde ,
@@ -10401,6 +10714,7 @@ Tel/Fax 0731-268153                             Betreff: SEND PGP-KEY
 
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -10420,6 +10734,7 @@ AREA:DE.COMM.MISC
 ^ARFC-Date: 11 Apr 1996 21:55:00 +0100
 ^ARFC-From: T.Kammerer@charly.in-ulm.de (Thomas Kammerer)
 ^ARFC-Newsgroups: de.comm.internet.software,de.comm.misc,de.newusers.questions
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 
 Hallo Netzgemeinde ,
@@ -10455,6 +10770,7 @@ Tel/Fax 0731-268153                             Betreff: SEND PGP-KEY
 
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -10474,6 +10790,7 @@ AREA:DE.NEWUSERS.QUESTIONS
 ^ARFC-Date: 11 Apr 1996 21:55:00 +0100
 ^ARFC-From: T.Kammerer@charly.in-ulm.de (Thomas Kammerer)
 ^ARFC-Newsgroups: de.comm.internet.software,de.comm.misc,de.newusers.questions
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 
 Hallo Netzgemeinde ,
@@ -10509,6 +10826,7 @@ Tel/Fax 0731-268153                             Betreff: SEND PGP-KEY
 
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -10539,6 +10857,7 @@ AREA:DE.COMM.INTERNET.MISC
 ^ARFC-Date: 11 Apr 1996 22:26:00 +0100
 ^ARFC-From: chris@cae.muc.de (Christian A. Eroes)
 ^ARFC-Newsgroups: de.comm.internet.misc,de.comm.gateways,de.comm.infosystems.misc,de.comm.internet.routing,de.comm.internet.zugang,de.comm.modem,de.comm.isdn,de.comm.misc
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 In article <4kj54f$1f98@info4.rus.uni-stuttgart.de>
 on 11.04.96 usai1035 wrote:
@@ -10556,6 +10875,7 @@ Christian A. Eroes          chris@cae.muc.de          http://www.muc.de/~cae
 PGP public key is available on request          PGP-encrypted mail preferred
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -10576,6 +10896,7 @@ AREA:DE.COMM.GATEWAYS
 ^ARFC-Date: 11 Apr 1996 22:26:00 +0100
 ^ARFC-From: chris@cae.muc.de (Christian A. Eroes)
 ^ARFC-Newsgroups: de.comm.internet.misc,de.comm.gateways,de.comm.infosystems.misc,de.comm.internet.routing,de.comm.internet.zugang,de.comm.modem,de.comm.isdn,de.comm.misc
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 In article <4kj54f$1f98@info4.rus.uni-stuttgart.de>
 on 11.04.96 usai1035 wrote:
@@ -10593,6 +10914,7 @@ Christian A. Eroes          chris@cae.muc.de          http://www.muc.de/~cae
 PGP public key is available on request          PGP-encrypted mail preferred
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -10613,6 +10935,7 @@ AREA:DE.COMM.INFOSYSTEMS.MISC
 ^ARFC-Date: 11 Apr 1996 22:26:00 +0100
 ^ARFC-From: chris@cae.muc.de (Christian A. Eroes)
 ^ARFC-Newsgroups: de.comm.internet.misc,de.comm.gateways,de.comm.infosystems.misc,de.comm.internet.routing,de.comm.internet.zugang,de.comm.modem,de.comm.isdn,de.comm.misc
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 In article <4kj54f$1f98@info4.rus.uni-stuttgart.de>
 on 11.04.96 usai1035 wrote:
@@ -10630,6 +10953,7 @@ Christian A. Eroes          chris@cae.muc.de          http://www.muc.de/~cae
 PGP public key is available on request          PGP-encrypted mail preferred
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -10650,6 +10974,7 @@ AREA:DE.COMM.INTERNET.ROUTING
 ^ARFC-Date: 11 Apr 1996 22:26:00 +0100
 ^ARFC-From: chris@cae.muc.de (Christian A. Eroes)
 ^ARFC-Newsgroups: de.comm.internet.misc,de.comm.gateways,de.comm.infosystems.misc,de.comm.internet.routing,de.comm.internet.zugang,de.comm.modem,de.comm.isdn,de.comm.misc
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 In article <4kj54f$1f98@info4.rus.uni-stuttgart.de>
 on 11.04.96 usai1035 wrote:
@@ -10667,6 +10992,7 @@ Christian A. Eroes          chris@cae.muc.de          http://www.muc.de/~cae
 PGP public key is available on request          PGP-encrypted mail preferred
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -10687,6 +11013,7 @@ AREA:DE.COMM.INTERNET.ZUGANG
 ^ARFC-Date: 11 Apr 1996 22:26:00 +0100
 ^ARFC-From: chris@cae.muc.de (Christian A. Eroes)
 ^ARFC-Newsgroups: de.comm.internet.misc,de.comm.gateways,de.comm.infosystems.misc,de.comm.internet.routing,de.comm.internet.zugang,de.comm.modem,de.comm.isdn,de.comm.misc
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 In article <4kj54f$1f98@info4.rus.uni-stuttgart.de>
 on 11.04.96 usai1035 wrote:
@@ -10704,6 +11031,7 @@ Christian A. Eroes          chris@cae.muc.de          http://www.muc.de/~cae
 PGP public key is available on request          PGP-encrypted mail preferred
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -10724,6 +11052,7 @@ AREA:DE.COMM.MODEM
 ^ARFC-Date: 11 Apr 1996 22:26:00 +0100
 ^ARFC-From: chris@cae.muc.de (Christian A. Eroes)
 ^ARFC-Newsgroups: de.comm.internet.misc,de.comm.gateways,de.comm.infosystems.misc,de.comm.internet.routing,de.comm.internet.zugang,de.comm.modem,de.comm.isdn,de.comm.misc
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 In article <4kj54f$1f98@info4.rus.uni-stuttgart.de>
 on 11.04.96 usai1035 wrote:
@@ -10741,6 +11070,7 @@ Christian A. Eroes          chris@cae.muc.de          http://www.muc.de/~cae
 PGP public key is available on request          PGP-encrypted mail preferred
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -10761,6 +11091,7 @@ AREA:DE.COMM.ISDN
 ^ARFC-Date: 11 Apr 1996 22:26:00 +0100
 ^ARFC-From: chris@cae.muc.de (Christian A. Eroes)
 ^ARFC-Newsgroups: de.comm.internet.misc,de.comm.gateways,de.comm.infosystems.misc,de.comm.internet.routing,de.comm.internet.zugang,de.comm.modem,de.comm.isdn,de.comm.misc
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 In article <4kj54f$1f98@info4.rus.uni-stuttgart.de>
 on 11.04.96 usai1035 wrote:
@@ -10778,6 +11109,7 @@ Christian A. Eroes          chris@cae.muc.de          http://www.muc.de/~cae
 PGP public key is available on request          PGP-encrypted mail preferred
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -10798,6 +11130,7 @@ AREA:DE.COMM.MISC
 ^ARFC-Date: 11 Apr 1996 22:26:00 +0100
 ^ARFC-From: chris@cae.muc.de (Christian A. Eroes)
 ^ARFC-Newsgroups: de.comm.internet.misc,de.comm.gateways,de.comm.infosystems.misc,de.comm.internet.routing,de.comm.internet.zugang,de.comm.modem,de.comm.isdn,de.comm.misc
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 In article <4kj54f$1f98@info4.rus.uni-stuttgart.de>
 on 11.04.96 usai1035 wrote:
@@ -10815,6 +11148,7 @@ Christian A. Eroes          chris@cae.muc.de          http://www.muc.de/~cae
 PGP public key is available on request          PGP-encrypted mail preferred
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -10844,6 +11178,7 @@ AREA:DE.COMM.MISC
 ^ARFC-Date: 12 Apr 1996 08:24:00 +0100
 ^ARFC-From: chris@cae.muc.de (Christian A. Eroes)
 ^ARFC-Newsgroups: de.comm.misc
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 Hi Leute!
 
@@ -10866,6 +11201,7 @@ Christian A. Eroes          chris@cae.muc.de          http://www.muc.de/~cae
 PGP public key is available on request          PGP-encrypted mail preferred
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -10899,6 +11235,7 @@ AREA:DE.COMM.MISC
 ^ARFC-Mime-Version: 1.0
 ^ARFC-Content-Type: text/plain; charset=us-ascii
 ^ARFC-Content-Transfer-Encoding: 7bit
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 K. Seeland wrote:
 > 
@@ -10928,6 +11265,7 @@ WWW    : http://www.mpgfk.tu-dresden.de/~jacob
 
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -10958,6 +11296,7 @@ AREA:DE.COMM.MISC
 ^ARFC-Date: 12 Apr 1996 09:57:00 +0100
 ^ARFC-From: chris@cae.muc.de (Christian A. Eroes)
 ^ARFC-Newsgroups: de.comm.misc
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 In article <66hsOX7CiRB@cae.muc.de>
 on 12.04.96 chris wrote:
@@ -10983,6 +11322,7 @@ Christian A. Eroes          chris@cae.muc.de          http://www.muc.de/~cae
 PGP public key is available on request          PGP-encrypted mail preferred
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -11015,6 +11355,7 @@ AREA:DE.COMM.MISC
 ^ARFC-Sender: kris@white.schulung.netuse.de (Kristian Koehntopp)
 ^ARFC-Mime-Version: 1.0
 ^ARFC-Date: Fri, 12 Apr 1996 07:26:28 GMT
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 ghost@dawn.mayn.de (Armin Wies) writes:
 >: Und: macht das bei unseren Bandbreiten ueberhaupt Sinn?
@@ -11047,6 +11388,7 @@ Fachbegriffe der Informatik einfach erklaert, Teil 16:
 ^I(Courtesy of Christian Weisgerber)
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -11077,6 +11419,7 @@ AREA:DE.COMM.GATEWAYS
 ^ARFC-Date: 11 Apr 1996 23:43:00 +0200
 ^ARFC-From: rene@flatta.in-berlin.de (Rene Kacza)
 ^ARFC-Newsgroups: de.comm.gateways,de.comm.infosystems.misc,de.comm.internet.misc,de.comm.internet.routing,de.comm.internet.zugang,de.comm.isdn,de.comm.misc,de.comm.modem
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 >Zuerst: Entschuldigt, dass ich zu so vielen Groups poste, aber ich wusste
 Macht nichts:-)
@@ -11088,6 +11431,7 @@ Rene
 
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -11108,6 +11452,7 @@ AREA:DE.COMM.INFOSYSTEMS.MISC
 ^ARFC-Date: 11 Apr 1996 23:43:00 +0200
 ^ARFC-From: rene@flatta.in-berlin.de (Rene Kacza)
 ^ARFC-Newsgroups: de.comm.gateways,de.comm.infosystems.misc,de.comm.internet.misc,de.comm.internet.routing,de.comm.internet.zugang,de.comm.isdn,de.comm.misc,de.comm.modem
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 >Zuerst: Entschuldigt, dass ich zu so vielen Groups poste, aber ich wusste
 Macht nichts:-)
@@ -11119,6 +11464,7 @@ Rene
 
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -11139,6 +11485,7 @@ AREA:DE.COMM.INTERNET.MISC
 ^ARFC-Date: 11 Apr 1996 23:43:00 +0200
 ^ARFC-From: rene@flatta.in-berlin.de (Rene Kacza)
 ^ARFC-Newsgroups: de.comm.gateways,de.comm.infosystems.misc,de.comm.internet.misc,de.comm.internet.routing,de.comm.internet.zugang,de.comm.isdn,de.comm.misc,de.comm.modem
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 >Zuerst: Entschuldigt, dass ich zu so vielen Groups poste, aber ich wusste
 Macht nichts:-)
@@ -11150,6 +11497,7 @@ Rene
 
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -11170,6 +11518,7 @@ AREA:DE.COMM.INTERNET.ROUTING
 ^ARFC-Date: 11 Apr 1996 23:43:00 +0200
 ^ARFC-From: rene@flatta.in-berlin.de (Rene Kacza)
 ^ARFC-Newsgroups: de.comm.gateways,de.comm.infosystems.misc,de.comm.internet.misc,de.comm.internet.routing,de.comm.internet.zugang,de.comm.isdn,de.comm.misc,de.comm.modem
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 >Zuerst: Entschuldigt, dass ich zu so vielen Groups poste, aber ich wusste
 Macht nichts:-)
@@ -11181,6 +11530,7 @@ Rene
 
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -11201,6 +11551,7 @@ AREA:DE.COMM.INTERNET.ZUGANG
 ^ARFC-Date: 11 Apr 1996 23:43:00 +0200
 ^ARFC-From: rene@flatta.in-berlin.de (Rene Kacza)
 ^ARFC-Newsgroups: de.comm.gateways,de.comm.infosystems.misc,de.comm.internet.misc,de.comm.internet.routing,de.comm.internet.zugang,de.comm.isdn,de.comm.misc,de.comm.modem
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 >Zuerst: Entschuldigt, dass ich zu so vielen Groups poste, aber ich wusste
 Macht nichts:-)
@@ -11212,6 +11563,7 @@ Rene
 
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -11232,6 +11584,7 @@ AREA:DE.COMM.ISDN
 ^ARFC-Date: 11 Apr 1996 23:43:00 +0200
 ^ARFC-From: rene@flatta.in-berlin.de (Rene Kacza)
 ^ARFC-Newsgroups: de.comm.gateways,de.comm.infosystems.misc,de.comm.internet.misc,de.comm.internet.routing,de.comm.internet.zugang,de.comm.isdn,de.comm.misc,de.comm.modem
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 >Zuerst: Entschuldigt, dass ich zu so vielen Groups poste, aber ich wusste
 Macht nichts:-)
@@ -11243,6 +11596,7 @@ Rene
 
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -11263,6 +11617,7 @@ AREA:DE.COMM.MISC
 ^ARFC-Date: 11 Apr 1996 23:43:00 +0200
 ^ARFC-From: rene@flatta.in-berlin.de (Rene Kacza)
 ^ARFC-Newsgroups: de.comm.gateways,de.comm.infosystems.misc,de.comm.internet.misc,de.comm.internet.routing,de.comm.internet.zugang,de.comm.isdn,de.comm.misc,de.comm.modem
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 >Zuerst: Entschuldigt, dass ich zu so vielen Groups poste, aber ich wusste
 Macht nichts:-)
@@ -11274,6 +11629,7 @@ Rene
 
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -11294,6 +11650,7 @@ AREA:DE.COMM.MODEM
 ^ARFC-Date: 11 Apr 1996 23:43:00 +0200
 ^ARFC-From: rene@flatta.in-berlin.de (Rene Kacza)
 ^ARFC-Newsgroups: de.comm.gateways,de.comm.infosystems.misc,de.comm.internet.misc,de.comm.internet.routing,de.comm.internet.zugang,de.comm.isdn,de.comm.misc,de.comm.modem
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 >Zuerst: Entschuldigt, dass ich zu so vielen Groups poste, aber ich wusste
 Macht nichts:-)
@@ -11305,6 +11662,7 @@ Rene
 
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -11338,6 +11696,7 @@ AREA:DE.COMM.MISC
 ^ARFC-MIME-Version: 1.0
 ^ARFC-Content-Type: text/plain; charset=iso-8859-1
 ^ARFC-Content-Transfer-Encoding: 8bit
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 In article <zp5c55aDcju2Z0@bubblebear.guru.rhein-main.de>,
 Bubblebear <Bubblebear@guru.rhein-main.de> wrote:
@@ -11367,6 +11726,7 @@ Fax. ++49-721-9563087             Send me Mail with Subject: send pgpkey
 "Oh... it wasn't dead, then?"
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -11396,6 +11756,7 @@ AREA:DE.COMM.MISC
 ^ARFC-From: 100657.202@compuserve.com (Michael Stein)
 ^ARFC-Newsgroups: de.comm.misc
 ^ARFC-Date: Sat, 13 Apr 1996 01:45:23 GMT
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 Hallo,
 
@@ -11421,6 +11782,7 @@ eMail: 100657.202@compuserve.com
 
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -11454,6 +11816,7 @@ AREA:DE.COMM.MISC
 ^ARFC-Mime-Version: 1.0
 ^ARFC-Content-Type: text/plain; charset=iso-8859-1
 ^ARFC-Content-Transfer-Encoding: 8BIT
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 Michael Stein wrote:
 > ich möchte aus einem Ami Pro 3.1-Makro heraus ein Dokument per Telefax
@@ -11477,6 +11840,7 @@ http://www.swreisedienst.com
 mailto:S.Wintermeyer@swreisedienst.com
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -11506,6 +11870,7 @@ AREA:DE.COMM.SERVICE+TARIFE
 ^ARFC-From: UPS500@ibm.rhrz.uni-bonn.de (Markus Schlegel)
 ^ARFC-Newsgroups: de.comm.service+tarife,de.comm.misc,de.comm.mobil
 ^ARFC-Date: Sat, 13 Apr 96 16:10:12 MEZ
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 OSLO, 13.4.1996 (Aftenposten) Wie die norwegische Tageszeitung in
 ihrer Tagesausgabe vom Samstag (S. 3) meldet, beabsichtigt die
@@ -11550,6 +11915,7 @@ Originaltextes zu gewerblichen Zwecken nur mit Genehmigung des Verfassers.
  
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -11569,6 +11935,7 @@ AREA:DE.COMM.MISC
 ^ARFC-From: UPS500@ibm.rhrz.uni-bonn.de (Markus Schlegel)
 ^ARFC-Newsgroups: de.comm.service+tarife,de.comm.misc,de.comm.mobil
 ^ARFC-Date: Sat, 13 Apr 96 16:10:12 MEZ
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 OSLO, 13.4.1996 (Aftenposten) Wie die norwegische Tageszeitung in
 ihrer Tagesausgabe vom Samstag (S. 3) meldet, beabsichtigt die
@@ -11613,6 +11980,7 @@ Originaltextes zu gewerblichen Zwecken nur mit Genehmigung des Verfassers.
  
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -11632,6 +12000,7 @@ AREA:DE.COMM.MOBIL
 ^ARFC-From: UPS500@ibm.rhrz.uni-bonn.de (Markus Schlegel)
 ^ARFC-Newsgroups: de.comm.service+tarife,de.comm.misc,de.comm.mobil
 ^ARFC-Date: Sat, 13 Apr 96 16:10:12 MEZ
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 OSLO, 13.4.1996 (Aftenposten) Wie die norwegische Tageszeitung in
 ihrer Tagesausgabe vom Samstag (S. 3) meldet, beabsichtigt die
@@ -11676,6 +12045,7 @@ Originaltextes zu gewerblichen Zwecken nur mit Genehmigung des Verfassers.
  
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -11709,6 +12079,7 @@ AREA:DE.COMM.MODEM
 ^ARFC-Content-Type: text/plain; charset=iso-8859-1
 ^ARFC-Content-Transfer-Encoding: 8bit
 ^ARFC-Date: Sat, 13 Apr 96 19:13:50 MEZ
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 
 In article <66d9j25wMVB@tretow.in-berlin.de> joerg@tretow.in-berlin.de (Joerg Tretow) writes:
@@ -11726,6 +12097,7 @@ auf Vollständigkeit.
  Thomas Witt · mozart@mozart.berlinet.de · (0172) 311 90 99 · IRC: Bach · PGP
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -11749,6 +12121,7 @@ AREA:DE.COMM.MISC
 ^ARFC-Content-Type: text/plain; charset=iso-8859-1
 ^ARFC-Content-Transfer-Encoding: 8bit
 ^ARFC-Date: Sat, 13 Apr 96 19:13:50 MEZ
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 
 In article <66d9j25wMVB@tretow.in-berlin.de> joerg@tretow.in-berlin.de (Joerg Tretow) writes:
@@ -11766,6 +12139,7 @@ auf Vollständigkeit.
  Thomas Witt · mozart@mozart.berlinet.de · (0172) 311 90 99 · IRC: Bach · PGP
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -11789,6 +12163,7 @@ AREA:DE.COMM.MOBIL
 ^ARFC-Content-Type: text/plain; charset=iso-8859-1
 ^ARFC-Content-Transfer-Encoding: 8bit
 ^ARFC-Date: Sat, 13 Apr 96 19:13:50 MEZ
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 
 In article <66d9j25wMVB@tretow.in-berlin.de> joerg@tretow.in-berlin.de (Joerg Tretow) writes:
@@ -11806,6 +12181,7 @@ auf Vollständigkeit.
  Thomas Witt · mozart@mozart.berlinet.de · (0172) 311 90 99 · IRC: Bach · PGP
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -11839,6 +12215,7 @@ AREA:DE.COMM.MISC
 ^ARFC-Mime-Version: 1.0
 ^ARFC-Content-Type: text/plain; charset=iso-8859-1
 ^ARFC-Content-Transfer-Encoding: 8bit
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 On 12 Apr 1996 08:24:00 +0100 Christian A. Eroes wrote:
 
@@ -11878,6 +12255,7 @@ Martin Schulte Moenting       eMail uh5y@rz.uni-karlsruhe.de
 
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -11907,6 +12285,7 @@ AREA:DE.COMM.MISC
 ^ARFC-From: rufus@informatik.uni-koblenz.de (Sven Lehmann)
 ^ARFC-Newsgroups: de.comm.misc
 ^ARFC-Date: 13 Apr 1996 22:09:08 GMT
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 Hi!
 
@@ -11927,6 +12306,7 @@ Germany
 
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -11957,6 +12337,7 @@ AREA:DE.COMP.OS.OS2.MISC
 ^ARFC-From: groggy@eikon.e-technik.tu-muenchen.de (Christian Grodau)
 ^ARFC-Newsgroups: de.comp.os.os2.misc,de.comm.misc
 ^ARFC-Date: Sun, 14 Apr 1996 09:00:16 GMT
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 winkler@ira.uka.de  (Frank Winkler @home) wrote:
 
@@ -11986,6 +12367,7 @@ Christian
 
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -12006,6 +12388,7 @@ AREA:DE.COMM.MISC
 ^ARFC-From: groggy@eikon.e-technik.tu-muenchen.de (Christian Grodau)
 ^ARFC-Newsgroups: de.comp.os.os2.misc,de.comm.misc
 ^ARFC-Date: Sun, 14 Apr 1996 09:00:16 GMT
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 winkler@ira.uka.de  (Frank Winkler @home) wrote:
 
@@ -12035,6 +12418,7 @@ Christian
 
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -12065,6 +12449,7 @@ AREA:DE.COMM.MISC
 ^ARFC-From: funked@bonsai.fernuni-hagen.de (Daniel Funke)
 ^ARFC-Newsgroups: de.comm.misc
 ^ARFC-Date: Sun, 14 Apr 1996 15:05:50 GMT
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 100657.202@compuserve.com (Michael Stein) wrote:
 
@@ -12090,6 +12475,7 @@ Daniel.
 
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -12119,6 +12505,7 @@ AREA:DE.COMM.MISC
 ^ARFC-From: ben@osn.de (Ben)
 ^ARFC-Newsgroups: de.comm.misc
 ^ARFC-Date: Sun, 14 Apr 1996 19:04:09 GMT
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 Mein Modem, ein Zoom V.34IE (intern), ist als Zusatzgeraet neben dem
 normalen Telefon (in der F-Buchse) an die N-Buchse einer
@@ -12155,6 +12542,7 @@ Benjamin
 
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -12186,6 +12574,7 @@ AREA:DE.COMM.MISC
 ^ARFC-From: roger@larry.westfalen.de (Roger Schwentker)
 ^ARFC-Sender: usenet@silvana.westfalen.de (News Error Collector)
 ^ARFC-Date: Sun, 14 Apr 1996 07:10:24 GMT
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 Dirk Jacob (jacob@tmfs.mpgfk.tu-dresden.de) schrieb am Wed, 10 Apr 1996 13:25:03 +0100:
 > > wo bekomm tcpip und ftp die auf einem Dosrechner mit nur 2 Mb Festplatte
@@ -12209,6 +12598,7 @@ Windows interpretiert den Benutzer als Stoerung und stuerzt ab.
 ^I^I^I^I  [Kristian Koehntopp in de.talk.bizarre]
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -12239,6 +12629,7 @@ AREA:DE.COMM.MISC
 ^ARFC-From: mark@umd.allcon.com (Mark Deskowski)
 ^ARFC-Newsgroups: de.comm.misc
 ^ARFC-Date: Sun, 14 Apr 1996 22:01:39 GMT
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 ben@osn.de (Ben) wrote:
 
@@ -12259,6 +12650,7 @@ Mark
  for PGP-Key write mail to pgp-serv@umd.allcon.com subject 'get mark'
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -12290,6 +12682,7 @@ AREA:DE.COMM.MISC
 ^ARFC-Date: 15 Apr 1996 07:46:57 GMT
 ^ARFC-Mime-Version: 1.0
 ^ARFC-Content-Type: Text/Plain; charset=ISO-8859-1
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 Hallo,
 
@@ -12309,6 +12702,7 @@ Mike
 
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -12339,6 +12733,7 @@ AREA:DE.COMM.MISC
 ^ARFC-From: dorfner@susi.fmi.uni-passau.de (Clemens Dorfner)
 ^ARFC-Newsgroups: de.comm.misc
 ^ARFC-Date: 15 Apr 96 09:20:41 GMT
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 
 mark@umd.allcon.com (Mark Deskowski) writes:
@@ -12402,6 +12797,7 @@ PGP-Key available                                   Raum FMI 214
 ^IIn der Zukunft verbringen wir den Rest unseres Lebens
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -12433,6 +12829,7 @@ AREA:DE.COMM.MISC
 ^ARFC-Newsgroups: de.comm.misc
 ^ARFC-Date: Sat, 13 Apr 1996 17:26:28 +0100
 ^ARFC-Reply-To: graef@informatik.tu-muenchen.de
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 In article <4kik5n$sep@mips.pfalz.de>,
 naddy@mips.pfalz.de (Christian Weisgerber) wrote:
@@ -12467,6 +12864,7 @@ Stoergeraeusch drueberkommen :-)
 
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -12496,6 +12894,7 @@ AREA:DE.COMM.MISC
 ^ARFC-From: finc27@zx2.hrz.uni-dortmund.de (Thomas Adams)
 ^ARFC-Newsgroups: de.comm.misc
 ^ARFC-Date: 15 Apr 1996 12:33:18 GMT
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 Nach dem die Telekom ja nun ziemlich viele Artikel im Wettbewerb zu 
 anderen Herstellern verkauft und auch immer mal wieder Mondpreise senkt, 
@@ -12508,6 +12907,7 @@ Warum?
 Thomas Adams                             <finc27@zx2.hrz.uni-dortmund.de>
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -12538,6 +12938,7 @@ AREA:DE.COMM.MISC
 ^ARFC-From: kay@ula1b18.zhv.basf-ag.de (Kay Marquardt)
 ^ARFC-Newsgroups: de.comm.misc
 ^ARFC-Date: 15 Apr 1996 13:50:30 GMT
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 In article <4kri85$sep@news1.osn.de>, ben@osn.de (Ben) writes:
 [modem kapp telefon]
@@ -12572,6 +12973,7 @@ Kay, Worms, Germany                /E-Mail: K.Marquardt@zhv.basf-ag.de
 __________________________________/ #include <sig> <disclaimer> <etc>
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -12602,6 +13004,7 @@ AREA:DE.COMM.MISC
 ^ARFC-From: funked@bonsai.fernuni-hagen.de (Daniel Funke)
 ^ARFC-Newsgroups: de.comm.misc
 ^ARFC-Date: Mon, 15 Apr 1996 15:39:24 GMT
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 ben@osn.de (Ben) wrote:
 
@@ -12649,6 +13052,7 @@ Daniel.
 
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -12679,6 +13083,7 @@ AREA:DE.COMM.MISC
 ^ARFC-Newsgroups: de.comm.misc
 ^ARFC-From: ghost@dawn.mayn.de (Armin Wies)
 ^ARFC-Date: Mon, 15 Apr 96 19:48:39 +0100
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 Michael Ruhs (ruhs@thor.tech.chemie.tu-muenchen.de) wrote:
 
@@ -12703,6 +13108,7 @@ ghost
 
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -12733,6 +13139,7 @@ AREA:DE.COMM.MISC
 ^ARFC-Date: 15 Apr 1996 21:47:00 +0200
 ^ARFC-From: rene@flatta.in-berlin.de (Rene Kacza)
 ^ARFC-Newsgroups: de.comm.misc
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 geschrieben von ben@osn.de am 14.04.96
 zu "Modem / Telefon - Wer schmeisst wen aus der Leitung ?":
@@ -12754,6 +13161,7 @@ Rene
            Hilfe / help / hilf jeweils im Body
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -12784,6 +13192,7 @@ AREA:DE.COMM.MISC
 ^ARFC-From: WASTL@RMAN2.gun.de (Sebastian Koopmann)
 ^ARFC-Newsgroups: de.comm.misc
 ^ARFC-Date: 15 Apr 96 21:42:00 +0200
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x], ZCONNECT UH rman2.gun.de [UUCPfZ V5.66 U026]
 ------------------------------------------------------------------------------
 Autor:   ben (Ben)
 Subjekt: Modem / Telefon - Wer schmeisst wen aus der Leitung ?
@@ -12825,6 +13234,7 @@ mfg
 
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -12855,6 +13265,7 @@ AREA:DE.COMM.MISC
 ^ARFC-From: WASTL@RMAN2.gun.de (Sebastian Koopmann)
 ^ARFC-Newsgroups: de.comm.misc
 ^ARFC-Date: 15 Apr 96 22:20:00 +0200
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x], ZCONNECT UH rman2.gun.de [UUCPfZ V5.66 U026]
 ------------------------------------------------------------------------------
 Autor:   mark (Mark Deskowski)
 Subjekt: Re: Modem / Telefon - Wer schmeisst wen aus der Leitung ?
@@ -12879,6 +13290,7 @@ mfg
 
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -12912,6 +13324,7 @@ AREA:DE.COMM.MISC
 ^ARFC-MIME-Version: 1.0
 ^ARFC-Content-Type: text/plain; charset=iso-8859-1
 ^ARFC-Content-Transfer-Encoding: 8bit
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 In article <0W9bxUSCIG/E088yn@Informatik.TU-Muenchen.DE>,
 Andreas Graef <graef@informatik.tu-muenchen.de> wrote:
@@ -12929,6 +13342,7 @@ Fax. ++49-721-9563087             Send me Mail with Subject: send pgpkey
 "New Bruce, are you a pooftah?"
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -12963,6 +13377,7 @@ AREA:DE.COMM.INTERNET.MISC
 ^ARFC-Content-Transfer-Encoding: 8bit
 ^ARFC-Mime-Version: 1.0
 ^ARFC-Date: Mon, 15 Apr 1996 22:04:26 GMT
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 chris@cae.muc.de (Christian A. Eroes) writes:
 | In article <4kj54f$1f98@info4.rus.uni-stuttgart.de>
@@ -12988,6 +13403,7 @@ Bumper sticker seen on the Data SuperHighway:
                 <carrel@cisco.com>
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -13012,6 +13428,7 @@ AREA:DE.COMM.GATEWAYS
 ^ARFC-Content-Transfer-Encoding: 8bit
 ^ARFC-Mime-Version: 1.0
 ^ARFC-Date: Mon, 15 Apr 1996 22:04:26 GMT
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 chris@cae.muc.de (Christian A. Eroes) writes:
 | In article <4kj54f$1f98@info4.rus.uni-stuttgart.de>
@@ -13037,6 +13454,7 @@ Bumper sticker seen on the Data SuperHighway:
                 <carrel@cisco.com>
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -13061,6 +13479,7 @@ AREA:DE.COMM.INFOSYSTEMS.MISC
 ^ARFC-Content-Transfer-Encoding: 8bit
 ^ARFC-Mime-Version: 1.0
 ^ARFC-Date: Mon, 15 Apr 1996 22:04:26 GMT
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 chris@cae.muc.de (Christian A. Eroes) writes:
 | In article <4kj54f$1f98@info4.rus.uni-stuttgart.de>
@@ -13086,6 +13505,7 @@ Bumper sticker seen on the Data SuperHighway:
                 <carrel@cisco.com>
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -13110,6 +13530,7 @@ AREA:DE.COMM.INTERNET.ROUTING
 ^ARFC-Content-Transfer-Encoding: 8bit
 ^ARFC-Mime-Version: 1.0
 ^ARFC-Date: Mon, 15 Apr 1996 22:04:26 GMT
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 chris@cae.muc.de (Christian A. Eroes) writes:
 | In article <4kj54f$1f98@info4.rus.uni-stuttgart.de>
@@ -13135,6 +13556,7 @@ Bumper sticker seen on the Data SuperHighway:
                 <carrel@cisco.com>
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -13159,6 +13581,7 @@ AREA:DE.COMM.INTERNET.ZUGANG
 ^ARFC-Content-Transfer-Encoding: 8bit
 ^ARFC-Mime-Version: 1.0
 ^ARFC-Date: Mon, 15 Apr 1996 22:04:26 GMT
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 chris@cae.muc.de (Christian A. Eroes) writes:
 | In article <4kj54f$1f98@info4.rus.uni-stuttgart.de>
@@ -13184,6 +13607,7 @@ Bumper sticker seen on the Data SuperHighway:
                 <carrel@cisco.com>
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -13208,6 +13632,7 @@ AREA:DE.COMM.MODEM
 ^ARFC-Content-Transfer-Encoding: 8bit
 ^ARFC-Mime-Version: 1.0
 ^ARFC-Date: Mon, 15 Apr 1996 22:04:26 GMT
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 chris@cae.muc.de (Christian A. Eroes) writes:
 | In article <4kj54f$1f98@info4.rus.uni-stuttgart.de>
@@ -13233,6 +13658,7 @@ Bumper sticker seen on the Data SuperHighway:
                 <carrel@cisco.com>
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -13257,6 +13683,7 @@ AREA:DE.COMM.ISDN
 ^ARFC-Content-Transfer-Encoding: 8bit
 ^ARFC-Mime-Version: 1.0
 ^ARFC-Date: Mon, 15 Apr 1996 22:04:26 GMT
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 chris@cae.muc.de (Christian A. Eroes) writes:
 | In article <4kj54f$1f98@info4.rus.uni-stuttgart.de>
@@ -13282,6 +13709,7 @@ Bumper sticker seen on the Data SuperHighway:
                 <carrel@cisco.com>
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -13306,6 +13734,7 @@ AREA:DE.COMM.MISC
 ^ARFC-Content-Transfer-Encoding: 8bit
 ^ARFC-Mime-Version: 1.0
 ^ARFC-Date: Mon, 15 Apr 1996 22:04:26 GMT
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 chris@cae.muc.de (Christian A. Eroes) writes:
 | In article <4kj54f$1f98@info4.rus.uni-stuttgart.de>
@@ -13331,6 +13760,7 @@ Bumper sticker seen on the Data SuperHighway:
                 <carrel@cisco.com>
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -13361,6 +13791,7 @@ AREA:DE.COMM.MISC
 ^ARFC-Date: 14 Apr 1996 00:35:00 +0100
 ^ARFC-From: kakau@crest4.lbcmbx.bln.sub.org (Karsten Kaulich)
 ^ARFC-Newsgroups: de.comm.misc
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 Hallo Leute,
 
@@ -13395,6 +13826,7 @@ Telekom zu zahlen :-)
 
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -13425,6 +13857,7 @@ AREA:DE.COMM.MISC
 ^ARFC-Date: 14 Apr 1996 01:51:00 +0100
 ^ARFC-From: kakau@crest4.lbcmbx.bln.sub.org (Karsten Kaulich)
 ^ARFC-Newsgroups: de.comm.misc
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 Hallo Leute,
 
@@ -13450,6 +13883,7 @@ ist es verboten worden.
 
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -13480,6 +13914,7 @@ AREA:DE.COMM.MISC
 ^ARFC-Date: 14 Apr 1996 01:52:00 +0100
 ^ARFC-From: kakau@crest4.lbcmbx.bln.sub.org (Karsten Kaulich)
 ^ARFC-Newsgroups: de.comm.misc
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 Hallo Leute,
 
@@ -13527,6 +13962,7 @@ keine Rufnummernidentifikation mehr enthalten darf ?
 
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -13557,6 +13993,7 @@ AREA:DE.COMM.MISC
 ^ARFC-Date: 14 Apr 1996 01:54:00 +0100
 ^ARFC-From: kakau@crest4.lbcmbx.bln.sub.org (Karsten Kaulich)
 ^ARFC-Newsgroups: de.comm.misc
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 Hallo Leute,
 
@@ -13601,6 +14038,7 @@ darf, gibt es natuerlich kein Update.
 
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -13635,6 +14073,7 @@ AREA:DE.COMM.MODEM
 ^ARFC-Content-Type: text/plain; charset=iso-8859-1
 ^ARFC-Content-Transfer-Encoding: 8BIT
 ^ARFC-To: Joerg Tretow <joerg@tretow.in-berlin.de>
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 Hallo,
 
@@ -13661,6 +14100,7 @@ Beste Gruesse,
 Timo Christoph
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -13685,6 +14125,7 @@ AREA:DE.COMM.MISC
 ^ARFC-Content-Type: text/plain; charset=iso-8859-1
 ^ARFC-Content-Transfer-Encoding: 8BIT
 ^ARFC-To: Joerg Tretow <joerg@tretow.in-berlin.de>
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 Hallo,
 
@@ -13711,6 +14152,7 @@ Beste Gruesse,
 Timo Christoph
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -13735,6 +14177,7 @@ AREA:DE.COMM.MOBIL
 ^ARFC-Content-Type: text/plain; charset=iso-8859-1
 ^ARFC-Content-Transfer-Encoding: 8BIT
 ^ARFC-To: Joerg Tretow <joerg@tretow.in-berlin.de>
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 Hallo,
 
@@ -13761,6 +14204,7 @@ Beste Gruesse,
 Timo Christoph
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -13791,6 +14235,7 @@ AREA:DE.COMM.MISC
 ^ARFC-Date: 16 Apr 1996 10:08:00 +0200
 ^ARFC-From: leif@elliot.allcon.com (Leif Juergensen)
 ^ARFC-Newsgroups: de.comm.misc
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 Thomas Adams <finc27@zx2.hrz.uni-dortmund.de> schrieb am 15.04.96:
 
@@ -13800,6 +14245,7 @@ Weil es immernoch einige gibt, die sie trotzdem kaufen...
 
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -13830,6 +14276,7 @@ AREA:DE.COMM.MISC
 ^ARFC-From: zessin@helena.rbi.informatik.uni-frankfurt.de (Ralf Zessin)
 ^ARFC-Newsgroups: de.comm.misc
 ^ARFC-Date: 16 Apr 1996 12:56:42 GMT
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 In <4ktfme$90g@nx2.HRZ.Uni-Dortmund.DE> finc27@zx2.hrz.uni-dortmund.de (Thomas Adams) writes:
 
@@ -13849,6 +14296,7 @@ Echte Metall-Abschirmung und mechanisch stabiler aufbau kostet halt ....
 RZ
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -13878,6 +14326,7 @@ AREA:DE.ORG.CCC
 ^ARFC-From: UZS106@ibm.rhrz.uni-bonn.de (Heiko Recktenwald)
 ^ARFC-Newsgroups: de.org.ccc,de.soc.netzwesen,de.comm.misc
 ^ARFC-Date: Tue, 16 Apr 96 15:04:50 MEZ
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 Wenn ich es recht verstehe, haben wir also alle ein eigenes Kabel zur
 naechsten Vermittlunsstelle.
@@ -13896,6 +14345,7 @@ Das kabel zur vermittlungsstelle kostet nichts.
 Heiko
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -13915,6 +14365,7 @@ AREA:DE.SOC.NETZWESEN
 ^ARFC-From: UZS106@ibm.rhrz.uni-bonn.de (Heiko Recktenwald)
 ^ARFC-Newsgroups: de.org.ccc,de.soc.netzwesen,de.comm.misc
 ^ARFC-Date: Tue, 16 Apr 96 15:04:50 MEZ
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 Wenn ich es recht verstehe, haben wir also alle ein eigenes Kabel zur
 naechsten Vermittlunsstelle.
@@ -13933,6 +14384,7 @@ Das kabel zur vermittlungsstelle kostet nichts.
 Heiko
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -13952,6 +14404,7 @@ AREA:DE.COMM.MISC
 ^ARFC-From: UZS106@ibm.rhrz.uni-bonn.de (Heiko Recktenwald)
 ^ARFC-Newsgroups: de.org.ccc,de.soc.netzwesen,de.comm.misc
 ^ARFC-Date: Tue, 16 Apr 96 15:04:50 MEZ
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 Wenn ich es recht verstehe, haben wir also alle ein eigenes Kabel zur
 naechsten Vermittlunsstelle.
@@ -13970,6 +14423,7 @@ Das kabel zur vermittlungsstelle kostet nichts.
 Heiko
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -14003,6 +14457,7 @@ AREA:DE.COMM.INTERNET.MISC
 ^ARFC-Mime-Version: 1.0
 ^ARFC-Content-Type: text/plain; charset=us-ascii
 ^ARFC-Content-Transfer-Encoding: 7bit
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 Internet Forum Europe 96
 
@@ -14023,6 +14478,7 @@ Roberto Zicari
 IFE Chair
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -14046,6 +14502,7 @@ AREA:DE.COMM.MISC
 ^ARFC-Mime-Version: 1.0
 ^ARFC-Content-Type: text/plain; charset=us-ascii
 ^ARFC-Content-Transfer-Encoding: 7bit
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 Internet Forum Europe 96
 
@@ -14066,6 +14523,7 @@ Roberto Zicari
 IFE Chair
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -14098,6 +14556,7 @@ AREA:DE.COMM.MISC
 ^ARFC-Sender: kris@white.schulung.netuse.de (Kristian Koehntopp)
 ^ARFC-Mime-Version: 1.0
 ^ARFC-Date: Tue, 16 Apr 1996 11:13:57 GMT
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 kakau@crest4.lbcmbx.bln.sub.org (Karsten Kaulich) writes:
 >Im uebrigen ist kostet die DeTeMedien CD nur noch 30DM, enthaelt  
@@ -14117,6 +14576,7 @@ Fachbegriffe der Informatik einfach erklaert, Teil 18:
 ^I"Es sind noch zwei Slots auf dem Motherboard frei."
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -14148,6 +14608,7 @@ AREA:DE.COMM.MISC
 ^ARFC-Newsgroups: de.comm.misc
 ^ARFC-Date: Tue, 16 Apr 1996 19:41:25 CET
 ^ARFC-Reply-To: marc@aargh.incubus.sub.org
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 In article <4km4gj$ic3@mips.pfalz.de>, Christian Weisgerber writes:
 
@@ -14157,6 +14618,7 @@ In article <4km4gj$ic3@mips.pfalz.de>, Christian Weisgerber writes:
 95/95 ms, gemäß Spezifikation.
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -14186,6 +14648,7 @@ AREA:DE.COMM.MISC
 ^ARFC-From: klaus@arco.de (Klaus Koenig)
 ^ARFC-Date: 15 Apr 96 15:14:59 
 ^ARFC-Newsgroups: de.comm.misc
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 Hi !
 
@@ -14203,6 +14666,7 @@ cu  Klaus
 |Fidonet:  Klaus Koenig 2:2410/520.101
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -14233,6 +14697,7 @@ AREA:DE.COMM.ISDN
 ^ARFC-Date: 16 Apr 1996 21:29:00 +0200
 ^ARFC-From: Christian@eder.pumuckl.cube.net (Christian Frankenberg)
 ^ARFC-Newsgroups: de.comm.isdn,de.comm.misc,de.markt.misc,de.markt.comp.misc
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 
 > >Emmerich ISTEC 1003 & Teles S0.16: DM 770.-
@@ -14255,6 +14720,7 @@ Christian
 ## CrossPoint v3.02 R ##
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -14275,6 +14741,7 @@ AREA:DE.COMM.MISC
 ^ARFC-Date: 16 Apr 1996 21:29:00 +0200
 ^ARFC-From: Christian@eder.pumuckl.cube.net (Christian Frankenberg)
 ^ARFC-Newsgroups: de.comm.isdn,de.comm.misc,de.markt.misc,de.markt.comp.misc
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 
 > >Emmerich ISTEC 1003 & Teles S0.16: DM 770.-
@@ -14297,6 +14764,7 @@ Christian
 ## CrossPoint v3.02 R ##
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -14317,6 +14785,7 @@ AREA:DE.MARKT.MISC
 ^ARFC-Date: 16 Apr 1996 21:29:00 +0200
 ^ARFC-From: Christian@eder.pumuckl.cube.net (Christian Frankenberg)
 ^ARFC-Newsgroups: de.comm.isdn,de.comm.misc,de.markt.misc,de.markt.comp.misc
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 
 > >Emmerich ISTEC 1003 & Teles S0.16: DM 770.-
@@ -14339,6 +14808,7 @@ Christian
 ## CrossPoint v3.02 R ##
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5
@@ -14359,6 +14829,7 @@ AREA:DE.MARKT.COMP.MISC
 ^ARFC-Date: 16 Apr 1996 21:29:00 +0200
 ^ARFC-From: Christian@eder.pumuckl.cube.net (Christian Frankenberg)
 ^ARFC-Newsgroups: de.comm.isdn,de.comm.misc,de.markt.misc,de.markt.comp.misc
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
 ------------------------------------------------------------------------------
 
 > >Emmerich ISTEC 1003 & Teles S0.16: DM 770.-
@@ -14381,6 +14852,7 @@ Christian
 ## CrossPoint v3.02 R ##
 
 ------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
  * Origin: Martin Junius' orodruin.fido.de (242:1000/5.0)
 SEEN-BY: 1000/5
 ^APATH: 1000/5

@@ -5,10 +5,10 @@
 #V="-v"
 V="-vvvvvvvvv"
 
-T="../../src/toss/ftntoss  -cconfig.main -bareas.bbs"
-R="../../src/toss/ftnroute -cconfig.main"
-
-G="../../src/gate/rfc2ftn  -cconfig.gate"
+T="../../src/toss/ftntoss  -c../cf/fidogate.conf -a2:2452/123 -bareas.bbs"
+R="../../src/toss/ftnroute -c../cf/fidogate.conf -a2:2452/123"
+D="../../src/util/pktdebug"
+G="../../src/gate/rfc2ftn  -c../cf/fidogate.conf"
 
 
 # Generate some EchoMail messages
@@ -25,6 +25,8 @@ EOF
 done
 
 # Toss'em up
+#$D -t outpkt/news/*.pkt
+
 cp outpkt/news/*.pkt pin
 $T $V
 $R $V

@@ -1,5 +1,5 @@
 #
-# $Id: config,v 1.1 1998/02/19 16:15:51 mj Exp $
+# $Id: config,v 1.2 1999/03/14 20:44:07 mj Exp $
 #
 # Test config tc.af
 #
@@ -7,4 +7,5 @@
 AreafixMailer	/bin/cat
 AreafixCC	AreafixTest@blah.wusel.org
 
-include		../cf/toss.conf
+include		../cf/fidogate.conf
+

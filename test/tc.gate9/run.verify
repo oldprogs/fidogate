@@ -4,15 +4,21 @@ Internet Mail via Fido Gateway
 Message body size 14 (+CR!)
 RFC To:       test@abc.def.org
 RFC From:     mj@fido.de (Martin Junius)
-RFC Sender:   mj@fido.de (Martin Junius)
+RFC Sender:   Martin Junius <mj@fido.de>
     Name:     test
     Address:  abc.def.org
 Name for alias checking: UUCP
 No alias found: return UUCP
     Name:     mj
     Address:  fido.de
-addr_is_local(): From=mj@fido.de (Martin Junius) FQDN=orodruin.fido.de
-rfc2ftn MAIL: mj@fido.de (Martin Junius) -> test@abc.def.org
+Name for alias checking: mj
+Alias found: mj 2:2452/110.2 Martin Junius
+addr_is_local(): From=Martin Junius <mj@fido.de> FQDN=orodruin.fido.de
+rfc2ftn MAIL: Martin Junius <mj@fido.de> -> test@abc.def.org
+    Name:     mj
+    Address:  fido.de
+Name for alias checking: mj
+Alias found: mj 2:2452/110.2 Martin Junius
 RFC MIME-Version:              -NONE-
 RFC Content-Type:              -NONE-
 RFC Content-Transfer-Encoding: -NONE-
@@ -31,3 +37,39 @@ Writing FTN message header:
     Subj: Test Gateway
     Attr: 0001
 using local time
+==============================================================================
+FTN packet header:
+    From: 2:2452/110.2
+    To  : 2:2452/110.2
+    Baud: 0
+    Prod: 00 fe
+    Rev : 4.3
+    Pass: ""
+    Capw: 0001
+==============================================================================
+FTN message header:
+    From: Martin Junius                        @ 2:2452/110.2
+    To  : UUCP                                 @ 2:2452/110.1
+    Subj: Test Gateway
+    Attr: 0001
+------------------------------------------------------------------------------
+^AINTL 2:2452/110 2:2452/110
+^AFMPT 2
+^ATOPT 1
+^AMSGID: 2:2452/110.2 00000001
+^AREPLYADDR Martin Junius <mj@fido.de>
+^AREPLYTO 2:2452/110.2 Martin Junius
+^ACHRS: LATIN-1 2
+^ARFC: 1 0
+^ARFC-To: test@abc.def.org (Test User)
+^ARFC-From: mj@fido.de (Martin Junius)
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
+------------------------------------------------------------------------------
+To: test@abc.def.org
+------------------------------------------------------------------------------
+
+TEST GATEWAY
+
+------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
+==============================================================================

@@ -1,5 +1,6 @@
 tc: clean-up
 tc: init
+--------- ftnafutil DELETE ----------
 processing area T1: state= uplink=(none) #dl=-1
 ftnafutil area T1: no uplink, deleted
 processing area T2: state= uplink=(none) #dl=-1
@@ -21,6 +22,7 @@ ftnafutil area T4: no uplink, deleted
 processing area T5: state= uplink=(none) #dl=-1
 ftnafutil area T5: no uplink, deleted
 ftnafutil tmp_areas.bbs changed
+--------- ftnafutil SUBSCRIBE ----------
 processing area BLAH.GER: state=U uplink=2:2499/99.0 #dl=0
 processing area XYZ.GER: state=S uplink=2:2499/99.0 #dl=0
 processing area LINUX.GER: state=U uplink=2:2452/1.0 #dl=1
@@ -43,6 +45,7 @@ processing area YY: state= uplink=242:1000/1.0 #dl=0
 processing area YY2: state= uplink=242:1000/2.0 #dl=0
 processing area ZZ: state=U uplink=242:1000/1.0 #dl=0
 ftnafutil tmp_areas.bbs changed
+--------- ftnafutil UNSUBSCRIBE ----------
 processing area BLAH.GER: state=U uplink=2:2499/99.0 #dl=0
 processing area XYZ.GER: state=S uplink=2:2499/99.0 #dl=0
 ftnafutil area XYZ.GER: #dl=0 state=S, unsubscribing at uplink 2:2499/99.0
@@ -62,22 +65,10 @@ processing area LINUX.GER: state=S uplink=2:2452/1.0 #dl=1
 processing area TOLKIEN.GER: state= uplink=2:2452/1.0 #dl=4
 processing area XX: state= uplink=242:1000/1.0 #dl=1
 processing area YY: state= uplink=242:1000/1.0 #dl=0
-ftnafutil area YY: #dl=0 state=, unsubscribing at uplink 242:1000/1.0
-Open ./outpkt/00000003.tmp, mode w
-New packet ./outpkt/00000003.pkt (./outpkt/00000003.tmp): 242:1000/5.0 -> 242:1000/1.0
-Writing FTN packet header:
-    From: 242:1000/5.0
-    To  : 242:1000/1.0
-    Baud: 0
-    Prod: 00 fe
-    Rev : 4.3
-    Pass: ""
-    Capw: 0001
-Close ./outpkt/00000003.tmp
-Rename ./outpkt/00000003.tmp -> ./outpkt/00000003.pkt
 processing area YY2: state= uplink=242:1000/2.0 #dl=0
 processing area ZZ: state=U uplink=242:1000/1.0 #dl=0
 ftnafutil tmp_areas.bbs changed
+--------- packets ----------
 ==============================================================================
 FTN packet header:
     From: 2:2452/110.2
@@ -123,29 +114,6 @@ FTN message header:
 ^AMSGID: 2:2452/110.2 00000002
 ------------------------------------------------------------------------------
 -XYZ.GER
-
-------------------------------------------------------------------------------
-==============================================================================
-==============================================================================
-FTN packet header:
-    From: 242:1000/5.0
-    To  : 242:1000/1.0
-    Baud: 0
-    Prod: 00 fe
-    Rev : 4.3
-    Pass: ""
-    Capw: 0001
-==============================================================================
-FTN message header:
-    From: Areafix Daemon                       @ 242:1000/5.0
-    To  : AreaFix                              @ 242:1000/1.0
-    Subj: TEST1000
-    Attr: 0000
-------------------------------------------------------------------------------
-^AINTL 242:1000/1 242:1000/5
-^AMSGID: 242:1000/5.0 00000003
-------------------------------------------------------------------------------
--YY
 
 ------------------------------------------------------------------------------
 ==============================================================================

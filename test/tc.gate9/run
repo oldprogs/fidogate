@@ -3,6 +3,7 @@
 ../tr.init
 
 R="../../src/gate/rfc2ftn -vvvvvvv -i -cconfig.gate"
+D="../../src/util/pktdebug"
 
 echo "Internet Mail via Fido Gateway"
 $R test@abc.def.org <<EOF
@@ -12,3 +13,5 @@ Subject: Test Gateway
 
 TEST GATEWAY
 EOF
+
+$D -t outpkt/*/*.pkt

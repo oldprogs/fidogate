@@ -7,7 +7,7 @@ T="../../src/gate/rfc2ftn -v"
 echo "tc: running"
 for f in ../ti.news-b/[0-9]*; do
   echo "-- 1 -- News batch file $f --"
-  $T -c ../cf/gate.conf -vvvv -b <$f
+  $T -c ../cf/fidogate.conf -vvvv -b <$f
 done
 
 echo "tc: running"

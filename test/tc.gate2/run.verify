@@ -139,7 +139,7 @@ charset: in=x-ibmpc out=us-ascii
 charset: table found in=x-ibmpc out=us-ascii
 Checking for alias: Florian Steiper <Florian_Steiper@p23.f336.n2461.z2.fidonet.org>
 Checking for alias: Roland Rosenfeld <Roland_Rosenfeld@hippo.fido.de>
-ftn2rfc MSGID 9999:2461/336.23@fidonet c29b2982: unknown zone, not gated
+ftn2rfc MSGID 9999:2461/336.23@fidonet c29b2982: malformed or unknown zone, not gated
 Reading FTN message header:
     From: Helmut vom Sondern                   @ 2:2452/110.0
     To  : Michael Nessler                      @ 2:2452/110.2
@@ -172,7 +172,7 @@ charset: in=x-ibmpc out=us-ascii
 charset: table found in=x-ibmpc out=us-ascii
 Checking for alias: Diedrich Vorberg <Diedrich_Vorberg@p14.f4528.n2444.z2.fidonet.org>
 Checking for alias: Dirk Polke <Dirk_Polke@hippo.fido.de>
-ftn2rfc MSGID 123:2444/4528.14@fidonet c291d721: unknown zone, not gated
+ftn2rfc MSGID 123:2444/4528.14@fidonet c291d721: malformed or unknown zone, not gated
 #! rnews 4311
 Path: p2.hippo.fido.de!hippo.fido.de!p13.f111.n2450.z2.fidonet.org!fidogate!not-for-mail
 From: Roland Rosenfeld <roland@spinnaker.rhein.de>
@@ -181,8 +181,8 @@ Message-ID: <NOMSGID_2=3A2450=2F111.13_960314_212503_238f6d34@fidonet.org>
 Newsgroups: fido.ger.linux
 Organization: Martin Junius' orodruin.fido.de
 Lines: 65
-X-Gateway: FIDO orodruin.fido.de [FIDOGATE 4.3.0]
-X-FTN-Tearline: FIDOGATE 3.9.6
+X-Gateway: FIDO orodruin.fido.de [FIDOGATE x.x.x]
+X-FTN-Tearline: FIDOGATE x.x.x
 X-FTN-Origin: Spinnaker - Linux-Point der FloKiste Koeln  (2:2450/111.13)
 X-FTN-Domain: Z2@FidoNet
 MIME-Version: 1.0
@@ -263,8 +263,8 @@ Newsgroups: fido.ger.linux
 X-Comment-To: (Armin Schreppel)
 Organization: Martin Junius' orodruin.fido.de
 Lines: 27
-X-Gateway: FIDO orodruin.fido.de [FIDOGATE 4.3.0]
-X-FTN-Tearline: FIDOGATE 3.9.6
+X-Gateway: FIDO orodruin.fido.de [FIDOGATE x.x.x]
+X-FTN-Tearline: FIDOGATE x.x.x
 X-FTN-Origin: Spinnaker - Linux-Point der FloKiste Koeln  (2:2450/111.13)
 X-FTN-Domain: Z2@FidoNet
 MIME-Version: 1.0
@@ -307,8 +307,8 @@ Newsgroups: fido.ger.linux
 X-Comment-To: (Thomas Kobienia)
 Organization: Martin Junius' orodruin.fido.de
 Lines: 39
-X-Gateway: FIDO orodruin.fido.de [FIDOGATE 4.3.0]
-X-FTN-Tearline: FIDOGATE 3.9.6
+X-Gateway: FIDO orodruin.fido.de [FIDOGATE x.x.x]
+X-FTN-Tearline: FIDOGATE x.x.x
 X-FTN-Origin: Spinnaker - Linux-Point der FloKiste Koeln  (2:2450/111.13)
 X-FTN-Domain: Z2@FidoNet
 MIME-Version: 1.0
@@ -364,7 +364,7 @@ Newsgroups: fido.ger.linux
 X-Comment-To: (Jens Benecke)
 Organization: Martin Junius' orodruin.fido.de
 Lines: 18
-X-Gateway: FIDO orodruin.fido.de [FIDOGATE 4.3.0]
+X-Gateway: FIDO orodruin.fido.de [FIDOGATE x.x.x]
 X-FTN-Tearline: CrossPoint v3.1 R
 X-FTN-Origin: fdg@abnet.alpha.de (2:244/6301.18)
 X-FTN-Domain: Z2@FidoNet
@@ -400,7 +400,7 @@ Newsgroups: fido.ger.linux
 X-Comment-To: (Michael Nessler)
 Organization: Martin Junius' orodruin.fido.de
 Lines: 19
-X-Gateway: FIDO orodruin.fido.de [FIDOGATE 4.3.0]
+X-Gateway: FIDO orodruin.fido.de [FIDOGATE x.x.x]
 X-FTN-Tearline: CrossPoint v3.02
 X-FTN-Origin: life is a minestrone (2:2448/448.7)
 X-FTN-Domain: Z2@FidoNet

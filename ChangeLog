@@ -1,3 +1,62 @@
+1999-03-14  Martin Junius  <mj@fido.de>
+
+	------- CVS ci -------------------------------------------------------
+
+	* test/tc.gate11/config: dito.
+
+	* test/tc.gate11/run: dito.
+
+	* test/tc.gate10/run: dito.
+
+	* test/tc.gate9/config.gate: dito.
+
+	* test/tc.gate8/run: dito.
+
+	* test/tc.gate7/run: dito.
+
+	* test/tc.gate7/config: dito.
+
+	* test/tc.gate6/config*: dito.
+
+	* test/tc.gate6/run: dito.
+
+	* test/tc.gate4/check.conf: dito.
+
+	* test/tc.gate4/config.*: dito.
+
+	* test/tc.gate4/run: new fidogate.conf
+
+	* src/gate/rfc2ftn.c (snd_message): s_freeall() removed, must not
+	  be called here.
+
+	* test/tc.gate1/config*: dito.
+
+	* test/tc.gate1/run: dito.
+
+	* test/tc.flo/config.dos: dito.
+
+	* test/tc.ffx/run: dito.
+
+	* test/tc.ffx/ffxmail: dito.
+
+	* test/tc.bounce2/config: dito.
+
+	* test/tc.bounce/run: new fidogate.conf.
+
+	* test/tc.boss/run: new fidogate.conf, extra config.* removed.
+
+	* src/common/config.c (cf_set_addr): set scf_ia=1, scf_ig=0.
+	  (cf_set_uplink): set scf_ir=1.
+	  (cf_set_addr): also set scf_ir=0.
+
+	* test/tc.aliases/run: dito.
+
+	* test/tc.af3/run: dito.
+
+	* test/tc.af2/run: dito.
+
+	* test/tc.af/config: new fidogate.conf
+
 1999-03-07  Martin Junius  <mj@fido.de>
 
 	------- CVS ci -------------------------------------------------------

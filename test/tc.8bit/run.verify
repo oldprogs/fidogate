@@ -11,8 +11,16 @@ Name for alias checking: Martin_Junius
 No alias found: return Martin Junius
     Name:     mj
     Address:  orodruin.fido.de
+    FTN node: 242:1000/5.0
+Name for alias checking: mj
+Alias found: mj 2:2452/110.2 Martin Junius
 RFC Date: Sun, 27 Oct 1996 14:20:22 +0100 (MET)
 rfc2ftn MAIL: Martin Junius <mj@orodruin.fido.de> -> Martin_Junius@f110.n2452.z2.fidonet.org
+    Name:     mj
+    Address:  orodruin.fido.de
+    FTN node: 242:1000/5.0
+Name for alias checking: mj
+Alias found: mj 2:2452/110.2 Martin Junius
 New packet file ./outpkt/mail/00000001.pkt (tmp ./outpkt/mail/00000001.tmp)
 Writing FTN packet header:
     From: 2:2452/110.2
@@ -32,8 +40,16 @@ Name for alias checking: Martin_Junius
 No alias found: return Martin Junius
     Name:     mj
     Address:  orodruin.fido.de
+    FTN node: 242:1000/5.0
+Name for alias checking: mj
+Alias found: mj 2:2452/110.2 Martin Junius
 RFC Date: Wed, 13 Nov 1996 22:13:13 +0100 (MET)
 rfc2ftn MAIL: Martin Junius <mj@orodruin.fido.de> -> Martin_Junius@f110.n2452.z2.fidonet.org
+    Name:     mj
+    Address:  orodruin.fido.de
+    FTN node: 242:1000/5.0
+Name for alias checking: mj
+Alias found: mj 2:2452/110.2 Martin Junius
 New packet file ./outpkt/mail/00000002.pkt (tmp ./outpkt/mail/00000002.tmp)
 Writing FTN packet header:
     From: 2:2452/110.2

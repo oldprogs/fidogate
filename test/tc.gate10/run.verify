@@ -11,8 +11,14 @@ Name for alias checking: Martin_Junius
 No alias found: return Martin Junius
     Name:     monnier-stefan
     Address:  cs.yale.edu
+Name for alias checking: monnier-stefan
+E-mail for alias checking: monnier-stefan@cs.yale.edu
 RFC Date: Sat, 30 Nov 1996 02:12:46 -0500
 rfc2ftn MAIL: Stefan Monnier <monnier-stefan@cs.yale.edu> -> Martin_Junius@f110.n2452.z2.fidonet.org
+    Name:     monnier-stefan
+    Address:  cs.yale.edu
+Name for alias checking: monnier-stefan
+E-mail for alias checking: monnier-stefan@cs.yale.edu
 New packet file ./outpkt/mail/00000001.pkt (tmp ./outpkt/mail/00000001.tmp)
 Writing FTN packet header:
     From: 2:2452/110.2
@@ -33,8 +39,14 @@ Name for alias checking: Martin_Junius
 No alias found: return Martin Junius
     Name:     pseelig
     Address:  goofy.zdv.Uni-Mainz.de
+Name for alias checking: pseelig
+E-mail for alias checking: pseelig@goofy.zdv.Uni-Mainz.de
 RFC Date: Sat, 30 Nov 1996 08:02:12 +0100 (MET)
 rfc2ftn MAIL: Paul Seelig <pseelig@goofy.zdv.Uni-Mainz.de> -> Martin_Junius@f110.n2452.z2.fidonet.org
+    Name:     pseelig
+    Address:  goofy.zdv.Uni-Mainz.de
+Name for alias checking: pseelig
+E-mail for alias checking: pseelig@goofy.zdv.Uni-Mainz.de
 New packet file ./outpkt/mail/00000002.pkt (tmp ./outpkt/mail/00000002.tmp)
 Writing FTN packet header:
     From: 2:2452/110.2
@@ -47,16 +59,22 @@ Writing FTN packet header:
 RFC To:       Martin_Junius@f110.n2452.z2.fidonet.org
 RFC From:     Bjarne Pohlers <bjarne%libelle.uucp%von-neumann@ESCHER.UNI-MUENSTER.DE>
 RFC Reply-To: isdn4linux@hub-wue.franken.de
-RFC Sender:   isdn4linux@hub-wue.franken.de
+RFC Sender:   Bjarne Pohlers <bjarne%libelle.uucp%von-neumann@ESCHER.UNI-MUENSTER.DE>
     Name:     Martin_Junius
     Address:  f110.n2452.z2.fidonet.org
     FTN node: 2:2452/110.0
 Name for alias checking: Martin_Junius
 No alias found: return Martin Junius
-    Name:     isdn4linux
-    Address:  hub-wue.franken.de
+    Name:     bjarne%libelle.uucp%von-neumann
+    Address:  ESCHER.UNI-MUENSTER.DE
+Name for alias checking: bjarne%libelle.uucp%von-neumann
+E-mail for alias checking: bjarne%libelle.uucp%von-neumann@ESCHER.UNI-MUENSTER.DE
 RFC Date: Sat, 30 Nov 1996 04:41:58 +0100
-rfc2ftn MAIL: isdn4linux@hub-wue.franken.de -> Martin_Junius@f110.n2452.z2.fidonet.org
+rfc2ftn MAIL: Bjarne Pohlers <bjarne%libelle.uucp%von-neumann@ESCHER.UNI-MUENSTER.DE> -> Martin_Junius@f110.n2452.z2.fidonet.org
+    Name:     bjarne%libelle.uucp%von-neumann
+    Address:  ESCHER.UNI-MUENSTER.DE
+Name for alias checking: bjarne%libelle.uucp%von-neumann
+E-mail for alias checking: bjarne%libelle.uucp%von-neumann@ESCHER.UNI-MUENSTER.DE
 New packet file ./outpkt/mail/00000003.pkt (tmp ./outpkt/mail/00000003.tmp)
 Writing FTN packet header:
     From: 2:2452/110.2
@@ -76,7 +94,13 @@ Name for alias checking: Martin_Junius
 No alias found: return Martin Junius
     Name:     isdn4linux
     Address:  hub-wue.franken.de
+Name for alias checking: isdn4linux
+E-mail for alias checking: isdn4linux@hub-wue.franken.de
 rfc2ftn MAIL: isdn4linux@hub-wue.franken.de -> Martin_Junius@f110.n2452.z2.fidonet.org
+    Name:     isdn4linux
+    Address:  hub-wue.franken.de
+Name for alias checking: isdn4linux
+E-mail for alias checking: isdn4linux@hub-wue.franken.de
 New packet file ./outpkt/mail/00000004.pkt (tmp ./outpkt/mail/00000004.tmp)
 Writing FTN packet header:
     From: 2:2452/110.2
@@ -86,3 +110,292 @@ Writing FTN packet header:
     Rev : 4.3
     Pass: ""
     Capw: 0001
+==============================================================================
+FTN packet header:
+    From: 2:2452/110.2
+    To  : 2:2452/110.0
+    Baud: 0
+    Prod: 00 fe
+    Rev : 4.3
+    Pass: ""
+    Capw: 0001
+==============================================================================
+FTN message header:
+    From: Stefan Monnier                       @ 2:2452/110.2
+    To  : Martin Junius                        @ 2:2452/110.0
+    Subj: Re: [TETEX 1523] name space "clutter" 
+    Attr: 0001
+------------------------------------------------------------------------------
+^AINTL 2:2452/110 2:2452/110
+^AFMPT 2
+^AMSGID: <199611300712.CAA56154@POWERED.ZOO.CS.YALE.EDU> c4b4294a
+^AREPLY: <sxaenhdko0y.fsf@havik.cwi.nl> 0bf5ef8f
+^AREPLYADDR Stefan Monnier <monnier-stefan@cs.yale.edu>
+^AREPLYTO 2:2452/110.2 Stefan Monnier
+^ACHRS: LATIN-1 2
+^ARFC: 1 0
+^ARFC-Return-Path: tetex-owner@antares.informatik.uni-hannover.de
+^ARFC-From: "Stefan Monnier" <monnier-stefan@cs.yale.edu>
+^ARFC-To: Olaf Weber <Olaf.Weber@cwi.nl>
+^ARFC-Cc: tetex@informatik.uni-hannover.de
+^ARFC-Mime-Version: 1.0
+^ARFC-Content-Type: text/plain; charset=us-ascii
+^ARFC-Date: Sat, 30 Nov 1996 02:12:46 -0500
+^ARFC-Sender: owner-tetex@informatik.uni-hannover.de
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
+------------------------------------------------------------------------------
+> To default to /usr/local would be unreasonable in any case -- when I
+> first looked at teTeX I installed it under my home directory.  And I
+> like the fact that by default the teTeX installation is self-contained
+> in a single directory tree: it makes trying it out without ditching
+> an old TeX installation easy.
+
+Well, using "/usr/local" instead of "/usr/local/teTeX" doesn't change
+the slightest thing regarding the ability to install it in your home
+dir and regarding its self-containedness.
+
+But my point is not that it should default to /usr/local (or /usr or /opt for that matter) but just that the self-contained directory structure could easily
+accomodate for the cases when one want to put it in /usr/local (where
+/usr/local/texmf might be less convenient than /usr/local/lib/texmf).
+
+Anyway, as I said, I can live with <root>/texmf, really.
+
+> > Well, I doubt that allcm, alldc and allneeded will be used by any of
+> > my users.
+> Yet one of your users might still use them to generate pk files for
+> some "odd" mode for his printer at home.  As a generalization to the
+> needs of all users at all sites, this is a bit hasty.
+
+having it in sbin rather than bin doesn't prevent its use, it just
+expresses the fact that this command is not intended for joe-user (just
+like "mount" is not intended for joe-user, and yet I use "mount" sometimes
+even on machines where I'm not root, just because I like its ability
+to give some information on the status of a system which might explain
+some of the odd performance I'm getting, for instance).
+Also it reduces "name space clutter".
+
+> > Similarily, texhash cannot be used by any of my users since the
+> > distrib is read-only (and hence texconfig can only be used for
+> > querying the config, which noone will do, I'm pretty sure).  Same
+> > thing for append_db.
+> 
+> The same holds at CWI.  But this might change when multiple ls-R files
+> arrive: users with many own macros would benefit from using an ls-R.
+> 
+> You may wish a user to use texconfig in their own environment when
+> debugging a problem they've come up with.
+
+See my "mount" comment above.
+
+> I can imagine several ways to work around this, but they all involve
+> making changes to the kpathsea library, and may require further
+> changes to the scripts and binaries as well.  To me it looks like a
+> lot of work for very little gain.
+
+I dont see the difficulty in tweaking kpathsea in order for it to look
+in lib/teTeX/<arch> before (or instead of) PATH (actually, I'd rather
+put them in libexec)
+
+Basically the idea is: most users only use latex, xdvi, makeindex, bibtex
+and dvips to the exclusion of everything else. Of course, some other commands
+like tex, amstex, makeinfo, tangle and such are also heavily used by some other users but most other programs like virXXX, iniXXX, XXX.bin, pkXXX, XXtoXX
+and friends will never be used interactively or only in some very unusual
+circumstance, where it's OK to require the user to use the full path.
+Of course, you might say "as long as there's no name clash, who cares" and
+that's a good point.
+
+
+^IStefan
+
+
+
+------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
+==============================================================================
+==============================================================================
+FTN packet header:
+    From: 2:2452/110.2
+    To  : 2:2452/110.0
+    Baud: 0
+    Prod: 00 fe
+    Rev : 4.3
+    Pass: ""
+    Capw: 0001
+==============================================================================
+FTN message header:
+    From: Paul Seelig                          @ 2:2452/110.2
+    To  : Martin Junius                        @ 2:2452/110.0
+    Subj: Re: [TETEX 1527] TIPA: System for Processing Phonetic Symbols in LaTeX
+    Attr: 0001
+------------------------------------------------------------------------------
+^AINTL 2:2452/110 2:2452/110
+^AFMPT 2
+^AMSGID: <Pine.LNX.3.95.961130074954.336B-100000@dialin122.zdv.uni-mainz.de> 1c03e852
+^AREPLY: <199611291648.QAA28818@lochnagarn.elsevier.co.uk> 86036501
+^AREPLYADDR Paul Seelig <pseelig@goofy.zdv.Uni-Mainz.de>
+^AREPLYTO 2:2452/110.2 Paul Seelig
+^ACHRS: LATIN-1 2
+^ARFC: 1 0
+^ARFC-Return-Path: tetex-owner@antares.informatik.uni-hannover.de
+^ARFC-Date: Sat, 30 Nov 1996 08:02:12 +0100 (MET)
+^ARFC-From: Paul Seelig <pseelig@goofy.zdv.Uni-Mainz.de>
+^ARFC-Reply-To: Paul Seelig <pseelig@goofy.zdv.Uni-Mainz.de>
+^ARFC-To: teTeX Mailing List <tetex@informatik.uni-hannover.de>
+^ARFC-cc: Sebastian Rahtz <s.rahtz@elsevier.co.uk>
+^ARFC-MIME-Version: 1.0
+^ARFC-Content-Type: TEXT/PLAIN; charset=US-ASCII
+^ARFC-Sender: owner-tetex@informatik.uni-hannover.de
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
+------------------------------------------------------------------------------
+On Fri, 29 Nov 1996, Sebastian Rahtz wrote:
+
+> I think you are addressing this from the wrong end. dont look at it
+> from the view of teTeX, but from the view of the package author. they
+> should provide TDS-ready trees which can be just slotted into teTeX,
+> and not expect Thomas or whoever to wrap them up nicely. thats why so
+> many people spent so much time on the TDS!
+> 
+
+No contradiction at all, actually i meant it the way you say. That's why i
+wrote it would spare a lot of work to the teTeX people. The Debian way of
+package management is based on developers/users to make up packages
+according to certain Debian standards and thus enabling an easy way of
+installation, upgrading or deinstallation without having a single person
+to look after wrapping up nicely all those goodies. Debian Linux relies on
+it's developers/users only and actually it works very well. Just looks
+like developers in the LaTeX domain are still not really used to package
+their great products according to the TDS. 
+                                                Regards, P. *8^)
+-- 
+   Paul Seelig                         pseelig@goofy.zdv.uni-mainz.de
+   African Music Archive - Institute for Ethnology and Africa Studies
+   Johannes Gutenberg-University   -  Forum 6  -  55099 Mainz/Germany
+   Our AMA Homepage  in  the WWW at  http://www.uni-mainz.de/~bender/
+
+
+
+------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
+==============================================================================
+==============================================================================
+FTN packet header:
+    From: 2:2452/110.2
+    To  : 2:2452/110.0
+    Baud: 0
+    Prod: 00 fe
+    Rev : 4.3
+    Pass: ""
+    Capw: 0001
+==============================================================================
+FTN message header:
+    From: Bjarne Pohlers                       @ 2:2452/110.2
+    To  : Martin Junius                        @ 2:2452/110.0
+    Subj: Re: 2.0.26+HiSax-1.3+chargeint problems
+    Attr: 0001
+------------------------------------------------------------------------------
+^AINTL 2:2452/110 2:2452/110
+^AFMPT 2
+^AMSGID: <199611300341.EAA00917@libelle.pohlers.org> 3ca0be61
+^AREPLY: <9611291606.AA04299@HPLEY1.col.sw-ley.de> 719a6d83
+^AREPLYADDR Bjarne Pohlers <bjarne%libelle.uucp%von-neumann@ESCHER.UNI-MUENSTER.DE>
+^AREPLYTO 2:2452/110.2 Bjarne Pohlers
+^ACHRS: LATIN-1 2
+^ARFC: 1 0
+^ARFC-Return-Path: owner-isdn4linux@hub-wue.franken.de
+^ARFC-Date: Sat, 30 Nov 1996 04:41:58 +0100
+^ARFC-From: Bjarne Pohlers <bjarne%libelle.uucp%von-neumann@ESCHER.UNI-MUENSTER.DE>
+^ARFC-To: isdn4linux@hub-wue.franken.de
+^ARFC-Content-Type: text
+^ARFC-Sender: owner-isdn4linux@hub-wue.franken.de
+^ARFC-Reply-To: isdn4linux@hub-wue.franken.de
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
+------------------------------------------------------------------------------
+Norbert Kiesel writes:
+|>
+|>
+|>Hello!
+|>
+|>Ich woolte nur mitteilen, dass jetzt alles bei meiner
+|>ISDN-Konfiguration funktioniert (incl. chargeint und callback).  Ich
+|>werde die Daten bei naechster Gelegenheit fuer die Liste auf dem
+|>WWW-Server zusammenstellen.
+Was war denn das Problem bei Dir? Ich habe n‰mlich genau das gleiche
+Problem, daﬂ Du hattest: isdnlog 2.51 weigert sich standhaft,
+chargeint zu setzen. (Ja, er ist mit -DCHARGEINT kompiliert.)
+
+(Linux 2.0.26, HiSax Treiber, Teles 16.3 Karte)
+
+Bjarne
+
+---------------------------------------------------
+To remove yourself from this mailing list send
+email to majordomo@hub-wue.franken.de containing
+"unsubscribe isdn4linux <your_email_address>" in
+the message body [-vg]
+
+
+------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
+==============================================================================
+==============================================================================
+FTN packet header:
+    From: 2:2452/110.2
+    To  : 2:2452/110.0
+    Baud: 0
+    Prod: 00 fe
+    Rev : 4.3
+    Pass: ""
+    Capw: 0001
+==============================================================================
+FTN message header:
+    From: Isdn4linux                           @ 2:2452/110.2
+    To  : Martin Junius                        @ 2:2452/110.0
+    Subj: (no subject)
+    Attr: 0001
+------------------------------------------------------------------------------
+^AINTL 2:2452/110 2:2452/110
+^AFMPT 2
+^AMSGID: 2:2452/110.2 00000001
+^AREPLYADDR isdn4linux@hub-wue.franken.de
+^AREPLYTO 2:2452/110.2 Isdn4linux
+^ACHRS: LATIN-1 2
+^ARFC: 1 0
+^ARFC-Return-Path: owner-isdn4linux@hub-wue.franken.de
+^ARFC-Content-Type: text
+^ARFC-Sender: owner-isdn4linux@hub-wue.franken.de
+^ARFC-Reply-To: isdn4linux@hub-wue.franken.de
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
+------------------------------------------------------------------------------
+Norbert Kiesel writes:
+|>
+|>
+|>Hello!
+|>
+|>Ich woolte nur mitteilen, dass jetzt alles bei meiner
+|>ISDN-Konfiguration funktioniert (incl. chargeint und callback).  Ich
+|>werde die Daten bei naechster Gelegenheit fuer die Liste auf dem
+|>WWW-Server zusammenstellen.
+Was war denn das Problem bei Dir? Ich habe n‰mlich genau das gleiche
+Problem, daﬂ Du hattest: isdnlog 2.51 weigert sich standhaft,
+chargeint zu setzen. (Ja, er ist mit -DCHARGEINT kompiliert.)
+
+(Linux 2.0.26, HiSax Treiber, Teles 16.3 Karte)
+
+Bjarne
+
+---------------------------------------------------
+To remove yourself from this mailing list send
+email to majordomo@hub-wue.franken.de containing
+"unsubscribe isdn4linux <your_email_address>" in
+the message body [-vg]
+
+To remove yourself from this mailing list send
+email to majordomo@hub-wue.franken.de containing
+"unsubscribe isdn4linux <your_email_address>" in
+the message body [-vg]
+
+
+
+------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
+==============================================================================

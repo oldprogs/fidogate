@@ -2,7 +2,6 @@ tc: clean-up
 tc: init
 tc: running
 found FLO file ./bt/out.001/00020003.pnt/00000004.flo
-Creating BSY file ./bt/out.001/00020003.pnt/00000004.bsy succeeded.
 Opening FLO file in read/write mode
 Locking FLO file
 FLO file ./bt/out.001/00020003.pnt/00000004.flo open and locking succeeded
@@ -39,11 +38,11 @@ Line  :   ^X:\tmp_file3.abc
   DOS : ^ X:\tmp_file3.abc
   UNIX: ^ /home/mj/src/fidogate/test/tc.flo/tmp_file3.abc
 Modified contents of FLO file:
-       152      /home/mj/src/fidogate/test/tc.flo/tmp_file1.txt
-       152      /home/mj/src/fidogate/test/tc.flo/tmp_file2.xyz
+       156      /home/mj/src/fidogate/test/tc.flo/tmp_file1.txt
+       156      /home/mj/src/fidogate/test/tc.flo/tmp_file2.xyz
        758      /home/mj/src/fidogate/test/tc.flo/tmp_file3.abc
-       152    # /home/mj/src/fidogate/test/tc.flo/tmp_file1.txt
-       152      /home/mj/src/fidogate/test/tc.flo/tmp_file2.xyz
+       156    # /home/mj/src/fidogate/test/tc.flo/tmp_file1.txt
+       156      /home/mj/src/fidogate/test/tc.flo/tmp_file2.xyz
        758    ^ /home/mj/src/fidogate/test/tc.flo/tmp_file3.abc
 found FLO file ./bt/out.001/00020003.pnt/00000004.flo
 Opening FLO file in read/write mode

@@ -2,16 +2,16 @@
 
 ../tr.init
 
-T="../../src/gate/rfc2ftn -c../cf/gate.conf -v"
+T="../../src/gate/rfc2ftn -c../cf/fidogate.conf -v"
 
 echo "tc: running"
 
 ##### Test down/rfc_is_domain() ##############################################
 #
-# yftn is marked as down
+# spam is marked as down
 #
 
-$T test@yftn.fido.de <<EOF
+$T test@spam.fido.de <<EOF
 Subject: Test --------
 From: abc@blubber.fasel.org
 Message-ID: <Test--------@x.y.z>
@@ -21,7 +21,7 @@ EOF
 
 echo " "
 
-$T test@yftn.fido.de <<EOF
+$T test@spam.fido.de <<EOF
 Subject: Test 00000001
 From: abc@fido.de
 Message-ID: <Test00000001@x.y.z>
@@ -31,7 +31,7 @@ EOF
 
 echo " "
 
-$T test@yftn.fido.de <<EOF
+$T test@spam.fido.de <<EOF
 Subject: Test 00000002
 From: abc@xyz.fido.de
 Message-ID: <Test00000002@x.y.z>

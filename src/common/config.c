@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: config.c,v 4.18 1999/01/02 16:34:57 mj Exp $
+ * $Id: config.c,v 4.19 1999/03/14 20:44:04 mj Exp $
  *
  * Configuration data and functions
  *
@@ -695,6 +695,9 @@ void cf_set_addr(char *addr)
     }
 
     scf_naddr        = 1;
+    scf_ia           = 1;
+    scf_ig           = 0;
+    scf_ir           = 0;
     scf_addr[0].zone = node.zone;
     scf_addr[0].addr = node;
     scf_zone         = node.zone;
@@ -724,6 +727,7 @@ void cf_set_uplink(char *addr)
     }
     
     scf_naddr          = 1;
+    scf_ir             = 1;
     scf_addr[0].uplink = node;
     scf_zone           = scf_addr[0].zone;
     scf_index          = 0;

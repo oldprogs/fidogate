@@ -3,7 +3,7 @@
 ../tr.init
 
 F="./ffxmail"
-P="../../src/toss/ftnpack -c../cf/toss.conf -vvv"
+P="../../src/toss/ftnpack -c../cf/fidogate.conf -vvv"
 
 echo "tc: running"
 

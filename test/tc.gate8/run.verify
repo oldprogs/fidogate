@@ -1,23 +1,24 @@
 tc: clean-up
 tc: init
 tc: running
-rfc2ftn BOUNCE: <test@yftn.fido.de>, FTN address 242:2000/4.0: currently down, unreachable
+rfc2ftn BOUNCE: <test@spam.fido.de>, FTN address 242:1000/256.0: currently down, unreachable
+Internet -> FIDO gateway / FIDOGATE x.x.x @ orodruin.fido.de
    ----- ERROR -----
-Address test@yftn.fido.de:
-  FTN address 242:2000/4.0: currently down, unreachable
+Address test@spam.fido.de:
+  FTN address 242:1000/256.0: currently down, unreachable
  
-rfc2ftn MAIL: abc@fido.de -> test@yftn.fido.de
+rfc2ftn MAIL: abc@fido.de -> test@spam.fido.de
  
-rfc2ftn MAIL: abc@xyz.fido.de -> test@yftn.fido.de
+rfc2ftn MAIL: abc@xyz.fido.de -> test@spam.fido.de
  
 rfc2ftn FORBIDDEN X-Flags: mnc, From: abc@blubber.fasel.org
 rfc2ftn MAIL: abc@blubber.fasel.org -> test@hippo.fido.de
  
 rfc2ftn FORBIDDEN X-Flags: mnc, From: abc@fido.de
-rfc2ftn MAIL: xyz@wusel.wuehl.org -> test@hippo.fido.de
+rfc2ftn MAIL: abc@fido.de -> test@hippo.fido.de
  
 rfc2ftn FORBIDDEN X-Flags: mnc, From: abc@orodruin.fido.de
-rfc2ftn MAIL: xyz@wusel.wuehl.org -> test@hippo.fido.de
+rfc2ftn MAIL: abc@orodruin.fido.de -> test@hippo.fido.de
  
 rfc2ftn FORBIDDEN X-Flags: mnc, From: abc@orodruin.fido.de
 rfc2ftn MAIL: abc@orodruin.fido.de -> test@hippo.fido.de

@@ -6,7 +6,8 @@ T="../../src/gate/rfc2ftn -c../cf/fidogate.conf -v"
 
 echo "tc: running"
 for f in ../ti.news-a/[0-9]*; do
-  echo "News article file $f"
+  echo ""
+  echo "---------- News article file $f ----------"
   $T -vvvvvv -n <$f
 done
 

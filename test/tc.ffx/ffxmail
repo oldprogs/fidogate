@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# $Id: ffxmail,v 1.2 1998/02/01 18:51:25 mj Exp $
+# $Id: ffxmail,v 1.3 1999/03/14 20:44:09 mj Exp $
 #
 # Test ffxmail
 #
@@ -32,4 +32,4 @@ case $node in
 
 esac
 
-exec ../../src/ffx/ffx -c../cf/ffx.conf -vvv $nocmpr $batch -- $faddr rmail $addr
+exec ../../src/ffx/ffx -c../cf/fidogate.conf -vvv $nocmpr $batch -- $faddr rmail $addr

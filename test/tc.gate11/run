@@ -8,10 +8,12 @@ echo "tc: copying input packets"
 cp ../ti.pkt-mail/*.[pP][kK][tT] pin
 
 echo "tc: running"
-$T -c../cf/gate.conf
+$T -c../cf/fidogate.conf
+cat outrfc/*/*.rfc
 
 echo "tc: copying input packets"
 cp ../ti.pkt-mail/*.[pP][kK][tT] pin
 
 echo "tc: running"
 $T -cconfig
+cat outrfc/*/*.rfc

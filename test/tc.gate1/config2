@@ -1,5 +1,5 @@
 #
-# $Id: config2,v 4.1 1998/01/24 14:07:42 mj Exp $
+# $Id: config2,v 4.2 1999/03/14 20:44:09 mj Exp $
 #
 # Test config for ftninpost
 #
@@ -10,4 +10,4 @@ FTNInRnews	./rdummy
 FTNInRecombine	../../src/gate/ftninrecomb
 
 
-include ../cf/gate.conf
+include ../cf/fidogate.conf

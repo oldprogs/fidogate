@@ -27,25 +27,25 @@ Command: /bin/cat >./bt/out.0f2/test/ff000004
 Exit code=0
 Packet: from=242:1000/5.0 to=242:1/1.0 grade=- type=- flav=n
 packing: pack=n dir= arc=zip
-ftnpack archiving packet (100b) for 242:1/1.0 (zip)
+ftnpack archiving packet (101b) for 242:1/1.0 (zip)
 Packet: from=242:1000/5.0 to=242:1/1.0 grade=- type=- flav=n
 packing: pack=n dir= arc=zip
 ftnpack archiving packet (62b) for 242:1/1.0 (zip)
 Packet: from=242:1000/5.0 to=242:1/1.0 grade=- type=- flav=n
 packing: pack=n dir= arc=zip
-ftnpack archiving packet (100b) for 242:1/1.0 (zip)
+ftnpack archiving packet (101b) for 242:1/1.0 (zip)
 Packet: from=242:1000/5.0 to=242:1/1.0 grade=- type=- flav=n
 packing: pack=n dir= arc=zip
 ftnpack archiving packet (62b) for 242:1/1.0 (zip)
 Packet: from=242:1000/5.0 to=242:1/1.0 grade=- type=- flav=n
 packing: pack=n dir= arc=zip
-ftnpack archiving packet (100b) for 242:1/1.0 (zip)
+ftnpack archiving packet (101b) for 242:1/1.0 (zip)
 Packet: from=242:1000/5.0 to=242:1/1.0 grade=- type=- flav=n
 packing: pack=n dir= arc=zip
 ftnpack archiving packet (62b) for 242:1/1.0 (zip)
 Packet: from=242:1000/5.0 to=242:1/1.0 grade=- type=- flav=n
 packing: pack=n dir= arc=zip
-ftnpack archiving packet (100b) for 242:1/1.0 (zip)
+ftnpack archiving packet (101b) for 242:1/1.0 (zip)
 Packet: from=242:1000/5.0 to=242:1/1.0 grade=- type=- flav=n
 packing: pack=n dir= arc=zip
 ftnpack archiving packet (62b) for 242:1/1.0 (zip)

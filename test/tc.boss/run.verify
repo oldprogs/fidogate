@@ -1,31 +1,37 @@
 tc: clean-up
 tc: init
 config: fqdn=orodruin.fido.de
-config: address Z2   : 2:2452/123.0  Uplink: 0:0/0.0
-config: zone 0   : .Fido.DE  fidode  -
-config: zone 242 : .Fido.DE  fidode  out.0f2
-config: zone 254 : .Fido.DE  fidode  out.0fe
-config: zone 1   : .fidonet.org  fidonet  out.001
-config: zone 2   : .fidonet.org  fidonet  out
-config: zone 3   : .fidonet.org  fidonet  out.003
-config: zone 4   : .fidonet.org  fidonet  out.004
-config: zone 5   : .fidonet.org  fidonet  out.005
-config: zone 6   : .fidonet.org  fidonet  out.006
-config: zone 21  : .ger.sub.de  gernet  out.015
-config: zone 99  : .flop.swb.de  -  -
-config: zone 152 : .oopsnet.de  oopsnet  -
+config: address Z2   : addr=2:2452/123.0 uplink=0:0/0.0 gateaddr=2:2452/110.2
+config: zone 0   : .Fido.DE  FidoDE  -
+config: zone 1   : .fidonet.org  FidoNet  out.001
+config: zone 2   : .fidonet.org  FidoNet  out
+config: zone 3   : .fidonet.org  FidoNet  out.003
+config: zone 4   : .fidonet.org  FidoNet  out.004
+config: zone 5   : .fidonet.org  FidoNet  out.005
+config: zone 6   : .fidonet.org  FidoNet  out.006
+config: zone 21  : .gernet.heise.de  GerNet  out.015
+config: zone 242 : .Fido.DE  FidoDE  out.0f2
 config: gateway=0:0/0.0
 config: killempty
 config: lognetmail
 config: checkpath
+config: DupeCheck
 config: MaxMsg 400
 config: MaxOpenFiles 40
-config: MaxHistory 14
+config: KillOld
+config: MaxHistory 28
 config: PINBOUND ./pin
 config: SPOOLDIR .
 config: ROUTING %C/routing
 config: CONFIGDIR ../cf
 config: PASSWD %C/passwd
+config: LOCKDIR ./locks
+config: HISTORY %V/history
+config: VARDIR .
+config: LOGFILE %G/log
+config: LOGDIR .
+ftntoss creating MSGID history ./history.dir
+ftntoss creating MSGID history ./history.pag
 Packet: type 2+
 Reading FTN packet header:
     From: 2:2452/123.1
@@ -35,9 +41,7 @@ Reading FTN packet header:
     Rev : 4.3
     Pass: ""
     Capw: 0001
-config: LOGFILE %G/log
-config: LOGDIR .
-ftntoss packet ./pin/00000001.pkt (396b) from 2:2452/123.1 to 2:2452/123.0
+ftntoss packet ./pin/00000001.pkt (536b) from 2:2452/123.1 to 2:2452/123.0
 Reading FTN message header:
     From: Martin Junius                        @ 2:2452/123.1
     To  : All                                  @ 2:2452/123.0
@@ -46,13 +50,13 @@ Reading FTN message header:
 EchoMail: 2:2452/123.1 -> 2:2452/123.0
 EchoMail AREA: LINUX.GER
 Select Z2 AKA: 2:2452/123.0  Uplink: 0:0/0.0
-SEEN-BY: 2:2452/123
-Path   : 2:2452/123
+history: offset=0: LINUX.GER MSGID: 2:2452/123.1 00000001 921410570
+SEEN-BY: 2:2452/123.1
+Path   : 2:2452/123.1
 SEEN-BY: 2:2452/123.1 2:2452/123 2:2452/999 2:2452/123.2 2:2452/123.3 2:2452/123.4 2:2452/123.5
 Path   : 2:2452/123.1 2:2452/123
 New    : 2:2452/999 2:2452/123.2 2:2452/123.3 2:2452/123.4 2:2452/123.5 2:2452/123
 toss_echomail(): message for 2:2452/999.0
-config: VARDIR .
 Open ./toss/toss/nen00001.tmp, mode w
 New packet ./toss/toss/nen00001.pkt (./toss/toss/nen00001.tmp): 2:2452/123.0 -> 2:2452/999.0
 Writing FTN packet header:
@@ -157,7 +161,7 @@ Reading FTN packet header:
     Rev : 4.3
     Pass: ""
     Capw: 0001
-ftntoss packet ./pin/00000002.pkt (396b) from 2:2452/123.2 to 2:2452/123.0
+ftntoss packet ./pin/00000002.pkt (536b) from 2:2452/123.2 to 2:2452/123.0
 Reading FTN message header:
     From: Martin Junius                        @ 2:2452/123.2
     To  : All                                  @ 2:2452/123.0
@@ -166,8 +170,9 @@ Reading FTN message header:
 EchoMail: 2:2452/123.2 -> 2:2452/123.0
 EchoMail AREA: LINUX.GER
 Select Z2 AKA: 2:2452/123.0  Uplink: 0:0/0.0
-SEEN-BY: 2:2452/123
-Path   : 2:2452/123
+history: offset=49: LINUX.GER MSGID: 2:2452/123.2 00000002 921410570
+SEEN-BY: 2:2452/123.2
+Path   : 2:2452/123.2
 SEEN-BY: 2:2452/123.2 2:2452/123 2:2452/999 2:2452/123.1 2:2452/123.3 2:2452/123.4 2:2452/123.5
 Path   : 2:2452/123.2 2:2452/123
 New    : 2:2452/999 2:2452/123.1 2:2452/123.3 2:2452/123.4 2:2452/123.5 2:2452/123
@@ -226,7 +231,7 @@ Reading FTN packet header:
     Rev : 4.3
     Pass: ""
     Capw: 0001
-ftntoss packet ./pin/00000003.pkt (396b) from 2:2452/123.3 to 2:2452/123.0
+ftntoss packet ./pin/00000003.pkt (536b) from 2:2452/123.3 to 2:2452/123.0
 Reading FTN message header:
     From: Martin Junius                        @ 2:2452/123.3
     To  : All                                  @ 2:2452/123.0
@@ -235,8 +240,9 @@ Reading FTN message header:
 EchoMail: 2:2452/123.3 -> 2:2452/123.0
 EchoMail AREA: LINUX.GER
 Select Z2 AKA: 2:2452/123.0  Uplink: 0:0/0.0
-SEEN-BY: 2:2452/123
-Path   : 2:2452/123
+history: offset=98: LINUX.GER MSGID: 2:2452/123.3 00000003 921410570
+SEEN-BY: 2:2452/123.3
+Path   : 2:2452/123.3
 SEEN-BY: 2:2452/123.3 2:2452/123 2:2452/999 2:2452/123.1 2:2452/123.2 2:2452/123.4 2:2452/123.5
 Path   : 2:2452/123.3 2:2452/123
 New    : 2:2452/999 2:2452/123.1 2:2452/123.2 2:2452/123.4 2:2452/123.5 2:2452/123
@@ -285,7 +291,7 @@ Reading FTN packet header:
     Rev : 4.3
     Pass: ""
     Capw: 0001
-ftntoss packet ./pin/00000004.pkt (396b) from 2:2452/123.4 to 2:2452/123.0
+ftntoss packet ./pin/00000004.pkt (536b) from 2:2452/123.4 to 2:2452/123.0
 Reading FTN message header:
     From: Martin Junius                        @ 2:2452/123.4
     To  : All                                  @ 2:2452/123.0
@@ -294,8 +300,9 @@ Reading FTN message header:
 EchoMail: 2:2452/123.4 -> 2:2452/123.0
 EchoMail AREA: LINUX.GER
 Select Z2 AKA: 2:2452/123.0  Uplink: 0:0/0.0
-SEEN-BY: 2:2452/123
-Path   : 2:2452/123
+history: offset=147: LINUX.GER MSGID: 2:2452/123.4 00000004 921410570
+SEEN-BY: 2:2452/123.4
+Path   : 2:2452/123.4
 SEEN-BY: 2:2452/123.4 2:2452/123 2:2452/999 2:2452/123.1 2:2452/123.2 2:2452/123.3 2:2452/123.5
 Path   : 2:2452/123.4 2:2452/123
 New    : 2:2452/999 2:2452/123.1 2:2452/123.2 2:2452/123.3 2:2452/123.5 2:2452/123
@@ -344,7 +351,7 @@ Reading FTN packet header:
     Rev : 4.3
     Pass: ""
     Capw: 0001
-ftntoss packet ./pin/00000005.pkt (396b) from 2:2452/123.5 to 2:2452/123.0
+ftntoss packet ./pin/00000005.pkt (536b) from 2:2452/123.5 to 2:2452/123.0
 Reading FTN message header:
     From: Martin Junius                        @ 2:2452/123.5
     To  : All                                  @ 2:2452/123.0
@@ -353,8 +360,9 @@ Reading FTN message header:
 EchoMail: 2:2452/123.5 -> 2:2452/123.0
 EchoMail AREA: LINUX.GER
 Select Z2 AKA: 2:2452/123.0  Uplink: 0:0/0.0
-SEEN-BY: 2:2452/123
-Path   : 2:2452/123
+history: offset=196: LINUX.GER MSGID: 2:2452/123.5 00000005 921410570
+SEEN-BY: 2:2452/123.5
+Path   : 2:2452/123.5
 SEEN-BY: 2:2452/123.5 2:2452/123 2:2452/999 2:2452/123.1 2:2452/123.2 2:2452/123.3 2:2452/123.4
 Path   : 2:2452/123.5 2:2452/123
 New    : 2:2452/999 2:2452/123.1 2:2452/123.2 2:2452/123.3 2:2452/123.4 2:2452/123
@@ -403,7 +411,7 @@ Reading FTN packet header:
     Rev : 4.3
     Pass: ""
     Capw: 0001
-ftntoss packet ./pin/00000006.pkt (398b) from 2:2452/999.0 to 2:2452/123.0
+ftntoss packet ./pin/00000006.pkt (532b) from 2:2452/999.0 to 2:2452/123.0
 Reading FTN message header:
     From: Martin Junius                        @ 2:2452/999.0
     To  : All                                  @ 2:2452/123.0
@@ -412,6 +420,7 @@ Reading FTN message header:
 EchoMail: 2:2452/999.0 -> 2:2452/123.0
 EchoMail AREA: LINUX.GER
 Select Z2 AKA: 2:2452/123.0  Uplink: 0:0/0.0
+history: offset=245: LINUX.GER MSGID: 2:2452/999 00000006 921410571
 SEEN-BY: 2:2452/999 2:2452/123
 Path   : 2:2452/999
 SEEN-BY: 2:2452/999 2:2452/123 2:2452/123.1 2:2452/123.2 2:2452/123.3 2:2452/123.4 2:2452/123.5
@@ -462,7 +471,7 @@ Reading FTN packet header:
     Rev : 4.3
     Pass: ""
     Capw: 0001
-ftntoss packet ./pin/00000007.pkt (394b) from 2:2452/123.0 to 2:2452/123.0
+ftntoss packet ./pin/00000007.pkt (528b) from 2:2452/123.0 to 2:2452/123.0
 Reading FTN message header:
     From: Martin Junius                        @ 2:2452/123.0
     To  : All                                  @ 2:2452/123.0
@@ -471,6 +480,7 @@ Reading FTN message header:
 EchoMail: 2:2452/123.0 -> 2:2452/123.0
 EchoMail AREA: LINUX.GER
 Select Z2 AKA: 2:2452/123.0  Uplink: 0:0/0.0
+history: offset=292: LINUX.GER MSGID: 2:2452/123 00000007 921410571
 SEEN-BY: 2:2452/123
 Path   : 2:2452/123
 SEEN-BY: 2:2452/123 2:2452/999 2:2452/123.1 2:2452/123.2 2:2452/123.3 2:2452/123.4 2:2452/123.5
@@ -528,19 +538,16 @@ Close ./toss/toss/nen00007.tmp
 Rename ./toss/toss/nen00007.tmp -> ./toss/toss/nen00007.pkt
 ftntoss msgs processed: 7 in, 42 out (0 mail, 42 echo)
 config: fqdn=orodruin.fido.de
-config: address Z2   : 2:2452/123.0  Uplink: 0:0/0.0
-config: zone 0   : .Fido.DE  fidode  -
-config: zone 242 : .Fido.DE  fidode  out.0f2
-config: zone 254 : .Fido.DE  fidode  out.0fe
-config: zone 1   : .fidonet.org  fidonet  out.001
-config: zone 2   : .fidonet.org  fidonet  out
-config: zone 3   : .fidonet.org  fidonet  out.003
-config: zone 4   : .fidonet.org  fidonet  out.004
-config: zone 5   : .fidonet.org  fidonet  out.005
-config: zone 6   : .fidonet.org  fidonet  out.006
-config: zone 21  : .ger.sub.de  gernet  out.015
-config: zone 99  : .flop.swb.de  -  -
-config: zone 152 : .oopsnet.de  oopsnet  -
+config: address Z2   : addr=2:2452/123.0 uplink=0:0/0.0 gateaddr=2:2452/110.2
+config: zone 0   : .Fido.DE  FidoDE  -
+config: zone 1   : .fidonet.org  FidoNet  out.001
+config: zone 2   : .fidonet.org  FidoNet  out
+config: zone 3   : .fidonet.org  FidoNet  out.003
+config: zone 4   : .fidonet.org  FidoNet  out.004
+config: zone 5   : .fidonet.org  FidoNet  out.005
+config: zone 6   : .fidonet.org  FidoNet  out.006
+config: zone 21  : .gernet.heise.de  GerNet  out.015
+config: zone 242 : .Fido.DE  FidoDE  out.0f2
 config: gateway=0:0/0.0
 config: MaxOpenFiles 40
 config: SPOOLDIR .

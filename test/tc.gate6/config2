@@ -1,10 +1,4 @@
 #
-# Local test config
-#
-include ../cf/gate.conf
-
-
-#
 # Don't generate From: line at beginning of text body.
 #
 NoFromLine
@@ -13,3 +7,8 @@ NoFromLine
 # Limit message size for gateway, bigger messages will be bounced/not gated
 #
 LimitMsgSize	50000
+
+#
+# Local test config
+#
+include ../cf/fidogate.conf
