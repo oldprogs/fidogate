@@ -1,4 +1,38 @@
+Wed Aug 20 22:22:31 1997  Martin Junius  <mj@fido.de>
+
+	======= Release 4.2.6 ================================================
+	------- CVS ci, tag R426 ---------------------------------------------
+
+	* ANNOUNCE: update.
+
+	* fidogate.lsm: update.
+
+	* README: update.
+
+	* examples/README: update.
+
+	* examples/win32/: new example dir for win32 configuration,
+	  containing modified config.make.
+
+	* */Makefile (veryclean): added veryclean target to all of them.
+
+	* Makefile (install-dirs): new target, checking directory for
+	  existence before creating it, added BINDIR and INFODIR.
+
+	* test/tc.passthru/run: fixed using in/tmpnews.
+
+	* test/tc.nomsgid/run: fixed using in/tmpnews, only first message
+	  file from in/tmpnews.
+
+	* test/tc.bounce/run: added exit 0 to continue loop in Makefile.
+
 Sun Aug 17 11:26:47 1997  Martin Junius  <mj@fido.de>
+
+	* src/tick/ftntick.c (add_files_bbs): empty change to "-no
+	  description-". 
+
+	* src/common/tick.c (tick_get): if arg is NULL, set to "".
+	  (tick_put): check tic->desc.first.
 
 	------- CVS ci -------------------------------------------------------
 

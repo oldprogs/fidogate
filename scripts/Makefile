@@ -1,6 +1,6 @@
 #:ts=8
 #
-#    $Id: Makefile,v 4.4 1996/10/13 15:08:42 mj Exp $
+#    $Id: Makefile,v 4.5 1997/08/20 21:05:01 mj Exp $
 #
 #    Makefile for FIDOGATE scripts/
 #
@@ -26,7 +26,7 @@ install::
 	@echo "***** make install NOT done for scripts subdirs *****"
 	@echo "Use make install in the individual subdirs!"
 
-clean::
+clean veryclean::
 	rm -f *~ *.bak *.o tags TAGS core paths.tmp
 
 check:

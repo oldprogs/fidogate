@@ -1,6 +1,6 @@
 -*- Indented-Text -*-
 
-$Id: README,v 1.2 1997/03/30 14:49:23 mj Exp $
+$Id: README,v 1.3 1997/08/20 21:04:58 mj Exp $
 
 
 This directory contains example configurations, using the FIDOGATE
@@ -15,6 +15,8 @@ orodruin/	orodruin.fido.de, 2:2452/110.2, 242:1000/5
 abis.abra.de/	Example configurations provided by
 namib.north.de/	Andreas Braukmann <andy@Abra.DE> in his fgatecfg.tgz
 		package. See README.fgate in the sub-directories.
+
+win32/		Configuration examples for GNU-WIN32 environment.
 
 
 See also the sendmail configuration files in ../sendmail/cf/.

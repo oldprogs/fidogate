@@ -1,6 +1,6 @@
 -*- Indented-Text -*-
 
-$Id: README,v 4.21 1997/08/13 17:51:42 mj Exp $
+$Id: README,v 4.22 1997/08/20 21:04:57 mj Exp $
 
 ======================================================================
 				   
@@ -293,7 +293,7 @@ GNU-WIN32 version:
 
 As of FIDOGATE 4.2.5, the source can be compiled with the Cygnus
 GNU-WIN32 development environment for Windows 95 and NT. You'll need
-the WIN32 version of perl, too. See config.make.WIN32.
+the WIN32 version of perl, too. See examples/win32/config.make.
 
 GNU-WIN32 information can be found at
     http://www.cygnus.com/misc/gnu-win32/
@@ -320,6 +320,6 @@ not integrate your patches.
 
 ======================================================================
 
-$Date: 1997/08/13 17:51:42 $
+$Date: 1997/08/20 21:04:57 $
 Martin Junius
 mailto:mj@fido.de

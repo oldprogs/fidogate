@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftntick.c,v 4.10 1997/08/17 13:13:22 mj Exp $
+ * $Id: ftntick.c,v 4.11 1997/08/20 21:05:05 mj Exp $
  *
  * Process incoming TIC files
  *
@@ -37,7 +37,7 @@
 
 
 #define PROGRAM		"ftntick"
-#define VERSION		"$Revision: 4.10 $"
+#define VERSION		"$Revision: 4.11 $"
 #define CONFIG		CONFIG_MAIN
 
 
@@ -415,7 +415,7 @@ int add_files_bbs(Tick *tic, char *dir)
     }
     
     fprintf(fp, "%-12s  %s\r\n", tic->file, 
-	    tic->desc.first ? tic->desc.first->line : "-none-");
+	    tic->desc.first ? tic->desc.first->line : "-no description-");
 
     fclose(fp);
     

@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: tick.c,v 4.6 1997/05/14 18:07:21 mj Exp $
+ * $Id: tick.c,v 4.7 1997/08/20 21:05:03 mj Exp $
  *
  * TIC file processing
  *
@@ -113,7 +113,8 @@ int tick_put(Tick *tic, char *name)
     fprintf(fp, "File %s\r\n", tic->file);
     if(tic->replaces)
 	fprintf(fp, "Replaces %s\r\n", tic->file);
-    fprintf(fp, "Desc %s\r\n", tic->desc.first->line);
+    fprintf(fp, "Desc %s\r\n",
+	    tic->desc.first ? tic->desc.first->line : "");
     if(tic->ldesc.first)
 	fprintf(fp, "LDesc %s\r\n", tic->desc.first->line);
     fprintf(fp, "CRC %08lX\r\n", tic->crc);
@@ -152,8 +153,10 @@ int tick_get(Tick *tic, char *name)
 	key = strtok(buffer, " \t");		/* Keyword */
 	arg = strtok(NULL  , "");		/* Arg(s) */
 
-	if(!key || !arg)
+	if(!key)
 	    continue;
+	if(!arg)
+	    arg = "";
 	
 	if(! stricmp(key, "Origin"))
 	{

@@ -1,6 +1,6 @@
 # -*- Makefile -*-
 #
-# $Id: config.make.WIN32,v 4.2 1997/07/25 21:01:28 mj Exp $
+# $Id: config.make,v 1.1 1997/08/20 21:05:00 mj Exp $
 #
 # FIDOGATE Makefile configuration for GNU-WIN32 / Perl for WIN32
 #
@@ -44,7 +44,7 @@ NEWSSPOOLDIR	= /var/spool/news
 IFMAILDIR       = /usr/local/lib/ifmail
 
 # perl
-PERL		= /perl/bin/perl
+PERL		= /usr/bin/perl
 
 # OS2: comment out
 # SHELL		= /bin/sh

@@ -1,6 +1,6 @@
 #:ts=8
 #
-#    $Id: Makefile,v 4.1 1996/05/03 19:18:45 mj Exp $
+#    $Id: Makefile,v 4.2 1997/08/20 21:05:04 mj Exp $
 #
 #    Makefile for FIDOGATE src/include/
 #
@@ -35,7 +35,7 @@ paths.mak:	$(TOPDIR)/config.make
 install:
 
 
-clean:
+clean veryclean:
 	rm -f *~ *.bak *.o tags TAGS core paths.tmp
 
 check:

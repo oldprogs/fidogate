@@ -1,5 +1,5 @@
 #
-# $Id: Makefile,v 4.6 1997/08/10 17:34:19 mj Exp $
+# $Id: Makefile,v 4.7 1997/08/20 21:04:57 mj Exp $
 #
 # Makefile FIDOGATE TOPDIR
 #
@@ -11,6 +11,17 @@ include $(TOPDIR)/rules.make
 
 SUBDIRS		= src scripts test doc sendmail
 
+INSTALLDIRS	= $(LIBDIR) $(SPOOLDIR) $(SPOOLDIR)/in \
+		  $(SPOOLDIR)/in/tmpmail $(SPOOLDIR)/in/tmpnews \
+		  $(SPOOLDIR)/in/bad $(SPOOLDIR)/insecure \
+		  $(SPOOLDIR)/out $(SPOOLDIR)/locks $(SPOOLDIR)/seq \
+		  $(SPOOLDIR)/toss $(SPOOLDIR)/toss/in \
+		  $(SPOOLDIR)/toss/bad $(SPOOLDIR)/toss/tmp \
+		  $(SPOOLDIR)/toss/out $(SPOOLDIR)/toss/pack $(LOGDIR) \
+		  $(OUTBOUND) $(INBOUND) $(PINBOUND) $(UUINBOUND) \
+		  $(BINDIR) $(INFODIR)
+
+
 
 all clean veryclean check depend install::
 	for d in $(SUBDIRS); do \
@@ -21,27 +32,9 @@ clean veryclean::
 	rm -f *~ *.bak *.o tags TAGS core
 
 install-dirs:
-	$(INSTALL_DIR)    $(LIBDIR)
-	$(INSTALL_DIR)    $(SPOOLDIR)
-	$(INSTALL_DIR)    $(SPOOLDIR)/in
-	$(INSTALL_DIR)    $(SPOOLDIR)/in/tmpmail
-	$(INSTALL_DIR)    $(SPOOLDIR)/in/tmpnews
-	$(INSTALL_DIR)    $(SPOOLDIR)/in/bad
-	$(INSTALL_DIR)    $(SPOOLDIR)/insecure
-	$(INSTALL_DIR)    $(SPOOLDIR)/out
-	$(INSTALL_DIR)    $(SPOOLDIR)/locks
-	$(INSTALL_DIR)    $(SPOOLDIR)/seq
-	$(INSTALL_DIR)    $(SPOOLDIR)/toss
-	$(INSTALL_DIR)    $(SPOOLDIR)/toss/in
-	$(INSTALL_DIR)    $(SPOOLDIR)/toss/bad
-	$(INSTALL_DIR)    $(SPOOLDIR)/toss/tmp
-	$(INSTALL_DIR)    $(SPOOLDIR)/toss/out
-	$(INSTALL_DIR)    $(SPOOLDIR)/toss/pack
-	$(INSTALL_DIR)    $(LOGDIR)
-	$(INSTALL_DIR)    $(OUTBOUND)
-	$(INSTALL_DIR)    $(INBOUND)
-	$(INSTALL_DIR)    $(PINBOUND)
-	$(INSTALL_DIR)    $(UUINBOUND)
+	for d in $(INSTALLDIRS); do if [ ! -d $$d ]; then \
+	    echo "Creating $$d ..."; $(INSTALL_DIR) $$d; \
+	fi; done
 
 install::
 	cp ANNOUNCE $(HTMLDIR)

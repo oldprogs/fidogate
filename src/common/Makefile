@@ -1,6 +1,6 @@
 #:ts=8
 #
-#    $Id: Makefile,v 4.4 1997/06/08 10:25:34 mj Exp $
+#    $Id: Makefile,v 4.5 1997/08/20 21:05:02 mj Exp $
 #
 #    Makefile for FIDOGATE src/common/
 #
@@ -41,7 +41,7 @@ parsedate.c:	parsedate.y
 
 install:
 
-clean:
+clean veryclean:
 	rm -f $(PROGS) $(LIB)
 	rm -f testparse
 	rm -f *~ *.bak *.o tags TAGS core

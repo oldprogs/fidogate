@@ -1,6 +1,6 @@
 #:ts=8
 #
-#    $Id: Makefile,v 4.2 1997/07/25 21:01:43 mj Exp $
+#    $Id: Makefile,v 4.3 1997/08/20 21:05:04 mj Exp $
 #
 #    Makefile for FIDOGATE src/tick/
 #
@@ -30,7 +30,7 @@ install:
 	$(INSTALL_PROG) ftnhatch$(EXE) $(LIBDIR)
 
 
-clean:
+clean veryclean:
 	rm -f $(PROGS)
 	rm -f *~ *.bak *.o tags TAGS core paths.tmp
 

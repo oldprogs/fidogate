@@ -1,6 +1,6 @@
 #:ts=8
 #
-#    $Id: Makefile,v 4.5 1997/07/25 21:01:43 mj Exp $
+#    $Id: Makefile,v 4.6 1997/08/20 21:05:05 mj Exp $
 #
 #    Makefile for FIDOGATE src/util/
 #
@@ -46,7 +46,7 @@ install:
 	$(INSTALL_PROG) pktmore $(BINDIR)
 
 
-clean:
+clean veryclean:
 	rm -f $(PROGS)
 	rm -f *~ *.bak *.o tags TAGS core paths.tmp
 

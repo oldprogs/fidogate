@@ -12,7 +12,7 @@ echo "tc: running ftn2rfc"
 $F
 
 echo "tc: running rfc2ftn"
-for f in in/news/*; do
+for f in in/tmpnews/*; do
     $R -b -n < $f;
 done
 

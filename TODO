@@ -2,6 +2,8 @@
 
 X = for next release
 
+	* doc: add changes for FTNInSendmail.
+
 	* ftnaf: check problem with WIN32.
 	
 DONE	* ftnaf: create command.

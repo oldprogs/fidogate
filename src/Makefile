@@ -1,6 +1,6 @@
 #:ts=8
 #
-#    $Id: Makefile,v 4.3 1996/05/03 19:18:43 mj Exp $
+#    $Id: Makefile,v 4.4 1997/08/20 21:05:02 mj Exp $
 #
 #    Makefile for FIDOGATE src/
 #
@@ -19,7 +19,7 @@ include $(TOPDIR)/rules.make
 SUBDIRS		= include common ffx gate tick toss util
 
 
-all clean depend install check::
+all clean veryclean depend install check::
 	for d in $(SUBDIRS); do $(MAKE) -C $$d $@ || exit 1; done 
 
 clean::
