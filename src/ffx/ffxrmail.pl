@@ -1,29 +1,38 @@
 #!/usr/bin/perl
 #
-# $Id: ffxrmail.pl,v 4.4 1998/02/25 09:15:27 mj Exp $
+# $Id: ffxrmail.pl,v 4.5 1998/09/23 19:23:14 mj Exp $
 #
 # sendmail frontend for processing ffx rmail commands
 #
+
+require 5.000;
+
+my $PROGRAM = "ffxrmail";
  
+use strict;
+use vars qw($opt_v $opt_c);
+use Getopt::Std;
+use FileHandle;
+
 <INCLUDE config.pl>
 
-require "getopts.pl";
-&Getopts('vc:');
+getopts('vc:');
 
 # read config
-$CONFIG      = $opt_c ? $opt_c : "<CONFIG_FFX>";
-&CONFIG_read($CONFIG);
+my $CONFIG = $opt_c ? $opt_c : "<CONFIG_FFX>";
+CONFIG_read($CONFIG);
 
 # configuration
-$SENDMAIL = &CONFIG_get("FFXRmailSendmail");
+my $SENDMAIL = CONFIG_get("FFXRmailSendmail");
 die "ffxrmail:$CONFIG:FFXRmailSendmail not defined\n" if(! $SENDMAIL);
-
+print "SENDMAIL: $SENDMAIL\n" if($opt_v);
 
 # ignore SIGPIPE
 $SIG{"PIPE"} = "IGNORE";
 
-
 # read From_ line from <STDIN>
+my $from;
+my @cmd;
 $_ = <STDIN>;
 if( /^From ([^ ]*) / ) {
     $from = $1;
@@ -35,17 +44,28 @@ else {
 print "ENVELOPE: $from\n" if($opt_v);
 
 # sendmail command
-$from =~ s'\\'\\\\'g;		# quote \ 
-$from =~ s'"'\"'g;		# quote "
-$cmd = "$SENDMAIL -f\"$from\" @ARGV";
+undef @cmd;
+push(@cmd, split(' ', $SENDMAIL));
+push(@cmd, "-f");
+push(@cmd, $from);
+push(@cmd, @ARGV);
 
-print "CMD: $cmd\n" if($opt_v);
+print "CMD: @cmd\n" if($opt_v);
 
-open(PIPE, "|$cmd") || die "ffxrmail: ERROR: open pipe to sendmail\n";
-while(<STDIN>) {
+# Safe pipe to sendmail
+my $pid = open(PIPE, "|-");
+if ($pid) {   # parent
+  while (<STDIN>) {
     print PIPE $_;
+  }
+  close(PIPE);
+  die "$PROGRAM: ERROR: close pipe to sendmail\n" if($?);
 }
-close(PIPE);
-die "ffxrmail: ERROR: close pipe to sendmail\n" if($?);
+else {        # child
+  exec (@cmd) || die "$PROGRAM: ERROR: can't exec $SENDMAIL program: $!\n";
+  die "$PROGRAM: ERROR: impossible return from exec\n";
+  # NOTREACHED
+}
+
 
 exit(0);

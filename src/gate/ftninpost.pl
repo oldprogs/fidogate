@@ -1,23 +1,31 @@
 #!/usr/bin/perl
 #
-# $Id: ftninpost.pl,v 4.8 1998/02/25 09:15:27 mj Exp $
+# $Id: ftninpost.pl,v 4.9 1998/09/23 19:23:14 mj Exp $
 #
 # Postprocessor for ftnin, feeds output of ftn2rfc to rnews and sendmail.
 # Call via ftnin's -x option or run after ftn2rfc. Replaces old fidorun
 # script.
 #
  
+require 5.000;
+
+my $PROGRAM = "ftninpost";
+ 
+use strict;
+use vars qw($opt_v $opt_c);
+use Getopt::Std;
+use FileHandle;
+
 <INCLUDE config.pl>
 
-require "getopts.pl";
-&Getopts('vc:');
+getopts('vc:');
 
 # read config
-$CONFIG      = $opt_c ? $opt_c : "<CONFIG_GATE>";
-&CONFIG_read($CONFIG);
+my $CONFIG = $opt_c ? $opt_c : "<CONFIG_GATE>";
+CONFIG_read($CONFIG);
 
 # options
-undef @options;
+my @options;
 if($opt_c) {
     push @options, ("-c", $CONFIG);
 }
@@ -27,12 +35,12 @@ if($opt_v) {
 
 
 # get gate.conf parameters
-$SENDMAIL    = &CONFIG_get("FTNInSendmail");
-$RNEWS       = &CONFIG_get("FTNInRnews");
-$RECOMB      = &CONFIG_get("FTNInRecombine");
+my $SENDMAIL    = CONFIG_get("FTNInSendmail");
+my $RNEWS       = CONFIG_get("FTNInRnews");
+my $RECOMB      = CONFIG_get("FTNInRecombine");
 
-$OUTRFC_MAIL = &CONFIG_get("OUTRFC_MAIL");
-$OUTRFC_NEWS = &CONFIG_get("OUTRFC_NEWS");
+my $OUTRFC_MAIL = CONFIG_get("OUTRFC_MAIL");
+my $OUTRFC_NEWS = CONFIG_get("OUTRFC_NEWS");
 
 if(! $SENDMAIL) {
     print STDERR "ftninpost:$CONFIG:FTNInSendmail not specified\n";
@@ -53,11 +61,12 @@ print
 
 
 # command lists
-@sendmail = split(' ', $SENDMAIL);
-@rnews    = split(' ', $RNEWS);
+my @sendmail = split(' ', $SENDMAIL);
+my @rnews    = split(' ', $RNEWS);
 # remove -f%s option from sendmail command if present
 # (compatibility with old configurations)
-$fidx = -1;
+my $fidx = -1;
+my $i;
 for($i=0; $i<=$#sendmail; $i++) {
     $fidx = $i if($sendmail[$i] eq "-f%s");
 }
@@ -69,10 +78,13 @@ if($fidx > -1) {
 
 
 # ----- main -----------------------------------------------------------------
+my $dir;
+my $f;
+my @files;
 
 # do recombining of split messages
 if($RECOMB) {
-    @cmd = (&CONFIG_expand($RECOMB));
+    my @cmd = (&CONFIG_expand($RECOMB));
     push(@cmd, @options);
     print "Running @cmd\n" if($opt_v);
     system @cmd;
@@ -86,7 +98,7 @@ opendir(DIR, "$dir") || die "ftninpost: can't open $dir\n";
 closedir(DIR);
 
 for $f (sort @files) {
-    &do_file(1, "$dir/$f");
+    do_file(1, "$dir/$f");
 }
 
 # news
@@ -97,7 +109,7 @@ opendir(DIR, "$dir") || die "ftninpost: can't open $dir\n";
 closedir(DIR);
 
 for $f (sort @files) {
-    &do_file(0, "$dir/$f");
+    do_file(0, "$dir/$f");
 }
 
 
@@ -105,8 +117,9 @@ for $f (sort @files) {
 # ----- do_file() - process mail message or news batch -----------------------
 
 sub do_file {
-    local($mail, $file) = @_;
-    local($ret, $bad);
+    my($mail, $file) = @_;
+    my($ret, $bad, $from, @cmd);
+    local(*SAVE);
 
     if($mail) {
 	# Mail
@@ -149,7 +162,8 @@ sub do_file {
 # ----- get_sender() - get envelope sender for mail --------------------------
 
 sub get_sender {
-    local($file) = @_;
+    my($file) = @_;
+    local(*FILE);
 
     open(FILE, "$file") || die "ftninpost: can't open $file\n";
     $_ = <FILE>;

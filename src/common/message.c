@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: message.c,v 4.11 1998/07/11 21:04:37 mj Exp $
+ * $Id: message.c,v 4.12 1998/09/23 19:23:13 mj Exp $
  *
  * Reading and processing FTN text body
  *
@@ -262,7 +262,10 @@ static int msg_body_parse_echomail(MsgBody *body)
 	p && strncmp(p->line, "\001PATH", 5) && strncmp(p->line, "SEEN-BY", 7);
 	p=p->prev) ;
     if(p == NULL)
+    {
+	log("ERROR: parsing echomail message: no ^APATH or SEEN-BY line");
 	return -2;
+    }
     /* ^APATH */
     for(; p && !strncmp(p->line, "\001PATH", 5); p=p->prev) ;
     /* SEEN-BY */
@@ -341,7 +344,10 @@ static int msg_body_parse_echomail(MsgBody *body)
     }
 
     if(body->seenby.n==0 /*|| body->path.n==0*/)
+    {
+	log("ERROR: parsing echomail message: no SEEN-BY line");
 	return -2;
+    }
     if(body->tear==NULL || body->origin==NULL /** || body->path.n==0 **/)
 	return -1;
     

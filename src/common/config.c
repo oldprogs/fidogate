@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: config.c,v 4.16 1998/07/19 11:28:04 mj Exp $
+ * $Id: config.c,v 4.17 1998/09/23 19:23:13 mj Exp $
  *
  * Configuration data and functions
  *
@@ -51,6 +51,7 @@ struct st_addr
     int zone;				/* Zone for this address set */
     Node addr;				/* Our own main address */
     Node uplink;			/* Uplink address */
+    Node gateaddr;			/* For new-style GateAddress config */
 };
 
 static struct st_addr scf_addr[MAXADDRESS];
@@ -63,6 +64,7 @@ static Node scf_c_uplink = { -1, -1, -1, -1, "" };	/* Current uplink  */
 
 static int scf_ia = 0;			/* Index for Address */
 static int scf_ir = 0;			/* Index for Uplink */
+static int scf_ig = 0;			/* Index for GateAddress */
 
 
 
@@ -123,7 +125,24 @@ static struct st_cflist *scf_list_last  = NULL;
  */
 void cf_i_am_a_gateway_prog(void)
 {
-
+    int i;
+    
+    if(scf_ig) 
+    {
+	/* GateAddress used, new-style config, shuffle addresses */
+	debug(8, "config: switching to gateway, using GateAddress");
+	for(i=0; i<scf_ig; i++)
+	{
+	    scf_addr[i].uplink = scf_addr[i].addr;
+	    scf_addr[i].addr   = scf_addr[i].gateaddr;
+	}
+	for(i=0; i<scf_naddr; i++)
+	    debug(8, "config: address Z%-4d: NEW addr=%s uplink=%s",
+		  scf_addr[i].zone, znfp(&scf_addr[i].addr),
+		  znfp(&scf_addr[i].uplink)                             );
+    }
+    else
+	debug(8, "config: old config, no GateAddress");
 }
 
 
@@ -141,18 +160,20 @@ void cf_check_gate(void)
 	exit(EX_USAGE);
     }
     
-    if(scf_ir == 0)
+    if(scf_ir==0 && scf_ig==0)
     {
-	log("ERROR: config: no Uplink");
+	log("ERROR: config: no Uplink or GateAddress");
 	if(!verbose)
-	    fprintf(stderr, "ERROR: config: no Uplink");
+	    fprintf(stderr, "ERROR: config: no Uplink or GateAddress");
 	exit(EX_USAGE);
     }
     
-    if(scf_ia != scf_ir)
-    {
-	log("WARNING: config: #Address (%d) != #Uplink (%d)", scf_ia, scf_ir);
-    }
+    if(scf_ir && scf_ia!=scf_ir)
+	log("WARNING: config: #Address (%d) != #Uplink (%d)",
+	    scf_ia, scf_ir);
+    if(scf_ig && scf_ia!=scf_ig)
+	log("WARNING: config: #Address (%d) != #GateAddress (%d)",
+	    scf_ia, scf_ig);
 }
 
 
@@ -167,10 +188,9 @@ void cf_debug(void)
     debug(8, "config: fqdn=%s", scf_fqdn);
     
     for(i=0; i<scf_naddr; i++)
-	debug(8, "config: address Z%-4d: %s  Uplink: %s",
-	      scf_addr[i].zone,
-	      node_to_asc(&scf_addr[i].addr, TRUE),
-	      node_to_asc(&scf_addr[i].uplink, TRUE)          );
+	debug(8, "config: address Z%-4d: addr=%s uplink=%s gateaddr=%s",
+	      scf_addr[i].zone, znfp(&scf_addr[i].addr),
+	      znfp(&scf_addr[i].uplink), znfp(&scf_addr[i].gateaddr));
 
     for(i=0; i<scf_nzones; i++)
 	debug(8, "config: zone %-4d: %s  %s  %s", scf_zones[i].zone,
@@ -330,7 +350,8 @@ char *cf_getline(char *buffer, int len, FILE *fp)
 void cf_do_line(char *line)
 {
     char *p, *keyword;
-
+    Node a;
+	    
     keyword = xstrtok(line, " \t");
     if(!keyword)
 	return;
@@ -396,8 +417,6 @@ void cf_do_line(char *line)
     /***** address ******************************************************/
     else if (!stricmp(keyword, "address" ))
     {
-	Node a;
-	    
 	/* address */
 	p = xstrtok(NULL, " \t");
 	if(!p) 
@@ -423,9 +442,6 @@ void cf_do_line(char *line)
     /***** uplink *******************************************************/
     else if (!stricmp(keyword, "uplink" ))
     {
-	Node a;
-	    
-	/* Main address */
 	p = xstrtok(NULL, " \t");
 	if(!p) 
 	{
@@ -442,6 +458,29 @@ void cf_do_line(char *line)
 	{
 	    scf_addr[scf_ir].uplink = a;
 	    scf_ir++;
+	}
+	else
+	    log("config: too many addresses");
+    }
+    /***** GateAddress **************************************************/
+    else if (!stricmp(keyword, "gateaddress" ))
+    {
+	p = xstrtok(NULL, " \t");
+	if(!p) 
+	{
+	    log("config: missing address");
+	    return;
+	}
+	if( asc_to_node(p, &a, FALSE) == ERROR )
+	{
+	    log("config: illegal address %s", p);
+	    return;
+	}
+
+	if(scf_ig < MAXADDRESS)
+	{
+	    scf_addr[scf_ig].gateaddr = a;
+	    scf_ig++;
 	}
 	else
 	    log("config: too many addresses");
@@ -527,9 +566,6 @@ void cf_do_line(char *line)
     /***** gateway ******************************************************/
     else if (!stricmp(keyword, "gateway" ))
     {
-	Node a;
-	    
-	/* Main address */
 	p = xstrtok(NULL, " \t");
 	if(!p) 
 	{

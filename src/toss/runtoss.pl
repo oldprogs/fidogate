@@ -1,70 +1,79 @@
 #!/usr/bin/perl
 #
-# $Id: runtoss.pl,v 4.5 1998/05/01 15:16:47 mj Exp $
+# $Id: runtoss.pl,v 4.6 1998/09/23 19:23:16 mj Exp $
 #
 # Wrapper for ftntoss, ftnroute, ftnpack doing the toss process
 #
 # Usage: runtoss name
 #    or  runtoss /path/dir
 #
+ 
+require 5.000;
 
-$VERSION = '$Revision: 4.5 $ ';
-$PROGRAM = "runtoss";
+my $VERSION = '$Revision: 4.6 $ ';
+my $PROGRAM = "runtoss";
 
+use strict;
+use vars qw($opt_v $opt_c);
+use Getopt::Std;
+use FileHandle;
+## commented due to problems with RedHat 5.0 and 5.1
+##use Sys::Syslog;
 
 # Common configuration for perl scripts 
 <INCLUDE config.pl>
 
-##use Sys::Syslog;
-
-require "getopts.pl";
-&Getopts('vc:');
+getopts('vc:');
 
 # read config
-$CONFIG      = $opt_c ? $opt_c : "<CONFIG_MAIN>";
-&CONFIG_read($CONFIG);
+my $CONFIG = $opt_c ? $opt_c : "<CONFIG_MAIN>";
+CONFIG_read($CONFIG);
 
 # additional arguments for ftntoss/route/pack
-$ARGS  = "";
+my $ARGS  = "";
 $ARGS .= " -c $opt_c" if($opt_c);
 $ARGS .= " -v"        if($opt_v);
 
 
-$PRG        = &CONFIG_get("libdir");
-$SPOOL      = &CONFIG_get("spooldir");
-$OUTBOUND   = &CONFIG_get("btbasedir");
-$INBOUND    = &CONFIG_get("inbound");
-$PINBOUND   = &CONFIG_get("pinbound");
-$UUINBOUND  = &CONFIG_get("uuinbound");
-$FTPINBOUND = &CONFIG_get("ftpinbound");
-$LOGFILE    = &CONFIG_get("logfile");
+my $PRG        = CONFIG_get("libdir");
+my $SPOOL      = CONFIG_get("spooldir");
+my $OUTBOUND   = CONFIG_get("btbasedir");
+my $INBOUND    = CONFIG_get("inbound");
+my $PINBOUND   = CONFIG_get("pinbound");
+my $UUINBOUND  = CONFIG_get("uuinbound");
+my $FTPINBOUND = CONFIG_get("ftpinbound");
+my $LOGFILE    = CONFIG_get("logfile");
 
 # syslog facility, level
-$FACILITY   = &CONFIG_get("logfacility");
-$FACILITY   = "local0" if(!$FACILITY);
-$LEVEL      = &CONFIG_get("loglevel");
-$LEVEL      = "notice" if(!$LEVEL);
+my $FACILITY   = CONFIG_get("logfacility");
+$FACILITY      = "local0" if(!$FACILITY);
+my $LEVEL      = CONFIG_get("loglevel");
+$LEVEL         = "notice" if(!$LEVEL);
 
 # Minimum free disk space required for tossing
-$MINFREE    = &CONFIG_get("diskfreemin");
-$MINFREE    = &CONFIG_get("mindiskfree") if(!$MINFREE);
-$MINFREE    = 10000                      if(!$MINFREE);
+my $MINFREE    = CONFIG_get("diskfreemin");
+$MINFREE       = CONFIG_get("mindiskfree") if(!$MINFREE);
+$MINFREE       = 10000                      if(!$MINFREE);
 # Method for determining free disk space
 #   prog = use DiskFreeProg
 #   none = always assume enough free disk space
-$DFMETHOD   = &CONFIG_get("diskfreemethod");
-$DFMETHOD   = "prog" if(!$DFMETHOD);		# "prog" = Use DiskFreeProg
+my $DFMETHOD   = CONFIG_get("diskfreemethod");
+$DFMETHOD      = "prog" if(!$DFMETHOD);		# "prog" = Use DiskFreeProg
 # df program, must behave like BSD df accepting path name
 #   %p   = path name
-$DFPROG     = &CONFIG_get("diskfreeprog");
-$DFPROG     = "df -P %p" if(!$DFPROG);		# GNU fileutils df
+my $DFPROG     = CONFIG_get("diskfreeprog");
+$DFPROG        = "df -P %p" if(!$DFPROG);	# GNU fileutils df
 
 
 
 if($#ARGV != 0) {
     die "usage: $PROGRAM NAME\n";
 }
-$NAME = $ARGV[0];
+my $NAME = $ARGV[0];
+my $INPUT;
+my $FADIR;
+my $GRADE;
+my $FLAGS;
 
 # Set input and grade depending on NAME
 if   ( $NAME eq "pin"  ) {
@@ -125,17 +134,19 @@ else {
 
 ##### Log message ############################################################
 
-@month = ('Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
-	  'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec' );
+my @month = ('Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+	     'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec' );
 
 sub log {
-    local(@text) = @_;
-    local(*F, @x);
+    my(@text) = @_;
+    local(*F);
+    my @x;
     
     print "$PROGRAM @text\n" if($opt_v);
 
     if($LOGFILE eq "syslog") {
 	# syslog logging
+## commented due to problems with RedHat 5.0 and 5.1
 ##	openlog($PROGRAM, 'pid', $FACILITY);
 ##	syslog($LEVEL, @text);
 ##	closelog();
@@ -166,8 +177,9 @@ sub log {
 ##### Run df program #########################################################
 
 sub df_prog {
-    local($path) = @_;
-    local(@args, *P, @f, $free, $prog);
+    my($path) = @_;
+    my(@args, @f, $free, $prog, $pid);
+    local(*P);
 
     # df command, %p is replaced with path name
     $prog =  $DFPROG;
@@ -205,12 +217,12 @@ sub df_prog {
 ##### Check for free disk space ##############################################
 
 sub df_check {
-    local($path) = @_;
-    local($free);
+    my($path) = @_;
+    my($free);
 
     # Use method
     if($DFMETHOD eq "prog") {
-	$free = &df_prog($path);
+	$free = df_prog($path);
     }
     elsif($DFMETHOD eq "none") {
 	return 1;
@@ -222,7 +234,7 @@ sub df_check {
     # Check against DiskFreeMin
     print "Free disk space in $path is $free K\n" if($opt_v);
     if($free < $MINFREE) {
-	&log("disk space low in $path, $free K free");
+	log("disk space low in $path, $free K free");
 	return 0;
     }
     return 1;
@@ -232,11 +244,11 @@ sub df_check {
 
 ##### Run program ############################################################
 
-$status = 0;				# Global status of last &run_prog
+my $status = 0;				# Global status of last run_prog
 
 sub run_prog {
-    local($cmd) = @_;
-    local(@args, $rc);
+    my($cmd) = @_;
+    my(@args, $rc);
 
     @args = split(' ', $cmd);
     print "Running @args\n" if($opt_v);
@@ -252,17 +264,17 @@ sub run_prog {
 ##### Main ###################################################################
 
 # Check free disk space in SPOOL
-&df_check($SPOOL) || exit 1;
+df_check($SPOOL) || exit 1;
 
 # Run ftntoss/ftnroute/ftnpack
-$flag = 1;
+my $flag = 1;
 
 while($flag) {
     # Check free disk space in outbound (BTBASEDIR)
-    &df_check($OUTBOUND) || exit 1;
+    df_check($OUTBOUND) || exit 1;
 
     # Toss
-    &run_prog("ftntoss -x -I $INPUT $GRADE $FLAGS $ARGS");
+    run_prog("ftntoss -x -I $INPUT $GRADE $FLAGS $ARGS");
     if($status == 0) {		# Normal exit
 	$flag = 0;
     }
@@ -279,13 +291,13 @@ while($flag) {
     }
 
     # Route
-    &run_prog("ftnroute $GRADE $ARGS");
+    run_prog("ftnroute $GRADE $ARGS");
     if($status != 0) {		# Error
 	die "$PROGRAM: ftnroute returned $status\n";
     }
 
     # Pack
-    &run_prog("ftnpack $FADIR $GRADE $ARGS");
+    run_prog("ftnpack $FADIR $GRADE $ARGS");
     if($status != 0) {		# Error
 	die "$PROGRAM: ftnroute returned $status\n";
     }

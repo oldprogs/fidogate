@@ -1,3 +1,51 @@
+1998-09-23  Martin Junius  <mj@fido.de>
+
+	------- CVS ci -------------------------------------------------------
+
+	* src/common/config.c (struct st_addr): added gateaddr field for
+	  new-style GateAddress config.
+	  (cf_debug): debug gateaddr field.
+	  (cf_check_gate): modified to check #Uplink or #GateAddress.
+	  (cf_do_line): implemented new GateAddress config option.
+	  (cf_i_am_a_gateway_prog): if any GateAddress is set, shuffle
+	  addr, uplink, gateaddr, so that the new main address is gateaddr 
+	  and the new uplink is the addr.
+
+	* src/toss/ftntoss.c (do_echomail): if AddOtherAKA is set, add all 
+	  AKAs for the current zone to SEEN-BY. This implements an idea
+	  from Andy Igoshin.
+
+	* src/include/fidogate.h (FIRST, NEXT): added #define's.
+
+	* src/toss/ftntoss.c (main): new config option "AddOtherAKA".
+
+	* src/toss/rununpack.pl: dito.
+
+1998-09-22  Martin Junius  <mj@fido.de>
+
+	* src/toss/runtoss.pl: dito, use strict.
+
+1998-09-21  Martin Junius  <mj@fido.de>
+
+	* src/gate/ftninrecomb.pl: dito, but not using strict.
+
+	* src/gate/ftninpost.pl: dito.
+
+	* src/ffx/ffxrmail.pl: modified to follow Perl5 style, use strict.
+	  Implemented safe method to open pipe to sendmail.
+
+	* config.pl: declare all vars as "my".
+
+1998-09-19  Martin Junius  <mj@fido.de>
+
+	* src/common/message.c (msg_body_parse_echomail): added log()
+	  message for severe errors (no ^APATH or SEEN-BY).
+
+	* src/toss/ftntoss.c (unpack): set msg.node_from.point = 0, not
+	  using point address from packet to avoid problems when packet from 
+	  a point address contains a message from a node address (^AFMPT
+	  will always be set if from a point).
+
 Sun Jul 19 13:17:56 1998  Martin Junius  <mj@fido.de>
 
 	------- CVS ci -------------------------------------------------------

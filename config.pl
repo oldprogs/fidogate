@@ -1,18 +1,19 @@
 ##############################################################################
 #
-# $Id: config.pl,v 4.2 1998/03/07 16:53:25 mj Exp $
+# $Id: config.pl,v 4.3 1998/09/23 19:23:10 mj Exp $
 #
 # Perl functions to read FIDOGATE config file,
 # included by <INCLUDE config.pl> when running subst.pl
 #
 
+my %CONFIG;
 undef %CONFIG;
 
-%CONFIG_default =
+my %CONFIG_default =
     (
      <GEN perl-default>
      );
-%CONFIG_abbrev =
+my %CONFIG_abbrev =
     (
      <GEN perl-abbrev>
      );
@@ -20,7 +21,8 @@ undef %CONFIG;
 
 
 sub CONFIG_read {
-    local($file) = @_;
+    my($file) = @_;
+    my($key, $arg);
     local *C;
 
     $file = &CONFIG_expand($file);
@@ -42,8 +44,8 @@ sub CONFIG_read {
 
 
 sub CONFIG_get1 {
-    local($key) = @_;
-    local($ukey);
+    my($key) = @_;
+    my($ukey);
 
     $ukey = $key;
     $ukey =~ tr/a-z/A-Z/;
@@ -55,9 +57,9 @@ sub CONFIG_get1 {
 
 
 sub CONFIG_get {
-    local($key) = @_;
-    local($ret);
-    local($exp);
+    my($key) = @_;
+    my($ret);
+    my($exp);
 
     $key =~ tr/A-Z/a-z/;
     return &CONFIG_expand( &CONFIG_get1($key) );
@@ -65,8 +67,8 @@ sub CONFIG_get {
 
 
 sub CONFIG_expand {
-    local($v) = @_;
-    local($exp);
+    my($v) = @_;
+    my($exp);
 
     if($v =~ /^%([A-Z])/) {
 	$exp = &CONFIG_get1($CONFIG_abbrev{$1});
@@ -78,7 +80,7 @@ sub CONFIG_expand {
 
 
 sub CONFIG_debug {    
-    local($key);
+    my($key);
 
     for $key (keys %CONFIG) {
 	print "$key = $CONFIG{$key} -> ", &CONFIG_get($key), "\n";

@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftntoss.c,v 4.27 1998/07/11 21:04:41 mj Exp $
+ * $Id: ftntoss.c,v 4.28 1998/09/23 19:23:16 mj Exp $
  *
  * Toss FTN NetMail/EchoMail
  *
@@ -39,7 +39,7 @@
 
 
 #define PROGRAM 	"ftntoss"
-#define VERSION 	"$Revision: 4.27 $"
+#define VERSION 	"$Revision: 4.28 $"
 #define CONFIG		DEFAULT_CONFIG_MAIN
 
 
@@ -122,7 +122,8 @@ int kill_dupe     = FALSE;		/* config: KillDupe */
 int kill_nomsgid  = FALSE;		/* config: KillNoMSGID */
 int kill_old      = FALSE;		/* config: KillOld */
 int echomail4d    = FALSE;		/* config: EchoMail4D */ 
-int no_empty_path = FALSE;		/* config: NoEmptyPath */ 
+int no_empty_path = FALSE;		/* config: NoEmptyPath */
+int add_other_aka = FALSE;		/* config: AddOtherAKAs */ 
 
 /* Values checking for old messages */
 static double max_history = 14;		/* Max. number of days entry stays
@@ -794,7 +795,8 @@ int do_echomail(Packet *pkt, Message *msg, MsgBody *body)
     AreasBBS *area;
     AddToSeenBy *addto;
     LON seenby, path, new;
-    int ret, n;
+    int ret, n, z;
+    Node *node;
 
     /*
      * Lookup area and set zone
@@ -978,7 +980,7 @@ int do_echomail(Packet *pkt, Message *msg, MsgBody *body)
 	lon_add(&seenby, &msg->node_from);
     if( !lon_search_echo(&seenby, &msg->node_to  ) )
 	lon_add(&seenby, &msg->node_to);
-
+    
     /* Add nodes not already in SEEN-BY to seenby and new */
     do_seenby(&seenby, &area->nodes, &new);
 
@@ -986,6 +988,16 @@ int do_echomail(Packet *pkt, Message *msg, MsgBody *body)
     if(addto)
 	do_seenby(&seenby, &addto->add, NULL);
 
+    /* Add all AKAs for the current zone, if AddOtherAKA is set */
+    if(add_other_aka) 
+    {
+	z = cf_zone();
+	for(node=cf_addr_trav(FIRST); node; node=cf_addr_trav(NEXT))
+	    if(node->zone == z               &&
+	       !lon_search_echo(&seenby, node)  )
+		lon_add(&seenby, node);
+    }
+    
 #ifdef AI_3
     /* Delete nodes from SEEN-BY */
     if(deleteseenby_first)
@@ -1355,6 +1367,8 @@ int unpack(FILE *pkt_file, Packet *pkt)
 	/* Retrieve address information from kludges for NetMail */
 	if(body.area == NULL)
 	{
+	    /* Don't use point address from packet for Netmail */
+	    msg.node_from.point = 0;
 	    /* Retrieve complete address from kludges */
 	    kludge_pt_intl(&body, &msg, TRUE);
 	    msg.node_orig = msg.node_from;
@@ -1790,6 +1804,12 @@ int main(int argc, char **argv)
     {
 	debug(8, "config: NoEmptyPath");
 	no_empty_path = TRUE;
+    }
+    if( cf_get_string("AddOtherAKA", TRUE) ||
+	cf_get_string("AddOtherAKAs", TRUE)  )
+    {
+	debug(8, "config: AddOtherAKA");
+	add_other_aka = TRUE;
     }
 
     zonegate_init();

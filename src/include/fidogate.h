@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway software UNIX <-> FIDO
  *
- * $Id: fidogate.h,v 4.6 1998/01/18 09:48:03 mj Exp $
+ * $Id: fidogate.h,v 4.7 1998/09/23 19:23:15 mj Exp $
  *
  * Common header file
  *
@@ -99,6 +99,8 @@
  */
 #define TRUE		1
 #define FALSE		0
+#define FIRST		1
+#define NEXT		0
 #define OK		0
 #define ERROR		(-1)
 #define EMPTY		(-1)

@@ -1,26 +1,34 @@
 #!/usr/bin/perl
 #
-# $Id: ftninrecomb.pl,v 4.4 1998/02/25 09:15:27 mj Exp $
+# $Id: ftninrecomb.pl,v 4.5 1998/09/23 19:23:15 mj Exp $
 #
 # Recombine split mail and news messages.
 #
  
+require 5.000;
+
+my $PROGRAM = "ftninrecomb";
+ 
+#use strict;
+use vars qw($opt_v $opt_c);
+use Getopt::Std;
+use FileHandle;
+
 <INCLUDE config.pl>
 
-require "getopts.pl";
-&Getopts('vc:');
+getopts('vc:');
 
 # read config
-$CONFIG      = $opt_c ? $opt_c : "<CONFIG_GATE>";
-&CONFIG_read($CONFIG);
+my $CONFIG = $opt_c ? $opt_c : "<CONFIG_GATE>";
+CONFIG_read($CONFIG);
 
 # options
-$options = "";
+my $options = "";
 
-$libdir   = &CONFIG_get("LIBDIR");
-$maildir  = &CONFIG_get("OUTRFC_MAIL");
-$newsdir  = &CONFIG_get("OUTRFC_NEWS");
-$newsseq  = "seq.news";
+my $libdir   = CONFIG_get("LIBDIR");
+my $maildir  = CONFIG_get("OUTRFC_MAIL");
+my $newsdir  = CONFIG_get("OUTRFC_NEWS");
+my $newsseq  = "seq.news";
 
 
 
@@ -28,9 +36,9 @@ $newsseq  = "seq.news";
 # main program:
 #
 
-&unsplit_mail;
-&split_newsfiles;
-&unsplit_news;
+unsplit_mail();
+split_newsfiles();
+unsplit_news();
 
 ##################
 #                #
@@ -43,7 +51,6 @@ $newsseq  = "seq.news";
 #
 
 sub unsplit_mail {
-
     #
     # generate databases of mails:
     #        (Splitline $; Part $; Parts) -> Filename
@@ -248,7 +255,7 @@ sub split_newsfiles {
 
 
 sub split_newsfile {
-    local($inname) = @_;
+    my ($inname) = @_;
 
     $nosplitname = sprintf ("$newsdir/%08ld.msg", &sequencer);
     open (NOSPLIT, "> $nosplitname") || die "Can't write $nosplitname\n";

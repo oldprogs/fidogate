@@ -1,19 +1,34 @@
 #!/usr/bin/perl
 #
-# $Id: rununpack.pl,v 4.5 1998/05/01 15:16:47 mj Exp $
+# $Id: rununpack.pl,v 4.6 1998/09/23 19:23:16 mj Exp $
 #
 # Unpack ArcMail archives
 #
 # Usage: rununpack name
 #
 
-$VERSION = '$Revision: 4.5 $ ';
-$PROGRAM = "rununpack";
+require 5.000;
 
-$BADDIR  = "bad";
-$TMPDIR  = "tmpunpack";
-$TMPOUT  = "tmpunpack.out";
+my $VERSION = '$Revision: 4.6 $ ';
+my $PROGRAM = "rununpack";
 
+use strict;
+use vars qw($opt_v $opt_c);
+use Getopt::Std;
+use FileHandle;
+## commented due to problems with RedHat 5.0 and 5.1
+##use Sys::Syslog;
+
+# Common configuration for perl scripts 
+<INCLUDE config.pl>
+
+my $BADDIR  = "bad";
+my $TMPDIR  = "tmpunpack";
+my $TMPOUT  = "tmpunpack.out";
+
+my @arc_bindirs;
+my %arc_l;
+my %arc_x;
 # Archiver programs configuration
 # %X is replaced with settings from toss.conf
 @arc_bindirs    = ( "/bin", "/usr/bin", "/usr/local/bin", "%N");
@@ -31,41 +46,35 @@ $arc_x{"LHA"}   = "lha   eif  %a";
 $arc_l{"ZOO"}   = "zoo   l    %a";
 $arc_x{"ZOO"}   = "zoo   e:   %a";
 
-
-# Common configuration for perl scripts 
-<INCLUDE config.pl>
-
-##use Sys::Syslog;
-
-require "getopts.pl";
-&Getopts('vc:');
+getopts('vc:');
 
 # read config
-$CONFIG      = $opt_c ? $opt_c : "<CONFIG_MAIN>";
-&CONFIG_read($CONFIG);
+my $CONFIG = $opt_c ? $opt_c : "<CONFIG_MAIN>";
+CONFIG_read($CONFIG);
 
 
-$PRG        = &CONFIG_get("libdir");
-$SPOOL      = &CONFIG_get("spooldir");
-$OUTBOUND   = &CONFIG_get("btbasedir");
-$INBOUND    = &CONFIG_get("inbound");
-$PINBOUND   = &CONFIG_get("pinbound");
-$UUINBOUND  = &CONFIG_get("uuinbound");
-$FTPINBOUND = &CONFIG_get("ftpinbound");
-$LOGFILE    = &CONFIG_get("logfile");
+my $PRG        = CONFIG_get("libdir");
+my $SPOOL      = CONFIG_get("spooldir");
+my $OUTBOUND   = CONFIG_get("btbasedir");
+my $INBOUND    = CONFIG_get("inbound");
+my $PINBOUND   = CONFIG_get("pinbound");
+my $UUINBOUND  = CONFIG_get("uuinbound");
+my $FTPINBOUND = CONFIG_get("ftpinbound");
+my $LOGFILE    = CONFIG_get("logfile");
 
 # syslog facility, level
-$FACILITY   = &CONFIG_get("logfacility");
-$FACILITY   = "local0" if(!$FACILITY);
-$LEVEL      = &CONFIG_get("loglevel");
-$LEVEL      = "notice" if(!$LEVEL);
+my $FACILITY   = CONFIG_get("logfacility");
+$FACILITY      = "local0" if(!$FACILITY);
+my $LEVEL      = CONFIG_get("loglevel");
+$LEVEL         = "notice" if(!$LEVEL);
 
 
 
 if($#ARGV != 0) {
     die "usage: $PROGRAM NAME\n";
 }
-$NAME = $ARGV[0];
+my $NAME = $ARGV[0];
+my $INPUT;
 
 # Set input and grade depending on NAME
 if   ( $NAME eq "pin"  ) {
@@ -93,17 +102,19 @@ else {
 
 ##### Log message ############################################################
 
-@month = ('Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
-	  'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec' );
+my @month = ('Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+	     'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec' );
 
 sub log {
-    local(@text) = @_;
-    local(*F, @x);
+    my(@text) = @_;
+    local(*F);
+    my @x;
     
     print "$PROGRAM @text\n" if($opt_v);
 
     if($LOGFILE eq "syslog") {
 	# syslog logging
+## commented due to problems with RedHat 5.0 and 5.1
 ##	openlog($PROGRAM, 'pid', $FACILITY);
 ##	syslog($LEVEL, @text);
 ##	closelog();
@@ -134,9 +145,9 @@ sub log {
 ##### Determine archive type #################################################
 
 sub arc_type {
-    local($name) = @_;
+    my($name) = @_;
     local(*F);
-    local($buf, @b);
+    my($buf, @b);
 
     sysopen(F, "$name", 0) || die "$PROGRAM: error reading $name\n";
     sysread(F, $buf, 6);
@@ -157,11 +168,11 @@ sub arc_type {
 
 ##### Run program ############################################################
 
-$status = 0;				# Global status of last &run_prog
+my $status = 0;				# Global status of last run_prog
 
 sub run_prog {
-    local($output, $prog, @args) = @_;
-    local($rc);
+    my($output, $prog, @args) = @_;
+    my($rc);
     local(*SAVEOUT, *SAVEERR);
 
     open(SAVEOUT, ">&STDOUT") || die "$PROGRAM: can't save STDOUT\n";
@@ -187,15 +198,15 @@ sub run_prog {
 ##### Run archive program ####################################################
 
 sub run_arc {
-    local($output, $cmd, $arc) = @_;
-    local($prog, @args, $i, $d);
+    my($output, $cmd, $arc) = @_;
+    my($prog, @args, $i, $d);
 
     $cmd =~ s/%a/$arc/g;
     @args = split(' ', $cmd);
 
     $prog = "";
     for $d (@arc_bindirs) {
-	$d = &CONFIG_expand($d);
+	$d = CONFIG_expand($d);
 	if(-x "$d/$args[0]") {
 	    $prog = "$d/$args[0]";
 	    last;
@@ -205,7 +216,7 @@ sub run_arc {
 
     print "Run arc: { $prog } @args\n" if($opt_v);
     
-    return &run_prog($output, $prog, @args);
+    return run_prog($output, $prog, @args);
 }
 
 
@@ -220,54 +231,66 @@ chdir("$INPUT/$TMPDIR") || die "$PROGRAM: can't chdir to $INPUT/$TMPDIR\n";
 
 
 # Process mail archives in $INPUT
+my @files;
 opendir(DIR, "$INPUT") || die "$PROGRAM: can't open $INPUT\n";
 @files = grep(/\.(su|mo|tu|we|th|fr|sa|su).$/i, readdir(DIR));
 closedir(DIR);
 
+my $arc;
+my $type;
+my $cmd_l;
+my $cmd_x;
+my $ok;
+my @xf;
+my $f;
+my $old;
+my $new;
+my $n;
+
 for $arc (@files) {
     # Archive type
-    $type = &arc_type("$INPUT/$arc");
+    $type = arc_type("$INPUT/$arc");
     if($type eq "UNKNOWN") {
-	&log("unknown archive $INPUT/$arc, moving archive to $INPUT/$BADDIR");
+	log("unknown archive $INPUT/$arc, moving archive to $INPUT/$BADDIR");
 	rename("$INPUT/$arc", "$INPUT/$BADDIR/$arc")
 	    || die "$PROGRAM: can't rename $INPUT/$arc -> $INPUT/$BADDIR/$arc\n";
 	next;
     }	
-    &log("archive $INPUT/$arc ($type)");
+    log("archive $INPUT/$arc ($type)");
     
     # List/extract program
     $cmd_l = $arc_l{$type};
     $cmd_x = $arc_x{$type};
 
     # Run list on archive, if it fails skip archive for now
-    $ok = &run_arc("/dev/null", $cmd_l, "$INPUT/$arc");
+    $ok = run_arc("/dev/null", $cmd_l, "$INPUT/$arc");
     print "List arc returned OK\n" if($opt_v && $ok);
     if(!$ok) {
-	&log("WARNING: skipping archive $INPUT/$arc");
+	log("WARNING: skipping archive $INPUT/$arc");
 	next;
     }
 
     # Extract archive
-    $ok = &run_arc("$TMPOUT", $cmd_x, "$INPUT/$arc");
+    $ok = run_arc("$TMPOUT", $cmd_x, "$INPUT/$arc");
     print "Extract arc returned OK\n" if($opt_v && $ok);
     if(!$ok) {
-	&log("ERROR: unpacking archive $INPUT/$arc failed");
-	&log("ERROR: ouput of command $cmd_x:");
+	log("ERROR: unpacking archive $INPUT/$arc failed");
+	log("ERROR: ouput of command $cmd_x:");
 	open(F, "$TMPOUT") || die "$PROGRAM: can't open $TMPOUT\n";
 	while(<F>) {
 	    chop;
-	    &log("ERROR:     $_");
+	    log("ERROR:     $_");
 	}
 	close(F);
 
-# 	&log("ERROR: removing extracted files");
+# 	log("ERROR: removing extracted files");
 # 	opendir(DIR, "$INPUT/$TMPDIR")
 # 	    || die "$PROGRAM: can't open $INPUT/$TMPDIR\n";
 # 	@xf = grep(/[^.].*/, readdir(DIR));
 # 	closedir(DIR);
 # 	unlink @xf || die "$PROGRAM: can't remove extracted files\n";
 
-	&log("moving archive to $INPUT/$BADDIR");
+	log("moving archive to $INPUT/$BADDIR");
 	rename("$INPUT/$arc", "$INPUT/$BADDIR/$arc")
 	    || die "$PROGRAM: can't rename $INPUT/$arc -> $INPUT/$BADDIR/$arc\n";
 	next;
@@ -287,7 +310,7 @@ for $arc (@files) {
 	    $n++;
 	    $new = "$INPUT/$n.$f";
 	}
-	&log("packet $f renamed to $n.$f") if($n);
+	log("packet $f renamed to $n.$f") if($n);
 	rename($old, $new) || die "$PROGRAM: can't rename $old -> $new\n";
     }
 
