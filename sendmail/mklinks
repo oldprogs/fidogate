@@ -11,7 +11,6 @@ DIRS="domain feature hack m4 mailer ostype sh siteconfig"
 cp $CF/README .
 
 for d in $DIRS; do
-    if [ -d $d ]; then
-	(cd $d; ln -s $CF/$d/* .)
-    fi
+    [ -d $d ] || mkdir $d
+    ln -sf $CF/$d/* $d
 done
