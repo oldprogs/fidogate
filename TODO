@@ -2,7 +2,7 @@
 
 	************** TODO list for FIDOGATE development **************
 
-	* rfc2ftn: directly process batch file in
+DONE	* rfc2ftn: directly process batch file in
 	  /var/spool/news/out.going.
 
 DONE	* rfc2ftn: check areas.bbs in news mode, only gate if area has
@@ -36,7 +36,7 @@ DONE	* rundf: get df program from config.make
 
 DONE	* lock.c: implement NFS-safe lock file.
 
-	* binkley.c: use lock_lockfile_nfs() for BSY files.
+DONE	* binkley.c: use lock_lockfile_nfs() for BSY files.
 	  lock.c: rewrite lock_lockfile_nfs()
 
 DONE	* dir.c,

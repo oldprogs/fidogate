@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway software UNIX <-> FIDO
  *
- * $Id: rfc2ftn.c,v 4.38 1998/04/03 20:15:36 mj Exp $
+ * $Id: rfc2ftn.c,v 4.39 1998/04/07 12:21:58 mj Exp $
  *
  * Read mail or news from standard input and convert it to a FIDO packet.
  *
@@ -39,8 +39,15 @@
 
 
 #define PROGRAM 	"rfc2ftn"
-#define VERSION 	"$Revision: 4.38 $"
+#define VERSION 	"$Revision: 4.39 $"
 #define CONFIG		DEFAULT_CONFIG_GATE
+
+
+
+/*
+ * Intervall for writing file position to BATCH.pos, if -f BATCH option
+ */
+#define POS_INTERVAL		50
 
 
 
@@ -92,6 +99,8 @@ static char *o_flag = NULL;		/* -o --out-packet-file		    */
 static char *w_flag = NULL;		/* -w --write-outbound 		    */
 static int   W_flag = FALSE;		/* -W --write-crash    		    */
 static int   i_flag = FALSE;		/* -i --ignore-hosts   		    */
+
+static int maxmsg = 0;			/* Process maxmsg messages */
 
 static int default_rfc_level = 0;	/* Default ^ARFC level for areas    */
 
@@ -1055,6 +1064,7 @@ int snd_message(Message *msg, Area *parea,
      * mime  	 MIME stuff
      */
 {
+    static nmsg = 0;
     static int last_zone = -1;		/* Zone address of last packet */
     static FILE *sf;			/* Packet file */
     char *header;
@@ -1103,8 +1113,12 @@ int snd_message(Message *msg, Area *parea,
     /*
      * Open output packet
      */
-    if(!o_flag && cf_zone()!=last_zone)
+    if( (!o_flag && cf_zone()!=last_zone) ||
+	(maxmsg  && nmsg >= maxmsg)         )
+    {
 	pkt_close();
+	nmsg = 0;
+    }
     if(!pkt_isopen())
     {
 	int   crash = msg->attr & MSG_CRASH;
@@ -1191,6 +1205,7 @@ int snd_message(Message *msg, Area *parea,
 	BUF_COPY(msg->subject, subj);
 
     /* Header */
+    nmsg++;
     pkt_put_msg_hdr(sf, msg, TRUE);
 
 
@@ -1638,18 +1653,20 @@ void usage(void)
     fprintf(stderr, "usage:   %s [-options] [user ...]\n\n", PROGRAM);
     fprintf(stderr, "\
 options: -b --news-batch              process news batch\n\
-         -B --binkley NAME            set Binkley outbound directory\n\
+         -B --binkley DIR             set Binkley outbound directory\n\
+         -f --batch-file FILE         read batch file for list of articles\n\
          -i --ignore-hosts            do not bounce unknown host\n\
+         -m --maxmsg N                new output packet after N msgs\n\
 	 -n --news-mode               set news mode\n\
-	 -o --out-packet-file  NAME   set outbound packet file name\n\
-	 -O --out-packet-dir   NAME   set outbound packet directory\n\
+	 -o --out-packet-file FILE    set outbound packet file name\n\
+	 -O --out-packet-dir DIR      set outbound packet directory\n\
          -t --to                      get recipient from To, Cc, Bcc\n\
          -w --write-outbound FLAV     write directly to Binkley .?UT packet\n\
          -W --write-crash             write crash directly to Binkley .CUT\n\
 \n\
 	 -v --verbose                 more verbose\n\
 	 -h --help                    this help\n\
-         -c --config name             read config file (\"\" = none)\n\
+         -c --config FILE             read config file (\"\" = none)\n\
 	 -a --addr Z:N/F.P            set FTN address\n\
 	 -u --uplink-addr Z:N/F.P     set FTN uplink address\n");
     
@@ -1667,18 +1684,25 @@ int main(int argc, char **argv)
     long size, nmsg;
     char *p;
     int b_flag=FALSE, t_flag=FALSE;
+    char *f_flag=NULL;
     char *B_flag=NULL;
     char *O_flag=NULL;
     char *c_flag=NULL;
     char *a_flag=NULL, *u_flag=NULL;
     char *areas_bbs=NULL;
-
+    FILE *fp, *fpart, *fppos;
+    char article[MAXPATH];
+    long pos;
+    char posfile[MAXPATH];
+    
     int option_index;
     static struct option long_options[] =
     {
 	{ "news-batch",   0, 0, 'b'},	/* Process news batch */
 	{ "binkley",      1, 0, 'B'},	/* Binkley outbound base dir */
+	{ "batch-file",   1, 0, 'f'},	/* Batch file with news articles */
 	{ "out-packet-file",1,0,'o'},	/* Set packet file name */
+	{ "maxmsg",       1, 0, 'm'},	/* Close after N messages */
 	{ "news-mode",    0, 0, 'n'},	/* Set news mode */
 	{ "ignore-hosts", 0, 0, 'i'},	/* Do not bounce unknown hosts */
 	{ "out-dir",      1, 0, 'O'},	/* Set packet directory */
@@ -1703,7 +1727,7 @@ int main(int argc, char **argv)
 
     
 
-    while ((c = getopt_long(argc, argv, "bB:o:niO:w:Wtvhc:a:u:",
+    while ((c = getopt_long(argc, argv, "bB:f:o:m:niO:w:Wtvhc:a:u:",
 			    long_options, &option_index     )) != EOF)
 	switch (c) {
 	/***** rfc2ftn options *****/
@@ -1716,9 +1740,18 @@ int main(int argc, char **argv)
 	case 'B':
 	    B_flag = optarg;
 	    break;
+	case 'f':
+	    /* Use list of news articles in file */
+	    f_flag = optarg;
+	    newsmode = TRUE;
+	    private  = FALSE;
+	    break;
 	case 'o':
 	    /* Set packet file name */
 	    o_flag = optarg;
+	    break;
+	case 'm':
+	    maxmsg = atoi(optarg);
 	    break;
 	case 'n':
 	    /* Set news-mode */
@@ -1932,9 +1965,7 @@ int main(int argc, char **argv)
     if(check_areas_bbs)
 	areasbbs_init(areas_bbs);
 
-    /*
-     * Switch stdin to binary for reading news batches
-     */
+    /* Switch stdin to binary for reading news batches */
 #ifdef OS2
     if(b_flag)
 	_fsetmode(stdin, "b");
@@ -1944,68 +1975,113 @@ int main(int argc, char **argv)
 #endif
     
     /**
-     ** Main loop: read message(s) from stdin, batches if -b
+     ** Main loop: read message(s), batches if -b, list if -f
      **/
+    if(f_flag)  
+    {
+	debug(3, "processing article list %s", f_flag);
+	fp = fopen_expand_name(f_flag, R_MODE, TRUE);
+
+	BUF_COPY2(posfile, f_flag, ".pos");
+	if(check_access(posfile, CHECK_FILE) == TRUE)
+	{
+	    debug(3, "old position file %s exists", posfile);
+	    fppos = fopen_expand_name(posfile, R_MODE, TRUE);
+	    pos = 0;
+	    if(fgets(buffer, sizeof(buffer), fppos))
+		pos = atol(buffer);
+	    debug(3, "re-positioning to offset %ld", pos);
+	    fclose(fppos);
+	    if( fseek(fp, pos, SEEK_SET) == ERROR )
+		log("$WARNING: can't seek to offset %ld in file %s",
+		    pos, f_flag);
+	}
+    }
+    
     nmsg = 0;
     while(TRUE)
     {
+	fpart = stdin;
+	
+	/* File with list of new articles */
+	if(f_flag)
+	{
+	    /* Save current position if necessary */
+	    if( (nmsg % POS_INTERVAL) == 0 )
+	    {
+		pos = ftell(fp);
+		debug(4, "Position in list file %ld, writing to %s",
+		      pos, posfile);
+		fppos = fopen_expand_name(posfile, W_MODE, TRUE);
+		fprintf(fppos, "%ld\n", pos);
+		fclose(fppos);
+	    }
+	    
+	    /* Get next article file */
+	    if(! fgets(buffer, sizeof(buffer), fp) )
+		break;
+	    strip_crlf(buffer);
+	    if(! (p = strtok(buffer, " \t")) )
+		continue;
+	    if(*p != '/')	/* No absolute path, add /var/spool/news/ */
+		/**FIXME:          vvvvvvvvvvvvvvvvv use config**/
+		BUF_COPY3(article, "/var/spool/news", "/", p);
+	    else
+		BUF_COPY(article, p);
+
+	    if(! (fpart = fopen_expand_name(article, R_MODE_T, FALSE)) )
+		continue;
+	    debug(3, "processing article file %s", article);
+	}
+
+	nmsg++;
+
+	/* News batch, separated by #! rnews SIZE */
 	if(b_flag)
 	{
-	    size = read_rnews_size(stdin);
+	    size = read_rnews_size(fpart);
 	    if(size == -1)
 		log("ERROR: reading news batch");
 	    if(size <= 0)
 		break;
-	    nmsg++;
-
 	    debug(3, "Batch: message #%ld size %ld", nmsg, size);
 	}
 	
-	/*
-	 * Read message header from stdin
-	 */
+	/* Read message header from fpart */
 	header_delete();
-	header_read(stdin);
+	header_read(fpart);
 
-	/*
-	 * Get Organization header
-	 */
+	/* Get Organization header */
 	if(use_organization_for_origin)
-	{
 	    organization = header_getcomplete("Organization");
-	}
 	
 	/*
-	 * Read message body from stdin and count size
+	 * Read message body from fpart and count size
 	 */
 	size = 0;
 	tl_clear(&body);
-	while(read_line(buffer, BUFFERSIZE, stdin)) {
+	while(read_line(buffer, BUFFERSIZE, fpart)) {
 	    tl_append(&body, buffer);
 	    size += strlen(buffer) + 1;	    /* `+1' for additional CR */
 	}
 	debug(7, "Message body size %ld (+CR!)", size);
+	if(f_flag)
+	    fclose(fpart);
 
 	rfcaddr_init(&rfc_to);
 	
 	if(newsmode)
-	    /*
-	     * Send mail to echo feed for news messages
-	     */
+	    /* Send mail to echo feed for news messages */
 	    status = snd_mail(rfc_to, size);
 	else
 	    if(t_flag)
 	    {
-		/*
-		 * Send mail to addresses from headers
-		 */
+		/* Send mail to addresses from headers */
 		status = sendmail_t(size);
 	    }
 	    else
 	    {
-		/*
-		 * Send mail to addresses from command line args
-		 */
+		/* Send mail to addresses from command line args */
 		for(i = optind; i < argc; i++)
 		{
 		    rfc_to = rfcaddr_from_rfc(argv[i]);
@@ -2014,11 +2090,19 @@ int main(int argc, char **argv)
 		}
 	    }
 	
-	if(!b_flag)
+	if(!b_flag && !f_flag)
 	    break;
     }
 
     pkt_close();
+    if(f_flag)
+    {
+	debug(3, "Removing list file %s", f_flag);
+	fclose(fp);
+	unlink(f_flag);
+	debug(3, "Removing position file %s", posfile);
+	unlink(posfile);
+    }
     
     exit(status);
 

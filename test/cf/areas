@@ -40,3 +40,6 @@ COMP.                         comp.                         -H -z 242 -8
 DE.                           de.                           -H -z 242 -8
 REC.                          rec.                          -H -z 242 -8
 SOC.                          soc.                          -H -z 242 -8
+
+# Test
+FIDO.TEST                     fido.test                     -x -z 2 -8

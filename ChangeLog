@@ -1,3 +1,59 @@
+Tue Apr  7 12:39:49 1998  Martin Junius  <mj@fido.de>
+
+	------- CVS ci -------------------------------------------------------
+
+	* src/common/binkley.c (bink_bsy_create): use lock_lockfile_nfs()
+	  or lock_lockfile_id().
+
+	* src/common/lock.c (lock_lockfile_nfs): arg dir removed, arg name
+	  is complete path.
+	  (unlock_lockfile_nfs): dito.
+	  (lock_program_id): modified to use new lock_lockfile_nfs().
+	  (lock_program): dito.
+	  (unlock_program): dito.
+
+	* src/charset/charsetc.c (is_x/odigit): moved to misc.c
+
+	* src/common/binkley.c (bink_bsy_create_all): removed.
+	  (bink_bsy_delete_all): removed.
+
+	* src/gate/ftnin.c (do_packets): moved bsy file handling to this
+	  function, locking only the node which is currently processed.
+	  (main): removed calls to bink_bsy_create/delete_all().
+
+	* src/charset/charset.map: added mapping tables as previously
+	  defined in charset.c:xtab[][][].
+
+	* src/common/charset.c (main): added #ifdef TEST main() for
+	  dumping xtab table in format suitable for charsetc.
+
+	* src/charset/charsetc.c (charset_parse_c): new function parsing
+	  string with character definition, C, \NNN (octal), \xNN (hex).
+	  (is_xdigit): new function, signed-safe variant of isxdigit().
+	  (is_odigit): new function checking for octal digit.
+	  (charset_do_line): implement standard map command.
+
+Sun Apr  5 14:18:18 1998  Martin Junius  <mj@fido.de>
+
+	* src/toss/runin,mail,news,out.sh: runtoss/rununpack live in BINDIR.
+
+	* src/gate/rfc2ftn.c (main): if old position file batch.pos is
+	  found, read offset from this file and reposition in batch file.
+
+	* scripts/inn/send-fidogate.sh: directly use new rfc2ftn with -f,
+	  -m options.
+
+	* src/gate/rfc2ftn.c (usage): new option -f --batch-file.
+	  (main): implemented -f option. If f_flag is set, open file with
+ 	  list of news articles. Each line contains the filename of the news
+ 	  article (INN newsfeeds flags Tf,Wn) as the first word, which is
+	  opened, read and processed by snd_mail().
+	  (usage): new option -m -maxmsg.
+	  (snd_message): count number of written messages, if maxmsg is
+	  set, close and reopen packet after maxmsg messages.
+	  (main): every POS_INTERVAL article line, get the current offset
+	  in the batch file and write to batch.pos file.
+
 Fri Apr  3 19:59:19 1998  Martin Junius  <mj@fido.de>
 
 	------- CVS ci -------------------------------------------------------

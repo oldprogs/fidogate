@@ -1,0 +1,20 @@
+#
+# $Id: russian.map,v 1.1 1998/04/07 12:21:54 mj Exp $
+#
+# Character set mapping table (to be compiled by charsetc)
+#
+
+#
+# Russian, contributed by Vladimir Ivaschenko <hazard.bsn@poboxes.com>
+#
+
+# ----------------------------------------------------------------------------
+table	x-alt		koir-8
+##FIXME:add map##
+
+
+# ----------------------------------------------------------------------------
+table	koir-8		x-alt
+##FIXME:add map##
+
+

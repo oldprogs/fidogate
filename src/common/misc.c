@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: misc.c,v 4.9 1998/02/01 18:51:19 mj Exp $
+ * $Id: misc.c,v 4.10 1998/04/07 12:21:56 mj Exp $
  *
  * Miscellaneous functions
  *
@@ -313,6 +313,28 @@ int is_digit(int c)
      * passing *p's to is_digit() with a char *p variable. The default
      * char type is signed in most C implementation. */
     return isdigit((c & 0xff));
+}
+
+
+/*
+ * Check for hex digits, signed char-safe version of isxdigit()
+ */
+int is_xdigit(int c)
+{
+    /* Some <ctype.h> implementation only accept a parameter value range
+     * of [-1,255]. This may lead to problems, because we're quite often
+     * passing *p's to is_digit() with a char *p variable. The default
+     * char type is signed in most C implementation. */
+    return isxdigit((c & 0xff));
+}
+
+
+/*
+ * Check for octal digits
+ */
+int is_odigit(int c)
+{
+    return c>='0' && c<'8';
 }
 
 

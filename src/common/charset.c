@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: charset.c,v 4.5 1998/01/18 09:47:44 mj Exp $
+ * $Id: charset.c,v 4.6 1998/04/07 12:21:55 mj Exp $
  *
  * ^ACHARSET handling stuff as described in FSC-0054
  *
@@ -93,7 +93,7 @@ static char *xtab[3][CHARSET_N][128] = {
 	"?", ".", "-", "?", "ue", "^2", "o", " "
 },
 {
-	/***** ISO LATIN-1 ************************/
+	/***** iso-8859-1 => us-ascii *****/
 	"?", "?", "?", "?", "?", "?", "?", "?", 
 	"?", "?", "?", "?", "?", "?", "?", "?", 
 	"?", "?", "?", "?", "?", "?", "?", "?", 
@@ -112,7 +112,7 @@ static char *xtab[3][CHARSET_N][128] = {
 	"o", "u", "u", "u", "ue", "y", "?", "y"
 },
 {
-	/***** IBM PC *****************************/
+	/***** x-ibmpc => us-ascii *****/
 	"C", "ue", "e", "a", "ae", "a", "a", "c", 
 	"e", "e", "e", "i", "i", "i", "Ae", "A", 
 	"E", "ae", "AE", "o", "oe", "o", "u", "u", 
@@ -131,7 +131,7 @@ static char *xtab[3][CHARSET_N][128] = {
 	"?", ".", "-", "?", "^n", "^2", "o", " "
 },
 {
-	/***** MACINTOSH **************************/
+	/***** x-mac => us-ascii *****/
 	"Ae", "A", "C", "E", "N", "Oe", "Ue", "a", 
 	"a", "a", "ae", "a", "a", "c", "e", "e", 
 	"e", "e", "i", "i", "i", "i", "n", "o", 
@@ -173,7 +173,7 @@ static char *xtab[3][CHARSET_N][128] = {
 	"\260", ".", "\267", "sqrt", "\374", "\262", "o", " "
 },
 {
-	/***** ISO LATIN-1 ************************/
+	/***** iso-8859-1 => iso-8859-1 *****/
 	"?", "?", "?", "?", "?", "?", "?", "?", 
 	"?", "?", "?", "?", "?", "?", "?", "?", 
 	"?", "?", "?", "?", "?", "?", "?", "?", 
@@ -192,7 +192,7 @@ static char *xtab[3][CHARSET_N][128] = {
 	"\370", "\371", "\372", "\373", "\374", "\375", "\376", "\377", 
 },
 {
-	/***** IBM PC *****************************/
+	/***** x-ibmpc => iso-8859-1 *****/
 	"\307", "\374", "\351", "\342", "\344", "\340", "\345", "\347", 
 	"\352", "\353", "\350", "\357", "\356", "\354", "\304", "\305", 
 	"\311", "\346", "\306", "\364", "\366", "\362", "\373", "\371", 
@@ -211,7 +211,7 @@ static char *xtab[3][CHARSET_N][128] = {
 	"\260", ".", "\267", "sqrt", "^n", "\262", "o", " "
 },
 {
-	/***** MACINTOSH **************************/
+	/***** x-mac => iso-8859-1 *****/
 	"\304", "\305", "\307", "\311", "\321", "\326", "\334", "\341", 
 	"\340", "\342", "\344", "\343", "\345", "\347", "\351", "\350", 
 	"\352", "\353", "\355", "\354", "\356", "\357", "\361", "\363", 
@@ -378,3 +378,122 @@ char *charset_xlate(int c, int cidx)
     else
 	return NULL;
 }
+
+
+
+#ifdef TEST
+/*
+ * Parser test
+ */
+int main(int argc, char *argv[])
+{
+    int i;
+    unsigned char *s;
+
+    printf("table\tiso-8859-1\tus-ascii\n");
+    for(i=0; i<0x80; i++)
+    {
+	printf("map\t\\x%02X\t", i+0x80);
+	s = xtab[0][CHARSET_LATIN1][i];
+	while(*s)
+	{
+	    if(*s>' ' && *s<0x7f && *s!='\\')
+		printf("%c ", *s);
+	    else
+		printf("\\x%02X ", *s);
+	    s++;
+	}
+	printf("\n");
+    }
+    printf("\n");
+    
+    printf("table\tx-ibmpc\tus-ascii\n");
+    for(i=0; i<0x80; i++)
+    {
+	printf("map\t\\x%02X\t", i+0x80);
+	s = xtab[0][CHARSET_IBMPC][i];
+	while(*s)
+	{
+	    if(*s>' ' && *s<0x7f && *s!='\\')
+		printf("%c ", *s);
+	    else
+		printf("\\x%02X ", *s);
+	    s++;
+	}
+	printf("\n");
+    }
+    printf("\n");
+    
+    printf("table\tx-mac\tus-ascii\n");
+    for(i=0; i<0x80; i++)
+    {
+	printf("map\t\\x%02X\t", i+0x80);
+	s = xtab[0][CHARSET_MAC][i];
+	while(*s)
+	{
+	    if(*s>' ' && *s<0x7f && *s!='\\')
+		printf("%c ", *s);
+	    else
+		printf("\\x%02X ", *s);
+	    s++;
+	}
+	printf("\n");
+    }
+    printf("\n");
+    
+
+    
+    printf("table\tiso-8859-1\tiso-8859-1\n");
+    for(i=0; i<0x80; i++)
+    {
+	printf("map\t\\x%02X\t", i+0x80);
+	s = xtab[1][CHARSET_LATIN1][i];
+	while(*s)
+	{
+	    if(*s>' ' && *s<0x7f && *s!='\\')
+		printf("%c ", *s);
+	    else
+		printf("\\x%02X ", *s);
+	    s++;
+	}
+	printf("\n");
+    }
+    printf("\n");
+    
+    printf("table\tx-ibmpc\tiso-8859-1\n");
+    for(i=0; i<0x80; i++)
+    {
+	printf("map\t\\x%02X\t", i+0x80);
+	s = xtab[1][CHARSET_IBMPC][i];
+	while(*s)
+	{
+	    if(*s>' ' && *s<0x7f && *s!='\\')
+		printf("%c ", *s);
+	    else
+		printf("\\x%02X ", *s);
+	    s++;
+	}
+	printf("\n");
+    }
+    printf("\n");
+    
+    printf("table\tx-mac\tiso-8859-1\n");
+    for(i=0; i<0x80; i++)
+    {
+	printf("map\t\\x%02X\t", i+0x80);
+	s = xtab[1][CHARSET_MAC][i];
+	while(*s)
+	{
+	    if(*s>' ' && *s<0x7f && *s!='\\')
+		printf("%c ", *s);
+	    else
+		printf("\\x%02X ", *s);
+	    s++;
+	}
+	printf("\n");
+    }
+    printf("\n");
+    
+    return 0;
+}
+#endif /**TEST**/

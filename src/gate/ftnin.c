@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftnin.c,v 4.6 1998/01/18 15:33:11 mj Exp $
+ * $Id: ftnin.c,v 4.7 1998/04/07 12:21:56 mj Exp $
  *
  * Search for mail packets destined to gateway's FTN addresses and feed
  * them to ftn2rfc.
@@ -39,7 +39,7 @@
 
 
 #define PROGRAM		"ftnin"
-#define VERSION		"$Revision: 4.6 $"
+#define VERSION		"$Revision: 4.7 $"
 #define CONFIG		DEFAULT_CONFIG_GATE
 
 
@@ -103,18 +103,25 @@ int do_packets(void)
 {
     char *name;
     Node *node;
-    
+    int ret = OK;
+
     /*
      * If -n option not given, call ftn2rfc for each packet
      */
     if(!n_flag)
-	/** Traverse addresses **/
+	/* Traverse all gate addresses */
 	for(node=cf_addr_trav(TRUE); node; node=cf_addr_trav(FALSE))
 	{
 	    debug(5, "node=%s", node_to_asc(node, TRUE));
+	    if(bink_bsy_create(node, NOWAIT) == ERROR)
+	    {
+		log("%s busy, skipping", znfp(node));
+		continue;
+	    }
 	    if((name = bink_find_out(node, NULL)))
 		if(exec_ftn2rfc(name) == ERROR)
-		    return ERROR;
+		    ret = ERROR;
+	    bink_bsy_delete(node);
 	}
     
     /*
@@ -288,11 +295,7 @@ int main(int argc, char **argv)
     if(exec)
 	BUF_EXPAND(script, exec);
     
-    /* Create busy files, if o.k., process packets */
-    if(bink_bsy_create_all(NOWAIT) == OK)
-	do_packets();
-    /* Delete busy files */
-    bink_bsy_delete_all();
+    do_packets();
 
     exit(0);
 

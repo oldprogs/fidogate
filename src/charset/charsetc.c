@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: charsetc.c,v 1.2 1998/04/03 20:15:34 mj Exp $
+ * $Id: charsetc.c,v 1.3 1998/04/07 12:21:54 mj Exp $
  *
  * Charset mapping table compiler
  *
@@ -36,12 +36,8 @@
 
 
 #define PROGRAM		"charsetc"
-#define VERSION		"$Revision: 1.2 $"
+#define VERSION		"$Revision: 1.3 $"
 
-
-
-/*->structs.h----------------------------------------------------------------*/
-/*---------------------------------------------------------------------------*/
 
 
 /*-common--------------------------------------------------------------------*/
@@ -66,7 +62,7 @@ static CharsetTable *charset_table_last = NULL;
 /*
  * Alloc new CharsetTable and put into linked list
  */
-CharsetTable *charset_table_new_link(void)
+CharsetTable *charset_table_new(void)
 {
     CharsetTable *p;
 
@@ -90,7 +86,7 @@ CharsetTable *charset_table_new_link(void)
 /*
  * Alloc new CharsetAlias and put into linked list
  */
-CharsetAlias *charset_alias_new_link(void)
+CharsetAlias *charset_alias_new(void)
 {
     CharsetAlias *p;
 
@@ -115,14 +111,64 @@ CharsetAlias *charset_alias_new_link(void)
 /*---------------------------------------------------------------------------*/
 
 /*
+ * Parse character
+ */
+int charset_parse_c(char *s)
+{
+    int val, n;
+    
+    if(s[0] == '\\')			/* Special: \NNN or \xNN */
+    {
+	s++;
+	val = 0;
+	n = 0;
+	if(s[0]=='x' || s[0]=='X')	/* Hex */
+	{
+	    s++;
+	    while(is_xdigit(s[0]) && n<2)
+	    {
+		s[0] = toupper(s[0]);
+		val = val * 16 + s[0] - (s[0]>'9' ? 'A'-10 : '0');
+		s++;
+		n++;
+	    }
+	    if(*s)
+		return ERROR;
+	}
+	else				/* Octal */
+	{
+	    while(is_odigit(s[0]) && n<3)
+	    {
+		val = val * 8 +  s[0] - '0';
+		s++;
+		n++;
+	    }
+	    if(*s)
+		return ERROR;
+	}
+    }
+    else
+    {
+	if(s[1] == 0)			/* Single char */
+	    val = s[0] & 0xff;
+	else
+	    return ERROR;
+    }
+
+    return val & 0xff;
+}
+
+
+
+/*
  * Process one line from charset.map file
  */
-static int charset_do_line(char *line)
+int charset_do_line(char *line)
 {
     static CharsetTable *pt = NULL;
     char *key, *w1, *w2;
     CharsetAlias *pa;
-    int i, j;
+    int i, c1, c2;
     
     debug(16, "charset.map line: %s", line);
 
@@ -135,6 +181,7 @@ static int charset_do_line(char *line)
 	if( charset_do_file(w1) == ERROR)
 	    return ERROR;
     }
+
     /* Define alias */
     else if( strieq(key, "alias") ) 
     {
@@ -147,11 +194,12 @@ static int charset_do_line(char *line)
 	    return ERROR;
 	}
 	
-	pa = charset_alias_new_link();
+	pa = charset_alias_new();
 	BUF_COPY(pa->alias, w1);
 	BUF_COPY(pa->name, w2);
 	debug(15, "new alias: alias=%s name=%s", pa->alias, pa->name);
     }
+
     /* Define table */
     else if( strieq(key, "table") )
     {
@@ -164,11 +212,12 @@ static int charset_do_line(char *line)
 	    return ERROR;
 	}
 
-	pt = charset_table_new_link();
+	pt = charset_table_new();
 	BUF_COPY(pt->in, w1);
 	BUF_COPY(pt->out, w2);
 	debug(15, "new table: in=%s out=%s", pt->in, pt->out);
     }
+
     /* Define mapping for character(s) in table */
     else if( strieq(key, "map") )
     {
@@ -212,6 +261,36 @@ static int charset_do_line(char *line)
 	/* Normal mapping */
 	else
 	{
+	    if( (c1 = charset_parse_c(w1)) == ERROR)
+	    {
+		fprintf(stderr, "%s:%ld: illegal char %s\n",
+			PROGRAM, cf_lineno_get(), w1);
+		return ERROR;
+	    }
+	    if( c1 < 0x80 )
+	    {
+		fprintf(stderr, "%s:%ld: illegal char %s, must be >= 0x80\n",
+			PROGRAM, cf_lineno_get(), w1);
+		return ERROR;
+	    }
+
+	    for( i=0; i<MAX_CHARSET_OUT-1 && (w2 = strtok(NULL, " \t")); i++ )
+	    {
+		if( (c2 = charset_parse_c(w2)) == ERROR)
+		{
+		    fprintf(stderr, "%s:%ld: illegal char definition %s\n",
+			    PROGRAM, cf_lineno_get(), w2);
+		    return ERROR;
+		}
+		pt->map[c1 & 0x7f][i] = c2;
+	    }
+	    for( ; i<MAX_CHARSET_OUT; i++ )
+		pt->map[c1 & 0x7f][i] = 0;
+
+	    debug(15, "map: %u -> %u %u %u %u",
+		  c1,
+		  pt->map[c1 & 0x7f][0], pt->map[c1 & 0x7f][1],
+		  pt->map[c1 & 0x7f][2], pt->map[c1 & 0x7f][3] );
 	}
     }
     /* Error */
@@ -230,7 +309,7 @@ static int charset_do_line(char *line)
 /*
  * Process charset.map file
  */
-static int charset_do_file(char *name)
+int charset_do_file(char *name)
 {
     FILE *fp;
     char *p;

@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: prototypes.h,v 4.41 1998/04/03 20:15:36 mj Exp $
+ * $Id: prototypes.h,v 4.42 1998/04/07 12:21:59 mj Exp $
  *
  * Prototypes for functions in libfidogate.a
  *
@@ -71,8 +71,6 @@ void	areasbbs_add		(AreasBBS *p);
 
 char   *flav_to_asc		(int);
 int	asc_to_flav		(char *);
-int	bink_bsy_create_all	(int);
-int	bink_bsy_delete_all	(void);
 char   *bink_out_name		(Node *);
 char   *bink_bsy_name		(Node *);
 int	bink_bsy_test		(Node *);
@@ -219,8 +217,8 @@ int	unlock_fd		(int);
 int	lock_file		(FILE *);
 int	unlock_file		(FILE *);
 #ifdef NFS_SAFE_LOCK_FILES
-int	lock_lockfile_nfs	(char *, char *, int, char *);
-int	unlock_lockfile_nfs	(char *, char *);
+int	lock_lockfile_nfs	(char *, int, char *);
+int	unlock_lockfile_nfs	(char *);
 #else
 int	lock_lockfile_id	(char *, int, char *);
 int	unlock_lockfile		(char *);
@@ -320,6 +318,8 @@ void	strip_space		(char *);
 int	is_space		(int);
 int	is_blank		(int);
 int     is_digit		(int);
+int     is_xdigit		(int);
+int     is_odigit		(int);
 char   *str_expand_name		(char *, size_t, char *);
 
 #define BUF_EXPAND(d,s)			str_expand_name(d,sizeof(d),s)

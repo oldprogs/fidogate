@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# $Id: send-fidogate.sh,v 1.1 1996/09/28 08:13:53 mj Exp $
+# $Id: send-fidogate.sh,v 1.2 1998/04/07 12:21:53 mj Exp $
 #
 # SH script to send batches to FIDOGATE
 #
@@ -10,7 +10,7 @@
 #
 # FIDOGATE rfc2ftn
 #
-RFC2FTN="<LIBDIR>/rfc2ftn -b -n"
+RFC2FTN="<LIBDIR>/rfc2ftn"
 
 PROGNAME=`basename $0`
 LOCK=${LOCKS}/LOCK.${PROGNAME}
@@ -59,13 +59,12 @@ for SITE in ${LIST}; do
 	continue
     fi
 
-    QUEUEJOBS=${MAXJOBS}
-
     echo "${PROGNAME}: [$$] begin ${SITE}"
 
-    time batcher -N ${QUEUEJOBS} -b500000 \
-	-p"$RFC2FTN" \
-	${SITE} ${BATCHFILE}
+#    time batcher -N ${QUEUEJOBS} -b500000 \
+#	-p"$RFC2FTN -b -n" \
+#	${SITE} ${BATCHFILE}
+    time $RFC2FTN -f $BATCHFILE -m 500
 
     echo "${PROGNAME}: [$$] end ${SITE}"
 done

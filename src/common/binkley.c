@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: binkley.c,v 4.5 1998/01/18 09:47:40 mj Exp $
+ * $Id: binkley.c,v 4.6 1998/04/07 12:21:55 mj Exp $
  *
  * BinkleyTerm-style outbound directory functions
  *
@@ -62,14 +62,6 @@ outb_types[NOUTB] =
 	
 	
 /*
- * List of addresses for BSY files
- */
-static Node *bink_bsy_addr[2 * MAXADDRESS];
-static int   bink_bsy_naddr = 0;
-
-
-
-/*
  * FLAV_* flavor code to string
  */
 char *flav_to_asc(int flav)
@@ -97,60 +89,6 @@ int asc_to_flav(char *flav)
 	    return outb_types[i].type;
 
     return ERROR;
-}
-
-
-
-/*
- * Create BSY files for all configured addresses
- */
-int bink_bsy_create_all(int wait)
-{
-    Node *node;
-    int ret = OK;
-    int i;
-    
-    /* Traverse all configured addresses */
-    for(node=cf_addr_trav(TRUE); node; node=cf_addr_trav(FALSE))
-    {
-	bink_bsy_addr[bink_bsy_naddr++] = node;
-    }
-
-    /* Create BSY files for addresses */
-    for(i=0; i<bink_bsy_naddr; i++)
-	if(bink_bsy_create(bink_bsy_addr[i], wait) == ERROR)
-	{
-	    bink_bsy_addr[i] = NULL;
-	    ret = ERROR;
-	}
-
-    /* Delete if error */
-    if(ret == ERROR)
-	bink_bsy_delete_all();
-    
-    return ret;
-}
-
-
-
-/*
- * Delete BSY files for all configured addresses
- */
-int bink_bsy_delete_all(void)
-{
-    int ret = OK;
-    int i;
-    
-    for(i=0; i<bink_bsy_naddr; i++)
-	if(bink_bsy_addr[i])
-	{
-	    if(bink_bsy_delete(bink_bsy_addr[i]) == ERROR)
-		ret = ERROR;
-	    bink_bsy_addr[i] = NULL;
-	}
-    bink_bsy_naddr = 0;
-    
-    return ret;
 }
 
 
@@ -228,7 +166,6 @@ int bink_bsy_test(Node *node)
 int bink_bsy_create(Node *node, int wait)
 {
 #ifdef DO_BSY_FILES
-    int fd;
     char *name = bink_bsy_name(node);
 
     if(!name)
@@ -239,23 +176,11 @@ int bink_bsy_create(Node *node, int wait)
 	return ERROR;
     
     /* Create BSY file */
-    do
-    {
-	/*
-	 * Use open() with flag O_EXCL, this will fail if the
-	 * BSY file already exists
-	 */
-	fd = open(name, O_RDWR | O_CREAT | O_EXCL, BSY_MODE);
-	debug(5, "Creating BSY file %s %s.",
-	      name, fd==-1 ? "failed" : "succeeded");
-	if(fd != -1)
-	    close(fd);
-	else if(wait)
-	    sleep(5);
-    }
-    while(fd==-1 && wait);
-
-    return fd==-1 ? ERROR : OK;
+# ifdef NFS_SAFE_LOCK_FILES
+    return lock_lockfile_nfs(name, wait, NULL);
+# else
+    return lock_lockfile_id(name, wait, NULL);
+# endif
 #else
     return OK;
 #endif
