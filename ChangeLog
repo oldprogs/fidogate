@@ -1,3 +1,19 @@
+Sun Mar 30 16:45:38 1997  Martin Junius  <mj@fido.de>
+
+	------- CVS ci -------------------------------------------------------
+
+	* examples/README: added new example dirs.
+
+	* examples/namib.north.de: same.
+
+	* examples/abis.abra.de: added new example configuration directory
+	  from Andreas Braukmann's <andy@Abra.DE> fgate.tgz package.
+
+Sat Mar 29 20:43:04 1997  Martin Junius  <mj@fido.de>
+
+	* src/tick/ftntick.c (process_tic): no error if unlink(old_name)
+	  fails, the file to be replaced may not exist.
+
 Fri Mar 28 10:48:20 1997  Martin Junius  <mj@fido.de>
 
 	------- CVS ci -------------------------------------------------------

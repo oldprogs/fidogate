@@ -3,6 +3,7 @@
 TODO list for FIDOGATE tests:
 
 	* ftnpack:
+
 	  - packet file names not ending in .pkt on command line
             correctly archived as something.pkt?
 
@@ -13,3 +14,10 @@ TODO list for FIDOGATE tests:
 
 	  Maybe add a new option to always generate a new packet name
 	  ending in .pkt.
+
+
+	* ftntoss:
+
+	  - new tosser 4D EchoMail handling as of 4.2.0 for a boss
+	    node tosser with some points.
+

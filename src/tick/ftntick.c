@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftntick.c,v 4.7 1997/03/26 20:46:45 mj Exp $
+ * $Id: ftntick.c,v 4.8 1997/03/30 14:49:51 mj Exp $
  *
  * Process incoming TIC files
  *
@@ -37,7 +37,7 @@
 
 
 #define PROGRAM		"ftntick"
-#define VERSION		"$Revision: 4.7 $"
+#define VERSION		"$Revision: 4.8 $"
 #define CONFIG		CONFIG_MAIN
 
 
@@ -241,12 +241,8 @@ int process_tic(Tick *tic)
 	    log("area %s file %s replaces %s, removed",
 		tic->area, tic->file, tic->replaces);
 	    
-	/* Remove old file */
-	if(unlink(old_name) == ERROR)
-	{
-	    log("$ERROR: can't remove %s", old_name);
-	    return ERROR;
-	}
+	/* Remove old file, no error if this fails */
+	unlink(old_name);
 
 	/* Remove old file from FILES.BBS */
 	/**FIXME**/

@@ -1,15 +1,20 @@
 -*- Indented-Text -*-
 
-$Id: README,v 1.1 1997/02/09 10:04:20 mj Exp $
+$Id: README,v 1.2 1997/03/30 14:49:23 mj Exp $
 
 
-This directory contains example configurations, both using the
-FIDOGATE gateway and tosser:
+This directory contains example configurations, using the FIDOGATE
+gateway and tosser:
 
 morannon/	morannon.fido.de, 2:2452/110, 242:1000/1
 		node configuration for main Fido.DE gateway
 
 orodruin/	orodruin.fido.de, 2:2452/110.2, 242:1000/5
 		point configuration
+
+abis.abra.de/	Example configurations provided by
+namib.north.de/	Andreas Braukmann <andy@Abra.DE> in his fgatecfg.tgz
+		package. See README.fgate in the sub-directories.
+
 
 See also the sendmail configuration files in ../sendmail/cf/.
