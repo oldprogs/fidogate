@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: config.c,v 4.14 1998/01/18 15:33:07 mj Exp $
+ * $Id: config.c,v 4.15 1998/04/03 20:15:35 mj Exp $
  *
  * Configuration data and functions
  *
@@ -31,13 +31,6 @@
  *****************************************************************************/
 
 #include "fidogate.h"
-
-
-
-/*
- * Current line in config file
- */
-static int scf_line;
 
 
 
@@ -284,13 +277,29 @@ int cf_defzone(void)
  * comments (starting with `#'), and empty lines. cf_getline() returns
  * a pointer to the first non-whitespace in buffer.
  */
+static long cf_lineno = 0;
+
+long cf_lineno_get(void)
+{
+    return cf_lineno;
+}
+
+long cf_lineno_set(long n)
+{
+    long old;
+    
+    old = cf_lineno;
+    cf_lineno = n;
+
+    return old;
+}
+
 char *cf_getline(char *buffer, int len, FILE *fp)
 {
     char *p;
 
-    scf_line = 0;
     while (fgets(buffer, len, fp)) {
-	scf_line++;
+	cf_lineno++;
 	strip_crlf(buffer);
 	if((p = strchr(buffer, '#')))		/* Strip comments */
 	    *p = 0;

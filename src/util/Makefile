@@ -1,6 +1,6 @@
 #:ts=8
 #
-#    $Id: Makefile,v 4.9 1998/02/04 19:17:40 mj Exp $
+#    $Id: Makefile,v 4.10 1998/04/03 20:15:37 mj Exp $
 #
 #    Makefile for FIDOGATE src/util/
 #
@@ -43,6 +43,7 @@ install:
 	$(INSTALL_PROG) sumcrc$(EXE) $(PREFIX)$(BINDIR)
 	$(INSTALL_PROG) ftnlock$(EXE) $(PREFIX)$(LIBDIR)
 	$(INSTALL_PROG) ftnlog$(EXE) $(PREFIX)$(LIBDIR)
+	$(INSTALL_PROG) ftnoutpkt$(EXE) $(PREFIX)$(BINDIR)
 	$(INSTALL_PROG) pktdebug$(EXE) $(PREFIX)$(BINDIR)
 	$(INSTALL_PROG) pktmore $(PREFIX)$(BINDIR)
 

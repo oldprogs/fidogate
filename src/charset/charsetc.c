@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: charsetc.c,v 1.1 1998/03/22 17:57:38 mj Exp $
+ * $Id: charsetc.c,v 1.2 1998/04/03 20:15:34 mj Exp $
  *
  * Charset mapping table compiler
  *
@@ -36,44 +36,292 @@
 
 
 #define PROGRAM		"charsetc"
-#define VERSION		"$Revision: 1.1 $"
+#define VERSION		"$Revision: 1.2 $"
 
 
 
 /*->structs.h----------------------------------------------------------------*/
+/*---------------------------------------------------------------------------*/
+
+
+/*-common--------------------------------------------------------------------*/
 /*
- * Charset mapping
+ * Alias linked list
  */
-#define MAX_CHARSET_NAME	16
-#define MAX_CHARSET_IN		128
-#define MAX_CHARSET_OUT		4
+static CharsetAlias *charset_alias_list = NULL;
+static CharsetAlias *charset_alias_last = NULL;
 
-struct st_charset_alias
-{
-    long magic;				/* For binary format */
-    char alias[MAX_CHARSET_NAME];	/* Alias charset name */
-    char name[MAX_CHARSET_NAME];	/* Real charset name */
-    struct st_charset_alias *next;
-}
-CharsetAlias;
-
-struct st_charset_table
-{
-    long magic;				/* For binary format */
-    char in[MAX_CHARSET_NAME];		/* Input charset name */
-    char out[MAX_CHARSET_NAME];		/* Output charset name */
-    char map[MAX_CHARSET_OUT][MAX_CHARSET_IN];
-    struct st_charset_table *next;
-}
-CharsetTable;
-
-
-
-/*->charset.c----------------------------------------------------------------*/
+/*
+ * Table linked list
+ */
+static CharsetTable *charset_table_list = NULL;
+static CharsetTable *charset_table_last = NULL;
 
 
 
 /*---------------------------------------------------------------------------*/
+
+
+/*->charset.c----------------------------------------------------------------*/
+/*
+ * Alloc new CharsetTable and put into linked list
+ */
+CharsetTable *charset_table_new_link(void)
+{
+    CharsetTable *p;
+
+    /* Alloc and clear */
+    p = (CharsetTable *)xmalloc(sizeof(CharsetTable));
+    memset(p, 0, sizeof(CharsetTable));
+    p->next = NULL;			/* Just to be sure */
+    
+    /* Put into linked list */
+    if(charset_table_list)
+	charset_table_last->next = p;
+    else
+	charset_table_list       = p;
+    charset_table_last       = p;
+
+    return p;
+}
+
+
+
+/*
+ * Alloc new CharsetAlias and put into linked list
+ */
+CharsetAlias *charset_alias_new_link(void)
+{
+    CharsetAlias *p;
+
+    /* Alloc and clear */
+    p = (CharsetAlias *)xmalloc(sizeof(CharsetAlias));
+    memset(p, 0, sizeof(CharsetAlias));
+    p->next = NULL;			/* Just to be sure */
+    
+    /* Put into linked list */
+    if(charset_alias_list)
+	charset_alias_last->next = p;
+    else
+	charset_alias_list       = p;
+    charset_alias_last       = p;
+
+    return p;
+}
+
+
+
+
+/*---------------------------------------------------------------------------*/
+
+/*
+ * Process one line from charset.map file
+ */
+static int charset_do_line(char *line)
+{
+    static CharsetTable *pt = NULL;
+    char *key, *w1, *w2;
+    CharsetAlias *pa;
+    int i, j;
+    
+    debug(16, "charset.map line: %s", line);
+
+    key = strtok(line, " \t");
+
+    /* Include map file */
+    if(      strieq(key, "include") ) 
+    {
+	w1 = strtok(NULL, " \t");
+	if( charset_do_file(w1) == ERROR)
+	    return ERROR;
+    }
+    /* Define alias */
+    else if( strieq(key, "alias") ) 
+    {
+	w1 = strtok(NULL, " \t");
+	w2 = strtok(NULL, " \t");
+	if(!w1 || !w2) 
+	{
+	    fprintf(stderr, "%s:%ld: argument(s) for alias missing\n",
+		    PROGRAM, cf_lineno_get());
+	    return ERROR;
+	}
+	
+	pa = charset_alias_new_link();
+	BUF_COPY(pa->alias, w1);
+	BUF_COPY(pa->name, w2);
+	debug(15, "new alias: alias=%s name=%s", pa->alias, pa->name);
+    }
+    /* Define table */
+    else if( strieq(key, "table") )
+    {
+	w1 = strtok(NULL, " \t");
+	w2 = strtok(NULL, " \t");
+	if(!w1 || !w2) 
+	{
+	    fprintf(stderr, "%s:%ld: argument(s) for table missing\n",
+		    PROGRAM, cf_lineno_get());
+	    return ERROR;
+	}
+
+	pt = charset_table_new_link();
+	BUF_COPY(pt->in, w1);
+	BUF_COPY(pt->out, w2);
+	debug(15, "new table: in=%s out=%s", pt->in, pt->out);
+    }
+    /* Define mapping for character(s) in table */
+    else if( strieq(key, "map") )
+    {
+	w1 = strtok(NULL, " \t");
+	if(!w1) 
+	{
+	    fprintf(stderr, "%s:%ld: argument for map missing\n",
+		    PROGRAM, cf_lineno_get());
+	    return ERROR;
+	}
+
+	/* 1:1 mapping */
+	if(strieq(w1, "1:1"))
+	{
+	    for(i=0; i<MAX_CHARSET_IN; i++)
+	    {
+		if(pt->map[i][0] == 0)
+		{
+		    pt->map[i][0] = 0x80 + i;
+		    pt->map[i][1] = 0;
+		}
+	    }
+	}
+	/* 1:1 mapping, but not for 0x80...0x9f */
+	if(strieq(w1, "1:1-noctrl"))
+	{
+	    for(i=0x20; i<MAX_CHARSET_IN; i++)
+	    {
+		if(pt->map[i][0] == 0)
+		{
+		    pt->map[i][0] = 0x80 + i;
+		    pt->map[i][1] = 0;
+		}
+	    }
+	}
+	/* Mapping for undefined characters */
+	else if(strieq(w1, "default"))
+	{
+	    /**FIXME: not yet implemented**/
+	}
+	/* Normal mapping */
+	else
+	{
+	}
+    }
+    /* Error */
+    else 
+    {
+	fprintf(stderr, "%s:%ld: illegal key word %s\n",
+		PROGRAM, cf_lineno_get(), key);
+	return ERROR;
+    }
+    
+    return OK;
+}
+
+
+
+/*
+ * Process charset.map file
+ */
+static int charset_do_file(char *name)
+{
+    FILE *fp;
+    char *p;
+    long oldn;
+    
+    debug(14, "Reading charset.map file %s", name);
+    
+    oldn = cf_lineno_set(0);
+    fp = fopen_expand_name(name, R_MODE_T, FALSE);
+    if(!fp)
+	return ERROR;
+    
+    while( (p = cf_getline(buffer, BUFFERSIZE, fp)) )
+	charset_do_line(p);
+
+    fclose(fp);
+    cf_lineno_set(oldn);
+    
+    return OK;
+}
+
+
+
+/*
+ * Write binary mapping file
+ */
+int charset_write_bin(char *name)
+{
+    FILE *fp;
+    CharsetTable *pt;
+    CharsetAlias *pa;
+    
+    debug(14, "Writing charset.bin file %s", name);
+    
+    fp = fopen_expand_name(name, W_MODE, FALSE);
+    if(!fp)
+	return ERROR;
+
+    /* Write aliases */
+    for(pa = charset_alias_list; pa; pa=pa->next)
+    {
+	fputc(CHARSET_FILE_ALIAS, fp);
+	fwrite(pa, sizeof(CharsetAlias), 1, fp);
+	if(ferror(fp))
+	{
+	    fclose(fp);
+	    return ERROR;
+	}
+    }
+    /* Write tables */
+    for(pt = charset_table_list; pt; pt=pt->next)
+    {
+	fputc(CHARSET_FILE_TABLE, fp);
+	fwrite(pt, sizeof(CharsetTable), 1, fp);
+	if(ferror(fp))
+	{
+	    fclose(fp);
+	    return ERROR;
+	}
+    }
+
+    fclose(fp);
+    return OK;
+}
+
+
+
+/*
+ * Compile charset.map
+ */
+int compile_map(char *in, char *out)
+{
+    /* Read charset.map and compile */
+    if(charset_do_file(in) == ERROR)
+    {
+	fprintf(stderr, "%s: compiling map file %s failed", PROGRAM, in);
+	return EXIT_ERROR;
+    }
+
+    /* Write binary output file */
+    if(charset_write_bin(out) == ERROR)
+    {
+	fprintf(stderr, "%s: writing binary map file %s failed", PROGRAM, out);
+	return EXIT_ERROR;
+    }
+
+    return EXIT_OK;
+}
+
+
+
 /*
  * Usage messages
  */
@@ -121,6 +369,9 @@ int main(int argc, char **argv)
     };
 
     
+    log_file("stderr");
+    log_program(PROGRAM);
+    
     while ((c = getopt_long(argc, argv, "vh",
 			    long_options, &option_index     )) != EOF)
 	switch (c) {
@@ -140,10 +391,10 @@ int main(int argc, char **argv)
     if(optind+2 != argc)
 	short_usage();
 
-    name_in  = argv[optind]++;
-    name_out = argv[optind]++;
-    
-    
+    name_in  = argv[optind++];
+    name_out = argv[optind++];
+
+    ret = compile_map(name_in, name_out);
     
     exit(ret);
 

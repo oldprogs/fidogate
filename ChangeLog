@@ -1,3 +1,60 @@
+Fri Apr  3 19:59:19 1998  Martin Junius  <mj@fido.de>
+
+	------- CVS ci -------------------------------------------------------
+
+	* src/include/structs.h (CharsetAlias,Table): moved to here.
+
+	* src/charset/charsetc.c (CharsetAlias): new struct for holding
+	  charset alias data.
+	  (CharsetTable): new struct for holding charset mapping data.
+	  (charset_table_new_link): new function allocating new
+	  CharsetTable and putting it into the linked list.
+	  (charset_alias_new_link): new function allocating new
+	  CharsetAlias and putting it into the linked list.
+	  (charset_do_line): new function processing line in charset.map
+	  file.
+	  (charset_do_file): new function reading charset.map file.
+	  (charset_write_bin): new function writing binary charset.bin file.
+	  (compile_map): new function, read, compile, write map.
+
+	* src/common/log.c (log_file): set logname to "-" for
+	  stdout/stderr, "syslog" for syslog. Otherwise 1st call to log()
+	  will reset the explizit settings by calling log_file() with
+	  config settings.
+
+	* src/common/config.c (scf_line): static var removed.
+	  (cf_lineno_get): new function returning current line number in
+	  config file.
+	  (cf_lineno_set): new function setting current line number in
+	  config file, returning old setting.
+
+	* src/util/Makefile (install): added ftnoutpkt.
+
+Wed Apr  1 20:54:24 1998  Martin Junius  <mj@fido.de>
+
+	* src/gate/rfc2ftn.c (main): use CheckAreasBBS only in newsmode.
+
+	* examples/orodruin/gate.conf: added CheckAreasBBS example.
+
+	* test/tc.gate4/run: added test run with check.conf setting
+	  CheckAreasBBS. 
+
+	* examples/orodruin/toss.conf: dito.
+
+	* test/cf/toss.conf: AreasBBS, FAreasBBS moved to common.conf.
+
+	* src/gate/rfc2ftn.c (main): new config statement
+	  CheckAreasBBS. If set, read areas.bbs.
+	  (check_downlinks): new function, lookup area in areas.bbs and
+	  return number of downlinks.
+	  (snd_mail): if check_areas_bbs is set, skip messages for areas
+	  without downlinks in areas.bbs.
+
+Sun Mar 29 14:20:05 1998  Martin Junius  <mj@fido.de>
+
+	* scripts/outbound/out-rmbsy.sh (OUT): use BTBASEDIR from config,
+	  removed bsy files in all outbound subdirs.
+
 Sun Mar 22 14:04:13 1998  Martin Junius  <mj@fido.de>
 
 	------- CVS ci -------------------------------------------------------

@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: prototypes.h,v 4.40 1998/02/07 18:35:22 mj Exp $
+ * $Id: prototypes.h,v 4.41 1998/04/03 20:15:36 mj Exp $
  *
  * Prototypes for functions in libfidogate.a
  *
@@ -111,6 +111,8 @@ void	cf_set_curr		(Node *);
 void	cf_set_zone		(int);
 int	cf_zone			();
 int	cf_defzone		();
+long	cf_lineno_get		(void);
+long	cf_lineno_set		(long n);
 char   *cf_getline		(char *, int, FILE *);
 void	cf_do_line		(char *);
 void	cf_read_config_file	(char *);

@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway software UNIX <-> FIDO
  *
- * $Id: rfc2ftn.c,v 4.37 1998/02/22 16:25:53 mj Exp $
+ * $Id: rfc2ftn.c,v 4.38 1998/04/03 20:15:36 mj Exp $
  *
  * Read mail or news from standard input and convert it to a FIDO packet.
  *
@@ -39,7 +39,7 @@
 
 
 #define PROGRAM 	"rfc2ftn"
-#define VERSION 	"$Revision: 4.37 $"
+#define VERSION 	"$Revision: 4.38 $"
 #define CONFIG		DEFAULT_CONFIG_GATE
 
 
@@ -95,13 +95,15 @@ static int   i_flag = FALSE;		/* -i --ignore-hosts   		    */
 
 static int default_rfc_level = 0;	/* Default ^ARFC level for areas    */
 
-static int no_from_line	= FALSE;	/* config.gate: NoFromLine          */
-static int no_fsc_0035 = FALSE;		/* config.gate: NoFSC0035           */
-static int no_fsc_0047 = FALSE;		/* config.gate: NoFSC0047           */
-static int echomail4d = FALSE;		/* config.gate: EchoMail4d          */ 
-static int x_flags_policy = 0;		/* config.gate: XFlagsPolicy        */
-static int dont_use_reply_to = FALSE;	/* config.gate: DontUseReplyTo      */
-static int replyaddr_ifmail_tx = FALSE;	/* config.gate: ReplyAddrIfmailTX   */
+static int no_from_line	= FALSE;	/* NoFromLine          */
+static int no_fsc_0035 = FALSE;		/* NoFSC0035           */
+static int no_fsc_0047 = FALSE;		/* NoFSC0047           */
+static int echomail4d = FALSE;		/* EchoMail4d          */ 
+static int x_flags_policy = 0;		/* XFlagsPolicy        */
+static int dont_use_reply_to = FALSE;	/* DontUseReplyTo      */
+static int replyaddr_ifmail_tx = FALSE;	/* ReplyAddrIfmailTX   */
+static int check_areas_bbs = FALSE;	/* CheckAreasBBS       */
+
 
 
 /*
@@ -750,6 +752,24 @@ char *mail_sender(RFCAddr *rfc, Node *node)
 
 
 /*
+ * Check area for # of downlinks
+ */
+int check_downlinks(char *area)
+{
+    AreasBBS *a;
+    int n;
+    
+    if( (a = areasbbs_lookup(area)) == NULL )
+	return ERROR;
+    
+    n = a->nodes.size;
+    debug(5, "area %s, LON size %d", area, n);
+    return n < 1 ? 0 : n - 1;
+}
+
+
+
+/*
  * Process mail/news message
  */
 int snd_mail(RFCAddr rfc_to, long size)
@@ -953,6 +973,12 @@ int snd_mail(RFCAddr rfc_to, long size)
 	    {
 		debug(5, "Found: %s %s Z%d", pa->area, pa->group, pa->zone);
 
+		if(check_areas_bbs && check_downlinks(pa->area)<=0)
+		{
+		    debug(5, "area %s, not listed or no downlinks", pa->area);
+		    continue;
+		}
+		
 		if( xpost_flag && (pa->flags & AREA_NOXPOST) )
 		{
 		    debug(5, "No Xpostings allowed - skipped");
@@ -1645,6 +1671,8 @@ int main(int argc, char **argv)
     char *O_flag=NULL;
     char *c_flag=NULL;
     char *a_flag=NULL, *u_flag=NULL;
+    char *areas_bbs=NULL;
+
     int option_index;
     static struct option long_options[] =
     {
@@ -1869,6 +1897,18 @@ int main(int argc, char **argv)
 	debug(8, "config: ReplyAddrIfmailTX");
 	replyaddr_ifmail_tx = TRUE;
     }
+    if(newsmode && cf_get_string("CheckAreasBBS", TRUE))
+    {
+	debug(8, "config: CheckAreasBBS");
+	check_areas_bbs = TRUE;
+	if( (areas_bbs = cf_get_string("AreasBBS", TRUE)) )
+	    debug(8, "config: AreasBBS %s", areas_bbs);
+	else
+	{
+	    fprintf(stderr, "%s: no areas.bbs specified\n", PROGRAM);
+	    exit(EX_USAGE);
+	}
+    }
     
 
     /*
@@ -1889,6 +1929,8 @@ int main(int argc, char **argv)
     hosts_init();
     alias_init();
     passwd_init();
+    if(check_areas_bbs)
+	areasbbs_init(areas_bbs);
 
     /*
      * Switch stdin to binary for reading news batches

@@ -1,15 +1,17 @@
 #
-# $Id: charset.map,v 1.1 1998/03/22 17:57:38 mj Exp $
+# $Id: charset.map,v 1.2 1998/04/03 20:15:34 mj Exp $
 #
 # Character set mapping table (to be compiled by charsetc)
 #
 # Syntax:
 #
-#       alias ALIAS NAME
-#	table IN-SET OUT-SET
-#	map IN-CHAR OUT-CHAR
-#	map 1:1
-	map default CHAR
+#	include FILE
+#       alias   ALIAS NAME
+#	table   IN-SET OUT-SET
+#	map     IN-CHAR OUT-CHAR [OUT-CHAR] [OUT-CHAR]
+#	map     1:1
+#	map     1:1-noctrl
+#	map     default CHAR
 #	...
 #
 #	IN-SET/OUT-SET:	us-ascii	(FSC-0054: ASCII, VT100)
@@ -29,11 +31,15 @@
 #	1:1		all characters not explicitly defined are
 #			mapped to the same character
 #
+#	1:1-noctrl	all characters not explicitly defined are
+#			mapped to the same character, but not the
+#			high-bit control characters (0x80...0x9f)
+#
 #	default CHAR	all characters not explicitly defined are
 #			mapped to CHAR (syntax IN-CHAR)
 #
 # Currently only characters with high bit set (0x80) are mapped!!!
-# If not defined, the default mapping is any character >=0x80 -> ' ' (space)
+# If not defined, the default mapping is any character >=0x80 -> nothing.
 #
 # Charset names must be less than 16 characters in length!!!
 #
@@ -77,7 +83,7 @@ table	us-ascii	iso-8859-1
 
 # ----------------------------------------------------------------------------
 table	iso-8859-1	iso-8859-1
-map 1:1
+map 1:1-noctrl
 
 
 # ----------------------------------------------------------------------------

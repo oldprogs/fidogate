@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: structs.h,v 4.12 1998/02/19 16:15:48 mj Exp $
+ * $Id: structs.h,v 4.13 1998/04/03 20:15:37 mj Exp $
  *
  * An assortment of FIDOGATE data structure definitions
  *
@@ -355,3 +355,32 @@ typedef struct st_ftnaddr {
     char name[MAXUSERNAME];		/* No FTS-0001 limits here! */
     Node node;
 } FTNAddr;
+
+
+
+/*
+ * Charset mapping
+ */
+#define MAX_CHARSET_NAME	16
+#define MAX_CHARSET_IN		128
+#define MAX_CHARSET_OUT		4
+
+#define CHARSET_FILE_ALIAS	'A'	/* Id for binary file */
+#define CHARSET_FILE_TABLE	'T'	/* Id for binary file */
+
+typedef struct st_charset_alias
+{
+    char alias[MAX_CHARSET_NAME];	/* Alias charset name */
+    char name[MAX_CHARSET_NAME];	/* Real charset name */
+    struct st_charset_alias *next;
+}
+CharsetAlias;
+
+typedef struct st_charset_table
+{
+    char in[MAX_CHARSET_NAME];		/* Input charset name */
+    char out[MAX_CHARSET_NAME];		/* Output charset name */
+    char map[MAX_CHARSET_IN][MAX_CHARSET_OUT];
+    struct st_charset_table *next;
+}
+CharsetTable;
