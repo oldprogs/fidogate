@@ -52,6 +52,12 @@ Changes in 4.2.7:
 
 * New FIDOGATE mailing list, see below!
 
+* WIN32 binary release with some configuration examples and test
+  script.
+
+* rfc2ftn: new config XFlagsPolicy, DontUseReplyTo (see docs). Better
+  log for all mails with X-Flags settings.
+
 
 
 Changes in 4.2.6:
@@ -180,6 +186,6 @@ End
 
 ======================================================================
 
-$Date: 1997/10/11 22:09:58 $
+$Date: 1997/10/12 18:29:37 $
 Martin Junius
 mailto:mj@fido.de

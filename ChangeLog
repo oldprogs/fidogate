@@ -2,6 +2,15 @@ Sun Oct 12 00:02:28 1997  Martin Junius  <mj@fido.de>
 
 	------- CVS ci -------------------------------------------------------
 
+	* doc/fidogate.texi (Config): documented DontUseReplyTo.
+
+	* examples/win32/config.gate: added XFlagsPolicy a, DontUseReplyTo
+	  for test configuration.
+
+	* ANNOUNCE: updated.
+
+	------- CVS ci -------------------------------------------------------
+
 	* src/gate/rfc2ftn.c (snd_mail): check x_flags_policy for
 	  processing X-Flags, log all X-Flags going thru rfc2ftn.
 	  (main): added DontUseReplyTo config.gate command.

@@ -381,6 +381,11 @@ Special configuration `rfc2ftn' (config file `config.gate'):
     `a   A   2'
           X-Flags processing for all. Totally open, totally insecure!!!
 
+`DontUseReplyTo'
+     Don't try to get real name from Reply-To header. Particularly
+     useful for mailing lists which set the Reply-To header to the
+     mailing list.
+
 Special configuration `ftnhatch' (config file `config.main'):
 
 `TickFlav flavour'

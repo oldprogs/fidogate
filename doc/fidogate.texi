@@ -2,7 +2,7 @@
 @c
 @c FIDOGATE documentation
 @c
-@c $Id: fidogate.texi,v 4.27 1997/10/12 18:16:52 mj Exp $
+@c $Id: fidogate.texi,v 4.28 1997/10/12 18:28:34 mj Exp $
 @c
 
 @setfilename fidogate.info
@@ -2891,6 +2891,10 @@ can easily be faked to look like local!!!
 @item a   A   2
 X-Flags processing for all. Totally open, totally insecure!!!
 @end table
+
+@item DontUseReplyTo
+Don't try to get real name from Reply-To header. Particularly useful for
+mailing lists which set the Reply-To header to the mailing list.
 
 @end table
 

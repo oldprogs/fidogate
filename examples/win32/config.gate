@@ -1,6 +1,6 @@
 #:ts=8
 #
-# $Id: config.gate,v 1.1 1997/10/12 18:16:58 mj Exp $
+# $Id: config.gate,v 1.2 1997/10/12 18:29:40 mj Exp $
 #
 # FIDOGATE config file gateway programs
 #
@@ -260,3 +260,18 @@ FTNInRnews	/usr/bin/rnews
 # Use MIME quoted-printable ISO-8859-1 characters when gating from FTN to RFC
 #
 NetMailQuotedPrintable
+
+#
+# X-Flags policy
+#
+#    n, N, 0    -    No X-Flags processing at all
+#    s, S, 1    -    X-Flags processing for local sender
+#    a, A, 2    -    X-Flags processing for all
+#
+# Don't use A for production use!!!
+XFlagsPolicy a
+
+#
+# Don't try to get sender real name from Reply-To header
+#
+DontUseReplyTo
