@@ -1,5 +1,10 @@
 Sun Sep 15 12:11:05 1996  Martin Junius  <mj@fido.de>
 
+	======= Release 4.0 alpha 6 ==========================================
+	------- CVS tag R40a6 ------------------------------------------------
+
+	------- CVS ci -------------------------------------------------------
+
 	* version.h (ALPHA): changed to 6.
 
 	------- CVS ci -------------------------------------------------------
@@ -31,8 +36,7 @@ Sun Sep  8 12:17:21 1996  Martin Junius  <mj@fido.de>
 
 Sat Sep  7 18:09:32 1996  Martin Junius  <mj@fido.de>
 
-	======== Release 4.0 alpha 5 =========================================
-	
+	======= Release 4.0 alpha 5 ==========================================
 	------- CVS tag R40a5b -----------------------------------------------
 
 	------- CVS ci -------------------------------------------------------
@@ -81,6 +85,9 @@ Tue Sep  3 20:42:23 1996  Martin Junius  <mj@fido.de>
 Thu Aug 29 21:00:26 1996  Martin Junius  <mj@fido.de>
 
 	======= Release 4.0 alpha 4 ==========================================
+
+	[ Some problems here, looks like the diff a3-a4 and the complete
+	  source a4 were different versions. ]
 	
 	------- CVS tag r40alpha4a -------------------------------------------
 
