@@ -3,36 +3,43 @@
 # FIDOGATE config file common stuff,
 # included by config.gate, config.main, config.ffx
 #
-# Fido.DE domain gateway
+# FIDOGATE test configuration
 #
 # Format:  keyword arg ...
 #          keyword and args may be put in double quotes "..."
 #
 
-
-#
-# Directories: lib, spool, BinkleyTerm-style outbound base dir (without
-# the .../out.xxx), BinkleyTerm-style inbound dir
-#
-# lib, spool defaults are defined in config.h
-#
-LibDir		../cf
-SpoolDir	.
-LogDir          .
-Outbound	./bt
-Inbound		./pin
-
-#
-# Configuration files
-#
-# defaults are defined in config.h
-#
-Aliases		%L/aliases
-Areas		%L/areas
-Hosts		%L/hosts
-Packing		%L/packing
-Passwd		%L/passwd
-Routing		%L/routing
+# directories
+CONFIGDIR	../cf
+LIBDIR		../cf
+BINDIR		.
+LOGDIR		.
+VARDIR		.
+LOCKDIR		./spool/lock
+SPOOLDIR	.
+BTBASEDIR	./bt
+		
+INBOUND		./in
+PINBOUND	./pin
+UUINBOUND	./uuin
+FTPINBOUND	./ftpin
+		
+NEWSETCDIR	/etc/news
+NEWSVARDIR	/var/lib/news
+NEWSLIBDIR	/usr/lib/news
+NEWSSPOOLDIR	/var/spool/news
+		
+IFMAILDIR       /usr/local/lib/ifmail
+		
+# files		
+ALIASES		%C/aliases
+AREAS		%C/areas
+HOSTS		%C/hosts
+PASSWD		%C/passwd
+PACKING		%C/packing
+ROUTING		%C/routing
+HISTORY		%V/history
+LOGFILE		%G/log
 
 
 #

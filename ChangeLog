@@ -2,6 +2,27 @@ Sun Jan 18 09:31:56 1998  Martin Junius  <mj@fido.de>
 
 	------- CVS ci -------------------------------------------------------
 
+	* test/tc.8bit/run: adapted to new config.
+
+	* src/common/config.c (cf_initialize): #include "cf_env.c" for
+	  reading FIDOGATE_xxx environment variables.
+	  (cf_initialize): if any program is installed setuid, disable
+	  environment variables.
+
+	* src/common/Makefile (cf_env.mak): added automatic generation of
+	  cf_env.c, included by config.c:cf_initialize().
+
+	* subst.pl: new option -E generates environment reading code for
+	  config.c:cf_initialize(). 
+
+	* src/common/config.c (cf_initialize): environment var FIDOGATE
+	  sets CONFIGDIR.
+
+	* src/common/log.c (log): issue WARNING message, if open of
+	  logfile fails.
+
+	------- CVS ci -------------------------------------------------------
+
 	* config.h (CONFIG_*): removed, replaced with DEFAULT_CONFIG_*
 
 	* src/common/fopen.c (libfopen/spoolfopen): removed

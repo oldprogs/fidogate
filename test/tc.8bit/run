@@ -1,9 +1,12 @@
 #!/bin/sh
 
+FIDOGATE_CONFIGDIR=../cf
+export FIDOGATE_CONFIGDIR
+
 ../tr.init
 
-T1="../../src/gate/rfc2ftn -L../cf -vvvvv"
-T2="../../src/gate/ftn2rfc -L../cf -vvvvv"
+T1="../../src/gate/rfc2ftn -vvvvv"
+T2="../../src/gate/ftn2rfc -vvvvv"
 
 echo "tc: running"
 

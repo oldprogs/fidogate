@@ -1,10 +1,8 @@
 #:ts=8
 #
-# $Id: config.ffx,v 4.1 1996/04/24 09:54:49 mj Exp $
+# $Id: config.ffx,v 4.2 1998/01/18 10:58:09 mj Exp $
 #
-# FIDOGATE config file ffx programs
-#
-# orodruin.fido.de
+# FIDOGATE test configuration
 #
 # Format:  keyword arg ...
 #          keyword and args may be put in double quotes "..."

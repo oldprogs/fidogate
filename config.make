@@ -1,8 +1,8 @@
 # -*- Makefile -*-
 #
-# $Id: config.make,v 4.12 1998/01/18 09:47:24 mj Exp $
+# $Id: config.make,v 4.13 1998/01/18 10:57:55 mj Exp $
 #
-# FIDOGATE Makefile configuration
+# FIDOGATE main configuration
 #
 
 ##############################################################################
@@ -20,7 +20,7 @@
 # Var lib		DEFAULT_VARDIR		VarDir		%V
 # Lock files		DEFAULT_LOCKDIR		LockDir		%K
 # Spool			DEFAULT_SPOOLDIR	SpoolDir	%S
-# Outbound/inbound base	DEFAULT_BTBASEDIR	BTBaseDir	%B %O
+# Outbound/inbound base	DEFAULT_BTBASEDIR	BTBaseDir	%B
 #
 # Inbound		DEFAULT_INBOUND		Inbound		%I
 # Protected inbound	DEFAULT_PINBOUND	PInbound	%P
@@ -34,8 +34,8 @@
 #
 # Ifmail main lib	DEFAULT_IFMAILDIR	IfmailDir
 #
-# DON'T REMOVE ANY OF THE DEFINITIONS BELOW!!! C CODE IS GENERATED FOR
-# ALL THE CONFIG OPTIONS DEFINED HERE!!!
+# DON'T REMOVE ANY OF THE DEFINITIONS BELOW!!!
+# C CODE IS AUTOMATICALLY GENERATED FOR ALL CONFIG PARAMETERS DEFINED HERE!!!
 #
 
 # directories
@@ -177,7 +177,7 @@ INSTALL_DATA	= $(INSTALL) -c -g $(GROUP) -o $(OWNER) -m $(PERM_DATA)
 INSTALL_SETUID	= $(INSTALL) -c -g $(GROUP) -o $(OWNER) -m $(PERM_SETUID)
 INSTALL_DIR	= $(INSTALL) -g $(GROUP) -o $(OWNER) -m $(PERM_DIR) -d
 # extra prefix for installation
-PREFIX         =
+PREFIX		=
 
 # library name
 # LIB		= fidogate.a			# OS2

@@ -1,7 +1,7 @@
 <HTML>
 <HEAD>
 <!-- This HTML file has been created by texi2html 1.51
-     from ../fidogate.texi on 2 January 1998 -->
+     from ../fidogate.texi on 18 January 1998 -->
 
 <TITLE>FIDOGATE
  - Compiling and installing FIDOGATE</TITLE>
@@ -197,45 +197,45 @@ The gory details:
 </P>
 <DL COMPACT>
 
-<DT><CODE>DO_HAVE_FCNTL_LOCK</CODE>
+<DT><CODE>HAS_FCNTL_LOCK</CODE>
 <DD>
 Define, if the system support fcntl() file locking.
 
-<DT><CODE>DO_HAVE_GETTIMEOFDAY</CODE>
+<DT><CODE>HAS_GETTIMEOFDAY</CODE>
 <DD>
 Define, if the system has the gettimeofday() function.
 
-<DT><CODE>DO_HAVE_TM_GMTOFF</CODE>
+<DT><CODE>HAS_TM_GMTOFF</CODE>
 <DD>
 Define, if the system has a tm_gmtoff field in struct tm.
 
-<DT><CODE>DO_HAVE_SYSEXITS_H</CODE>
+<DT><CODE>HAS_SYSEXITS_H</CODE>
 <DD>
 Define, if the system support the <CODE>sysexits.h</CODE> header file.
 
-<DT><CODE>DO_HAVE_TM_ZONE</CODE>
+<DT><CODE>HAS_TM_ZONE</CODE>
 <DD>
 Define, if the system has a tm_zone field in struct tm.
 
-<DT><CODE>DO_HAVE_STRFTIME</CODE>
+<DT><CODE>HAS_STRFTIME</CODE>
 <DD>
 Define, if the system has the Standard-C strftime() function.
 
-<DT><CODE>DO_HAVE_TZNAME</CODE>
+<DT><CODE>HAS_TZNAME</CODE>
 <DD>
 Define, if the system has <CODE>extern char *tzname[2]</CODE>.
 
-<DT><CODE>DO_HAVE_STRCASECMP</CODE>
+<DT><CODE>HAS_STRCASECMP</CODE>
 <DD>
 Define, if the system has the <CODE>strcasecmp()</CODE> and
 <CODE>strncasecmp()</CODE> functions.
 
-<DT><CODE>DO_HAVE_STRICMP</CODE>
+<DT><CODE>HAS_STRICMP</CODE>
 <DD>
 Define, if the system has the <CODE>stricmp()</CODE> and
 <CODE>strnicmp()</CODE> functions.
 
-<DT><CODE>DO_HAVE_STERROR</CODE>
+<DT><CODE>HAS_STERROR</CODE>
 <DD>
 Define, if the system has the <CODE>strerror()</CODE> function.
 
@@ -250,9 +250,9 @@ Define, if filenames must be converted to DOS, OS2-style <CODE>\</CODE>.
 </DL>
 
 <P>
-Define only one of <CODE>DO_HAVE_TM_ZONE</CODE>, <CODE>DO_HAVE_STRFTIME</CODE>,
-<CODE>DO_HAVE_TZNAME</CODE>, and also only one of <CODE>DO_HAVE_STRCASECMP</CODE>,
-<CODE>DO_HAVE_STRICMP</CODE>.
+Define only one of <CODE>HAS_TM_ZONE</CODE>, <CODE>HAS_STRFTIME</CODE>,
+<CODE>HAS_TZNAME</CODE>, and also only one of <CODE>HAS_STRCASECMP</CODE>,
+<CODE>HAS_STRICMP</CODE>.
 
 </P>
 
@@ -284,11 +284,11 @@ Files and directories used by FIDOGATE:
 </P>
 <DL COMPACT>
 
-<DT><CODE>CONFIG_GATE</CODE>
+<DT><CODE>DEFAULT_CONFIG_GATE</CODE>
 <DD>
-<DT><CODE>CONFIG_MAIN</CODE>
+<DT><CODE>DEFAULT_CONFIG_MAIN</CODE>
 <DD>
-<DT><CODE>CONFIG_FFX</CODE>
+<DT><CODE>DEFAULT_CONFIG_FFX</CODE>
 <DD>
 Names of FIDOGATE config files.
 

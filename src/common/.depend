@@ -34,6 +34,7 @@ bufstring.o: bufstring.c ../../src/include/fidogate.h ../../config.h \
  ../../src/include/structs.h ../../src/include/prototypes.h \
  ../../src/include/cf_funcs.h ../../src/include/shuffle.h
 cf_abbrev.o: cf_abbrev.c
+cf_env.o: cf_env.c
 cf_funcs.o: cf_funcs.c ../../src/include/fidogate.h ../../config.h \
  ../../src/include/paths.h ../../src/include/declare.h \
  ../../src/include/node.h ../../src/include/packet.h \
@@ -48,7 +49,7 @@ config.o: config.c ../../src/include/fidogate.h ../../config.h \
  ../../src/include/paths.h ../../src/include/declare.h \
  ../../src/include/node.h ../../src/include/packet.h \
  ../../src/include/structs.h ../../src/include/prototypes.h \
- ../../src/include/cf_funcs.h
+ ../../src/include/cf_funcs.h cf_env.c
 crc16.o: crc16.c ../../src/include/fidogate.h ../../config.h \
  ../../src/include/paths.h ../../src/include/declare.h \
  ../../src/include/node.h ../../src/include/packet.h \

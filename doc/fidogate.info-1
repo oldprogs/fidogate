@@ -342,36 +342,36 @@ section similar to the already existing ones.
 
    The gory details:
 
-`DO_HAVE_FCNTL_LOCK'
+`HAS_FCNTL_LOCK'
      Define, if the system support fcntl() file locking.
 
-`DO_HAVE_GETTIMEOFDAY'
+`HAS_GETTIMEOFDAY'
      Define, if the system has the gettimeofday() function.
 
-`DO_HAVE_TM_GMTOFF'
+`HAS_TM_GMTOFF'
      Define, if the system has a tm_gmtoff field in struct tm.
 
-`DO_HAVE_SYSEXITS_H'
+`HAS_SYSEXITS_H'
      Define, if the system support the `sysexits.h' header file.
 
-`DO_HAVE_TM_ZONE'
+`HAS_TM_ZONE'
      Define, if the system has a tm_zone field in struct tm.
 
-`DO_HAVE_STRFTIME'
+`HAS_STRFTIME'
      Define, if the system has the Standard-C strftime() function.
 
-`DO_HAVE_TZNAME'
+`HAS_TZNAME'
      Define, if the system has `extern char *tzname[2]'.
 
-`DO_HAVE_STRCASECMP'
+`HAS_STRCASECMP'
      Define, if the system has the `strcasecmp()' and `strncasecmp()'
      functions.
 
-`DO_HAVE_STRICMP'
+`HAS_STRICMP'
      Define, if the system has the `stricmp()' and `strnicmp()'
      functions.
 
-`DO_HAVE_STERROR'
+`HAS_STERROR'
      Define, if the system has the `strerror()' function.
 
 `DO_BINARY'
@@ -380,9 +380,8 @@ section similar to the already existing ones.
 `DO_DOSIFY'
      Define, if filenames must be converted to DOS, OS2-style `\'.
 
-   Define only one of `DO_HAVE_TM_ZONE', `DO_HAVE_STRFTIME',
-`DO_HAVE_TZNAME', and also only one of `DO_HAVE_STRCASECMP',
-`DO_HAVE_STRICMP'.
+   Define only one of `HAS_TM_ZONE', `HAS_STRFTIME', `HAS_TZNAME', and
+also only one of `HAS_STRCASECMP', `HAS_STRICMP'.
 
 THE FOLLOWING DEFINES SHOULD NORMALLY LEFT AS IS!!!
 
@@ -397,9 +396,9 @@ Message ID configuration:
 
 Files and directories used by FIDOGATE:
 
-`CONFIG_GATE'
-`CONFIG_MAIN'
-`CONFIG_FFX'
+`DEFAULT_CONFIG_GATE'
+`DEFAULT_CONFIG_MAIN'
+`DEFAULT_CONFIG_FFX'
      Names of FIDOGATE config files.
 
 `DEF_ALIASES'

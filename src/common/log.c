@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: log.c,v 4.8 1998/01/18 09:47:49 mj Exp $
+ * $Id: log.c,v 4.9 1998/01/18 10:58:07 mj Exp $
  *
  * Log and debug functions
  *
@@ -125,7 +125,7 @@ void log(const char *fmt, ...)
 	    /* Open logname[] or default */
 	    if((fp = fopen(logname, A_MODE)) == NULL)
 	    {
-		fprintf(stderr, "log(): can't open log file %s\n", logname);
+		fprintf(stderr, "$WARNING: can't open log file %s\n", logname);
 		if(!verbose)
 		    verbose = -1;
 	    }

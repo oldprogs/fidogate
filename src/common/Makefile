@@ -1,6 +1,6 @@
 #:ts=8
 #
-#    $Id: Makefile,v 4.7 1998/01/18 09:47:37 mj Exp $
+#    $Id: Makefile,v 4.8 1998/01/18 10:58:05 mj Exp $
 #
 #    Makefile for FIDOGATE src/common/
 #
@@ -68,7 +68,7 @@ OBJS		= address.o \
 LIBOBJS		= $(OBJS:%=$(LIB)(%))
 
 
-all:		cf_funcs.mak cf_abbrev.mak $(LIB)
+all:		cf_funcs.mak cf_abbrev.mak cf_env.mak $(LIB)
 
 
 $(LIB):		$(LIBOBJS)
@@ -86,6 +86,10 @@ cf_funcs.mak:	$(TOPDIR)/config.make $(TOPDIR)/subst.pl
 cf_abbrev.mak:	$(TOPDIR)/config.make $(TOPDIR)/subst.pl
 	$(PERL) $(TOPDIR)/subst.pl -c$(TOPDIR)/config.make -A >cf_abbrev.mak
 	diff cf_abbrev.mak cf_abbrev.c >/dev/null || cp cf_abbrev.mak cf_abbrev.c
+
+cf_env.mak:	$(TOPDIR)/config.make $(TOPDIR)/subst.pl
+	$(PERL) $(TOPDIR)/subst.pl -c$(TOPDIR)/config.make -E >cf_env.mak
+	diff cf_env.mak cf_env.c >/dev/null || cp cf_env.mak cf_env.c
 
 install:
 

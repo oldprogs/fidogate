@@ -1,10 +1,8 @@
 #:ts=8
 #
-# $Id: config.gate,v 4.12 1997/10/19 17:00:49 mj Exp $
+# $Id: config.gate,v 4.13 1998/01/18 10:58:09 mj Exp $
 #
-# FIDOGATE config file gateway programs
-#
-# orodruin.fido.de
+# FIDOGATE test configuration
 #
 # Format:  keyword arg ...
 #          keyword and args may be put in double quotes "..."
@@ -13,7 +11,7 @@
 #
 # Include common stuff (%L = LIBDIR)
 #
-include		%L/config.common
+include		%C/config.common
 
 
 #
