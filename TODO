@@ -1,22 +1,12 @@
 						   -*- Indented-Text -*-
 	************** TODO list for FIDOGATE development **************
 
-DONE	* ftnroute: crashmails to points via boss node.
-
-DONE	* fb-filelist.pl: option to use fareas.bbs
 
 	* rfc2ftn: mail split limit configurable per host.
 
 	* Allow config option on command line for all programs.
 
 	* rfc2ftn: command line option for enabling X-Flags.
-
-OK	* ftn2rfc: allow aliases containing complete Internet
-	  addressing, don't add local domain in this case.
-
-DONE	* rfcparse.c: allow
-	      Real Name <user@do.main>
-	  format for output, config option.
 
 4.3.x	* rfc2ftn: different output dirs for mail and news.
 
@@ -136,8 +126,6 @@ STARTED * Replace calls to strncpy0/strncat0 with str_copy/str_append.
 	  runtime configuration of arcmail extensions usage.
 
 	* ftn2rfc: restrict gateway to certain *Internet* addresses.
-
-DONE	* X-Gateway / ^AGATEWAY processing.
 
 MOSTLY	* ftnpack: better file attach processing, -F DIR option. Don't
 DONE	  copy netmail packets (do_noarc()), use rename(). If archiver

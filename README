@@ -1,6 +1,6 @@
 -*- Indented-Text -*-
 
-$Id: README,v 4.23 1997/10/05 13:43:26 mj Exp $
+$Id: README,v 4.24 1997/11/02 14:43:13 mj Exp $
 
 ======================================================================
 				   
@@ -19,32 +19,6 @@ $Id: README,v 4.23 1997/10/05 13:43:26 mj Exp $
 ======================================================================
 
 [See ANNOUNCE for more recent changes]
-
-
-Changes in 4.2.3:
-
-* ftntick: area lookup now case-insensitive.
-
-
-
-Changes in 4.2.2:
-
-* ftntoss: additionally checks SEENBYs for message sender/recipient,
-  messages from local AKA are no longer insecure.
-
-* Port to FreeBSD contributed by Dirk Meyer
-  <dirk.meyer@dinoex.sub.org>. 
-
-* rununpack: added RAR support contributed by Matthias Schniedermeyer
-  <ms@twist.owl.de>.
-
-* rfc2ftn: better support for From/Reply-To text headers, will add
-  Header-To/Header-Cc for mailing lists.
-
-* ftn2rfc: don't gate messages with ^AMSGID: <NOMSGID_...>
-
-* rununpack: fixed unzip command line.
-
 
 
 Changes in 4.2.1:
@@ -267,8 +241,8 @@ The latest version of FIDOGATE can be found at:
     ftp://ftp.fido.de/pub/fidogate/
     http://www.fido.de/pub/fidogate/
 
-    ftp://sunsite.unc.edu/pub/Linux/system/Fido/
-    http://sunsite.unc.edu/pub/Linux/system/Fido/
+    ftp://sunsite.unc.edu/pub/Linux/system/fido/
+    http://sunsite.unc.edu/pub/Linux/system/fido/
           (not always up-to-date!)
 
 See also the FIDOGATE home page at:
@@ -329,6 +303,6 @@ not integrate your patches.
 
 ======================================================================
 
-$Date: 1997/10/05 13:43:26 $
+$Date: 1997/11/02 14:43:13 $
 Martin Junius
 mailto:mj@fido.de

@@ -20,8 +20,8 @@ Internet:
     ftp://ftp.fido.de/pub/fidogate/
     http://www.fido.de/pub/fidogate/
 
-    ftp://sunsite.unc.edu/pub/Linux/system/Fido/
-    http://sunsite.unc.edu/pub/Linux/system/Fido/
+    ftp://sunsite.unc.edu/pub/Linux/system/fido/
+    http://sunsite.unc.edu/pub/Linux/system/fido/
     (probably still in .../pub/Linux/Incoming)
 
     fidogate-4.2.8.tar.gz	1160 Kbyte
@@ -148,6 +148,33 @@ the FIDOGATE distribution config.h!
 
 * nl-html: new nodelist to HTML converter.
 
+
+
+Changes in 4.2.3:
+
+* ftntick: area lookup now case-insensitive.
+
+
+
+Changes in 4.2.2:
+
+* ftntoss: additionally checks SEENBYs for message sender/recipient,
+  messages from local AKA are no longer insecure.
+
+* Port to FreeBSD contributed by Dirk Meyer
+  <dirk.meyer@dinoex.sub.org>. 
+
+* rununpack: added RAR support contributed by Matthias Schniedermeyer
+  <ms@twist.owl.de>.
+
+* rfc2ftn: better support for From/Reply-To text headers, will add
+  Header-To/Header-Cc for mailing lists.
+
+* ftn2rfc: don't gate messages with ^AMSGID: <NOMSGID_...>
+
+* rununpack: fixed unzip command line.
+
+
 ======================================================================
 
 Needed:
@@ -210,6 +237,6 @@ End
 
 ======================================================================
 
-$Date: 1997/11/01 16:53:49 $
+$Date: 1997/11/02 14:43:11 $
 Martin Junius
 mailto:mj@fido.de

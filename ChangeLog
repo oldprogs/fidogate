@@ -1,3 +1,12 @@
+Sun Nov  2 15:40:37 1997  Martin Junius  <mj@fido.de>
+
+	======= Release 4.2.8 ================================================
+	------- CVS ci, tag R428 ---------------------------------------------
+
+	* README: update, changes 4.2.2+ moved to ANNOUNCE.
+
+	* ANNOUNCE: update, all changes 4.2.2+.
+
 Sat Nov  1 15:13:28 1997  Martin Junius  <mj@fido.de>
 
 	------- CVS ci -------------------------------------------------------
