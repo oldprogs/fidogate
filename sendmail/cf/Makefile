@@ -1,6 +1,6 @@
 #:ts=8
 #
-#    $Id: Makefile,v 4.16 2003/04/26 16:35:06 n0ll Exp $
+#    $Id: Makefile,v 4.17 2003/06/18 14:18:25 n0ll Exp $
 #
 #    Makefile for FIDOGATE sendmail/cf/
 #
@@ -31,12 +31,12 @@ all:
 
 redhat6:	redhat6-morannon.cf
 redhat7:	redhat7-orodruin.cf
-redhat9:	redhat9-orodruin.cf redhat9-submit.cf
+redhat9:	redhat9-orodruin.cf redhat9-submit.cf redhat9-morannon.cf
 
 
 install:
 
-install-redhat9:
+install-orodruin:
 		$(INSTALL) -c -o root -g root -m 444 redhat9-orodruin.mc \
 		  /etc/mail/sendmail.mc
 		$(INSTALL) -c -o root -g root -m 444 redhat9-orodruin.cf \
@@ -45,6 +45,12 @@ install-redhat9:
 		  /etc/mail/submit.mc
 		$(INSTALL) -c -o root -g root -m 444 redhat9-submit.cf \
 		  /etc/mail/submit.cf
+
+install-morannon:
+		$(INSTALL) -c -o root -g root -m 444 redhat9-morannon.mc \
+		  /etc/mail/sendmail.mc
+		$(INSTALL) -c -o root -g root -m 444 redhat9-morannon.cf \
+		  /etc/mail/sendmail.cf
 
 
 clean:
