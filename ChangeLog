@@ -1,3 +1,16 @@
+2003-06-18  Martin Junius  <mj@m-j-s.net>
+
+	------- CVS ci -------------------------------------------------------
+
+	* sendmail/cf/mycfpost: post processor for .cf files generated
+	  with m4, adds some special rules.
+	  This script adds an extra rule to SParse1, which tries to match
+	  all @SOMETHING.x.virtdomain as @x.virtdomain in virtusertable,
+	  pointing to one single mailbox.
+
+	* sendmail/cf/redhat9-morannon.mc: new config for morannon.fido.de
+	  with RedHat 9.
+
 2003-06-09  Martin Junius  <mj@m-j-s.net>
 
 	======= Release 4.4.9 ================================================

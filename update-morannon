@@ -40,4 +40,4 @@ put="put $src; put $srpm; put $brpm; put fidogate.lsm -o fidogate-$REL.lsm"
 lftp -c "open ftp://upload.sourceforge.net/incoming; $put"
 
 # metalab.unc.edu
-lftp -c "open ftp://metalab.unc.edu/incoming/Linux; $put"
+lftp -c "open ftp://metalab.unc.edu/incoming/linux; $put"
