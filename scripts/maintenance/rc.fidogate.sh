@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# $Id: rc.fidonet.sh,v 4.0 1996/04/17 18:17:38 mj Exp $
+# $Id: rc.fidogate.sh,v 4.1 1997/06/28 16:26:31 mj Exp $
 #
 # FIDOGATE boot cleanup
 #

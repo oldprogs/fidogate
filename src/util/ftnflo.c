@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftnflo.c,v 4.4 1997/04/18 15:37:47 mj Exp $
+ * $Id: ftnflo.c,v 4.5 1997/06/28 16:26:37 mj Exp $
  *
  * Run script for every entry in FLO file for node
  *
@@ -38,7 +38,7 @@
 
 
 #define PROGRAM		"ftnflo"
-#define VERSION		"$Revision: 4.4 $"
+#define VERSION		"$Revision: 4.5 $"
 #define CONFIG		CONFIG_MAIN
 
 
@@ -62,7 +62,7 @@ int x_flag = FALSE;
  */
 int do_flo(Node *node)
 {
-    int mode, ret, del_ok;
+    int mode, ret, del_ok, fd;
     char *line;
     char buf[MAXPATH];
 
@@ -122,8 +122,13 @@ int do_flo(Node *node)
 		case '#':
 		    /* ... truncate */
 		    debug(2, "Truncating %s", line);
+#if 0 /* truncate() is not a POSIX function */
 		    if(truncate(line, 0) == ERROR)
 			log("ERROR: can't truncate %s", line);
+#endif
+		    if( (fd = open(line, O_WRONLY|O_TRUNC)) == ERROR )
+			log("ERROR: can't truncate %s", line);
+		    close(fd);
 		    break;
 		}
 

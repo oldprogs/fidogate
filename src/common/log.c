@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: log.c,v 4.4 1997/04/27 11:19:15 mj Exp $
+ * $Id: log.c,v 4.5 1997/06/28 16:26:35 mj Exp $
  *
  * Log and debug functions
  *
@@ -63,7 +63,7 @@ static char logprog[MAXPATH] = "FIDOGATE";
 /*
  * Debug file
  */
-static FILE *debugfile = stderr;
+static FILE *debugfile = NULL;
 
 
 
@@ -135,6 +135,9 @@ void log(const char *fmt, ...)
      */
     if (verbose)
     {
+        if(!debugfile)
+	    debugfile = stderr;
+
 	fprintf(debugfile, "%s ", logprog);
 	vfprintf(debugfile, *fmt == '$' ? fmt + 1 : fmt, args);
 	if (*fmt == '$')
@@ -156,6 +159,9 @@ void debug(int lvl, const char *fmt, ...)
     va_list args;
 
     va_start(args, fmt);
+
+    if(!debugfile)
+        debugfile = stderr;
 
     if(verbose >= lvl)
     {

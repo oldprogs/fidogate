@@ -1,4 +1,50 @@
+Sat Jun 28 18:04:34 1997  Martin Junius  <mj@fido.de>
+
+	------- CVS ci -------------------------------------------------------
+
+	* src/gate/rfc2ftn.c (snd_message): if Content-Transfer-Encoding
+	  is QUOTED-PRINTABLE, change it to 8BIT.
+
+	* config.h (RFC_LVL_1_HEADERS): added MIME-Version, Content-Type,
+	  Content-Transfer-Encoding, Next-Attachment.
+
+	* src/common/log.c (log): set debugfile to stderr if NULL.
+	  (debug): set debugfile to stderr if NULL. debugfile is now
+ 	  initialized with NULL to avoids portability problems with stderr
+ 	  not being const.
+
+	* src/toss/ftnaf.c (do_mail): set output to stdout, if not
+	  connected to mailer pipe. output is now initialized with NULL to
+	  avoids portability problems with stdout not being const.
+
+	* config.make.WIN32: config.make for GNU-WIN32.
+
+	* config.h: added GNU-WIN32 port (#ifdef __CYGWIN32__)
+
+Fri Jun 27 21:31:00 1997  Martin Junius  <mj@fido.de>
+
+	* sendmail/ostype/aux.m4: removed, name conflicts with
+	  MSDOS/Windows95. 
+
+	* ANNOUNCE: updated, changes < 4.2.4 moved to README.
+
+	* fidogate.lsm: updated.
+
+	* README: added porting information, including the new GNU-WIN32
+ 	  port.
+
+	* version.h (PATCHLEVEL): set to 5 (version 4.2.5).
+
+	* src/util/ftnflo.c (do_flo): replace truncate() with
+	  open(,O_TRUNC) because it is not a POSIX function.
+
+Mon Jun 23 21:23:41 1997  Martin Junius  <mj@fido.de>
+
+	* scripts/run/runpoll.sh: use rununpack/runtoss directly, not runin.
+
 Sun Jun 22 12:13:12 1997  Martin Junius  <mj@fido.de>
+
+	* scripts/maintenance/rc.fidogate.sh: renamed old rc.fidonet.sh.
 
 	======= Release 4.2.4 ================================================
 	------- CVS ci, tag R424 ---------------------------------------------

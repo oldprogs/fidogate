@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway software UNIX <-> FIDO
  *
- * $Id: rfc2ftn.c,v 4.26 1997/06/21 21:16:46 mj Exp $
+ * $Id: rfc2ftn.c,v 4.27 1997/06/28 16:26:35 mj Exp $
  *
  * Read mail or news from standard input and convert it to a FIDO packet.
  *
@@ -39,7 +39,7 @@
 
 
 #define PROGRAM 	"rfc2ftn"
-#define VERSION 	"$Revision: 4.26 $"
+#define VERSION 	"$Revision: 4.27 $"
 #define CONFIG		CONFIG_GATE
 
 
@@ -1032,7 +1032,11 @@ int snd_message(Message *msg, Area *parea,
 	  mime->encoding ? mime->encoding : "-NONE-");
 
     if(mime->encoding && !stricmp(mime->encoding, "QUOTED-PRINTABLE"))
+    {
+	if( (header = header_get("Content-Transfer-Encoding")) )
+	    str_copy(header, strlen(header)+1, "8BIT");
 	mime_qp = MIME_QP;
+    }
     
     /*
      * Open output packet

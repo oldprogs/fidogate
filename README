@@ -1,6 +1,6 @@
 -*- Indented-Text -*-
 
-$Id: README,v 4.19 1997/06/22 10:25:11 mj Exp $
+$Id: README,v 4.20 1997/06/28 16:26:21 mj Exp $
 
 ======================================================================
 				   
@@ -19,6 +19,31 @@ $Id: README,v 4.19 1997/06/22 10:25:11 mj Exp $
 ======================================================================
 
 [See ANNOUNCE for more recent changes]
+
+
+Changes in 4.2.3:
+
+* ftntick: area lookup now case-insensitive.
+
+
+
+Changes in 4.2.2:
+
+* ftntoss: additionally checks SEENBYs for message sender/recipient,
+  messages from local AKA are no longer insecure.
+
+* Port to FreeBSD contributed by Dirk Meyer
+  <dirk.meyer@dinoex.sub.org>. 
+
+* rununpack: added RAR support contributed by Matthias Schniedermeyer
+  <ms@twist.owl.de>.
+
+* rfc2ftn: better support for From/Reply-To text headers, will add
+  Header-To/Header-Cc for mailing lists.
+
+* ftn2rfc: don't gate messages with ^AMSGID: <NOMSGID_...>
+
+* rununpack: fixed unzip command line.
 
 
 
@@ -255,6 +280,29 @@ but is no longer maintaining it.]
 
 ======================================================================
 
-$Date: 1997/06/22 10:25:11 $
+MSDOS / DJGPP version:
+
+FIDOGATE 4.x has not yet been compiled with the DJGPP GNU C Compiler
+(using a DOS extender), but the previous 3.x release did work.
+
+Volunteers welcome! ;-)
+
+======================================================================
+
+GNU-WIN32 version:
+
+As of FIDOGATE 4.2.5, the source can be compiled with the Cygnus
+GNU-WIN32 development environment for Windows 95 and NT. You'll need
+the WIN32 version of perl, too. See config.make.WIN32.
+
+GNU-WIN32 information can be found at
+    http://www.cygnus.com/misc/gnu-win32/
+
+Perl for WIN32 information can be found at
+    http://www.activeware.com/
+
+======================================================================
+
+$Date: 1997/06/28 16:26:21 $
 Martin Junius
 mailto:mj@fido.de

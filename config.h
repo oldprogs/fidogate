@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway software UNIX <-> FIDO
  *
- * $Id: config.h,v 4.21 1997/06/08 10:25:08 mj Exp $
+ * $Id: config.h,v 4.22 1997/06/28 16:26:21 mj Exp $
  *
  * Configuration header file
  *
@@ -232,6 +232,18 @@
 # define RECEIVED_BY_MAILER "Received: by NeXT.Mailer"
 #endif /* __NeXT__ */
 
+#ifdef __CYGWIN32__			/* GNU-Win32 Beta 18 */
+# undef  DO_HAVE_GETTIMEOFDAY
+# undef  DO_HAVE_TM_GMTOFF
+# undef  DO_HAVE_SYSEXITS_H
+# undef  DO_HAVE_TM_ZONE
+# define DO_HAVE_STRFTIME
+# undef  DO_HAVE_TZNAME
+# define DO_HAVE_STRCASECMP
+# undef  DO_HAVE_STRICMP
+# define DO_BINARY
+#endif
+
 /***** End of configuration *************************************************/
 
 
@@ -355,7 +367,9 @@
  */
 #define RFC_LVL_1_HEADERS \
     "From", "Reply-To", "To", "Cc", "Newsgroups", "Date", \
-    "Sender", "Resent-From"
+    "Sender", "Resent-From", \
+    "MIME-Version", "Content-Type", "Content-Transfer-Encoding", \
+    "Next-Attachment"
 
 /*
  * Open modes for fopen(), binary for system requiring this.
