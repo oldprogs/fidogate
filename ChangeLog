@@ -1,4 +1,27 @@
+Sun Nov 10 11:37:44 1996  Martin Junius  <mj@fido.de>
+
+	======= Release 4.1.1 ================================================
+	------- CVS ci, tag R411 ---------------------------------------------
+
+	* sendmail/cf/: rebuild .cf files.
+
+	* mksubst.pl: removed.
+
+	* README: updated.
+
+	* fidogate.lsm: updated.
+
+	* ANNOUNCE: updated for release 4.1.1
+
 Sat Nov  9 17:26:07 1996  Martin Junius  <mj@fido.de>
+
+	* src/toss/ftnaf.c (do_mail): ignore stuff aftern "-- " line
+	  (start of signature).
+
+	* src/toss/ftnafmail.c (main): initialize filefix = FALSE.
+
+	* src/gate/ftninpost.pl: check that FTNInSendmail and FTNInRnews
+	  is specified in config.gate.
 
 	------- CVS ci -------------------------------------------------------
 

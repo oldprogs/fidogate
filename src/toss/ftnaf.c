@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: ftnaf.c,v 4.8 1996/11/09 18:02:17 mj Exp $
+ * $Id: ftnaf.c,v 4.9 1996/11/10 10:49:44 mj Exp $
  *
  * Areafix-like AREAS.BBS EchoMail distribution manager. Commands somewhat
  * conforming to FSC-0057.
@@ -39,7 +39,7 @@
 
 
 #define PROGRAM		"ftnaf"
-#define VERSION		"$Revision: 4.8 $"
+#define VERSION		"$Revision: 4.9 $"
 #define CONFIG		CONFIG_MAIN
 
 
@@ -396,6 +396,10 @@ int do_mail(void)
 	if(!strncmp(buffer, " * ", 3))		/* Skip " * blah" lines */
 	    continue;
 	if(!strncmp(buffer, "---", 3))		/* Ignore cmds after --- */
+	    break;
+	if(!strncmp(buffer, "--", 2))		/* Ignore cmds after --  */
+	    break;				/* (signature start)     */
+	if(!strncmp(buffer, "--=20", 5))	/* dito, MIME            */
 	    break;
 	for(p=buffer; *p && is_space(*p); p++) ;	/* Skip white space */
 	if(!*p)					/* Skip empty lines */

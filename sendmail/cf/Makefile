@@ -1,6 +1,6 @@
 #:ts=8
 #
-#    $Id: Makefile,v 4.3 1996/11/01 16:37:51 mj Exp $
+#    $Id: Makefile,v 4.4 1996/11/10 10:49:42 mj Exp $
 #
 #    Makefile for FIDOGATE sendmail/cf/
 #
@@ -26,6 +26,9 @@ all:		$(CF)
 
 install:
 
+#
+# Note: these install targets are somewhat Linux specific
+#
 install-orodruin:
 	install -g root -o root -m 644 orodruin.cf          /etc/sendmail.cf
 	install -g root -o root -m 644 mailertable-orodruin /etc/mail/mailertable

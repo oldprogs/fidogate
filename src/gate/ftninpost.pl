@@ -1,6 +1,6 @@
 #!/usr/local/bin/perl
 #
-# $Id: ftninpost.pl,v 4.2 1996/10/18 19:29:54 mj Exp $
+# $Id: ftninpost.pl,v 4.3 1996/11/10 10:49:44 mj Exp $
 #
 # Postprocessor for ftnin, feeds output of ftn2rfc to rnews and sendmail.
 # Call via ftnin's -x option or run after ftn2rfc. Replaces old fidorun
@@ -35,6 +35,15 @@ if($opt_v) {
 $SENDMAIL = `$LIBDIR/ftnconfig -c $LIBDIR/config.gate -l FTNInSendmail`;
 $RNEWS    = `$LIBDIR/ftnconfig -c $LIBDIR/config.gate -l FTNInRnews`;
 $RECOMB   = `$LIBDIR/ftnconfig -c $LIBDIR/config.gate -l -t FTNInRecombine`;
+
+if(! $SENDMAIL) {
+    print STDERR "ftninpost:config.gate:FTNInSendmail not specified\n";
+    exit 1;
+}
+if(! $RNEWS) {
+    print STDERR "ftninpost:config.gate:FTNInRnews not specified\n";
+    exit 1;
+}
 
 print
     "sendmail  = $SENDMAIL\n",

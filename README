@@ -1,6 +1,6 @@
 -*- Indented-Text -*-
 
-$Id: README,v 4.12 1996/10/18 19:48:37 mj Exp $
+$Id: README,v 4.13 1996/11/10 10:49:39 mj Exp $
 
 ----------------------------------------------------------------------
 				   
@@ -18,7 +18,7 @@ $Id: README,v 4.12 1996/10/18 19:48:37 mj Exp $
 
 ----------------------------------------------------------------------
 
-Major changes in FIDOGATE 4.0:
+Major changes in FIDOGATE 4:
 
 * Areas in AREAS.BBS must now explicitly be marked as passthru (dir
   entry must start with `#'), otherwise ftntoss will create packets
@@ -36,6 +36,17 @@ Major changes in FIDOGATE 4.0:
 
 * Tons of new config options! See examples/orodruin/... and
   examples/morannon/...
+
+
+Changes in FIDOGATE 4.1.1:
+
+* Support for ISO-8859-1 8BIT and QUOTED-PRINTABLE character set when
+  gating Fido -> Internet.
+
+* Important security fixes for setuid installed programs.
+  (New ftnafmail frontend for ftnaf)
+
+* Several bug fixes.
 
 ----------------------------------------------------------------------
 
@@ -107,4 +118,4 @@ For an OS/2 version of FIDOGATE contact:
 
 ----------------------------------------------------------------------
 
-Martin Junius <mj@fido.de>, $Date: 1996/10/18 19:48:37 $
+Martin Junius <mj@fido.de>, $Date: 1996/11/10 10:49:39 $

@@ -38,7 +38,7 @@ X = for next release
 	  import all headers present.
 
 	* ftnflo: pipe to program processing the entries (e.g. send
- 	  with FTP)
+ 	  with FTP), new scripts senduu, senduumail.
 
 	* ftntick: remove FILES.BBS entry for old replaced file.
 
