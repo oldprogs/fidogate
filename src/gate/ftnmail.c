@@ -2,14 +2,14 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: ftnmail.c,v 4.8 2004/08/22 10:30:02 n0ll Exp $
+ * $Id: ftnmail.c,v 4.9 2004/08/22 20:19:12 n0ll Exp $
  *
  * setuid frontend for rfc2ftn, limiting options for security reasons
  *
  *****************************************************************************
- * Copyright (C) 1990-2003
+ * Copyright (C) 1990-2004
  *  _____ _____
- * |     |___  |   Martin Junius             <mj@fidogate.org>
+ * |     |___  |   Martin Junius             <mj.at.n0ll.dot.net>
  * | | | |   | |   Radiumstr. 18
  * |_|_|_|@home|   D-51069 Koeln, Germany
  *
@@ -38,7 +38,7 @@
 
 
 #define PROGRAM		"ftnmail"
-#define VERSION		"$Revision: 4.8 $"
+#define VERSION		"$Revision: 4.9 $"
 #define CONFIG		DEFAULT_CONFIG_GATE
 
 #define RFC2FTN		"rfc2ftn"

@@ -2,14 +2,14 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: areafix.c,v 1.21 2004/08/22 10:30:00 n0ll Exp $
+ * $Id: areafix.c,v 1.22 2004/08/22 20:19:10 n0ll Exp $
  *
  * Common Areafix functions
  *
  *****************************************************************************
- * Copyright (C) 1990-2003
+ * Copyright (C) 1990-2004
  *  _____ _____
- * |     |___  |   Martin Junius             <mj@fidogate.org>
+ * |     |___  |   Martin Junius             <mj.at.n0ll.dot.net>
  * | | | |   | |   Radiumstr. 18
  * |_|_|_|@home|   D-51069 Koeln, Germany
  *

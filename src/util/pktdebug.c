@@ -2,14 +2,14 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: pktdebug.c,v 4.13 2003/02/16 15:39:04 n0ll Exp $
+ * $Id: pktdebug.c,v 4.14 2004/08/22 20:19:14 n0ll Exp $
  *
  * Debug contents of FTN packet
  *
  *****************************************************************************
- * Copyright (C) 1990-2003
+ * Copyright (C) 1990-2004
  *  _____ _____
- * |     |___  |   Martin Junius             <mj@fidogate.org>
+ * |     |___  |   Martin Junius             <mj.at.n0ll.dot.net>
  * | | | |   | |   Radiumstr. 18
  * |_|_|_|@home|   D-51069 Koeln, Germany
  *
@@ -37,7 +37,7 @@
 
 
 #define PROGRAM		"pktdebug"
-#define VERSION		"$Revision: 4.13 $"
+#define VERSION		"$Revision: 4.14 $"
 
 
 

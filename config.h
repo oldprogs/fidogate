@@ -2,14 +2,14 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway software UNIX <-> FIDO
  *
- * $Id: config.h,v 4.48 2002/07/15 20:21:55 n0ll Exp $
+ * $Id: config.h,v 4.49 2004/08/22 20:19:09 n0ll Exp $
  *
  * Configuration header file
  *
  *****************************************************************************
  * Copyright (C) 1990-2002
  *  _____ _____
- * |     |___  |   Martin Junius             <mj@fidogate.org>
+ * |     |___  |   Martin Junius             <mj.at.n0ll.dot.net>
  * | | | |   | |   Radiumstr. 18
  * |_|_|_|@home|   D-51069 Koeln, Germany
  *

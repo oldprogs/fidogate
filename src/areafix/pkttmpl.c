@@ -2,14 +2,14 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: pkttmpl.c,v 1.14 2004/08/22 10:30:01 n0ll Exp $
+ * $Id: pkttmpl.c,v 1.15 2004/08/22 20:19:10 n0ll Exp $
  *
  * Template for utility processing FTN packets
  *
  *****************************************************************************
- * Copyright (C) 1990-2003
+ * Copyright (C) 1990-2004
  *  _____ _____
- * |     |___  |   Martin Junius             <mj@fidogate.org>
+ * |     |___  |   Martin Junius             <mj.at.n0ll.dot.net>
  * | | | |   | |   Radiumstr. 18
  * |_|_|_|@home|   D-51069 Koeln, Germany
  *
@@ -37,7 +37,7 @@
 
 
 #define PROGRAM 	"ftnxxx"
-#define VERSION 	"$Revision: 1.14 $"
+#define VERSION 	"$Revision: 1.15 $"
 #define CONFIG		DEFAULT_CONFIG_MAIN
 
 

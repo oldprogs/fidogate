@@ -2,15 +2,15 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway software UNIX <-> FIDO
  *
- * $Id: address.c,v 4.18 2003/02/16 15:38:52 n0ll Exp $
+ * $Id: address.c,v 4.19 2004/08/22 20:19:11 n0ll Exp $
  *
  * Parsing and conversion for FIDO and RFC addresses
  *
  *****************************************************************************
- * Copyright (C) 1990-2003
+ * Copyright (C) 1990-2004
  *  _____ _____
  * |	 |___  |   Martin Junius	     
- * | | | |   | |   Radiumstr. 18  	     Internet:	mj@fidogate.org
+ * | | | |   | |   Radiumstr. 18  	     Internet:	mj.at.n0ll.dot.net
  * |_|_|_|@home|   D-51069 Koeln, Germany
  *
  * This file is part of FIDOGATE.

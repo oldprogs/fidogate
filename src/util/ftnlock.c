@@ -2,14 +2,14 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftnlock.c,v 4.10 2003/02/16 15:39:04 n0ll Exp $
+ * $Id: ftnlock.c,v 4.11 2004/08/22 20:19:14 n0ll Exp $
  *
  * Command line interface to lock files in SPOOLDIR/locks
  *
  *****************************************************************************
- * Copyright (C) 1990-2003
+ * Copyright (C) 1990-2004
  *  _____ _____
- * |     |___  |   Martin Junius             <mj@fidogate.org>
+ * |     |___  |   Martin Junius             <mj.at.n0ll.dot.net>
  * | | | |   | |   Radiumstr. 18
  * |_|_|_|@home|   D-51069 Koeln, Germany
  *
@@ -36,7 +36,7 @@
 
 
 #define PROGRAM 	"ftnlock"
-#define VERSION 	"$Revision: 4.10 $"
+#define VERSION 	"$Revision: 4.11 $"
 #define CONFIG		DEFAULT_CONFIG_MAIN
 
 

@@ -2,15 +2,15 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: crc32.c,v 4.8 2004/08/22 10:30:01 n0ll Exp $
+ * $Id: crc32.c,v 4.9 2004/08/22 20:19:11 n0ll Exp $
  *
  * Compute 32 bit CRC value
  *
  *****************************************************************************
- * Copyright (C) 1990-2003
+ * Copyright (C) 1990-2004
  *  _____ _____
  * |	 |___  |   Martin Junius	     
- * | | | |   | |   Radiumstr. 18  	     Internet:	mj@fidogate.org
+ * | | | |   | |   Radiumstr. 18  	     Internet:	mj.at.n0ll.dot.net
  * |_|_|_|@home|   D-51069 Koeln, Germany
  *
  * This file is part of FIDOGATE.
