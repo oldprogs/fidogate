@@ -1,5 +1,5 @@
 #
-# $Id: Makefile,v 4.3 1996/05/01 17:31:46 mj Exp $
+# $Id: Makefile,v 4.4 1996/05/05 12:26:52 mj Exp $
 #
 # Makefile FIDOGATE TOPDIR
 #
@@ -42,10 +42,3 @@ install-dirs:
 	$(INSTALL_DIR)    $(INBOUND)
 	$(INSTALL_DIR)    $(PINBOUND)
 	$(INSTALL_DIR)    $(UUINBOUND)
-
-install-history:
-	: >empty
-	$(INSTALL_DATA)   empty $(SPOOLDIR)/history
-	$(INSTALL_DATA)   empty $(SPOOLDIR)/history.dir
-	$(INSTALL_DATA)   empty $(SPOOLDIR)/history.pag
-	rm -rf empty

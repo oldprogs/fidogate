@@ -1,6 +1,6 @@
 #:ts=8
 #
-#    $Id: Makefile,v 4.2 1996/05/03 19:18:46 mj Exp $
+#    $Id: Makefile,v 4.3 1996/05/05 12:26:57 mj Exp $
 #
 #    Makefile for FIDOGATE src/toss/
 #
@@ -44,6 +44,7 @@ ftnexpire:	$(TOPDIR)/src/common/$(LIB) $(OBJS_EXPIRE)
 install:
 	$(INSTALL_PROG)   ftn2ftn     $(LIBDIR)
 	$(INSTALL_PROG)   ftntoss     $(LIBDIR)
+	$(INSTALL_PROG)   ftnexpire   $(LIBDIR)
 	$(INSTALL_PROG)   ftnroute    $(LIBDIR)
 	$(INSTALL_PROG)   ftnpack     $(LIBDIR)
 	$(INSTALL_PROG)   runtoss     $(LIBDIR)
@@ -51,6 +52,7 @@ install:
 	$(INSTALL_PROG)   runin       $(LIBDIR)
 	$(INSTALL_PROG)   runout      $(LIBDIR)
 	$(INSTALL_PROG)   rundf       $(LIBDIR)
+	$(INSTALL_SETUID) ftnaf       $(LIBDIR)
 
 
 

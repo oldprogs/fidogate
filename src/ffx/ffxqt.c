@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ffxqt.c,v 4.0 1996/04/17 18:17:40 mj Exp $
+ * $Id: ffxqt.c,v 4.1 1996/05/05 12:26:56 mj Exp $
  *
  * Process incoming ffx control and data files
  *
@@ -38,7 +38,7 @@
 
 
 #define PROGRAM		"ffxqt"
-#define VERSION		"$Revision: 4.0 $"
+#define VERSION		"$Revision: 4.1 $"
 #define CONFIG		CONFIG_FFX
 
 
@@ -48,7 +48,8 @@
  */
 typedef struct st_ffx
 {
-    char *name;
+    char *job;			/* Job name */
+    char *name;			/* .ffx file name */
     Node from, to;		/* FTN addresses */
     char *passwd;		/* Password */
     char *cmd;			/* Command with args */
@@ -111,7 +112,7 @@ int do_ffx(int t_flag)
     for(name=dir_get(TRUE); name; name=dir_get(FALSE))
     {
 	debug(1, "ffxqt: control file %s", name);
-	
+
 	ffx = parse_ffx(name);
 	if(!ffx)
 	    /* No error, this might be a file still being written to */
@@ -167,6 +168,12 @@ int do_ffx(int t_flag)
 		goto rename_to_bad;
 	    }
 	}
+
+	log("job %s from %s for %s", ffx->job,
+	    node_to_asc(&ffx->from, TRUE), node_to_asc(&ffx->to, TRUE));
+	log("job %s: data %s (%ldb) %s", ffx->job, ffx->file,
+	    check_size(ffx->file), ffx->decompr ? ffx->decompr : "");
+	log("job %s: %s", ffx->job, ffx->cmd);
 	
 	if(exec_ffx(ffx) == ERROR)
 	{
@@ -201,6 +208,7 @@ FFX *parse_ffx(char *name)
     static FFX ffx;
     char *buf, *p;
     
+    xfree(ffx.job);	ffx.job     = NULL;
     xfree(ffx.name);	ffx.name    = NULL;
     xfree(ffx.passwd);	ffx.passwd  = NULL;
     xfree(ffx.cmd);	ffx.cmd     = NULL;
@@ -230,6 +238,10 @@ FFX *parse_ffx(char *name)
 	    if(!strncmp(buf, "# EOF", 5))
 		ffx.status = TRUE;
 	    continue;
+
+	case 'J':			/* Job name */
+	    ffx.job = strsave(buf + 2);
+	    break;
 	    
 	case 'U':
 	    /* User name */
@@ -307,8 +319,10 @@ FFX *parse_ffx(char *name)
     debug(3, "ffx: %s", ffx.name);
     debug(3, "     %s -> %s",
 	  node_to_asc(&ffx.from, TRUE), node_to_asc(&ffx.to, TRUE));
-    debug(3, "     I %s %s", ffx.decompr ? ffx.decompr : "",
-	                     ffx.in      ? ffx.in      : "" );
+    debug(3, "     J %s", ffx.job ? ffx.job : "");
+    debug(3, "     I %s %s",
+	  ffx.in      ? ffx.in      : "",
+	  ffx.decompr ? ffx.decompr : "" );
     debug(3, "     F %s", ffx.file);
     debug(3, "     C %s", ffx.cmd);
     debug(3, "     P %s", ffx.passwd ? ffx.passwd : "");
@@ -365,7 +379,6 @@ int exec_ffx(FFX *ffx)
      * system() calls /bin/sh which is inefficient and creates security
      * problems.
      */
-
     debug(2, "Command: %s", buffer);
     ret = (system(buffer) >> 8) & 0xff;
     debug(2, "Exit code=%d", ret);

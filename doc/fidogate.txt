@@ -1236,9 +1236,9 @@ Options:
      Set input directory. Default: SPOOLDIR/toss/out
 
 `-O --out-dir name'
-     Set output directory. Default: SPOOLDIR/toss/pack. This is the
-     directory, where packets to be put into arcmail archives will be
-     created.
+     Set directory for temporary packets. Default: SPOOLDIR/toss/pack.
+     This is the directory, where packets to be put into arcmail
+     archives will be created.
 
 `-l --lock-file'
      Create lock file while processing.

@@ -1,6 +1,6 @@
 -*- Indented-Text -*-
 
-$Id: README,v 4.3 1996/05/01 17:31:46 mj Exp $
+$Id: README,v 4.4 1996/05/05 12:26:52 mj Exp $
 
 ----------------------------------------------------------------------
 				   
@@ -59,10 +59,9 @@ Installing:
 
 1.  Type "make install-dirs" to create the installation directories
     (only if needed)
-2.  Type "make install-history" to create an empty MSGID history
-    database (only if needed). WARNING: zeros existing database!
-3.  Type "make install" to install the programs
-4.  Create the various config files and put them into LIBDIR
+2.  Type "make install" to install the programs
+3.  Create the various config files and put them into LIBDIR
+    (see examples/... to get started)
 
 ----------------------------------------------------------------------
 
@@ -78,4 +77,4 @@ for subscription.
 
 ----------------------------------------------------------------------
 
-Martin Junius <mj@fido.de>, $Date: 1996/05/01 17:31:46 $
+Martin Junius <mj@fido.de>, $Date: 1996/05/05 12:26:52 $

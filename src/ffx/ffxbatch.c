@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ffxbatch.c,v 4.1 1996/04/22 20:02:04 mj Exp $
+ * $Id: ffxbatch.c,v 4.2 1996/05/05 12:26:55 mj Exp $
  *
  * ffx FIDO-FIDO execution batcher, packs batched (-b) ffx jobs.
  *
@@ -38,7 +38,7 @@
 
 
 #define PROGRAM		"ffxbatch"
-#define VERSION		"$Revision: 4.1 $"
+#define VERSION		"$Revision: 4.2 $"
 #define CONFIG		CONFIG_FFX
 
 
@@ -136,7 +136,8 @@ int pack_batch(char *dir, char *arc)
 /*
  * Do the remote execution
  */
-int ffx(Node *node, char *cmprprog, char *cmprext, char *cmprdecmpr, char *flav, int grade, char *batch)
+int ffx(Node *node, char *cmprprog, char *cmprext, char *cmprdecmpr,
+	char *flav, int grade, char *batch)
 {
     char *seq;
     char *out;
@@ -146,8 +147,6 @@ int ffx(Node *node, char *cmprprog, char *cmprext, char *cmprdecmpr, char *flav,
     Passwd *pwd;
     char *password;
     
-    debug(1, "ffx: addr=%s", node_to_asc(node, TRUE));
-
     seq = new_job_id(grade);
     cf_set_zone(node->zone);
     
@@ -168,6 +167,9 @@ int ffx(Node *node, char *cmprprog, char *cmprext, char *cmprdecmpr, char *flav,
     debug(2, "ffx: data=%s", dataname);
     debug(2, "ffx: batch=%s", batchdir);
     
+    log("job %s: %s %s %s%s",
+	seq, node_to_asc(node, TRUE), cmprdecmpr, seq, cmprext);
+
     /*
      * Pack ffx jobs in batch dir
      */

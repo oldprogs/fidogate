@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# $Id: rununpack.sh,v 4.0 1996/04/17 18:17:42 mj Exp $
+# $Id: rununpack.sh,v 4.1 1996/05/05 12:26:58 mj Exp $
 #
 # Unpack ArcMail archives
 #
@@ -72,8 +72,9 @@ cd $INPUT/tmp
 #
 # Unpack all mail archives in $INPUT
 #
-for arc in $INPUT/*.su? $INPUT/*.mo? $INPUT/*.tu? $INPUT/*.we? \
-           $INPUT/*.th? $INPUT/*.fr? $INPUT/*.sa?
+for arc in \
+  $INPUT/*.[sS][uU]? $INPUT/*.[mM][oO]? $INPUT/*.[tT][uU]? \
+  $INPUT/*.[wW][eE]? $INPUT/*.[tT][hH]? $INPUT/*.[fF][rR]? $INPUT/*.[sS][aA]?
 do
 if [ -f $arc ]; then
 

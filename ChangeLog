@@ -1,3 +1,46 @@
+Sun May  5 11:00:41 1996  Martin Junius  <mj@fido.de>
+
+	------- CVS commit ---------------------------------------------------
+
+	* src/ffx/ffxqt.c (parse_ffx): parse "J" job id line in ffx file.
+	  (FFX): added "job" field.
+	  (do_ffx): added log() for ffx job, from/to node, data file, command.
+
+	* src/ffx/ffx.c, ffxbatch.c (ffx): replaced debug() with log() for
+          job, node, and command.
+
+	* src/include/patchlevel.h (ALPHA): changed to 2 for next alpha
+	  release. 
+
+	* src/common/hosts.c (hosts_init): check p->name != NULL for
+	  debug() output.
+
+	* src/toss/rununpack.sh: ignore case when looking for archive file
+	  names. 
+
+	* src/toss/history.c (hi_init): log() when creating new
+	  history.dir and history.pag.
+
+	* Makefile (install-history): removed, obsoleted by changed ftntoss.
+
+	* test/tr.init: removed creating history database, now
+	  automatically done by ftntoss.
+
+	* src/toss/history.c (hi_init): check for existence of history.dir
+	  and history.pag, create them if needed.
+
+	* src/toss/ftnexpire.c (do_line): added counter n_expired, n_processed.
+	  (do_expire): added statistics output of ids processed, ids expired.
+
+	* src/toss/ftnaf.c (rewrite_areas_bbs): use str_expand_name() to
+	  expand filename from config option.
+
+	* src/toss/Makefile (install): added ftnaf, ftnexpire to install
+          target.
+
+	* scripts/run/runpoll.sh: added -xterm option, running runpoll
+	  commands in an xterm window.
+
 Fri May  3 19:28:14 1996  Martin Junius  <mj@fido.de>
 
 	------- CVS commit ---------------------------------------------------

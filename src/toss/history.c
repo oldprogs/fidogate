@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: history.c,v 4.0 1996/04/17 18:17:42 mj Exp $
+ * $Id: history.c,v 4.1 1996/05/05 12:26:58 mj Exp $
  *
  * MSGID history functions and dupe checking
  *
@@ -47,9 +47,37 @@ static FILE *hi_file = NULL;
  */
 int hi_init(void)
 {
-    BUF_COPY3(buffer, cf_spooldir(), "/", HISTORY);
+    FILE *fp;
+    
+    /* Test for history.dir, history.pag */
+    BUF_COPY4(buffer, cf_spooldir(), "/", HISTORY, ".dir");
+    if(check_access(buffer, CHECK_FILE) != TRUE)
+    {
+	/* Doesn't exist, create */
+	if( (fp = fopen(buffer, W_MODE)) == NULL )
+	{
+	    log("$ERROR: creating MSGID history %s failed", buffer);
+	    return ERROR;
+	}
+	else
+	    log("creating MSGID history %s", buffer);
+    }
+    
+    BUF_COPY4(buffer, cf_spooldir(), "/", HISTORY, ".pag");
+    if(check_access(buffer, CHECK_FILE) != TRUE)
+    {
+	/* Doesn't exist, create */
+	if( (fp = fopen(buffer, W_MODE)) == NULL )
+	{
+	    log("$ERROR: creating MSGID history %s failed", buffer);
+	    return ERROR;
+	}
+	else
+	    log("creating MSGID history %s", buffer);
+    }
 
     /* Open the history text file */
+    BUF_COPY3(buffer, cf_spooldir(), "/", HISTORY);
     if( (hi_file = fopen(buffer, A_MODE)) == NULL ) 
     {
 	log("$ERROR: open MSGID history %s failed", buffer);

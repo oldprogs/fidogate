@@ -2,7 +2,7 @@
 @c
 @c FIDOGATE documentation
 @c
-@c $Id: fidogate.texi,v 4.1 1996/04/22 14:41:16 mj Exp $
+@c $Id: fidogate.texi,v 4.2 1996/05/05 12:26:53 mj Exp $
 @c
 
 @setfilename fidogate.info
@@ -1696,8 +1696,8 @@ Only process packets with @i{grade} (single letter).
 Set input directory. Default: SPOOLDIR/toss/out
 
 @item -O --out-dir @i{name}
-Set output directory. Default: SPOOLDIR/toss/pack. This is the
-directory, where packets to be put into arcmail archives will be
+Set directory for temporary packets. Default: SPOOLDIR/toss/pack. This
+is the directory, where packets to be put into arcmail archives will be
 created.
 
 @item -l --lock-file

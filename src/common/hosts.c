@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: hosts.c,v 4.1 1996/04/22 14:31:12 mj Exp $
+ * $Id: hosts.c,v 4.2 1996/05/05 12:26:55 mj Exp $
  *
  * Process hostname <-> node aliases from hosts file
  *
@@ -125,7 +125,7 @@ void hosts_init(void)
 	}
 
 	debug(15, "hosts: %s %s %02x", node_to_asc(&p->node, TRUE),
-	      p->name, p->flags);
+	      p->name ? p->name : "-", p->flags);
 	
 	/*
 	 * Put into linked list
