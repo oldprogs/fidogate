@@ -2,6 +2,24 @@ Sat Nov 30 14:35:27 1996  Martin Junius  <mj@fido.de>
 
 	------- CVS ci -------------------------------------------------------
 
+	* config.h (FTN_RFC_HEADERS): added "Sender" to list of recognized
+	  RFC headers.
+
+	* test/tc.gate10/run: new test case, Sender for mailing lists.
+
+	* src/gate/rfc2ftn.c (snd_message): add Sender line, if RFC
+	  headers Sender or Resent-From are present. Typically, this will
+	  be the case with mailing lists.
+
+	* scripts/run/runpoll.sh: use runtoss outf.
+
+	* src/toss/runtoss.sh: added new toss name "outf", running the
+	  tosser for the rfc2ftn outbound with file attachments.
+
+	* src/toss/runin.sh: add $$ to ftnlock command line.
+
+	------- CVS ci -------------------------------------------------------
+
 	* config.h (RFC_LVL_1_HEADERS): added "Sender", "Resent-From".
 
 	* src/common/lock.c: all debug() levels set to 7.

@@ -1,0 +1,50 @@
+From owner-isdn4linux@hub-wue.franken.de  Sat Nov 30 14:03:49 1996
+Return-Path: owner-isdn4linux@hub-wue.franken.de
+Received: (from news@localhost) by orodruin.fido.de (8.7.4/8.7.3/orodruin-4.1) with FFX id OAA00386 for mj@orodruin.fido.de; Sat, 30 Nov 1996 14:02:59 +0100
+Received: from rachael.franken.de (rachael.franken.de [193.175.24.38]) by morannon.fido.de (8.7.5/8.7.3/morannon-4.0) with SMTP id HAA02026 for <mj@fido.de>; Sat, 30 Nov 1996 07:44:55 +0100
+Received: from hub-wue.franken.de by rachael.franken.de with smtp
+	(Smail3.1.29.1 #8) id m0vTh0S-000oIba; Sat, 30 Nov 96 05:26 MET
+Received: from oops.franken.de by hub-wue.franken.de with smtp
+	(Smail3.1.29.1 #1) id m0vTgzb-000BoZa; Sat, 30 Nov 96 05:25 MET
+Received: by oops.franken.de (Linux Smail3.1.29.1 #1)
+	id m0vTgYB-001IeFa; Sat, 30 Nov 96 04:57 MET
+Received: from hub-wue.franken.de by oops.franken.de  with smtp
+	(Linux Smail3.1.29.1 #1) id m0vTgY6-001IeGE; Sat, 30 Nov 96 04:57 MET
+Received: from aixrs1.hrz.uni-essen.de by hub-wue.franken.de with smtp
+	<9611291606.AA04299@HPLEY1.col.sw-ley.de>
+Content-Type: text
+Sender: owner-isdn4linux@hub-wue.franken.de
+Precedence: bulk
+Reply-To: isdn4linux@hub-wue.franken.de
+Status: RO
+X-Status: 
+
+Norbert Kiesel writes:
+|>
+|>
+|>Hello!
+|>
+|>Ich woolte nur mitteilen, dass jetzt alles bei meiner
+|>ISDN-Konfiguration funktioniert (incl. chargeint und callback).  Ich
+|>werde die Daten bei naechster Gelegenheit fuer die Liste auf dem
+|>WWW-Server zusammenstellen.
+Was war denn das Problem bei Dir? Ich habe n‰mlich genau das gleiche
+Problem, daﬂ Du hattest: isdnlog 2.51 weigert sich standhaft,
+chargeint zu setzen. (Ja, er ist mit -DCHARGEINT kompiliert.)
+
+(Linux 2.0.26, HiSax Treiber, Teles 16.3 Karte)
+
+Bjarne
+
+---------------------------------------------------
+To remove yourself from this mailing list send
+email to majordomo@hub-wue.franken.de containing
+"unsubscribe isdn4linux <your_email_address>" in
+the message body [-vg]
+
+To remove yourself from this mailing list send
+email to majordomo@hub-wue.franken.de containing
+"unsubscribe isdn4linux <your_email_address>" in
+the message body [-vg]
+
+

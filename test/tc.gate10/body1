@@ -1,0 +1,88 @@
+From tetex-owner@antares.informatik.uni-hannover.de  Sat Nov 30 14:03:52 1996
+Return-Path: tetex-owner@antares.informatik.uni-hannover.de
+Received: (from news@localhost) by orodruin.fido.de (8.7.4/8.7.3/orodruin-4.1) with FFX id OAA00406 for mj@orodruin.fido.de; Sat, 30 Nov 1996 14:03:01 +0100
+Received: from antares.informatik.uni-hannover.de (antares.informatik.uni-hannover.de [130.75.26.56]) by morannon.fido.de (8.7.5/8.7.3/morannon-4.0) with ESMTP id MAA06607 for <mj@orodruin.fido.de>; Sat, 30 Nov 1996 12:47:02 +0100
+Received: (from majordom@localhost) by antares.informatik.uni-hannover.de (8.7.5/8.7.3) id IAA25969 for tetex-outgoing; Sat, 30 Nov 1996 08:14:46 +0100
+Received: from zeus.informatik.uni-hannover.de (zeus.informatik.uni-hannover.de [130.75.24.3]) by antares.informatik.uni-hannover.de (8.7.5/8.7.3) with ESMTP id IAA25965 for <tetex@antares.informatik.uni-hannover.de>; Sat, 30 Nov 1996 08:14:44 +0100
+Received: from POWERED.ZOO.CS.YALE.EDU (ZOO-GW.CS.YALE.EDU [128.36.0.5]) by zeus.informatik.uni-hannover.de (8.7.6/8.7.3) with ESMTP id IAA08859 for <tetex@informatik.uni-hannover.de>; Sat, 30 Nov 1996 08:13:03 +0100 (MET)
+Received: from cs.yale.edu by POWERED.ZOO.CS.YALE.EDU (8.7/res.host.cf-3.5)
+	with ESMTP id CAA56154; Sat, 30 Nov 1996 02:12:47 -0500
+Message-Id: <199611300712.CAA56154@POWERED.ZOO.CS.YALE.EDU>
+From: "Stefan Monnier" <monnier-stefan@cs.yale.edu>
+To: Olaf Weber <Olaf.Weber@cwi.nl>
+Cc: tetex@informatik.uni-hannover.de
+Subject: Re: [TETEX 1523] name space "clutter" 
+In-reply-to: Olaf.Weber's message of 29 Nov 1996 14:51:25 +0100.
+             <sxaenhdko0y.fsf@havik.cwi.nl> 
+Mime-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Date: Sat, 30 Nov 1996 02:12:46 -0500
+Sender: owner-tetex@informatik.uni-hannover.de
+Precedence: bulk
+Status: RO
+X-Status: 
+
+> To default to /usr/local would be unreasonable in any case -- when I
+> first looked at teTeX I installed it under my home directory.  And I
+> like the fact that by default the teTeX installation is self-contained
+> in a single directory tree: it makes trying it out without ditching
+> an old TeX installation easy.
+
+Well, using "/usr/local" instead of "/usr/local/teTeX" doesn't change
+the slightest thing regarding the ability to install it in your home
+dir and regarding its self-containedness.
+
+But my point is not that it should default to /usr/local (or /usr or /opt for that matter) but just that the self-contained directory structure could easily
+accomodate for the cases when one want to put it in /usr/local (where
+/usr/local/texmf might be less convenient than /usr/local/lib/texmf).
+
+Anyway, as I said, I can live with <root>/texmf, really.
+
+> > Well, I doubt that allcm, alldc and allneeded will be used by any of
+> > my users.
+> Yet one of your users might still use them to generate pk files for
+> some "odd" mode for his printer at home.  As a generalization to the
+> needs of all users at all sites, this is a bit hasty.
+
+having it in sbin rather than bin doesn't prevent its use, it just
+expresses the fact that this command is not intended for joe-user (just
+like "mount" is not intended for joe-user, and yet I use "mount" sometimes
+even on machines where I'm not root, just because I like its ability
+to give some information on the status of a system which might explain
+some of the odd performance I'm getting, for instance).
+Also it reduces "name space clutter".
+
+> > Similarily, texhash cannot be used by any of my users since the
+> > distrib is read-only (and hence texconfig can only be used for
+> > querying the config, which noone will do, I'm pretty sure).  Same
+> > thing for append_db.
+> 
+> The same holds at CWI.  But this might change when multiple ls-R files
+> arrive: users with many own macros would benefit from using an ls-R.
+> 
+> You may wish a user to use texconfig in their own environment when
+> debugging a problem they've come up with.
+
+See my "mount" comment above.
+
+> I can imagine several ways to work around this, but they all involve
+> making changes to the kpathsea library, and may require further
+> changes to the scripts and binaries as well.  To me it looks like a
+> lot of work for very little gain.
+
+I dont see the difficulty in tweaking kpathsea in order for it to look
+in lib/teTeX/<arch> before (or instead of) PATH (actually, I'd rather
+put them in libexec)
+
+Basically the idea is: most users only use latex, xdvi, makeindex, bibtex
+and dvips to the exclusion of everything else. Of course, some other commands
+like tex, amstex, makeinfo, tangle and such are also heavily used by some other users but most other programs like virXXX, iniXXX, XXX.bin, pkXXX, XXtoXX
+and friends will never be used interactively or only in some very unusual
+circumstance, where it's OK to require the user to use the full path.
+Of course, you might say "as long as there's no name clash, who cares" and
+that's a good point.
+
+
+	Stefan
+
+

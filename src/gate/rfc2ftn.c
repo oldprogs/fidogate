@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway software UNIX <-> FIDO
  *
- * $Id: rfc2ftn.c,v 4.17 1996/11/09 18:02:14 mj Exp $
+ * $Id: rfc2ftn.c,v 4.18 1996/11/30 15:46:13 mj Exp $
  *
  * Read mail or news from standard input and convert it to a FIDO packet.
  *
@@ -39,7 +39,7 @@
 
 
 #define PROGRAM 	"rfc2ftn"
-#define VERSION 	"$Revision: 4.17 $"
+#define VERSION 	"$Revision: 4.18 $"
 #define CONFIG		CONFIG_GATE
 
 
@@ -1188,10 +1188,13 @@ int snd_message(Message *msg, Area *parea,
     {
 	if(!no_from_line)
 	{
-	    /*
-	     * Add From line with return address
-	     */
+	    /* Add From line with return address */
 	    fprintf(sf, "From: %s\r\n", rfcaddr_to_asc(&rfc_from, TRUE));
+	    /* Add Sender line */
+	    if( (header = header_get("Sender")) )
+		fprintf(sf, "Sender: %s\r\n", header);
+	    else if( (header = header_get("Resent-From")) )
+		fprintf(sf, "Sender: %s\r\n", header);
 	    add_empty = TRUE;
 	}
     }

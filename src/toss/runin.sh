@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# $Id: runin.sh,v 4.1 1996/11/25 19:52:00 mj Exp $
+# $Id: runin.sh,v 4.2 1996/11/30 15:46:13 mj Exp $
 #
 # Run protected and normal inbound tossing (rununpack, runtoss)
 #
@@ -25,7 +25,7 @@ export LOGFILE
 #
 # Lock it
 #
-$PRG/ftnlock -l runin
+$PRG/ftnlock -l runin $$
 st=$?
 if [ $st -ne 0 ]; then
 	exit 2

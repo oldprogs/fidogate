@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# $Id: runpoll.sh,v 4.3 1996/06/10 19:36:08 mj Exp $
+# $Id: runpoll.sh,v 4.4 1996/11/30 15:46:12 mj Exp $
 #
 # Poll uplink
 #
@@ -31,8 +31,10 @@ $NEWS/send-ffx
 # Gateway
 $NEWS/send-fidogate
 
-# Tosser
-$FIDOGATE/runtoss out
+# Tosser w/file attachments
+$FIDOGATE/runtoss outf
+# Tosser w/o file attachments
+#$FIDOGATE/runtoss out
 
 # Poll
 $IFMAIL/ifcico $UPLINK
