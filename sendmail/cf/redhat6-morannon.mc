@@ -1,24 +1,23 @@
 #
-# $Id: redhat6-orodruin.mc,v 4.2 1999/10/04 08:18:17 mj Exp $
+# $Id: redhat6-morannon.mc,v 4.1 1999/10/04 08:18:17 mj Exp $
 #
 # orodruin.Fido.DE
 #
 
 include(`../m4/cf.m4')
 
-VERSIONID(`$Id: redhat6-orodruin.mc,v 4.2 1999/10/04 08:18:17 mj Exp $')
+VERSIONID(`$Id: redhat6-morannon.mc,v 4.1 1999/10/04 08:18:17 mj Exp $')
 
 dnl #
 dnl # Configuration
 dnl #
-define(`confCF_VERSION', `redhat6-orodruin-4.1')
+define(`confCF_VERSION', `redhat6-morannon-4.1')
 define(`confMIME_FORMAT_ERRORS', `False')
 define(`confUSE_ERRORS_TO', `True')
 define(`confMAX_HOP', `30')
 define(`confMESSAGE_TIMEOUT', `5d/2d')
 define(`confAUTO_REBUILD',true)
 define(`confTO_CONNECT', `1m')
-define(`confDONT_PROBE_INTERFACES',true)
 
 dnl # RedHat specific
 define(`confDEF_USER_ID',``8:12'')
@@ -37,15 +36,7 @@ FEATURE(use_cw_file)
 FEATURE(local_procmail)
 FEATURE(`access_db')
 FEATURE(`blacklist_recipients')
-dnl We strongly recommend to comment this one out if you want to protect
-dnl yourself from spam. However, the laptop and users on computers that do
-dnl not hav 24x7 DNS do need this.
-FEATURE(`accept_unresolvable_domains')
-dnl FEATURE(`relay_based_on_MX')
-FEATURE(redirect)
-dnl # because orodruin is not directly connected to the Internet
-FEATURE(nocanonify)
-FEATURE(mailertable,hash /etc/mail/mailertable.db)dnl
+FEATURE(mailertable,hash /etc/mail/mailertable.db)
 
 MAILER(procmail)
 MAILER(smtp)
@@ -53,11 +44,22 @@ MAILER(ftn)
 MAILER(ffx)
 
 
-# Smart host and mailer
-define(`SMART_HOST', ffx:morannon.fido.de)
-
+# Alternate hostnames
+Cwmorannon-ftn.fido.de morannon-ftn
+Cwsungate-ftn.fido.de sungate-ftn
+Cwsungate.fido.de sungate
+Cwfido.de
+Cwmorannon.faho.rwth-aachen.de
+Cwmorannon.fido.de morannon
+Cwwww.fido.de www
+Cwftp.fido.de ftp
+Cwgate.fido.de gate
 
 LOCAL_CONFIG
 # More trusted users
 Tnews
 Tmajordomo
+
+LOCAL_RULE_3
+
+LOCAL_NET_CONFIG

@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: message.c,v 4.15 1999/06/17 21:42:50 mj Exp $
+ * $Id: message.c,v 4.16 1999/10/04 08:18:21 mj Exp $
  *
  * Reading and processing FTN text body
  *
@@ -684,40 +684,64 @@ char *msg_xlate_line(char *buf, int n, char *line, int qp)
  * Format buffer line and put it into Textlist. Returns number of
  * lines.
  */
+#define DEFAULT_LINE_LENGTH	72
+#define MAX_LINE_LENGTH		200
+
+static int msg_get_line_length(void)
+{
+    static int message_line_length = 0;
+
+    if(!message_line_length) 
+    {
+	char *p;
+	if( (p = cf_get_string("MessageLineLength", TRUE)) )
+	{
+	    debug(8, "config: MessageLineLength %s", p);
+	    message_line_length = atoi(p);
+	    if(message_line_length < 20 ||
+	       message_line_length > MAX_LINE_LENGTH) 
+	    {
+		log("WARNING: illegal MessageLineLength value %d",
+		    message_line_length);
+		message_line_length = DEFAULT_LINE_LENGTH;
+	    }
+	}
+	else
+	    message_line_length = DEFAULT_LINE_LENGTH;
+    }
+    return message_line_length;
+}
+
+
 int msg_format_buffer(char *buffer, Textlist *tlist)
 {
-    /*
-     * Remark: MAX_LINELEN+16 and MAX_LINELEN+8, the numbers +16 and +8
-     *         are just arbitrary values to be safe.
-     */
+    int max_linelen;
     char *p, *np;
-    char localbuffer[MAX_LINELEN + 16];
+    char localbuffer[MAX_LINE_LENGTH + 16];	/* Some extra space */
     int i;
     int lines;
+
+    max_linelen = msg_get_line_length();
     
-    if(strlen(buffer) <= MAX_LINELEN)		/* Nothing to do */
+    if(strlen(buffer) <= max_linelen)		/* Nothing to do */
     {
 	tl_append(tlist, buffer);
 	return 1;
     }
     else
     {
-	/*
-	 * Break line with word wrap
-	 */
+	/* Break line with word wrap */
 	lines = 0;
 	p     = buffer;
 
 	while(TRUE)
 	{
-	    /*
-	     * Search backward for a whitespace to break line. If no proper
-	     * point is found, the line will not be splitted.
-	     */
-	    for(i=MAX_LINELEN-1; i>=0; i--)
+	    /* Search backward for a whitespace to break line. If no
+	     * proper point is found, the line will not be split.  */
+	    for(i=max_linelen-1; i>=0; i--)
 		if(is_blank(p[i]))	/* Found a white space */
 		    break;
-	    if(i < MAX_LINELEN/2)	/* Not proper space to split found, */
+	    if(i < max_linelen/2)	/* Not proper space to split found, */
 	    {				/* put line as is                   */
 		tl_append(tlist, p);
 		lines++;
@@ -726,23 +750,20 @@ int msg_format_buffer(char *buffer, Textlist *tlist)
 	    for(; i>=0 && is_blank(p[i]); i--);	/* Skip more white space */
 	    i++;				/* Return to last white sp. */
 
-	    /*
-	     * Cut here and put into textlist
-	     */
+	    /* Cut here and put into textlist */
 	    np = p + i;
 	    *np++ = 0;
 	    BUF_COPY2(localbuffer, p, "\n");
 	    tl_append(tlist, localbuffer);
 	    lines++;
 	    
-	    /*
-	     * Advance buffer pointer and test length of remaining line
-	     */
+	    /* Advance buffer pointer and test length of remaining
+	     * line */
 	    p = np;
 	    for(; *p && is_blank(*p); p++);	/* Skip white space */
 	    if(*p == 0)				/* The end */
 		return lines;
-	    if(strlen(p) <= MAX_LINELEN)	/* No more wrappin' */
+	    if(strlen(p) <= max_linelen)	/* No more wrappin' */
 	    {
 		tl_append(tlist, p);
 		lines++;
@@ -788,9 +809,7 @@ int msg_parse_origin(char *buffer, Node *node)
     *right = 0;
     *left++ = 0;
 
-    /*
-     * Parse node info
-     */
+    /* Parse node info */
     while(*left && !is_digit(*left))
 	left++;
     if(asc_to_node(left, node, FALSE) != OK)

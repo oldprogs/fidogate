@@ -1,6 +1,17 @@
 							 -*- Indented-Text -*-
 ===== TODO list for FIDOGATE development =====================================
 
+DONE	* ftn2rfc, line formatting: make MAXLINELEN from config.h
+	  runtime-configurable.
+	
+        * ftn2rfc: if charset_set_in_out() fails, try to use a
+	  matching table for the input charset. eg if input charset
+	  normally is IBMPC, the output charset set to ISO-8859-1 and
+	  a user sends mail with input charset CP822 then change the
+	  output charset to ISO-8859-5.
+
+DONE	* INN send-xxx scripts: install in BINDIR.
+
 	* ftnoutpkt, outpkt.c:outpkt_netmail(): allow creation of
 	  EchoMail.
 

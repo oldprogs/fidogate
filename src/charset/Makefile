@@ -1,6 +1,6 @@
 #:ts=8
 #
-#    $Id: Makefile,v 1.4 1999/06/07 21:24:25 mj Exp $
+#    $Id: Makefile,v 1.5 1999/10/04 08:18:18 mj Exp $
 #
 #    Makefile for FIDOGATE src/charset/
 #
@@ -49,7 +49,7 @@ $(CHARSETMAP):	$(CHARSETSRC) $(PROGS)
 
 
 install:
-	$(INSTALL_DATA) $(CHARSETMAP) $(PREFIX)$(LIBDIR)
+	$(INSTALL_DATA) $(CHARSETMAP) $(CHARSETSRC) $(PREFIX)$(LIBDIR)
 
 
 clean veryclean:

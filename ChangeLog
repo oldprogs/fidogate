@@ -1,3 +1,47 @@
+1999-10-04  Martin Junius  <mj@fido.de>
+
+	------- CVS ci -------------------------------------------------------
+
+	* doc/fidogate.texi (Config): updated.
+	  (config.h): updated.
+
+	* src/gate/ftn2rfc.c (main): implemented config option
+	  NetMailCharsetUse1st.
+
+	* src/common/message.c (msg_get_line_length): new function getting 
+	  config value MessageLineLength.
+	  (msg_format_buffer): changed to use new msg_get_line_length().
+
+	* config.h (MAX_LINELEN): removed.
+
+	* examples/orodruin/fidogate.conf: included
+	  NetMailCharsetUse1st and MessageLineLength.
+
+1999-09-12  Martin Junius  <mj@fido.de>
+
+	* src/charset/Makefile (install): install charset map source, too.
+
+	* src/gate/send-fidogate.sh (FIDOGATE_LOGFILE): log output to
+	  %G/log-news. 
+
+1999-09-05  Martin Junius  <mj@fido.de>
+
+	* sendmail/cf/redhat6-morannon.mc: new config file for morannon
+	  with RedHat 6.0 / sendmail 8.9.
+
+1999-09-01  Martin Junius  <mj@fido.de>
+
+	* src/common/binkley.c (bink_mkdir): log() if mkdir() fails.
+
+1999-08-22  Martin Junius  <mj@fido.de>
+
+	* ANNOUNCE: updated.
+
+	* README: updated.
+
+	* scripts/run/runpoll-binkd.sh: send mail to DUMMYADDR to force
+	  polling, BinkD won't poll for empty FLO file.
+
 1999-08-08  Martin Junius  <mj@fido.de>
 
 	======= Release 4.3.5 ================================================

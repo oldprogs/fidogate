@@ -1,6 +1,6 @@
 #:ts=8
 #
-#    $Id: Makefile,v 4.7 1998/11/08 18:27:59 mj Exp $
+#    $Id: Makefile,v 4.8 1999/10/04 08:18:22 mj Exp $
 #
 #    Makefile for FIDOGATE src/ffx/
 #
@@ -36,7 +36,7 @@ install:
 	$(INSTALL_PROG) ffxrmail $(PREFIX)$(LIBDIR)
 	$(INSTALL_PROG) runffx $(PREFIX)$(BINDIR)
 	$(INSTALL_PROG) ffxnews $(PREFIX)$(LIBDIR)
-	$(INSTALL_PROG) send-ffx $(PREFIX)$(NEWSETCDIR)
+	$(INSTALL_PROG) send-ffx $(PREFIX)$(BINDIR)
 
 
 clean veryclean:

@@ -236,10 +236,11 @@ Needed:
 * GNU make
 * GNU flex/bison or lex/yacc
 * Perl5
+* sendmail m4 configuration files
 * GNU m4 for the sendmail m4 configuration
 
 ======================================================================
 
-$Date: 1999/08/08 13:23:27 $
+$Date: 1999/10/04 08:18:10 $
 Martin Junius
 mailto:mj@fido.de

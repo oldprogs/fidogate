@@ -1,6 +1,6 @@
 -*- Indented-Text -*-
 
-$Id: README,v 4.29 1999/03/20 14:30:50 mj Exp $
+$Id: README,v 4.30 1999/10/04 08:18:11 mj Exp $
 
 ======================================================================
 				   
@@ -559,11 +559,13 @@ Needed:
 * GNU make
 * GNU flex/bison or lex/yacc
 * Perl5
+* sendmail m4 configuration files
+* GNU m4 for the sendmail m4 configuration
 
 Compiling:
 
-1.  Edit config.h
-2.  Edit config.make
+1.  Edit config.make
+2.  Edit config.h if needed
 3.  Run "make depend"
 4.  Run "make"
 
@@ -572,7 +574,7 @@ Installing:
 5.  Run "make install-dirs" to create the installation directories
     (only if needed)
 6.  Run "make install" to install the programs
-7.  Create the various config files and put them into LIBDIR
+7.  Create the various config files and put them into CONFIGDIR
     (see examples/... to get started)
 
 See also doc/fidogate.txt (PostScript documentation can be compiled by
@@ -676,6 +678,6 @@ not integrate your patches.
 
 ======================================================================
 
-$Date: 1999/03/20 14:30:50 $
+$Date: 1999/10/04 08:18:11 $
 Martin Junius
 mailto:mj@fido.de

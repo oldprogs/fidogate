@@ -448,9 +448,6 @@ THE FOLLOWING DEFINES SHOULD REALLY BE LEFT AS IS!!!
 `PRODUCT_CODE'
      FIDO product code used by `rfc2ftn'.
 
-`MAX_LINELEN'
-     Maximum line length for formatting (line break) FIDO messages.
-
 `MAXADDRESS'
      Maximum number of `Address' and `Zone' statements in `config' file.
 

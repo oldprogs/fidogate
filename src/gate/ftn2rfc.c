@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftn2rfc.c,v 4.52 1999/06/27 19:18:13 mj Exp $
+ * $Id: ftn2rfc.c,v 4.53 1999/10/04 08:18:23 mj Exp $
  *
  * Convert FTN mail packets to RFC mail and news batches
  *
@@ -40,7 +40,7 @@
 
 
 #define PROGRAM 	"ftn2rfc"
-#define VERSION 	"$Revision: 4.52 $"
+#define VERSION 	"$Revision: 4.53 $"
 #define CONFIG		DEFAULT_CONFIG_GATE
 
 
@@ -127,6 +127,7 @@ static char *default_charset_def = NULL;
 static char *default_charset_out = NULL;
 static char *netmail_charset_def = NULL;
 static char *netmail_charset_out = NULL;
+static int netmail_charset_use_1st = FALSE;
 
 /* String to add to news Path header */
 static char *news_path_tail = "not-for-mail";
@@ -559,6 +560,7 @@ int unpack(FILE *pkt_file, Packet *pkt)
 	if(!cs_in)
 	    cs_in = cs_def;
 	charset_set_in_out(cs_in, cs_out);
+	/**FIXME: if ERROR is returned, use first matching alias for cs_in**/
 
 	/* ^ARFC level and line break flag */
 	rfc_lvl   = 0;
@@ -1554,6 +1556,11 @@ int main(int argc, char **argv)
 	 */
 	debug(8, "config: NewsPathTail %s", p);
 	news_path_tail = p;
+    }
+    if(cf_get_string("NetMailCharsetUse1st", TRUE))
+    {
+	debug(8, "config: NetMailCharsetUse1st");
+	netmail_charset_use_1st = TRUE;
     }
     
     /* Init various modules */

@@ -1,9 +1,13 @@
 #!/bin/sh
 #
-# $Id: send-fidogate.sh,v 4.1 1998/11/08 18:28:02 mj Exp $
+# $Id: send-fidogate.sh,v 4.2 1999/10/04 08:18:23 mj Exp $
 #
 # SH script to send batches to FIDOGATE
 #
+
+# Output to "log-news" log file
+FIDOGATE_LOGFILE="%G/log-news"
+export FIDOGATE_LOGFILE
 
 . <NEWSLIBDIR>/innshellvars
 

@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# $Id: runpoll-binkd.sh,v 4.3 1999/05/24 12:06:00 mj Exp $
+# $Id: runpoll-binkd.sh,v 4.4 1999/10/04 08:18:17 mj Exp $
 #
 # Poll uplink
 #
@@ -15,7 +15,7 @@ BINKDCFG=/etc/binkd/binkd.cfg
 XTERM=/usr/X11/bin/xterm
 
 BOSSNODE="242:1000/2"
-
+DUMMYADDR="nobody@fido.de"
 
 # -xterm: run in XTerm window
 if [ "$1" = "-xterm" ]; then
@@ -27,6 +27,10 @@ fi
 # Show executed commands
 set -x
 
+# Send dummy mail for polling
+mail -s "POLL" $DUMMYADDR <<EOF
+POLL
+EOF
 
 # Batch ffx news
 $NEWS/send-ffx
@@ -43,7 +47,7 @@ $BINDIR/runtoss outpkt/mail
 $BINDIR/runtoss outpkt/news
 
 # Poll
-$BINDIR/out-manip poll $BOSSNODE
+#$BINDIR/out-manip poll $BOSSNODE
 $BINKD -p $BINKDCFG
 
 # Tosser, only protected inbound

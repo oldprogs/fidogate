@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway software UNIX <-> FIDO
  *
- * $Id: config.h,v 4.45 1999/05/29 17:59:54 mj Exp $
+ * $Id: config.h,v 4.46 1999/10/04 08:18:11 mj Exp $
  *
  * Configuration header file
  *
@@ -500,12 +500,7 @@
 #define PRODUCT_CODE	0xfe
 
 /*
- * Line width for formatted messages.
- */
-#define MAX_LINELEN	80
-
-/*
- * Program limits
+ * Hard limits compiled into FIDOGATE
  */
 #define MAXADDRESS	32		/* Max. # of FTN address in CONFIG */
 

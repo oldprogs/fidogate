@@ -1,6 +1,6 @@
 #:ts=8
 #
-#    $Id: Makefile,v 4.9 1999/01/10 16:56:04 mj Exp $
+#    $Id: Makefile,v 4.10 1999/10/04 08:18:22 mj Exp $
 #
 #    Makefile for FIDOGATE src/gate/
 #
@@ -38,7 +38,7 @@ install:
 	$(INSTALL_PROG) ftninpost $(PREFIX)$(LIBDIR)
 	$(INSTALL_PROG) ftninrecomb $(PREFIX)$(LIBDIR)
 	$(INSTALL_PROG) rungate $(PREFIX)$(BINDIR)
-	$(INSTALL_PROG) send-fidogate $(PREFIX)$(NEWSETCDIR)
+	$(INSTALL_PROG) send-fidogate $(PREFIX)$(BINDIR)
 
 
 clean veryclean:

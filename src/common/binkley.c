@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: binkley.c,v 4.12 1999/08/01 19:42:00 mj Exp $
+ * $Id: binkley.c,v 4.13 1999/10/04 08:18:19 mj Exp $
  *
  * BinkleyTerm-style outbound directory functions
  *
@@ -509,7 +509,10 @@ int bink_mkdir(Node *node)
     if(check_access(buf, CHECK_DIR) == ERROR)
     {
 	if(mkdir(buf, DIR_MODE) == -1)
+	{
+	    log("$WARNING: can't create dir %s", buf);
 	    return ERROR;
+	}
 	chmod(buf, DIR_MODE);
     }
     
@@ -522,7 +525,10 @@ int bink_mkdir(Node *node)
 	if(check_access(buf, CHECK_DIR) == ERROR)
 	{
 	    if(mkdir(buf, DIR_MODE) == -1)
+	    {
+		log("$WARNING: can't create dir %s", buf);
 		return ERROR;
+	    }
 	    chmod(buf, DIR_MODE);
 	}
     }
