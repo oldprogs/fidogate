@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftn2rfc.c,v 4.18 1997/03/26 22:04:21 mj Exp $
+ * $Id: ftn2rfc.c,v 4.19 1997/03/30 16:55:06 mj Exp $
  *
  * Convert FTN mail packets to RFC mail and news batches
  *
@@ -40,7 +40,7 @@
 
 
 #define PROGRAM 	"ftn2rfc"
-#define VERSION 	"$Revision: 4.18 $"
+#define VERSION 	"$Revision: 4.19 $"
 #define CONFIG		CONFIG_GATE
 
 
@@ -480,10 +480,10 @@ int unpack(FILE *pkt_file, Packet *pkt)
 
 	/*
 	 * Check for 8bit characters in message body. If none are
-	 * found, don't use the quoted-printable encoding.
+	 * found, don't use the quoted-printable encoding or 8bit.
 	 */
 	if(!check_8bit(&body.body))
-	    cvt8 &= ~AREA_QP;
+	    cvt8 &= ~(AREA_QP | AREA_8BIT);
 	
 	/*
 	 * Check for Content-Transfer-Encoding in RFC headers or ^ARFC kludges

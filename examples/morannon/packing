@@ -13,6 +13,7 @@
 
 arc     zip     "/usr/local/bin/zip -9gkjq %s %s"
 arc     arc     "/usr/local/bin/arc an %s %s"
+#arc	lha	"/usr/bin/lha -aiq %s %s"
 
 prog    gate    "/usr/local/lib/fidonet/ftn2rfc %s"
 
@@ -28,13 +29,13 @@ pack	noarc	2:2/242 242:242/2
 
 pack	noarc	242:1000/4
 
-fpack   zip     2:2452/101 242:2000/0 1 2
 fpack	zip	2:2452/108 242:1000/7
 fpack	zip	2:2452/121
 fpack	zip	2:2452/151 242:3001/0 51
 fpack	zip	2:2452/180 2:2452/0
 
-rpack   zip     2:2452/110.7 2:2452/110.999 242:1000/1.7 77 49:305/1.200
+rpack   zip     2:2452/110.7 2:2452/110.999 242:1000/1.7 49:305/1.200
+fpack	zip	2:2452/110.348 242:1000/1.348
 
 pack	noarc	2:49/15
 

@@ -1,6 +1,6 @@
 #:ts=8
 #
-# $Id: areas,v 4.3 1996/11/29 21:24:00 mj Exp $
+# $Id: areas,v 4.4 1997/03/30 16:54:58 mj Exp $
 #
 # Echomail area <-> News newsgroup conversion
 #
@@ -30,35 +30,33 @@
 #
 # Local
 #
-HIPPO.LOCAL                   hippo.local                   -d local -8
-HIPPO.TEST                    hippo.test                    -d local  -o "TEST from morannon.fido.de" -8
+HIPPO.LOCAL             hippo.local             -d local -8
+HIPPO.TEST              hippo.test              -d local  -o "TEST from morannon.fido.de" -8
 #
 # Fido.DE
 #
-FIDO.DE                       fido.de                       -z 242    -o "Fido.DE Domain-Administration" -8
+FIDO.DE                 fido.de                 -z 242    -o "Fido.DE Domain-Administration" -8
 #
 # RWTH
 #
-RWTH.GENERAL                  rwth.general                  -z 242 -8
-RWTH.TEST                     rwth.test                     -z 242 -8
-RWTH.VORTRAEGE                rwth.vortraege                -z 242 -8
-#
-# FIDONET areas - OECHER - Aachen lokal
-#
-OECHER                                  fido.oecher -8
-OECHER.KOMMERZ                          fido.oecher.kommerz -8
-OECHER.OS2                              fido.oecher.os2 -8
-OECHER.RPG                              fido.oecher.rpg -8
-OECHER.FLOHMARKT                        fido.oecher.flohmarkt -8
-OECHER.ISDN                             fido.oecher.isdn -8
-OECHER.KNEIPEN                          fido.oecher.kneipen -8
-OECHER.MUSIK                            fido.oecher.musik -8
-OECHER.NEWFILES                         fido.oecher.newfiles -8
+RWTH.GENERAL            rwth.general            -z 242 -8
+RWTH.TEST               rwth.test               -z 242 -8
+RWTH.VORTRAEGE          rwth.vortraege          -z 242 -8
+RWTH.DIALUP		rwth.dialup		-z 242 -8
 #
 # Areas gated between Usenet and FIDO groups
 # These areas must be placed *BEFORE* the Z242 Usenet areas!
 #
-TEX.GER                         de.comp.tex -8
+DE.COMP.TEXT.TEX		de.comp.text.tex -8
+OECHER				oecher.talk -8         
+OECHER.FLOHMARKT		oecher.flohmarkt -8    
+OECHER.KOMMERZ			oecher.kommerz -8       
+OECHER.WOHNUNGSMARKT		oecher.wohnungsmarkt -8 
+OECHER.KULTUR			oecher.kultur -8        
+OECHER.FLAME			oecher.flame -8         
+OECHER.COMPUTER			oecher.computer -8      
+OECHER.NEWFILES			oecher.newfiles -8      
+OECHER.TEST			oecher.test -8
 #
 # FIDONET areas - German
 #

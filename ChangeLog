@@ -2,6 +2,13 @@ Sun Mar 30 16:45:38 1997  Martin Junius  <mj@fido.de>
 
 	------- CVS ci -------------------------------------------------------
 
+	* src/gate/ftn2rfc.c (unpack): if no 8bit characters are found in
+	  the message body, don't use ISO-8859-1/8BIT either.
+
+	* examples/morannon/: update of configuration files.
+
+	------- CVS ci -------------------------------------------------------
+
 	* src/toss/ftntoss.c (main): for statistics, the minimum time is
 	  1s for the tosser run to avoid division by 0 errors.
 

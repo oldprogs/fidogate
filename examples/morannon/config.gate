@@ -125,6 +125,11 @@ X-FTN		ftTOVDSP
 MaxMsgSize		15000
 #MaxMsgSize		32000
 
+#
+# Limit message size for gateway, bigger messages will be bounced/not gated
+#
+LimitMsgSize		256000
+
 
 #
 # MAUS gateway support:
@@ -238,4 +243,4 @@ FTNInRnews	/usr/bin/rnews
 #
 # Use MIME quoted-printable ISO-8859-1 characters when gating from FTN to RFC
 #
-NetMailQuotedPrintable
+#NetMailQuotedPrintable
