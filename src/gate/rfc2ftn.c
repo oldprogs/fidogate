@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway software UNIX <-> FIDO
  *
- * $Id: rfc2ftn.c,v 4.30 1997/10/14 17:59:32 mj Exp $
+ * $Id: rfc2ftn.c,v 4.31 1997/10/19 17:00:48 mj Exp $
  *
  * Read mail or news from standard input and convert it to a FIDO packet.
  *
@@ -39,7 +39,7 @@
 
 
 #define PROGRAM 	"rfc2ftn"
-#define VERSION 	"$Revision: 4.30 $"
+#define VERSION 	"$Revision: 4.31 $"
 #define CONFIG		CONFIG_GATE
 
 
@@ -88,20 +88,20 @@ void	usage			(void);
 
 
 
-static char *o_flag = NULL;		/* -o --out-packet-file option */
-static char *w_flag = NULL;		/* -w --write-outbound  option */
-static int   W_flag = FALSE;		/* -W --write-crash     option */
-static int   i_flag = FALSE;		/* -i --ignore-hosts    option */
+static char *o_flag = NULL;		/* -o --out-packet-file		    */
+static char *w_flag = NULL;		/* -w --write-outbound 		    */
+static int   W_flag = FALSE;		/* -W --write-crash    		    */
+static int   i_flag = FALSE;		/* -i --ignore-hosts   		    */
 
-static int default_rfc_level = 0;	/* Default ^ARFC level for areas */
+static int default_rfc_level = 0;	/* Default ^ARFC level for areas    */
 
-static int no_from_line	= FALSE;	/* config.gate: NoFromLine */
-static int no_fsc_0035 = FALSE;		/* config.gate: NoFSC0035 */
-static int no_fsc_0047 = FALSE;		/* config.gate: NoFSC0047 */
-static int echomail4d = FALSE;		/* config.gate: EchoMail4d */ 
-static int x_flags_policy = 0;		/* config.gate: XFlagsPolicy */
-static int dont_use_reply_to = FALSE;	/* config.gate: DontUseReplyTo */
-
+static int no_from_line	= FALSE;	/* config.gate: NoFromLine          */
+static int no_fsc_0035 = FALSE;		/* config.gate: NoFSC0035           */
+static int no_fsc_0047 = FALSE;		/* config.gate: NoFSC0047           */
+static int echomail4d = FALSE;		/* config.gate: EchoMail4d          */ 
+static int x_flags_policy = 0;		/* config.gate: XFlagsPolicy        */
+static int dont_use_reply_to = FALSE;	/* config.gate: DontUseReplyTo      */
+static int replyaddr_ifmail_tx = FALSE;	/* config.gate: ReplyAddrIfmailTX   */
 
 
 /*
@@ -1205,8 +1205,12 @@ int snd_message(Message *msg, Area *parea,
 	if(!x_flags_n)
 	{
 	    /* Generate FSC-0035 ^AREPLYADDR, ^AREPLYTO */
-	    fprintf(sf, "\001REPLYADDR %s\r\n",
-		    rfcaddr_to_asc(&rfc_from, TRUE));
+	    if(replyaddr_ifmail_tx)
+		fprintf(sf, "\001REPLYADDR <%s>\r\n",
+			rfcaddr_to_asc(&rfc_from, FALSE));
+	    else
+		fprintf(sf, "\001REPLYADDR %s\r\n",
+			rfcaddr_to_asc(&rfc_from, TRUE));
 	    fprintf(sf, "\001REPLYTO %s %s\r\n",
 		    node_to_asc(cf_addr(), FALSE),
 		    msg->name_from);
@@ -1867,6 +1871,11 @@ int main(int argc, char **argv)
 	}
 	rfcaddr_mode(m);
 	debug(8, "config: RFCAddrMode %d", m);
+    }
+    if(cf_get_string("ReplyAddrIfmailTX", TRUE))
+    {
+	debug(8, "config: ReplyAddrIfmailTX");
+	replyaddr_ifmail_tx = TRUE;
     }
     
 

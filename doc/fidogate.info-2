@@ -402,6 +402,10 @@ Special configuration `rfc2ftn' (config file `config.gate'):
     `<>  a  1'
           Real Name <user@do.main>-type addresses
 
+`ReplyAddrIfMailTX'
+     Force `^AREPLYADDR' (if `FSC0035' is enabled) to only contains
+     `^AREPLYADDR <user@do.main>' for compatibility with ifmail-TX.
+
 Special configuration `ftnhatch' (config file `config.main'):
 
 `TickFlav flavour'

@@ -1,5 +1,17 @@
+Sun Oct 19 18:16:34 1997  Martin Junius  <mj@fido.de>
+
+	------- CVS ci -------------------------------------------------------
+
+	* src/gate/rfc2ftn.c (main): implemented new ReplyAddrIfMailTX
+	  config option.
+	  (snd_message): if replyaddr_ifmail_tx is set, generate
+	  ^AREPLYADDR <user@do.main>.
+
+	* doc/fidogate.texi (Config): documented new ReplyAddrIfMailTX.
+
 Tue Oct 14 19:28:20 1997  Martin Junius  <mj@fido.de>
 
+	======= Release 4.2.7 ================================================
 	------- CVS ci, tag R427 ---------------------------------------------
 
 	* doc/fidogate.texi (Config): documented RFCAddrMode.

@@ -1,6 +1,6 @@
 #:ts=8
 #
-# $Id: config.gate,v 4.11 1997/10/14 17:59:33 mj Exp $
+# $Id: config.gate,v 4.12 1997/10/19 17:00:49 mj Exp $
 #
 # FIDOGATE config file gateway programs
 #
@@ -266,3 +266,9 @@ XFlagsPolicy n
 #    <>, a, 1   -    Real Name <user@do.main>
 #
 RFCAddrMode <>
+
+#
+# Force ^AREPLYADDR to only contain ^AREPLYADDR <user@do.main>
+# to be compatible with ifmail-TX
+#
+ReplyAddrIfmailTX
