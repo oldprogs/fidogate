@@ -1,6 +1,6 @@
 #:ts=8
 #
-# $Id: config.gate,v 1.2 1996/11/25 19:52:06 mj Exp $
+# $Id: config.gate,v 1.3 1997/02/23 18:20:44 mj Exp $
 #
 # FIDOGATE config file gateway programs
 #
@@ -68,7 +68,7 @@ Organization	"Test Point 2"
 # into problems with this kind of EchoMail message, please change the
 # code in rfc2ftn.c:print_origin().
 #
-EchoMail4D
+#EchoMail4D
 
 
 #

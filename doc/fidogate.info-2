@@ -475,6 +475,13 @@ Special configuration `ftntoss' (config file `config.main'):
      Maximum length of history database. Keep entries for days days.
      Messages with date < now - `MaxHistory' are considered old.
 
+`EchoMail4D'
+     Generate 4D EchoMail control lines, i.e. SEEN-BY and PATH will
+     include point addresses.
+
+`NoEmptyPath'
+     Do not generate an empty PATH line.
+
 Special configuration `runtoss' (config file `config.main'):
 
 `MinDiskFree Kbyte'

@@ -2,7 +2,7 @@
 @c
 @c FIDOGATE documentation
 @c
-@c $Id: fidogate.texi,v 4.21 1997/02/23 11:11:04 mj Exp $
+@c $Id: fidogate.texi,v 4.22 1997/02/23 18:20:33 mj Exp $
 @c
 
 @setfilename fidogate.info
@@ -2910,6 +2910,13 @@ Specifies the @code{areas.bbs} EchoMail distribution file used by
 Maximum length of history database. Keep entries for @i{days}
 days. Messages with @i{date} < @i{now} - @code{MaxHistory} are
 considered old.
+
+@item EchoMail4D
+Generate 4D EchoMail control lines, i.e. SEEN-BY and PATH will include
+point addresses.
+
+@item NoEmptyPath
+Do not generate an empty PATH line.
 
 @end table
 

@@ -1,6 +1,6 @@
 #:ts=8
 #
-# $Id: config.main,v 4.9 1997/02/16 13:57:23 mj Exp $
+# $Id: config.main,v 4.10 1997/02/23 18:20:37 mj Exp $
 #
 # FIDOGATE config file main AKA
 #
@@ -127,6 +127,18 @@ KillOld
 #		----		-----
 #AddToSeenBy	ABLED           2:24/24
 #AddToSeenBy	ABLENEWS	2:24/24
+
+
+#
+# Use 4D echomail control lines, i.e. SEEN-BY / PATH includes point
+# addresses
+#
+#EchoMail4D
+
+#
+# Do not output an empty PATH line
+#
+#NoEmptyPath
 
 
 #

@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftntoss.c,v 4.14 1997/02/23 11:11:13 mj Exp $
+ * $Id: ftntoss.c,v 4.15 1997/02/23 18:20:42 mj Exp $
  *
  * Toss FTN NetMail/EchoMail
  *
@@ -39,7 +39,7 @@
 
 
 #define PROGRAM 	"ftntoss"
-#define VERSION 	"$Revision: 4.14 $"
+#define VERSION 	"$Revision: 4.15 $"
 #define CONFIG		CONFIG_MAIN
 
 
@@ -49,16 +49,19 @@
  */
 void	addtoseenby_init	(void);
 void	zonegate_init		(void);
-void	lon_to_kludge		(Textlist *, char *, LON *);
-void	lon_to_kludge_sorted	(Textlist *, char *, LON *);
+int	lon_to_kludge		(Textlist *, char *, LON *);
+int	lon_to_kludge_sorted	(Textlist *, char *, LON *);
 int	toss_echomail		(Message *, MsgBody *, LON *, LON *, LON *);
 int	kludge_to_lon		(Textlist *, LON *);
-int	seenby_eq		(Node *, Node *);
-int	seenby_search		(LON *, Node *);
+int	node_eq_echo		(Node *, Node *);
+int	node_eq_echo_pa		(Node *, Node *);
+int	lon_search_echo		(LON *, Node *);
 int	is_local_addr		(Node *, int);
 int	do_seenby		(LON *, LON *, LON *);
 int	do_path			(LON *);
 int	do_bad_msg		(Message *, MsgBody *);
+Node   *lon_first		(LON *);
+int	do_4dpoint		(LON *, LON *, Node *, Node *);
 int	do_echomail		(Packet *, Message *, MsgBody *);
 void	add_via			(Textlist *, Node *);
 void	change_addr		(Node *, Node *);
@@ -114,6 +117,8 @@ int dupe_check    = FALSE;		/* config: DupeCheck */
 int kill_dupe     = FALSE;		/* config: KillDupe */
 int kill_nomsgid  = FALSE;		/* config: KillNoMSGID */
 int kill_old      = FALSE;		/* config: KillOld */
+int echomail4d    = FALSE;		/* config: EchoMail4D */ 
+int no_empty_path = FALSE;		/* config: NoEmptyPath */ 
 
 /* Values checking for old messages */
 static double max_history = 14;		/* Max. number of days entry stays
@@ -171,7 +176,7 @@ void addtoseenby_init(void)
     {
 	debug(8, "config: addtoseenby %s", s);
 	
-	strncpy0(buffer, s, sizeof(buffer));
+	BUF_COPY(buffer, s);
 	parea  = xstrtok(buffer, " \t");
 	pnodes = xstrtok(NULL  , "\n");
 
@@ -250,26 +255,27 @@ void zonegate_init(void)
  */
 #define MAX_LENGTH 76
 
-void lon_to_kludge(Textlist *tl, char *text, LON *lon)
+int lon_to_kludge(Textlist *tl, char *text, LON *lon)
 {
     LNode *p;
     Node old;
     char *s = NULL;
+    int n = 0;
     
-    strncpy0(buffer, text, sizeof(buffer));
+    BUF_COPY(buffer, text);
     node_invalid(&old);
     old.zone = cf_zone();
 
     for(p=lon->first; p; p=p->next)
-	if(p->node.point == 0)			/* No 4D Points !!! */
+	if(p->node.point==0 || echomail4d)	/* Normally, no 4D Points */
 	{
-	    p->node.zone = cf_zone();		/* No zone !!! */
+	    p->node.zone = cf_zone();		/* No zone, use current one */
 	    s = node_to_asc_diff(&p->node, &old);
 	    old = p->node;
 	    
 	    if(strlen(buffer)+strlen(s)+1 > MAX_LENGTH)
 	    {
-		strncat0(buffer, "\r\n", sizeof(buffer));
+		BUF_APPEND(buffer, "\r\n");
 		tl_append(tl, buffer);
 		
 		node_invalid(&old);
@@ -277,38 +283,43 @@ void lon_to_kludge(Textlist *tl, char *text, LON *lon)
 		
 		s = node_to_asc_diff(&p->node, &old);
 		old = p->node;
-		strncpy0(buffer, text, sizeof(buffer));
-		strncat0(buffer, " ", sizeof(buffer));
-		strncat0(buffer, s  , sizeof(buffer));
+		BUF_COPY(buffer, text);
+		BUF_APPEND(buffer, " ");
+		BUF_APPEND(buffer, s);
 	    }
 	    else
 	    {
-		strncat0(buffer, " ", sizeof(buffer));
-		strncat0(buffer, s  , sizeof(buffer));
+		BUF_APPEND(buffer, " ");
+		BUF_APPEND(buffer, s);
 	    }
+
+	    n++;
 	}
     
-    strncat0(buffer, "\r\n", sizeof(buffer));
+    BUF_APPEND(buffer, "\r\n");
     tl_append(tl, buffer);
+
+    return n;
 }
 
 
-void lon_to_kludge_sorted(Textlist *tl, char *text, LON *lon)
+int lon_to_kludge_sorted(Textlist *tl, char *text, LON *lon)
 {
     Node old;
     char *s = NULL;
     int i;
+    int n = 0;
 
     lon_sort(lon, 0);
     
-    strncpy0(buffer, text, sizeof(buffer));
+    BUF_COPY(buffer, text);
     node_invalid(&old);
     old.zone = cf_zone();
 
     for(i=0; i<lon->size; i++)
-	if(lon->sorted[i]->point == 0)		/* No 4D Points !!! */
+	if(lon->sorted[i]->point==0 || echomail4d)/* Normally, no 4D Points */
 	{
-	    lon->sorted[i]->zone = cf_zone();	/* No zone !!! */
+	    lon->sorted[i]->zone = cf_zone();	/* No zone, use current one */
 	    s = node_to_asc_diff(lon->sorted[i], &old);
 	    old = *lon->sorted[i];
 	    
@@ -322,19 +333,23 @@ void lon_to_kludge_sorted(Textlist *tl, char *text, LON *lon)
 		
 		s = node_to_asc_diff(lon->sorted[i], &old);
 		old = *lon->sorted[i];
-		strncpy0(buffer, text, sizeof(buffer));
-		strncat0(buffer, " ", sizeof(buffer));
-		strncat0(buffer, s  , sizeof(buffer));
+		BUF_COPY(buffer, text);
+		BUF_APPEND(buffer, " ");
+		BUF_APPEND(buffer, s);
 	    }
 	    else
 	    {
-		strncat0(buffer, " ", sizeof(buffer));
-		strncat0(buffer, s  , sizeof(buffer));
+		BUF_APPEND(buffer, " ");
+		BUF_APPEND(buffer, s);
 	    }
+
+	    n++;
 	}
     
-    strncat0(buffer, "\r\n", sizeof(buffer));
+    BUF_APPEND(buffer, "\r\n");
     tl_append(tl, buffer);
+
+    return n;
 }
 
     
@@ -442,13 +457,32 @@ int kludge_to_lon(Textlist *tl, LON *lon)
 
 
 /*
- * seenby_eq() --- compare node adresses, ignoring zone
+ * node_eq_echo() --- compare node adresses, ignoring zone
  */
-int seenby_eq(Node *a, Node *b)
+int node_eq_echo(Node *a, Node *b)
 {
+    if(a==NULL || b==NULL)
+	return FALSE;
+    
     return
-	a->net   ==b->net  &&
+	a->net  == b->net  &&
 	a->node == b->node && a->point ==b->point   ;
+}
+
+
+
+/*
+ * node_eq_echo_pa() --- compare node adresses, ignoring zone and point
+ *                  if a->point == 0.
+ */
+int node_eq_echo_pa(Node *a, Node *b)
+{
+    if(a==NULL || b==NULL)
+	return FALSE;
+    
+    return
+	a->net==b->net  &&  a->node==b->node  &&
+	(a->point==0 || a->point==b->point);
 }
 
 
@@ -456,12 +490,12 @@ int seenby_eq(Node *a, Node *b)
 /*
  * Search node in SEEN-BY list, ignoring zone
  */
-int seenby_search(LON *lon, Node *node)
+int lon_search_echo(LON *lon, Node *node)
 {
     LNode *p;
     
     for(p=lon->first; p; p=p->next)
-	if(seenby_eq(&p->node, node))
+	if(node_eq_echo(&p->node, node))
 	    return TRUE;
     
     return FALSE;
@@ -478,7 +512,7 @@ int is_local_addr(Node *node, int only3d)
     int found = FALSE;
     
     for(n=cf_addr_trav(TRUE); n; n=cf_addr_trav(FALSE))
-	if(only3d ? seenby_eq(node, n) : node_eq(node, n))
+	if(only3d ? node_eq_echo(node, n) : node_eq(node, n))
 	{
 	    found = TRUE;
 	    break;
@@ -500,7 +534,7 @@ int do_seenby(LON *seenby, LON *nodes, LON *new)
     LNode *p;
     
     for(p=nodes->first; p; p=p->next)
-	if(! seenby_search(seenby, &p->node) )
+	if(! lon_search_echo(seenby, &p->node) )
 	{
 	    lon_add(seenby, &p->node);
 	    if(new)
@@ -517,7 +551,7 @@ int do_seenby(LON *seenby, LON *nodes, LON *new)
  */
 int do_path(LON *path)
 {
-    if(path->last && seenby_eq(&path->last->node, cf_addr()))
+    if(path->last && node_eq_echo(&path->last->node, cf_addr()))
 	/* Already there */
 	return OK;
     
@@ -567,6 +601,48 @@ int do_bad_msg(Message *msg, MsgBody *body)
 
 
 /*
+ * First node in LON
+ */
+Node *lon_first(LON *lon)
+{
+    if(lon->first)
+	return &lon->first->node;
+    
+    return NULL;
+}
+
+
+
+/*
+ * Special SEEN-BY / PATH processing if message originates from a 4d point
+ */
+int do_4dpoint(LON *seenby, LON *path, Node *from, Node *addr)
+{
+    /*
+     * If there is only one node in SEEN-BY, which is the same address
+     * (2d) as the sender, then replace it with the sender 4d address.
+     */
+    if( seenby->size == 1 && node_eq_echo_pa(lon_first(seenby), from) )
+	*lon_first(seenby) = *from;
+
+    /*
+     * Same for PATH
+     */
+    if( path->size == 1 && node_eq_echo_pa(lon_first(path), from) )
+	*lon_first(path) = *from;
+
+    /*
+     * Now make sure that also our current AKA is in SEEN-BY
+     */
+    if( !lon_search_echo(seenby, cf_addr()) )
+	lon_add(seenby, cf_addr());
+    
+    return OK;
+}
+
+
+
+/*
  * Process EchoMail message
  */
 int do_echomail(Packet *pkt, Message *msg, MsgBody *body)
@@ -574,7 +650,7 @@ int do_echomail(Packet *pkt, Message *msg, MsgBody *body)
     AreasBBS *area;
     AddToSeenBy *addto;
     LON seenby, path, new;
-    int ret;
+    int ret, n;
 
     /*
      * Lookup area and set zone
@@ -744,14 +820,12 @@ int do_echomail(Packet *pkt, Message *msg, MsgBody *body)
     lon_init(&new);
     kludge_to_lon(&body->seenby, &seenby);
     kludge_to_lon(&body->path  , &path);
-    /*
-     * If from 4D point, add address to SEEN-BY to prevent sending
-     * message back to this point. Won't show up in output SEEN-BY
-     * because all point address are stripped then.
-     */
-    if(msg->node_from.point)
-	lon_add(&seenby, &msg->node_from);
 
+    /*
+     * Do special processing if message is from a 4d point
+     */
+    do_4dpoint(&seenby, &path, &msg->node_from, cf_addr());
+    
     lon_debug(9, "SEEN-BY: ", &seenby, TRUE);
     lon_debug(9, "Path   : ", &path,   TRUE);
     
@@ -806,9 +880,12 @@ int do_echomail(Packet *pkt, Message *msg, MsgBody *body)
      */
     tl_clear(&body->seenby);
     tl_clear(&body->path);
-    lon_to_kludge_sorted(&body->seenby, "SEEN-BY:", &seenby);
-    lon_to_kludge       (&body->path  , "\001PATH:", &path );
+    n = lon_to_kludge_sorted(&body->seenby, "SEEN-BY:", &seenby);
+    n = lon_to_kludge       (&body->path  , "\001PATH:", &path );
 
+    if(no_empty_path && n==0)
+	tl_clear(&body->path);
+    
     /*
      * Send message to all downlinks in new
      */
@@ -1552,6 +1629,16 @@ int main(int argc, char **argv)
 	if(max_history < 0)
 	    max_history = 0;
 	debug(8, "config: MaxHistory %lg", max_history);
+    }
+    if( cf_get_string("EchoMail4D", TRUE) )
+    {
+	debug(8, "config: EchoMail4D");
+	echomail4d = TRUE;
+    }
+    if( cf_get_string("NoEmptyPath", TRUE) )
+    {
+	debug(8, "config: NoEmptyPath");
+	no_empty_path = TRUE;
     }
 
     zonegate_init();

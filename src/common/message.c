@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: message.c,v 4.6 1996/12/17 17:19:43 mj Exp $
+ * $Id: message.c,v 4.7 1997/02/23 18:20:41 mj Exp $
  *
  * Reading and processing FTN text body
  *
@@ -342,7 +342,7 @@ static int msg_body_parse_echomail(MsgBody *body)
 
     if(body->seenby.n==0 /*|| body->path.n==0*/)
 	return -2;
-    if(body->tear==NULL || body->origin==NULL || body->path.n==0)
+    if(body->tear==NULL || body->origin==NULL /** || body->path.n==0 **/)
 	return -1;
     
     return OK;

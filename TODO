@@ -21,6 +21,8 @@ DONE.	* ftn2rfc:702: config option, instead of @FQDN, add @addr_to.addr
 	  (domain part of recipient's FTN address).
 
 	* rfc2ftn: limit max. message size
+	* areas: option -M MAXSIZE, limit maximum RFC message size to
+	  MAXSIZE bytes, larger messages won't be gated.
 
 	* ftnaf: marker in areas.bbs to show if an area is subscribed
 	  at the uplink (option or using directory), regularly check
@@ -34,9 +36,9 @@ DONE.	* ftn2rfc:702: config option, instead of @FQDN, add @addr_to.addr
 	* Generic alias matching: name@Z:N/F.P <-> user@do.main (Name),
 	  recipient *and* sender
 
-4.2.x	* ftntoss: NoEmptyPath, EchoMail4D für 4D-Points mit Tosser.
+DONE.	* ftntoss: NoEmptyPath, EchoMail4D für 4D-Points mit Tosser.
 
-4.2.x	* ftntoss: make point tosser work without EchoMail4D
+DONE.	* ftntoss: make point tosser work without EchoMail4D
 
 	* rfc2ftn: improve parser for 1st line. Use regexp library?
 
@@ -86,9 +88,6 @@ DONE.	* ftn2rfc:702: config option, instead of @FQDN, add @addr_to.addr
 	  last one is too large, etc.
 	  ArcMail extensions: mo[0-9], plus mo[a-f], maybe mo[a-z]?
 	  runtime configuration of arcmail extensions usage.
-
-	* areas: option -M MAXSIZE, limit maximum RFC message size to
-	  MAXSIZE bytes, larger messages won't be gated.
 
 	* ftn2rfc: restrict gateway to certain *Internet* addresses.
 

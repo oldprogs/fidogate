@@ -2,6 +2,53 @@ Sun Feb 23 11:53:39 1997  Martin Junius  <mj@fido.de>
 
 	------- CVS ci -------------------------------------------------------
 
+	* src/common/message.c (msg_body_parse_echomail): missing PATH
+	  line is not an error.
+
+	* examples/orodruin/config.main: added EchoMail4D, NoEmptyPath
+	  examples. 
+
+	* test/tc.toss1/config2: test config with KillOld.
+
+	* test/tc.toss1/config1: test config with EchoMail4D, NoEmptyPath.
+
+	* test/tc.toss1/run: added test run with EchoMail4D setting.
+
+	* src/toss/ftntoss.c (node_eq3d): renamed to node_eq_echo().
+	  (node_eq3da): renamed to node_eq_echo().
+	  (lon_search3d): renamed to lon_search_echo_pa().
+	  (main): added NoEmptyPath config option.
+	  (lon_to_kludge): if echomail4d is TRUE, don't strip point addresses.
+	  (lon_to_kludge_sorted): same.
+	  (lon_to_kludge): return number of entries in output.
+	  (lon_to_kludge_sorted): same.
+	  (addtoseenby_init): replaced strncpy0()/strncat0() with
+	  BUF_COPY()/BUF_APPEND().
+	  (lon_to_kludge): same.
+	  (lon_to_kludge_sorted): same.
+	  (do_echomail): if no_empty_path is TRUE and number of entries is
+	  PATH is 0 (stripped because it's a point address) then don't
+	  create an empty PATH line.
+
+	* doc/fidogate.texi (Config): added EchoMail4D.
+
+	* src/toss/ftntoss.c (seenby_eq): renamed to node_eq3d().
+	  (node_eq2d): new function, compare node ignoring zone and point.
+	  (seenby_search): renamed to lon_search3d().
+	  (do_echomail): call do_4point(), replacing old code.
+	  (do_4dpoint): new function doing special processing if message
+	  originates from a 4d point.
+	  (lon_first): return first entry in LON.
+	  (node_eq3d): check for NULL pointer.
+	  (node_eq2d): check for NULL pointer.
+	  (do_4dpoint): rewritten, changing the SEEN-BY / PATH entries to
+	  full 3d/4d addresses if message comes from 
+	  (node_eq2d): rename to node_eq3a().
+	  (node_eq3da): only ignore point field, if a->point == 0.
+	  (main): added EchoMail4D config option.
+
+	------- CVS ci -------------------------------------------------------
+
 	* src/toss/ftntoss.c (pkts_in, pkts_bytes): new global statistics.
 	  (main): addded more statistics output: number of packets, time,
 	  Kbyte/s, msgs/s.
