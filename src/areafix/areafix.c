@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: areafix.c,v 1.2 1998/02/14 17:13:57 mj Exp $
+ * $Id: areafix.c,v 1.3 1998/02/19 16:15:47 mj Exp $
  *
  * Common Areafix functions
  *
@@ -93,6 +93,7 @@ static int   authorized     	= FALSE;
 static int   authorized_lvl 	= 1;
 static char *authorized_key 	= "";
 static char *authorized_name    = "Sysop";
+static Node  authorized_node    = { -1, -1, -1, -1, "" };
 static int   authorized_cmdline = FALSE;
 static int   authorized_create  = FALSE;
 
@@ -215,6 +216,16 @@ char *areafix_name(void)
 
 
 /*
+ * Return authorized node
+ */
+Node *areafix_auth_node(void)
+{
+    return &authorized_node;
+}
+
+
+
+/*
  * Process Areafix command from stdin
  */
 int areafix_do(Node *node, char *subj, Textlist *tl, Textlist *out)
@@ -229,7 +240,8 @@ int areafix_do(Node *node, char *subj, Textlist *tl, Textlist *out)
     authorized = authorized_cmdline = authorized_create = FALSE;
     authorized_lvl = 1;
     authorized_key = "";
-
+    node_invalid(&authorized_node);
+    
     /* Check password in Subject and process options */
     passwd = strtok(subj, " \t");
     debug(3, "Subject passwd: %s", passwd);
@@ -256,6 +268,7 @@ int areafix_do(Node *node, char *subj, Textlist *tl, Textlist *out)
 	authorized_lvl  = 1;
 	authorized_key  = "";
 	authorized_name = "Sysop";
+	authorized_node = *node;
 	/* Warning: destroys pwd->args! */
 	if( (p = xstrtok(pwd->args, " \t")) )
 	    authorized_lvl = atoi(p);
@@ -401,7 +414,9 @@ int rewrite_areas_bbs(void)
     strcpy(new+ovwr, "bbs");
     debug(4, "Renaming %s -> %s", old, new);
     rename(old, new);
-    
+
+    log("%s changed", buffer);
+
     return OK;
 }
 
@@ -655,6 +670,8 @@ int cmd_create(Node *node, char *line)
  */
 int cmd_vacation(Node *node, char *area)
 {
+    log("%s: vacation", znfp(node));
+
     if(!authorized)
     {
 	areafix_printf("Command VACATION: not authorized.");
@@ -676,6 +693,8 @@ int cmd_listall(Node *node)
     AreasBBS *p;
     LON *l;
     
+    log("%s: listall", znfp(node));
+
     if(!authorized)
     {
 	areafix_printf("Command LISTALL: not authorized.");
@@ -720,6 +739,8 @@ int cmd_list(Node *node)
     char *s;
     int key_ok;
     
+    log("%s: list", znfp(node));
+
     if(!authorized)
     {
 	areafix_printf("Command LIST: not authorized.");
@@ -780,6 +801,8 @@ int cmd_query(Node *node)
     AreasBBS *p;
     LON *l;
     
+    log("%s: query", znfp(node));
+
     if(!authorized)
     {
 	areafix_printf("Command QUERY: not authorized.");
@@ -813,6 +836,8 @@ int cmd_unlinked(Node *node)
     AreasBBS *p;
     LON *l;
     
+    log("%s: unlinked", znfp(node));
+
     if(!authorized)
     {
 	areafix_printf("Command UNLINKED: not authorized.");
@@ -988,6 +1013,8 @@ int cmd_remove(Node *node, char *area)
  */
 int cmd_help(Node *node)
 {
+    log("%s: help", znfp(node));
+
     areafix_printf("");
     areafix_printf("Help for %s, FIDOGATE %s", MY_NAME, version_global());
     areafix_printf("");
@@ -1034,6 +1061,8 @@ int cmd_passwd(Node *node, char *arg)
     Node n;
     Passwd *pwd;
     
+    log("%s: passwd", znfp(node));
+
     authorized = FALSE;
 
     p = strtok(arg, " \t");			/* Node address */

@@ -1,0 +1,141 @@
+tc: clean-up
+tc: init
+ftnhatch area TEST file testfile.txt (4050b) to 242:2/2.0
+ftntick: tick file ./pin/test1.tic
+Origin 	 : 242:2/2.0
+From   	 : 242:2/2.0
+To     	 : INVALID
+Area   	 : TEST
+File   	 : testfile.txt
+Replaces : -NONE-
+Desc     : Test file ftnhatch/ftntick
+CRC    	 : CEC3AEB1
+Created	 : by FIDOGATE/ftnhatch $Revision: 1.1 $
+Size   	 : 4050
+Path     : 242:2/2
+Seenby   : 242:1000/5
+Seenby   : 242:2/2
+Pw       : 
+Release  : -1
+Date     : 845665093
+ftntick area TEST file testfile.txt (4050b) from 242:2/2.0
+./pin/testfile.txt -> ./tmp_in/testfile.txt
+Send to new nodes: 242:4/4
+ftntick area TEST file testfile.txt (4050b) to 242:4/4.0
+ftntick: tick file ./pin/test5.tic
+Origin 	 : 444:4966/0.0
+From   	 : 444:4966/0.0
+To     	 : INVALID
+Area   	 : CELEB_KINO
+File   	 : testfile.txt
+Replaces : -NONE-
+Desc     : --no description--
+CRC    	 : CEC3AEB1
+Created	 : by FileScan 1.58  Copyright (c) 1992-1996 by Matthias Duesterhoeft
+Size   	 : 4050
+Path     : 444:4966/0 @19970813.184526 FileScan 1.58
+Seenby   : 444:4904/0
+Seenby   : 444:4922/0
+Seenby   : 444:4933/0
+Seenby   : 444:4934/200
+Seenby   : 444:4949/0
+Seenby   : 444:4956/0
+Seenby   : 444:4966/0
+Seenby   : 444:4966/21
+Seenby   : 444:4966/22
+Seenby   : 444:4966/24
+Seenby   : 444:4966/25
+Seenby   : 444:4966/28
+Seenby   : 444:4966/101.3
+Seenby   : 444:4977/0
+Seenby   : 444:4986/0
+Pw       : <GEHEIM>
+Release  : -1
+Date     : 871495862
+ftntick area CELEB_KINO file testfile.txt (4050b) from 444:4966/0.0
+ftntick: password <GEHEIM>
+./pin/testfile.txt -> ./tmp_in/testfile.txt
+Send to new nodes: 
+ftntick: tick file ./pin/test2.tic
+Origin 	 : 242:2/2.0
+From   	 : 242:2/2.0
+To     	 : INVALID
+Area   	 : TEST
+File   	 : testfile.txt
+Replaces : testold.txt
+Desc     : Test file ftnhatch/ftntick
+LDesc    : Whatever that may be ...
+CRC    	 : CEC3AEB1
+Created	 : by FIDOGATE/ftnhatch $Revision: 1.1 $
+Size   	 : 4050
+Path     : 242:2/2
+Seenby   : 242:1000/5
+Seenby   : 242:2/2
+Pw       : 
+Release  : -1
+Date     : 845665093
+ftntick area TEST file testfile.txt (4050b) from 242:2/2.0
+./tmp_in/testold.txt -> ./tmp_old/testold.txt
+ftntick area TEST file testfile.txt replaces testold.txt, moved to ./tmp_old
+./pin/testfile.txt -> ./tmp_in/testfile.txt
+Send to new nodes: 242:4/4
+ftntick area TEST file testfile.txt (4050b) to 242:4/4.0
+ftntick: tick file ./pin/test3.tic
+Origin 	 : 242:2/2.0
+From   	 : 242:2/2.0
+To     	 : INVALID
+Area   	 : TEST
+File   	 : testfile.txt
+Replaces : does-not-exist.txt
+Desc     : Test file ftnhatch/ftntick
+LDesc    : Whatever that may be ...
+CRC    	 : CEC3AEB1
+Created	 : by FIDOGATE/ftnhatch $Revision: 1.1 $
+Size   	 : 4050
+Path     : 242:2/2
+Seenby   : 242:1000/5
+Seenby   : 242:2/2
+Pw       : 
+Release  : -1
+Date     : 845665093
+ftntick area TEST file testfile.txt (4050b) from 242:2/2.0
+./pin/testfile.txt -> ./tmp_in/testfile.txt
+Send to new nodes: 242:4/4
+ftntick area TEST file testfile.txt (4050b) to 242:4/4.0
+ftntick: tick file ./pin/test4.tic
+ftntick ERROR: can't find file does-not-exist.null
+ftntick ./pin/test4.tic: renamed to ./pin/test4.bad
+ftntick: tick file ./pin/test6.tic
+Origin 	 : 444:4966/0.0
+From   	 : 444:4966/0.0
+To     	 : INVALID
+Area   	 : TEST-XYZ
+File   	 : testfile.txt
+Replaces : -NONE-
+Desc     : --no description--
+CRC    	 : CEC3AEB1
+Created	 : by FileScan 1.58  Copyright (c) 1992-1996 by Matthias Duesterhoeft
+Size   	 : 4050
+Path     : 444:4966/0 @19970813.184526 FileScan 1.58
+Seenby   : 444:4904/0
+Seenby   : 444:4922/0
+Seenby   : 444:4933/0
+Seenby   : 444:4934/200
+Seenby   : 444:4949/0
+Seenby   : 444:4956/0
+Seenby   : 444:4966/0
+Seenby   : 444:4966/21
+Seenby   : 444:4966/22
+Seenby   : 444:4966/24
+Seenby   : 444:4966/25
+Seenby   : 444:4966/28
+Seenby   : 444:4966/101.3
+Seenby   : 444:4977/0
+Seenby   : 444:4986/0
+Pw       : <GEHEIM>
+Release  : -1
+Date     : 871495862
+ftntick area TEST-XYZ file testfile.txt (4050b) from 444:4966/0.0
+ftntick: password <GEHEIM>
+ftntick unknown area TEST-XYZ, using UNKNOWN instead
+./pin/testfile.txt -> ./tmp_unknown/testfile.txt

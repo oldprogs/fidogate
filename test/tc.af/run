@@ -2,46 +2,46 @@
 
 ../tr.init
 
-T="../../src/areafix/ftnaf -c../cf/toss.conf"
+T="../../src/areafix/ftnaf -vvv -cconfig"
 
 echo "tc: running"
 
 # command line
 echo "----- Testing command line -----"
 
-$T -vv -b areas.bbs -- 2:2452/110.90 query
-$T -vv -b areas.bbs -- 2:2452/110.90 list
-$T -vv -b areas.bbs -- 2:2452/110.90 listall
+$T -b areas.bbs -- 2:2452/110.90 query
+$T -b areas.bbs -- 2:2452/110.90 list
+$T -b areas.bbs -- 2:2452/110.90 listall
 
 cp areas.bbs tmp_areas.bbs
 
-$T -vv -b tmp_areas.bbs -- 2:2452/110.1 add linux.ger
-$T -vv -b tmp_areas.bbs -- 2:2452/110.1 add tolkien.ger
-$T -vv -b tmp_areas.bbs -- 2:2452/110.1 add xx
-$T -vv -b tmp_areas.bbs -- 2:2452/110.1 add yy
-$T -vv -b tmp_areas.bbs -- 99:2452/110.1 add zz
+$T -b tmp_areas.bbs -- 2:2452/110.1 add linux.ger
+$T -b tmp_areas.bbs -- 2:2452/110.1 add tolkien.ger
+$T -b tmp_areas.bbs -- 2:2452/110.1 add xx
+$T -b tmp_areas.bbs -- 2:2452/110.1 add yy
+$T -b tmp_areas.bbs -- 99:2452/110.1 add zz
 
-$T -vv -b tmp_areas.bbs -- 2:2452/110.1 add UNKNOWN.GER
-#$T -vv -b tmp_areas.bbs -x./unknown 2:2452/110.1 add UNKNOWN.GER
+$T -b tmp_areas.bbs -- 2:2452/110.1 add UNKNOWN.GER
+#$T -b tmp_areas.bbs -x./unknown 2:2452/110.1 add UNKNOWN.GER
 
-$T -vv -b tmp_areas.bbs -- 2:99/99 del test1
-$T -vv -b tmp_areas.bbs -- 2:99/99 del test2
-$T -vv -b tmp_areas.bbs -- 2:99/99 del test2
+$T -b tmp_areas.bbs -- 2:99/99 del test1
+$T -b tmp_areas.bbs -- 2:99/99 del test2
+$T -b tmp_areas.bbs -- 2:99/99 del test2
 
-$T -vv -b tmp_areas.bbs -- 2:99/99 create LINUX.GER
-$T -vv -b tmp_areas.bbs -- 2:99/99 create LINUX.GER -#
-$T -vv -b tmp_areas.bbs -- 2:99/99 create AREA.NEW -d New-Test-Area
-$T -vv -b tmp_areas.bbs -- 2:99/99 create AREA.NEW -#
-$T -vv -b tmp_areas.bbs -- 2:99/99 create AREA.NEW1 -p -r
-$T -vv -b tmp_areas.bbs -- 2:99/99 create AREA.NEWER -p -l 10
-$T -vv -b tmp_areas.bbs -- 2:99/99 create AREA.NEWEST -l 5 -k abcxyz
+$T -b tmp_areas.bbs -- 2:99/99 create LINUX.GER
+$T -b tmp_areas.bbs -- 2:99/99 create LINUX.GER -#
+$T -b tmp_areas.bbs -- 2:99/99 create AREA.NEW -d New-Test-Area
+$T -b tmp_areas.bbs -- 2:99/99 create AREA.NEW -#
+$T -b tmp_areas.bbs -- 2:99/99 create AREA.NEW1 -p -r
+$T -b tmp_areas.bbs -- 2:99/99 create AREA.NEWER -p -l 10
+$T -b tmp_areas.bbs -- 2:99/99 create AREA.NEWEST -l 5 -k abcxyz
 
 echo " "
 
 # mail interface
 echo "----- Testing mail interface -----"
 
-$T -m -r -n -vv -b tmp_areas.bbs <<EOF
+$T -m -n -b tmp_areas.bbs <<EOF
 From: Sysop@f5678.n1234.z2.fidonet.org
 Subject: WUSEL
 
@@ -54,9 +54,9 @@ unlinked
 create NEW
 EOF
 
-$T -m -r -n -vv -b tmp_areas.bbs <<EOF
-From: Sysop@f5678.n1234.z2.fidonet.org
-X-FTN-From: Sysop @ 2:1234/5678
+$T -m -n -b tmp_areas.bbs <<EOF
+From: Sysop@test.fidonet.org
+X-FTN-From: Sysop Mueller @ 2:1234/5678
 Subject: WUSEL
 
 vacation *.ger
@@ -64,18 +64,26 @@ vacation *.ger
 -TEST2
 EOF
 
-$T -m -r -n -vv -b tmp_areas.bbs <<EOF
+$T -m -n -b tmp_areas.bbs <<EOF
 From: mj@fido.de
 Subject: Areafix request
 
 add *.GER
 EOF
 
-$T -m -r -n -vv -b tmp_areas.bbs <<EOF
+$T -m -n -b tmp_areas.bbs <<EOF
 From: mj@fido.de
 Subject: Areafix request
 
 password 2:1234/5678 WUSEL
 add *.GER
 list
+EOF
+
+# No mailer, stdout
+$T -m -r -n -b tmp_areas.bbs <<EOF
+From: mj@fido.de
+Subject: Areafix request
+
+help
 EOF

@@ -2,7 +2,7 @@
 
 ../tr.init
 
-T="../../src/gate/rfc2ftn -L../cf -vvv"
+T="../../src/gate/rfc2ftn -c../cf/gate.conf -vvvvv"
 
 echo "tc: running"
 
@@ -10,3 +10,5 @@ $T Test_user@hippo.fido.de <mail1
 $T Test_user@hippo.fido.de <mail2
 $T Test_user@hippo.fido.de <mail3
 $T Test_user@hippo.fido.de <mail4
+
+pktdebug -t outpkt/mail/*.pkt

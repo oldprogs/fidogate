@@ -1,0 +1,10 @@
+#
+# $Id: config,v 1.1 1998/02/19 16:15:51 mj Exp $
+#
+# Test config tc.af
+#
+
+AreafixMailer	/bin/cat
+AreafixCC	AreafixTest@blah.wusel.org
+
+include		../cf/toss.conf

@@ -2,17 +2,22 @@
 
 	************** TODO list for FIDOGATE development **************
 
+	* Update documentation.
+
+DONE	* ftnpack: movedir packing option.
+
 	* ftn2rfc, ftnin: integrate programs.
 
 DONE	* ftn2rfc: get rid of buf_sprintf().
 
-	* ftnaf: send reply to Fido address!
+DONE	* ftnaf: send reply to Fido address!
 
 DONE	* rundf: get df program from config.make
 
 DONE	* lock.c: implement NFS-safe lock file.
 
 	* binkley.c: use lock_lockfile_nfs() for BSY files.
+	  lock.c: rewrite lock_lockfile_nfs()
 
 DONE	* dir.c,
 DONE	  ftntick: allow %X as directory name.

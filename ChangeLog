@@ -1,3 +1,65 @@
+Thu Feb 19 15:04:57 1998  Martin Junius  <mj@fido.de>
+
+	------- CVS ci -------------------------------------------------------
+
+	* test/tc.tick/run: new config.
+
+	* test/tc.passthru/run: new config.
+
+	* src/areafix/areafix.c (rewrite_areas_bbs): log() changes to
+	  areas.bbs. 
+	  (cmd_vacation): added log().
+	  (cmd_listall): dito.
+	  (cmd_list): dito.
+	  (cmd_query): dito.
+	  (cmd_unlinked): dito.
+	  (cmd_help): dito.
+	  (cmd_passwd): dito.
+
+	* src/toss/ftnpack.c (new_arc): second argument name removed, now
+	  does the xstrtok() itself.
+	  (packing_parse_line): some parsing code rewritten to make
+	  integration of new commands more easy.
+	  (packing_parse_line): r-arc may be NULL.
+
+	* test/tc.packprog/run: new config, testing more function of ftnpack.
+
+	* test/tc.nomsgid/run: new config.
+
+	* test/tc.ml/run: new config.
+
+	* src/toss/ftnpack.c (parse_pack): implemented progn.
+	  (packing_parse_line): implemented dirmove, progn.
+	  (do_pack): pack->arc may be NULL.
+	  (pkttime_name): new dir argument, if NULL out_dir[] is used as
+	  the directory for the packet file name, else this argument.
+	  (packing_pkt_name): renamed old function pkttime_name().
+	  (do_dirpack): implemented dirmove (PACK_MOVE).
+	  (do_prog): last argument changed to Packing *, implemented progn
+	  (PACK_PROGN).
+
+	* src/include/structs.h (PACK_PROGN): #define for new progn command.
+
+	* src/toss/ftnpack.c (parse_pack): implemented dirmove.
+
+	* src/include/structs.h (PACK_MOVE): #define for new dirmove command.
+
+Wed Feb 18 18:49:11 1998  Martin Junius  <mj@fido.de>
+
+	* src/areafix/ftnaf.c (s_ftnaddr_print_pfnz): new function, output
+	  FTNAddr as User_Name@p.f.n.z.domain.
+
+	* src/areafix/areafix.c (areafix_do): clear/set authorized node.
+
+	* src/areafix/ftnaf.c (do_mail): use FTNAddr function, send reply
+	  to FTN address if X-FTN-From header is present.
+	  (mailer_open): get mailer program from toss.conf:AreafixMailer,
+	  toss.conf:CCMail changed to AreafixCC.
+
+	* src/areafix/areafix.c (authorized_node): new global var for
+	  storing node address from authorization.
+	  (areafix_auth_node): new function returning authorized node.
+
 Sat Feb 14 17:28:53 1998  Martin Junius  <mj@fido.de>
 
 	------- CVS ci -------------------------------------------------------

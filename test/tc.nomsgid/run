@@ -2,9 +2,12 @@
 
 ../tr.init
 
+F="../../src/gate/ftn2rfc -c../cf/gate.conf -vvv"
+R="../../src/gate/rfc2ftn -c../cf/gate.conf -vvv"
+
 echo "tc: copying input packets"
-cp ../ti.pkt-misc/t-*nomsgid.pkt in
+cp ../ti.pkt-misc/t-*nomsgid.pkt pin
 
 echo "tc: running"
-../../src/gate/ftn2rfc -L../cf -v
-../../src/gate/rfc2ftn -L../cf -v -b -n < in/tmpnews/00000001.msg
+$F -v
+$R -v -b -n < outrfc/news/00000001.rfc

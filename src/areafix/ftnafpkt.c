@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftnafpkt.c,v 1.1 1998/02/14 17:13:57 mj Exp $
+ * $Id: ftnafpkt.c,v 1.2 1998/02/19 16:15:48 mj Exp $
  *
  * Areafix processing FTN packets
  *
@@ -37,7 +37,7 @@
 
 
 #define PROGRAM 	"ftnafpkt"
-#define VERSION 	"$Revision: 1.1 $"
+#define VERSION 	"$Revision: 1.2 $"
 #define CONFIG		DEFAULT_CONFIG_MAIN
 
 
@@ -50,6 +50,7 @@ void	areafix_auth_cmd	(void);
 char   *areafix_areasbbs	(void);
 void	areafix_set_areasbbs	(char *name);
 char   *areafix_name		(void);
+Node   *areafix_auth_node	(void);
 int	areafix_do		(Node *node, char *subj, Textlist*, Textlist*);
 int	rewrite_areas_bbs	(void);
 int	areafix_do_cmd		(Node *, char *, Textlist *);

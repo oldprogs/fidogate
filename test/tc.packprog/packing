@@ -3,19 +3,24 @@
 #
 # Commands:
 #
-#     arc      NAME  "/PATH/PROG %s %s"
-#     prog     NAME  "/PATH/PROG %s"
+#     arc                 NAME  "/PATH/PROG %s %s"
+#     prog                NAME  "/PATH/PROG %s"
+#     progn               NAME  "/PATH/PROG %s"
+#
+#     (progn doesn't delete packet after running PROG)
 #  
-#     pack     NAME  NODES
-#     rpack    NAME  TARGET NODES
-#     fpack    NAME  TARGET NODES
+#     pack                NAME  NODES
+#     rpack               NAME  TARGET NODES
+#     fpack               NAME  TARGET NODES
 #     dirpack  DIRECTORY  NAME  NODES
+#     dirmove  DIRECTORY        NODES
 #
 
-arc		zip	"/usr/bin/zip -gkjq %s %s"
-arc		arc	"/usr/bin/arc an %s %s"
+arc	zip	"/usr/bin/zip -gkjq %s %s"
+arc	arc	"/usr/bin/arc an %s %s"
 
-prog		gate	"../../src/gate/ftn2rfc -L../cf -n -vvv %s"
+prog	gate	"../../src/gate/ftn2rfc -c../cf/gate.conf -n -v %s"
+progn	areafix	"../../src/areafix/ftnafpkt -c../cf/toss.conf -v %s"
 
 
 ######## P A C K I N G #######################################################
@@ -24,5 +29,10 @@ prog		gate	"../../src/gate/ftn2rfc -L../cf -n -vvv %s"
 #pack		noarc	242:1000/5
 pack		gate	2:2452/110.2
 pack		gate	242:1000/5
+
+dirmove	./tmp_dir1	242:99/1
+dirpack ./tmp_dir2 zip	242:99/2
+
+pack		areafix	242:99/9
 
 pack		zip	*

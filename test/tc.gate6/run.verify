@@ -255,7 +255,7 @@ No alias found: return Test
     Address:  ORACLE.WIZARDS.COM
 RFC Date: Sun, 20 Oct 1996 02:30:44 -0700
 rfc2ftn message too big (690202b, limit 256000b) for mail L-Soft list server at WotC (1.8b) <LISTSERV@ORACLE.WIZARDS.COM> -> test@hippo.fido.de
-Internet -> FIDO gateway / FIDOGATE 4.3alpha1 @ orodruin.fido.de
+Internet -> FIDO gateway / FIDOGATE 4.3a1 @ orodruin.fido.de
    ----- ERROR -----
 Address test@hippo.fido.de:
   message too big (690202b, limit 256000b)

@@ -2,6 +2,7 @@ tc: clean-up
 tc: init
 tc: running
 ----- Testing command line -----
+output via stdout
 node=2:2452/110.90 command=query
 cmd=2 node=2:2452/110.90 arg=
 
@@ -10,6 +11,7 @@ cmd=2 node=2:2452/110.90 arg=
   LINUX.GER
   TOLKIEN.GER
 
+output via stdout
 node=2:2452/110.90 command=list
 cmd=1 node=2:2452/110.90 arg=
 
@@ -20,6 +22,7 @@ Areas available to 2:2452/110.90:
 
 * = linked to this area
 
+output via stdout
 node=2:2452/110.90 command=listall
 cmd=8 node=2:2452/110.90 arg=
 
@@ -38,84 +41,122 @@ ALL available areas:
 
 * = linked to this area
 
+output via stdout
 node=2:2452/110.1 command=add linux.ger
 cmd=4 node=2:2452/110.1 arg=linux.ger
 ftnaf 2:2452/110.1: +LINUX.GER
-LINUX.GER                              : added
+LINUX.GER                                : added
+output via stdout
 node=2:2452/110.1 command=add tolkien.ger
 cmd=4 node=2:2452/110.1 arg=tolkien.ger
 ftnaf 2:2452/110.1: +TOLKIEN.GER
-TOLKIEN.GER                            : added
+TOLKIEN.GER                              : added
+output via stdout
 node=2:2452/110.1 command=add xx
 cmd=4 node=2:2452/110.1 arg=xx
 ftnaf 2:2452/110.1: +XX
-XX                                     : added
+XX                                       : added
+output via stdout
 node=2:2452/110.1 command=add yy
 cmd=4 node=2:2452/110.1 arg=yy
 ftnaf 2:2452/110.1: +YY
-YY                                     : added
+YY                                       : added
+output via stdout
 node=99:2452/110.1 command=add zz
 cmd=4 node=99:2452/110.1 arg=zz
 ftnaf 99:2452/110.1: +ZZ
-ZZ                                     : added
+ZZ                                       : added
+output via stdout
 node=2:2452/110.1 command=add UNKNOWN.GER
 cmd=4 node=2:2452/110.1 arg=UNKNOWN.GER
 UNKNOWN.GER: no such area, or no area matching pattern
+output via stdout
 node=2:99/99.0 command=del test1
 cmd=5 node=2:99/99.0 arg=test1
 ftnaf 2:99/99.0: -TEST1
-TEST1                                  : removed
+TEST1                                    : removed
+output via stdout
 node=2:99/99.0 command=del test2
 cmd=5 node=2:99/99.0 arg=test2
 ftnaf 2:99/99.0: -TEST2
-TEST2                                  : removed
+TEST2                                    : removed
+output via stdout
 node=2:99/99.0 command=del test2
 cmd=5 node=2:99/99.0 arg=test2
-TEST2                                  : not active
+TEST2                                    : not active
+output via stdout
 node=2:99/99.0 command=create LINUX.GER
 cmd=9 node=2:99/99.0 arg=LINUX.GER
-LINUX.GER: area already exists, can't create
+LINUX.GER: area already exists, can't create.
+output via stdout
 node=2:99/99.0 command=create LINUX.GER -#
 cmd=9 node=2:99/99.0 arg=LINUX.GER -#
-LINUX.GER: area already exists, can't create
+LINUX.GER: area already exists, can't create.
+output via stdout
 node=2:99/99.0 command=create AREA.NEW -d New-Test-Area
 cmd=9 node=2:99/99.0 arg=AREA.NEW -d New-Test-Area
 ftnaf 2:99/99.0: created AREA.NEW lvl=-1 key= desc=New-Test-Area
+output via stdout
 node=2:99/99.0 command=create AREA.NEW -#
 cmd=9 node=2:99/99.0 arg=AREA.NEW -#
-AREA.NEW: area already exists, can't create
+AREA.NEW: area already exists, can't create.
+output via stdout
 node=2:99/99.0 command=create AREA.NEW1 -p -r
 cmd=9 node=2:99/99.0 arg=AREA.NEW1 -p -r
 ftnaf 2:99/99.0: created AREA.NEW1 lvl=-1 key= desc= passthru ro
+output via stdout
 node=2:99/99.0 command=create AREA.NEWER -p -l 10
 cmd=9 node=2:99/99.0 arg=AREA.NEWER -p -l 10
 ftnaf 2:99/99.0: created AREA.NEWER lvl=10 key= desc= passthru
+output via stdout
 node=2:99/99.0 command=create AREA.NEWEST -l 5 -k abcxyz
 cmd=9 node=2:99/99.0 arg=AREA.NEWEST -l 5 -k abcxyz
 ftnaf 2:99/99.0: created AREA.NEWEST lvl=5 key=abcxyz desc=
  
 ----- Testing mail interface -----
+From: Sysop@f5678.n1234.z2.fidonet.org
+FTN address: 2:1234/5678.0
+Subject passwd: WUSEL
+passwd entry: WUSEL
+passwd check o.k. - authorized
+passwd lvl : 1
+passwd key : F
+passwd name: Test Sysop
+output via textlist
 node=2:1234/5678.0 command=add *.GER
 cmd=4 node=2:1234/5678.0 arg=*.GER
 ftnaf 2:1234/5678.0: +LINUX.GER
 ftnaf 2:1234/5678.0: +TOLKIEN.GER
+output via textlist
 node=2:1234/5678.0 command=add TEST1
 cmd=4 node=2:1234/5678.0 arg=TEST1
 ftnaf 2:1234/5678.0: +TEST1
+output via textlist
 node=2:1234/5678.0 command=add TEST2
 cmd=4 node=2:1234/5678.0 arg=TEST2
+output via textlist
 node=2:1234/5678.0 command=list
 cmd=1 node=2:1234/5678.0 arg=
+output via textlist
 node=2:1234/5678.0 command=query
 cmd=2 node=2:1234/5678.0 arg=
+output via textlist
 node=2:1234/5678.0 command=unlinked
 cmd=3 node=2:1234/5678.0 arg=
+output via textlist
 node=2:1234/5678.0 command=create NEW
 cmd=9 node=2:1234/5678.0 arg=NEW
-LINUX.GER                              : added
-TOLKIEN.GER                            : added
-TEST1                                  : added
-TEST2                                  : access denied (level)
+Sending reply to: Sysop@f5678.n1234.z2.fidonet.org
+AreafixMailer /bin/cat
+From: Areafix-Daemon@orodruin.fido.de (Areafix Daemon)
+To: Sysop@f5678.n1234.z2.fidonet.org
+Cc: AreafixTest@blah.wusel.org
+Subject: Your Areafix request
+
+LINUX.GER                                : added
+TOLKIEN.GER                              : added
+TEST1                                    : added
+TEST2                                    : access denied (level)
 
 Areas available to 2:1234/5678:
 
@@ -128,14 +169,14 @@ Areas available to 2:1234/5678:
 * = linked to this area
 
 
-2:1234/5678 is linked to the following areas:
+2:1234/5678.0 is linked to the following areas:
 
   LINUX.GER
   TOLKIEN.GER
   TEST1
 
 
-2:1234/5678 is not linked to the following available areas:
+2:1234/5678.0 is not linked to the following available areas:
 
   TEST2
   AREA.NEW
@@ -144,34 +185,76 @@ Areas available to 2:1234/5678:
   AREA.NEWEST
 
 Command CREATE: not authorized.
+From: Sysop@test.fidonet.org
+X-FTN-From: Sysop @ 2:1234/5678
+FTN address: 2:1234/5678.0
+Subject passwd: WUSEL
+passwd entry: WUSEL
+passwd check o.k. - authorized
+passwd lvl : 1
+passwd key : F
+passwd name: Test Sysop
+output via textlist
 node=2:1234/5678.0 command=vacation *.ger
 cmd=10 node=2:1234/5678.0 arg=*.ger
+output via textlist
 node=2:1234/5678.0 command=-TEST1
 cmd=5 node=2:1234/5678.0 arg=TEST1
+output via textlist
 node=2:1234/5678.0 command=-TEST2
 cmd=5 node=2:1234/5678.0 arg=TEST2
+Sending reply to: Sysop@test.fidonet.org
+AreafixMailer /bin/cat
+From: Areafix-Daemon@orodruin.fido.de (Areafix Daemon)
+To: Sysop@test.fidonet.org
+Cc: AreafixTest@blah.wusel.org
+Subject: Your Areafix request
+
 Command VACATION: sorry, not yet implemented.
-TEST1                                  : not active
-TEST2                                  : not active
+TEST1                                    : not active
+TEST2                                    : not active
+From: mj@fido.de
+Subject passwd: Areafix
+passwd entry: -NONE-
+output via textlist
 node=INVALID command=add *.GER
 cmd=4 node=INVALID arg=*.GER
+Sending reply to: mj@fido.de
+AreafixMailer /bin/cat
+From: Areafix-Daemon@orodruin.fido.de (Areafix Daemon)
+To: mj@fido.de
+Cc: AreafixTest@blah.wusel.org
+Subject: Your Areafix request
+
 Command ADD: not authorized.
-
-Your Areafix request didn't made it, because authorization failed.
-You may try using the PASSWORD command to set address and password,
-if there is an address problem.
-
-Additional help can be requested with the HELP command.
+From: mj@fido.de
+Subject passwd: Areafix
+passwd entry: -NONE-
+output via textlist
 node=INVALID command=password 2:1234/5678 WUSEL
 cmd=7 node=INVALID arg=2:1234/5678 WUSEL
+PASSWD entry: WUSEL
+password check o.k. - authorized
+passwd lvl : 1
+passwd key : F
+passwd name: Test Sysop
+output via textlist
 node=2:1234/5678.0 command=add *.GER
 cmd=4 node=2:1234/5678.0 arg=*.GER
 ftnaf 2:1234/5678.0: +LINUX.GER
 ftnaf 2:1234/5678.0: +TOLKIEN.GER
+output via textlist
 node=2:1234/5678.0 command=list
 cmd=1 node=2:1234/5678.0 arg=
-LINUX.GER                              : added
-TOLKIEN.GER                            : added
+Sending reply to: mj@fido.de
+AreafixMailer /bin/cat
+From: Areafix-Daemon@orodruin.fido.de (Areafix Daemon)
+To: mj@fido.de
+Cc: AreafixTest@blah.wusel.org
+Subject: Your Areafix request
+
+LINUX.GER                                : added
+TOLKIEN.GER                              : added
 
 Areas available to 2:1234/5678:
 
@@ -183,3 +266,40 @@ Areas available to 2:1234/5678:
 
 * = linked to this area
 
+From: mj@fido.de
+Subject passwd: Areafix
+passwd entry: -NONE-
+output via stdout
+node=INVALID command=help
+cmd=6 node=INVALID arg=
+Sending reply to: mj@fido.de
+
+Help for Areafix, FIDOGATE 4.3a1
+
+Send mail
+
+  To:      Areafix @ 2:2452/110.2
+  Subject: PASSWORD
+
+Commands in message body:
+
+  listall                  list all available areas
+  list                     list areas available to node
+  query                    list subscribed areas
+  unlinked                 list unsubscribed areas
+  passwd Z:N/F.P PASSWORD  set address and password
+  password Z:N/F.P PASSWORD
+  pass Z:N/F.P PASSWORD
+  add AREA                 subscribe to area
+  +AREA
+  AREA
+  remove AREA              unsubscribe to area
+  delete AREA
+  del AREA
+  -AREA
+  vacation AREA            set vacation flag for area
+  create AREA [-options]   create new area
+  help                     this help
+
+AREA names are not case-sensitive and support shell-style wildcards
+  * ? [a-z] [abc], e.g. COMP.OS.*, [A-D]*.GER

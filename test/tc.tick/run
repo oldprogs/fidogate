@@ -2,8 +2,8 @@
 
 ../tr.init
 
-H="../../src/tick/ftnhatch -L../cf -vvvv"
-T="../../src/tick/ftntick  -L../cf -vvvv"
+H="../../src/tick/ftnhatch -c../cf/toss.conf -vvv"
+T="../../src/tick/ftntick  -c../cf/toss.conf -vvv"
 
 mkdir tmp_area tmp_unknown
 
@@ -30,4 +30,4 @@ cp test4.tic pin
 $T -b fareasin.bbs -I ./pin -t
 
 cp testfile.txt test6.tic pin
-$T -vvvv -b fareasin.bbs -I ./pin -t
+$T -b fareasin.bbs -I ./pin -t

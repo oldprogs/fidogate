@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: structs.h,v 4.11 1998/01/28 22:00:24 mj Exp $
+ * $Id: structs.h,v 4.12 1998/02/19 16:15:48 mj Exp $
  *
  * An assortment of FIDOGATE data structure definitions
  *
@@ -229,9 +229,11 @@ Rewrite;
 #define PACK_ROUTE	'r'		/* Pack to other archive */
 #define PACK_FLO	'f'		/* Attach archive to other FLO */
 #define PACK_DIR	'd'		/* Pack to separate directory */
+#define PACK_MOVE	'm'		/* Move to separate directory */
 
 #define PACK_ARC	'a'
 #define PACK_PROG	'p'
+#define PACK_PROGN	'q'
 
 typedef struct st_arcprog
 {

@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: ftnaf.c,v 1.2 1998/02/14 17:13:57 mj Exp $
+ * $Id: ftnaf.c,v 1.3 1998/02/19 16:15:47 mj Exp $
  *
  * Areafix-like AREAS.BBS EchoMail distribution manager. Commands somewhat
  * conforming to FSC-0057.
@@ -39,12 +39,12 @@
 
 
 #define PROGRAM		"ftnaf"
-#define VERSION		"$Revision: 1.2 $"
+#define VERSION		"$Revision: 1.3 $"
 #define CONFIG		DEFAULT_CONFIG_MAIN
 
 
 
-#define MAILER		"/usr/lib/sendmail -t"
+#define DEFAULT_MAILER	"/usr/lib/sendmail -t"
 
 
 static int r_flag = FALSE;
@@ -60,6 +60,7 @@ void	areafix_auth_cmd	(void);
 char   *areafix_areasbbs	(void);
 void	areafix_set_areasbbs	(char *name);
 char   *areafix_name		(void);
+Node   *areafix_auth_node	(void);
 int	areafix_do		(Node *node, char *subj, Textlist*, Textlist*);
 int	rewrite_areas_bbs	(void);
 int	areafix_do_cmd		(Node *, char *, Textlist *);
@@ -73,24 +74,54 @@ void	usage			(void);
 
 
 /*
+ * Output FTNAddr as User_Name@p.f.n.z.domain
+ */
+char *s_ftnaddr_print_pfnz(FTNAddr *ftn)
+{
+    TmpS *s;
+    char *p;
+
+    s = tmps_alloc(MAXINETADDR);
+    str_copy  (s->s, s->len, ftn->name);
+    for(p=s->s; *p; p++)
+	if(*p == ' ')
+	    *p = '_';
+    str_append(s->s, s->len, "@");
+    str_append(s->s, s->len, node_to_pfnz(&ftn->node, FALSE));
+    str_append(s->s, s->len, cf_zones_inet_domain(ftn->node.zone));
+    tmps_stripsize(s);
+
+    return s->s;
+}
+
+
+
+/*
  * Open mailer for sending reply
  */
 FILE *mailer_open(char *to)
 {
     FILE *fp;
     char *cc;
+    char *mailer;
+
+    mailer = cf_get_string("AreafixMailer", TRUE);
+    if(!mailer)
+	mailer = DEFAULT_MAILER;
+
+    debug(3, "AreafixMailer %s", mailer);
     
-    fp = popen(MAILER, W_MODE);
+    fp = popen(mailer, W_MODE);
     if(!fp)
     {
-	log("$ERROR: can't open pipe to %s", MAILER);
+	log("$ERROR: can't open pipe to %s", mailer);
 	return NULL;
     }
     
     fprintf(fp, "From: %s-Daemon@%s (%s Daemon)\n",
 	    areafix_name(), cf_fqdn(), areafix_name());
     fprintf(fp, "To: %s\n", to);
-    if( (cc = cf_get_string("CCMail", TRUE)) )
+    if( (cc = cf_get_string("AreafixCC", TRUE)) )
 	fprintf(fp, "Cc: %s\n", cc);
     fprintf(fp, "Subject: Your %s request\n", areafix_name());
     fprintf(fp, "\n");
@@ -111,17 +142,18 @@ int mailer_close(FILE *fp)
 
 
 /*
- * Process request message in stdin
+ * Process request message from stdin
  */
 int do_mail(void)
 {
     RFCAddr from;
-    char *pfrom, *subj, *p;
-    Node node, *n;
+    FTNAddr xfrom;
+    char *pfrom, *subj, *x_ftn_from;
+    Node *n;
     FILE *output;
     Textlist tl, out;
 
-    node_invalid(&node);
+    ftnaddr_invalid(&xfrom);
     tl_init(&tl);
     tl_init(&out);
 
@@ -138,40 +170,41 @@ int do_mail(void)
 	return EX_UNAVAILABLE;
     debug(3, "From: %s", pfrom);
 
-    /*
-     * Check From / X-FTN-From for FTN address
-     */
+    /* Check From / X-FTN-From for FTN address */
     n = NULL;
-    if((p = header_get("X-FTN-From")))
+    if( (x_ftn_from = header_get("X-FTN-From")) )
     {
-	debug(3, "X-FTN-From: %s", p);
-	if((p = strchr(p, '@')))
-	{
-	    p++;
-	    while(*p && is_space(*p))
-		p++;
-	    if(asc_to_node(p, &node, FALSE) == OK)
-		n = &node;
-	}
+	debug(3, "X-FTN-From: %s", x_ftn_from);
+	xfrom = ftnaddr_parse(x_ftn_from);
+	n = &xfrom.node;
+	if(n->zone <= 0)
+	    n = NULL;
     }
     else
     {
 	from = rfcaddr_from_rfc(pfrom);
 	n    = inet_to_ftn(from.addr);
+	if(n)
+	    xfrom.node = *n;
     }
     
     if(n)
     {
-	debug(3, "FTN address: %s", node_to_asc(n, TRUE));
-	node = *n;
+	debug(3, "FTN address: %s", znfp(n));
 	cf_set_zone(n->zone);
     }
-    else
-	node_invalid(&node);
 
     /* Run Areafix */
     subj = header_get("Subject");
-    areafix_do(&node, subj, &tl, (r_flag ? NULL : &out) );
+    areafix_do(&xfrom.node, subj, &tl, (r_flag ? NULL : &out) );
+
+    /* Address may have been changed using the PASSWD command */
+    xfrom.node = *areafix_auth_node();
+
+    /* Reply to FTN address */
+    if(x_ftn_from && n)
+	pfrom = s_ftnaddr_print_pfnz(&xfrom);
+    debug(3, "Sending reply to: %s", pfrom);
     
     /* Send output to mailer */
     if(!r_flag)
@@ -183,6 +216,8 @@ int do_mail(void)
 	return mailer_close(output);
     }
 
+    s_freeall();
+    
     return EX_OK;
 }
 

@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftnpack.c,v 4.19 1998/01/24 14:07:36 mj Exp $
+ * $Id: ftnpack.c,v 4.20 1998/02/19 16:15:50 mj Exp $
  *
  * Pack output packets of ftnroute for Binkley outbound (ArcMail)
  *
@@ -40,7 +40,7 @@
 
 
 #define PROGRAM 	"ftnpack"
-#define VERSION 	"$Revision: 4.19 $"
+#define VERSION 	"$Revision: 4.20 $"
 #define CONFIG		DEFAULT_CONFIG_MAIN
 
 
@@ -84,13 +84,13 @@ static Packing *packing_last  = NULL;
  * Prototypes
  */
 int	parse_pack		(char *);
-ArcProg*parse_arc		(char *);
-void	new_arc			(int, char *);
-Packing*packing_parse_line	(char *);
+ArcProg *parse_arc		(char *);
+void	new_arc			(int);
+Packing *packing_parse_line	(char *);
 int	packing_do_file		(char *);
 void	packing_init		(char *);
 char   *arcmail_name		(Node *, char *);
-char   *pkttime_name		(char *);
+char   *packing_pkt_name		(char *, char *);
 int	arcmail_search		(char *);
 int	do_arcmail		(char *, Node *, Node *, PktDesc *,
 				 FILE *, char *, char *);
@@ -121,10 +121,14 @@ int parse_pack(char *s)
 	return PACK_FLO;
     if(!stricmp(s, "dirpack"))
 	return PACK_DIR;
+    if(!stricmp(s, "dirmove"))
+	return PACK_MOVE;
     if(!stricmp(s, "arc"))
 	return PACK_ARC;
     if(!stricmp(s, "prog"))
 	return PACK_PROG;
+    if(!stricmp(s, "progn"))
+	return PACK_PROGN;
     
     return ERROR;
 }
@@ -149,25 +153,24 @@ ArcProg *parse_arc(char *s)
 /*
  * Define new archiver/program
  */
-void new_arc(int cmd, char *name)
+void new_arc(int cmd)
 {
-    char *p;
+    char *name, *prog;
     ArcProg *a;
     
-    p = xstrtok(NULL, " \t");
-    if(!p)
+    name = xstrtok(NULL, " \t");
+    prog = xstrtok(NULL, " \t");
+    if(!name || !prog)
     {
-	log("packing: missing command for arc/prog %s", name);
+	log("packing: missing argument for arc/prog definition", name);
 	return;
     }
     
-    /*
-     * Create new entry and put into list
-     */
+    /* Create new entry and put into list */
     a = (ArcProg *)xmalloc(sizeof(ArcProg));
     a->pack = cmd;
     a->name = strsave(name);
-    a->prog = strsave(p);
+    a->prog = strsave(prog);
     a->next = NULL;
 
     if(arcprog_first)
@@ -176,7 +179,7 @@ void new_arc(int cmd, char *name)
 	arcprog_first      = a;
     arcprog_last = a;
 	
-    debug(15, "routing: pack=%c name=%s prog=%s",
+    debug(15, "packing: pack=%c name=%s prog=%s",
 	  a->pack, a->name, a->prog             );
 }
 
@@ -195,62 +198,62 @@ Packing *packing_parse_line(char *buf)
     LON lon;
     int cmd;
 
-    /*
-     * Command
-     */
+    /* Command */
     p = xstrtok(buf, " \t");
     if(!p)
-    {
 	return NULL;
-    }
     if(strieq(p, "include"))
     {
 	p = xstrtok(NULL, " \t");
 	packing_do_file(p);
 	return NULL;
     }
-    
     if((cmd = parse_pack(p)) == ERROR)
     {
 	log("packing: unknown command %s", p);
 	return NULL;
     }
 
-    /*
-     * Packer name
-     */
-    p = xstrtok(NULL, " \t");
-    if(!p)
+    /* Definition of new archiver/program */
+    if(cmd==PACK_ARC || cmd==PACK_PROG || cmd==PACK_PROGN)
     {
-	log("packing: packer name/directory argument missing");
+	new_arc(cmd);
 	return NULL;
     }
 
-    if(cmd==PACK_ARC || cmd==PACK_PROG)
+    /* Directory argument */
+    if(cmd==PACK_DIR || cmd==PACK_MOVE)
     {
-	/* Definition of new archiver/program */
-	new_arc(cmd, p);
-	return NULL;
-    }
-    if(cmd == PACK_DIR)
-    {
-	/* Directory name for "dirpack" command */
-	dir = strsave(p);
 	p = xstrtok(NULL, " \t");
+	if(!p)
+	{
+	    log("packing: directory argument missing");
+	    return NULL;
+	}
+	dir = strsave(p);
     }
     else
 	dir = NULL;
 
-    /* Archiver/program name */
-    if((a = parse_arc(p)) == NULL)
+    /* Archiver name argument */
+    if(cmd!=PACK_MOVE)
     {
-	log("packing: unknown archiver/program %s", p);
-	return NULL;
+	p = xstrtok(NULL, " \t");
+	if(!p)
+	{
+	    log("packing: archiver name argument missing");
+	    return NULL;
+	}
+	if((a = parse_arc(p)) == NULL)
+	{
+	    log("packing: unknown archiver/program %s", p);
+	    return NULL;
+	}
     }
-	
-    /*
-     * List of nodes follows, using "*" or "all" wildcard pattern
-     */
+    else
+	a = NULL;
+    
+    /* List of nodes follows */
     node_invalid(&old);
     old.zone = cf_zone();
     lon_init(&lon);
@@ -276,9 +279,7 @@ Packing *packing_parse_line(char *buf)
 	p = xstrtok(NULL, " \t");
     }
 
-    /*
-     * Create new entry and put into list
-     */
+    /* Create new entry and put into list */
     r = (Packing *)xmalloc(sizeof(Packing));
     r->pack  = cmd;
     r->dir   = dir;
@@ -287,7 +288,7 @@ Packing *packing_parse_line(char *buf)
     r->next  = NULL;
 	
     debug(15, "packing: pack=%c dir=%s arc=%s",
-	  r->pack, r->dir ? r->dir : "", r->arc->name);
+	  r->pack, r->dir ? r->dir : "", (r->arc ? r->arc->name : NULL));
     lon_debug(15, "packing: nodes=", &r->nodes, TRUE);
 
     return r;
@@ -404,25 +405,26 @@ char *arcmail_name(Node *node, char *dir)
 
 
 /*
- * Return time coded packet name for adding to archive
+ * Return packet name for adding to archive
  */
-char *pkttime_name(char *name)
+char *packing_pkt_name(char *dir, char *name)
 {
     static char buf[MAXPATH];
     char *p;
     
 #if 0
-    /* Return nnnnnnnn.pkt in out_dir[] */
-    sprintf(buf, "%s/%08ld.pkt", out_dir, sequencer(DEFAULT_SEQ_PACK));
+    /* Return nnnnnnnn.pkt in dir */
+    sprintf(buf, "%s/%08ld.pkt",
+	    (dir ? dir : out_dir), sequencer(DEFAULT_SEQ_PACK));
 #endif
 
-    /* Same base name in out_dir[] */
+    /* Same base name in dir */
     p = strrchr(name, '/');
     if(!p)				/* Just to be sure */
 	p = name;
     else
 	p++;
-    BUF_COPY3(buf, out_dir, "/", p);
+    BUF_COPY3(buf, (dir ? dir : out_dir), "/", p);
     
     return buf;
 }
@@ -496,7 +498,7 @@ int do_arcmail(char *name, Node *arcnode, Node *flonode,
     int ret, newfile;
     
     arcn = arcmail_name(arcnode, dir);
-    pktn = ffx_flag ? name : pkttime_name(name);
+    pktn = ffx_flag ? name : packing_pkt_name(NULL, name);
     if(!arcn)
 	return ERROR;
     if(arcmail_search(arcn) == ERROR)
@@ -701,13 +703,13 @@ int do_noarc(char *name, Node *flonode,
 /*
  * Call program for packet file
  */
-int do_prog(char *name, PktDesc *desc, char *prog)
+int do_prog(char *name, PktDesc *desc, Packing *pack)
 {
     int ret;
     
     debug(4, "Processing %s", name);
 
-    sprintf(buffer, prog, name);
+    sprintf(buffer, pack->arc->prog, name);
     debug(4, "Command: %s", buffer);
     ret = run_system(buffer);
     debug(4, "Exit code=%d", ret);
@@ -716,8 +718,9 @@ int do_prog(char *name, PktDesc *desc, char *prog)
         log("ERROR: %s failed, exit code=%d", buffer, ret);
         return ERROR;
     }
-    if(unlink(name) == -1)
-        log("$ERROR: can't remove %s", name);
+    if(pack->arc->pack != PACK_PROGN)
+	if(unlink(name)==ERROR)
+	    log("$ERROR: can't remove %s", name);
 
     return OK;
 }
@@ -790,7 +793,7 @@ int do_pack(PktDesc *desc, char *name, FILE *file, Packing *pack)
     }
        
     /* Do the various pack functions */
-    if(pack->arc->pack == PACK_ARC)
+    if(pack->arc && pack->arc->pack==PACK_ARC)
     {
 	if( ffx_flag ||
 	    (desc->flav!=FLAV_CRASH && pack->arc->prog) )
@@ -826,7 +829,7 @@ int do_pack(PktDesc *desc, char *name, FILE *file, Packing *pack)
 	    fclose(file);
 	log("packet (%ldb) for %s (%s)",
 	    check_size(name), node_to_asc(&desc->to,TRUE), pack->arc->name);
-	ret = do_prog(name, desc, pack->arc->prog);
+	ret = do_prog(name, desc, pack);
     }
     
     /* Delete BSY file */
@@ -847,6 +850,7 @@ int do_dirpack(PktDesc *desc, char *name, FILE *file, Packing *pack)
 {
     int ret = OK;
     Node arcnode, flonode;
+    char *pktn;
     
     arcnode = desc->to;
     flonode = desc->to;
@@ -865,18 +869,27 @@ int do_dirpack(PktDesc *desc, char *name, FILE *file, Packing *pack)
 	    return OK;			/* This is o.k. */
 	}
 
-    /* Do the various pack functions */
-    if(pack->arc->pack == PACK_ARC)
+    /* dirpack */
+    if(pack->pack==PACK_DIR && pack->arc && pack->arc->pack==PACK_ARC)
     {
 	if(pack->arc->prog)
 	{
 	    log("archiving packet (%ldb) for %s (%s) in %s",
-		check_size(name),
-		node_to_asc(&desc->to,TRUE), pack->arc->name, pack->dir);
+		check_size(name), znfp(&desc->to), pack->arc->name, pack->dir);
 
 	    ret = do_arcmail(name, &arcnode, &flonode, desc,
 			     file, pack->arc->prog, pack->dir);
 	}
+    }
+
+    /* dirmove */
+    if(pack->pack==PACK_MOVE)
+    {
+	log("moving packet (%ldb) for %s to %s",
+	    check_size(name), znfp(&desc->to), pack->dir);
+
+	pktn = packing_pkt_name(pack->dir, name);
+	ret = do_noarc(name, &flonode, desc, file, pktn);
     }
     
     /* Delete BSY file */
@@ -929,7 +942,8 @@ int do_packing(char *name, FILE *fp, Packet *pkt)
 	    if(node_match(&desc->to, &p->node))
 	    {
 		debug(3, "packing: pack=%c dir=%s arc=%s",
-		      r->pack, r->dir ? r->dir : "", r->arc->name);
+		      r->pack, r->dir ? r->dir : "",
+		      (r->arc ? r->arc->name : NULL)      );
 		return r->dir ? do_dirpack(desc, name, fp, r)
 		              : do_pack   (desc, name, fp, r);
 	    }
