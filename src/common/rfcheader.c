@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: rfcheader.c,v 4.0 1996/04/17 18:17:40 mj Exp $
+ * $Id: rfcheader.c,v 4.1 1996/04/26 08:41:40 mj Exp $
  *
  * Functions to process RFC822 header lines from messages
  *
@@ -45,9 +45,63 @@ static Textline *last_header = NULL;
 
 
 /*
+ * header_ca_rfc() --- Output ^ARFC-Xxxx kludges
+ */
+int header_ca_rfc(FILE *out, int rfc_level)
+{
+    static char *rfc_lvl_1[] = { RFC_LVL_1_HEADERS, NULL };
+    
+    /* RFC level 0 - no ^ARFC-Xxxx kludges */
+    if(rfc_level <= 0)
+    {
+	;
+    }
+    
+    /* RFC level 1 - selected set of ^ARFC-Xxxx kludges */
+    else if(rfc_level == 1)
+    {
+	char **name;
+	Textline *p;
+	int len;
+	int ok = FALSE;
+	
+	for(p=header.first; p; p=p->next)
+	{
+	    if(!is_space(p->line[0])) 
+	    {
+		ok = FALSE;
+		for(name=rfc_lvl_1; *name; name++)
+		{
+		    len  = strlen(*name);
+		    if(!strnicmp(p->line, *name, len) && p->line[len]==':')
+		    {
+			ok = TRUE;		/* OK to output */
+			break;
+		    }
+		}
+	    }
+	    if(ok)
+		fprintf(out, "\001RFC-%s\r\n", p->line);
+	}
+    }
+    
+    /* RFC level 2 - all ^ARFC-Xxxx kludges */
+    else if(rfc_level >= 2)
+    {
+	Textline *p;
+
+	for(p=header.first; p; p=p->next)
+	    fprintf(out, "\001RFC-%s\r\n", p->line);
+    }
+    
+    return ferror(out);
+}
+
+
+
+/*
  * header_delete() --- Delete headers
  */
-
 void header_delete(void)
 {
     tl_clear(&header);
@@ -59,11 +113,9 @@ void header_delete(void)
 /*
  * header_read() --- read header lines from file
  */
-
 void header_read(FILE *file)
 {
     char buffer[BUFSIZ];
-    int len;
     
     tl_clear(&header);
 
@@ -71,10 +123,7 @@ void header_read(FILE *file)
     {
 	if(buffer[0] == '\n')
 	    break;
-	
-	len = strlen(buffer);
-	if(buffer[len - 1] == '\n')
-	    buffer[len - 1] = 0;
+	strip_crlf(buffer);
 	tl_append(&header, buffer);
     }
 }

@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway software UNIX <-> FIDO
  *
- * $Id: rfc2ftn.c,v 4.2 1996/04/24 09:54:46 mj Exp $
+ * $Id: rfc2ftn.c,v 4.3 1996/04/26 08:41:41 mj Exp $
  *
  * Read mail or news from standard input and convert it to a FIDO packet.
  *
@@ -39,7 +39,7 @@
 
 
 #define PROGRAM 	"rfc2ftn"
-#define VERSION 	"$Revision: 4.2 $"
+#define VERSION 	"$Revision: 4.3 $"
 #define CONFIG		CONFIG_GATE
 
 
@@ -82,12 +82,17 @@ void	usage			(void);
 
 
 
-static char *o_flag = NULL;	/* -o --out-packet-file option */
-static char *w_flag = NULL;	/* -w --write-outbound  option */
-static int   W_flag = FALSE;	/* -W --write-crash     option */
+static char *o_flag = NULL;		/* -o --out-packet-file option */
+static char *w_flag = NULL;		/* -w --write-outbound  option */
+static int   W_flag = FALSE;		/* -W --write-crash     option */
 
-static int echomail4d = FALSE;	/* config.gate: EchoMail4d */
+static int default_rfc_level = 0;	/* Default ^ARFC level for areas */
 
+static int no_from_line	= FALSE;	/* config: NoFromLine */
+static int no_fsc_0035 = FALSE;		/* config: NoFSC0035 */
+static int no_fsc_0047 = FALSE;		/* config: NoFSC0047 */
+static int echomail4d = FALSE;		/* config.gate: EchoMail4d */ 
+ 
 
 
 /* Private mail (default) */
@@ -95,9 +100,6 @@ bool private = TRUE;
 
 /* News-article */
 int newsmode = FALSE;
-
-
-static int no_from_line	= FALSE;		/* config: NoFromLine */
 
 
 
@@ -740,14 +742,14 @@ int snd_mail(char *from, char *to, long int size)
 int snd_message(Message *msg, Area *parea,
 		char *from, char *to, char *subj,
 		long int size, char *flags, int fido, MIMEInfo *mime)
-    /* msg    --- FTN nessage structure */
-    /* pareas --- area/newsgroup */
-    /* from   --- Internet sender */
-    /* to     --- Internet recipient */
-    /* subj   --- Internet Subject line */
-    /* flags  --- X-Flags header */
-    /* fido   --- TRUE: recipient is FTN address */
-    /* mime   --- MIME stuff */
+    /* msg   --- FTN nessage structure */
+    /* parea --- area/newsgroup description structure */
+    /* from  --- Internet sender */
+    /* to    --- Internet recipient */
+    /* subj  --- Internet Subject line */
+    /* flags --- X-Flags header */
+    /* fido  --- TRUE: recipient is FTN address */
+    /* mime  --- MIME stuff */
 {
     static int last_zone = -1;		/* Zone address of last packet */
     static FILE *sf;			/* Packet file */
@@ -758,12 +760,17 @@ int snd_message(Message *msg, Area *parea,
     Textline *p;
     char *id;
     int flag, add_empty;
-#ifdef FSC_0047
     time_t time_split = -1;
     long seq          = 0;
-#endif
     int mime_qp = 0;			/* quoted-printable flag */
+    int rfc_level = default_rfc_level;
 
+    /*
+     * ^ARFC level
+     */
+    if(parea && parea->rfc_lvl!=-1)
+	rfc_level = parea->rfc_lvl;
+    
     /*
      * MIME info
      */
@@ -890,8 +897,7 @@ int snd_message(Message *msg, Area *parea,
     else
 	print_local_msgid(sf);
 
-#ifdef FSC_0035
-    if(!no_from_line)
+    if(!no_fsc_0035)
 	if(!flags || !strchr(flags, 'N'))
 	{
 	    /*
@@ -905,7 +911,6 @@ int snd_message(Message *msg, Area *parea,
 			msg->name_from);
 	    }
 	}
-#endif /**FSC_0035**/    
 
     if(flags && strchr(flags, 'F'))
     {
@@ -921,16 +926,16 @@ int snd_message(Message *msg, Area *parea,
      * Add ^ACHRS kludge indicating that this messages uses the
      * ISO-8859-1 charset. This may be not the case, but most Usenet
      * messages with umlauts use this character set and FIDOGATE
-     * doesn't support MIME yet.  (^ACHRS is documented in FSC-0054)
+     * doesn't support MIME completely yet.  (^ACHRS is documented in
+     * FSC-0054)
      */
     fprintf(sf, "\001CHRS: LATIN-1 2\r\n");
 
     /*
      * Add ^ARFC header lines according to FIDO-Gatebau '94 specs
      */
-    /* ^ARFC: 1 lines for now */
-    fprintf(sf, "\001RFC: 1 lines\r\n");
-    
+    fprintf(sf, "\001RFC: %d 0\r\n", rfc_level);
+    header_ca_rfc(sf, rfc_level);
 
     add_empty = FALSE;
     
@@ -958,6 +963,7 @@ int snd_message(Message *msg, Area *parea,
 	    }
 	}
 
+#ifdef 0 /**Replaced with ^ARFC-Xxxx kludges**********************************/
 	/*
 	 * Add empty line before " * " info lines, because otherwise
 	 * Eugene Crosser's ifgate gets confused and treats them as
@@ -1014,44 +1020,47 @@ int snd_message(Message *msg, Area *parea,
 		    add_empty = TRUE;
 		}
 	}
-	
+#endif /**********************************************************************/
     }
     if(add_empty)
 	fprintf(sf, "\r\n");
 
-#ifdef FSC_0047
-    /*
-     * Add ^ASPLIT kludge according to FSC-0047 for multi-part messages.
-     * Format:
-     *     ^ASPLIT: date      time     @net/node    nnnnn pp/xx +++++++++++
-     * e.g.
-     *     ^ASPLIT: 30 Mar 90 11:12:34 @494/4       123   02/03 +++++++++++
-     */
-    if(split)
+    if(!no_fsc_0047)
     {
-	char buf[20];
-	
-	if(part == 1)
+	/*
+	 * Add ^ASPLIT kludge according to FSC-0047 for multi-part messages.
+	 * Format:
+	 *     ^ASPLIT: date      time     @net/node    nnnnn pp/xx +++++++++++
+	 * e.g.
+	 *     ^ASPLIT: 30 Mar 90 11:12:34 @494/4       123   02/03 +++++++++++
+	 */
+	if(split)
 	{
-	    time_split = time(NULL);
-	    seq        = sequencer(SEQ_SPLIT) % 100000;	/* Max. 5 digitss */
-	}
-
-	sprintf(buf, "%d/%d", cf_addr()->net, cf_addr()->node);
-	
-	fprintf(sf,
+	    char buf[20];
+	    
+	    if(part == 1)
+	    {
+		time_split = time(NULL);
+		seq        = sequencer(SEQ_SPLIT) % 100000;/* Max. 5 digits */
+	    }
+	    
+	    sprintf(buf, "%d/%d", cf_addr()->net, cf_addr()->node);
+	    
+	    fprintf(sf,
 		"\001SPLIT: %-18s @%-11.11s %-5ld %02d/%02d +++++++++++\r\n",
 		date("%d %b %y %H:%M:%S", &time_split), buf, seq, part, split);
+	}
     }
-#else
-    /*
-     * Add line indicating splitted message
-     */
-    if(split)
-	fprintf(sf,
+    else
+    {
+	/*
+	 * Add line indicating splitted message
+	 */
+	if(split)
+	    fprintf(sf,
 		" * Large message split by FIDOGATE: part %02d/%02d\r\n\r\n",
-		part, split						    );
-#endif /**FSC_0047**/
+		    part, split						    );
+    }
 
     /*
      * Copy message body
@@ -1432,8 +1441,18 @@ int main(int argc, char **argv)
      */
     if(cf_get_string("NoFromLine", TRUE))
     {
-	debug(8, "config: nofromline");
+	debug(8, "config: NoFromLine");
 	no_from_line = TRUE;
+    }
+    if(cf_get_string("NoFSC0035", TRUE))
+    {
+	debug(8, "config: NoFSC0035");
+	no_fsc_0035 = TRUE;
+    }
+    if(cf_get_string("NoFSC0047", TRUE))
+    {
+	debug(8, "config: NoFSC0047");
+	no_fsc_0047 = TRUE;
     }
     if( (p = cf_get_string("MaxMsgSize", TRUE)) )
     {
@@ -1465,6 +1484,11 @@ int main(int argc, char **argv)
     {
 	debug(8, "config: HostsRestricted");
 	addr_restricted(TRUE);
+    }
+    if( (p = cf_get_string("RFCLevel", TRUE)) )
+    {
+	debug(8, "config: RFCLevel %s", p);
+	default_rfc_level = atoi(p);
     }
     
 

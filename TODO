@@ -2,6 +2,11 @@
 
 X = for release 4.0alpha1
 
+	* ftn2rfc: bounce messages you include the complete FTN
+	  message with all kludges etc. to ease debugging.
+
+	* ftntoss: make "send" work as in SQUISH. Needs rewrite of
+	  node string parsing functions.
 
 	* ftnaf: forward requests to uplink(s). -x option for
 	  executing a script for unknown areas.
@@ -87,8 +92,8 @@ DONE.	* ftntoss/ftnroute/ftnpack: make -a Z:N/F.P option in
 	  AREAS.BBS work. outpkt_open() should take into account
 	  packet from addresses as well.
 
-X	* Support for new FIDO-Gatebau '94 ^ARFC kludges.
-
+rfc2ftn	* Support for new FIDO-Gatebau '94 ^ARFC kludges.
+DONE.
 	* Check packet passwords of incoming packets.
 
 	* Use rfcaddr.c functions for rfc2ftn mail_sender() etc. and

@@ -1,3 +1,54 @@
+Fri Apr 26 08:27:37 1996  Martin Junius  <mj@fido.de>
+
+	------- CVS commit ---------------------------------------------------
+
+	* config.h (FSC_0047): removed, obsoleted by config option "NoFSC0047".
+
+	* src/gate/rfc2ftn.c (snd_message): #ifdef FSC_0047 replaced with
+	  no_fsc_0047 flag.
+	  (main): new config option "NoFSC0047".
+
+	* config.h (FSC_0035): removed, obsoleted by config option "NoFSC0035".
+
+	* src/gate/rfc2ftn.c (main): new config option "NoFSC0035".
+	  (snd_message): #ifdef FSC_0035 removed, replaced with config
+	  option and no_fsc_0035 flag.
+
+	* src/include/patchlevel.h (ALPHA): changed to 1, all features
+	  from TODO list for 4.0alpha1 now implemented.
+
+	* src/common/rfcheader.c (header_read): use strip_crlf().
+	  (header_ca_rfc): implemented the RFC levels:
+	      0  -  no ^ARFC-Xxxx kludges
+	      1  -  only a selected set of ^ARFC-Xxxx kludges listed in
+	            RFC_LVL_1_HEADERS (config.h)
+	      2  -  all ^ARFC-Xxxx kludges
+	  See also doc/rfc-kludges.doc.
+
+	* src/gate/rfc2ftn.c (snd_message): call header_ca_rfc() to output
+	  ^ARFC-Xxxx kludges.
+	  (snd_message): commented code to output " * Xxxx:" RFC
+	  headers. Replaced by header_ca_rfc().
+
+	* src/common/rfcheader.c (header_ca_rfc): new function, output
+	  ^ARFC-Xxxx kludges for specified RFC level.
+
+	* config.h (RFC_LVL_1_HEADERS): new #define for RFC headers output
+	  for ^ARFC level 1.
+
+	* src/gate/ftn2rfc.c (unpack): set rfc_lines = TRUE also for 
+	  ^ARFC x 0.
+
+	* src/gate/rfc2ftn.c (snd_message): output ^ARFC with actual RFC
+	  level (default or area specific setting) and new 0 (= lines) code.
+
+	* src/common/areas.c (areas_init): set rfc_lvl field to -1, if -R
+	  option is not present.
+
+	* src/gate/rfc2ftn.c (main): new config option "RFCLevel", setting
+	  default ^ARFC level for all areas. May be changed for individual
+	  areas using the -R option in AREAS.
+
 Wed Apr 24 10:55:23 1996  Martin Junius  <mj@fido.de>
 
 	------- CVS commit ---------------------------------------------------

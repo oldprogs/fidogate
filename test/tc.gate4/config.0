@@ -1,0 +1,13 @@
+#
+# $Id: config.0,v 1.1 1996/04/26 08:41:43 mj Exp $
+#
+# Test config.gate with RFCLevel 0, NoFromLine, NoFSC0035, NoFSC0047
+#
+
+# *first* match is used!
+RFCLevel 0
+NoFromLine
+NoFSC0035
+NoFSC0047
+
+include %L/config.gate

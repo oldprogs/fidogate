@@ -1,6 +1,6 @@
 #:ts=8
 #
-# $Id: config.main,v 4.3 1996/04/24 09:54:50 mj Exp $
+# $Id: config.main,v 4.4 1996/04/26 08:41:42 mj Exp $
 #
 # FIDOGATE config file main AKA
 #
@@ -133,3 +133,20 @@ TickFlav	"Normal"
 # Default outbound flavor for file attaches by ftnfattach
 #
 FAttachFlav	"Normal"
+
+
+#
+# Maximum number of messages to toss before closing output packets/
+# exiting ftntoss.
+#
+MaxMsg		400
+
+#
+# Maximum number of concurrently open files (OS dependent)
+#
+MaxOpenFiles	40
+
+#
+# Maximum size of ArcMail archives (KByte)
+#
+MaxArc		2048

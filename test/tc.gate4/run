@@ -1,0 +1,18 @@
+#!/bin/sh
+
+../tr.init
+
+echo "tc: running"
+for f in ../ti.news-b/*; do
+  ../../src/gate/rfc2ftn -L../cf -vvvvv -b <$f
+done
+
+echo "tc: running"
+for f in ../ti.news-b/*; do
+  ../../src/gate/rfc2ftn -L../cf -cconfig.2 -vvvvv -b <$f
+done
+
+echo "tc: running"
+for f in ../ti.news-b/*; do
+  ../../src/gate/rfc2ftn -L../cf -cconfig.0 -vvvvv -b <$f
+done

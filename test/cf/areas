@@ -30,5 +30,8 @@ LINUX.GER                     fido.ger.linux                -x -z 2 -8
 TOLKIEN.GER                   fido.ger.tolkien              -x -z 2 -8
 
 # Usenet
+ALT.                          alt.                          -H -z 242
 COMP.                         comp.                         -H -z 242
 DE.                           de.                           -H -z 242
+REC.                          rec.                          -H -z 242
+SOC.                          soc.                          -H -z 242

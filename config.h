@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway software UNIX <-> FIDO
  *
- * $Id: config.h,v 4.2 1996/04/24 09:54:45 mj Exp $
+ * $Id: config.h,v 4.3 1996/04/26 08:41:38 mj Exp $
  *
  * Configuration header file
  *
@@ -89,16 +89,6 @@
 #define PASSTHRU_NETMAIL
 /** Passthru operation for EchoMail: FIDO->Internet->FIDO **/
 #define PASSTHRU_ECHOMAIL /* Not yet implemented */
-
-/*
- * Enable support for FSC-0035 ^AREPLYADDR and ^AREPLYTO
- */
-#define FSC_0035
-
-/*
- * Enable support for FSC-0047 ^ASPLIT
- */
-#define FSC_0047
 
 /*
  * Always generate a ^AINTL kludge for NetMails. (undef: only for mails
@@ -323,13 +313,13 @@
  * RFC headers recognized at beginning of FTN message body
  */
 #define FTN_RFC_HEADERS \
-	"From:",        \
-	"Reply-To:",    \
-	"UUCPFROM:",    \
-	"To:",          \
-	"Cc:",          \
-	"Bcc:",         \
-        "Newsgroups:"
+    "From:", "Reply-To:", "UUCPFROM:", "To:", "Cc:", "Bcc:", "Newsgroups:"
+
+/*
+ * RFC headers output for ^ARFC level 1 (partial RFC headers)
+ */
+#define RFC_LVL_1_HEADERS \
+    "From", "Reply-To", "To", "Cc", "Newsgroups"
 
 /*
  * Open modes for fopen(), binary for system requiring this.
