@@ -2,9 +2,9 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftn2rfc.c,v 4.11 1996/11/09 18:02:13 mj Exp $
+ * $Id: ftn2rfc.c,v 4.12 1996/11/17 12:21:34 mj Exp $
  *
- * Convert FTN mail packet to RFC messages (mail and news batches)
+ * Convert FTN mail packets to RFC mail and news batches
  *
  *****************************************************************************
  * Copyright (C) 1990-1996
@@ -40,7 +40,7 @@
 
 
 #define PROGRAM 	"ftn2rfc"
-#define VERSION 	"$Revision: 4.11 $"
+#define VERSION 	"$Revision: 4.12 $"
 #define CONFIG		CONFIG_GATE
 
 
@@ -348,7 +348,7 @@ int unpack(FILE *pkt_file, Packet *pkt)
 	if(body.area == NULL)
 	{
 	    /* Retrieve complete address from kludges */
-	    kludge_pt_intl(&body, &msg, TRUE);
+	    kludge_pt_intl(&body, &msg, FALSE);
 	    msg.node_orig = msg.node_from;
 	}
 	else 
@@ -436,6 +436,7 @@ int unpack(FILE *pkt_file, Packet *pkt)
 	}
 	else
 	{
+	    cvt8 = 0;
 	    if(netmail_8bit)
 		cvt8 |= AREA_8BIT;
 	    if(netmail_qp)
@@ -1042,8 +1043,6 @@ int unpack_file(char *pkt_name)
 {
     Packet pkt;
     FILE *pkt_file;
-
-    debug(1, "Processing FTN packet %s", pkt_name);
 
     /*
      * Open packet and read header

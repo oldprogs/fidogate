@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: kludge.c,v 4.1 1996/11/09 18:02:12 mj Exp $
+ * $Id: kludge.c,v 4.2 1996/11/17 12:21:33 mj Exp $
  *
  * Processing of FTN ^A kludges in message body
  *
@@ -89,21 +89,24 @@ void kludge_pt_intl(MsgBody *body, Message *msg, int del)
 
 
 /*
- * Get a kludge line from a Textlist of all kludge lines.
+ * Get first next kludge line
  */
-char *kludge_get(Textlist *tl, char *name, Textline **ptline)
+char *kludge_getn(Textlist *tl, char *name, Textline **ptline, int first)
 {
-    Textline *p;
+    static Textline *last_kludge;
     char *s, *r;
     int len;
 
     len = strlen(name);
+
+    if(first)
+	last_kludge = tl->first;
     
-    for(p=tl->first; p; p=p->next)
+    while(last_kludge)
     {
-	s = p->line;
+	s = last_kludge->line;
 	if(s[0] == '\001'                     &&
-	   !strncmp(s+1, name, len)           &&
+	   !strnicmp(s+1, name, len)          &&
 	   ( s[len+1]==' ' || s[len+1]==':' )    )	/* Found it */
 	{
 	    r = s + 1 + len;
@@ -113,13 +116,27 @@ char *kludge_get(Textlist *tl, char *name, Textline **ptline)
 	    while( is_space(*r) )
 		r++;
 	    if(ptline)
-		*ptline = p;
+		*ptline = last_kludge;
+	    last_kludge = last_kludge->next;
+	    
 	    return r;
 	}
+
+	last_kludge = last_kludge->next;
     }
     
     /* Not found */
     if(ptline)
 	*ptline = NULL;
     return NULL;
+}
+
+
+
+/*
+ * Get first kludge line from a Textlist of all kludge lines.
+ */
+char *kludge_get(Textlist *tl, char *name, Textline **ptline)
+{
+    return kludge_getn(tl, name, ptline, TRUE);
 }

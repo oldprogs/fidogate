@@ -1,6 +1,21 @@
+Sun Nov 17 12:47:41 1996  Martin Junius  <mj@fido.de>
+
+	* src/gate/ftn2rfc.c (unpack): initialize cvt8=0 for NetMail.
+	  (unpack_file): remove debug() message, same as log().
+
+	* src/common/kludge.c (kludge_getn): modified version of old
+	  kludge_get() with new arg first. first==TRUE gets first kludge
+	  from list, first==FALSE gets next one.
+	  (kludge_get): use kludge_getn() with first==TRUE.
+
+	* src/gate/ftn2rfc.c (unpack): don't delete when calling
+	  kludge_pt_intl(). 
+
 Wed Nov 13 22:14:55 1996  Martin Junius  <mj@fido.de>
 
 	------- CVS ci -------------------------------------------------------
+
+	* version.h (PATCHLEVEL): set to 2.
 
 	* src/common/message.c (msg_xlate_line): must translate '=' to
 	  '=3D' if using the MIME quoted-printable encoding.

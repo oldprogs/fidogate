@@ -57,7 +57,7 @@ X = for next release
 	* ftn2rfc: bounce messages should include the complete FTN
 	  message with all kludges etc. to ease debugging.
 
-	* kludge.c: handling traversing multiple kludges of the same
+DONE.	* kludge.c: handling traversing multiple kludges of the same
 	  type.
 
 	* ftnpack: runtime configuration of arcmail extension
