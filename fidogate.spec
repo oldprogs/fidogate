@@ -25,8 +25,9 @@ make DEBUG=-O2
 rm -rf $RPM_BUILD_ROOT
 
 make PREFIX=$RPM_BUILD_ROOT install-dirs
+mkdir -p $RPM_BUILD_ROOT/etc/news
 make PREFIX=$RPM_BUILD_ROOT install
-make PREFIX=$PRM_BUILD_ROOT install-config
+make PREFIX=$RPM_BUILD_ROOT install-config
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -35,15 +36,15 @@ rm -rf $RPM_BUILD_ROOT
 %doc ANNOUNCE COPYING README TODO doc/fidogate.txt doc/gatebau94.txt
 %doc doc/gatebau/msgid.txt
 %doc doc/*.html doc/html/*.html doc/gatebau/*.html
-/etc/fidogate
+%dir /etc/fidogate
 /usr/lib/fidogate
 /usr/info/fidogate.info*
 /var/log/fidogate
-/var/lib/fidogate
+%dir /var/lib/fidogate
 /var/lock/fidogate
 /var/spool/fidogate
 /var/spool/bt
-/etc/news
+/etc/news/newsfeeds.fidogate
 %config /etc/fidogate/aliases
 %config /etc/fidogate/areas
 %config /etc/fidogate/fidogate.conf

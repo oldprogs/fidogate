@@ -1,5 +1,11 @@
 2000-01-30  Martin Junius  <mj@fido.de>
 
+	------- CVS ci -------------------------------------------------------
+
+	* fidogate.spec: some fixes.
+
+	* scripts/Makefile (SUBDIRS): removed cnews, inn.
+
 	------- CVS tag R440test3 for rpm building test ----------------------
 	------- CVS ci -------------------------------------------------------
 
