@@ -1,5 +1,12 @@
 Sun Feb 22 15:59:19 1998  Martin Junius  <mj@fido.de>
 
+	======= Release 4.3a1 ================================================
+	------- CVS ci, tag R43a1 --------------------------------------------
+
+	* ANNOUNCE: updated.
+
+	* README: updated.
+
 	------- CVS ci -------------------------------------------------------
 
 	* sendmail/mailer/ftn.m4: changed to use ftnmail instead of rfc2ftn.

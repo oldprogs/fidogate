@@ -2,7 +2,7 @@
 
 	************** TODO list for FIDOGATE development **************
 
-	* ftnmail: new setuid frontend for rfc2ftn to fix security
+DONE	* ftnmail: new setuid frontend for rfc2ftn to fix security
 
 	* Update documentation.
 

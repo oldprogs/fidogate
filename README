@@ -1,6 +1,6 @@
 -*- Indented-Text -*-
 
-$Id: README,v 4.25 1997/11/16 15:53:21 mj Exp $
+$Id: README,v 4.26 1998/02/22 16:48:00 mj Exp $
 
 ======================================================================
 				   
@@ -19,6 +19,24 @@ $Id: README,v 4.25 1997/11/16 15:53:21 mj Exp $
 ======================================================================
 
 [See ANNOUNCE for more recent changes]
+
+
+Changes in 4.2.9:
+
+* ftn2rfc: new -n --no-remove option, allows ftn2rfc to be used from
+  packing prog gate ".../ftn2rfc -n %s".
+
+* sendmail/cf: rfc2ftn writes output packets to SPOOLDIR/outpkt/mail
+  to enable separate processing of mail and news.
+
+* Corresponding changes to run* scripts, new runmail script.
+
+* ftnaf: areas.bbs now supports an area description, option -d "DESC".
+
+* ftntoss: new option -d --no-dupecheck to disabled dupe check.
+
+* Some minor changes.
+
 
 
 Changes in 4.2.8:
@@ -358,6 +376,8 @@ announcements:
 To SUBSCRIBE to this mailing list, send a message to
 
     mailto:majordomo@fido.de
+or
+    Majordomo @ 2:2452/110
 
 with the command 
 
@@ -443,6 +463,6 @@ not integrate your patches.
 
 ======================================================================
 
-$Date: 1997/11/16 15:53:21 $
+$Date: 1998/02/22 16:48:00 $
 Martin Junius
 mailto:mj@fido.de
