@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: file.c,v 4.4 2003/02/16 15:38:56 n0ll Exp $
+ * $Id: file.c,v 4.5 2004/08/22 10:30:01 n0ll Exp $
  *
  * File-oriented functions
  *
@@ -42,10 +42,10 @@ int rename_bad(char *name)
 
     str_change_ext(bad, sizeof(bad), name, ".bad");
     
-    log("ERROR: bad packet renamed to %s", bad);
+    logit("ERROR: bad packet renamed to %s", bad);
     if(rename(name, bad) == ERROR)
     {
-	log("$ERROR: can't rename %s -> %s", name, bad);
+	logit("$ERROR: can't rename %s -> %s", name, bad);
 	return ERROR;
     }
     

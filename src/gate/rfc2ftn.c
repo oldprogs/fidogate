@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway software UNIX <-> FIDO
  *
- * $Id: rfc2ftn.c,v 4.72 2004/02/12 16:37:41 n0ll Exp $
+ * $Id: rfc2ftn.c,v 4.73 2004/08/22 10:30:02 n0ll Exp $
  *
  * Read mail or news from standard input and convert it to a FIDO packet.
  *
@@ -39,7 +39,7 @@
 
 
 #define PROGRAM 	"rfc2ftn"
-#define VERSION 	"$Revision: 4.72 $"
+#define VERSION 	"$Revision: 4.73 $"
 #define CONFIG		DEFAULT_CONFIG_GATE
 
 
@@ -737,7 +737,7 @@ char *mail_receiver(RFCAddr *rfc, Node *node)
 	 */
 	if(rfc_parse(rfc, name, node, TRUE) == ERROR) {
 #if 0
-	    log("BOUNCE: to=%s, reject=%s", s_rfcaddr_to_asc(rfc, TRUE),
+	    logit("BOUNCE: to=%s, reject=%s", s_rfcaddr_to_asc(rfc, TRUE),
 		(*address_error ? address_error : "unknown")  );
 #endif
 	    return NULL;
@@ -919,7 +919,7 @@ int snd_mail(RFCAddr rfc_to, long size)
 
 	if(silent_bounces) 
 	{
-	    log("BOUNCE: from=%s, to=%s, reject=%s (SILENT!)",
+	    logit("BOUNCE: from=%s, to=%s, reject=%s (SILENT!)",
 		s_rfcaddr_to_asc(&rfc_from, TRUE),
 		s_rfcaddr_to_asc(&rfc_to, TRUE), msg);
 	    TMPS_RETURN(OK);
@@ -928,7 +928,7 @@ int snd_mail(RFCAddr rfc_to, long size)
 	{
 	    sendback("Address %s:\n  %s",
 		     s_rfcaddr_to_asc(&rfc_to, TRUE), msg);
-	    log("BOUNCE: from=%s, to=%s, reject=%s",
+	    logit("BOUNCE: from=%s, to=%s, reject=%s",
 		s_rfcaddr_to_asc(&rfc_from, TRUE),
 		s_rfcaddr_to_asc(&rfc_to, TRUE), msg);
 	    TMPS_RETURN(address_exit ? address_exit : EX_NOHOST);
@@ -981,7 +981,7 @@ int snd_mail(RFCAddr rfc_to, long size)
 	if(limitsize>0 && size>limitsize)
 	{
 	    /* Too large, don't gate it */
-	    log("BOUNCE: from=%s, to=%s, "
+	    logit("BOUNCE: from=%s, to=%s, "
 		"reject=message too big (%ldb, limit %ldb)",
 		s_rfcaddr_to_asc(&rfc_from, TRUE),
 		s_rfcaddr_to_asc(&rfc_to, TRUE), size, limitsize );
@@ -1007,14 +1007,14 @@ int snd_mail(RFCAddr rfc_to, long size)
 		else
 		{
 		    if(flags)
-			log("NON-LOCAL From: %s, Reply-To: %s, X-Flags: %s",
+			logit("NON-LOCAL From: %s, Reply-To: %s, X-Flags: %s",
 			    hf ? hf : "<>", hr ? hr : "<>", flags           );
 		    flags = p = NULL;
 		}
 	    }
 	    /* Let's at least log what's going on ... */
 	    if(flags)
-		log("X-Flags: %s, From: %s", flags, hf ? hf : "<>");
+		logit("X-Flags: %s, From: %s", flags, hf ? hf : "<>");
 	    
 	    p = flags;
 	    if(p)
@@ -1046,7 +1046,7 @@ int snd_mail(RFCAddr rfc_to, long size)
 
 	    /* Log what's going on ... */
 	    if(flags)
-		log("FORBIDDEN X-Flags: %s, From: %s", flags, hf ? hf : "<>");
+		logit("FORBIDDEN X-Flags: %s, From: %s", flags, hf ? hf : "<>");
 	    flags = NULL;
 	}
 	
@@ -1148,12 +1148,12 @@ int snd_mail(RFCAddr rfc_to, long size)
 		{
 		    if(pna_notify(s_rfcaddr_to_asc(&rfc_from, FALSE)))
 		    {
-			log("BOUNCE: Postings from address `%s' to group `%s' not allowed - skipped, sent notify",
+			logit("BOUNCE: Postings from address `%s' to group `%s' not allowed - skipped, sent notify",
 			    s_rfcaddr_to_asc(&rfc_from, FALSE), pa->group);
 			bounce_mail("acl", &rfc_from, &msg, pa->group, &body);
 		    }
 		    else
-			log("BOUNCE: Postings from address `%s' to group `%s' not allowed - skipped",
+			logit("BOUNCE: Postings from address `%s' to group `%s' not allowed - skipped",
 			    s_rfcaddr_to_asc(&rfc_from, FALSE), pa->group);
 		    continue;
 		}
@@ -1163,7 +1163,7 @@ int snd_mail(RFCAddr rfc_to, long size)
 		if(limitsize>0 && size>limitsize)
 		{
 		    /* Too large, don't gate it */
-		    log("message too big (%ldb, limit %ldb) for area %s",
+		    logit("message too big (%ldb, limit %ldb) for area %s",
 			size, limitsize, pa->area                        );
 		    continue;
 		}
@@ -1188,7 +1188,7 @@ int snd_mail(RFCAddr rfc_to, long size)
 	/*
 	 * NetMail message
 	 */
-	log("MAIL: from=%s, to=%s",
+	logit("MAIL: from=%s, to=%s",
 	    s_rfcaddr_to_asc(&rfc_from, TRUE),
 	    s_rfcaddr_to_asc(&rfc_to, TRUE));
 	msg.area      = NULL;
@@ -2055,7 +2055,7 @@ int main(int argc, char **argv)
 	debug(8, "config: MaxMsgSize %s", p);
 	sz = atol(p);
 	if(sz <= 0)
-	    log("WARNING: illegal MaxMsgSize value %s", p);
+	    logit("WARNING: illegal MaxMsgSize value %s", p);
 	else
 	    areas_maxmsgsize(sz);
     }
@@ -2066,7 +2066,7 @@ int main(int argc, char **argv)
 	debug(8, "config: LimitMsgSize %s", p);
 	sz = atol(p);
 	if(sz <= 0)
-	    log("WARNING: illegal LimitMsgSize value %s", p);
+	    logit("WARNING: illegal LimitMsgSize value %s", p);
 	else
 	    areas_limitmsgsize(sz);
     }
@@ -2246,7 +2246,7 @@ int main(int argc, char **argv)
 	    debug(3, "re-positioning to offset %ld", pos);
 	    fclose(fppos);
 	    if( fseek(fp, pos, SEEK_SET) == ERROR )
-		log("$WARNING: can't seek to offset %ld in file %s",
+		logit("$WARNING: can't seek to offset %ld in file %s",
 		    pos, f_flag);
 	}
     }
@@ -2293,7 +2293,7 @@ int main(int argc, char **argv)
 	{
 	    size = read_rnews_size(fpart);
 	    if(size == -1)
-		log("ERROR: reading news batch");
+		logit("ERROR: reading news batch");
 	    if(size <= 0)
 		break;
 	    debug(3, "Batch: message #%ld size %ld", nmsg, size);

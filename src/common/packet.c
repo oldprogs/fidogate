@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: packet.c,v 4.19 2003/02/16 15:38:57 n0ll Exp $
+ * $Id: packet.c,v 4.20 2004/08/22 10:30:01 n0ll Exp $
  *
  * Functions to read/write packets and messages
  *
@@ -195,7 +195,7 @@ static FILE *pkt_open_node(Node *node, char *flav, int bsy)
 	if(fp == NULL)
 	{
 	    /* If this failed we're out of luck ... */
-	    log("$ERROR: can't open OUT file %s", out);
+	    logit("$ERROR: can't open OUT file %s", out);
 	    break;
 	}
 
@@ -216,7 +216,7 @@ static FILE *pkt_open_node(Node *node, char *flav, int bsy)
 	if(lock_file(fp))
 	{
 	    /* Lock error ... */
-	    log("$ERROR: can't lock OUT file %s", out);
+	    logit("$ERROR: can't lock OUT file %s", out);
 	    fclose(fp);
 	    fp = NULL;
 	    break;
@@ -249,7 +249,7 @@ static FILE *pkt_open_node(Node *node, char *flav, int bsy)
     if(fseek(fp, 0L, SEEK_END) == -1)
     {
 	/* fseek() error ... */
-	log("$ERROR: fseek EOF OUT file %s failed", out);
+	logit("$ERROR: fseek EOF OUT file %s failed", out);
 	if(bsy)
 	    bink_bsy_delete(node);
 	fclose(fp);
@@ -258,7 +258,7 @@ static FILE *pkt_open_node(Node *node, char *flav, int bsy)
     if( (pos = ftell(fp)) == -1L )
     {
 	/* ftell() error ... */
-	log("$ERROR: ftell OUT file %s failed", out);
+	logit("$ERROR: ftell OUT file %s failed", out);
 	if(bsy)
 	    bink_bsy_delete(node);
 	fclose(fp);
@@ -284,7 +284,7 @@ static FILE *pkt_open_node(Node *node, char *flav, int bsy)
 	/* Rest is filled in by pkt_put_hdr() */
 	if(pkt_put_hdr(fp, &pkt) == ERROR)
 	{
-	    log("$ERROR: can't write to packet file %s", out);
+	    logit("$ERROR: can't write to packet file %s", out);
 	    if(bsy)
 		bink_bsy_delete(node);
 	    fclose(fp);
@@ -303,7 +303,7 @@ static FILE *pkt_open_node(Node *node, char *flav, int bsy)
 	if(fseek(fp, -2L, SEEK_END) == -1)
 	{
 	    /* fseek() error ... */
-	    log("$ERROR: fseek EOF-2 OUT file %s failed", out);
+	    logit("$ERROR: fseek EOF-2 OUT file %s failed", out);
 	    if(bsy)
 		bink_bsy_delete(node);
 	    fclose(fp);
@@ -311,7 +311,7 @@ static FILE *pkt_open_node(Node *node, char *flav, int bsy)
 	}
 	if( pkt_get_int16(fp) != 0L )
 	{
-	    log("$ERROR: malformed packet %s, no terminating 0-word", out);
+	    logit("$ERROR: malformed packet %s, no terminating 0-word", out);
 	    if(bsy)
 		bink_bsy_delete(node);
 	    fclose(fp);
@@ -320,7 +320,7 @@ static FILE *pkt_open_node(Node *node, char *flav, int bsy)
 	if(fseek(fp, -2L, SEEK_END) == -1)
 	{
 	    /* fseek() error ... */
-	    log("$ERROR: fseek EOF-2 OUT file %s failed", out);
+	    logit("$ERROR: fseek EOF-2 OUT file %s failed", out);
 	    if(bsy)
 		bink_bsy_delete(node);
 	    fclose(fp);
@@ -346,7 +346,7 @@ static FILE *pkt_create(Node *to)
     
     if((packet_file = fopen(packet_tmp, W_MODE)) == NULL)
     {
-	log("$ERROR: pkt_open(): can't create packet %s", packet_tmp);
+	logit("$ERROR: pkt_open(): can't create packet %s", packet_tmp);
 	return NULL;
     }
     
@@ -370,7 +370,7 @@ static FILE *pkt_create(Node *to)
     /* Rest is filled in by pkt_put_hdr() */
     if(pkt_put_hdr(packet_file, &pkt) == ERROR)
     {
-	log("$ERROR: can't write to packet file %s", packet_tmp);
+	logit("$ERROR: can't write to packet file %s", packet_tmp);
 	return NULL;
     }
 
@@ -434,7 +434,7 @@ int pkt_close(void)
 	if( strcmp(packet_tmp, packet_name) )
 	    if(rename(packet_tmp, packet_name) == ERROR)
 	    {
-		log("$ERROR: can't rename %s to %s", packet_tmp, packet_name);
+		logit("$ERROR: can't rename %s to %s", packet_tmp, packet_name);
 		ret = ERROR;
 	    }
     }

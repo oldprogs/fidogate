@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: config.c,v 4.26 2003/02/16 15:38:55 n0ll Exp $
+ * $Id: config.c,v 4.27 2004/08/22 10:30:01 n0ll Exp $
  *
  * Configuration data and functions
  *
@@ -167,7 +167,7 @@ void cf_check_gate(void)
 {
     if(scf_ia == 0)
     {
-	log("ERROR: config: no Address");
+	logit("ERROR: config: no Address");
 	if(!verbose)
 	    fprintf(stderr, "ERROR: config: no Address\n");
 	exit(EX_USAGE);
@@ -176,7 +176,7 @@ void cf_check_gate(void)
 #if 0    
     if(scf_ir==0 && scf_ig==0)
     {
-	log("ERROR: config: no Uplink or GateAddress");
+	logit("ERROR: config: no Uplink or GateAddress");
 	if(!verbose)
 	    fprintf(stderr, "ERROR: config: no Uplink or GateAddress\n");
 	exit(EX_USAGE);
@@ -184,10 +184,10 @@ void cf_check_gate(void)
 #endif
     
     if(scf_ir && scf_ia!=scf_ir)
-	log("WARNING: config: #Address (%d) != #Uplink (%d)",
+	logit("WARNING: config: #Address (%d) != #Uplink (%d)",
 	    scf_ia, scf_ir);
     if(scf_ig && scf_ia!=scf_ig)
-	log("WARNING: config: #Address (%d) != #GateAddress (%d)",
+	logit("WARNING: config: #Address (%d) != #GateAddress (%d)",
 	    scf_ia, scf_ig);
 }
 
@@ -375,7 +375,7 @@ void cf_do_line(char *line)
 	p = xstrtok(NULL, " \t");
 	if(!p) 
 	{
-	    log("config: missing include file");
+	    logit("config: missing include file");
 	    return;
 	}
 	cf_read_config_file(p);
@@ -386,7 +386,7 @@ void cf_do_line(char *line)
 	p = xstrtok(NULL, " \t");
 	if(!p) 
 	{
-	    log("config: missing hostname");
+	    logit("config: missing hostname");
 	    return;
 	}
 	BUF_COPY(scf_hostname, p);
@@ -397,7 +397,7 @@ void cf_do_line(char *line)
 	p = xstrtok(NULL, " \t");
 	if(!p) 
 	{
-	    log("config: missing domainname");
+	    logit("config: missing domainname");
 	    return;
 	}
 	if(p[0] != '.')
@@ -416,7 +416,7 @@ void cf_do_line(char *line)
 	p = xstrtok(NULL, " \t");
 	if(!p) 
 	{
-	    log("config: missing domainname");
+	    logit("config: missing domainname");
 	    return;
 	}
 	if(p[0] != '.')
@@ -434,12 +434,12 @@ void cf_do_line(char *line)
 	p = xstrtok(NULL, " \t");
 	if(!p) 
 	{
-	    log("config: missing address");
+	    logit("config: missing address");
 	    return;
 	}
 	if( asc_to_node(p, &a, FALSE) == ERROR )
 	{
-	    log("config: illegal address %s", p);
+	    logit("config: illegal address %s", p);
 	    return;
 	}
 
@@ -450,7 +450,7 @@ void cf_do_line(char *line)
 	    scf_ia++;
 	}
 	else
-	    log("config: too many addresses");
+	    logit("config: too many addresses");
     }
     /***** uplink *******************************************************/
     else if (!stricmp(keyword, "uplink" ))
@@ -458,12 +458,12 @@ void cf_do_line(char *line)
 	p = xstrtok(NULL, " \t");
 	if(!p) 
 	{
-	    log("config: missing address");
+	    logit("config: missing address");
 	    return;
 	}
 	if( asc_to_node(p, &a, FALSE) == ERROR )
 	{
-	    log("config: illegal address %s", p);
+	    logit("config: illegal address %s", p);
 	    return;
 	}
 
@@ -473,7 +473,7 @@ void cf_do_line(char *line)
 	    scf_ir++;
 	}
 	else
-	    log("config: too many addresses");
+	    logit("config: too many addresses");
     }
     /***** GateAddress **************************************************/
     else if (!stricmp(keyword, "gateaddress" ))
@@ -481,12 +481,12 @@ void cf_do_line(char *line)
 	p = xstrtok(NULL, " \t");
 	if(!p) 
 	{
-	    log("config: missing address");
+	    logit("config: missing address");
 	    return;
 	}
 	if( asc_to_node(p, &a, FALSE) == ERROR )
 	{
-	    log("config: illegal address %s", p);
+	    logit("config: illegal address %s", p);
 	    return;
 	}
 
@@ -496,7 +496,7 @@ void cf_do_line(char *line)
 	    scf_ig++;
 	}
 	else
-	    log("config: too many addresses");
+	    logit("config: too many addresses");
     }
     /***** zone *********************************************************/
     else if (!stricmp(keyword, "zone" ))
@@ -506,13 +506,13 @@ void cf_do_line(char *line)
 
 	if(scf_nzones >= MAXADDRESS)
 	{
-	    log("config: too many zones");
+	    logit("config: too many zones");
 	    return;
 	}
 	    
 	if(! (p = xstrtok(NULL, " \t")) )
 	{
-	    log("config: missing zone");
+	    logit("config: missing zone");
 	    return;
 	}
 	if(!stricmp(p, "default"))
@@ -522,26 +522,26 @@ void cf_do_line(char *line)
 	    zone = atoi(p);
 	    if(!zone)
 	    {
-		log("config: illegal zone value %s", p);
+		logit("config: illegal zone value %s", p);
 		return;
 	    }
 	}
 	    
 	if(! (inet = xstrtok(NULL, " \t")) )
 	{
-	    log("config: missing Internet domain");
+	    logit("config: missing Internet domain");
 	    return;
 	}
 
 	if(! (ftn = xstrtok(NULL, " \t")) )
 	{
-	    log("config: missing FTN domain");
+	    logit("config: missing FTN domain");
 	    return;
 	}
 
 	if(! (out = xstrtok(NULL, " \t")) )
 	{
-	    log("config: missing outbound directory");
+	    logit("config: missing outbound directory");
 	    return;
 	}
 
@@ -558,17 +558,17 @@ void cf_do_line(char *line)
 	    
 	if(scf_ndos >= MAXDOSDRIVE)
 	{
-	    log("config: too many DOS drives");
+	    logit("config: too many DOS drives");
 	    return;
 	}
 	if(! (drive = xstrtok(NULL, " \t")) )
 	{
-	    log("config: missing DOS drive");
+	    logit("config: missing DOS drive");
 	    return;
 	}
 	if(! (path = xstrtok(NULL, " \t")) )
 	{
-	    log("config: missing UNIX path");
+	    logit("config: missing UNIX path");
 	    return;
 	}
 
@@ -582,12 +582,12 @@ void cf_do_line(char *line)
 	p = xstrtok(NULL, " \t");
 	if(!p) 
 	{
-	    log("config: missing address");
+	    logit("config: missing address");
 	    return;
 	}
 	if( asc_to_node(p, &a, FALSE) == ERROR )
 	{
-	    log("config: illegal address %s", p);
+	    logit("config: illegal address %s", p);
 	    return;
 	}
 	scf_gateway = a;

@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftntoss.c,v 4.42 2003/02/16 15:39:02 n0ll Exp $
+ * $Id: ftntoss.c,v 4.43 2004/08/22 10:30:03 n0ll Exp $
  *
  * Toss FTN NetMail/EchoMail
  *
@@ -39,7 +39,7 @@
 
 
 #define PROGRAM 	"ftntoss"
-#define VERSION 	"$Revision: 4.42 $"
+#define VERSION 	"$Revision: 4.43 $"
 #define CONFIG		DEFAULT_CONFIG_MAIN
 
 
@@ -811,7 +811,7 @@ int do_echomail(Packet *pkt, Message *msg, MsgBody *body)
     if( (area = areasbbs_lookup(buffer)) == NULL )
     {
 	/* Unknown area */
-	log("unknown area %s from %s", buffer, znfp1(&msg->node_from) );
+	logit("unknown area %s from %s", buffer, znfp1(&msg->node_from) );
 	msgs_unknown++;
 	if(!kill_unknown)
 	    return do_bad_msg(msg, body);
@@ -852,7 +852,7 @@ int do_echomail(Packet *pkt, Message *msg, MsgBody *body)
 	    /* If KillNoMSGID ... */
 	    if(kill_nomsgid)
 	    {
-		log("no ^AMSGID treated as dupe from %s: %s",
+		logit("no ^AMSGID treated as dupe from %s: %s",
 		    znfp1(&msg->node_from), area->area);
 		msgs_dupe++;
 		if(!kill_dupe)
@@ -863,7 +863,7 @@ int do_echomail(Packet *pkt, Message *msg, MsgBody *body)
 	    /* No ^AMSGID, use sender, date and checksum */
 	    if(msg_parse_origin(body->origin, &msg->node_orig) == ERROR)
 	    {
-		log("invalid * Origin treated as dupe from %s: %s",
+		logit("invalid * Origin treated as dupe from %s: %s",
 		    znfp1(&msg->node_from), area->area);
 		msgs_dupe++;
 		if(!kill_dupe)
@@ -888,7 +888,7 @@ int do_echomail(Packet *pkt, Message *msg, MsgBody *body)
 	{
 	    if(msg->date < exp_sec)
 	    {
-		log("message too old, treated as dupe: %s origin %s date %s",
+		logit("message too old, treated as dupe: %s origin %s date %s",
 		    area->area, znfp1(&msg->node_orig),
 		    date(DATE_FTS_0001, &msg->date)                          );
 		msgs_dupe++;
@@ -902,7 +902,7 @@ int do_echomail(Packet *pkt, Message *msg, MsgBody *body)
 	if(hi_test(msgid))
 	{
 	    /* Dupe! */
-	    log("dupe from %s: %s", znfp1(&msg->node_from), msgid);
+	    logit("dupe from %s: %s", znfp1(&msg->node_from), msgid);
 	    msgs_dupe++;
 	    if(!kill_dupe)
 		return do_bad_msg(msg, body);
@@ -933,7 +933,7 @@ int do_echomail(Packet *pkt, Message *msg, MsgBody *body)
 	   ! is_local_addr(&msg->node_to, FALSE)   )
 	{
 	    /* Routed EchoMail */
-	    log("routed echomail area %s from %s to %s", area->area,
+	    logit("routed echomail area %s from %s to %s", area->area,
 		znfp1(&msg->node_from),
 		znfp2(&msg->node_to)                    );
 	    msgs_routed++;
@@ -952,7 +952,7 @@ int do_echomail(Packet *pkt, Message *msg, MsgBody *body)
 	    ! lon_search(&area->nodes, &msg->node_from)   )
 	{
 	    /* Insecure EchoMail */
-	    log("insecure echomail area %s from %s", area->area,
+	    logit("insecure echomail area %s from %s", area->area,
 		znfp1(&msg->node_from)              );
 	    msgs_insecure++;
 	    if(!kill_insecure)
@@ -1033,7 +1033,7 @@ int do_echomail(Packet *pkt, Message *msg, MsgBody *body)
     if(check_path && do_check_path(&path)==ERROR)
     {
 	    /* Circular ^APATH EchoMail */
-	    log("circular path echomail area %s from %s to %s",
+	    logit("circular path echomail area %s from %s to %s",
 		area->area, znfp1(&msg->node_from),
 		znfp2(&msg->node_to)                 );
 	    msgs_path++;
@@ -1115,7 +1115,7 @@ void do_rewrite(Message *msg)
 	{
 	    node = msg->node_from;
 	    change_addr(&msg->node_from, &r->to);
-	    log("rewrite: %s -> %s",
+	    logit("rewrite: %s -> %s",
 		znfp1(&node), znfp2(&msg->node_from) );
 	    break;
 	}
@@ -1126,7 +1126,7 @@ void do_rewrite(Message *msg)
 	{
 	    node = msg->node_to;
 	    change_addr(&msg->node_to, &r->to);
-	    log("rewrite: %s -> %s",
+	    logit("rewrite: %s -> %s",
 		znfp1(&node), znfp2(&msg->node_to) );
 	    break;
 	}
@@ -1166,11 +1166,11 @@ int do_remap(Message *msg)
 	    if(! node_eq(&node, &msg->node_to))
 	    {
 		if(r->type == CMD_REMAP_TO)
-		    log("remapto: %s @ %s -> %s", msg->name_to,
+		    logit("remapto: %s @ %s -> %s", msg->name_to,
 			znfp1(&node),
 			!kill ? znfp2(&msg->node_to) : "KILLED");
 		else
-		    log("remapfrom: %s @ %s -> %s", msg->name_from,
+		    logit("remapfrom: %s @ %s -> %s", msg->name_from,
 			znfp1(&msg->node_from),
 			!kill ? znfp2(&msg->node_to) : "KILLED");
 	    }
@@ -1218,7 +1218,7 @@ int do_netmail(Packet *pkt, Message *msg, MsgBody *body)
 
 
     if(log_netmail)
-	log("MAIL: %s @ %s -> %s @ %s",
+	logit("MAIL: %s @ %s -> %s @ %s",
 	    msg->name_from, znfp1(&msg->node_from),
 	    msg->name_to  , znfp2(&msg->node_to) );
 
@@ -1227,7 +1227,7 @@ int do_netmail(Packet *pkt, Message *msg, MsgBody *body)
      */
     if(msg->attr & MSG_FILE)
     {
-	log("file attach %s", msg->subject);
+	logit("file attach %s", msg->subject);
     }
     
     /*
@@ -1237,7 +1237,7 @@ int do_netmail(Packet *pkt, Message *msg, MsgBody *body)
     {
 	if( is_local_addr(&msg->node_to, FALSE) )
 	{
-	    log("killing empty msg from %s @ %s",
+	    logit("killing empty msg from %s @ %s",
 		msg->name_from, znfp1(&msg->node_from));
 	    msgs_empty++;
 	    
@@ -1321,11 +1321,11 @@ int unpack(FILE *pkt_file, Packet *pkt)
     {
 	if(feof(pkt_file))
 	{
-	    log("WARNING: premature EOF reading input packet");
+	    logit("WARNING: premature EOF reading input packet");
 	    TMPS_RETURN(OK);
 	}
 	
-	log("ERROR: reading input packet");
+	logit("ERROR: reading input packet");
 	TMPS_RETURN(ERROR);
     }
 
@@ -1338,7 +1338,7 @@ int unpack(FILE *pkt_file, Packet *pkt)
 	msg.node_to   = pkt->to;
 	if(pkt_get_msg_hdr(pkt_file, &msg) == ERROR)
 	{
-	    log("ERROR: reading input packet");
+	    logit("ERROR: reading input packet");
 	    TMPS_RETURN(ERROR);
 	}
 	
@@ -1350,11 +1350,11 @@ int unpack(FILE *pkt_file, Packet *pkt)
 	{
 	    if(feof(pkt_file))
 	    {
-		log("WARNING: premature EOF reading input packet");
+		logit("WARNING: premature EOF reading input packet");
 	    }
 	    else
 	    {
-		log("ERROR: reading input packet");
+		logit("ERROR: reading input packet");
 		TMPS_RETURN(ERROR);
 	    }
 	}
@@ -1365,7 +1365,7 @@ int unpack(FILE *pkt_file, Packet *pkt)
 	 * Parse message body
 	 */
 	if( msg_body_parse(&tl, &body) == -2 )
-	    log("ERROR: parsing message body");
+	    logit("ERROR: parsing message body");
 	/* Retrieve address information from kludges for NetMail */
 	if(body.area == NULL)
 	{
@@ -1447,13 +1447,13 @@ int unpack_file(char *pkt_name)
     /* Open packet and read header */
     pkt_file = fopen(pkt_name, R_MODE);
     if(!pkt_file) {
-	log("$ERROR: can't open packet %s", pkt_name);
+	logit("$ERROR: can't open packet %s", pkt_name);
 	rename_bad(pkt_name);
 	TMPS_RETURN(OK);
     }
     if(pkt_get_hdr(pkt_file, &pkt) == ERROR)
     {
-	log("ERROR: reading header from %s", pkt_name);
+	logit("ERROR: reading header from %s", pkt_name);
 	fclose(pkt_file);
 	rename_bad(pkt_name);
 	TMPS_RETURN(OK);
@@ -1461,14 +1461,14 @@ int unpack_file(char *pkt_name)
     
     /* Unpack it */
     pkt_size = check_size(pkt_name);
-    log("packet %s (%ldb) from %s to %s", pkt_name, pkt_size,
+    logit("packet %s (%ldb) from %s to %s", pkt_name, pkt_size,
 	znfp1(&pkt.from), znfp2(&pkt.to) );
     pkts_in++;
     pkts_bytes += pkt_size;
     
     if(unpack(pkt_file, &pkt) == ERROR) 
     {
-	log("ERROR: processing %s", pkt_name);
+	logit("ERROR: processing %s", pkt_name);
 	fclose(pkt_file);
 	rename_bad(pkt_name);
 	TMPS_RETURN(severe_error);
@@ -1477,7 +1477,7 @@ int unpack_file(char *pkt_name)
     fclose(pkt_file);
 
     if (unlink(pkt_name)) {
-	log("$ERROR: can't unlink %s", pkt_name);
+	logit("$ERROR: can't unlink %s", pkt_name);
 	rename_bad(pkt_name);
 	TMPS_RETURN(ERROR);
     }
@@ -1508,7 +1508,7 @@ void prog_signal(int signum)
 	name = "";            break;
     }
 
-    log("KILLED%s: exit forced", name);
+    logit("KILLED%s: exit forced", name);
 }
 
 
@@ -1839,7 +1839,7 @@ int main(int argc, char **argv)
 	dir_sortmode(DIR_SORTMTIME);
 	if(dir_open(in_dir, "*.pkt", TRUE) == ERROR)
 	{
-	    log("$ERROR: can't open directory %s", in_dir);
+	    logit("$ERROR: can't open directory %s", in_dir);
 	    exit(EX_OSERR);
 	}
     
@@ -1945,25 +1945,25 @@ int main(int argc, char **argv)
 	toss_delta = 1;
     
     if(pkts_in)
-	log("pkts processed: %ld, %ld Kbyte in %ld s, %.2f Kbyte/s",
+	logit("pkts processed: %ld, %ld Kbyte in %ld s, %.2f Kbyte/s",
 	    pkts_in, pkts_bytes/1024, toss_delta,
 	    (double)pkts_bytes/1024./toss_delta                      );
     
     if(msgs_in)
     {
-	log("msgs processed: %ld in, %ld out (%ld mail, %ld echo)",
+	logit("msgs processed: %ld in, %ld out (%ld mail, %ld echo)",
 	    msgs_in, msgs_netmail+msgs_echomail, msgs_netmail, msgs_echomail);
-	log("msgs processed: %ld in %ld s, %.2f msgs/s",
+	logit("msgs processed: %ld in %ld s, %.2f msgs/s",
 	    msgs_in, toss_delta, (double)msgs_in/toss_delta);
     }
     
     if(msgs_unknown || msgs_routed || msgs_insecure || msgs_empty)
-	log("msgs killed:    %ld empty, %ld unknown, %ld routed, %ld insecure",
+	logit("msgs killed:    %ld empty, %ld unknown, %ld routed, %ld insecure",
 	    msgs_empty, msgs_unknown, msgs_routed, msgs_insecure             );
     if(dupe_check && msgs_dupe)
-	log("msgs killed:    %ld dupe", msgs_dupe);
+	logit("msgs killed:    %ld dupe", msgs_dupe);
     if(check_path && msgs_path)
-	log("msgs killed:    %ld circular path", msgs_path);
+	logit("msgs killed:    %ld circular path", msgs_path);
     
     exit(ret);
 }

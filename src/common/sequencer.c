@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: sequencer.c,v 4.8 2003/02/16 15:38:58 n0ll Exp $
+ * $Id: sequencer.c,v 4.9 2004/08/22 10:30:01 n0ll Exp $
  *
  * Number sequencer using sequence file in LIBDIR
  *
@@ -59,7 +59,7 @@ long sequencer_nx(char *seqname, int err_abort)
     {
 	if(err_abort) 
 	{
-	    log("$ERROR: can't access sequencer file %s", filename);
+	    logit("$ERROR: can't access sequencer file %s", filename);
 	    exit(EX_OSFILE);
 	}
 	else

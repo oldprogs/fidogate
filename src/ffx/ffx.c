@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ffx.c,v 4.17 2003/02/16 15:39:00 n0ll Exp $
+ * $Id: ffx.c,v 4.18 2004/08/22 10:30:01 n0ll Exp $
  *
  * ffx FIDO-FIDO execution
  *
@@ -38,7 +38,7 @@
 
 
 #define PROGRAM		"ffx"
-#define VERSION		"$Revision: 4.17 $"
+#define VERSION		"$Revision: 4.18 $"
 #define CONFIG		DEFAULT_CONFIG_FFX
 
 
@@ -125,7 +125,7 @@ int ffx(Node *node, int cmdc, char **cmdv,
     out = cf_zones_out(node->zone);
     if(!out)
     {
-	log("ffx: no configured outbound for zone %d",
+	logit("ffx: no configured outbound for zone %d",
 		node->zone);
 	return EX_DATAERR;
     }
@@ -137,7 +137,7 @@ int ffx(Node *node, int cmdc, char **cmdv,
 	if( mkdir(ctrlname, DIR_MODE) == -1 )
 	    if(errno != EEXIST)
 	    {
-		log("$ffx: can't create directory %s", ctrlname);
+		logit("$ffx: can't create directory %s", ctrlname);
 		return EX_OSERR;
 	    }
 	
@@ -159,7 +159,7 @@ int ffx(Node *node, int cmdc, char **cmdv,
     debug(2, "ffx: ctrl=%s", ctrlname);
     debug(2, "ffx: data=%s", dataname);
     
-    log("job %s: to %s / %s", seq, znfp1(node), buffer);
+    logit("job %s: to %s / %s", seq, znfp1(node), buffer);
 
     /* Get password for node */
     pwd = passwd_lookup("ffx", node);
@@ -176,7 +176,7 @@ int ffx(Node *node, int cmdc, char **cmdv,
     ctrl = fopen(ctrlname, W_MODE);
     if(!ctrl)
     {
-	log("$ffx: can't create %s", ctrlname);
+	logit("$ffx: can't create %s", ctrlname);
 	return EX_OSERR;
     }
     
@@ -208,14 +208,14 @@ int ffx(Node *node, int cmdc, char **cmdv,
 	    nr = fread(buffer, sizeof(char), sizeof(buffer), stdin);
 	    if(ferror(stdin))
 	    {
-		log("$ERROR: can't read from stdin");
+		logit("$ERROR: can't read from stdin");
 		ret = ERROR;
 	    }
 	    
 	    nw = fwrite(buffer, sizeof(char), nr, data);
 	    if(ferror(data))
 	    {
-		log("$ERROR: can't write to %s", dataname);
+		logit("$ERROR: can't write to %s", dataname);
 		ret = ERROR;
 	    }
 	}
@@ -225,13 +225,13 @@ int ffx(Node *node, int cmdc, char **cmdv,
     }
     else
     {
-	log("$ffx: can't open %s", dataname);
+	logit("$ffx: can't open %s", dataname);
 	ret = ERROR;
     }
     
     if(ret)
     {
-	log("ffx: failed to spool job %s", seq);
+	logit("ffx: failed to spool job %s", seq);
 	unlink(ctrlname);
 	unlink(dataname);
 	return EX_OSERR;
@@ -248,14 +248,14 @@ int ffx(Node *node, int cmdc, char **cmdv,
 	 */
 	if(bink_attach(node, '^', dataname, flav, batch==NULL) == ERROR)
 	{
-	    log("ffx: failed to spool job %s", seq);
+	    logit("ffx: failed to spool job %s", seq);
 	    unlink(ctrlname);
 	    unlink(dataname);
 	    return EX_OSERR;
 	}
 	if(bink_attach(node, '^', ctrlname, flav, batch==NULL) == ERROR)
 	{
-	    log("ffx: failed to spool job %s", seq);
+	    logit("ffx: failed to spool job %s", seq);
 	    unlink(ctrlname);
 	    unlink(dataname);
 	    return EX_OSERR;
@@ -437,12 +437,12 @@ int main(int argc, char **argv)
      */
     if(optind >= argc)
     {
-	log("expecting FTN address");
+	logit("expecting FTN address");
 	short_usage();
     }
     if(asc_to_node(argv[optind], &node, FALSE) == ERROR)
     {
-	log("invalid FTN address %s", argv[optind]);
+	logit("invalid FTN address %s", argv[optind]);
 	short_usage();
     }
     optind++;
@@ -452,7 +452,7 @@ int main(int argc, char **argv)
      */
     if(optind >= argc)
     {
-	log("expecting command");
+	logit("expecting command");
 	short_usage();
     }
     cmdc = argc - optind;

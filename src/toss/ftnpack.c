@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftnpack.c,v 4.31 2003/02/16 15:39:02 n0ll Exp $
+ * $Id: ftnpack.c,v 4.32 2004/08/22 10:30:03 n0ll Exp $
  *
  * Pack output packets of ftnroute for Binkley outbound (ArcMail)
  *
@@ -40,7 +40,7 @@
 
 
 #define PROGRAM 	"ftnpack"
-#define VERSION 	"$Revision: 4.31 $"
+#define VERSION 	"$Revision: 4.32 $"
 #define CONFIG		DEFAULT_CONFIG_MAIN
 
 
@@ -162,7 +162,7 @@ void new_arc(int cmd)
     prog = xstrtok(NULL, " \t");
     if(!name || !prog)
     {
-	log("packing: missing argument for arc/prog definition");
+	logit("packing: missing argument for arc/prog definition");
 	return;
     }
     
@@ -210,7 +210,7 @@ Packing *packing_parse_line(char *buf)
     }
     if((cmd = parse_pack(p)) == ERROR)
     {
-	log("packing: unknown command %s", p);
+	logit("packing: unknown command %s", p);
 	return NULL;
     }
 
@@ -227,7 +227,7 @@ Packing *packing_parse_line(char *buf)
 	p = xstrtok(NULL, " \t");
 	if(!p)
 	{
-	    log("packing: directory argument missing");
+	    logit("packing: directory argument missing");
 	    return NULL;
 	}
 	dir = strsave(p);
@@ -241,12 +241,12 @@ Packing *packing_parse_line(char *buf)
 	p = xstrtok(NULL, " \t");
 	if(!p)
 	{
-	    log("packing: archiver name argument missing");
+	    logit("packing: archiver name argument missing");
 	    return NULL;
 	}
 	if((a = parse_arc(p)) == NULL)
 	{
-	    log("packing: unknown archiver/program %s", p);
+	    logit("packing: unknown archiver/program %s", p);
 	    return NULL;
 	}
     }
@@ -261,14 +261,14 @@ Packing *packing_parse_line(char *buf)
     p = xstrtok(NULL, " \t");
     if(!p)
     {
-	log("packing: node address argument missing");
+	logit("packing: node address argument missing");
 	return NULL;
     }
     while(p)
     {
 	if(znfp_parse_diff(p, &node, &old) == ERROR)
 	{
-	    log("packing: illegal node address %s", p);
+	    logit("packing: illegal node address %s", p);
 	}
 	else
 	{
@@ -456,7 +456,7 @@ int arcmail_search(char *name)
 	{
 	    if( (size = check_size(name)) == ERROR )
 	    {
-		log("$ERROR: can't stat %s", name);
+		logit("$ERROR: can't stat %s", name);
 		continue;
 	    }
 	    if(size == 0)			/* Empty archive */
@@ -464,7 +464,7 @@ int arcmail_search(char *name)
 		is_old = check_old(name, 24*60*60L);/* > 24 h */
 
 		if(unlink(name) == ERROR)
-		    log("$ERROR: can't remove %s", name);
+		    logit("$ERROR: can't remove %s", name);
 		debug(4, "Removed %s", name);
 		if(is_old)
 		    continue;
@@ -508,7 +508,7 @@ int do_arcmail(char *name, Node *arcnode, Node *flonode,
     
     if(bink_mkdir(arcnode) == ERROR)
     {
-	log("ERROR: can't create outbound dir");
+	logit("ERROR: can't create outbound dir");
 	return ERROR;
     }
     
@@ -527,7 +527,7 @@ int do_arcmail(char *name, Node *arcnode, Node *flonode,
 	    /* Simply rename */
 	    if(rename(name, pktn) == -1)
 	    {
-		log("$ERROR: rename %s -> %s failed", name, pktn);
+		logit("$ERROR: rename %s -> %s failed", name, pktn);
 		return ERROR;
 	    }
 	}
@@ -536,7 +536,7 @@ int do_arcmail(char *name, Node *arcnode, Node *flonode,
 	    /* Copy and process file attaches */
 	    if(do_noarc(name, flonode, desc, file, pktn) == ERROR)
 	    {
-		log("ERROR: copying/processing %s -> %s failed", name, pktn);
+		logit("ERROR: copying/processing %s -> %s failed", name, pktn);
 		return ERROR;
 	    }
 	}
@@ -549,12 +549,12 @@ int do_arcmail(char *name, Node *arcnode, Node *flonode,
     chmod(arcn, PACKET_MODE);
     if(ret)
     {
-	log("ERROR: %s failed, exit code=%d", buffer, ret);
+	logit("ERROR: %s failed, exit code=%d", buffer, ret);
 	return ERROR;
     }
     chmod(arcn, PACKET_MODE);
     if(unlink(pktn) == -1)
-	log("$ERROR: can't remove %s", pktn);
+	logit("$ERROR: can't remove %s", pktn);
     if(!dir)
 	return bink_attach(flonode, '#', arcn,
 			   flav_to_asc(desc->flav), FALSE );
@@ -586,7 +586,7 @@ int do_noarc(char *name, Node *flonode,
 	     : pkt_open(NULL, &desc->to, flav_to_asc(desc->flav), FALSE);
     if(fp == NULL)
     {
-	log("ERROR: can't open outbound packet for %s",
+	logit("ERROR: can't open outbound packet for %s",
 	    znfp1(&desc->to)      );
 	fclose(pkt_file);
 	TMPS_RETURN(ERROR);
@@ -605,7 +605,7 @@ int do_noarc(char *name, Node *flonode,
 	node_clear(&msg.node_to);
 	if(pkt_get_msg_hdr(pkt_file, &msg) != OK)
 	{
-	    log("$ERROR reading input packet %s", name);
+	    logit("$ERROR reading input packet %s", name);
 	    pkt_close();
 	    fclose(pkt_file);
 	    TMPS_RETURN(ERROR);
@@ -614,7 +614,7 @@ int do_noarc(char *name, Node *flonode,
 	type = pkt_get_body(pkt_file, &tl);
 	if(type == ERROR)
 	{
-	    log("$ERROR: reading input packet %s", name);
+	    logit("$ERROR: reading input packet %s", name);
 	    pkt_close();
 	    fclose(pkt_file);
 	    TMPS_RETURN(ERROR);
@@ -635,10 +635,10 @@ int do_noarc(char *name, Node *flonode,
 		    ret = bink_attach(flonode, 0, fa_name,
 				      flav_to_asc(desc->flav), FALSE );
 		    if(ret == ERROR)
-			log("ERROR: file attach %s for %s failed",
+			logit("ERROR: file attach %s for %s failed",
 			    fa_name, znfp1(&desc->to));
 		    else
-			log("file attach %s (%ldb) for %s",
+			logit("file attach %s (%ldb) for %s",
 			    fa_name, sz, znfp1(&desc->to));
 	    }
 	    /* File attachments from inbound directory */
@@ -651,23 +651,23 @@ int do_noarc(char *name, Node *flonode,
 		    ret = bink_attach(flonode, '^', buffer,
 				      flav_to_asc(desc->flav), FALSE );
 		    if(ret == ERROR)
-			log("ERROR: file attach %s for %s failed",
+			logit("ERROR: file attach %s for %s failed",
 			    msg.subject, znfp1(&desc->to));
 		    else
-			log("file attach %s (%ldb) for %s",
+			logit("file attach %s (%ldb) for %s",
 			    msg.subject, sz, znfp1(&desc->to));
 		}
 		else
-		    log("file attach %s: no such file", msg.subject);
+		    logit("file attach %s: no such file", msg.subject);
 	    }
 	    else
-		log("file attach %s not processed, no -F option", fa_name);
+		logit("file attach %s not processed, no -F option", fa_name);
 	}
 
 	/* Write message header */
 	if( pkt_put_msg_hdr(fp, &msg, FALSE) != OK )
 	{
-	    log("$ERROR: writing packet %s", pkt_name());
+	    logit("$ERROR: writing packet %s", pkt_name());
 	    pkt_close();
 	    fclose(pkt_file);
 	    TMPS_RETURN(ERROR);
@@ -678,7 +678,7 @@ int do_noarc(char *name, Node *flonode,
 	putc(0, fp);
 	if(ferror(fp) != OK)
 	{
-	    log("$ERROR: writing packet %s", pkt_name());
+	    logit("$ERROR: writing packet %s", pkt_name());
 	    pkt_close();
 	    fclose(pkt_file);
 	    TMPS_RETURN(ERROR);
@@ -690,12 +690,12 @@ int do_noarc(char *name, Node *flonode,
     fclose(pkt_file);
     if(pkt_close() != OK)
     {
-	log("$ERROR: can't close outbound packet");
+	logit("$ERROR: can't close outbound packet");
 	TMPS_RETURN(ERROR);
     }
     if(unlink(name) != OK)
     {
-	log("$ERROR: can't remove packet %s", name);
+	logit("$ERROR: can't remove packet %s", name);
 	TMPS_RETURN(ERROR);
     }
     
@@ -719,12 +719,12 @@ int do_prog(char *name, PktDesc *desc, Packing *pack)
     debug(4, "Exit code=%d", ret);
     if(ret)
     {
-        log("ERROR: %s failed, exit code=%d", buffer, ret);
+        logit("ERROR: %s failed, exit code=%d", buffer, ret);
         return ERROR;
     }
     if(pack->arc->pack != PACK_PROGN)
 	if(unlink(name)==ERROR)
-	    log("$ERROR: can't remove %s", name);
+	    logit("$ERROR: can't remove %s", name);
 
     return OK;
 }
@@ -803,17 +803,17 @@ int do_pack(PktDesc *desc, char *name, FILE *file, Packing *pack)
 	    (desc->flav!=FLAV_CRASH && pack->arc->prog) )
 	{
 	    if(pack->pack == PACK_ROUTE)
-		log("archiving packet (%ldb) for %s via %s arc (%s)",
+		logit("archiving packet (%ldb) for %s via %s arc (%s)",
 		    check_size(name),
 		    znfp1(&desc->to), znfp2(&arcnode),
 		    pack->arc->name );
 	    else if(pack->pack == PACK_FLO)
-		log("archiving packet (%ldb) for %s via %s flo (%s)",
+		logit("archiving packet (%ldb) for %s via %s flo (%s)",
 		    check_size(name),
 		    znfp1(&desc->to), znfp2(&flonode),
 		    pack->arc->name );
 	    else
-		log("archiving packet (%ldb) for %s (%s)",
+		logit("archiving packet (%ldb) for %s (%s)",
 		    check_size(name),
 		    znfp1(&desc->to), pack->arc->name );
 
@@ -822,7 +822,7 @@ int do_pack(PktDesc *desc, char *name, FILE *file, Packing *pack)
 	}
 	else
 	{
-	    log("packet (%ldb) for %s (noarc)",
+	    logit("packet (%ldb) for %s (noarc)",
 		check_size(name), znfp1(&desc->to));
 	    ret = do_noarc(name, &desc->to, desc, file, NULL);
 	}
@@ -831,7 +831,7 @@ int do_pack(PktDesc *desc, char *name, FILE *file, Packing *pack)
     {
 	if(file)
 	    fclose(file);
-	log("packet (%ldb) for %s (%s)",
+	logit("packet (%ldb) for %s (%s)",
 	    check_size(name), znfp1(&desc->to), pack->arc->name);
 	ret = do_prog(name, desc, pack);
     }
@@ -878,7 +878,7 @@ int do_dirpack(PktDesc *desc, char *name, FILE *file, Packing *pack)
     {
 	if(pack->arc->prog)
 	{
-	    log("archiving packet (%ldb) for %s (%s) in %s",
+	    logit("archiving packet (%ldb) for %s (%s) in %s",
 		check_size(name), znfp1(&desc->to), pack->arc->name, pack->dir);
 
 	    ret = do_arcmail(name, &arcnode, &flonode, desc,
@@ -889,7 +889,7 @@ int do_dirpack(PktDesc *desc, char *name, FILE *file, Packing *pack)
     /* dirmove */
     if(pack->pack==PACK_MOVE)
     {
-	log("moving packet (%ldb) for %s to %s",
+	logit("moving packet (%ldb) for %s to %s",
 	    check_size(name), znfp1(&desc->to), pack->dir);
 
 	pktn = packing_pkt_name(pack->dir, name);
@@ -980,12 +980,12 @@ int do_file(char *pkt_name)
 	/* Open packet and read header */
 	pkt_file = fopen(pkt_name, R_MODE);
 	if(!pkt_file) {
-	    log("$ERROR: can't open packet %s", pkt_name);
+	    logit("$ERROR: can't open packet %s", pkt_name);
 	    TMPS_RETURN(severe_error);
 	}
 	if(pkt_get_hdr(pkt_file, &pkt) == ERROR)
 	{
-	    log("ERROR: reading header from %s", pkt_name);
+	    logit("ERROR: reading header from %s", pkt_name);
 	    TMPS_RETURN(severe_error);
 	}
     }
@@ -993,7 +993,7 @@ int do_file(char *pkt_name)
     /* Pack it */
     if(do_packing(pkt_name, pkt_file, &pkt) == ERROR) 
     {
-	log("ERROR: processing %s", pkt_name);
+	logit("ERROR: processing %s", pkt_name);
 	TMPS_RETURN(severe_error);
     }
 
@@ -1023,7 +1023,7 @@ void prog_signal(int signum)
 	name = "";            break;
     }
 
-    log("KILLED%s: exit forced", name);
+    logit("KILLED%s: exit forced", name);
 }
 
 
@@ -1244,7 +1244,7 @@ int main(int argc, char **argv)
 	dir_sortmode(DIR_SORTMTIME);
 	if(dir_open(in_dir, pattern, TRUE) == ERROR)
 	{
-	    log("$ERROR: can't open directory %s", in_dir);
+	    logit("$ERROR: can't open directory %s", in_dir);
 	    ret = EX_OSERR;
 	}
 	else 

@@ -2,12 +2,12 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: prototypes.h,v 4.68 2003/02/16 15:36:24 n0ll Exp $
+ * $Id: prototypes.h,v 4.70 2004/08/22 10:30:02 n0ll Exp $
  *
  * Prototypes for functions in libfidogate.a
  *
  *****************************************************************************
- * Copyright (C) 1990-2002
+ * Copyright (C) 1990-2003
  *  _____ _____
  * |     |___  |   Martin Junius             <mj@fidogate.org>
  * | | | |   | |   Radiumstr. 18
@@ -270,7 +270,7 @@ extern int verbose;
 extern int no_debug;
 
 char   *strerror		(int);
-void	log			(const char *, ...)
+void	logit			(const char *, ...)
     __attribute__ ((format (printf, 1, 2)));
 void	debug			(int, const char *, ...)
     __attribute__ ((format (printf, 2, 3)));

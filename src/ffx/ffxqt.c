@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ffxqt.c,v 4.25 2003/02/16 15:39:00 n0ll Exp $
+ * $Id: ffxqt.c,v 4.26 2004/08/22 10:30:01 n0ll Exp $
  *
  * Process incoming ffx control and data files
  *
@@ -40,7 +40,7 @@
 
 
 #define PROGRAM		"ffxqt"
-#define VERSION		"$Revision: 4.25 $"
+#define VERSION		"$Revision: 4.26 $"
 #define CONFIG		DEFAULT_CONFIG_FFX
 
 
@@ -177,14 +177,14 @@ int do_ffx(int t_flag)
     BUF_EXPAND(buffer, cf_p_pinbound());
     if( chdir(buffer) == -1 )
     {
-	log("$ERROR: can't chdir %s", buffer);
+	logit("$ERROR: can't chdir %s", buffer);
 	return ERROR;
     }
 
     dir_sortmode(DIR_SORTMTIME);
     if(dir_open(".", pattern, TRUE) == ERROR)
     {
-	log("$ERROR: can't open directory .");
+	logit("$ERROR: can't open directory .");
 	return ERROR;
     }
     
@@ -219,7 +219,7 @@ int do_ffx(int t_flag)
 	 */
 	if(!t_flag && !passwd)
 	{
-	    log("ERROR: %s: no password for %s in PASSWD",
+	    logit("ERROR: %s: no password for %s in PASSWD",
 		name, znfp1(&ffx->from)  );
 	    goto rename_to_bad;
 	}
@@ -233,7 +233,7 @@ int do_ffx(int t_flag)
 	    {
 		if(stricmp(passwd, ffx->passwd))
 		{
-		    log("ERROR: %s: wrong password from %s: ours=%s his=%s",
+		    logit("ERROR: %s: wrong password from %s: ours=%s his=%s",
 			name, znfp1(&ffx->from), passwd,
 			ffx->passwd                              );
 		    goto rename_to_bad;
@@ -241,26 +241,26 @@ int do_ffx(int t_flag)
 	    }
 	    else
 	    {
-		log("ERROR: %s: no password from %s: ours=%s", name,
+		logit("ERROR: %s: no password from %s: ours=%s", name,
 		    znfp1(&ffx->from), passwd );
 		goto rename_to_bad;
 	    }
 	}
 
-	log("job %s: from %s data %s (%ldb) / %s",
+	logit("job %s: from %s data %s (%ldb) / %s",
 	    ffx->job, znfp1(&ffx->from), ffx->file, check_size(ffx->file),
 	    ffx->cmd);
 	
 	if(exec_ffx(ffx) == ERROR)
 	{
-	    log("%s: command failed", name);
+	    logit("%s: command failed", name);
 	rename_to_bad:
 	    /*
 	     * Error: rename .ffx -> .bad
 	     */
 	    str_change_ext(buf, sizeof(buf), name, "bad");
 	    rename(name, buf);
-	    log("%s: renamed to %s", name, buf);
+	    logit("%s: renamed to %s", name, buf);
 	}
 	
 	tmps_freeall();
@@ -336,7 +336,7 @@ FFX *parse_ffx(char *name)
     fp = fopen(ffx.name, R_MODE);
     if(!fp)
     {
-	log("$ERROR: can't open %s", ffx.name);
+	logit("$ERROR: can't open %s", ffx.name);
 	return NULL;
     }
     
@@ -450,12 +450,12 @@ int exec_ffx(FFX *ffx)
     cmd_c = find_ffxcmd('C', name);
     if(!cmd_c)
     {
-	log("ERROR: no FFXCommand found for \"%s\"", name);
+	logit("ERROR: no FFXCommand found for \"%s\"", name);
 	return ERROR;
     }
     if(ffx->decompr) 
     {
-	log("ERROR: uncompressing no longer supported in this version");
+	logit("ERROR: uncompressing no longer supported in this version");
 	return ERROR;
     }
 
@@ -503,7 +503,7 @@ int run_ffx_cmd(char *cmd,
     {
 	if(n >= MAXARGS-1) 
 	{
-	    log("ERROR: too many args in run_ffx_cmd()");
+	    logit("ERROR: too many args in run_ffx_cmd()");
 	    return ERROR;
 	}
 	args[n++] = p;
@@ -525,7 +525,7 @@ int run_ffx_cmd(char *cmd,
     pid = fork();
     if(pid == ERROR) 
     {
-	log("$ERROR: fork failed");
+	logit("$ERROR: fork failed");
 	return ERROR;
     }
 
@@ -534,15 +534,15 @@ int run_ffx_cmd(char *cmd,
 	/* parent */
 	if(waitpid(pid, &status, 0) == ERROR) 
 	{
-	    log("$ERROR: waitpid failed");
+	    logit("$ERROR: waitpid failed");
 	    return ERROR;
 	}
 	if(WIFEXITED(status))
 	    return WEXITSTATUS(status);
 	if(WIFSIGNALED(status)) 
-	    log("ERROR: child %s caught signal %d", cmd, WTERMSIG(status));
+	    logit("ERROR: child %s caught signal %d", cmd, WTERMSIG(status));
 	else
-	    log("ERROR: child %s, exit status=%04x", cmd, status);
+	    logit("ERROR: child %s, exit status=%04x", cmd, status);
 	return ERROR;
     }
     else 
@@ -550,11 +550,11 @@ int run_ffx_cmd(char *cmd,
 	/* child */
 	if(! freopen(data, R_MODE, stdin)) 
 	{
-	    log("ERROR: can't freopen stdin to %s", data);
+	    logit("ERROR: can't freopen stdin to %s", data);
 	    exit(1);
 	}
 	if( execv(cmd, args) == ERROR )
-	    log("ERROR: execv %s failed", cmd);
+	    logit("ERROR: execv %s failed", cmd);
 	exit(1);
     }
 

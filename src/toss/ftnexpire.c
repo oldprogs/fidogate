@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: ftnexpire.c,v 4.17 2003/02/16 15:39:02 n0ll Exp $
+ * $Id: ftnexpire.c,v 4.18 2004/08/22 10:30:03 n0ll Exp $
  *
  * Expire MSGID history database
  *
@@ -36,7 +36,7 @@
 
 
 #define PROGRAM 	"ftnexpire"
-#define VERSION 	"$Revision: 4.17 $"
+#define VERSION 	"$Revision: 4.18 $"
 #define CONFIG		DEFAULT_CONFIG_MAIN
 
 
@@ -117,14 +117,14 @@ int do_expire(void)
     /* Open old history for reading */
     if( (hi_o = fopen(history, R_MODE)) == NULL ) 
     {
-	log("$ERROR: open MSGID history %s failed", history);
+	logit("$ERROR: open MSGID history %s failed", history);
 	return ERROR;
     }
 
     /* Open new history for writing */
     if( (hi_n = fopen(history_n, W_MODE)) == NULL ) 
     {
-	log("$ERROR: open MSGID history %s failed", history_n);
+	logit("$ERROR: open MSGID history %s failed", history_n);
 	fclose(hi_o);
 	return ERROR;
     }
@@ -132,7 +132,7 @@ int do_expire(void)
     /* Create empty new .dir and .pag*/
     if( (fp = fopen(history_n_dir, W_MODE)) == NULL ) 
     {
-	log("$ERROR: open MSGID history %s failed", history_n_dir);
+	logit("$ERROR: open MSGID history %s failed", history_n_dir);
 	fclose(hi_o);
 	fclose(hi_n);
 	return ERROR;
@@ -140,7 +140,7 @@ int do_expire(void)
     fclose(fp);
     if( (fp = fopen(history_n_pag, W_MODE)) == NULL ) 
     {
-	log("$ERROR: open MSGID history %s failed", history_n_pag);
+	logit("$ERROR: open MSGID history %s failed", history_n_pag);
 	fclose(hi_o);
 	fclose(hi_n);
 	return ERROR;
@@ -151,7 +151,7 @@ int do_expire(void)
     dbzincore(1);
     if (dbzagain(history_n, history) < 0)
     {
-	log("$ERROR: dbzagain %s failed", history_n);
+	logit("$ERROR: dbzagain %s failed", history_n);
 	fclose(hi_o);
 	fclose(hi_n);
 	return ERROR;
@@ -175,17 +175,17 @@ int do_expire(void)
     /* Rename */
     if(rename(history_n, history) == ERROR)
     {
-	log("$ERROR: rename %s -> %s failed", history_n, history);
+	logit("$ERROR: rename %s -> %s failed", history_n, history);
 	return ERROR;
     }
     if(rename(history_n_dir, history_dir) == ERROR)
     {
-	log("$ERROR: rename %s -> %s failed", history_n_dir, history_dir);
+	logit("$ERROR: rename %s -> %s failed", history_n_dir, history_dir);
 	return ERROR;
     }
     if(rename(history_n_pag, history_pag) == ERROR)
     {
-	log("$ERROR: rename %s -> %s failed", history_n_pag, history_pag);
+	logit("$ERROR: rename %s -> %s failed", history_n_pag, history_pag);
 	return ERROR;
     }
     
@@ -214,7 +214,7 @@ int do_line(FILE *hi_n, char *line)
     p     = strtok(NULL, "\t");
     if(!msgid || !p)
     {
-	log("WARNING: illegal entry in %s, line %ld", history, history_line);
+	logit("WARNING: illegal entry in %s, line %ld", history, history_line);
 	return ERROR;
     }
 
@@ -230,7 +230,7 @@ int do_line(FILE *hi_n, char *line)
 	/* Get offset in history text file */
 	if( (offset = ftell(hi_n)) == ERROR)
 	{
-	    log("$ERROR: ftell MSGID history failed");
+	    logit("$ERROR: ftell MSGID history failed");
 	    return ERROR;
 	}
 	
@@ -238,7 +238,7 @@ int do_line(FILE *hi_n, char *line)
 	ret = fprintf(hi_n, "%s\t%ld\n", msgid, t);
 	if (ret == ERROR || fflush(hi_n) == ERROR)
 	{
-	    log("$ERROR: write to MSGID history failed");
+	    logit("$ERROR: write to MSGID history failed");
 	    return ERROR;
 	}
 
@@ -248,7 +248,7 @@ int do_line(FILE *hi_n, char *line)
 	val.dptr  = (char *)&offset;		/* Value */
 	val.dsize = sizeof offset;
 	if (dbzstore(key, val) < 0) {
-	    log("ERROR: dbzstore of record for MSGID history failed");
+	    logit("ERROR: dbzstore of record for MSGID history failed");
 	    return ERROR;
 	}
     }
@@ -373,7 +373,7 @@ int main(int argc, char **argv)
      */
     if(lock_program(DEFAULT_LOCK_HISTORY, w_flag) == ERROR)	/* Already busy */
     {
-	log("MSGID history database is busy");
+	logit("MSGID history database is busy");
 	exit(EXIT_BUSY);
     }
 
@@ -388,7 +388,7 @@ int main(int argc, char **argv)
 	expire_delta = 1;
 
     /* Statistics */
-    log("ids processed: %ld total, %ld expired in %ld s, %.2f ids/s",
+    logit("ids processed: %ld total, %ld expired in %ld s, %.2f ids/s",
 	n_processed, n_expired,
 	expire_delta, (double)n_processed/expire_delta);
     

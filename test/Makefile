@@ -1,6 +1,6 @@
 #:ts=8
 #
-#    $Id: Makefile,v 4.10 2002/08/04 03:12:18 dyff Exp $
+#    $Id: Makefile,v 4.11 2004/08/22 10:30:04 n0ll Exp $
 #
 #    Makefile for FIDOGATE test/
 #
@@ -31,7 +31,7 @@ clean::
 clean veryclean::
 	rm -f *~ *.bak *.o tags TAGS core paths.tmp
 
-verify::
+test verify::
 	@for d in tc.*; do \
 	  if [ -f $$d/run.verify ]; then \
 	    (cd $$d; ../tr.verify $$d) \

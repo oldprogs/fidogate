@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: ftnafutil.c,v 1.14 2003/02/16 15:38:52 n0ll Exp $
+ * $Id: ftnafutil.c,v 1.15 2004/08/22 10:30:00 n0ll Exp $
  *
  * Utility program for Areafix.
  *
@@ -36,7 +36,7 @@
 
 
 #define PROGRAM		"ftnafutil"
-#define VERSION		"$Revision: 1.14 $"
+#define VERSION		"$Revision: 1.15 $"
 #define CONFIG		DEFAULT_CONFIG_MAIN
 
 
@@ -81,7 +81,7 @@ int do_mail(Node *node, char *area, char *s, Passwd *pwd)
 
     if(!pwd || !pwd->passwd)
     {
-	log("ERROR: no uplink password for %s, can't send request", 
+	logit("ERROR: no uplink password for %s, can't send request", 
 	    znfp1(node));
 	return ERROR;
     }
@@ -143,7 +143,7 @@ int do_areasbbs(int cmd)
 	case DO_DELETE:
 	    if(!uplink)
 	    {
-		log("area %s: no uplink, deleting", p->area);
+		logit("area %s: no uplink, deleting", p->area);
 		if(!n_flag) 
 		{
 		    areasbbs_remove(p, pl);
@@ -159,7 +159,7 @@ int do_areasbbs(int cmd)
 	    {
 		if(! (pwd = passwd_lookup("uplink", uplink)) )
 		    break;
-		log("area %s: #dl=%d state=%s, subscribing at uplink %s",
+		logit("area %s: #dl=%d state=%s, subscribing at uplink %s",
 		      p->area, n, state, znfp1(uplink));
 		if(!n_flag && do_mail(uplink, p->area, "+", pwd) != ERROR)
 		{
@@ -175,7 +175,7 @@ int do_areasbbs(int cmd)
 	    {
 		if(! (pwd = passwd_lookup("uplink", uplink)) )
 		    break;
-		log("area %s: #dl=%d state=%s, unsubscribing at uplink %s",
+		logit("area %s: #dl=%d state=%s, unsubscribing at uplink %s",
 		      p->area, n, state, znfp1(uplink));
 		if(!n_flag && do_mail(uplink, p->area, "-", pwd) != ERROR)
 		{

@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: message.c,v 4.22 2003/02/16 15:38:56 n0ll Exp $
+ * $Id: message.c,v 4.23 2004/08/22 10:30:01 n0ll Exp $
  *
  * Reading and processing FTN text body
  *
@@ -121,9 +121,9 @@ int pkt_get_line(FILE *fp, char *buf, int size)
 	    /* orphan 0-byte, skip */
 	    pos = ftell(fp);
 	    if(pos == ERROR)
-		log("pkt_get_line(): orphan 0-char (can't determine offset)");
+		logit("pkt_get_line(): orphan 0-char (can't determine offset)");
 	    else
-		log("pkt_get_line(): orphan 0-char (offset=%ld)", pos);
+		logit("pkt_get_line(): orphan 0-char (offset=%ld)", pos);
 	    if(c1)
 	    {
 		size--;
@@ -145,7 +145,7 @@ int pkt_get_line(FILE *fp, char *buf, int size)
 	    if(c1 == 0)			/* Looks like it is ... */
 	    {
 		*p = 0;
-		log("pkt_get_line(): grunged packet");
+		logit("pkt_get_line(): grunged packet");
 		return MSG_TYPE;
 	    }
 	    *p++ = c;
@@ -270,7 +270,7 @@ static int msg_body_parse_echomail(MsgBody *body)
 	p=p->prev) ;
     if(p == NULL)
     {
-	log("ERROR: parsing echomail message: no ^APATH or SEEN-BY line");
+	logit("ERROR: parsing echomail message: no ^APATH or SEEN-BY line");
 	return -2;
     }
     /* ^APATH */
@@ -352,7 +352,7 @@ static int msg_body_parse_echomail(MsgBody *body)
 
     if(body->seenby.n==0 /*|| body->path.n==0*/)
     {
-	log("ERROR: parsing echomail message: no SEEN-BY line");
+	logit("ERROR: parsing echomail message: no SEEN-BY line");
 	return -2;
     }
     if(body->tear==NULL || body->origin==NULL /** || body->path.n==0 **/)
@@ -711,7 +711,7 @@ static int msg_get_line_length(void)
 	    if(message_line_length < 20 ||
 	       message_line_length > MAX_LINE_LENGTH) 
 	    {
-		log("WARNING: illegal MessageLineLength value %d",
+		logit("WARNING: illegal MessageLineLength value %d",
 		    message_line_length);
 		message_line_length = DEFAULT_LINE_LENGTH;
 	    }

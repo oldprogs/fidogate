@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: routing.c,v 4.15 2003/02/16 15:38:58 n0ll Exp $
+ * $Id: routing.c,v 4.16 2004/08/22 10:30:01 n0ll Exp $
  *
  * Routing config file reading for ftntoss and ftnroute.
  *
@@ -128,12 +128,12 @@ void routing_remap(int cmd)
     p = xstrtok(NULL, " \t");
     if(!p)
     {
-	log("remap: source node address missing");
+	logit("remap: source node address missing");
 	return;
     }
     if(znfp_parse_diff(p, &src, &old) == ERROR)
     {
-	log("remap: illegal node address %s", p);
+	logit("remap: illegal node address %s", p);
 	return;
     }
     
@@ -143,12 +143,12 @@ void routing_remap(int cmd)
     p = xstrtok(NULL, " \t");
     if(!p)
     {
-	log("remap: dest node address missing");
+	logit("remap: dest node address missing");
 	return;
     }
     if(znfp_parse_diff(p, &dest, &old) == ERROR)
     {
-	log("remap: illegal node address %s", p);
+	logit("remap: illegal node address %s", p);
 	return;
     }
 
@@ -158,7 +158,7 @@ void routing_remap(int cmd)
     p = xstrtok(NULL, " \t");
     if(!p)
     {
-	log("remap: name missing");
+	logit("remap: name missing");
 	return;
     }
     
@@ -198,12 +198,12 @@ void routing_rewrite(void)
     p = xstrtok(NULL, " \t");
     if(!p)
     {
-	log("rewrite: source node address missing");
+	logit("rewrite: source node address missing");
 	return;
     }
     if(znfp_parse_diff(p, &src, &old) == ERROR)
     {
-	log("rewrite: illegal node address %s", p);
+	logit("rewrite: illegal node address %s", p);
 	return;
     }
     
@@ -213,12 +213,12 @@ void routing_rewrite(void)
     p = xstrtok(NULL, " \t");
     if(!p)
     {
-	log("rewrite: dest node address missing");
+	logit("rewrite: dest node address missing");
 	return;
     }
     if(znfp_parse_diff(p, &dest, &old) == ERROR)
     {
-	log("rewrite: illegal node address %s", p);
+	logit("rewrite: illegal node address %s", p);
 	return;
     }
 
@@ -269,7 +269,7 @@ static Routing *routing_parse_line(char *buf)
     
     if((cmd = parse_cmd(p)) == ERROR)
     {
-	log("routing: unknown command %s", p);
+	logit("routing: unknown command %s", p);
 	return NULL;
     }
     if(cmd == TYPE_NETMAIL  ||  cmd == TYPE_ECHOMAIL)
@@ -294,12 +294,12 @@ static Routing *routing_parse_line(char *buf)
     p = xstrtok(NULL, " \t");
     if(!p)
     {
-	log("routing: flavor argument missing");
+	logit("routing: flavor argument missing");
 	return NULL;
     }
     if((flav = parse_flav(p)) == ERROR)
     {
-	log("routing: unknown flavor %s", p);
+	logit("routing: unknown flavor %s", p);
 	return NULL;
     }
 
@@ -311,12 +311,12 @@ static Routing *routing_parse_line(char *buf)
 	p = xstrtok(NULL, " \t");
 	if(!p)
 	{
-	    log("routing: second flavor argument missing");
+	    logit("routing: second flavor argument missing");
 	    return NULL;
 	}
 	if((flav_new = parse_flav(p)) == ERROR)
 	{
-	    log("routing: unknown flavor %s", p);
+	    logit("routing: unknown flavor %s", p);
 	    return NULL;
 	}
     }
@@ -331,14 +331,14 @@ static Routing *routing_parse_line(char *buf)
     p = xstrtok(NULL, " \t");
     if(!p)
     {
-	log("routing: node address argument missing");
+	logit("routing: node address argument missing");
 	return NULL;
     }
     while(p)
     {
 	if(znfp_parse_diff(p, &node, &old) == ERROR)
 	{
-	    log("routing: illegal node address %s", p);
+	    logit("routing: illegal node address %s", p);
 	}
 	else
 	{
@@ -435,7 +435,7 @@ PktDesc *parse_pkt_name(char *name, Node *from, Node *to)
     
     if(strlen(p) != 8+1+3)		/* Must be  GTFxxxxx.pkt */
     {
-	log("strange packet name %s", name);
+	logit("strange packet name %s", name);
 	return NULL;
     }
     

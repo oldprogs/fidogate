@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: history.c,v 4.12 2003/02/16 15:39:02 n0ll Exp $
+ * $Id: history.c,v 4.13 2004/08/22 10:30:03 n0ll Exp $
  *
  * MSGID history functions and dupe checking
  *
@@ -57,11 +57,11 @@ int hi_init(void)
 	/* Doesn't exist, create */
 	if( (fp = fopen(buffer, W_MODE)) == NULL )
 	{
-	    log("$ERROR: creating MSGID history %s failed", buffer);
+	    logit("$ERROR: creating MSGID history %s failed", buffer);
 	    return ERROR;
 	}
 	else
-	    log("creating MSGID history %s", buffer);
+	    logit("creating MSGID history %s", buffer);
     }
     
     BUF_EXPAND(buffer, cf_p_history());
@@ -71,18 +71,18 @@ int hi_init(void)
 	/* Doesn't exist, create */
 	if( (fp = fopen(buffer, W_MODE)) == NULL )
 	{
-	    log("$ERROR: creating MSGID history %s failed", buffer);
+	    logit("$ERROR: creating MSGID history %s failed", buffer);
 	    return ERROR;
 	}
 	else
-	    log("creating MSGID history %s", buffer);
+	    logit("creating MSGID history %s", buffer);
     }
 
     /* Open the history text file */
     BUF_EXPAND(buffer, cf_p_history());
     if( (hi_file = fopen(buffer, A_MODE)) == NULL ) 
     {
-	log("$ERROR: open MSGID history %s failed", buffer);
+	logit("$ERROR: open MSGID history %s failed", buffer);
 	return ERROR;
     }
 
@@ -90,7 +90,7 @@ int hi_init(void)
     dbzincore(1);
     /**dbzwritethrough(1);**/
     if (dbminit(buffer) < 0) {
-	log("$ERROR: dbminit %s failed", buffer);
+	logit("$ERROR: dbminit %s failed", buffer);
 	return ERROR;
     }
 
@@ -111,18 +111,18 @@ int hi_close(void)
     {
 	if(fclose(hi_file) == ERROR) 
 	{
-	    log("$ERROR: close MSGID history failed");
+	    logit("$ERROR: close MSGID history failed");
 	    ret = ERROR;
 	}
 
 	if (dbzsync())
 	{
-	    log("$ERROR: dbzsync MSGID history failed");
+	    logit("$ERROR: dbzsync MSGID history failed");
 	    ret = ERROR;
 	}
 	if (dbmclose() < 0)
 	{
-	    log("$ERROR: dbmclose MSGID history failed");
+	    logit("$ERROR: dbmclose MSGID history failed");
 	    ret = ERROR;
 	}
 
@@ -146,7 +146,7 @@ static int hi_write_t(time_t t, time_t msgdate, char *msgid)
     /* Get offset in history text file */
     if( (offset = ftell(hi_file)) == ERROR)
     {
-	log("$ERROR: ftell MSGID history failed");
+	logit("$ERROR: ftell MSGID history failed");
 	return ERROR;
     }
 
@@ -155,7 +155,7 @@ static int hi_write_t(time_t t, time_t msgdate, char *msgid)
     ret = fprintf(hi_file, "%s\t%ld\n", msgid, t);
     if (ret == ERROR || fflush(hi_file) == ERROR)
     {
-	log("$ERROR: write to MSGID history failed");
+	logit("$ERROR: write to MSGID history failed");
 	return ERROR;
     }
 
@@ -165,7 +165,7 @@ static int hi_write_t(time_t t, time_t msgdate, char *msgid)
     val.dptr  = (char *)&offset;		/* Value */
     val.dsize = sizeof offset;
     if (dbzstore(key, val) < 0) {
-	log("ERROR: dbzstore of record for MSGID history failed");
+	logit("ERROR: dbzstore of record for MSGID history failed");
 	return ERROR;
     }
 

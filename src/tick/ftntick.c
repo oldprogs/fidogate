@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftntick.c,v 4.27 2003/02/16 15:39:02 n0ll Exp $
+ * $Id: ftntick.c,v 4.28 2004/08/22 10:30:03 n0ll Exp $
  *
  * Process incoming TIC files
  *
@@ -37,7 +37,7 @@
 
 
 #define PROGRAM		"ftntick"
-#define VERSION		"$Revision: 4.27 $"
+#define VERSION		"$Revision: 4.28 $"
 #define CONFIG		DEFAULT_CONFIG_MAIN
 
 
@@ -92,7 +92,7 @@ int do_tic(int t_flag)
     dir_sortmode(DIR_SORTMTIME);
     if(dir_open(in_dir, pattern, TRUE) == ERROR)
     {
-	log("$ERROR: can't open directory %s", in_dir);
+	logit("$ERROR: can't open directory %s", in_dir);
 	return ERROR;
     }
     
@@ -103,7 +103,7 @@ int do_tic(int t_flag)
 	/* Read TIC file */
 	if(tick_get(&tic, name) == ERROR)
 	{
-	    log("$ERROR: reading %s", name);
+	    logit("$ERROR: reading %s", name);
 	    goto rename_to_bad;
 	}
 
@@ -113,7 +113,7 @@ int do_tic(int t_flag)
 	
 	tick_debug(&tic, 3);
 
-	log("area %s file %s (%lub) from %s", tic.area, tic.file, tic.size,
+	logit("area %s file %s (%lub) from %s", tic.area, tic.file, tic.size,
 	    znfp1(&tic.from));
 	
 	/*
@@ -131,7 +131,7 @@ int do_tic(int t_flag)
 	 */
 	if(!t_flag && !passwd)
 	{
-	    log("%s: no password for %s in PASSWD", name,
+	    logit("%s: no password for %s in PASSWD", name,
 		znfp1(&tic.from)  );
 	    goto rename_to_bad;
 	}
@@ -145,7 +145,7 @@ int do_tic(int t_flag)
 	    {
 		if(stricmp(passwd, tic.pw))
 		{
-		    log("%s: wrong password from %s: ours=%s his=%s",
+		    logit("%s: wrong password from %s: ours=%s his=%s",
 			name, znfp1(&tic.from), passwd,
 			tic.pw                                      );
 		    goto rename_to_bad;
@@ -153,7 +153,7 @@ int do_tic(int t_flag)
 	    }
 	    else
 	    {
-		log("%s: no password from %s: ours=%s", name,
+		logit("%s: no password from %s: ours=%s", name,
 		    znfp1(&tic.from), passwd );
 		goto rename_to_bad;
 	    }
@@ -161,14 +161,14 @@ int do_tic(int t_flag)
 	
 	if(process_tic(&tic) == ERROR)
 	{
-	    log("%s: failed", name);
+	    logit("%s: failed", name);
 	rename_to_bad:
 	    /*
 	     * Error: rename .tic -> .bad
 	     */
 	    str_change_ext(buf, sizeof(buf), name, "bad");
 	    rename(name, buf);
-	    log("%s: renamed to %s", name, buf);
+	    logit("%s: renamed to %s", name, buf);
 	}
 	else 
 	{
@@ -188,7 +188,7 @@ int do_tic(int t_flag)
 	    
 	    /* o.k., remove the TIC file */
 	    if(unlink(name) == ERROR)
-		log("$ERROR: can't remove %s", name);
+		logit("$ERROR: can't remove %s", name);
 	}
 
 	tmps_freeall();
@@ -218,7 +218,7 @@ int process_tic(Tick *tic)
      */
     if(!tic->area)
     {
-	log("ERROR: missing area in %s", tic->file);
+	logit("ERROR: missing area in %s", tic->file);
 	return ERROR;
     }
     if( (bbs = areasbbs_lookup(tic->area)) == NULL )
@@ -227,12 +227,12 @@ int process_tic(Tick *tic)
 	    (bbs = areasbbs_lookup(unknown_tick_area)) )
 	{
 	    is_unknown = TRUE;
-	    log("unknown area %s, using %s instead",
+	    logit("unknown area %s, using %s instead",
 		  tic->area, unknown_tick_area      );
 	}
 	else
 	{
-	    log("unknown area %s from %s",
+	    logit("unknown area %s from %s",
 		tic->area, znfp1(&tic->from) );
 	    return ERROR;
 	}
@@ -247,7 +247,7 @@ int process_tic(Tick *tic)
 	 */
 	if(! lon_search(&bbs->nodes, &tic->from) )
 	{
-	    log("insecure tic area %s from %s", tic->area,
+	    logit("insecure tic area %s from %s", tic->area,
 		znfp1(&tic->from)             );
 	    return ERROR;
 	}
@@ -269,14 +269,14 @@ int process_tic(Tick *tic)
 		    debug(1, "%s -> %s", old_name, new_name);
 		    if(copy_file(old_name, new_name) == ERROR)
 		    {
-			log("$ERROR: can't copy %s -> %s", old_name, new_name);
+			logit("$ERROR: can't copy %s -> %s", old_name, new_name);
 			return ERROR;
 		    }
-		    log("area %s file %s replaces %s, moved to %s",
+		    logit("area %s file %s replaces %s, moved to %s",
 			tic->area, tic->file, tic->replaces, rdir);
 		}
 		else
-		    log("area %s file %s replaces %s, removed",
+		    logit("area %s file %s replaces %s, removed",
 			tic->area, tic->file, tic->replaces);
 		
 		/* Remove old file, no error if this fails */
@@ -330,7 +330,7 @@ int process_tic(Tick *tic)
 	for(p=new.first; p; p=p->next)
 	{
 	    if(tick_send(tic, &p->node, new_name) == ERROR)
-		log("ERROR: send area %s file %s to %s failed",
+		logit("ERROR: send area %s file %s to %s failed",
 		    tic->area, tic->file, znfp1(&p->node));
 	    tmps_freeall();
 	}
@@ -352,7 +352,7 @@ int move(Tick *tic, char *old, char *new)
     /* Copy */
     if(copy_file(old, new) == ERROR)
     {
-	log("$ERROR: can't copy %s -> %s", old, new);
+	logit("$ERROR: can't copy %s -> %s", old, new);
 	return ERROR;
     }
     
@@ -360,7 +360,7 @@ int move(Tick *tic, char *old, char *new)
     crc = crc32_file(new);
     if(crc != tic->crc)
     {
-	log("ERROR: error while copying to %s, wrong CRC", new);
+	logit("ERROR: error while copying to %s, wrong CRC", new);
 	unlink(new);
 	return ERROR;
     }
@@ -368,7 +368,7 @@ int move(Tick *tic, char *old, char *new)
     /* o.k., now unlink file in inbound */
     if(unlink(old) == ERROR)
     {
-	log("$ERROR: can't remove %s", old);
+	logit("$ERROR: can't remove %s", old);
 	return ERROR;
     }
 
@@ -379,7 +379,7 @@ int move(Tick *tic, char *old, char *new)
 	if(utime(new, &ut) == ERROR)
 	{
 #ifndef __CYGWIN32__		/* Some problems with utime() here */
-	    log("$WARNING: can't set time of %s", new);
+	    logit("$WARNING: can't set time of %s", new);
 #endif
 #if 0
 	    return ERROR;
@@ -417,7 +417,7 @@ int copy_file(char *old, char *new)
 	nr = fread(buffer, sizeof(char), sizeof(buffer), fold);
 	if(ferror(fold))
 	{
-	    log("$ERROR: can't read from %s", old);
+	    logit("$ERROR: can't read from %s", old);
 	    fclose(fold);
 	    fclose(fnew);
 	    unlink(new);
@@ -427,7 +427,7 @@ int copy_file(char *old, char *new)
 	nw = fwrite(buffer, sizeof(char), nr, fnew);
 	if(ferror(fnew))
 	{
-	    log("$ERROR: can't write to %s", new);
+	    logit("$ERROR: can't write to %s", new);
 	    fclose(fold);
 	    fclose(fnew);
 	    unlink(new);
@@ -456,7 +456,7 @@ int add_files_bbs(Tick *tic, char *dir)
     BUF_COPY3(files_bbs, dir, "/", MY_FILESBBS);
     if( (fp = fopen(files_bbs, A_MODE)) == NULL )
     {
-	log("$ERROR: can't append to %s", files_bbs);
+	logit("$ERROR: can't append to %s", files_bbs);
 	return ERROR;
     }
     
@@ -501,14 +501,14 @@ int check_file(Tick *tic)
     
     if(!tic->file)
     {
-	log("ERROR: no file name");
+	logit("ERROR: no file name");
 	return ERROR;
     }
 
     /* Search file */
     if(dir_search(in_dir, tic->file) == NULL)
     {
-	log("ERROR: can't find file %s", tic->file);
+	logit("ERROR: can't find file %s", tic->file);
 	return ERROR;
     }
 
@@ -516,7 +516,7 @@ int check_file(Tick *tic)
     BUF_COPY3(name, in_dir, "/", tic->file);
     if(stat(name, &st) == ERROR)
     {
-	log("$ERROR: can't stat() file %s", name);
+	logit("$ERROR: can't stat() file %s", name);
 	return ERROR;
     }
 
@@ -527,7 +527,7 @@ int check_file(Tick *tic)
     {
 	if(tic->size != st.st_size)
 	{
-	    log("ERROR: wrong size for file %s: got %lu, expected %lu",
+	    logit("ERROR: wrong size for file %s: got %lu, expected %lu",
 		name, st.st_size, tic->size                           );
 	    return ERROR;
 	}
@@ -551,7 +551,7 @@ int check_file(Tick *tic)
     {
 	if(tic->crc != crc)
 	{
-	    log("ERROR: wrong CRC for file %s: got %08lx, expected %08lx",
+	    logit("ERROR: wrong CRC for file %s: got %08lx, expected %08lx",
 		name, crc, tic->crc                                       );
 	    return ERROR;
 	}
@@ -714,7 +714,7 @@ int main(int argc, char **argv)
     /* Read FAreas.BBS */
     if(areasbbs_init(areas_bbs) == ERROR)
     {
-	log("$ERROR: can't open %s", areas_bbs);
+	logit("$ERROR: can't open %s", areas_bbs);
 	return EXIT_ERROR;
     }
 

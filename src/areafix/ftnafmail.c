@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: ftnafmail.c,v 1.8 2003/02/16 15:38:52 n0ll Exp $
+ * $Id: ftnafmail.c,v 1.9 2004/08/22 10:30:00 n0ll Exp $
  *
  * setuid frontend for ftnaf, limiting options for security reason
  *
@@ -38,7 +38,7 @@
 
 
 #define PROGRAM		"ftnafmail"
-#define VERSION		"$Revision: 1.8 $"
+#define VERSION		"$Revision: 1.9 $"
 #define CONFIG		DEFAULT_CONFIG_MAIN
 
 
@@ -134,7 +134,7 @@ int main(int argc, char **argv)
     BUF_COPY(cmd, cf_p_libdir());
     BUF_APPEND(cmd, "/ftnaf");
     if( execv(cmd, filefix ? args_filefix : args_areafix) == ERROR )
-	log("$can't exec %s", cmd);
+	logit("$can't exec %s", cmd);
 	
     /* Only reached if error */
     exit(1);

@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: ftn2ftn.c,v 4.15 2003/02/16 15:39:02 n0ll Exp $
+ * $Id: ftn2ftn.c,v 4.16 2004/08/22 10:30:03 n0ll Exp $
  *
  * FTN-FTN gateway for NetMail, using the %Z:N/F.P addressing in the
  * from/to fields.
@@ -35,7 +35,7 @@
 
 
 #define PROGRAM 	"ftn2ftn"
-#define VERSION 	"$Revision: 4.15 $"
+#define VERSION 	"$Revision: 4.16 $"
 #define CONFIG		DEFAULT_CONFIG_MAIN
 
 
@@ -103,7 +103,7 @@ int do_message(Node *gate, Message *msg, MsgBody *body)
      */
     if(body->area)
     {
-	log("ftn2ftn: skipping EchoMail");
+	logit("ftn2ftn: skipping EchoMail");
 	return ERROR;
     }
     
@@ -190,12 +190,12 @@ int unpack(Node *gate, FILE *pkt_file, Packet *pkt)
 	type = pkt_get_body(pkt_file, &tl);
 	if(type == ERROR)
 	{
-	    log("ftn2ftn: error reading input packet");
+	    logit("ftn2ftn: error reading input packet");
 	    TMPS_RETURN(ERROR);
 	}
 	
 	if( msg_body_parse(&tl, &body) == -2 )
-	    log("ftn2ftn: error parsing message body");
+	    logit("ftn2ftn: error parsing message body");
 	/* Retrieve address information from body */
 	kludge_pt_intl(&body, &msg, TRUE);
 
@@ -226,12 +226,12 @@ int unpack_file(Node *gate, char *pkt_name)
      */
     pkt_file = fopen(pkt_name, R_MODE);
     if(!pkt_file) {
-	log("$Can't open packet %s", pkt_name);
+	logit("$Can't open packet %s", pkt_name);
 	exit(EX_OSERR);
     }
     if(pkt_get_hdr(pkt_file, &pkt) == ERROR)
     {
-	log("Error reading header from %s", pkt_name);
+	logit("Error reading header from %s", pkt_name);
 	exit(EX_OSERR);
     }
     
@@ -240,14 +240,14 @@ int unpack_file(Node *gate, char *pkt_name)
      */
     if(unpack(gate, pkt_file, &pkt) != OK) 
     {
-	log("Error in unpacking %s", pkt_name);
+	logit("Error in unpacking %s", pkt_name);
 	exit(EX_OSERR);
     }
     
     fclose(pkt_file);
 
     if (unlink(pkt_name)) {
-	log("$Could not unlink packet %s", pkt_name);
+	logit("$Could not unlink packet %s", pkt_name);
 	exit(EX_OSERR);
     }
 

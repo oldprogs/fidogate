@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: outpkt.c,v 4.14 2003/02/16 15:38:57 n0ll Exp $
+ * $Id: outpkt.c,v 4.15 2004/08/22 10:30:01 n0ll Exp $
  *
  * Output packet handling for ftntoss and ftroute.
  *
@@ -265,7 +265,7 @@ FILE *outpkt_open(Node *from, Node *to,
     p->fp = outpkt_fopen(p->tmpname, W_MODE);
     if(p->fp == NULL)
     {
-	log("$failed to open packet %s", p->tmpname);
+	logit("$failed to open packet %s", p->tmpname);
 	return NULL;
     }
     
@@ -283,7 +283,7 @@ FILE *outpkt_open(Node *from, Node *to,
     /* Rest is filled in by pkt_put_hdr() */
     if(pkt_put_hdr(p->fp, &pkt) == ERROR)
     {
-	log("$Can't write to packet file %s", p->tmpname);
+	logit("$Can't write to packet file %s", p->tmpname);
 	fclose(p->fp);
 	p->fp = NULL;
 	return NULL;

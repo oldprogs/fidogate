@@ -1,5 +1,16 @@
 2004-08-22  Martin Junius  <mj.at.n0ll.dot.net>
 
+	* test/Makefile (test verify): test target is now the same as verify.
+
+	* version.h (PATCHLEVEL): set to 10, version 4.4.10.
+
+	* ...: replaced all calls to log() with logit().
+
+	* src/include/prototypes.h: dito.
+
+	* src/common/log.c (logit): renamed old log() to avoid conflict
+	  with Standard-C math function.
+
 	------- CVS ci -------------------------------------------------------
 
 	* src/common/log.c (log_program): removed insecure code entirely,

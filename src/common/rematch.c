@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: rematch.c,v 4.8 2003/02/16 15:38:57 n0ll Exp $
+ * $Id: rematch.c,v 4.9 2004/08/22 10:30:01 n0ll Exp $
  *
  * Regular expression (POSIX functions) handling for FIDOGATE
  *
@@ -86,7 +86,7 @@ static Regex *regex_parse_line(char *s)
     p->re_s = strsave(s);
     err = regcomp(&p->re_c, p->re_s, REG_EXTENDED|REG_ICASE);
     if(err) {
-	log("WARNING: error compiling regex %s", p->re_s);
+	logit("WARNING: error compiling regex %s", p->re_s);
 	xfree(p);
 	return NULL;
     }

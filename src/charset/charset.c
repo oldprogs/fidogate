@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: charset.c,v 1.11 2003/02/16 15:38:52 n0ll Exp $
+ * $Id: charset.c,v 1.12 2004/08/22 10:30:01 n0ll Exp $
  *
  * NEW charset.c code using charset.bin mapping file
  *
@@ -321,7 +321,7 @@ void charset_init(void)
 {
     if(charset_read_bin( cf_p_charsetmap() ) == ERROR) 
     {
-	log("ERROR: reading from %s", cf_p_charsetmap());
+	logit("ERROR: reading from %s", cf_p_charsetmap());
 	exit(EX_SOFTWARE);
     }
 

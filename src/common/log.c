@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: log.c,v 4.23 2004/08/22 08:59:00 n0ll Exp $
+ * $Id: log.c,v 4.24 2004/08/22 10:30:01 n0ll Exp $
  *
  * Log and debug functions
  *
@@ -89,7 +89,7 @@ char *strerror(int errnum)
  * If first character in format string is '$', output errno and error
  * string too.
  */
-void log(const char *fmt, ...)
+void logit(const char *fmt, ...)
 {
     va_list args;
     FILE *fp;

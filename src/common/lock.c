@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: lock.c,v 4.15 2003/02/16 15:38:56 n0ll Exp $
+ * $Id: lock.c,v 4.16 2004/08/22 10:30:01 n0ll Exp $
  *
  * File locking
  *
@@ -137,13 +137,13 @@ int lock_lockfile_nfs(char *name, int wait, char *id)
     {
 	if(wait)
 	{
-	    log("$ERROR: creating unique %s (for lock %s) failed",
+	    logit("$ERROR: creating unique %s (for lock %s) failed",
 		uniq_name, name);
 	    exit(EX_OSFILE);
 	}
 	else
 	{
-	    log("$WARNING: creating unique %s (for lock %s) failed",
+	    logit("$WARNING: creating unique %s (for lock %s) failed",
 		uniq_name, name);
 	    return ERROR;
 	}
@@ -169,14 +169,14 @@ int lock_lockfile_nfs(char *name, int wait, char *id)
 	    {
 		if(wait)
 		{
-		    log("$ERROR: linking unique %s -> lock %s failed",
+		    logit("$ERROR: linking unique %s -> lock %s failed",
 			uniq_name, name);
 		    unlink(uniq_name);
 		    exit(EX_OSFILE);
 		}
 		else
 		{
-		    log("$WARNING: linking unique %s -> %s failed",
+		    logit("$WARNING: linking unique %s -> %s failed",
 			uniq_name, name);
 		    unlink(uniq_name);
 		    return ERROR;
@@ -189,7 +189,7 @@ int lock_lockfile_nfs(char *name, int wait, char *id)
 	    if( stat(uniq_name, &st) == ERROR)
 	    {
 		/* Should not fail */
-		log("$ERROR: stat unique %s (for lock %s) failed",
+		logit("$ERROR: stat unique %s (for lock %s) failed",
 		    uniq_name, name);
 		unlink(uniq_name);
 		exit(EX_OSFILE);
@@ -223,7 +223,7 @@ int unlock_lockfile_nfs(char *name)
     
     if( unlink(name) == ERROR )
     {
-	log("$WARNING: removing lock %s failed", name);
+	logit("$WARNING: removing lock %s failed", name);
 	ret = ERROR;
     }
 

@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftnroute.c,v 4.30 2003/02/16 15:39:02 n0ll Exp $
+ * $Id: ftnroute.c,v 4.31 2004/08/22 10:30:03 n0ll Exp $
  *
  * Route FTN NetMail/EchoMail
  *
@@ -40,7 +40,7 @@
 
 
 #define PROGRAM 	"ftnroute"
-#define VERSION 	"$Revision: 4.30 $"
+#define VERSION 	"$Revision: 4.31 $"
 #define CONFIG		DEFAULT_CONFIG_MAIN
 
 
@@ -121,10 +121,10 @@ int do_routing(char *name, FILE *fp, Packet *pkt)
 
 
     if(node_eq(&desc->to, &pkt->to))
-	log("packet for %s (%s)", znfp1(&pkt->to),
+	logit("packet for %s (%s)", znfp1(&pkt->to),
 	    flav_to_asc(desc->flav)                              );
     else
-	log("packet for %s via %s (%s)", znfp1(&pkt->to),
+	logit("packet for %s via %s (%s)", znfp1(&pkt->to),
 	    znfp2(&desc->to), flav_to_asc(desc->flav)     );
 
     return desc->move_only ? do_move(name, fp, desc)
@@ -149,7 +149,7 @@ int do_move(char *name, FILE *fp, PktDesc *desc)
     debug(5, "Rename %s -> %s", name, buffer);
     if(rename(name, buffer) == ERROR)
     {
-	log("$ERROR: can't rename %s -> %s", name, buffer);
+	logit("$ERROR: can't rename %s -> %s", name, buffer);
 	return ERROR;
     }
 
@@ -157,7 +157,7 @@ int do_move(char *name, FILE *fp, PktDesc *desc)
     if(utime(buffer, NULL) == ERROR)
     {
 #ifndef __CYGWIN32__		/* Some problems with utime() here */
-	log("$WARNING: can't set time of %s", buffer);
+	logit("$WARNING: can't set time of %s", buffer);
 #endif
 #if 0
 	return ERROR;
@@ -339,7 +339,7 @@ int do_packet(char *pkt_name, FILE *pkt_file, Packet *pkt, PktDesc *desc)
 	msg.node_to   = pkt->to;
 	if(pkt_get_msg_hdr(pkt_file, &msg) == ERROR)
 	{
-	    log("ERROR: reading input packet");
+	    logit("ERROR: reading input packet");
 	    ret = ERROR;
 	    break;
 	}
@@ -350,7 +350,7 @@ int do_packet(char *pkt_name, FILE *pkt_file, Packet *pkt, PktDesc *desc)
 	type = pkt_get_body(pkt_file, &tl);
 	if(type == ERROR)
 	{
-	    log("ERROR: reading input packet");
+	    logit("ERROR: reading input packet");
 	    ret = ERROR;
 	    break;
 	}
@@ -359,7 +359,7 @@ int do_packet(char *pkt_name, FILE *pkt_file, Packet *pkt, PktDesc *desc)
 	 * Parse message body
 	 */
 	if( msg_body_parse(&tl, &body) == -2 )
-	    log("ERROR: parsing message body");
+	    logit("ERROR: parsing message body");
 
 	if(body.area == NULL)
 	{
@@ -413,13 +413,13 @@ int do_packet(char *pkt_name, FILE *pkt_file, Packet *pkt, PktDesc *desc)
 
     if(fclose(pkt_file) == ERROR)
     {
-	log("$ERROR: can't close packet %s", pkt_name);
+	logit("$ERROR: can't close packet %s", pkt_name);
 	TMPS_RETURN(severe_error=ERROR);
     }
 
     if(ret == OK)
 	if (unlink(pkt_name)) {
-	    log("$ERROR: can't unlink packet %s", pkt_name);
+	    logit("$ERROR: can't unlink packet %s", pkt_name);
 	    TMPS_RETURN(ERROR);
 	}
 
@@ -441,12 +441,12 @@ int do_file(char *pkt_name)
      */
     pkt_file = fopen(pkt_name, R_MODE);
     if(!pkt_file) {
-	log("$ERROR: can't open packet %s", pkt_name);
+	logit("$ERROR: can't open packet %s", pkt_name);
 	TMPS_RETURN(ERROR);
     }
     if(pkt_get_hdr(pkt_file, &pkt) == ERROR)
     {
-	log("ERROR: reading header from %s", pkt_name);
+	logit("ERROR: reading header from %s", pkt_name);
 	TMPS_RETURN(ERROR);
     }
 
@@ -455,7 +455,7 @@ int do_file(char *pkt_name)
      */
     if(do_routing(pkt_name, pkt_file, &pkt) == ERROR) 
     {
-	log("ERROR: in processing %s", pkt_name);
+	logit("ERROR: in processing %s", pkt_name);
 	TMPS_RETURN(ERROR);
     }
 
@@ -485,7 +485,7 @@ void prog_signal(int signum)
 	name = "";            break;
     }
 
-    log("KILLED%s: exit forced", name);
+    logit("KILLED%s: exit forced", name);
 }
 
 
@@ -661,7 +661,7 @@ int main(int argc, char **argv)
 	dir_sortmode(DIR_SORTMTIME);
 	if(dir_open(in_dir, pattern, TRUE) == ERROR)
 	{
-	    log("$ERROR: can't open directory %s", in_dir);
+	    logit("$ERROR: can't open directory %s", in_dir);
 	    exit(EX_OSERR);
 	}
 

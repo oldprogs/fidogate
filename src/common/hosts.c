@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: hosts.c,v 4.14 2003/02/16 15:38:56 n0ll Exp $
+ * $Id: hosts.c,v 4.15 2004/08/22 10:30:01 n0ll Exp $
  *
  * Process hostname <-> node aliases from hosts file
  *
@@ -80,7 +80,7 @@ static Host *hosts_parse_line(char *buf)
     
     if( asc_to_node(f, &node, FALSE) == ERROR )
     {
-	log("hosts: illegal FTN address %s", f);
+	logit("hosts: illegal FTN address %s", f);
 	return NULL;
     }
 

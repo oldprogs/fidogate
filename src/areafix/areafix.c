@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: areafix.c,v 1.20 2003/02/16 15:38:51 n0ll Exp $
+ * $Id: areafix.c,v 1.21 2004/08/22 10:30:00 n0ll Exp $
  *
  * Common Areafix functions
  *
@@ -404,19 +404,19 @@ int rewrite_areas_bbs(void)
 
     if( (fp = fopen(new, W_MODE)) == NULL )
     {
-	log("$ERROR: can't open %s for writing AREAS.BBS", new);
+	logit("$ERROR: can't open %s for writing AREAS.BBS", new);
 	return ERROR;
     }
     if( areasbbs_print(fp) == ERROR )
     {
-	log("$ERROR: writing to %s", new);
+	logit("$ERROR: writing to %s", new);
 	fclose(fp);
 	unlink(new);
 	return ERROR;
     }
     if( fclose(fp) == ERROR )
     {
-	log("$ERROR: closing %s", new);
+	logit("$ERROR: closing %s", new);
 	unlink(new);
 	return ERROR;
     }
@@ -446,7 +446,7 @@ int rewrite_areas_bbs(void)
     debug(4, "Renaming %s -> %s", old, new);
     rename(old, new);
 
-    log("%s changed", buffer);
+    logit("%s changed", buffer);
 
     return OK;
 }
@@ -706,7 +706,7 @@ int cmd_new(Node *node, char *line)
 
     areasbbs_add(p);
 
-    log("%s: new %s lvl=%d key=%s desc=%s%s%s",
+    logit("%s: new %s lvl=%d key=%s desc=%s%s%s",
 	znfp1(node),
 	p->area,
 	p->lvl,
@@ -727,7 +727,7 @@ int cmd_new(Node *node, char *line)
  */
 int cmd_vacation(Node *node, char *area)
 {
-    log("%s: vacation", znfp1(node));
+    logit("%s: vacation", znfp1(node));
 
     if(!authorized)
     {
@@ -750,7 +750,7 @@ int cmd_listall(Node *node)
     AreasBBS *p;
     LON *l;
     
-    log("%s: listall", znfp1(node));
+    logit("%s: listall", znfp1(node));
 
     if(!authorized)
     {
@@ -796,7 +796,7 @@ int cmd_list(Node *node)
     char *s;
     int key_ok;
     
-    log("%s: list", znfp1(node));
+    logit("%s: list", znfp1(node));
 
     if(!authorized)
     {
@@ -858,7 +858,7 @@ int cmd_query(Node *node)
     AreasBBS *p;
     LON *l;
     
-    log("%s: query", znfp1(node));
+    logit("%s: query", znfp1(node));
 
     if(!authorized)
     {
@@ -895,7 +895,7 @@ int cmd_unlinked(Node *node)
     char *s;
     int key_ok;
     
-    log("%s: unlinked", znfp1(node));
+    logit("%s: unlinked", znfp1(node));
 
     if(!authorized)
     {
@@ -1023,16 +1023,16 @@ int cmd_sub(Node *node, char *area)
 		    {
 			/* Not subscribed at uplink, print note */
 			areafix_printf("        (this area is currently not subscribed at uplink %s)", znf1(&l->first->node));
-			log("%s: +%s (not subscribed at uplink)",
+			logit("%s: +%s (not subscribed at uplink)",
 			    znfp1(node), p->area);
 		    }
 		    else
-			log("%s: +%s", znfp1(node), p->area);
+			logit("%s: +%s", znfp1(node), p->area);
 		}
 		else
 		{
 		    areafix_printf("%s: no uplink, dead area", p->area);
-		    log("%s: dead area %s", znfp1(node), p->area);
+		    logit("%s: dead area %s", znfp1(node), p->area);
 		}
 	    }
 	}
@@ -1085,7 +1085,7 @@ int cmd_unsub(Node *node, char *area)
 		areas_bbs_changed = TRUE;
 		areafix_printf("%-41s: unsubscribed", p->area);
 
-		log("%s: -%s", znfp1(node), p->area);
+		logit("%s: -%s", znfp1(node), p->area);
 	    }
 	}
     }
@@ -1107,7 +1107,7 @@ int cmd_help(Node *node)
     FILE *fp;
     char *helpfile;
 
-    log("%s: help", znfp1(node));
+    logit("%s: help", znfp1(node));
 
     if( (helpfile = cf_get_string("AreaFixHelp", TRUE)) )
     {
@@ -1122,10 +1122,10 @@ int cmd_help(Node *node)
 	    return OK;
 	}
 	else
-	    log("$ERROR: can't open %s", helpfile);
+	    logit("$ERROR: can't open %s", helpfile);
     }
     else
-	log("WARNING: AreaFixHelp not defined");
+	logit("WARNING: AreaFixHelp not defined");
 
     areafix_printf("Sorry, no help available.");
 
@@ -1142,7 +1142,7 @@ int cmd_passwd(Node *node, char *arg)
     char *p;
     Node n;
     
-    log("%s: passwd", znfp1(node));
+    logit("%s: passwd", znfp1(node));
 
     authorized = FALSE;
 

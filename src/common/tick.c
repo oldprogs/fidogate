@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: tick.c,v 4.19 2003/02/16 15:38:58 n0ll Exp $
+ * $Id: tick.c,v 4.20 2004/08/22 10:30:01 n0ll Exp $
  *
  * TIC file processing
  *
@@ -350,7 +350,7 @@ int tick_send(Tick *tic, Node *node, char *name)
     if(bink_attach(node, '^', buffer, flav, TRUE) == ERROR)
 	return ERROR;
 
-    log("area %s file %s (%lub) to %s",
+    logit("area %s file %s (%lub) to %s",
 	tic->area, tic->file, tic->size, znfp1(node));
 
     return OK;

@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: ftnaf.c,v 1.12 2003/02/16 15:38:52 n0ll Exp $
+ * $Id: ftnaf.c,v 1.13 2004/08/22 10:30:00 n0ll Exp $
  *
  * Areafix-like AREAS.BBS EchoMail distribution manager. Commands somewhat
  * conforming to FSC-0057.
@@ -39,7 +39,7 @@
 
 
 #define PROGRAM		"ftnaf"
-#define VERSION		"$Revision: 1.12 $"
+#define VERSION		"$Revision: 1.13 $"
 #define CONFIG		DEFAULT_CONFIG_MAIN
 
 
@@ -114,7 +114,7 @@ FILE *mailer_open(char *to)
     fp = popen(mailer, W_MODE);
     if(!fp)
     {
-	log("$ERROR: can't open pipe to %s", mailer);
+	logit("$ERROR: can't open pipe to %s", mailer);
 	return NULL;
     }
     

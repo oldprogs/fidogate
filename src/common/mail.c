@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: mail.c,v 4.12 2003/02/16 15:38:56 n0ll Exp $
+ * $Id: mail.c,v 4.13 2004/08/22 10:30:01 n0ll Exp $
  *
  * Create RFC messages in mail/news dir
  *
@@ -63,7 +63,7 @@ int mail_open(int sel)
 	str_printf(m_name, sizeof(m_name), "%s/%08ld.rfc", mail_dir, n);
 	m_file = fopen(m_tmp, W_MODE);
 	if(!m_file) {
-	    log("$Can't create mail file %s", m_tmp);
+	    logit("$Can't create mail file %s", m_tmp);
 	    return ERROR;
 	}
 	break;
@@ -75,13 +75,13 @@ int mail_open(int sel)
 	str_printf(n_name, sizeof(n_name), "%s/%08ld.rfc", news_dir, n);
 	n_file = fopen(n_tmp, W_MODE);
 	if(!n_file) {
-	    log("$Can't create mail file %s", n_tmp);
+	    logit("$Can't create mail file %s", n_tmp);
 	    return ERROR;
 	}
 	break;
 
     default:
-	log("mail_open(%d): illegal value", sel);
+	logit("mail_open(%d): illegal value", sel);
 	return ERROR;
 	break;
     }
@@ -149,7 +149,7 @@ int mail_close(int sel)
 	fclose(m_file);
 	err = rename(m_tmp, m_name);
 	if(err == ERROR)
-	    log("$Can't rename mail file %s to %s", m_tmp, m_name);
+	    logit("$Can't rename mail file %s to %s", m_tmp, m_name);
 
 	m_tmp[0]  = 0;
 	m_name[0] = 0;
@@ -161,7 +161,7 @@ int mail_close(int sel)
 	fclose(n_file);
 	err = rename(n_tmp, n_name);
 	if(err == ERROR)
-	    log("$Can't rename mail file %s to %s", n_tmp, n_name);
+	    logit("$Can't rename mail file %s to %s", n_tmp, n_name);
 
 	n_tmp[0]  = 0;
 	n_name[0] = 0;

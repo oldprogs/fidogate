@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: pkttmpl.c,v 1.13 2003/02/16 15:38:52 n0ll Exp $
+ * $Id: pkttmpl.c,v 1.14 2004/08/22 10:30:01 n0ll Exp $
  *
  * Template for utility processing FTN packets
  *
@@ -37,7 +37,7 @@
 
 
 #define PROGRAM 	"ftnxxx"
-#define VERSION 	"$Revision: 1.13 $"
+#define VERSION 	"$Revision: 1.14 $"
 #define CONFIG		DEFAULT_CONFIG_MAIN
 
 
@@ -105,11 +105,11 @@ int do_packet(FILE *pkt_file, Packet *pkt)
     {
 	if(feof(pkt_file))
 	{
-	    log("WARNING: premature EOF reading input packet");
+	    logit("WARNING: premature EOF reading input packet");
 	    TMPS_RETURN(OK);
 	}
 	
-	log("ERROR: reading input packet");
+	logit("ERROR: reading input packet");
 	TMPS_RETURN(ERROR);
     }
 
@@ -120,7 +120,7 @@ int do_packet(FILE *pkt_file, Packet *pkt)
 	msg.node_to   = pkt->to;
 	if(pkt_get_msg_hdr(pkt_file, &msg) == ERROR)
 	{
-	    log("ERROR: reading input packet");
+	    logit("ERROR: reading input packet");
 	    TMPS_RETURN(ERROR);
 	}
 	
@@ -130,18 +130,18 @@ int do_packet(FILE *pkt_file, Packet *pkt)
 	{
 	    if(feof(pkt_file))
 	    {
-		log("WARNING: premature EOF reading input packet");
+		logit("WARNING: premature EOF reading input packet");
 	    }
 	    else
 	    {
-		log("ERROR: reading input packet");
+		logit("ERROR: reading input packet");
 		TMPS_RETURN(ERROR);
 	    }
 	}
 	
 	/* Parse message body */
 	if( msg_body_parse(&tl, &body) == -2 )
-	    log("ERROR: parsing message body");
+	    logit("ERROR: parsing message body");
 	/* Retrieve address information from kludges for NetMail */
 	if(body.area == NULL)
 	{
@@ -193,13 +193,13 @@ int do_file(char *pkt_name)
     /* Open packet and read header */
     pkt_file = fopen(pkt_name, R_MODE);
     if(!pkt_file) {
-	log("$ERROR: can't open packet %s", pkt_name);
+	logit("$ERROR: can't open packet %s", pkt_name);
 	rename_bad(pkt_name);
 	TMPS_RETURN(OK);
     }
     if(pkt_get_hdr(pkt_file, &pkt) == ERROR)
     {
-	log("ERROR: reading header from %s", pkt_name);
+	logit("ERROR: reading header from %s", pkt_name);
 	fclose(pkt_file);
 	rename_bad(pkt_name);
 	TMPS_RETURN(OK);
@@ -207,12 +207,12 @@ int do_file(char *pkt_name)
     
     /* Process it */
     pkt_size = check_size(pkt_name);
-    log("packet %s (%ldb) from %s to %s", pkt_name, pkt_size,
+    logit("packet %s (%ldb) from %s to %s", pkt_name, pkt_size,
 	znfp1(&pkt.from), znfp2(&pkt.to) );
     
     if(do_packet(pkt_file, &pkt) == ERROR) 
     {
-	log("ERROR: processing %s", pkt_name);
+	logit("ERROR: processing %s", pkt_name);
 	fclose(pkt_file);
 	rename_bad(pkt_name);
 	TMPS_RETURN(severe_error);
@@ -221,7 +221,7 @@ int do_file(char *pkt_name)
     fclose(pkt_file);
 
     if (unlink(pkt_name)) {
-	log("$ERROR: can't unlink %s", pkt_name);
+	logit("$ERROR: can't unlink %s", pkt_name);
 	rename_bad(pkt_name);
 	TMPS_RETURN(ERROR);
     }
@@ -252,7 +252,7 @@ void prog_signal(int signum)
 	name = "";            break;
     }
 
-    log("KILLED%s: exit forced", name);
+    logit("KILLED%s: exit forced", name);
 }
 
 
@@ -396,7 +396,7 @@ int main(int argc, char **argv)
 	dir_sortmode(DIR_SORTMTIME);
 	if(dir_open(in_dir, "*.pkt", TRUE) == ERROR)
 	{
-	    log("$ERROR: can't open directory %s", in_dir);
+	    logit("$ERROR: can't open directory %s", in_dir);
 	    exit(EX_OSERR);
 	}
     
