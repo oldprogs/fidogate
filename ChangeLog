@@ -2,6 +2,10 @@
 
 	------- CVS ci -------------------------------------------------------
 
+	* version.h (PATCHLEVEL): set to 7, version 4.4.7
+
+	------- CVS ci -------------------------------------------------------
+
 	* src/gate/rfc2ftn.c (snd_mail): added log() message for bounces
 	  from mail_receiver().
 

@@ -1,6 +1,144 @@
 tc: clean-up
 tc: init
 tc: running
+----- rfc2ftn: mail to mj@orodruin.fido.de -----
+Message body size 11 (+CR!)
+RFC To:       mj@orodruin.fido.de
+RFC From:     Test User <test@blah.org>
+RFC Sender:   Test User <test@blah.org>
+    Name:     mj
+    Address:  orodruin.fido.de
+    FTN node: 242:1000/5.0
+Name for alias checking: mj
+Alias found: mj 242:1000/5.0 Martin Junius
+    Name:     test
+    Address:  blah.org
+Name for alias checking: test
+E-mail for alias checking: test@blah.org
+RFC MIME-Version:              -NONE-
+RFC Content-Type:              -NONE-
+                        type = 
+                     charset = 
+                    boundary = 
+RFC Content-Transfer-Encoding: -NONE-
+addr_is_local(): From=Test User <test@blah.org> FQDN=orodruin.fido.de
+rfc2ftn MAIL: Test User <test@blah.org> -> mj@orodruin.fido.de
+charset: in=iso-8859-1 out=LATIN-1
+charset: table found in=iso-8859-1 out=iso-8859-1
+charset: msg RFC=iso-8859-1 FSC=LATIN-1 enc=8bit
+New packet file ./outpkt/mail/00000001.pkt (tmp ./outpkt/mail/00000001.tmp)
+Writing FTN packet header:
+    From: 242:1000/5.0
+    To  : 242:1000/5.0
+    Baud: 0
+    Prod: 00 fe
+    Rev : x.x
+    Pass: ""
+    Capw: 0001
+Writing FTN message header:
+    From: Test User                            @ 242:1000/5.0
+    To  : Martin Junius                        @ 242:1000/5.0
+    Subj: Mail -> mj
+    Attr: 0001
+using local time
+----- rfc2ftn: mail to Martin_Junius@orodruin.fido.de -----
+Message body size 11 (+CR!)
+RFC To:       Martin_Junius@orodruin.fido.de
+RFC From:     Test User <test@blah.org>
+RFC Sender:   Test User <test@blah.org>
+    Name:     Martin_Junius
+    Address:  orodruin.fido.de
+    FTN node: 242:1000/5.0
+Name for alias checking: Martin_Junius
+Converted receiver name: Martin Junius
+Alias (full name) found: mj 242:1000/5.0 Martin Junius
+    Name:     test
+    Address:  blah.org
+Name for alias checking: test
+E-mail for alias checking: test@blah.org
+RFC MIME-Version:              -NONE-
+RFC Content-Type:              -NONE-
+                        type = 
+                     charset = 
+                    boundary = 
+RFC Content-Transfer-Encoding: -NONE-
+addr_is_local(): From=Test User <test@blah.org> FQDN=orodruin.fido.de
+rfc2ftn MAIL: Test User <test@blah.org> -> Martin_Junius@orodruin.fido.de
+charset: in=iso-8859-1 out=LATIN-1
+charset: table found in=iso-8859-1 out=iso-8859-1
+charset: msg RFC=iso-8859-1 FSC=LATIN-1 enc=8bit
+New packet file ./outpkt/mail/00000002.pkt (tmp ./outpkt/mail/00000002.tmp)
+Writing FTN packet header:
+    From: 242:1000/5.0
+    To  : 242:1000/5.0
+    Baud: 0
+    Prod: 00 fe
+    Rev : x.x
+    Pass: ""
+    Capw: 0001
+Writing FTN message header:
+    From: Test User                            @ 242:1000/5.0
+    To  : Martin Junius                        @ 242:1000/5.0
+    Subj: Mail -> Martin_Junius
+    Attr: 0001
+using local time
+----- rfc2ftn: mail to postmaster@orodruin.fido.de -----
+Message body size 11 (+CR!)
+RFC To:       postmaster@orodruin.fido.de
+RFC From:     Test User <test@blah.org>
+RFC Sender:   Test User <test@blah.org>
+    Name:     postmaster
+    Address:  orodruin.fido.de
+    FTN node: 242:1000/5.0
+Name for alias checking: postmaster
+Converted receiver name: Postmaster
+Alias postmaster: return Sysop
+    Name:     test
+    Address:  blah.org
+Name for alias checking: test
+E-mail for alias checking: test@blah.org
+RFC MIME-Version:              -NONE-
+RFC Content-Type:              -NONE-
+                        type = 
+                     charset = 
+                    boundary = 
+RFC Content-Transfer-Encoding: -NONE-
+addr_is_local(): From=Test User <test@blah.org> FQDN=orodruin.fido.de
+rfc2ftn MAIL: Test User <test@blah.org> -> postmaster@orodruin.fido.de
+charset: in=iso-8859-1 out=LATIN-1
+charset: table found in=iso-8859-1 out=iso-8859-1
+charset: msg RFC=iso-8859-1 FSC=LATIN-1 enc=8bit
+New packet file ./outpkt/mail/00000003.pkt (tmp ./outpkt/mail/00000003.tmp)
+Writing FTN packet header:
+    From: 242:1000/5.0
+    To  : 242:1000/5.0
+    Baud: 0
+    Prod: 00 fe
+    Rev : x.x
+    Pass: ""
+    Capw: 0001
+Writing FTN message header:
+    From: Test User                            @ 242:1000/5.0
+    To  : Sysop                                @ 242:1000/5.0
+    Subj: Mail -> postmaster
+    Attr: 0001
+using local time
+----- rfc2ftn: mail to unknown@orodruin.fido.de -----
+Message body size 15 (+CR!)
+RFC To:       unknown@orodruin.fido.de
+RFC From:     Test User <test@blah.org>
+RFC Sender:   Test User <test@blah.org>
+    Name:     unknown
+    Address:  orodruin.fido.de
+    FTN node: 242:1000/5.0
+Name for alias checking: unknown
+Converted receiver name: Unknown
+No alias found: returning address error
+Internet -> FIDO gateway / FIDOGATE x.x.x @ orodruin.fido.de
+   ----- ERROR -----
+Address unknown@orodruin.fido.de:
+  recipient is unknown
+rfc2ftn BOUNCE: Test User <test@blah.org> -> unknown@orodruin.fido.de: recipient is unknown
 ----- rfc2ftn: mail to test_1 @ 2:2/0.0 -----
 Message body size 6 (+CR!)
 RFC To:       test_1@p0.f0.n2.z2
@@ -10,7 +148,8 @@ RFC Sender:   Test User <test@blah.org>
     Address:  p0.f0.n2.z2
     FTN node: 2:2/0.0
 Name for alias checking: test_1
-No alias found: return Test 1
+Converted receiver name: Test 1
+Alias (full name) found: test1 2:2/0.0 Test 1
     Name:     test
     Address:  blah.org
 Name for alias checking: test
@@ -26,7 +165,7 @@ rfc2ftn MAIL: Test User <test@blah.org> -> test_1@p0.f0.n2.z2
 charset: in=iso-8859-1 out=LATIN-1
 charset: table found in=iso-8859-1 out=iso-8859-1
 charset: msg RFC=iso-8859-1 FSC=LATIN-1 enc=8bit
-New packet file ./outpkt/mail/00000001.pkt (tmp ./outpkt/mail/00000001.tmp)
+New packet file ./outpkt/mail/00000004.pkt (tmp ./outpkt/mail/00000004.tmp)
 Writing FTN packet header:
     From: 2:2452/110.2
     To  : 2:2452/110.2
@@ -50,7 +189,8 @@ RFC Sender:   Test User <test@blah.org>
     Address:  p0.f0.n2.z2
     FTN node: 2:2/0.0
 Name for alias checking: test_2
-No alias found: return Test 2
+Converted receiver name: Test 2
+Alias (full name) found: test2 2:2/0.0 Test 2
     Name:     test
     Address:  blah.org
 Name for alias checking: test
@@ -66,7 +206,7 @@ rfc2ftn MAIL: Test User <test@blah.org> -> test_2@p0.f0.n2.z2
 charset: in=iso-8859-1 out=LATIN-1
 charset: table found in=iso-8859-1 out=iso-8859-1
 charset: msg RFC=iso-8859-1 FSC=LATIN-1 enc=8bit
-New packet file ./outpkt/mail/00000002.pkt (tmp ./outpkt/mail/00000002.tmp)
+New packet file ./outpkt/mail/00000005.pkt (tmp ./outpkt/mail/00000005.tmp)
 Writing FTN packet header:
     From: 2:2452/110.2
     To  : 2:2452/110.2
@@ -84,6 +224,81 @@ using local time
 
 ----- ftn2rfc -----
 Reading FTN packet header:
+    From: 242:1000/5.0
+    To  : 242:1000/5.0
+    Baud: 0
+    Prod: 00 fe
+    Rev : x.x
+    Pass: ""
+    Capw: 0001
+ftn2rfc packet ./pin/00000001.pkt (508b) from 242:1000/5.0 to 242:1000/5.0
+Reading FTN message header:
+    From: Test User                            @ 242:1000/5.0
+    To  : Martin Junius                        @ 242:1000/5.0
+    Subj: Mail -> mj
+    Attr: 0001
+FIDO sender (from/origin): 242:1000/5.0
+cvt8:
+FSC-0054 ^ACHRS/CHARSET: LATIN-1 2
+FSC-0054 level 2 charset=LATIN-1
+charset: in=LATIN-1 out=us-ascii
+charset: table found in=iso-8859-1 out=us-ascii
+charset: in=LATIN-1 out=us-ascii
+charset: table found in=iso-8859-1 out=us-ascii
+Checking for alias: Martin Junius <Martin_Junius@orodruin.fido.de>
+Alias (old) found: mj 242:1000/5.0 "Martin Junius"
+ftn2rfc MAIL: Test User <test@blah.org> -> mj@orodruin.fido.de
+Reading FTN packet header:
+    From: 242:1000/5.0
+    To  : 242:1000/5.0
+    Baud: 0
+    Prod: 00 fe
+    Rev : x.x
+    Pass: ""
+    Capw: 0001
+ftn2rfc packet ./pin/00000002.pkt (519b) from 242:1000/5.0 to 242:1000/5.0
+Reading FTN message header:
+    From: Test User                            @ 242:1000/5.0
+    To  : Martin Junius                        @ 242:1000/5.0
+    Subj: Mail -> Martin_Junius
+    Attr: 0001
+FIDO sender (from/origin): 242:1000/5.0
+cvt8:
+FSC-0054 ^ACHRS/CHARSET: LATIN-1 2
+FSC-0054 level 2 charset=LATIN-1
+charset: in=LATIN-1 out=us-ascii
+charset: table found in=iso-8859-1 out=us-ascii
+charset: in=LATIN-1 out=us-ascii
+charset: table found in=iso-8859-1 out=us-ascii
+Checking for alias: Martin Junius <Martin_Junius@orodruin.fido.de>
+Alias (old) found: mj 242:1000/5.0 "Martin Junius"
+ftn2rfc MAIL: Test User <test@blah.org> -> mj@orodruin.fido.de
+Reading FTN packet header:
+    From: 242:1000/5.0
+    To  : 242:1000/5.0
+    Baud: 0
+    Prod: 00 fe
+    Rev : x.x
+    Pass: ""
+    Capw: 0001
+ftn2rfc packet ./pin/00000003.pkt (508b) from 242:1000/5.0 to 242:1000/5.0
+Reading FTN message header:
+    From: Test User                            @ 242:1000/5.0
+    To  : Sysop                                @ 242:1000/5.0
+    Subj: Mail -> postmaster
+    Attr: 0001
+FIDO sender (from/origin): 242:1000/5.0
+cvt8:
+FSC-0054 ^ACHRS/CHARSET: LATIN-1 2
+FSC-0054 level 2 charset=LATIN-1
+charset: in=LATIN-1 out=us-ascii
+charset: table found in=iso-8859-1 out=us-ascii
+charset: in=LATIN-1 out=us-ascii
+charset: table found in=iso-8859-1 out=us-ascii
+Checking for alias: Sysop <Sysop@orodruin.fido.de>
+Alias (old) found: mj 242:1000/5.0 "Sysop"
+ftn2rfc MAIL: Test User <test@blah.org> -> mj@orodruin.fido.de
+Reading FTN packet header:
     From: 2:2452/110.2
     To  : 2:2452/110.2
     Baud: 0
@@ -91,7 +306,7 @@ Reading FTN packet header:
     Rev : x.x
     Pass: ""
     Capw: 0001
-ftn2rfc packet ./pin/00000001.pkt (509b) from 2:2452/110.2 to 2:2452/110.2
+ftn2rfc packet ./pin/00000004.pkt (508b) from 2:2452/110.2 to 2:2452/110.2
 Reading FTN message header:
     From: Test User                            @ 2:2452/110.2
     To  : Test 1                               @ 2:2/0.2
@@ -116,7 +331,7 @@ Reading FTN packet header:
     Rev : x.x
     Pass: ""
     Capw: 0001
-ftn2rfc packet ./pin/00000002.pkt (509b) from 2:2452/110.2 to 2:2452/110.2
+ftn2rfc packet ./pin/00000005.pkt (508b) from 2:2452/110.2 to 2:2452/110.2
 Reading FTN message header:
     From: Test User                            @ 2:2452/110.2
     To  : Test 2                               @ 2:2/0.2

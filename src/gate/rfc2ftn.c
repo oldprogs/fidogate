@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway software UNIX <-> FIDO
  *
- * $Id: rfc2ftn.c,v 4.65 2002/12/14 21:05:47 n0ll Exp $
+ * $Id: rfc2ftn.c,v 4.66 2002/12/16 20:20:47 n0ll Exp $
  *
  * Read mail or news from standard input and convert it to a FIDO packet.
  *
@@ -39,7 +39,7 @@
 
 
 #define PROGRAM 	"rfc2ftn"
-#define VERSION 	"$Revision: 4.65 $"
+#define VERSION 	"$Revision: 4.66 $"
 #define CONFIG		DEFAULT_CONFIG_GATE
 
 
@@ -700,7 +700,7 @@ char *receiver(char *to, Node *node)
     if(registered_aliases_only) 
     {
 	debug(5, "No alias found: returning address error");
-	BUF_COPY(address_error, "user is unknown");
+	BUF_COPY(address_error, "recipient is unknown");
 	return NULL;
     }
     
@@ -903,12 +903,12 @@ int snd_mail(RFCAddr rfc_to, long size)
      */
     p = mail_receiver(&rfc_to, &node_to);
     if(!p) {
-	if(*address_error)
-	    sendback("Address %s:\n  %s",
-		     s_rfcaddr_to_asc(&rfc_to, TRUE), address_error);
-	else
-	    sendback("Address %s:\n  address/host is unknown",
-		     s_rfcaddr_to_asc(&rfc_to, TRUE)               );
+	char *msg = *address_error ? address_error : "address/host is unknown";
+	
+	sendback("Address %s:\n  %s", s_rfcaddr_to_asc(&rfc_to, TRUE), msg);
+	log("BOUNCE: %s -> %s: %s",
+	    s_rfcaddr_to_asc(&rfc_from, TRUE),
+	    s_rfcaddr_to_asc(&rfc_to, TRUE), msg);
 	TMPS_RETURN(EX_NOHOST);
     }
     BUF_COPY(msg.name_to, p);
@@ -1165,7 +1165,8 @@ int snd_mail(RFCAddr rfc_to, long size)
 	 * NetMail message
 	 */
 	log("MAIL: %s -> %s",
-	    s_rfcaddr_to_asc(&rfc_from, TRUE), s_rfcaddr_to_asc(&rfc_to, TRUE));
+	    s_rfcaddr_to_asc(&rfc_from, TRUE),
+	    s_rfcaddr_to_asc(&rfc_to, TRUE));
 	msg.area      = NULL;
 	msg.node_from = node_from;
 	msg.node_to   = node_to;
