@@ -1,6 +1,6 @@
 #:ts=8
 #
-# $Id: config.ffx,v 4.3 1996/04/26 13:24:09 mj Exp $
+# $Id: config.ffx,v 4.4 1996/10/13 12:01:07 mj Exp $
 #
 # FIDOGATE config file ffx programs
 #
@@ -51,3 +51,13 @@ FFXBatchArc	"/usr/bin/zip -j9q %s %s/* 2>/dev/null"
 FFXBatchArcV	"/usr/bin/zip -j9 %s %s/*"
 FFXBatchArcExt	".zip"
 FFXBatchArcCmd	"unbatchzip"
+
+#
+# FFX commands (replacing old LIBDIR/ffxqt-dir/command)
+#
+FFXCommand	rmail		%L/ffxrmail
+FFXCommand	rnews		/usr/bin/rnews
+FFXCommand	unbatchzip	/usr/bin/unzip -ojqq
+
+FFXUncompress	unzip		/usr/bin/unzip -pqq
+FFXUncompress	gunzip		/bin/gunzip -cq

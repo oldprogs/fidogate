@@ -1,6 +1,6 @@
 #:ts=8
 #
-#    $Id: Makefile,v 4.2 1996/06/10 19:36:09 mj Exp $
+#    $Id: Makefile,v 4.3 1996/10/13 12:01:15 mj Exp $
 #
 #    Makefile for FIDOGATE src/util/
 #
@@ -16,15 +16,16 @@ include $(TOPDIR)/config.make
 include $(TOPDIR)/rules.make
 
 
-PROGS		= ftnfattach ftnbsy ftnlock ftnlog ftnseq ftnflo\
+PROGS		= ftnfattach ftnbsy ftnconfig ftnlock ftnlog ftnseq ftnflo\
 		  pktdebug pktmore sumcrc
 
 
 all:		$(PROGS)
 
+ftnbsy:		$(TOPDIR)/src/common/$(LIB)
+ftnconfig:	$(TOPDIR)/src/common/$(LIB)
 ftnfattach:	$(TOPDIR)/src/common/$(LIB)
 ftnflo:		$(TOPDIR)/src/common/$(LIB)
-ftnbsy:		$(TOPDIR)/src/common/$(LIB)
 ftnlock:	$(TOPDIR)/src/common/$(LIB)
 ftnlog:		$(TOPDIR)/src/common/$(LIB)
 ftnseq:		$(TOPDIR)/src/common/$(LIB)
@@ -33,13 +34,14 @@ sumcrc:		$(TOPDIR)/src/common/$(LIB)
 
 
 install:
+	$(INSTALL_PROG)   ftnbsy      $(LIBDIR)
+	$(INSTALL_PROG)   ftnconfig   $(LIBDIR)
 	$(INSTALL_PROG)   ftnseq      $(LIBDIR)
 	$(INSTALL_PROG)   ftnfattach  $(BINDIR)
 	$(INSTALL_PROG)   ftnflo      $(BINDIR)
 	$(INSTALL_PROG)   sumcrc      $(BINDIR)
 	$(INSTALL_PROG)   ftnlock     $(LIBDIR)
 	$(INSTALL_PROG)   ftnlog      $(LIBDIR)
-	$(INSTALL_PROG)   ftnbsy      $(LIBDIR)
 	$(INSTALL_PROG)   pktdebug    $(BINDIR)
 	$(INSTALL_PROG)   pktmore     $(BINDIR)
 
@@ -59,7 +61,7 @@ depend:
 
 depend-all:
 	$(CC) $(CFLAGS) -M *.c >.depend
-		
+
 ifeq (.depend,$(wildcard .depend))
 include .depend
 endif

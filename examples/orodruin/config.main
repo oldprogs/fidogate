@@ -1,6 +1,6 @@
 #:ts=8
 #
-# $Id: config.main,v 4.7 1996/06/16 16:06:16 mj Exp $
+# $Id: config.main,v 4.8 1996/10/13 12:01:08 mj Exp $
 #
 # FIDOGATE config file main AKA
 #
@@ -155,3 +155,8 @@ MaxOpenFiles	40
 # Maximum size of ArcMail archives (KByte)
 #
 MaxArc		2048
+
+#
+# Minimum free disk space for runtoss (KByte)
+#
+MinDiskFree	10240

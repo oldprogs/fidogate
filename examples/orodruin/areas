@@ -29,3 +29,5 @@
 LINUX.GER                     fido.ger.linux                -x -z 2 -8
 TOLKIEN.GER                   fido.ger.tolkien              -x -z 2 -8
 
+# Misc.
+CFOS_HELP                     fido.ger.cfos                 -x -z 2 -8

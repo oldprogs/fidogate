@@ -1,3 +1,44 @@
+Sun Oct 13 13:55:57 1996  Martin Junius  <mj@fido.de>
+
+	------- CVS ci -------------------------------------------------------
+
+	* src/toss/runtoss.sh (MINFREE): get parameter value MinDiskFree
+	  from config.main, default value is 10000.
+
+Fri Oct 11 17:41:00 1996  Martin Junius  <mj@fido.de>
+
+	* src/ffx/ffxqt.c (parse_ffxcmd): new function retrieving
+	  FFXCommand / FFXUncompress list from config.ffx.
+	  (find_ffxcmd): find an FFXCommand / FFXUncompress in list.
+	  (main): call parse_ffxcmd().
+	  (exec_ffx): removed first, obsoleted by new command list.
+	  (exec_ffx): lookup command and uncompressor in FFXCommand /
+	  FFXUncompress list.
+	  (remove_bad): new function removing "bad" characters from string.
+	  (parse_ffx): call remove_bad() for I datafile uncompressor, F
+	  file, C command.
+
+	* src/util/ftnconfig.c (main): new option -n --no-newline,
+	  suppressing newline after output of parameter value.
+
+	* scripts/maintenance/sendmailstat.pl: use new ftnconfig.
+
+	* src/util/ftnconfig.c (do_para): new function to retrieve
+	  parameter. Supports all cf_get_string() parameters and the
+	  following fixed parameters:
+	      =fqdn		cf_fqdn()
+	      =hostname		cf_hostname()
+	      =domainname	cf_domainname()
+	      =hostsdomain	cf_hostsdomain()
+	  (do_para): implemented -n flag.
+
+	* src/util/Makefile (PROGS): added ftnconfig.
+
+	* src/util/ftnconfig.c: new utility program to retrieve parameters
+	  from config.* files.
+
+	* src/util/ftnlog.c (short_usage): corrected short usage message.
+
 Sun Oct  6 11:18:04 1996  Martin Junius  <mj@fido.de>
 
 	------- CVS ci -------------------------------------------------------

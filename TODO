@@ -2,7 +2,7 @@
 
 X = for next release
 
-	* config.ffx: replace LIBDIR/ffxqt-dir/ with Command list.
+DONE.	* config.ffx: replace LIBDIR/ffxqt-dir/ with Command list.
 
 	* config.c: make Origin/Organization normal cf_get_string()
 	  parameters.
@@ -12,22 +12,10 @@ X = for next release
 	* ftn2rfc: check ^AREPLYADDR for valid Internet address. At
 	  least check for something like ^AREPLYADDR Thomas Hamm%500:531/0.
 
-	* rununpack: search for archiver during make
-
-DONE.	* ftn2rfc: check for Z-Netz gateways.
-
-DONE.	* ftntoss/ftnroute: new RemapFrom, make Remap/RemapFrom send
-	  mail to /dev/null if destination is 0:0/0.0
-
-	* sendmailstat: update for new sendmail.
-
 	* rfc2ftn: config parameter to disable/enable X-Flags
 	  processing. Add config parameter for specifying addresses
 	  allowed to use X-Flags. Automatically using X-Flags: MN for
 	  local users sending mails to Fido.
-
-DONE.	* rfc2ftn: integrate rfc_is_local(), rfc_is_domain() with
-	  address.c:addr_is_local(), addr_is_domain(), fix addr_is_* code.
 
 	* ftn2rfc: rewrite, split huge unpack() function into parts
 	  for processing netmail and echomail.
@@ -58,9 +46,6 @@ DONE.	* rfc2ftn: integrate rfc_is_local(), rfc_is_domain() with
 	* ftnhatch: copy option: copy file to file area and put entry
 	  into files.bbs (standard hatch behavior).
 
-	* ftnconfig: tool for reading stuff from FIDOGATE config files
-	  for shell/perl scripts.
-
 	* ftn2rfc: bounce messages should include the complete FTN
 	  message with all kludges etc. to ease debugging.
 
@@ -72,9 +57,6 @@ DONE.	* rfc2ftn: integrate rfc_is_local(), rfc_is_domain() with
 	  last one is too large, etc.
 	  ArcMail extensions: mo[0-9], plus mo[a-f], maybe mo[a-z]?
 	  runtime configuration of arcmail extensions usage.
-
-DONE.	* Catch SIGINT, process clean-up function.
-	  - close all packet files for ftntoss, ftnroute, etc.
 
 	* areas: option -M MAXSIZE, limit maximum RFC message size to
 	  MAXSIZE bytes, larger messages won't be gated.

@@ -2,9 +2,9 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftnlog.c,v 4.1 1996/10/13 12:01:15 mj Exp $
+ * $Id: ftnconfig.c,v 4.1 1996/10/13 12:01:15 mj Exp $
  *
- * Write log message to FIDOGATE log file
+ * Fetch FIDOGATE config.* parameters
  *
  *****************************************************************************
  * Copyright (C) 1990-1996
@@ -35,9 +35,82 @@
 
 
 
-#define PROGRAM 	"ftnlog"
+#define PROGRAM 	"ftnconfig"
 #define VERSION 	"$Revision: 4.1 $"
 #define CONFIG		CONFIG_MAIN
+
+
+
+/*
+ * Prototypes
+ */
+int	do_para			(char *);
+
+void	short_usage		(void);
+void	usage			(void);
+
+
+
+/*
+ * Command line options
+ */
+static int n_flag = FALSE;		/* -n --no-output */
+static int l_flag = FALSE;		/* -l --no-newlines */
+
+
+
+/*
+ * Process parameter name on command line
+ */
+int do_para(char *name)
+{
+    int ret = FALSE;
+    
+    /* List of =name for fixed cf_* functions */
+    static struct st_parafunc
+    {
+	char *name;
+	char *(*func)(void);
+    }
+    fixed[] =
+    {
+        { "=fqdn",        cf_fqdn        },
+        { "=hostname",    cf_hostname    },
+        { "=domainname",  cf_domainname  },
+        { "=hostsdomain", cf_hostsdomain },
+	{ NULL   , NULL     }
+    };
+
+    
+    /* Fixed parameter */
+    if(*name == '=')
+    {
+	struct st_parafunc *p;
+
+	for(p=fixed; p->name; p++)
+	    if(strieq(p->name, name))
+	    {
+		if(!n_flag)
+		    printf("%s%s", p->func(), l_flag ? "" : "\n");
+		ret = TRUE;
+		break;
+	    }
+    }
+    /* Arbitrary parameter */
+    else 
+    {
+	char *p;
+
+	for(p=cf_get_string(name, TRUE); p; p=cf_get_string(name, FALSE))
+	{
+	    if(!n_flag)
+		printf("%s%s", p, l_flag ? "" : "\n");
+	    ret = TRUE;
+	}
+    }
+
+    return ret;
+}
 
 
 
@@ -46,7 +119,7 @@
  */
 void short_usage(void)
 {
-    fprintf(stderr, "usage: %s [-options] message\n", PROGRAM);
+    fprintf(stderr, "usage: %s [-options] parameter\n", PROGRAM);
     fprintf(stderr, "       %s --help  for more information\n", PROGRAM);
 }
 
@@ -56,9 +129,10 @@ void usage(void)
     fprintf(stderr, "FIDOGATE %s  %s %s\n\n",
 	    version_global(), PROGRAM, version_local(VERSION) );
     
-    fprintf(stderr, "usage:   %s [-options] message\n\n", PROGRAM);
+    fprintf(stderr, "usage:   %s [-options] parameter\n\n", PROGRAM);
     fprintf(stderr, "\
-options: -p --program                 program name for log entry\n\
+options: -l --no-newline              no newline after parameter value\n\
+         -n --no-output               no output, exit code only\n\
 \n\
 	 -v --verbose                 more verbose\n\
 	 -h --help                    this help\n\
@@ -74,13 +148,13 @@ options: -p --program                 program name for log entry\n\
 int main(int argc, char **argv)
 {
     int c;
-    char *p_flag=NULL;
     char *c_flag=NULL, *S_flag=NULL, *L_flag=NULL;
     
     int option_index;
     static struct option long_options[] =
     {
-	{ "program",      1, 0, 'l'},	/* log_program() name */
+	{ "no-newline",   0, 0, 'l'},	/* No newline */
+	{ "no-output",    0, 0, 'n'},	/* No output */
 
 	{ "verbose",      0, 0, 'v'},	/* More verbose */
 	{ "help",         0, 0, 'h'},	/* Help */
@@ -94,12 +168,15 @@ int main(int argc, char **argv)
     cf_initialize();
 
 
-    while ((c = getopt_long(argc, argv, "p:vhc:S:L:",
+    while ((c = getopt_long(argc, argv, "lnvhc:S:L:",
 			    long_options, &option_index     )) != EOF)
 	switch (c) {
-	/***** ftnlog options *****/
-        case 'p':
-	    p_flag = optarg;
+	/***** ftnconfig options *****/
+        case 'l':
+	    l_flag = TRUE;
+            break;
+        case 'n':
+	    n_flag = TRUE;
             break;
 	    
 	/***** Common options *****/
@@ -142,15 +219,14 @@ int main(int argc, char **argv)
 
     cf_debug();
 
-
-    if(p_flag)
-	log_program(p_flag);
+    if(optind != argc-1) 
+    {
+	    short_usage();
+	    exit(EX_USAGE);
+    }
     
-    for(; optind<argc; optind++)
-	log(argv[optind]);
+    exit( do_para(argv[optind]) ? 0 : 1 );
     
-    exit(EXIT_OK);
-
     /**NOT REACHED**/
     return 1;
 }

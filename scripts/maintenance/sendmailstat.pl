@@ -1,22 +1,26 @@
 #!/usr/bin/perl
 #
-# $Id: sendmailstat.pl,v 4.0 1996/04/17 18:17:38 mj Exp $
+# $Id: sendmailstat.pl,v 4.1 1996/10/13 12:01:09 mj Exp $
 #
 # Gather statistics from sendmail V8 syslog output
 #
 
-$LOG      = "/var/adm/messages";	# sendmail syslog output
+# sendmail syslog output
+#$LOG      = "/var/log/syslog";
+#$LOG      = "/var/adm/messages";
+$LOG      = "/var/log/maillog";
 
-$HOSTNAME = "morannon";
-$DOMAIN   = "fido.de";			# No leading `.' !!! 
+$HOSTNAME = `<LIBDIR>/ftnconfig -l =hostname`;
+$DOMAIN   = `<LIBDIR>/ftnconfig -l =domainname`;
 
 
 require "getopts.pl";
 
-&Getopts('l:o:');
+&Getopts('l:o:v');
 
 $LOG = $opt_l if($opt_l);
 
+print STDERR "sendmailstat: statistics for $HOSTNAME$DOMAIN\n" if ($opt_v);
 
 
 sub parse_addr {
@@ -42,13 +46,9 @@ sub parse_addr {
 	($user,$site) = ($2,$1);
     }
     else {
-	($user,$site) = ($a,"$HOSTNAME.$DOMAIN");
+	($user,$site) = ($a,"$HOSTNAME$DOMAIN");
     }
     $site =~ tr/A-Z/a-z/;
-
-    if($site eq "sungate" || $site eq "sungate.") {
-	$site = "sungate.$DOMAIN";
-    }
 
     return ($user,$site);
 }
@@ -116,6 +116,7 @@ while( <LOG> ) {
 
 	# Ignore stat=queued entries
 	next if($entry{"stat"} eq "queued");
+#	next if($entry{"stat"} eq "User unknown");
 
 	# To entry
 	if($entry{"to"}) {
@@ -123,7 +124,7 @@ while( <LOG> ) {
 	    $to   = $site;
 	    $size = $id_size{$id};
 	    if(!$size) {
-		print STDERR "sendmailstat: strange, no from= for mail $id\n";
+		print STDERR "sendmailstat: no from= for mail $id to=$entry{\"to\"}\n" if($opt_v);
 		next;
 	    }
 	    $from = $id_from{$id};
@@ -216,51 +217,50 @@ if($opt_o) {
 
 print "# sendmail statistics: $first_date -- $last_date\n\n";
 
-print "# To site             Total       Fido.DE       RWTH       .DE        Internat.\n";
-print "#                   #    bytes    #   bytes   #   bytes   #   bytes   #   bytes\n";
-print "# ------------   -------------  ----------- ----------- ----------- -----------\n";
+print "#   FROM->         Total       Fido.DE          RWTH           .DE     Internat.\n";
+print "# TO-v        #    bytes    #    bytes    #    bytes    #    bytes    #    bytes\n";
+print "# -------- ------------- ------------- ------------- ------------- -------------\n";
 
 for $site (sort keys(%to_total_msgs)) {
-    printf "%-16.16s", $site;
-    printf " %4d %8d ", $to_total_msgs{$site}, $to_total_size{$site};
-    printf " %3d %7d", $to_intern_msgs{$site}, $to_intern_size{$site};
-    printf " %3d %7d", $to_rwth_msgs{$site}, $to_rwth_size{$site};
-    printf " %3d %7d", $to_de_msgs{$site}, $to_de_size{$site};
-    printf " %3d %7d", $to_intl_msgs{$site}, $to_intl_size{$site};
+    printf "%-10.10s", $site;
+    printf " %4d %8d", $to_total_msgs{$site}, $to_total_size{$site};
+    printf " %4d %8d", $to_intern_msgs{$site}, $to_intern_size{$site};
+    printf " %4d %8d", $to_rwth_msgs{$site}, $to_rwth_size{$site};
+    printf " %4d %8d", $to_de_msgs{$site}, $to_de_size{$site};
+    printf " %4d %8d", $to_intl_msgs{$site}, $to_intl_size{$site};
     print "\n";
 }
 
-print "# ------------   -------------  ----------- ----------- ----------- -----------\n";
-print "TOTAL           ";
-printf " %4d %8d ", $to_total_msgs, $to_total_size;
-printf " %3d %7d", $to_intern_msgs, $to_intern_size;
-printf " %3d %7d", $to_rwth_msgs, $to_rwth_size;
-printf " %3d %7d", $to_de_msgs, $to_de_size;
-printf " %3d %7d", $to_intl_msgs, $to_intl_size;
+print "# -------- ------------- ------------- ------------- ------------- -------------\n";
+print "TOTAL     ";
+printf " %4d %8d", $to_total_msgs, $to_total_size;
+printf " %4d %8d", $to_intern_msgs, $to_intern_size;
+printf " %4d %8d", $to_rwth_msgs, $to_rwth_size;
+printf " %4d %8d", $to_de_msgs, $to_de_size;
+printf " %4d %8d", $to_intl_msgs, $to_intl_size;
 print "\n\n";
 
-
-print "# From site           Total       Fido.DE       RWTH       .DE        Internat.\n";
-print "#                   #    bytes    #   bytes   #   bytes   #   bytes   #   bytes\n";
-print "# ------------   -------------  ----------- ----------- ----------- -----------\n";
+print "#     TO->         Total       Fido.DE          RWTH           .DE     Internat.\n";
+print "# FROM-v      #    bytes    #    bytes    #    bytes    #    bytes    #    bytes\n";
+print "# -------- ------------- ------------- ------------- ------------- -------------\n";
 
 for $site (sort keys(%from_total_msgs)) {
-    printf "%-16.16s", $site;
-    printf " %4d %8d ", $from_total_msgs{$site}, $from_total_size{$site};
-    printf " %3d %7d", $from_intern_msgs{$site}, $from_intern_size{$site};
-    printf " %3d %7d", $from_rwth_msgs{$site}, $from_rwth_size{$site};
-    printf " %3d %7d", $from_de_msgs{$site}, $from_de_size{$site};
-    printf " %3d %7d", $from_intl_msgs{$site}, $from_intl_size{$site};
+    printf "%-10.10s", $site;
+    printf " %4d %8d", $from_total_msgs{$site}, $from_total_size{$site};
+    printf " %4d %8d", $from_intern_msgs{$site}, $from_intern_size{$site};
+    printf " %4d %8d", $from_rwth_msgs{$site}, $from_rwth_size{$site};
+    printf " %4d %8d", $from_de_msgs{$site}, $from_de_size{$site};
+    printf " %4d %8d", $from_intl_msgs{$site}, $from_intl_size{$site};
     print "\n";
 }
 
-print "# ------------   -------------  ----------- ----------- ----------- -----------\n";
-print "TOTAL           ";
-printf " %4d %8d ", $from_total_msgs, $from_total_size;
-printf " %3d %7d", $from_intern_msgs, $from_intern_size;
-printf " %3d %7d", $from_rwth_msgs, $from_rwth_size;
-printf " %3d %7d", $from_de_msgs, $from_de_size;
-printf " %3d %7d", $from_intl_msgs, $from_intl_size;
+print "# -------- ------------- ------------- ------------- ------------- -------------\n";
+print "TOTAL     ";
+printf " %4d %8d", $from_total_msgs, $from_total_size;
+printf " %4d %8d", $from_intern_msgs, $from_intern_size;
+printf " %4d %8d", $from_rwth_msgs, $from_rwth_size;
+printf " %4d %8d", $from_de_msgs, $from_de_size;
+printf " %4d %8d", $from_intl_msgs, $from_intl_size;
 print "\n\n";
 
 

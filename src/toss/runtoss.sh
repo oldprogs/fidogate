@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# $Id: runtoss.sh,v 4.1 1996/04/24 12:15:30 mj Exp $
+# $Id: runtoss.sh,v 4.2 1996/10/13 12:01:14 mj Exp $
 #
 # Wrapper for ftntoss, ftnroute, ftnpack doing the toss process
 #
@@ -15,7 +15,9 @@ PINBOUND=<PINBOUND>
 UUINBOUND=<UUINBOUND>
 
 
-MINFREE=15000				# Need at least 15 MB free!
+# Get MinDiskFree from config.main
+MINFREE=`$PRG/ftnconfig MinDiskFree`
+[ -z "$MINFREE" ] && MINFREE=10000		# Default
 
 
 #

@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ffxqt.c,v 4.3 1996/05/11 15:05:37 mj Exp $
+ * $Id: ffxqt.c,v 4.4 1996/10/13 12:01:13 mj Exp $
  *
  * Process incoming ffx control and data files
  *
@@ -38,8 +38,11 @@
 
 
 #define PROGRAM		"ffxqt"
-#define VERSION		"$Revision: 4.3 $"
+#define VERSION		"$Revision: 4.4 $"
 #define CONFIG		CONFIG_FFX
+
+
+#define MAXFFXCMD	16
 
 
 
@@ -58,13 +61,28 @@ typedef struct st_ffx
     char *file;
     int  status;		/* Status: TRUE=read # EOF */
 } FFX;
-    
+
+
+
+/*
+ * List of command from config.ffx
+ */
+typedef struct st_ffxcmd
+{
+    char type;			/* 'C'=command, 'U'=uncompress */
+    char *name;			/* Command name */
+    char *cmd;			/* Command to execute */
+} FFXCmd;
+
 
 
 /*
  * Prototypes
  */
+void	parse_ffxcmd		(void);
+char   *find_ffxcmd		(int, char *);
 int	do_ffx			(int);
+void	remove_bad		(char *);
 FFX    *parse_ffx		(char *);
 int	exec_ffx		(FFX *);
 
@@ -76,7 +94,86 @@ void	usage			(void);
 /*
  * Command line options
  */
-int g_flag = 0;				/* Processing grade */
+static int g_flag = 0;				/* Processing grade */
+
+
+/*
+ * Commands
+ */
+static FFXCmd l_cmd[MAXFFXCMD];
+static int n_cmd = 0;
+
+
+
+/*
+ * Parse FFXCommand / FFXUncompress config.ffx parameters
+ */
+void parse_ffxcmd()
+{
+    char *p, *name, *cmd;
+
+    /* Commands */
+    for(p = cf_get_string("FFXCommand", TRUE);
+	p && *p;
+	p = cf_get_string("FFXCommand", FALSE) )
+    {
+	if(n_cmd >= MAXFFXCMD)
+	    continue;
+	name = xstrtok(p   , "\n\t ");
+	cmd  = xstrtok(NULL, "\n");
+	if(!name || !cmd)
+	    continue;
+	while(isspace(*cmd))
+	    cmd++;
+	
+	debug(8, "config: FFXCommand %s %s", name, cmd);
+
+	str_expand_name(buffer, sizeof(buffer), cmd);
+	l_cmd[n_cmd].type = 'C';
+	l_cmd[n_cmd].name = name;
+	l_cmd[n_cmd].cmd  = strsave(buffer);
+	n_cmd++;
+    }
+	  
+    /* Uncompressors */
+    for(p = cf_get_string("FFXUncompress", TRUE);
+	p && *p;
+	p = cf_get_string("FFXUncompress", FALSE) )
+    {
+	if(n_cmd >= MAXFFXCMD)
+	    continue;
+	name = xstrtok(p   , "\n\t ");
+	cmd  = xstrtok(NULL, "\n");
+	if(!name || !cmd)
+	    continue;
+	while(isspace(*cmd))
+	    cmd++;
+	
+	debug(8, "config: FFXUncompress %s %s", name, cmd);
+
+	str_expand_name(buffer, sizeof(buffer), cmd);
+	l_cmd[n_cmd].type = 'U';
+	l_cmd[n_cmd].name = name;
+	l_cmd[n_cmd].cmd  = strsave(buffer);
+	n_cmd++;
+    }
+}
+
+
+
+/*
+ * Find FFXCommand / FFXUncompress
+ */
+char *find_ffxcmd(int type, char *name)
+{
+    int i;
+
+    for(i=0; i<n_cmd; i++)
+	if(type==l_cmd[i].type && strieq(name, l_cmd[i].name))
+	    return l_cmd[i].cmd;
+
+    return NULL;
+}
 
 
 
@@ -198,6 +295,41 @@ int do_ffx(int t_flag)
 
 
 /*
+ * Remove "bad" character from string
+ */
+void remove_bad(char *s)
+{
+    char *p = s;
+    
+    while(*p)
+	if(*p>=' ' && *p < 127)
+	    switch(*p)
+	    {
+	    case '$':
+	    case '&':
+	    case '(':
+	    case ')':
+	    case ';':
+	    case '<':
+	    case '>':
+	    case '^':
+	    case '`':
+	    case '|':
+		p++;		/* skip */
+		break;
+	    default:
+		*s++ = *p++;
+		break;
+	    }
+	else
+	    p++;
+    
+    *s = 0;
+}
+
+
+
+/*
  * Parse control file and read into memory
  */
 #define SEP " \t\r\n"
@@ -260,48 +392,28 @@ FFX *parse_ffx(char *name)
 	    /* data file */
 	    p = strtok(buf+2, SEP);
 	    if(p)
+	    {
 		ffx.in = strsave(p);
+		remove_bad(ffx.in);
+	    }
 	    /* decompressor */
 	    p = strtok(NULL , SEP);
 	    if(p)
+	    {
 		ffx.decompr = strsave(p);
+		remove_bad(ffx.decompr);
+	    }
 	    break;
 	    
 	case 'F':
 	    ffx.file = strsave(buf + 2);
+	    remove_bad(ffx.file);
 	    break;
 	    
 	case 'C':
-	/*  ffx.cmd = strsave(buf + 2);  */
-	    /*
-	     * copy only "save" chars
-	     */
-	    buf += 2;
-	    p = ffx.cmd = (char *)xmalloc(strlen(buf) + 1);
-	    while(*buf)
-		if(*buf>=' ' && *buf < 127)
-		    switch(*buf)
-		    {
-		    case '$':
-		    case '&':
-		    case '(':
-		    case ')':
-		    case ';':
-		    case '<':
-		    case '>':
-		    case '^':
-		    case '`':
-		    case '|':
-			buf++;		/* skip */
-			break;
-		    default:
-			*p++ = *buf++;
-			break;
-		    }
-		else
-		    buf++;
-	    
-	    *p = 0;
+	    /* command */
+	    ffx.cmd = strsave(buf + 2);
+	    remove_bad(ffx.cmd);
 	    break;
 
 	case 'P':
@@ -338,40 +450,55 @@ FFX *parse_ffx(char *name)
 int exec_ffx(FFX *ffx)
 {
     int ret;
-    char *cmd, *p;
+    char *name, *args=NULL, *cmd_c=NULL, *cmd_u=NULL;
     
     /*
-     * Commands must fit the regex [a-zA-Z0-9]+, no absolute or relative
-     * path names, not var=xyz settings, no other funky stuff.
+     * Extract command name and args
      */
-    for(cmd=ffx->cmd; *cmd && is_space(*cmd); cmd++) ;
-    for(p=cmd; *p && !is_space(*p); p++)
-	if(!isalnum(*p))
+    name = strtok(ffx->cmd, "\n\t ");
+    args = strtok(NULL,     "\n"   );
+    if(!name)
+	return ERROR;
+    if(!args)
+	args = "";
+    while(isspace(*args))
+	args++;
+
+    /*
+     * Find command and uncompressor
+     */
+    cmd_c = find_ffxcmd('C', name);
+    if(!cmd_c)
+    {
+	log("no FFXCommand found for \"%s\"", name);
+	return ERROR;
+    }
+    if(ffx->decompr) 
+    {
+	cmd_u = find_ffxcmd('U', ffx->decompr);
+	if(!cmd_u)
 	{
-	    debug(1, "Illegal command: %s", cmd);
+	    log("no FFXUncompress found for \"%s\"", ffx->decompr);
 	    return ERROR;
 	}
-
+    }
     
+
+    /*
+     * Execute
+     */
     if(ffx->in)
     {
-	/*
-	 * Feed data file as stdin to command, optionally decompressing
-	 */
+	/* Feed data file as stdin to command, optionally decompressing */
 	if(ffx->decompr)		/* Data file with compression */
-	    sprintf(buffer, "%s/%s-dir/%s %s | %s/%s-dir/%s",
-		    cf_libdir(), PROGRAM, ffx->decompr, ffx->in,
-		    cf_libdir(), PROGRAM, ffx->cmd               );
+	    sprintf(buffer, "%s %s | %s %s", cmd_u, ffx->in, cmd_c, args);
 	else				/* No compression */
-	    sprintf(buffer, "%s/%s-dir/%s <%s",
-		    cf_libdir(), PROGRAM, ffx->cmd, ffx->in      );
+	    sprintf(buffer, "%s %s <%s", cmd_c, args, ffx->in);
     }
     else
     {
-	/*
-	 * Execute command
-	 */
-	sprintf(buffer, "%s/%s-dir/%s", cf_libdir(), PROGRAM, ffx->cmd);
+	/* Execute command without data file */
+	sprintf(buffer, "%s %s", cmd_c, args);
     }
 
     /*
@@ -526,6 +653,11 @@ int main(int argc, char **argv)
 	cf_set_uplink(u_flag);
 
     cf_debug();
+
+    /*
+     * Process additional config statements
+     */
+    parse_ffxcmd();
 
     if(I_flag)
 	cf_set_inbound(I_flag);
