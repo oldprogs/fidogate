@@ -1,20 +1,22 @@
 #!/bin/sh
 #
-# $Id: senduu.sh,v 4.2 1997/02/09 10:04:22 mj Exp $
+# $Id: senduu.sh,v 4.3 1998/01/20 21:47:44 mj Exp $
 #
 # Send stuff on hold as UUENCODEd mail
 #
-# usage: senduu Z:N/F.P user@domain
+# usage: senduu user@domain Z:N/F.P ...
 #
 
 PRG=<LIBDIR>
 
 if [ $# -ne 2 ]; then
-  echo "usage: senduu Z:N/F.P user@domain"
+  echo "usage: senduu user@domain Z:N/F.P ..."
   exit 1
 fi
 
-node=$1
-user=$2
+user=$1
+shift
 
-$PRG/ftnflo -x "$PRG/senduumail $user %s" $node
+for node in $*; do
+    $PRG/ftnflo -x "$PRG/senduumail $user %s" $node
+done

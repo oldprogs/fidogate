@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: passwd.c,v 4.5 1998/01/18 17:49:10 mj Exp $
+ * $Id: passwd.c,v 4.6 1998/01/20 21:47:51 mj Exp $
  *
  * Read PASSWD file for ffx, ffxqt, ftnaf and other programs
  *
@@ -95,7 +95,7 @@ static int passwd_do_file(char *name)
     
     debug(14, "Reading passwd file %s", name);
     
-    fp = fopen_expand_name(PASSWD, R_MODE_T, FALSE);
+    fp = fopen_expand_name(name, R_MODE_T, FALSE);
     if(!fp)
 	return ERROR;
 

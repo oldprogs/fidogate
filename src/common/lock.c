@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: lock.c,v 4.7 1998/01/18 15:33:07 mj Exp $
+ * $Id: lock.c,v 4.8 1998/01/20 21:47:49 mj Exp $
  *
  * File locking
  *
@@ -112,6 +112,134 @@ int unlock_file(FILE *fp)
 
 
 
+#ifdef NFS_SAFE_LOCK_FILES
+/*
+ * Create lock file, NFS-safe variant
+ */
+int lock_lockfile_nfs(char *dir, char *name, int wait, char *id)
+{
+    char uniq_name[MAXPATH];
+    char lock_name[MAXPATH];
+    int uniq_fd;
+    int success;
+    FILE *fp;
+    struct stat st;
+    
+    BUF_EXPAND(uniq_name, dir);
+    sprintf(uniq_name+strlen(uniq_name), "/%s.L%d", name, (int)getpid());
+    BUF_EXPAND(lock_name, dir);
+    BUF_APPEND(lock_name, "/");
+    BUF_APPEND(lock_name, name);
+
+    /* create unique file */
+    debug(7, "About to create unique %s (for lock %s)", uniq_name, lock_name);
+
+    uniq_fd = open(uniq_name, O_RDWR | O_CREAT | O_EXCL, BSY_MODE);
+    if(uniq_fd == ERROR)
+    {
+	if(wait)
+	{
+	    log("$ERROR: creating unique %s (for lock %s) failed",
+		uniq_name, lock_name);
+	    exit(EX_OSFILE);
+	}
+	else
+	{
+	    log("$WARNING: creating unique %s (for lock %s) failed",
+		uniq_name, lock_name);
+	    return ERROR;
+	}
+    }
+    if((fp = fdopen(uniq_fd, "w")))
+    {
+	if(id)
+	    fprintf(fp, "%s\n", id);
+	else
+	    fprintf(fp, "%d\n", (int)getpid());
+	fclose(fp);
+    }
+    close(uniq_fd);
+    
+    /* try to link to actual lock file */
+    do
+    {
+	success = FALSE;
+	if( link(uniq_name, lock_name) == ERROR )
+	{
+	    /* Other errors than EEXIST are a failure */
+	    if(errno != EEXIST)
+	    {
+		if(wait)
+		{
+		    log("$ERROR: linking unique %s -> lock %s failed",
+			uniq_name, lock_name);
+		    unlink(uniq_name);
+		    exit(EX_OSFILE);
+		}
+		else
+		{
+		    log("$WARNING: linking unique %s -> %s failed",
+			uniq_name, lock_name);
+		    unlink(uniq_name);
+		    return ERROR;
+		}
+	    }
+	}
+	else
+	{
+	    /* Link OK, check stat of unique */
+	    if( stat(uniq_name, &st) == ERROR)
+	    {
+		/* Should not fail */
+		log("$ERROR: stat unique %s (for lock %s) failed",
+		    uniq_name, lock_name);
+		unlink(uniq_name);
+		exit(EX_OSFILE);
+	    }
+	    if(st.st_nlink == 2)
+		success = TRUE;
+	}
+
+	debug(7, "Linking unique %s -> lock %s %s",
+	      uniq_name, lock_name, success ? "succeeded" : "failed");
+
+	if(wait && !success)
+	    sleep(5);
+    }
+    while(wait && !success);
+
+    /* Always remove unique file */
+    unlink(uniq_name);
+
+    return success ? OK : ERROR;
+}
+
+
+
+/*
+ * Delete lock file, NFS-safe variant
+ */
+int unlock_lockfile_nfs(char *dir, char *name)
+{
+    char lock_name[MAXPATH];
+    int ret = OK;
+    
+    BUF_EXPAND(lock_name, dir);
+    BUF_APPEND(lock_name, "/");
+    BUF_APPEND(lock_name, name);
+
+    if( unlink(lock_name) == ERROR )
+    {
+	log("$WARNING: removing lock %s failed", lock_name);
+	ret = ERROR;
+    }
+
+    return ret;
+}
+
+
+
+#else /**!NFS_SAFE_LOCKFILES**/
 /*
  * Create lock file with PID (id==NULL) or arbitrary string (id!=NULL)
  */
@@ -154,16 +282,6 @@ int lock_lockfile_id(char *name, int wait, char *id)
 
 
 /*
- * Create lock file with ID of the current process
- */
-int lock_lockfile(char *name, int wait)
-{
-    return lock_lockfile_id(name, wait, NULL);
-}
-
-
-
-/*
  * Remove lock file
  */
 int unlock_lockfile(char *name)
@@ -176,6 +294,7 @@ int unlock_lockfile(char *name)
 
     return ret==-1 ? ERROR : OK;
 }
+#endif /**NFS_SAFE_LOCK_FILES**/
 
 
 
@@ -184,21 +303,29 @@ int unlock_lockfile(char *name)
  */
 int lock_program_id(char *name, int wait, char *id)
 {
+#ifdef NFS_SAFE_LOCK_FILES
+    return lock_lockfile_nfs(cf_p_lockdir(), name, wait, id);
+#else
     char buf[MAXPATH];
 
     BUF_COPY3(buf, cf_p_lockdir(), "/", name);
 
     return lock_lockfile_id(buf, wait, id);
+#endif
 }
 
 
 int lock_program(char *name, int wait)
 {
+#ifdef NFS_SAFE_LOCK_FILES
+    return lock_lockfile_nfs(cf_p_lockdir(), name, wait, NULL);
+#else
     char buf[MAXPATH];
 
     BUF_COPY3(buf, cf_p_lockdir(), "/", name);
 
     return lock_lockfile_id(buf, wait, NULL);
+#endif
 }
 
 
@@ -208,11 +335,15 @@ int lock_program(char *name, int wait)
  */
 int unlock_program(char *name)
 {
+#ifdef NFS_SAFE_LOCK_FILES
+    return unlock_lockfile_nfs(cf_p_lockdir(), name);
+#else
     char buf[MAXPATH];
     
     BUF_COPY3(buf, cf_p_lockdir(), "/", name);
 
     return unlock_lockfile(buf);
+#endif
 }
 
 

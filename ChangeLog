@@ -1,4 +1,35 @@
+Tue Jan 20 21:02:19 1998  Martin Junius  <mj@fido.de>
+
+	------- CVS ci -------------------------------------------------------
+
+	* scripts/misc/senduu.sh: changed command line parameter,
+	  user@domain first, then node addresses (multiple now allowed).
+
+	* test/tc.lock/run: new test case for ftnlock utility, run1 must
+	  be started manually.
+
+	* src/util/ftnlock.c (main): removed -L, -S options.
+
+	* src/common/lock.c (unlock/lock_lockfile_nfs): #ifdef
+	  NFS_SAFE_LOCK_FILES around functions.
+	  (lock_program_id): #ifdef NFS_SAFE_LOCK_FILES use
+	  lock_lockfiles_nfs(). 
+	  (lock_program): dito.
+	  (unlock_program): dito, use unlock_lockfiles_nfs().
+	  (lock_lockfile_nfs): always remove unique file before returning.
+	  (unlock_lockfile_nfs): unlink unique file removed.
+
 Sun Jan 18 09:31:56 1998  Martin Junius  <mj@fido.de>
+
+	* src/common/lock.c (lock_lockfile): removed.
+	  (lock_lockfile_nfs): new function, NFS-safe variant of creating
+	  a lock file, see man 2 open.
+	  (unlock_lockfile_nfs): new function, remove for NFS-safe variant.
+
+	* config.h (NFS_SAFE_LOCK_FILES): new #define enabling NFS-safe
+	  lock file code.
+
+	* src/common/passwd.c (passwd_do_file): open name instead of PASSWD.
 
 	------- CVS ci -------------------------------------------------------
 

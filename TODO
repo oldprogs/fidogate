@@ -2,6 +2,10 @@
 
 	************** TODO list for FIDOGATE development **************
 
+DONE	* lock.c: implement NFS-safe lock file.
+
+	* binkley.c: use lock_lockfile_nfs() for BSY files.
+
 	* dir.c,
 DONE	  ftntick: allow %X as directory name.
 
@@ -15,7 +19,7 @@ DONE	  - replace cf_* with cf_p_*
 DONE	  - replace cf_outbound with cf_p_btbasedir
 DONE	  - remove OUTBOUND config parameter
 
-	* rfc2ftn.c (+other?): header_getcomplete() may return NULL,
+DONE	* rfc2ftn.c (+other?): header_getcomplete() may return NULL,
 	  log() messages in snd_mail().
 
 DONE	* log.c: switch on syslog logging from config file, new config
@@ -27,11 +31,9 @@ DONE	* log.c: switch on syslog logging from config file, new config
 	  - Internet mail frontend ftnafmail
 	  - Fido mail frontend ftnafnetmail
 	  
-	* senduu: accept several addresses on command line.
+TODO	* senduu: accept several addresses on command line.
 
-	* logcheck: option to only list domains.
-
-	* config.*: common address settings, e.g. Address for main
+???	* config.*: common address settings, e.g. Address for main
 	  AKA, GateAddress for gateway???
 
 	* new implementation of strtok(), xstrtok() function, using
@@ -45,8 +47,7 @@ DONE	* log.c: switch on syslog logging from config file, new config
 
 	* rfc2ftn: mail split limit configurable per host.
 
-	* Allow config option on command line for all programs.
-	  rfc2ftn: command line option for enabling X-Flags.
+	* Allow config parameters on command line for all programs.
 
 4.3.x	* rfc2ftn: different output dirs for mail and news.
 

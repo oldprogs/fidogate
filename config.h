@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway software UNIX <-> FIDO
  *
- * $Id: config.h,v 4.30 1998/01/18 17:49:06 mj Exp $
+ * $Id: config.h,v 4.31 1998/01/20 21:47:30 mj Exp $
  *
  * Configuration header file
  *
@@ -44,6 +44,11 @@
  * Create Binkley-style BSY files for all outbound operations
  */
 #define DO_BSY_FILES
+
+/*
+ * Create lock files / BSY files in an NFS-safe way (see man 2 open)
+ */
+#define NFS_SAFE_LOCK_FILES
 
 /*
  * Create 4D outbound filenames for AmigaDOS mailers,
