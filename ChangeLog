@@ -1,4 +1,25 @@
+Sat Apr 19 10:38:58 1997  Martin Junius  <mj@fido.de>
+
+	======= Release 4.2.1 ================================================
+	------- CVS ci, tag R421 ---------------------------------------------
+
+	* scripts/maintenance/logmaint.sh: complete rewrite using
+	  functions from newsyslog.sh.
+
+	* ANNOUNCE: updated.
+
+	* fidogate.lsm: updated.
+
+	* src/toss/rununpack.sh: yet another fix to the rename loop.
+
 Fri Apr 18 15:14:04 1997  Martin Junius  <mj@fido.de>
+
+	* src/toss/rununpack.sh: fixed rename loop, remove unpack.out.
+
+	* src/gate/rfc2ftn.c (snd_message): don't print_local_msgid(), if
+	  msgid_rfc_to_fido() returns NULL.
+
+	* test/tc.nomsgid/run: new test case for Message-ID: <NOMSGID_...>.
 
 	------- CVS ci -------------------------------------------------------
 
@@ -34,7 +55,7 @@ Fri Apr 18 15:14:04 1997  Martin Junius  <mj@fido.de>
 	  system(), runs DOSIFY_IF_NEEDED and extract exit code.
 
 	* src/include/prototypes.h (DOSIFY_IF_NEEDED): new macro
-	translates to str_dosify() only if MSDOS or OS2 are defined.
+	  translates to str_dosify() only if MSDOS or OS2 are defined.
 
 	* src/gate/ftnin.c (main): removed MSDOS/OS2 code for cmd[], will
 	  be handled by str_dosify() before running system().
@@ -102,7 +123,7 @@ Sat Apr 12 09:22:58 1997  Martin Junius  <mj@fido.de>
 	  Outbound, %I = Inbound, %P = PInbound, %U = UUInbound.
 
 	* src/toss/ftnpack.c (usage): new option -f --ffx.
-	  (main): new option -f -ffx, sets ffx_flag.
+	  (main): new option -f --ffx, sets ffx_flag.
 
 	------- CVS ci -------------------------------------------------------
 

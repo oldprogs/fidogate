@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# $Id: rununpack.sh,v 4.7 1997/04/18 14:12:31 mj Exp $
+# $Id: rununpack.sh,v 4.8 1997/04/19 11:41:54 mj Exp $
 #
 # Unpack ArcMail archives
 #
@@ -183,20 +183,20 @@ if [ -f $arc ]; then
 		mv $arc $INPUT/bad
 		continue
 	fi
+	rm -f unpack.out
 
 	# Move packet files to tosser input directory
 	for f in *; do if [ -f $f ]; then
 		ff=$f
 		pp=1
 		while [ -f ../$ff ]; do
-		  ff="$a$ff"
+		  ff="$pp$f"
 		  pp=`expr $pp + 1`
 		done
 		mv $f ../$ff
 	fi; done
 
-	# Remove arc and output
-	rm -f unpack.out
+	# Remove arc
 	rm -f $arc
 			
 fi

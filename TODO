@@ -2,6 +2,8 @@
 
 X = for next release
 
+	* ftn2rfc: send bounce mails directly as FTN messages, not via
+	  the mail system.
 
 	* rfc2ftn: save large mails to file, fattach on hold for
 	  recipient?

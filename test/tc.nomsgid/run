@@ -1,0 +1,12 @@
+#!/bin/sh
+
+../tr.init
+
+echo "tc: copying input packets"
+cp ../ti.pkt-misc/t-nomsgid.pkt in
+
+echo "tc: running"
+../../src/gate/ftn2rfc -L../cf -v
+../../src/gate/rfc2ftn -L../cf -v -b -n < in/news/*
+
+
