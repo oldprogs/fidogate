@@ -625,6 +625,25 @@ Set the default RFC level. See also <CODE>-R</CODE> option in <CODE>areas</CODE>
 <DD>
 Put the text from the Organization header into the * Origin line.
 
+<DT><CODE>XFlagsPolicy</CODE>
+<DD>
+Controls policy for X-Flags processing (default is 0, no processing):
+<DL COMPACT>
+
+<DT><CODE>n   N   0</CODE>
+<DD>
+No X-Flags processing at all.
+<DT><CODE>s   S   1</CODE>
+<DD>
+X-Flags processing for local sender (check From and Received
+headers). This is not really secure!!! If your system is directly
+connected to the Internet and runs an SMTP daemon such as sendmail, mail
+can easily be faked to look like local!!!
+<DT><CODE>a   A   2</CODE>
+<DD>
+X-Flags processing for all. Totally open, totally insecure!!!
+</DL>
+
 </DL>
 
 <P>

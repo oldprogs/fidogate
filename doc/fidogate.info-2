@@ -365,6 +365,22 @@ Special configuration `rfc2ftn' (config file `config.gate'):
 `UseOrganizationForOrigin'
      Put the text from the Organization header into the * Origin line.
 
+`XFlagsPolicy'
+     Controls policy for X-Flags processing (default is 0, no
+     processing):
+    `n   N   0'
+          No X-Flags processing at all.
+
+    `s   S   1'
+          X-Flags processing for local sender (check From and Received
+          headers). This is not really secure!!! If your system is
+          directly connected to the Internet and runs an SMTP daemon
+          such as sendmail, mail can easily be faked to look like
+          local!!!
+
+    `a   A   2'
+          X-Flags processing for all. Totally open, totally insecure!!!
+
 Special configuration `ftnhatch' (config file `config.main'):
 
 `TickFlav flavour'
