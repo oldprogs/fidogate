@@ -1,0 +1,84 @@
+This is Info file fidogate.info, produced by Makeinfo-1.64 from the
+input file fidogate.texi.
+
+   This file documents the usage of FIDOGATE version 4.0
+
+   Copyright (C) 1994-1995, Martin Junius
+
+   Permission is granted to make and distribute verbatim copies of this
+manual provided the copyright notice and this permission notice are
+preserved on all copies.
+
+   Permission is granted to copy and distribute modified versions of
+this manual under the conditions for verbatim copying, provided that the
+entire resulting derived work is distributed under the terms of a
+permission notice identical to this one.
+
+   Permission is granted to copy and distribute translations of this
+manual into other languages, under the above conditions for modified
+versions.
+
+
+Indirect:
+fidogate.info-1: 761
+fidogate.info-2: 45921
+
+Tag Table:
+(Indirect)
+Node: Top761
+Node: Introduction3761
+Node: Installation6478
+Node: Point7423
+Node: config.h8600
+Node: config.make15836
+Node: Compiling18720
+Node: Integration19768
+Node: Testing20341
+Node: Connecting21769
+Node: Programs22608
+Node: ffx25075
+Node: ffxbatch25937
+Node: ffxmail26831
+Node: ffxqt27233
+Node: ffxrmail28036
+Node: ffxrun28450
+Node: ftn2ftn28804
+Node: ftn2rfc29825
+Node: ftnaf30724
+Node: ftnbounce31928
+Node: ftnbsy32226
+Node: ftnhatch32688
+Node: ftnin32984
+Node: ftninpost33554
+Node: ftninrecomb33912
+Node: ftnlock34284
+Node: ftnlog34665
+Node: ftnpack35081
+Node: ftnroute36101
+Node: ftnseq36824
+Node: ftntick37237
+Node: ftntoss37632
+Node: ftnfattach38903
+Node: pktdebug39434
+Node: rfc2ftn40082
+Node: rundf41053
+Node: runin41601
+Node: runout42249
+Node: runtoss42651
+Node: rununpack43264
+Node: sumcrc44289
+Node: Config files45151
+Node: Config45921
+Node: Hosts56377
+Node: Aliases58610
+Node: Areas59405
+Node: Bounce62315
+Node: Passwd63510
+Node: Routing64733
+Node: Packing68171
+Node: Areas.bbs69727
+Node: Basic71057
+Node: Example71737
+Node: Index74400
+
+End Tag Table
