@@ -2,9 +2,9 @@
 
 ../tr.init
 
-T="../../src/toss/testhistory -c../cf/toss.conf"
+T="../../src/toss/testhistory -c../cf/fidogate.conf"
 # 10 min = -m 0.007
-X="../../src/toss/ftnexpire   -c../cf/toss.conf -v -m 0.007"
+X="../../src/toss/ftnexpire   -c../cf/fidogate.conf -v -m 0.007"
 
 
 echo "Start         150000"

@@ -46,6 +46,10 @@ Changes in 4.4.1:
 
 * ftn2rfc: fixed bug in handling of invalid ^ACHRS for input charset.
 
+* rfc2ftn: fixed memory leak.
+
+* ftn2rfc: fixed memory leak.
+
 
 
 Changes in 4.4.0:
@@ -78,6 +82,6 @@ Needed:
 
 ======================================================================
 
-$Date: 2000/03/07 10:50:05 $
+$Date: 2000/04/11 08:04:29 $
 Martin Junius
 mailto:mj@fido.de

@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftn2rfc.c,v 4.55 2000/03/07 10:50:09 mj Exp $
+ * $Id: ftn2rfc.c,v 4.56 2000/04/11 08:04:29 mj Exp $
  *
  * Convert FTN mail packets to RFC mail and news batches
  *
@@ -40,7 +40,7 @@
 
 
 #define PROGRAM 	"ftn2rfc"
-#define VERSION 	"$Revision: 4.55 $"
+#define VERSION 	"$Revision: 4.56 $"
 #define CONFIG		DEFAULT_CONFIG_GATE
 
 
@@ -386,6 +386,10 @@ int unpack(FILE *pkt_file, Packet *pkt)
 	    {
 		log("ERROR: reading input packet");
 		ret = ERROR;
+		tl_clear(&theader);
+		tl_clear(&tbody);
+		tl_clear(&tl);
+		msg_body_clear(&body);
 		break;
 	    }
 	}
@@ -468,6 +472,10 @@ int unpack(FILE *pkt_file, Packet *pkt)
 	    if(!area->group && !ftn_junk_group)
 	    {
 		log("unknown area %s", area->area);
+		tl_clear(&theader);
+		tl_clear(&tbody);
+		tl_clear(&tl);
+		msg_body_clear(&body);
 		continue;
 	    }
 	}
@@ -640,6 +648,10 @@ int unpack(FILE *pkt_file, Packet *pkt)
 	    if( (p = kludge_get(&body.kludge, "SPLIT", NULL)) )
 	    {
 		log("skipping split message, origin=%s", znfp1(&msg.node_orig));
+		tl_clear(&theader);
+		tl_clear(&tbody);
+		tl_clear(&tl);
+		msg_body_clear(&body);
 		continue;
 	    }
 	}
@@ -654,6 +666,10 @@ int unpack(FILE *pkt_file, Packet *pkt)
 	    {
 		log("skipping message from gateway, area %s, origin=%s",
 		    area->area, znfp1(&msg.node_orig));
+		tl_clear(&theader);
+		tl_clear(&tbody);
+		tl_clear(&tl);
+		msg_body_clear(&body);
 		continue;
 	    }
 	
@@ -663,6 +679,10 @@ int unpack(FILE *pkt_file, Packet *pkt)
 	    {
 		log("skipping message from gateway (GIGO), area %s, origin=%s",
 		    area->area, znfp1(&msg.node_orig));
+		tl_clear(&theader);
+		tl_clear(&tbody);
+		tl_clear(&tl);
+		msg_body_clear(&body);
 		continue;
 	    }
 
@@ -671,6 +691,10 @@ int unpack(FILE *pkt_file, Packet *pkt)
 	    {
 		log("skipping message from gateway (X-FZ-SPLIT), area %s, origin=%s",
 		    area->area, znfp1(&msg.node_orig));
+		tl_clear(&theader);
+		tl_clear(&tbody);
+		tl_clear(&tl);
+		msg_body_clear(&body);
 		continue;
 	    }
 	}
@@ -743,6 +767,9 @@ int unpack(FILE *pkt_file, Packet *pkt)
 	    log("BOUNCE: insecure mail from %s",
 		s_rfcaddr_to_asc(&addr_from, TRUE));
 	    bounce_mail("insecure", &addr_from, &msg, msgbody_rfc_to, &tbody);
+	    tl_clear(&theader);
+	    tl_clear(&tbody);
+	    tl_clear(&tl);
 	    continue;
 	}
 	    
@@ -787,6 +814,10 @@ int unpack(FILE *pkt_file, Packet *pkt)
 		    s_rfcaddr_to_asc(&addr_from, TRUE));
 		bounce_mail("restricted", &addr_from, &msg,
 			    msgbody_rfc_to, &tbody);
+		tl_clear(&theader);
+		tl_clear(&tbody);
+		tl_clear(&tl);
+		msg_body_clear(&body);
 		continue;
 	    }
 
@@ -799,6 +830,10 @@ int unpack(FILE *pkt_file, Packet *pkt)
 		    s_rfcaddr_to_asc(&addr_from, TRUE));
 		bounce_mail("down", &addr_from, &msg,
 			    msgbody_rfc_to, &tbody);
+		tl_clear(&theader);
+		tl_clear(&tbody);
+		tl_clear(&tl);
+		msg_body_clear(&body);
 		continue;
 	    }
 	}	    
@@ -818,6 +853,10 @@ int unpack(FILE *pkt_file, Packet *pkt)
 			s_rfcaddr_to_asc(&addr_from, TRUE), mail_to           );
 		    bounce_mail("addrinto",
 				&addr_from, &msg, msgbody_rfc_to, &tbody);
+		    tl_clear(&theader);
+		    tl_clear(&tbody);
+		    tl_clear(&tl);
+		    msg_body_clear(&body);
 		    continue;
 		}
 		else
@@ -843,6 +882,10 @@ int unpack(FILE *pkt_file, Packet *pkt)
 		log("BOUNCE: mail from %s without To line",
 		    s_rfcaddr_to_asc(&addr_from, TRUE));
 		bounce_mail("noto", &addr_from, &msg, msgbody_rfc_to, &tbody);
+		tl_clear(&theader);
+		tl_clear(&tbody);
+		tl_clear(&tl);
+		msg_body_clear(&body);
 		continue;
 	    }
 
@@ -916,6 +959,10 @@ int unpack(FILE *pkt_file, Packet *pkt)
 		if(!strncmp(p, "<NOMSGID_", 9))
 		{
 		    log("MSGID: %s, not gated", p);
+		    tl_clear(&theader);
+		    tl_clear(&tbody);
+		    tl_clear(&tl);
+		    msg_body_clear(&body);
 		    continue;
 		}
 		id_line = s_msgid_fido_to_rfc(p, &id_zone);
@@ -923,6 +970,10 @@ int unpack(FILE *pkt_file, Packet *pkt)
 		    if(id_zone>=-1 && !cf_zones_check(id_zone))
 		    {
 			log("MSGID %s: malformed or unknown zone, not gated", p);
+			tl_clear(&theader);
+			tl_clear(&tbody);
+			tl_clear(&tl);
+			msg_body_clear(&body);
 			continue;
 		    }
 	    }
@@ -931,6 +982,10 @@ int unpack(FILE *pkt_file, Packet *pkt)
 		if(no_messages_without_msgid)
 		{
 		    log("MSGID: none, not gated");
+		    tl_clear(&theader);
+		    tl_clear(&tbody);
+		    tl_clear(&tl);
+		    msg_body_clear(&body);
 		    continue;
 		}
 		id_line = s_msgid_default(&msg);
@@ -940,6 +995,10 @@ int unpack(FILE *pkt_file, Packet *pkt)
 	if(!id_line)
 	{
 	    log("ERROR: id_line==NULL, strange.");
+	    tl_clear(&theader);
+	    tl_clear(&tbody);
+	    tl_clear(&tl);
+	    msg_body_clear(&body);
 	    continue;
 	}
 	
@@ -1173,6 +1232,10 @@ int unpack(FILE *pkt_file, Packet *pkt)
 	    mail_close('m');
 	}
 
+	tl_clear(&theader);
+	tl_clear(&tbody);
+	tl_clear(&tl);
+	msg_body_clear(&body);
 	tmps_freeall();
     } /**while(type == MSG_TYPE)**/
 

@@ -1,6 +1,6 @@
 -*- Indented-Text -*-
 
-$Id: README,v 4.31 2000/02/11 14:57:21 mj Exp $
+$Id: README,v 4.32 2000/04/11 08:04:29 mj Exp $
 
 ======================================================================
 				   
@@ -17,7 +17,7 @@ $Id: README,v 4.31 2000/02/11 14:57:21 mj Exp $
 		     ============================
 
 
-WARNING!!! If you're migrating from FIDOGATE 4.2.9 to 4.3.x, please
+WARNING!!! If you're migrating from FIDOGATE 4.2.9 to 4.4.x, please
 note the following *MAJOR* changes:
 
      4.3a1..a5	New directory hierarchy, new config files
@@ -26,7 +26,8 @@ note the following *MAJOR* changes:
      4.3.0+	In addition, FIDOGATE now uses a single config file
 		/etc/fidogate/fidogate.conf for *all* programs.
 
-     4.4.0	The new stable release, even somewhat well documented.
+     4.4.0+	The new stable release, even somewhat well documented.
+		See ANNOUNCE for recent changes.
 
 
 Please subscribe to the FIDOGATE mailing list!!!
@@ -871,6 +872,6 @@ not integrate your patches.
 
 ======================================================================
 
-$Date: 2000/02/11 14:57:21 $
+$Date: 2000/04/11 08:04:29 $
 Martin Junius
 mailto:mj@fido.de

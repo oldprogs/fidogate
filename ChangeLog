@@ -1,4 +1,28 @@
+2000-04-11  Martin Junius  <mj@fido.de>
+
+	------- CVS ci -------------------------------------------------------
+
+	* README: updated.
+
+	* fidogate.lsm: updated.
+
+	* ANNOUNCE: updated.
+
+	* src/gate/ftn2rfc.c (unpack): tl_clear() all textlists at end of
+	  main loop.
+	  (unpack): dito before all continue's.
+	  (unpack): dito for MsgBody body.
+	  (unpack): memory leaks seem to be fixed now.
+
+	* test/tc.memleak/run2: test script for running modified ftn2rfc.
+
+	* test/tc.history/run2: dito.
+
+	* test/tc.history/run1: adapted to new fidogate.conf
+
 2000-04-10  Martin Junius  <mj@fido.de>
+
+	* ANNOUNCE: updated.
 
 	------- CVS ci -------------------------------------------------------
 
