@@ -1,6 +1,6 @@
 #:ts=8
 #
-#    $Id: Makefile,v 4.7 1998/01/28 22:00:14 mj Exp $
+#    $Id: Makefile,v 4.8 1999/07/18 15:23:49 mj Exp $
 #
 #    Makefile for FIDOGATE sendmail/cf/
 #
@@ -20,9 +20,10 @@ M4OPTIONS	= -DconfFIDOGATE_LIBDIR=$(LIBDIR)
 #		  -DconfFIDOGATE_OUTDIR=%S/outpkt/mail
 
 
-CF		= orodruin.cf orodruin-smtp.cf orodruin-check.cf\
-		  morannon.cf morannon-ffx.cf morannon-check.cf\
-		  point.cf
+CF		= redhat6-orodruin.cf
+#CF		= orodruin.cf orodruin-smtp.cf orodruin-check.cf\
+#		  morannon.cf morannon-ffx.cf morannon-check.cf\
+#		  point.cf
 
 
 all:		$(CF)
