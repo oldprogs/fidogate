@@ -1,5 +1,12 @@
 Sun Dec 22 10:48:09 1996  Martin Junius  <mj@fido.de>
 
+	======= Release 4.1.4 ================================================
+	------- CVS ci, tag R414 ---------------------------------------------
+
+	* ANNOUNCE: updated.
+
+	* fidogate.lsm: updated.
+
 	------- CVS ci -------------------------------------------------------
 
 	* sendmail/cf.ORIG/: removed entire directory.
