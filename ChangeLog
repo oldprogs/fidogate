@@ -1,3 +1,13 @@
+2002-07-28  Martin Junius  <mj@m-j-s.net>
+
+	------- CVS ci -------------------------------------------------------
+
+	* doc/fidogate.texi (ftnhatch): added doc for new -r option.
+
+	* src/tick/ftnhatch.c (usage): added -r --replaces FILE option.
+	  (main): implemented -r --replaces FILE option.
+	  (hatch): new arg replaces, passed from -r option, sets tic.replaces.
+
 2002-07-21  Martin Junius  <mj@m-j-s.net>
 
 	------- CVS ci -------------------------------------------------------

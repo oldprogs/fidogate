@@ -22,8 +22,8 @@ versions.
 
 Indirect:
 fidogate.info-1: 764
-fidogate.info-2: 50274
-fidogate.info-3: 98252
+fidogate.info-2: 50352
+fidogate.info-3: 98330
 
 Tag Table:
 (Indirect)
@@ -58,48 +58,48 @@ Node: rfc2ftn37562
 Node: rungate38644
 Node: send-fidogate38853
 Node: ftnhatch39228
-Node: ftntick39690
-Node: ftntickpost40251
-Node: ftn2ftn40649
-Node: ftnexpire41693
-Node: ftnpack42554
-Node: ftnroute44259
-Node: ftntoss44958
-Node: runin46417
-Node: runmail46911
-Node: runnews47346
-Node: runout47781
-Node: runtoss48244
-Node: rununpack48619
-Node: ftnbsy49155
-Node: ftnconfig49618
-Node: ftnfattach50274
-Node: ftnflo50805
-Node: ftnlock51551
-Node: ftnlog52238
-Node: ftnoutpkt52665
-Node: ftnseq53196
-Node: pktdebug53605
-Node: pktmore54373
-Node: sumcrc54665
-Node: Config files55594
-Node: Config56893
-Node: Hosts74797
-Node: Aliases77043
-Node: Areas77912
-Node: Bounce81043
-Node: Passwd82238
-Node: Routing83827
-Node: Packing87756
-Node: Areas.bbs89681
-Node: Basic91710
-Node: Sendmail92235
-Node: Example Point93638
-Node: Example Point 295697
-Node: Example Node98252
-Node: Usage101196
-Node: RFC Headers101411
-Node: X Headers102772
-Node: Index103618
+Node: ftntick39768
+Node: ftntickpost40329
+Node: ftn2ftn40727
+Node: ftnexpire41771
+Node: ftnpack42632
+Node: ftnroute44337
+Node: ftntoss45036
+Node: runin46495
+Node: runmail46989
+Node: runnews47424
+Node: runout47859
+Node: runtoss48322
+Node: rununpack48697
+Node: ftnbsy49233
+Node: ftnconfig49696
+Node: ftnfattach50352
+Node: ftnflo50883
+Node: ftnlock51629
+Node: ftnlog52316
+Node: ftnoutpkt52743
+Node: ftnseq53274
+Node: pktdebug53683
+Node: pktmore54451
+Node: sumcrc54743
+Node: Config files55672
+Node: Config56971
+Node: Hosts74875
+Node: Aliases77121
+Node: Areas77990
+Node: Bounce81121
+Node: Passwd82316
+Node: Routing83905
+Node: Packing87834
+Node: Areas.bbs89759
+Node: Basic91788
+Node: Sendmail92313
+Node: Example Point93716
+Node: Example Point 295775
+Node: Example Node98330
+Node: Usage101274
+Node: RFC Headers101489
+Node: X Headers102850
+Node: Index103696
 
 End Tag Table

@@ -1465,6 +1465,9 @@ Options:
 `-b --fareas-bbs NAME'
      Use alternate FAREAS.BBS.
 
+`-r --replaces FILE'
+     Adds `Replaces 'FILE header to generated tic file.
+
    Please note that the file must already reside in the directory for
 the file area. Copying and hatching a new file to a file area is not
 yet implemented.

@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: ftnhatch.c,v 4.13 2002/07/15 20:21:59 n0ll Exp $
+ * $Id: ftnhatch.c,v 4.14 2002/07/28 08:24:28 n0ll Exp $
  *
  * Hatch file into file area
  *
@@ -36,7 +36,7 @@
 
 
 #define PROGRAM		"ftnhatch"
-#define VERSION		"$Revision: 4.13 $"
+#define VERSION		"$Revision: 4.14 $"
 #define CONFIG		DEFAULT_CONFIG_MAIN
 
 
@@ -51,7 +51,7 @@
 /*
  * Prototypes
  */
-int	hatch			(char *, char *, char *);
+int	hatch			(char *, char *, char *, char *);
 
 void	short_usage		(void);
 void	usage			(void);
@@ -61,7 +61,7 @@ void	usage			(void);
 /*
  * Hatch file
  */
-int hatch(char *area, char *file, char *desc)
+int hatch(char *area, char *file, char *desc, char *replaces)
 {
     char file_name[MAXPATH];
     AreasBBS *bbs;
@@ -108,21 +108,22 @@ int hatch(char *area, char *file, char *desc)
 
     now = time(NULL);
     
-    tic.origin  = cf_n_addr();
-    tic.from    = cf_n_addr();
+    tic.origin   = cf_n_addr();
+    tic.from     = cf_n_addr();
     /* tic.to set by hatch_one() */
-    tic.area    = area;
-    tic.file    = file;
+    tic.area     = area;
+    tic.file     = file;
+    tic.replaces = replaces;
     tl_append(&tic.desc, desc);
-    tic.crc     = file_crc;
-    tic.created = CREATOR;
-    tic.size    = file_size;
+    tic.crc      = file_crc;
+    tic.created  = CREATOR;
+    tic.size     = file_size;
     tl_appendf(&tic.path, "%s %ld %s",
 	       znf1(cf_addr()), now, date(NULL, &now) );
     lon_add(&tic.seenby, cf_addr());
     lon_join(&tic.seenby, &bbs->nodes);
     /* tic.pw set by hatch_one() */
-    tic.date    = file_time;
+    tic.date     = file_time;
 
     /*
      * Send to all nodes
@@ -162,6 +163,7 @@ void usage(void)
 	    PROGRAM);
     fprintf(stderr, "\
 options: -b --fareas-bbs NAME         use alternate FAREAS.BBS\n\
+         -r --replaces FILES          add Replaces entry\n\
 \n\
          -v --verbose                 more verbose\n\
 	 -h --help                    this help\n\
@@ -177,6 +179,7 @@ options: -b --fareas-bbs NAME         use alternate FAREAS.BBS\n\
 int main(int argc, char **argv)
 {
     char *areas_bbs = NULL;
+    char *r_flag=NULL;
     int c;
     char *c_flag=NULL;
     char *a_flag=NULL, *u_flag=NULL;
@@ -187,6 +190,7 @@ int main(int argc, char **argv)
     static struct option long_options[] =
     {
         { "fareas-bbs",	  1, 0, 'b'},
+        { "replaces",	  1, 0, 'r'},
 
 	{ "verbose",      0, 0, 'v'},	/* More verbose */
 	{ "help",         0, 0, 'h'},	/* Help */
@@ -202,12 +206,15 @@ int main(int argc, char **argv)
     cf_initialize();
 
 
-    while ((c = getopt_long(argc, argv, "b:vhc:a:u:",
+    while ((c = getopt_long(argc, argv, "b:r:vhc:a:u:",
 			    long_options, &option_index     )) != EOF)
 	switch (c) {
 	/***** ftnhatch options *****/
 	case 'b':
 	    areas_bbs = optarg;
+	    break;
+	case 'r':
+	    r_flag = optarg;
 	    break;
 	    
 	/***** Common options *****/
@@ -280,7 +287,7 @@ int main(int argc, char **argv)
     }
     
     /* Hatch it! */
-    ret = hatch(area, file, desc);
+    ret = hatch(area, file, desc, r_flag);
     tmps_freeall();
 
     exit(ret);
