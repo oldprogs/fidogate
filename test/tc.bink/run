@@ -1,0 +1,74 @@
+#!/bin/sh
+
+../tr.init
+
+V="-vvvvvvv"
+A="2:2/2"
+T1="../../src/util/ftnfattach -c../cf/fidogate.conf $V"
+T2="../../src/util/ftnfattach -ctmp_test.conf $V"
+
+
+cp test.conf tmp_test.conf
+echo "DosDrive X: "`pwd` >>tmp_test.conf
+cp run        tmp_file1.txt
+cp run        tmp_file2.txt
+cp run        tmp_file3.txt
+
+echo "tc: running"
+
+echo "----- Unix config ------------------------------------------------------"
+echo "----- file1 -----"
+$T1 $A `pwd`/tmp_file1.txt
+echo "FLO file:"
+cat -v bt/out/*.flo
+echo "----- file2 -----"
+$T1 $A '#'`pwd`/tmp_file2.txt
+echo "FLO file:"
+cat -v bt/out/*.flo
+echo "----- file3 -----"
+$T1 $A '^'`pwd`/tmp_file3.txt
+echo "FLO file:"
+cat -v bt/out/*.flo
+
+echo "----- file1 again -----"
+$T1 $A '#'`pwd`/tmp_file1.txt
+echo "FLO file:"
+cat -v bt/out/*.flo
+echo "----- file2 again -----"
+$T1 $A '^'`pwd`/tmp_file2.txt
+echo "FLO file:"
+cat -v bt/out/*.flo
+echo "----- file3 again -----"
+$T1 $A `pwd`/tmp_file3.txt
+echo "FLO file:"
+cat -v bt/out/*.flo
+
+rm -f bt/out/*.flo
+
+echo "----- DOS config -------------------------------------------------------"
+echo "----- file1 -----"
+$T2 $A `pwd`/tmp_file1.txt
+echo "FLO file:"
+cat -v bt/out/*.flo
+echo "----- file2 -----"
+$T2 $A '#'`pwd`/tmp_file2.txt
+echo "FLO file:"
+cat -v bt/out/*.flo
+echo "----- file3 -----"
+$T2 $A '^'`pwd`/tmp_file3.txt
+echo "FLO file:"
+cat -v bt/out/*.flo
+
+echo "----- file1 again -----"
+$T2 $A '#'`pwd`/tmp_file1.txt
+echo "FLO file:"
+cat -v bt/out/*.flo
+echo "----- file2 again -----"
+$T2 $A '^'`pwd`/tmp_file2.txt
+echo "FLO file:"
+cat -v bt/out/*.flo
+echo "----- file3 again -----"
+$T2 $A `pwd`/tmp_file3.txt
+echo "FLO file:"
+cat -v bt/out/*.flo
+

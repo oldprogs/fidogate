@@ -655,6 +655,10 @@ and don't touch the standard abbreviations in this file!!!
 `PERL'
      Full path name of perl executable.
 
+`SENDMAIL_CF_DIR'
+     Directory where the sendmail m4 configuration files are installed
+     (`/usr/lib/sendmail-cf' on RedHat Linux systems).
+
 `INFODIR'
      Directory for installing info documentation files.
 
@@ -1867,26 +1871,6 @@ Special parameters:
 `=hostsdomain'
      Domain for entries in `hosts' config files.
 
-
-ftnfattach -- Outbound file attaches
-====================================
-
-Usage:
-
-     ftnfattach  [-options]  Z:N/F.P  file ...
-
-Options:
-
-`-B --binkley name'
-     Set Binkley outbound directory.
-
-`-F --flavor name'
-     Set flavor of outbound FLO file to name: `Hold', `Normal',
-     `Direct', or `Crash'.
-
-   The file name may start with `^' or `#', indicating that the file
-should be deleted or truncated, respectively, after sending.
-
 This is fidogate.info, produced by Makeinfo version 3.12f from
 fidogate.texi.
 
@@ -1907,6 +1891,26 @@ permission notice identical to this one.
    Permission is granted to copy and distribute translations of this
 manual into other languages, under the above conditions for modified
 versions.
+
+
+ftnfattach -- Outbound file attaches
+====================================
+
+Usage:
+
+     ftnfattach  [-options]  Z:N/F.P  file ...
+
+Options:
+
+`-B --binkley name'
+     Set Binkley outbound directory.
+
+`-F --flavor name'
+     Set flavor of outbound FLO file to name: `Hold', `Normal',
+     `Direct', or `Crash'.
+
+   The file name may start with `^' or `#', indicating that the file
+should be deleted or truncated, respectively, after sending.
 
 
 ftnflo -- Process Binkley Outbound FLO Files and Attachments
@@ -3478,6 +3482,27 @@ Packing
 
    Otherwise see the standard point configuration with a single address.
 
+This is fidogate.info, produced by Makeinfo version 3.12f from
+fidogate.texi.
+
+   This file documents the installation and usage of FIDOGATE version
+4.3.
+
+   Copyright (C) 1994-1999, Martin Junius
+
+   Permission is granted to make and distribute verbatim copies of this
+manual provided the copyright notice and this permission notice are
+preserved on all copies.
+
+   Permission is granted to copy and distribute modified versions of
+this manual under the conditions for verbatim copying, provided that the
+entire resulting derived work is distributed under the terms of a
+permission notice identical to this one.
+
+   Permission is granted to copy and distribute translations of this
+manual into other languages, under the above conditions for modified
+versions.
+
 
 Example Leaf Node configuration
 ===============================
@@ -3578,27 +3603,6 @@ FIDOGATE Usage
 
 * RFC Headers:: RFC Headers in FTN Messages
 * X Headers::   X Headers in RFC Messages
-
-This is fidogate.info, produced by Makeinfo version 3.12f from
-fidogate.texi.
-
-   This file documents the installation and usage of FIDOGATE version
-4.3.
-
-   Copyright (C) 1994-1999, Martin Junius
-
-   Permission is granted to make and distribute verbatim copies of this
-manual provided the copyright notice and this permission notice are
-preserved on all copies.
-
-   Permission is granted to copy and distribute modified versions of
-this manual under the conditions for verbatim copying, provided that the
-entire resulting derived work is distributed under the terms of a
-permission notice identical to this one.
-
-   Permission is granted to copy and distribute translations of this
-manual into other languages, under the above conditions for modified
-versions.
 
 
 RFC Headers in FTN Messages

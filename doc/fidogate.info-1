@@ -667,6 +667,10 @@ and don't touch the standard abbreviations in this file!!!
 `PERL'
      Full path name of perl executable.
 
+`SENDMAIL_CF_DIR'
+     Directory where the sendmail m4 configuration files are installed
+     (`/usr/lib/sendmail-cf' on RedHat Linux systems).
+
 `INFODIR'
      Directory for installing info documentation files.
 
@@ -1961,26 +1965,4 @@ Special parameters:
 
 `=hostsdomain'
      Domain for entries in `hosts' config files.
-
-
-File: fidogate.info,  Node: ftnfattach,  Next: ftnflo,  Prev: ftnconfig,  Up: Programs
-
-ftnfattach -- Outbound file attaches
-====================================
-
-Usage:
-
-     ftnfattach  [-options]  Z:N/F.P  file ...
-
-Options:
-
-`-B --binkley name'
-     Set Binkley outbound directory.
-
-`-F --flavor name'
-     Set flavor of outbound FLO file to name: `Hold', `Normal',
-     `Direct', or `Crash'.
-
-   The file name may start with `^' or `#', indicating that the file
-should be deleted or truncated, respectively, after sending.
 

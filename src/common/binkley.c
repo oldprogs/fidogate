@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: binkley.c,v 4.10 1999/07/18 15:00:29 mj Exp $
+ * $Id: binkley.c,v 4.11 1999/07/23 21:30:12 mj Exp $
  *
  * BinkleyTerm-style outbound directory functions
  *
@@ -333,6 +333,9 @@ int bink_attach(Node *node, int mode, char *name, char *flav, int bsy)
     FILE *fp;
     char *flo;
     char *n;
+    char *line;
+    int lmode, found;
+    static char buf[MAXPATH];
 
     if(mode)
 	debug(4, "attach mode=%c (^=delete, #=trunc)", mode);
@@ -350,7 +353,9 @@ int bink_attach(Node *node, int mode, char *name, char *flav, int bsy)
     }
     else
 	n = name;
-    
+
+#if 0 /**********************************************************************/
+    /**PART OF OLD CODE**/
     flo = bink_find_flo(node, flav);
     if(!flo)
 	return ERROR;
@@ -409,20 +414,53 @@ int bink_attach(Node *node, int mode, char *name, char *flav, int bsy)
 	}
     }
     while(fp == NULL);
-    
-    /*
-     * We're there ...
-     */
-    debug(4, "FLO file open and locking succeeded");
-    
-    if(mode)
-	fprintf(fp, "%c%s%s", mode, n, cf_dos() ? "\r\n" : "\n" );
-    else
-	fprintf(fp, "%s%s"  ,       n, cf_dos() ? "\r\n" : "\n" );
-    fclose(fp);
+#endif/**********************************************************************/
 
-    if(bsy)
-	bink_bsy_delete(node);
+
+    if(flo_openx(node, bsy, flav, TRUE) == ERROR)
+	return ERROR;
+    fp = flo_file();
+
+    /* seek to start of flo file */
+    if(fseek(fp, 0L, SEEK_SET) == ERROR)
+    {
+	log("$fseek EOF FLO file %s failed", flo);
+	flo_close(node, TRUE, FALSE);
+	return ERROR;
+    }
+
+    /* read FLO entries, check if file attachment exists */
+    found = FALSE;
+    while( (line = flo_gets(buf, sizeof(buf))) )
+    {
+	if(*line == '~')
+	    continue;
+	lmode = ' ';
+	if(*line == '^' || *line == '#')
+	    lmode = *line++;
+
+	debug(5, "FLO entry: %c %s", lmode, line);
+	if(streq(line, n))
+	{
+	    found = TRUE;
+	    debug(5, "           found entry");
+	}
+    }
+    
+    /* We're there ...  */
+    if(found)
+	debug(4, "FLO file already contains an entry, not attaching file");
+    else
+    {
+	debug(4, "FLO file open and locking succeeded, attaching file");
+	if(mode)
+	    fprintf(fp, "%c%s%s", mode, n, cf_dos() ? "\r\n" : "\n" );
+	else
+	    fprintf(fp, "%s%s"  ,       n, cf_dos() ? "\r\n" : "\n" );
+    }
+
+    flo_close(node, TRUE, FALSE);
+
     return OK;
 }
 
@@ -526,75 +564,3 @@ int check_old(char *name, time_t dt)
 
     return t - st.st_mtime > dt;
 }
-
-
-
-
-/*****************************************************************************/
-#ifdef TEST
-
-#include "getopt.h"
-
-
-#define CONFIG		DEFAULT_CONFIG_MAIN
-
-
-int main(int argc, char *argv[])
-{
-    Node node;
-    int c;
-    char *c_flag=NULL;
-    char mode[] = "-";
-    char *line;
-    
-    int option_index;
-    static struct option long_options[] =
-    {
-	{ "verbose",      0, 0, 'v'},	/* More verbose */
-	{ "config",       1, 0, 'c'},	/* Config file */
-	{ 0,              0, 0, 0  }
-    };
-
-    /* Init configuration */
-    cf_initialize();
-
-    while ((c = getopt_long(argc, argv, "vc:",
-			    long_options, &option_index     )) != EOF)
-	switch (c) {
-	/***** Common options *****/
-	case 'v':
-	    verbose++;
-	    break;
-	case 'c':
-	    c_flag = optarg;
-	    break;
-	}
-
-    /*
-     * Read config file
-     */
-    cf_read_config_file(c_flag ? c_flag : CONFIG);
-
-    /***** Test **************************************************************/
-    if(optind >= argc)
-    {
-	fprintf(stderr,
-		"usage: testbinkley [-v] [-c CONFIG] Z:N/F.P [^#]FILE\n");
-	exit(1);
-    }
-
-    if(asc_to_node(argv[optind], &node, FALSE) == ERROR)
-    {
-	fprintf(stderr, "testbinkley: %s is not an FTN address\n",
-		argv[optind]);
-	exit(1);
-    }
-
-    
-    exit(0);
-
-    /**NOT REACHED**/
-    return 0;
-}
-
-#endif /**TEST**/

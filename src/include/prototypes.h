@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: prototypes.h,v 4.60 1999/07/18 15:00:30 mj Exp $
+ * $Id: prototypes.h,v 4.61 1999/07/23 21:30:12 mj Exp $
  *
  * Prototypes for functions in libfidogate.a
  *
@@ -210,7 +210,7 @@ void	fidogate_exit		(int);
 /* flo.c */
 FILE   *flo_file		(void);
 int	flo_open		(Node *, int);
-int	flo_openx		(Node *, int, int);
+int	flo_openx		(Node *, int, char *, int);
 char   *flo_gets		(char *, size_t);
 int	flo_close		(Node *, int, int);
 int	flo_mark		(void);

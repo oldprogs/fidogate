@@ -1,7 +1,7 @@
 							 -*- Indented-Text -*-
 ===== TODO list for FIDOGATE development =====================================
 
-4.3.5!!	* ftnpack/bink_attach(): check that FLO file contains entry
+DONE	* ftnpack/bink_attach(): check that FLO file contains entry
 	  for ArcMail archive, always call bink_attach().
 	  bink_attach(): use flo_xxx() functions.
 

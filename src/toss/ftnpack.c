@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftnpack.c,v 4.24 1999/04/03 12:13:24 mj Exp $
+ * $Id: ftnpack.c,v 4.25 1999/07/23 21:30:13 mj Exp $
  *
  * Pack output packets of ftnroute for Binkley outbound (ArcMail)
  *
@@ -40,7 +40,7 @@
 
 
 #define PROGRAM 	"ftnpack"
-#define VERSION 	"$Revision: 4.24 $"
+#define VERSION 	"$Revision: 4.25 $"
 #define CONFIG		DEFAULT_CONFIG_MAIN
 
 
@@ -555,7 +555,7 @@ int do_arcmail(char *name, Node *arcnode, Node *flonode,
     chmod(arcn, PACKET_MODE);
     if(unlink(pktn) == -1)
 	log("$ERROR: can't remove %s", pktn);
-    if(!dir && newfile)
+    if(!dir)
 	return bink_attach(flonode, '#', arcn,
 			   flav_to_asc(desc->flav), FALSE );
 

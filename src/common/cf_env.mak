@@ -3,7 +3,7 @@
 /*
  * FIDOGATE
  *
- * $Id: cf_env.mak,v 4.12 1999/05/15 21:51:00 mj Exp $
+ * $Id: cf_env.mak,v 4.13 1999/07/23 21:30:12 mj Exp $
  */
 
     if( (p = getenv("FIDOGATE_LOGDIR")) )

@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: flo.c,v 4.7 1999/07/18 15:00:29 mj Exp $
+ * $Id: flo.c,v 4.8 1999/07/23 21:30:12 mj Exp $
  *
  * Functions for handling BinkleyTerm-style FLO files
  *
@@ -59,19 +59,19 @@ FILE *flo_file(void)
  */
 int flo_open(Node *node, int bsy)
 {
-    return flo_openx(node, bsy, FALSE);
+    return flo_openx(node, bsy, NULL, FALSE);
 }
 
 
-int flo_openx(Node *node, int bsy, int wpmode)
+int flo_openx(Node *node, int bsy, char *flav, int apmode)
 {
     char *flo;
     char *mode;
 
-    mode = wpmode ? WP_MODE : RP_MODE;
+    mode = apmode ? AP_MODE : RP_MODE;
 
     /* Find existing or new FLO file */
-    flo = bink_find_flo(node, NULL);
+    flo = bink_find_flo(node, flav);
     if(!flo)
 	return ERROR;
     BUF_COPY(flo_name, flo);
@@ -87,11 +87,11 @@ int flo_openx(Node *node, int bsy, int wpmode)
 
  again:    
     /* Open FLO file for read/write */
-    debug(4, "Opening FLO file in read/write mode");
+    debug(4, "Opening FLO file, mode=%s", mode);
     flo_fp = fopen(flo_name, mode);
     if(flo_fp == NULL)
     {
-	log("$opening FLO file %s failed", flo_name);
+	log("$opening FLO file %s mode %s failed", flo_name, mode);
 	if(bsy)
 	    bink_bsy_delete(node);
 	return ERROR;
@@ -114,11 +114,13 @@ int flo_openx(Node *node, int bsy, int wpmode)
     if(access(flo_name, F_OK) == ERROR)
     {
 	debug(4, "FLO file %s deleted after locking", flo_name);
-	if(bsy)
-	    bink_bsy_delete(node);
 	fclose(flo_fp);
-	if(wpmode)
+	if(apmode)
+	{
+	    if(bsy)
+		bink_bsy_delete(node);
 	    goto again;
+	}
 	else
 	    return ERROR;
     }

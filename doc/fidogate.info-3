@@ -20,6 +20,112 @@ manual into other languages, under the above conditions for modified
 versions.
 
 
+File: fidogate.info,  Node: Example Node,  Next: Usage,  Prev: Example Point 2,  Up: Basic
+
+Example Leaf Node configuration
+===============================
+
+Let's assume the following addresses:
+
+   Fido main address 2:2499/999
+
+   Uplink (NetMail and EchoMail) 2:2499/900
+
+   Gateway point address 2:2499/999.1
+
+   Two points, Max Mueller @ 2:2499/999.10, Sabine Meier @ 2:2499/999.11
+
+Address configuration `fidogate.conf':
+
+     Address     2:2499/999
+     GateAddress 2:2499/999.1
+
+Routing configuration `routing': NetMail for the two points will be
+remapped to their point addresses, everything else to the gateway (where
+you will be reading your mail). NetMail for all points is `send' onto
+hold, everything else `route'd to your uplink. EchoMail is alway put
+onto hold.
+
+     remap    2:2499/999.0 2:2499/999.10 "Max Mueller"
+     remap    2:2499/999.0 2:2499/999.11 "Sabine Meier"
+     remap    2:2499/999.0 2:2499/999.1  "*"
+     
+     NetMail
+     send     hold   2:2499/999.*
+     route    normal 2:2499/900 1:* 2:* 3:* 4:* 5:* 6:*
+     
+     EchoMail
+     sendmove hold   2:2499/999.*
+     sendmove normal *
+
+Packer configuration `packing': `noarc' packing for the gateway
+address, `zip' is the default archiver for everything else.
+
+     arc      zip    "/usr/bin/zip -9gkjq %s %s"
+     
+     pack     noarc  2:2499/999.1
+     pack     zip    *
+
+Next, the EchoMail areas must be listed in the `areas.bbs' file. Do not
+put your node address into `areas.bbs'! Example with two areas, both
+subscribed by the gateway and your points (the directory `X' is not
+used for EchoMail areas):
+
+     Your system name!sysop name
+     #X LINUX.GER 2:2499/900 999.1 .10 .11
+     #X UNIX.GER  2:2499/900 999.1 .11
+
+   `#' denotes a passthrough area, i.e. no packets for the own address
+(2:2499/999) are created. All EchoMail will be send to the gateway (.1).
+
+   In the gateway configuration, these areas must be listed in the
+`areas' config file:
+
+     LINUX.GER fido.ger.linux -8
+     UNIX.GER  fido.ger.unix  -8
+
+   For regular processing, the following scripts should be run from cron
+every 20 min or so:
+`rungate'
+     Inbound gateway (Fido -> Internet and FTN -> FTN) processing
+
+`runin'
+     Inbound tosser and ticker processing
+
+`runmail'
+     Outbound gateway for mail (Internet -> Fido) processing.
+
+`runnews'
+     Outbound gateway for news (Internet -> Fido) processing.
+
+`runout'
+     Outbound packet processing (various sources).
+
+   To use the areafix, the gateway and the mail system must be working.
+You can then install suitable aliases in `/etc/aliases':
+
+     # Areafix/Filefix - FIDOGATE ftnaf
+     areafix: "|/usr/lib/fidogate/ftnafmail"
+     areamgr: areafix
+     filefix: "|/usr/lib/fidogate/ftnafmail -F"
+     filemgr: filefix
+
+   That's it. I hope that this short chapter on basic configuration
+clarifies some of the darker point of the FIDOGATE configuration.
+Anyway, please help to improve the FIDOGATE documentation.
+
+
+File: fidogate.info,  Node: Usage,  Next: RFC Headers,  Prev: Example Node,  Up: Top
+
+FIDOGATE Usage
+**************
+
+* Menu:
+
+* RFC Headers:: RFC Headers in FTN Messages
+* X Headers::   X Headers in RFC Messages
+
+
 File: fidogate.info,  Node: RFC Headers,  Next: X Headers,  Prev: Usage,  Up: Usage
 
 RFC Headers in FTN Messages

@@ -1,10 +1,10 @@
 X-Emacs-Mode: -*- indented-text -*-
-Subject: FIDOGATE 4.3.4 --- Fido-Internet Gateway and Tosser
+Subject: FIDOGATE 4.3.5 --- Fido-Internet Gateway and Tosser
 Keywords: fido ftn netmail echomail tosser areafix mail news gateway
 Followup-To: comp.os.linux.misc
 
   ==================================================================
-  FIDOGATE 4.3.4, a development snapshot of the new FIDOGATE release
+  FIDOGATE 4.3.5, a development snapshot of the new FIDOGATE release
   ==================================================================
 
 			   FIDOGATE Version 4
@@ -29,15 +29,14 @@ Followup-To: comp.os.linux.misc
     (probably still in .../pub/Linux/Incoming)
 ...]
 
-    fidogate-4.3.4.tar.gz	1250 Kbyte
+    fidogate-4.3.5.tar.gz	1250 Kbyte
 
-[NOT FOR DEVELOPMENT SNAPSHOTS! ...
   Fido File Request:
   ==================
     2:2452/110, 111  +49-241-876604  (V.34, ISDN V.110/X.75)
     
-    fgate***.tgz		1250 Kbyte
-...]
+    Magic FIDOGATE or
+    fgate435.tgz		1250 Kbyte
 
 
 ======================================================================
@@ -50,6 +49,21 @@ Up-to-date example configurations:
 * examples/node/      (new and incomplete)
 
 ======================================================================
+
+Changes in 4.3.5:
+
+* ftntick: new -x --exec-script option to run e.g. announcement script.
+  ftntickpost: skeleton for such a script.
+
+* ftnpack, ftnfattach, bink_attach() in general: search FLO file for
+  entry with file attachment, only attach if necessary. ftnpack now
+  avoids adding to orphan arcmail packets not listed in any FLO file.
+
+* sendmail configuration: no longer uses copy of m4 copy files, but
+  symlinks to /usr/lib/sendmail-cf. New redhat6-orodruin.mc config
+  file for RedHat 6.0 and sendmail 8.9.3.
+
+
 
 Changes in 4.3.4:
 
@@ -225,6 +239,6 @@ Needed:
 
 ======================================================================
 
-$Date: 1999/06/27 19:18:07 $
+$Date: 1999/07/23 21:30:11 $
 Martin Junius
 mailto:mj@fido.de

@@ -1,0 +1,42 @@
+tc: clean-up
+tc: init
+tc: running
+----- file1 -----
+attach name=/home/mj/src/fidogate/test/tc.bink/tmp_file1.txt
+new FLO file ./bt/out/00020002.flo
+node=2:2/2.0 bsy file=./bt/out/00020002.bsy
+Opening FLO file, mode=a+
+Locking FLO file
+FLO file ./bt/out/00020002.flo open and locking succeeded
+FLO file open and locking succeeded
+node=2:2/2.0 bsy file=./bt/out/00020002.bsy
+Deleting BSY file ./bt/out/00020002.bsy succeeded.
+FLO file:
+/home/mj/src/fidogate/test/tc.bink/tmp_file1.txt
+----- file2 -----
+attach name=/home/mj/src/fidogate/test/tc.bink/tmp_file2.txt
+found FLO file ./bt/out/00020002.flo
+node=2:2/2.0 bsy file=./bt/out/00020002.bsy
+Opening FLO file, mode=a+
+Locking FLO file
+FLO file ./bt/out/00020002.flo open and locking succeeded
+FLO file open and locking succeeded
+node=2:2/2.0 bsy file=./bt/out/00020002.bsy
+Deleting BSY file ./bt/out/00020002.bsy succeeded.
+FLO file:
+/home/mj/src/fidogate/test/tc.bink/tmp_file1.txt
+/home/mj/src/fidogate/test/tc.bink/tmp_file2.txt
+----- file3 -----
+attach name=/home/mj/src/fidogate/test/tc.bink/tmp_file3.txt
+found FLO file ./bt/out/00020002.flo
+node=2:2/2.0 bsy file=./bt/out/00020002.bsy
+Opening FLO file, mode=a+
+Locking FLO file
+FLO file ./bt/out/00020002.flo open and locking succeeded
+FLO file open and locking succeeded
+node=2:2/2.0 bsy file=./bt/out/00020002.bsy
+Deleting BSY file ./bt/out/00020002.bsy succeeded.
+FLO file:
+/home/mj/src/fidogate/test/tc.bink/tmp_file1.txt
+/home/mj/src/fidogate/test/tc.bink/tmp_file2.txt
+/home/mj/src/fidogate/test/tc.bink/tmp_file3.txt

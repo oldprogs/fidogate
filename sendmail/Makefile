@@ -1,6 +1,6 @@
 #:ts=8
 #
-#    $Id: Makefile,v 4.1 1999/07/18 15:00:22 mj Exp $
+#    $Id: Makefile,v 4.2 1999/07/23 21:30:11 mj Exp $
 #
 #    Makefile for FIDOGATE sendmail/
 #
@@ -18,7 +18,7 @@ include $(TOPDIR)/rules.make
 SUBDIR		= cf
 
 
-all:		README make-cf
+all::		README
 
 
 README:		$(SENDMAIL_CF_DIR)/README
@@ -32,7 +32,7 @@ clean::
 	./mkclean
 	rm -f *~ *.bak *.o tags TAGS core paths.tmp
 
-clean veryclean check test verify depend install::
+all clean veryclean check test verify depend install::
 	make -C $(SUBDIR) $@
 
 check::

@@ -1,4 +1,39 @@
+1999-07-23  Martin Junius  <mj@fido.de>
+
+	------- CVS ci -------------------------------------------------------
+
+	* src/toss/ftnpack.c (do_arcmail): call bink_attach() also for new 
+	  arcmail files.
+
+	* src/common/binkley.c (bink_attach): now searches thru FLO file
+	  for file attachment. If the file attachment already is an entry
+	  in the FLO it will be skipped.
+
 1999-07-18  Martin Junius  <mj@fido.de>
+
+	* src/common/flo.c (flo_openx): additional argument flav, needed
+	  for bink_attach().
+	  (flo_openx): argument renamed to apmode, if TRUE open in "a+" mode.
+
+	* src/common/binkley.c (bink_attach): old FLO open code replaced
+	  with call to new function flo_openx().
+	  (bink_attach): use flo_close() as well.
+
+	* src/common/flo.c (flo_openx): if loop is repeated, don't remove
+	  BSY file.
+
+	* test/tc.bink/run: new test case for bink_attach(), using
+	  ftnfattach utility.
+
+	* src/common/binkley.c (main): removed test main() because it was
+ 	  actually the intended to be the same code as ftnfattach.c:main()
+ 	  ;-)
+
+	* sendmail/cf/redhat6-orodruin.mc: new orodruin configuration,
+	  merging old orodruin[-check].mc and RedHat 6.0
+	  /usr/lib/sendmail-cf/cf/redhat.mc.
+
+	* sendmail/cf/Makefile: adapted to new config.
 
 	------- CVS ci -------------------------------------------------------
 
