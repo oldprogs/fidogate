@@ -1,6 +1,6 @@
 PUSHDIVERT(-1)
 #
-# $Id: ftn.m4,v 4.8 1997/11/16 15:53:26 mj Exp $
+# $Id: ftn.m4,v 4.9 1998/02/22 16:25:49 mj Exp $
 #
 # FIDOGATE FTN mailer for sendmail V8
 #
@@ -11,15 +11,15 @@ ifdef(`confFIDOGATE_LIBDIR',,
   `define(`confFIDOGATE_LIBDIR', `/usr/local/lib/fidogate')')
 
 ifdef(`FTN_MAILER_PATH',,
-  `define(`FTN_MAILER_PATH', confFIDOGATE_LIBDIR/rfc2ftn)')
+  `define(`FTN_MAILER_PATH', confFIDOGATE_LIBDIR/ftnmail)')
 ifdef(`FTN_MAILER_ARGS',,
-  `define(`FTN_MAILER_ARGS', `rfc2ftn ifdef(`confFIDOGATE_OUTDIR',`-O confFIDOGATE_OUTDIR',`') -- $u')')
+  `define(`FTN_MAILER_ARGS', `ftnmail ifdef(`confFIDOGATE_OUTDIR',`-O confFIDOGATE_OUTDIR',`') -- $u')')
 ifdef(`FTN_MAILER_ARGSI',,
-  `define(`FTN_MAILER_ARGSI', `rfc2ftn ifdef(`confFIDOGATE_OUTDIR',`-O confFIDOGATE_OUTDIR',`') -i -- $u')')
+  `define(`FTN_MAILER_ARGSI', `ftnmail ifdef(`confFIDOGATE_OUTDIR',`-O confFIDOGATE_OUTDIR',`') -i -- $u')')
 ifdef(`FTN_MAILER_ARGSA',,
-  `define(`FTN_MAILER_ARGSA', `rfc2ftn ifdef(`confFIDOGATE_OUTDIR',`-O confFIDOGATE_OUTDIR',`') -a $h -u $h -i -- $u')')
+  `define(`FTN_MAILER_ARGSA', `ftnmail ifdef(`confFIDOGATE_OUTDIR',`-O confFIDOGATE_OUTDIR',`') -a $h -i -- $u')')
 ifdef(`FTN_MAILER_ARGSO',,
-  `define(`FTN_MAILER_ARGSO', `rfc2ftn -a $h -u $h -O %S/outpkt/$h -i -- $u')')
+  `define(`FTN_MAILER_ARGSO', `ftnmail -a $h -O outpkt/$h -i -- $u')')
 ifdef(`FTN_MAILER_FLAGS',,
   `define(`FTN_MAILER_FLAGS', `')')
 POPDIVERT
@@ -28,7 +28,7 @@ POPDIVERT
 ###    FTN Mailer specification   ###
 #####################################
 
-VERSIONID(`$Revision: 4.8 $')
+VERSIONID(`$Revision: 4.9 $')
 
 ifdef(`_MAILER_smtp_',
 `# FIDOGATE mailer

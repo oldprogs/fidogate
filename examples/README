@@ -1,6 +1,10 @@
 -*- Indented-Text -*-
 
-$Id: README,v 1.3 1997/08/20 21:04:58 mj Exp $
+$Id: README,v 1.4 1998/02/22 16:25:46 mj Exp $
+
+
+WARNING!!!
+Only the stuff in orodruin/ is up-to-date for version 4.3!!!
 
 
 This directory contains example configurations, using the FIDOGATE

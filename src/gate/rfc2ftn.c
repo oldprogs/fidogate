@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway software UNIX <-> FIDO
  *
- * $Id: rfc2ftn.c,v 4.36 1998/01/24 14:07:32 mj Exp $
+ * $Id: rfc2ftn.c,v 4.37 1998/02/22 16:25:53 mj Exp $
  *
  * Read mail or news from standard input and convert it to a FIDO packet.
  *
@@ -39,7 +39,7 @@
 
 
 #define PROGRAM 	"rfc2ftn"
-#define VERSION 	"$Revision: 4.36 $"
+#define VERSION 	"$Revision: 4.37 $"
 #define CONFIG		DEFAULT_CONFIG_GATE
 
 
@@ -1655,7 +1655,7 @@ int main(int argc, char **argv)
 	{ "ignore-hosts", 0, 0, 'i'},	/* Do not bounce unknown hosts */
 	{ "out-dir",      1, 0, 'O'},	/* Set packet directory */
 	{ "write-outbound",1,0, 'w'},	/* Write to Binkley outbound */
-	{ "write-crash",  0, 0, 'w'},	/* Write crash to Binkley outbound */
+	{ "write-crash",  0, 0, 'W'},	/* Write crash to Binkley outbound */
 	{ "to",           0, 0, 't'},	/* Get recipient from To, Cc, Bcc */
 
 	{ "verbose",      0, 0, 'v'},	/* More verbose */

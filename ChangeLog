@@ -2,6 +2,20 @@ Sun Feb 22 15:59:19 1998  Martin Junius  <mj@fido.de>
 
 	------- CVS ci -------------------------------------------------------
 
+	* sendmail/mailer/ftn.m4: changed to use ftnmail instead of rfc2ftn.
+
+	* src/gate/Makefile (PROGS): added ftnmail.
+	  (install): install ftnmail setuid, rfc2ftn non-setuid.
+
+	* src/gate/ftnmail.c: new program, setuid frontend for rfc2ftn,
+	  limiting options to -a, -i, -O (with check) for security reasons.
+
+	* src/gate/rfc2ftn.c (main): --write-crash is -W.
+
+	* examples/README: added warning.
+
+	------- CVS ci -------------------------------------------------------
+
 	* examples/orodruin/README: update of configuration examples using
 	  new config files, added README.
 
