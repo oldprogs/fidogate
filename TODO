@@ -2,19 +2,24 @@
 
 X = for next release
 
+
+	* doc: add ftnpack -f --ffx
+
+	* doc: add %L/%S/%G/%O/%I/%P/%U
+
 EXISTS!	* ftnexpire: wait for lock file to be released!
 
 	* ftn2rfc/rfc2ftn: mail log + size / message date
 
 	* doc: add areas -L, LimitMsgSize, #define DO_HAVE_SYSEXITS_H
 
-	* ftnpack: special option to process ffx control and data
+DONE.	* ftnpack: special option to process ffx control and data
 	  files.
 
-	* doc: add RFC header in Fido message body documentation
+	* doc: add RFC header in Fido message body
 	  (From, To, Cc, ..., Content-Transfer-Encoding)
 
-	* doc: add X-Flags documentation.
+	* doc: add X-Flags
 
 	* ftn2rfc: improve processing of RFC address user%do.main and
 	  user@do.main in FTN to field. Avoid "" quotes.

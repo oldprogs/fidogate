@@ -2,6 +2,45 @@ Sat Apr 12 09:22:58 1997  Martin Junius  <mj@fido.de>
 
 	------- CVS ci -------------------------------------------------------
 
+	* scripts/inn/viaffx: use $batch on ffx command line, set to "-b $1".
+
+	* scripts/run/runpoll: using new send-ffx-b, ffxbatch replaced
+	  with ftnpack -f.
+
+	* src/toss/ftnpack.c (main): if ffx_flag, using directory pattern
+	  "f???????*".
+
+	* test/tc.ffx/ffxmail: special ffxmail for test case.
+
+	* test/tc.ffx/run: new test case, testing ffx + new ftnpack -f.
+
+	* src/toss/ftnpack.c (main): if ffx_flag is set, create/delete BSY
+	  file for address ffx_node (option -f --ffx Z:N/F.P).
+	  (do_file): if ffx_flag, set packet from/to = AKA/ffx_node,
+	  pkt_file = NULL.
+	  (main): create lock/BSY file *before* reading directory.
+	  (do_dirpack): if ffx_flag, don't create/delete BSY file.
+	  (do_pack): only create/delete BSY file for arcnode, if ffx_flag
+	  is not set or arcnode != ffx_node.
+	  (do_pack): if ffx_flag, always use do_arcmail().
+	  (do_pack): only fclose(file), if file != NULL.
+	  (do_arcmail): only rename/copy packet file, if not ffx_flag.
+
+	* src/ffx/ffxbatch.c (main): use EXIT_xxxx codes.
+
+	* src/toss/ftnpack.c (main): use BUF_EXPAND(), BUF_COPY().
+	  (main): added Z:N/F.P address argument to -f --ffx.
+
+	* examples/orodruin/config.common: added %X description.
+
+	* src/common/misc.c (str_expand_name): now %G = LogDir, added %O =
+	  Outbound, %I = Inbound, %P = PInbound, %U = UUInbound.
+
+	* src/toss/ftnpack.c (usage): new option -f --ffx.
+	  (main): new option -f -ffx, sets ffx_flag.
+
+	------- CVS ci -------------------------------------------------------
+
 	* version.h (PATCHLEVEL): set to 1 (version 4.2.1).
 
 	* src/common/misc.c (str_dosify): new function converting string

@@ -1,0 +1,52 @@
+#!/bin/sh
+
+../tr.init
+
+F="./ffxmail"
+P="../../src/toss/ftnpack -L../cf -vvv"
+
+echo "tc: running"
+
+# Some test ffxmail
+$F test 123@fido.de <<EOF
+Subject: Test
+From: mj@fido.de
+To: mj@fido.de
+
+----
+TEST
+----
+EOF
+
+$F test abc@fido.de <<EOF
+Subject: Test
+From: mj@fido.de
+To: mj@fido.de
+
+----
+TEST
+----
+EOF
+
+$F test def@fido.de <<EOF
+Subject: Test
+From: mj@fido.de
+To: mj@fido.de
+
+----
+TEST
+----
+EOF
+
+$F test ghi@fido.de <<EOF
+Subject: Test
+From: mj@fido.de
+To: mj@fido.de
+
+----
+TEST
+----
+EOF
+
+# Pack it
+$P -f 242:1/1 -I %O/out.0f2/test

@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: misc.c,v 4.3 1997/04/12 07:55:42 mj Exp $
+ * $Id: misc.c,v 4.4 1997/04/12 18:58:05 mj Exp $
  *
  * Miscellaneous functions
  *
@@ -293,7 +293,11 @@ int is_blank(int c)
  *
  * %S    SPOOLDIR
  * %L    LIBDIR
- * %O    LOGDIR
+ * %G    LOGDIR
+ * %O    Outbound
+ * %I    Inbound
+ * %P    PInbound
+ * %U    UUInbound
  */
 char *str_expand_name(char *d, size_t n, char *s)
 {
@@ -311,8 +315,24 @@ char *str_expand_name(char *d, size_t n, char *s)
 	    str_append(d, n, cf_libdir());
 	    s += 2;
 	    break;
-	case 'O':				/* Logdir */
+	case 'G':				/* Logdir */
 	    str_append(d, n, cf_logdir());
+	    s += 2;
+	    break;
+	case 'O':				/* Outbound */
+	    str_append(d, n, cf_p_outbound());
+	    s += 2;
+	    break;
+	case 'I':				/* Inbound */
+	    str_append(d, n, cf_p_inbound());
+	    s += 2;
+	    break;
+	case 'P':				/* PInbound */
+	    str_append(d, n, cf_p_pinbound());
+	    s += 2;
+	    break;
+	case 'U':				/* UUInbound */
+	    str_append(d, n, cf_p_uuinbound());
 	    s += 2;
 	    break;
 	}

@@ -1,6 +1,6 @@
 #:ts=8
 #
-# $Id: config.common,v 4.6 1996/12/05 11:27:40 mj Exp $
+# $Id: config.common,v 4.7 1997/04/12 18:57:59 mj Exp $
 #
 # FIDOGATE config file common stuff,
 # included by config.gate, config.main, config.ffx
@@ -17,6 +17,16 @@
 # the .../out.xxx), BinkleyTerm-style inbound dir
 #
 # lib, spool defaults are defined in config.h
+#
+# May be accessed in the config files and on the command using
+#
+#     %S    SpoolDir
+#     %L    LibDir
+#     %G    LogDir
+#     %O    Outbound
+#     %I    Inbound
+#     %P    PInbound
+#     %U    UUInbound
 #
 LibDir		/usr/local/lib/fidogate
 SpoolDir	/var/spool/fido

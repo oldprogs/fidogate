@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ffxbatch.c,v 4.5 1996/12/17 17:19:49 mj Exp $
+ * $Id: ffxbatch.c,v 4.6 1997/04/12 18:58:07 mj Exp $
  *
  * ffx FIDO-FIDO execution batcher, packs batched (-b) ffx jobs.
  *
@@ -38,7 +38,7 @@
 
 
 #define PROGRAM		"ffxbatch"
-#define VERSION		"$Revision: 4.5 $"
+#define VERSION		"$Revision: 4.6 $"
 #define CONFIG		CONFIG_FFX
 
 
@@ -456,7 +456,7 @@ int main(int argc, char **argv)
     passwd_init();
     
     if(bink_bsy_create(&node, w_flag ? WAIT : NOWAIT) == ERROR)
-	exit(1);
+	exit(EXIT_BUSY);
 
     ret = ffx(&node, ARC_PROG, ARC_EXT, ARC_UNPACK,
 	      F_flag ? F_flag : DATA_FLAV, g_flag, b_flag );
@@ -466,5 +466,5 @@ int main(int argc, char **argv)
     exit(ret);
 
     /**NOT REACHED**/
-    return 1;
+    return EXIT_ERROR;
 }

@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# $Id: viaffx.sh,v 1.1 1996/09/28 08:13:53 mj Exp $
+# $Id: viaffx.sh,v 1.2 1997/04/12 18:58:00 mj Exp $
 #
 # Transmit batch to $1, using a Fido mailer and the ffx remote execution
 # protocol. See case statement for a translation of hostnames to Fido
@@ -9,18 +9,16 @@
 # The 'exec' cuts down the number of active processes
 #
 
+batch="-b $1"
+
 case $1 in
 	morannon)
 		ftn="242:1000/1"
-		;;
-	zruty)
-		ftn="242:1000/4"
+		batch="-b $1"
 		;;
 	orodruin)
 		ftn="242:1000/5"
-		;;
-	sungate)
-		ftn="242:4900/99"
+		batch="-b $1"
 		;;
 	*)
 		echo "No FTN address for system $1"
@@ -28,4 +26,4 @@ case $1 in
 		;;
 esac
 	
-exec <LIBDIR>/ffx -gn -FNormal $ftn rnews
+exec <LIBDIR>/ffx -gn -FNormal $batch $ftn rnews

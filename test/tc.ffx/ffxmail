@@ -1,0 +1,35 @@
+#!/bin/sh
+#
+# $Id: ffxmail,v 1.1 1997/04/12 18:58:11 mj Exp $
+#
+# Test ffxmail
+#
+
+if [ $# -lt 2 ] ;then
+	echo "usage: ffxmail Z:N/F.P|HOST user@domain ..."
+	exit 1
+fi
+
+node="$1"
+shift
+addr="$*"
+
+nocmpr="-n";
+
+case $node in
+
+    test)
+	batch="-b test"
+	faddr="242:1/1"
+	;;
+
+    # Unknown node
+    *)
+	echo "ffxmail: unknown node $node"
+	# EX_NOHOST
+	exit 68
+	;;
+
+esac
+
+exec ../../src/ffx/ffx -L../cf -vvv $nocmpr $batch -- $faddr rmail $addr

@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftnpack.c,v 4.12 1997/04/12 07:55:45 mj Exp $
+ * $Id: ftnpack.c,v 4.13 1997/04/12 18:58:08 mj Exp $
  *
  * Pack output packets of ftnroute for Binkley outbound (ArcMail)
  *
@@ -40,7 +40,7 @@
 
 
 #define PROGRAM 	"ftnpack"
-#define VERSION 	"$Revision: 4.12 $"
+#define VERSION 	"$Revision: 4.13 $"
 #define CONFIG		CONFIG_MAIN
 
 
@@ -49,8 +49,10 @@
  * Command line options
  */
 int  g_flag   = 0;
-int  pkt_flag = FALSE;
-long maxarc   = 0;			/* -m option: max archive size */
+int  pkt_flag = FALSE;			/* -P --pkt */
+int  ffx_flag = FALSE;			/* -f --ffx NODE */
+Node ffx_node;				/*           ^   */
+long maxarc   = 0;			/* -m --maxarc SIZE */
 
 static char in_dir [MAXPATH];
 static char out_dir [MAXPATH];
@@ -465,7 +467,7 @@ int do_arcmail(char *name, Node *arcnode, Node *flonode,
     int ret, newfile;
     
     arcn = arcmail_name(arcnode, dir);
-    pktn = pkttime_name(name);
+    pktn = ffx_flag ? name : pkttime_name(name);
     if(!arcn)
 	return ERROR;
     if(arcmail_search(arcn) == ERROR)
@@ -482,31 +484,31 @@ int do_arcmail(char *name, Node *arcnode, Node *flonode,
     debug(4, "    Archive name: %s", arcn);
 
     newfile = check_access(arcn, CHECK_FILE) == ERROR;
-    
-    /*
-     * Rename/copy packet, call archiver, remove packet, add archive
-     * to FLO file, if necessary.
-     */
-    if(desc->type == TYPE_ECHOMAIL)
-    {
-	fclose(file);
-	/* Simply rename */
-	if(rename(name, pktn) == -1)
-	{
-	    log("$ERROR: rename %s -> %s failed", name, pktn);
-	    return ERROR;
-	}
-    }
-    else
-    {
-	/* Copy and process file attaches */
-	if(do_noarc(name, flonode, desc, file, pktn) == ERROR)
-	{
-	    log("ERROR: copying/processing %s -> %s failed", name, pktn);
-	    return ERROR;
-	}
-    }
 
+    if(!ffx_flag)
+    {
+	/* Rename/copy packet */
+	if(desc->type == TYPE_ECHOMAIL)
+	{
+	    fclose(file);
+	    /* Simply rename */
+	    if(rename(name, pktn) == -1)
+	    {
+		log("$ERROR: rename %s -> %s failed", name, pktn);
+		return ERROR;
+	    }
+	}
+	else
+	{
+	    /* Copy and process file attaches */
+	    if(do_noarc(name, flonode, desc, file, pktn) == ERROR)
+	    {
+		log("ERROR: copying/processing %s -> %s failed", name, pktn);
+		return ERROR;
+	    }
+	}
+    }
+    
     sprintf(buffer, prog, arcn, pktn);
     debug(4, "Command: %s", buffer);
     ret = (system(buffer) >> 8) & 0xff;
@@ -740,17 +742,20 @@ int do_pack(PktDesc *desc, char *name, FILE *file, Packing *pack)
     
 
     /* Create BSY file(s) */
-    if(bink_bsy_create(&arcnode, NOWAIT) == ERROR)
+    if((!ffx_flag || !node_eq(&arcnode, &ffx_node)) &&
+       bink_bsy_create(&arcnode, NOWAIT) == ERROR)
     {
 	debug(1, "%s busy, skipping", node_to_asc(&arcnode, TRUE));
-	fclose(file);
+	if(file)
+	    fclose(file);
 	return OK;			/* This is o.k. */
     }
     if(!node_eq(&arcnode, &flonode) &&
        bink_bsy_create(&flonode, NOWAIT) == ERROR)
     {
 	debug(1, "%s busy, skipping", node_to_asc(&flonode, TRUE));
-	fclose(file);
+	if(file)
+	    fclose(file);
 	bink_bsy_delete(&arcnode);
 	return OK;			/* This is o.k. */
     }
@@ -758,7 +763,8 @@ int do_pack(PktDesc *desc, char *name, FILE *file, Packing *pack)
     /* Do the various pack functions */
     if(pack->arc->pack == PACK_ARC)
     {
-	if(desc->flav!=FLAV_CRASH && pack->arc->prog)
+	if( ffx_flag ||
+	    (desc->flav!=FLAV_CRASH && pack->arc->prog) )
 	{
 	    if(pack->pack == PACK_ROUTE)
 		log("archiving packet (%ldb) for %s via %s arc (%s)",
@@ -787,12 +793,14 @@ int do_pack(PktDesc *desc, char *name, FILE *file, Packing *pack)
     }
     else
     {
-	fclose(file);
+	if(file)
+	    fclose(file);
 	ret = do_prog(name, desc, pack->arc->prog);
     }
     
     /* Delete BSY file */
-    bink_bsy_delete(&arcnode);
+    if(!ffx_flag || !node_eq(&arcnode, &ffx_node))
+	bink_bsy_delete(&arcnode);
     if(!node_eq(&arcnode, &flonode))
 	bink_bsy_delete(&flonode);
     
@@ -817,12 +825,14 @@ int do_dirpack(PktDesc *desc, char *name, FILE *file, Packing *pack)
     set_zero(&flonode);
     
     /* Create BSY file(s) */
-    if(bink_bsy_create(&arcnode, NOWAIT) == ERROR)
-    {
-	debug(1, "%s busy, skipping", node_to_asc(&arcnode, TRUE));
-	fclose(file);
-	return OK;			/* This is o.k. */
-    }
+    if(!ffx_flag)
+	if(bink_bsy_create(&arcnode, NOWAIT) == ERROR)
+	{
+	    debug(1, "%s busy, skipping", node_to_asc(&arcnode, TRUE));
+	    if(file)
+		fclose(file);
+	    return OK;			/* This is o.k. */
+	}
 
     /* Do the various pack functions */
     if(pack->arc->pack == PACK_ARC)
@@ -839,7 +849,8 @@ int do_dirpack(PktDesc *desc, char *name, FILE *file, Packing *pack)
     }
     
     /* Delete BSY file */
-    bink_bsy_delete(&arcnode);
+    if(!ffx_flag)
+	bink_bsy_delete(&arcnode);
     
     return ret;
 }
@@ -856,9 +867,9 @@ int do_packing(char *name, FILE *fp, Packet *pkt)
     Packing *r;
     LNode *p;
 
-    if(pkt_flag)
+    if(pkt_flag || ffx_flag)
     {
-	/* Unknown grade/type for .pkt's */
+	/* Unknown grade/type for .pkt's or ffx files */
 	pktdesc.from  = pkt->from;
 	pktdesc.to    = pkt->to;
 	pktdesc.grade = '-';
@@ -905,23 +916,30 @@ int do_file(char *pkt_name)
     Packet pkt;
     FILE *pkt_file;
 
-    /*
-     * Open packet and read header
-     */
-    pkt_file = fopen(pkt_name, R_MODE);
-    if(!pkt_file) {
-	log("$ERROR: can't open packet %s", pkt_name);
-	return severe_error;
-    }
-    if(pkt_get_hdr(pkt_file, &pkt) == ERROR)
+    if(ffx_flag)
     {
-	log("ERROR: reading header from %s", pkt_name);
-	return severe_error;
+	/* ffx files are not packets, really ;-) */
+	pkt.to = ffx_node;
+	cf_set_zone(ffx_node.zone);
+	pkt.from = cf_n_addr();
+	pkt_file = NULL;
     }
-
-    /*
-     * Pack it
-     */
+    else 
+    {
+	/* Open packet and read header */
+	pkt_file = fopen(pkt_name, R_MODE);
+	if(!pkt_file) {
+	    log("$ERROR: can't open packet %s", pkt_name);
+	    return severe_error;
+	}
+	if(pkt_get_hdr(pkt_file, &pkt) == ERROR)
+	{
+	    log("ERROR: reading header from %s", pkt_name);
+	    return severe_error;
+	}
+    }
+    
+    /* Pack it */
     if(do_packing(pkt_name, pkt_file, &pkt) == ERROR) 
     {
 	log("ERROR: processing %s", pkt_name);
@@ -977,6 +995,7 @@ void usage(void)
     fprintf(stderr, "usage:   %s [-options] [packet ...]\n\n", PROGRAM);
     fprintf(stderr, "\
 options: -B --binkley NAME            set Binkley outbound directory\n\
+         -f --ffx Z:N/F.P             process ffx control and data files\n\
          -F --file-dir NAME           set directory to search for f/a\n\
          -g --grade G                 processing grade\n\
          -I --in-dir NAME             set input packet directory\n\
@@ -1017,8 +1036,9 @@ int main(int argc, char **argv)
     static struct option long_options[] =
     {
 	{ "binkley",      1, 0, 'B'},	/* Binkley outbound base dir */
-	{ "grade",        1, 0, 'g'},	/* grade */
+	{ "ffx",          1, 0, 'f'},	/* ffx mode */
 	{ "file-dir",     1, 0, 'F'},	/* Dir to search for file attaches */
+	{ "grade",        1, 0, 'g'},	/* grade */
 	{ "in-dir",       1, 0, 'I'},	/* Set inbound packets directory */
 	{ "lock-file",    0, 0, 'l'},	/* Create lock file while processing */
 	{ "out-dir",      1, 0, 'O'},	/* Set packet directory */
@@ -1042,12 +1062,20 @@ int main(int argc, char **argv)
     cf_initialize();
 
 
-    while ((c = getopt_long(argc, argv, "F:g:B:I:O:lp:m:Pvhc:S:L:a:u:",
+    while ((c = getopt_long(argc, argv, "B:f:F:g:I:O:lp:m:Pvhc:S:L:a:u:",
 			    long_options, &option_index     )) != EOF)
 	switch (c) {
 	/***** ftnpack options *****/
 	case 'B':
 	    B_flag = optarg;
+	    break;
+	case 'f':
+	    ffx_flag = TRUE;
+	    if(asc_to_node(optarg, &ffx_node, FALSE) == ERROR)
+	    {
+		fprintf(stderr, "%s: invalid -f %s", PROGRAM, optarg);
+		exit(EX_USAGE);
+	    }
 	    break;
 	case 'F':
 	    BUF_COPY(file_attach_dir, optarg);
@@ -1139,11 +1167,11 @@ int main(int argc, char **argv)
      * Process local options
      */
     if(I_flag)
-	str_expand_name(in_dir, sizeof(in_dir), I_flag);
+	BUF_EXPAND(in_dir, I_flag);
     else 
 	BUF_COPY3(in_dir, cf_spooldir(), "/", TOSS_OUT);
     if(O_flag)
-	str_expand_name(out_dir, sizeof(out_dir), O_flag);
+	BUF_EXPAND(out_dir, O_flag);
     else
 	BUF_COPY3(out_dir, cf_spooldir(), "/", TOSS_PACK);
 
@@ -1160,57 +1188,69 @@ int main(int argc, char **argv)
     
     if(optind >= argc)
     {
-	if(pkt_flag)
+	if(ffx_flag)
 	{
-	    strncpy0(pattern, "*.pkt", sizeof(pattern));
+	    BUF_COPY(pattern, "f???????*");
+	}
+	else if(pkt_flag)
+	{
+	    BUF_COPY(pattern, "*.pkt");
 	}
 	else 
 	{
-	    strncpy0(pattern, "????????.pkt", sizeof(pattern));
+	    BUF_COPY(pattern, "????????.pkt");
 	    if(g_flag)
 		pattern[0] = g_flag;
 	}
 	
-	/* process packet files in directory */
+	/* Lock file */
+	if(l_flag)
+	    if(lock_program(PROGRAM, FALSE) == ERROR)
+		exit(EXIT_BUSY);
+	/* BSY file */
+	if(ffx_flag)
+	    if(bink_bsy_create(&ffx_node, NOWAIT) == ERROR)
+		exit(EXIT_BUSY);
+
+	/* Process packet files in directory */
 	dir_sortmode(DIR_SORTMTIME);
 	if(dir_open(in_dir, pattern, TRUE) == ERROR)
 	{
 	    log("$ERROR: can't open directory %s", in_dir);
-	    exit(EX_OSERR);
+	    ret = EX_OSERR;
 	}
-    
-	/* Lock file */
-	if(l_flag)
-	    if(lock_program(PROGRAM, FALSE) == ERROR)
-		/* Already busy */
-		exit(EXIT_BUSY);
-	
-	for(pkt_name=dir_get(TRUE); pkt_name; pkt_name=dir_get(FALSE))
+	else 
 	{
-	    if(do_file(pkt_name) == ERROR)
+	    for(pkt_name=dir_get(TRUE); pkt_name; pkt_name=dir_get(FALSE))
 	    {
-		ret = EXIT_ERROR;
-		break;
+		if(do_file(pkt_name) == ERROR)
+		{
+		    ret = EXIT_ERROR;
+		    break;
+		}
 	    }
+	    dir_close();
 	}
 	
-	dir_close();
-
 	/* Lock file */
 	if(l_flag)
 	    unlock_program(PROGRAM);
+	/* BSY file */
+	if(ffx_flag)
+	    bink_bsy_delete(&ffx_node);
     }
     else
     {
 	/* Lock file */
 	if(l_flag)
 	    if(lock_program(PROGRAM, FALSE) == ERROR)
-		/* Already busy */
+		exit(EXIT_BUSY);
+	/* BSY file */
+	if(ffx_flag)
+	    if(bink_bsy_create(&ffx_node, NOWAIT) == ERROR)
 		exit(EXIT_BUSY);
 	
-	/*
-	 * Process packet files on command line
-	 */
+	/* Process packet files on command line */
 	for(; optind<argc; optind++)
 	    if(do_file(argv[optind]) == ERROR)
 	    {
@@ -1221,6 +1261,9 @@ int main(int argc, char **argv)
 	/* Lock file */
 	if(l_flag)
 	    unlock_program(PROGRAM);
+	/* BSY file */
+	if(ffx_flag)
+	    bink_bsy_delete(&ffx_node);
     }
     
     exit(ret);
