@@ -1,13 +1,13 @@
 #!/bin/sh
 #
-# $Id: runpoll.sh,v 4.4 1996/11/30 15:46:12 mj Exp $
+# $Id: runpoll.sh,v 4.5 1997/04/18 14:12:28 mj Exp $
 #
 # Poll uplink
 #
 
-FIDOGATE=/usr/local/lib/fidogate
-IFMAIL=/usr/local/lib/ifmail
-NEWS=/etc/news
+FIDOGATE=<LIBDIR>
+IFMAIL=<IFMAILDIR>
+NEWS=<NEWSETCDIR>
 
 UPLINK=f2.n1000.z242
 
@@ -22,11 +22,12 @@ fi
 set -x
 
 
-# Batch ffx mail files
-$FIDOGATE/ffxbatch -F Normal -w -b morannon 242:1000/1
-
 # Batch ffx news
 $NEWS/send-ffx
+
+# Batch ffx mail
+#$FIDOGATE/ffxbatch -F Normal -w -b morannon 242:1000/1
+$FIDOGATE/ftnpack -f 242:1000/1 -I %O/out.0f2/morannon
 
 # Gateway
 $NEWS/send-fidogate

@@ -1,6 +1,6 @@
 # -*- Makefile -*-
 #
-# $Id: config.make,v 4.5 1996/10/06 15:18:15 mj Exp $
+# $Id: config.make,v 4.6 1997/04/18 14:12:21 mj Exp $
 #
 # FIDOGATE Makefile configuration
 #
@@ -37,6 +37,9 @@ NEWSETCDIR	= /etc/news
 NEWSVARDIR	= /var/lib/news
 NEWSLIBDIR	= /usr/lib/news
 NEWSSPOOLDIR	= /var/spool/news
+
+# Ifmail directory
+IFMAILDIR       = /usr/local/lib/ifmail
 
 # perl
 PERL		= /usr/bin/perl

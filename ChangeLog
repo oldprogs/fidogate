@@ -1,4 +1,25 @@
+Fri Apr 18 15:14:04 1997  Martin Junius  <mj@fido.de>
+
+	------- CVS ci -------------------------------------------------------
+
+	* src/gate/ftn2rfc.c (check_valid_domain): new function checking
+	  for valid Internet domain name string, [a-zA-Z0-9.-]+.
+	  (unpack): if address in the FTN to field are allowed, check for
+	  user@do.main or user%do.main with a valid Internet domain
+	  address and put into mail_to[]. Avoids "..." around the address.
+	  Several strncpy()'s replaced with BUF_COPY().
+
+	* src/toss/rununpack.sh: move all files in tmp directory to ..,
+	  not just *.pkt's. Rename file from ArcMail packet to <1..n>file,
+	  if it already exists in the inbound directory.
+
 Sat Apr 12 09:22:58 1997  Martin Junius  <mj@fido.de>
+
+	* scripts/run/run2.sh: some changes.
+
+	* scripts/run/run1.sh: some changes.
+
+	* config.make (IFMAILDIR): added ifmail directory.
 
 	------- CVS ci -------------------------------------------------------
 

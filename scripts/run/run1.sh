@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# $Id: run1.sh,v 4.0 1996/04/17 18:17:38 mj Exp $
+# $Id: run1.sh,v 4.1 1997/04/18 14:12:27 mj Exp $
 #
 # Run
 #     ffxqt
@@ -12,9 +12,9 @@
 
 PRG=<LIBDIR>
 LIB=<LIBDIR>
-NEWS=/usr/lib/news
+NEWS=<NEWSETCDIR>
 
-LOCK=runfso
+LOCK=run1
 
 
 #
@@ -28,22 +28,12 @@ fi
 
 
 #
-# 1st pass: process inbound ffx files
-#
-# unbatch mail, process mail jobs (grade `f')
-$PRG/ffxqt -gf
-$PRG/ffxqt -gf
-
-# process news jobs (grade `n')
-$PRG/ffxqt -gn
-
-#
-# 2nd pass: process news batches for gateway
+# process news batches for gateway
 #
 $NEWS/send-fidogate
 
 #
-# 3rd pass: toss gateway output
+# toss gateway output
 #
 $PRG/runout
 

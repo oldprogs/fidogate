@@ -3,6 +3,11 @@
 X = for next release
 
 
+	* rfc2ftn: save large mails to file, fattach on hold for
+	  recipient?
+
+DONE.	* rununpack: support other contents than *.pkt
+
 	* doc: add ftnpack -f --ffx
 
 	* doc: add %L/%S/%G/%O/%I/%P/%U
@@ -21,7 +26,7 @@ DONE.	* ftnpack: special option to process ffx control and data
 
 	* doc: add X-Flags
 
-	* ftn2rfc: improve processing of RFC address user%do.main and
+DONE.	* ftn2rfc: improve processing of RFC address user%do.main and
 	  user@do.main in FTN to field. Avoid "" quotes.
 
 	* rfc2ftn: configuration option for mail RFC level *per*

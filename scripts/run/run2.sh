@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# $Id: run2.sh,v 4.1 1996/05/07 19:50:41 mj Exp $
+# $Id: run2.sh,v 4.2 1997/04/18 14:12:28 mj Exp $
 #
 # Run
 #     runin
@@ -12,9 +12,9 @@
 
 PRG=<LIBDIR>
 LIB=<LIBDIR>
-NEWS=/usr/lib/news
+NEWS=<NEWSETCDIR>
 
-LOCK=runii2
+LOCK=run2
 
 
 #
@@ -28,17 +28,27 @@ fi
 
 
 #
-# 1st pass: toss inbound
+# toss inbound
 #
 $PRG/runin
 
 #
-# 2nd pass: process packets for Internet gateway
+# process inbound ffx files
+#
+# unbatch mail, process mail jobs (grade `f')
+$PRG/ffxqt -gf
+$PRG/ffxqt -gf
+
+# process news jobs (grade `n')
+$PRG/ffxqt -gn
+
+#
+# process packets for Internet gateway
 #
 $PRG/ftnin -x %L/ftninpost
 
 #
-# 3rd pass: process packets for FTN gateway
+# process packets for FTN gateway
 #
 $PRG/ftn2ftn -A 2:2/242 -B 242:242/2
 

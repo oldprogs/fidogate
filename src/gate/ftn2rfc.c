@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftn2rfc.c,v 4.19 1997/03/30 16:55:06 mj Exp $
+ * $Id: ftn2rfc.c,v 4.20 1997/04/18 14:12:30 mj Exp $
  *
  * Convert FTN mail packets to RFC mail and news batches
  *
@@ -40,7 +40,7 @@
 
 
 #define PROGRAM 	"ftn2rfc"
-#define VERSION 	"$Revision: 4.19 $"
+#define VERSION 	"$Revision: 4.20 $"
 #define CONFIG		CONFIG_GATE
 
 
@@ -257,6 +257,24 @@ int check_8bit(Textlist *tl)
 		return TRUE;
 
     return FALSE;
+}
+
+
+
+/*
+ * Check for valid domain name string
+ */
+int check_valid_domain(char *s)
+{
+    if(!*s)
+	return FALSE;
+    while(*s)
+    {
+	if(!isalnum(*s) && *s!='-' && *s!='.')
+	    return FALSE;
+	s++;
+    }
+    return TRUE;
 }
 
 
@@ -627,9 +645,9 @@ int unpack(FILE *pkt_file, Packet *pkt)
 	    {
 		debug(7, "Alias found: %s %s %s", a->username,
 		      node_to_asc(&a->node, FALSE), a->fullname);
-		strncpy0(addr_from.user, a->username, sizeof(addr_from.user));
+		BUF_COPY(addr_from.user, a->username);
 #ifdef ALIASES_ARE_LOCAL
-		strncpy0(addr_from.addr, cf_fqdn(), sizeof(addr_from.user));
+		BUF_COPY(addr_from.addr, cf_fqdn());
 #endif
 	    }
 	}
@@ -727,17 +745,26 @@ int unpack(FILE *pkt_file, Packet *pkt)
 	/*
 	 * Check for address in mail_to
 	 */
-	if(area==NULL && no_address_in_to_field)
+	if(area==NULL)
 	{
-	    if(strchr(mail_to, '@') || strchr(mail_to, '%') ||
-	       strchr(mail_to, '!')			       )
+	    if( strchr(mail_to, '@') || strchr(mail_to, '%') ||
+	        strchr(mail_to, '!')                            )
 	    {
-		debug(1, "Message with address in mail_to: %s", mail_to);
-		log("BOUNCE: mail from %s with address in to field: %s",
-		    rfcaddr_to_asc(&addr_from, TRUE), mail_to           );
-		bounce_mail("addrinto",
-			    &addr_from, &msg, msgbody_rfc_to, &tbody);
-		continue;
+		if(no_address_in_to_field)
+		{
+		    debug(1, "Message with address in mail_to: %s", mail_to);
+		    log("BOUNCE: mail from %s with address in to field: %s",
+			rfcaddr_to_asc(&addr_from, TRUE), mail_to           );
+		    bounce_mail("addrinto",
+				&addr_from, &msg, msgbody_rfc_to, &tbody);
+		    continue;
+		}
+		else
+		    if( (p = strchr(msg.name_to, '@')) ||
+			(p = strchr(msg.name_to, '%'))    )
+			if(check_valid_domain(p+1))
+			    /* Copy again to avoid "..." */
+			    BUF_COPY(mail_to, msg.name_to);
 	    }
 	}
 	
@@ -1085,7 +1112,7 @@ int rename_bad(char *name)
     char bad[MAXPATH];
     int len;
     
-    strncpy0(bad, name, sizeof(bad));
+    BUF_COPY(bad, name);
     len = strlen(bad) - 4;
     if(len < 0)
 	len = 0;
