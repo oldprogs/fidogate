@@ -1,0 +1,32 @@
+-*- Indented-Text-Mode -*-
+
+This document describes the various ^ARFC kludges for "tunneling"
+RFC822 headers thru FIDO messages.
+
+
+^ARFC: <lvl> <fmt>
+
+	Indicates the start of the ^ARFC kludges and the type:
+
+	<lvl>	0	no RFC headers at all
+		1	subset of the original RFC headers
+		2	all original RFC headers
+
+	<fmt>	lines	lines, no text filling
+		fill	unformatted text to be filled
+
+
+
+^ARFC-Xxxx: abc
+
+	RFC header Xxxx:
+
+
+^ARFC\ def
+
+	Continued RFC header (line break for header lines > XX chars)
+
+
+^ARFC- abc
+
+	Continued RFC header, header line starting with white space

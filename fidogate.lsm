@@ -1,0 +1,20 @@
+Begin3
+Title:          FIDOGATE
+Version:        3.9.7
+Entered-date:   09FEB96
+Description:    FIDOGATE ist a gateway between Fidonet (and other FTN
+		networks) NetMail/EchoMail and the UNIX mail/news
+		system, including an FTN-FTN NetMail gateway, a
+		tosser, an areafix, and many other utilities.
+Keywords:       fido ftn gateway mail netmail news echomail tosser
+Author:         mj@fido.de (Martin Junius)
+Maintained-by:  mj@fido.de (Martin Junius)
+Primary-site:   ftp.comnets.rwth-aachen.de /pub/mail+news
+		655kB fidogate-3.9.7.tar.gz
+Alternate-site: sunsite.unc.edu /pub/Linux/system/Fido
+		655kB fidogate-3.9.7.tar.gz
+Platforms:      Linux, SunOS, but should be easily portable to most
+		UNIX systems. Supports OS/2 (EMX gcc port) and MSDOS
+		(DJGPP gcc port), too. perl is required.
+Copying-policy: GPL
+End

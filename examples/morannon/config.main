@@ -1,0 +1,93 @@
+#:ts=8
+#
+# FIDOGATE config file main AKA
+#
+# Fido.DE domain gateway
+#
+# Format:  keyword arg ...
+#          keyword and args may be put in double quotes "..."
+#
+
+#
+# Include common stuff (%L = LIBDIR)
+#
+include		%L/config.common
+
+
+#
+# FTN addresses
+#
+Address		2:2452/110
+Address		2:2452/111
+Address		2:242/6
+Address		2:242/46
+Address		242:1000/1
+Address		242:1000/2
+Address		242:1000/0
+Address         242:242/0
+Address         242:4900/0
+Address		254:2410/6
+Address		254:2410/46
+
+
+#
+# AREAS.BBS EchoMail distribution list
+#
+AreasBBS	/u1/ftn/cfg/areas.bbs
+
+
+#
+# FAREAS.BBS file distribution list
+#
+FAreasBBS	/usr/local/lib/fidonet/fareas.bbs
+
+
+#
+# ftnaf: CC of reply mails
+#
+CCMail		postmaster@morannon.fido.de
+
+
+#
+# OPTIONAL for tosser
+#
+# Kill empty NetMails addressed to one of our AKAs
+#
+KillEmpty
+
+#
+# Kill EchoMail for unknown areas
+#
+KillUnknown
+
+#
+# Kill routed EchoMail
+#
+KillRouted
+
+#
+# Log sender/recipient of all NetMail messages
+#
+LogNetMail
+
+#
+# Check ^APATH for our own address
+#
+CheckPath
+
+#
+# Zonegate configuration for EchoMail
+#
+#		Address to	Add to SEEN-BYs
+#		----------	---------------
+#ZoneGate	2:123/456	123/456 2452/110
+#ZoneGate	2:789/999	789/999 2452/110
+ZoneGate	1:105/42	105/42 2452/110
+
+#
+# Add extra nodes to SEEN-BY
+#
+#		Area		Nodes
+#		----		-----
+#AddToSeenBy	ABLED           2:24/24
+#AddToSeenBy	ABLENEWS	2:24/24

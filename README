@@ -1,0 +1,34 @@
+-*- Indented-Text -*-
+-:ts=8----------------------------------------------------------------
+$Id: README,v 4.0 1996/04/17 18:17:32 mj Exp $
+----------------------------------------------------------------------
+				   
+			F  I  D  O  G  A  T  E
+				 ----
+		    Gateway Software UNIX <-> FIDO
+				   
+			    Version 3.9.x
+
+----------------------------------------------------------------------
+
+This is FIDOGATE, a gateway software between the worlds of FIDO (and
+FTNs, Fido Technology Networks in general) NetMail/EchoMail and the
+UNIX mail/news system. FIDOGATE will convert FIDO mail packets to
+RFC-style messages and vice versa.
+
+See file doc/fidogate.txt or doc/fidogate.ps for detailed (well, sort
+of ... ;-) instructions on how to compile and install FIDOGATE.
+
+There is a mailing list for FIDOGATE discussions and announcements:
+
+    fgate-users@gondor.gun.de
+
+Send mail to
+
+    fgate-users-request@gondor.gun.de
+
+for subscription.
+
+
+
+Martin Junius, $Date: 1996/04/17 18:17:32 $

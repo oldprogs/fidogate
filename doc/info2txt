@@ -1,0 +1,31 @@
+#!/usr/local/bin/perl
+#
+# $Id: info2txt,v 4.0 1996/04/17 18:17:34 mj Exp $
+#
+# Stripping control stuff from .info file, yielding plain text
+#
+
+while(<>) {
+    if( /^\c_/ ) {		# Start of node
+	$x = <>;
+	next;
+    }
+
+    if( /^\* Menu:/ ) {		# Menu
+	next;
+    }
+
+    if( /^Node: .*\c?.*$/ ) {	# Nodes
+	next;
+    }
+
+    if( /^\(Indirect\)/ ) {
+	next;
+    }
+
+    if( /\.info-\d+: \d+$/ ) {
+	next;
+    }
+
+    print $_;
+}

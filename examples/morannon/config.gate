@@ -1,0 +1,107 @@
+#:ts=8
+#
+# FIDOGATE config file gateway programs
+#
+# Fido.DE domain gateway
+#
+# Format:  keyword arg ...
+#          keyword and args may be put in double quotes "..."
+#
+
+#
+# Include common stuff (%L = LIBDIR)
+#
+include		%L/config.common
+
+
+#
+# FTN addresses - there must be a corresponding `uplink' statement 
+# for each `address' statement
+#
+#               real
+#               ----
+Address		2:2452/110.1
+Address		2:242/6.1
+Address		242:4900/99
+Address		254:49/99
+
+Uplink		2:2452/110
+Uplink		2:242/6
+Uplink		242:1000/1
+Uplink		254:2410/6
+
+
+#
+# Default origin line for EchoMail messages
+#
+Origin		"Fido.DE domain gateway"
+
+
+#
+# Organization header for News
+#
+Organization	"Fido.DE domain gateway (IN e.V.)"
+
+
+#
+# Don't generate From: line, FSC-0035 kludges
+# MUST be set for FIDOGATE points (no real gateway)
+#
+#NoFromLine
+
+
+#
+# FTN - Internet gateway. If set, Internet mail will be routed via FTN
+# and this gateway.
+#
+#Gateway		242:4900/99
+
+
+#
+# Generate `User.Name@do.main' instead of `User_Name@do.main'
+#
+#DotNames
+
+
+#
+# X-FTN header:
+#
+#     f    X-FTN-From
+#     t    X-FTN-To
+#     T    X-FTN-Tearline
+#     O    X-FTN-Origin
+#     V    X-FTN-Via
+#     D    X-FTN-Domain
+#     S    X-FTN-Seen-By
+#     P    X-FTN-Path
+#
+X-FTN		ftTOVDSP
+
+
+#
+# Maximum size of FTN messages (default value)
+#
+MaxMsgSize		15000
+#MaxMsgSize		32000
+
+
+#
+# MAUS gateway support:
+#
+# If set, convert addresses for `User_Name@XY.MAUSDomain' to
+# `User Name % XY @ MAUSGate' for the Fido-MAUS gateway.
+#
+MAUSDomain		.maus.de
+MAUSGate		2:2452/101.6
+
+
+#
+# CC of bounced messages
+#
+BounceCCMail		postmaster@morannon.fido.de
+
+
+#
+# Send mail from message trackers to
+#
+TrackerMail		postmaster@morannon.fido.de

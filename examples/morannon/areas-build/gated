@@ -1,0 +1,5 @@
+#
+# Areas gated between Usenet and FIDO groups
+# These areas must be placed *BEFORE* the Z242 Usenet areas!
+#
+TEX.GER                         de.comp.tex

@@ -1,0 +1,103 @@
+-*- Indented-Text -*- :ts=8
+
+	* ftnexpire utility for handling MSGID history.
+
+	* areas.c: change automatic name conversion for -H to be
+	  configurable for -/_
+
+DONE.	* ftn2rfc: -i option like rfc2ftn.
+
+	* config.h: move most compile-time options to config files.
+
+	* kludge.c: handling traversing multiple kludges of the same
+	  type.
+
+	* node.c, routing.c: merge node parsing functions into general
+	  ones.
+
+	* ftnpack: runtime configuration of arcmail extension
+	  usage. Use XX0-9 only, XX0-9 + XXA-F, wrap around to XX0 if
+	  last one is too large, etc.
+	* ArcMail extensions: mo[0-9], plus mo[a-f], maybe mo[a-z]?
+	  runtime configuration of arcmail extensions usage.
+
+	* toss: MAXMSG, MAXFILES, MAXARC should be specified in
+	  config.main.
+
+	* ftnaf: don't show error messages for wildcard add/del area.
+
+	* config.ffx: runtime configuration of compression programs.
+
+	* ftnroute:do_move(): set file mtime after renaming.
+
+DONE.	* dir.c: function dir_openic(), ignoring case when matching
+	  files.
+
+DONE.	* function dir_search(), search file ignoring case, to be
+	  used by ftntick, file attachment processing.
+
+DONE.	* ftnroute, ftnpack: use dir_open() to process input
+	  directory, set sort order to DIR_SORTMTIME.
+
+	* Catch SIGINT, process clean-up function.
+	  - close all packet files for ftntoss, ftnroute, etc.
+
+DONE.	* File attaches, ftnpack, do_noarc(), use flonode!
+
+DONE.	* * Origin -> Organization, config option.
+
+	* areas: option -M MAXSIZE, limit maximum RFC message size to
+	  MAXSIZE bytes, larger messages won't be gated.
+
+	* areas.bbs: area descriptions, -d "Text ...".
+
+	* ftnaf: forward requests to uplink(s).
+
+	* ftn2rfc: restrict gateway to certain *Internet* addresses.
+
+	* ftntick: announce new files via mail or news posting.
+
+DONE.	* ftn2rfc: no gating of messages with unknown Zone (^AMSGID).
+
+	* X-Gateway / ^AGATEWAY processing.
+
+	* ftn2rfc: Newsgroups header?
+
+PARTLY	* ftnpack: better file attach processing, -F DIR option. Don't
+DONE.	  copy netmail packets (do_noarc()), use rename(). If archiver
+	  fails, move packets back to toss/out directory.
+
+DONE.	* ftntoss/ftnroute/ftnpack: make -a Z:N/F.P option in
+	  AREAS.BBS work. outpkt_open() should take into account
+	  packet from addresses as well.
+
+STARTED.* Support for new FIDO-Gatebau '94 ^ARFC kludges.
+
+	* Check packet passwords of incoming packets.
+
+	* Use rfcaddr.c functions for rfc2ftn mail_sender() etc. and
+	  to replace the RFC parsing functions in rfcheader.c
+
+	* MIME support for outgoing RFC messages, especially using the
+	  ISO-8859-1 character set (8 bit and MIME quoted printable)
+	  for news messages.
+
+NOT	* Log file of Message-IDs FTN->Usenet
+NEEDED.	  Extended log functions
+
+DONE.	* Dupe check for ftntoss using dbm database.
+
+DONE.	* ftntoss: save mails in SPOOLDIR/toss/bad for insecure,
+	  routed, unknown EchoMail. Config statements for enabling.
+
+	* ftntoss: check # of ^AVia lines
+
+	* ftntoss: kill old messages (older than 2 weeks?)
+
+	* Implement queuemail
+
+	* ftnaf: process multiple messages queued in
+	  SPOOLDIR/queue/ftnaf by queuemail
+
+OS2	* MSDOS, OS/2 port: switch stdin to binary mode. Command line option?
+DONE.	  Problems with news batches (GD030V)?

@@ -1,0 +1,4 @@
+#!/bin/sh
+
+rm -f *.bak *~ core
+rm -rf in seq log 

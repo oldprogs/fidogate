@@ -1,0 +1,8 @@
+This directory contains sample sendmail m4 configuration files
+(see cf/*.mc) for a setup with FIDOGATE.
+
+To create a sendmail.cf file from any of these:
+
+	cd cf
+	m4 xxxx.mc >sendmail.cf
+

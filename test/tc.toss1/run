@@ -1,0 +1,16 @@
+#!/bin/sh
+
+echo "tc: clean-up"
+./clean
+
+echo "tc: init"
+mkdir toss toss/in toss/tmp toss/out toss/pack bt
+mkdir seq
+
+echo "tc: copying input packets"
+cp ../ti.pkt-z2/* toss/in
+
+echo "tc: running"
+../../src/toss/ftntoss  -L../cf -S. -bareas.bbs -vv
+../../src/toss/ftnroute -L../cf -S. -vv
+../../src/toss/ftnpack  -L../cf -S. -B./bt -vvvv

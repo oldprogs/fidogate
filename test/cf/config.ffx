@@ -1,0 +1,25 @@
+#:ts=8
+#
+# FIDOGATE config file ffx programs
+#
+# Fido.DE domain gateway
+#
+# Format:  keyword arg ...
+#          keyword and args may be put in double quotes "..."
+#
+
+#
+# Include common stuff (%L = LIBDIR)
+#
+include		%L/config.common
+
+
+#
+# FTN addresses - there must be a corresponding `uplink' statement 
+# for each `address' statement
+#
+#               real
+#               ----
+Address		242:1000/5
+
+Uplink		242:1000/1

@@ -1,0 +1,26 @@
+#!/bin/sh
+
+echo "tc: clean-up"
+./clean
+
+echo "tc: init"
+mkdir toss toss/in toss/tmp toss/out toss/pack toss/bad bt
+mkdir seq
+
+echo "tc: copying input packets"
+cp ../ti.pkt-misc/t-bad.pkt toss/in
+
+echo "tc: running"
+../../src/toss/ftntoss  -L../cf -S. -vv -bareas1.bbs
+
+echo "tc: copying input packets"
+cp ../ti.pkt-misc/t-bad.pkt toss/in
+
+echo "tc: running"
+../../src/toss/ftntoss  -L../cf -S. -vv -bareas2.bbs
+
+echo "tc: copying input packets"
+cp ../ti.pkt-misc/t-bad.pkt toss/in
+
+echo "tc: running"
+../../src/toss/ftntoss  -L../cf -S. -vv -a 2:2452/151 -bareas1.bbs

@@ -1,0 +1,282 @@
+/*:ts=8*/
+/*****************************************************************************
+ * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
+ *
+ * $Id: structs.h,v 4.0 1996/04/17 18:17:41 mj Exp $
+ *
+ * An assortment of FIDOGATE data structure definitions
+ *
+ *****************************************************************************
+ * Copyright (C) 1990-1996
+ *  _____ _____
+ * |     |___  |   Martin Junius             FIDO:      2:2452/110
+ * | | | |   | |   Republikplatz 3           Internet:  mj@fido.de
+ * |_|_|_|@home|   D-52072 Aachen, Germany
+ *
+ * This file is part of FIDOGATE.
+ *
+ * FIDOGATE is free software; you can redistribute it and/or modify it
+ * under the terms of the GNU General Public License as published by the
+ * Free Software Foundation; either version 2, or (at your option) any
+ * later version.
+ *
+ * FIDOGATE is distributed in the hope that it will be useful, but
+ * WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * General Public License for more details.
+ * 
+ * You should have received a copy of the GNU General Public License
+ * along with FIDOGATE; see the file COPYING.  If not, write to the Free
+ * Software Foundation, 675 Mass Ave, Cambridge, MA 02139, USA.
+ *****************************************************************************/
+
+/*
+ * Textline, Textlist
+ */
+typedef struct st_textline {
+    char		*line;
+    struct st_textline	*next;
+    struct st_textline	*prev;
+} Textline;
+
+typedef struct st_textlist {
+    Textline		*first;
+    Textline		*last;
+    unsigned long        n;
+} Textlist;
+
+
+
+/*
+ * Alias
+ */
+typedef struct st_alias {
+    struct st_alias *next;
+    Node node;
+    char *username;
+    char *fullname;
+} Alias;
+
+
+
+/*
+ * Area
+ */
+typedef struct st_area {	/* Area/newsgroup entry with options */
+    struct st_area *next;	    /* For linked list */
+    char *area;			    /* FTN area */
+    char *group;		    /* Newsgroup */
+    int   zone;			    /* FTN zone AKA */
+    Node  addr;			    /* FTN node address */
+    char *origin;		    /* FTN origin line */
+    char *distribution;		    /* Distribution */
+    int   flags;		    /* Area/group flags, see AREA_xx defines */
+    int   rfc_lvl;		    /* -R  ^ARFC header level */
+    long  maxsize;		    /* -M  Max. size of message */
+    Textlist x_hdr;		    /* -X "Xtra: xyz" extra RFC headers */
+} Area;
+
+#define AREA_LOCALXPOST	1	/* -l  Only local crosspostings */
+#define AREA_NOXPOST	2	/* -x  No crosspostings */
+#define AREA_NOGATE	8	/* -g  No messages from other gateways */
+#define AREA_8BIT	16	/* -8  Use 8 bit ISO-8859-1 character set */
+#define AREA_HIERARCHY	32	/* -H  Area/group names match entire hierar. */
+#define AREA_NO		64	/* -!  Don't gate area/group */
+
+/*
+ * AreasBBS
+ */
+typedef struct st_areasbbs	/* AREAS.BBS entry */
+{
+    char *dir;			    /* Directory */
+    char *key;			    /* Areafix access key */
+    int   lvl;			    /* Areafix access level */
+    int   zone;			    /* Zone AKA for area */
+    Node  addr;			    /* Node AKA for area */
+    char *area;			    /* Area tag */
+    LON   nodes;		    /* Nodes linked to this area */
+    int   flags;		    /* Area flags, see AREASBBS_xx defines */
+    struct st_areasbbs *next;	    /* For linked list */
+}
+AreasBBS;
+
+#define AREASBBS_PASSTHRU 1	/* Passthru area (#dir) */
+
+
+
+/*
+ * TIMEINFO
+ */
+typedef struct _TIMEINFO {
+    time_t	time;
+    long	usec;
+    long	tzone;
+} TIMEINFO;
+
+
+
+/*
+ * Host
+ */
+typedef struct st_host {	/* hosts entry */
+    struct st_host *next;	/*     for linked list */
+    Node	node;		/*     FTN address */
+    char       *name;		/*     Internet address */
+    int		flags;		/*     flags */
+} Host;
+
+#define HOST_POINT	1	/* Addresses with pX point address */
+#define HOST_DOWN	2	/* Temporary down */
+
+
+
+/*
+ * Maus
+ */
+typedef struct st_maus {	/* MAUSNET domain list entry */
+    struct st_maus *next;	    /* for linked list */
+    char *name;			    /* MAUS system name */
+    char *domain;		    /* Internet domain address */
+    Node  gate;			    /* FTN gateway for MAUS system */
+} Maus;
+
+
+
+/*
+ * Passwd
+ */
+typedef struct st_passwd	/* Password list entry */
+{
+    char *context;			/* "ffx" | "packet" | "af" ... */
+    Node node;				/* Address */
+    char *passwd;			/* Password */
+    char *args;				/* More args in PASSWD file */
+    struct st_passwd *next;		/* For linked list */
+}
+Passwd;
+
+
+
+/*
+ * Routing commands, Remap, Rewrite
+ */
+#define TYPE_NETMAIL	'n'
+#define TYPE_ECHOMAIL	'e'
+
+#define CMD_SEND	's'
+#define CMD_ROUTE	'r'
+#define CMD_CHANGE	'c'
+#define CMD_HOSTROUTE	'h'
+#define CMD_HUBROUTE	'u'
+#define CMD_REMAP	'm'
+#define CMD_REWRITE	'w'
+#define CMD_SENDMOVE	'v'
+
+#define FLAV_NONE	'-'
+#define FLAV_NORMAL	'n'
+#define FLAV_HOLD	'h'
+#define FLAV_CRASH	'c'
+#define FLAV_DIRECT	'd'
+
+typedef struct st_routing
+{
+    int type;
+    int cmd;
+    int flav;
+    int flav_new;
+    LON nodes;
+
+    struct st_routing *next;
+}
+Routing;
+
+typedef struct st_remap
+{
+    Node from;				/* From pattern */
+    Node to;				/* New dest. address */
+    char *name;				/* Name pattern */
+
+    struct st_remap *next;
+}
+Remap;
+
+typedef struct st_rewrite
+{
+    Node from;				/* From pattern */
+    Node to;				/* To pattern */
+
+    struct st_rewrite *next;
+}
+Rewrite;
+
+
+
+/*
+ * Descriptor for packet files
+ */
+typedef struct st_pktdesc
+{
+    Node from;
+    Node to;
+    int  grade;
+    int  type;
+    int  flav;
+    int  move_only;
+}
+PktDesc;
+
+
+/*
+ * RFCAddr
+ */
+typedef struct st_rfcaddr {
+    /* user@addr (real) */
+    char user[MAXUSERNAME];
+    char addr[MAXINETADDR];
+    char real[MAXUSERNAME];
+    int  flags;
+} RFCAddr;
+
+#define ADDR_MAUS	1
+
+
+/*
+ * MsgBody
+ */
+typedef struct st_body {
+    /* structured FTN message body */
+    char    *area;		/* AREA:xxxx echo tag */
+    Textlist kludge;		/* ^A kludges at start of message */
+    Textlist rfc;		/* RFC headers at start of message */
+    Textlist body;		/* text body */
+    char    *tear;		/* NetMail / EchoMail: --- tear line */
+    char    *origin;		/* EchoMail:  * Origin: xxxx (addr) line */
+    Textlist seenby;		/* EchoMail: SEEN-BY lines */
+    Textlist path;		/* EchoMail: ^APATH lines */
+    Textlist via;		/* NetMail: ^AVia lines */
+} MsgBody;
+    
+
+
+/*
+ * TIC file
+ */
+typedef struct st_tick 		/* .TIC file description, see also FSC-0028 */
+{
+    Node     origin;			/* Origin address */
+    Node     from;			/* From (this tic) address */
+    Node     to;			/* To (this tic) addresss */
+    char    *area;			/* Area name */
+    char    *file;			/* File name */
+    Textlist desc;			/* Description (multiple lines) */
+    unsigned long crc;			/* File CRC32 checksum */
+    char    *created;			/* Creator */
+    unsigned long size;			/* File size */
+    Textlist path;			/* Path (TL because of extra stuff) */
+    LON      seenby;			/* Seenby */
+    char    *pw;			/* Password */
+    time_t   release;			/* Release date */
+    time_t   date;			/* File date */
+    Textlist app;			/* Application specific */
+}
+Tick;

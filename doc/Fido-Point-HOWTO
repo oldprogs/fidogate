@@ -1,0 +1,2924 @@
+  Fido-Point-HOWTO
+  Roland Rosenfeld, roland@spinnaker.rhein.de, 2:2450/111.13
+  $Revision: 4.0 $ $Date: 1996/04/17 18:17:34 $
+
+  Dieses File soll helfen, einen Fido-Point unter Linux zu installieren,
+  wobei ifcico als Mailer und FidoGate als Gatewaysoftware verwendet
+  werden.
+
+
+  Inhaltsverzeichnis
+
+  1.  Aktuelle Version dieser HOWTO
+  2.  Benoetigte Programme
+  2.1.	FidoGate
+  2.2.	ifcico
+  2.3.	News-Transport-Agent (NTA)
+  2.3.1.  cnews
+  2.3.2.  INN
+  2.4.	Mail-Transport-Agent (MTA)
+  2.4.1.  smail
+  2.4.2.  Sendmail V8
+  2.5.	newspack
+  2.6.	Newsreader
+  2.7.	Mailreader
+  2.8.	Packer
+  2.9.	TIC-Prozessor
+  3.  Weitere Dokumentation
+  4.  Meine Beispielkonfiguration
+  5.  Zugriffsrechte
+  6.  Installation von FidoGate
+  7.  Die Installation von ifcico
+  8.  Nodelisten-Compiler
+  9.  Poll-Skript und Entpacken
+  10.  Konfiguration von smail
+  11.  Sendmail V8-Konfiguration
+  12.  cnews-Konfiguration
+  13.  INN-Konfiguration
+  14.  News/Echomail lesen und schreiben
+  15.  Mail/Netmail lesen und schreiben
+  16.  Files requesten
+  17.  Fehlersuche
+  17.1.	Mail wird nicht verarbeitet
+  17.2.	News werden nicht verarbeitet
+  18.  Unterstuetzung
+
+
+  1.  Aktuelle Version dieser HOWTO
+
+
+  Falls Du eine etwas veraltete Version dieser HOWTO haben solltest,
+  kannst Du Dir die immer aktuellste Version bei Guenter Mueller
+  (2:2450/111 V32B, 2:2450/112 ISDN) unter dem Namen FIDOPNT.GZ
+  requesten. Weiterhin ist sie per WWW unter
+  <http://www.rhein.de/~roland/FidoPnt/> und per FTP unter
+  <ftp://sunrise.cs.uni-bonn.de/pub/linux/fido> verfuegbar.
+
+
+
+  2.  Benoetigte Programme
+
+
+
+  2.1.	FidoGate
+
+
+  Dies ist die Gateway-Software, welche Fido-Messages in Usenet-
+  News/Mail konvertiert. Die aktuelle Release ist Version 3.9.5.
+
+  Das Programm wird von Martin Junius (mj@sungate.fido.de, 2:2452/110)
+  entwickelt.
+
+  Die aktuellste Version findet man immer in  <ftp://ftp.dfv.rwth-
+  aachen.de/pub/mail+news> und gewoehnlich etwas spaeter auch auf
+  <ftp://sunsite.unc.edu/pub/Linux/system/Mail/news>. Weiterhin kann man
+  das Programm auch bei Martin requesten (2:2452/110 HST, 2:2452/111
+  ISDN).
+
+
+
+  2.2.	ifcico
+
+
+  Dies ist ein Mailer aehnlich Binkley-Term, der allerdings mehr Unix-
+  like ist, d.h. er wartet nicht aktive (unter Dos stoert das ja nicht)
+  und orientiert sich auch ansonsten an uucico von UUCP. ifcico ist im
+  Paket IFmail enthalten. Die aktuelle Version ist 2.8c.
+
+  Das Programm wird von Eugene Crosser (crosser@pccross.msk.su,
+  2:5020/230) entwickelt.
+
+  IFmail enthaelt neben ifcico auch eine eigene Gateway-Software, aber
+  ich favourisiere stattdessen FidoGate und beschreibe hier auch nur die
+  Konfiguration mit FidoGate.
+
+  Die aktuellste Version wird regelmaessig von Eugene nach
+  <ftp://tsx-11.mit.edu/pub/Linux/sources/usr.bin> und
+  <ftp://sunsite.unc.edu/pub/Linux/system/Mail/transport> hochgeladen.
+
+
+
+  2.3.	News-Transport-Agent (NTA)
+
+
+  Als News-Transport-Agent kann man sowohl cnews als auch INN einsetzen.
+  Um sich fuer das passende Programm entscheiden zu koennen, hier einige
+  Vor-/Nachteile beider Programme:
+
+  o  cnews besteht zu grossen Teilen aus Shell-Skripts, die sehr
+     schlecht zu debuggen sind, und auch recht langsam arbeiten
+
+  o  cnews kann von Natur aus kein NNTP (Online-News-Protokoll). Will
+     man trotzdem NNTP verwenden (z.B. fuer diverse Newsreader, die nur
+     per NNTP mit dem Newssystem kommunizieren koennen), braucht man
+     einen nntpd, welcher recht ungeschickt zu konfigurieren ist und
+     auch nicht alle Moeglichkeiten von NNTP unterstuetzt.
+
+  o  INN ist fuer NNTP ausgelegt. Daher laeuft auch staendig ein Daemon
+     (innd), der auch dafuer sorgt, dass die lokal geschriebenen News-
+     Artikel sofort fuer alle lesbar sind. Bei cnews werden die neuen
+     Artikel nur zu bestimmten Zeiten (z.B. alle 10 Minuten) ins
+     Newssystem uebernommen
+
+  o  cnews macht Probleme, sobald auf /var/spool/news der Platz eng wird
+     (weniger als 10MB frei).
+
+  Ich persoenlich habe frueher mit cnews gearbeitet, aber inzwischen auf
+  INN umgestellt, da mir INN insgesamt "runder" erscheint. Ausserdem
+  liess sich INN bei mir ohne Probleme auf Anhieb installieren, was ich
+  von cnews nicht behaupten kann.
+
+
+
+  2.3.1.  cnews
+
+
+  Da bei aelteren Slackware-Distributionen das cnews extrem verkrueppelt
+  war (die Manpages fehlten beispielsweise ganz), sollte man mindestens
+  das cnews aus Slackware 2.1 verwenden.  Alternativ kann man sich, eine
+  komplette Source-Distribution zu besorgen und selber compilieren. Ich
+  habe hier die Performance-Release vom 20.2.93 auf
+  <ftp://ftp.uu.net/news> verwendet. Inzwischen gibt es auch eine neuere
+  Version, aber die habe ich noch nicht ausprobiert. Ich werde mich also
+  hier immer auf die alte Version beziehen und dieser Teil meiner
+  Dokumentation wird auch in Zukunft nicht weiterentwickelt.
+
+
+
+  2.3.2.  INN
+
+
+  In der aktuellen Slackware-Distribution sind sowohl cnews als auch INN
+  enthalten, so dass man die freie Auswahl hat. Dieser INN sollte
+  funktionieren, allerdings bevorzuge ich, meine Software selber zu
+  compilieren und zu konfigurieren, daher habe ich Sourcen von
+  INN-1.4sec verwendet, die man unter
+  <ftp://sunsite.unc.edu/pub/linux/system/Mail/news/inn1.4sec-linux-
+  src.tgz> findet.
+
+
+
+  2.4.	Mail-Transport-Agent (MTA)
+
+
+  Hier hat man im wesentlichen die Wahl zwischen smail und Sendmail V8.
+  smail ist das kleinere simplere Paket, welches leider einige kleinere
+  Bugs hat, waehrend Sendmail V8 auf den ersten Blick sehr unangenehm zu
+  konfigurieren ist. Allerdings gibt es inzwischen eine Konfiguration
+  mit dem Macro-Prozessor M4, welche die Konfiguration enorm vereinfacht
+  und wenn man seine anfaengliche Scheu abgelegt hat, stellt man fest,
+  dass die Konfiguration nicht komplizierter als die von smail ist.
+  Allerdings ist Sendmail um einiges maechtiger als smail.  Ich
+  persoenlich bin daher von smail auf Sendmail umgestiegen.
+
+
+
+  2.4.1.  smail
+
+
+  Ich habe zuletzt die Version 3.1.29.1 (
+  <ftp://sunsite.unc.edu/pub/Linux/system/Mail/delivery/smail-
+  linuxbin-3.1.29.1.tar.gz>) verwendet, da das alte 3.1.28.1 einen Bug
+  in uuname-Driver hat (das ist allerdings nur fuer den UUCP-Betrieb von
+  Belang).  Die in dieser HOWTO erklaerte Konfiguration setzte ich
+  allerdings nicht mehr ein, da ich auf Sendmail umgestellt habe. Da
+  auch Slackware inzwischen Sendmail statt smail enthaelt, sollte es
+  nicht zu schwierig sein, von smail wegzukommen.
+
+
+
+  2.4.2.  Sendmail V8
+
+
+  Die aktuelle Version von Sendmail V8 ist 8.6.12, allerdings sollten
+  mit Versionen >=8.6.9 auch keine groesseren Probleme auftauchen. 8.6.9
+  hatte zwar ein grosses Sicherheitsloch, allerdings tritt das nur dann
+  auf, wenn der Rechner per TCP/IP am Internet haengt. Die neuste
+  Version von Sendmail findet man immer unter
+  <ftp://FTP.CS.Berkeley.EDU/ucb/src/sendmail>, aber auch bei Slackware
+  ist Sendmail V8 inzwischen der Standard-MTA. Wichtig ist bei der
+  Installation, dass man auch die kompletten Konfigurationsfiles
+  installiert, die sich unter dem verwirrenden Paketnamen smailcfg.tgz
+  verbergen.
+
+
+
+  2.5.	newspack
+
+
+  Wenn Du cnews, INN oder smail als Sourcen installierst, solltest Du
+  Dir die neuste Version von newspak besorgen. Dieses Paket enthaelt die
+  Anpassungen diverser Mail- und News-Programme (cnews, INN, smail,
+  sendmail-IDA, tin, trn, nn, elm, uucp,...) an Linux. Leider konnte ich
+  bisher noch kein newspak finden, das auch die Anpassungen von Sendmail
+  V8 enthaelt. Allerdings findet man selbige Anpassungen bei den
+  Slackware-Sourcen im Verzeichnis n/sendmail.
+
+
+
+  2.6.	Newsreader
+
+
+  Hier kann man einen beliebigen Newsreader verwenden, z.B. tin, nn,
+  trn, xvnews, xrn,... Falls man cnews einsetzt, sollte der Newsreader
+  allerdings einen UUCP-Modus besitzen, d.h. nicht ausschliesslich mit
+  NNTP arbeiten, da man ansonsten den nntpd zusaetzlich installieren
+  muss, was mangels Dokumentation sehr unhandlich ist. Ich empfehle fuer
+  den Anfang tin, da tin einfach zu bedienen ist und auch wenig Probleme
+  mit der Konfiguration auftreten.
+
+
+
+  2.7.	Mailreader
+
+
+  Auch hier kann jeder verwenden was er will: elm, pine, mail, xmail,
+  xmailtool,...
+
+
+
+  2.8.	Packer
+
+
+  Manche Packer finden sich schon in den Distributionen. Falls spezielle
+  Packer fehlen, kann man sich diese auf diversen Servern besorgen, die
+  wie  <ftp://sunsite.unc.edu/pub/Linux/utils/compress> ein spezielles
+  Packer-Verzeichnis besitzen.
+
+
+     ZIP
+	unzip51 entpackt auch die das neue ZIP-Format. Es gibt
+	inzwischen auch ein zip, das wieder nach dem neuen Format packt.
+
+     ARJ
+	unarj241 entpackt ARJ-Archive, allerdings gibt es dazu unter
+	Linux keinen Packer.
+
+     LZH
+	lharc und lha exisiteren auch als Linux-Port.
+
+     ARC
+	Alter, aber wichtiger Packer, denn die meisten Nodelisten sind
+	mit arc gepackt. Es existiert mindestens ein Linux-Port.
+
+
+
+  2.9.	TIC-Prozessor
+
+
+  Es gibt einige kleinere TIC-Prozessoren, die in PERL geschrieben
+  wurden. Insbesonere ist hier tic010b.tgz (teilweise auch unter dem
+  Namen lt010b.tgz zu finden) von Cees de Groot (cg@bofh.lake.de,
+  241:10000/1512) zu nennen. Dieses Programm ist seit ifmail Version
+  2.8a im Verzeichnis ifmail/misc/contrib/tic enthalten.
+
+  Neuerdings ist auch bei FidoGate ein Tick-Prozessor enthalten.
+
+
+
+  3.  Weitere Dokumentation
+
+
+
+     News-HOWTO
+	zur Konfiguration von cnews
+
+     Mail-HOWTO
+	zur Konfiguration von mail
+
+     NET-2-HOWTO
+	zur Konfiguration des loopback-Netzes
+
+     Network-Admin-Guide
+	fuer die Konfiguration aller Netzwerk-Komponenten, sowie UUCP.
+
+  Weiterhin sollte man sich auf jeden Falle die FidoGate-Dokumentation
+  aus dem Verzeichnis fidogate/doc durchlesen.
+  Fuer INN ist die vierteilige FAQ unverzichtbar, da sie nicht nur
+  praktisch alle auftretenden Fragen beantwortet, sondern ausserdem noch
+  wie eine HOWTO die Installation begleitet.
+
+
+
+  4.  Meine Beispielkonfiguration
+
+
+  Ich werde hier als Beispiel meine eigene Konfiguration fuer die drei
+  FTN-Netze Fido (Zone 2), Gernet (Zone 21) und Fido.de (Zone 242)
+  angeben. Ich habe dabei folgende Adressen:
+
+  o  2:2450/111.13 (Fido)
+
+  o  21:100/64.13  (Gernet)
+
+  o  242:5000/4.13 (fido.de)
+
+  Ich polle alle drei Netze bei ein und dem selben Boss, aber bei
+  verschiedenen Uplinks wuerde sich an der Konfiguration auch nicht viel
+  aendern. fido.de bietet dabei einen Internet-Anschluss ueber das Gate
+  von Martin Junius in Aachen. Ich bin aus dem Internet also als
+  roland@p13.flokiste.fido.de erreichbar. Meine Internet-Mails schicke
+  ich an UUCP @ 242:4900/99.
+
+  Falls Du noch kein Internet-Gate kennst, solltest Du Dich dringend
+  danach umsehen, denn FidoGate unterstuetzt selbiges ausgezeichnet und
+  geht davon aus, dass Du entweder einen UUCP-Uplink oder wenigstens
+  Connection zu einem Gate hast. (schiele-ct.de, fido.sub.de und
+  fido.sub.org sind meines Wissens kostenlos nutzbar, siehe dazu aber
+  auch die diversen Gateway-Listen in der Echomail-Areas GATEWAYS.GER
+  oder der Newsgroup de.comm.gateways).
+
+  Inzwischen habe ich fuer meinen Rechner auch einen direkten Internet-
+  Zugang bei rhein.de gefunden, so dass mein Rechner auch als
+  spinnaker.rhein.de (kurz: spi.rhein.de) im Internet erreichbar ist.
+  Der Rechner rhein (er ist in der UUCP-Worldmap eingetragen, daher
+  braucht er keine Domain, aber das ist inzwischen die Ausnahme)
+  versorgt mich dabei mit Mail und News.  Ich werde versuchen in dieser
+  HOWTO die Konfiguration mit Internet via Gate (fido.de) und via UUCP
+  (rhein.de) parallel zu beschreiben, so dass jeder seine Konfiguration
+  wiederfinden sollte.
+
+  Und noch eine Bitte: Auch wenn ich ueberall in diesem File meine
+  Adressen als Beispiel verwende, solltest Du auch fuer die ersten
+  Versuche die Adressen und den Rechnernamen aendern, denn sonst bekomme
+  ich die Antworten auf die Fragen, die Du unter meinem Namen stellst...
+
+
+
+  5.  Zugriffsrechte
+
+
+  Die Zugriffsrechte der einzelnen Dateien sind ein recht heikles Thema
+  bei der Kombination von FidoGate, ifcico und News. Daher solltest Du
+  zunaechst einmal nachsehen, ob die User news und uucp bei Dir
+  existieren. Bei mir sieht das in /etc/passwd wie folgt aus:
+
+  uucp:sadfasdfasdf:5:5::/home/uucp:/bin/tcsh
+  news:aasdfasdfsda:24:24::/home/news:/bin/tcsh
+
+
+
+  Weiterhin muessen noch die Groups uucp und news existieren. Es hat
+  sich als hilfreich erwiesen, den User news zusaetzlich in die Group
+  uucp und den User uucp zusaetzlich in die Group news einzutragen. Aus
+  meiner /etc/group:
+
+  uucp::5:uucp,news
+  news::24:news,uucp
+
+
+  Weiterhin sollten moeglichst alle weiteren Spool-Dateien auch fuer die
+  Group schreibbar sein, aber dazu spaeter mehr.
+
+
+
+  6.  Installation von FidoGate
+
+
+  Ich beziehe mich hier auf Version 3.9.5, bei aelteren Versionen sind
+  einige der Konfigurationsmoeglichkeiten noch nicht vorhanden.
+
+  Zunaechst ist jetzt fidogate/config.h zu editieren. Ich habe folgende
+  Aenderungen an der Orginal-Datei vorgenommen: (das ist nicht die
+  komplette Datei, sondern nur die Zeilen die ich geaendert habe!)
+
+  /* #define HOSTS_RESTRICTED */
+  #define SECURE
+  /* #define PASSTHRU_NETMAIL */
+  /* #define PASSTHRU_ECHOMAIL */
+  #define OUTDIR	  "outbound"	/* Output of rfc2fido */
+
+  #ifdef SECURE		/* Secure permissions */
+  # define PACKET_MODE	0600		/* Mode for outbound packets */
+  # define BSY_MODE	0664		/* Mode for BSY files */
+  # define FLO_MODE	0664		/* Mode for FLO files */
+  # define DATA_MODE	0660		/* Mode for ffx data files */
+  # define DIR_MODE	0775		/* Mode for directories */
+  # define CONF_MODE	0664		/* Mode for written config files */
+  #else			/* Open permissions */
+  # define PACKET_MODE	0666		/* Mode for outbound packets */
+  # define BSY_MODE	0666		/* Mode for BSY files */
+  # define FLO_MODE	0666		/* Mode for FLO files */
+  # define DATA_MODE	0666		/* Mode for ffx data files */
+  # define DIR_MODE	0777		/* Mode for directories */
+  # define CONF_MODE	0666		/* Mode for written config files */
+  #endif
+
+
+  Man sollte aus den Kommentaren von config.h erkennen, was das bedeuten
+  soll. Es soll keine Beschraenkung auf eingetragenen Hosts vorgenommen
+  werden. Das Outbound-Directory heisst bei mir aus alter Gewohnheit
+  outbound und nicht nur out. Man kann das problemlos umbenennen, muss
+  nur insgesamt konsistent bleiben. Weiterhin habe ich die Permissions
+  noch auf meinen Geschmack abgeaendert.
+
+  Als naechstes sind noch einige Aenderungen in fidogate/config.make
+  vorzunehmen:
+
+
+
+  LIBDIR	  = /usr/local/lib/fidogate
+  SPOOLDIR	= /var/spool/fnet
+  LOGDIR	  = /var/adm/fidonet
+  OUTBOUND	= /var/spool/fnet/outbound
+  INBOUND	 = /var/spool/fnet/inbound
+  PINBOUND	= /var/spool/fnet/pinbound
+  UUINBOUND	= /var/spool/fnet/uuin
+
+  OWNER		= uucp
+  GROUP		= uucp
+  DEBUG		= -O2 -s -fomit-frame-pointer
+
+
+  Im fidogate/src/Makefile unter install-dirs solltest Du noch
+  $(SPOOLDIR)/out in $(SPOOLDIR)/outbound aendern.
+
+  Damit werden die Verzeichnisse an meine Verzeichnis-Struktur angepasst
+  und uucp.uucp wird User von FidoGate. Spaeter wird auch ifcico unter
+  dem User uucp.uucp arbeiten.
+
+  Jetzt musst Du noch einige Aenderungen an fidogate/src/ftninpost.pl
+  vornehmen:
+
+  $RELAY    = "p13.flokiste.fido.de";
+  $PROTO    = "FIDOGATE";
+  $SENDMAIL = "/usr/lib/sendmail -oi -odq -oee -f%s -oMs$RELAY -oMr$PROTO -t";
+  $RNEWS    = "/usr/bin/rnews";
+  &do_cmd("$LIBDIR/ftninrecomb $options")
+
+
+  Hier wird der Name des Gates angepasst (das ist eigentlich
+  unwesentlich, der Name tritt allerdings spaeter im Received:-Header
+  der Mails auf).  Wenn Du Sendmail/smail nicht als alle 15 Minuten
+  aufrufen willst und auch nicht als Daemon startest, solltest Du die
+  Queue-Option (-odq) von sendmail loeschen, da die Mails ansonsten ewig
+  in /var/spool/smail/input (bei smail) bzw.  /var/spool/mqueue (bei
+  Sendmail) liegen bleiben.  Das -oi sorgt dafuer, dass Mails, die eine
+  Zeile mit einem Punkt und sonst nichts enthalten, nicht an dieser
+  Stelle beendet werden. Seit FidoGate 3.9.5 ist das schon entsprechend
+  eingebaut.  Dann habe ich den Pfad von rnews noch an mein System
+  angepasst und letztendlich habe ich ftninrecomb eingeschaltet (im
+  Orginal ist diese Zeile durch '##' auskommentiert). Diese Option hat
+  zur Folge, dass Mails, die gemaess FTS-0047 gesplittet wurden, wieder
+  zusammengeklebt werden.
+
+  Nun solltest Du als root folgende Kommandos ausfuehren koennen:
+
+  make depend
+  make all
+  make install-dirs
+  make install
+
+
+  Nun wechselst Du nach fidogate/lib und startest dort
+
+  make install
+
+
+  Anschliessend stehen alle benoetigten Dateien in
+  /usr/local/lib/fidogate. Jetzt musst Du natuerlich noch einige Anpas-
+  sungen an Dein System vornehmen. Hier zunaechst mal ein komplettes
+  /usr/local/lib/fidogate/config.common, welches die globalen Konfigura-
+  tionsdaten enthaelt:
+
+
+
+  ______________________________________________________________________
+  #:ts=8
+  #
+  # /usr/local/lib/fidogate/config.common
+  #
+  # FIDOGATE config file common stuff,
+  # included by config.gate, config.main, config.ffx
+  #
+  # spinnaker.rhein.de
+  #
+  # Format:  keyword arg ...
+  #	  keyword and args may be put in double quotes "..."
+  #
+
+  # Directories: lib, spool, BinkleyTerm-style outbound base dir (without
+  # the .../out.xxx), BinkleyTerm-style inbound dir
+  #
+  # lib, spool defaults are defined in config.h
+  #
+  LibDir	  /usr/local/lib/fidogate
+  SpoolDir	/var/spool/fnet
+  LogDir	  /var/adm/fidonet
+  Outbound	/var/spool/fnet
+  Inbound	 /var/spool/fnet/inbound
+
+  #
+  # Internet address
+  #
+  #Hostname	p13
+  #Domain	 .flokiste.fido.de
+  Hostname	spinnaker
+  Domain	  .rhein.de
+  # Optional domain name for entries in HOSTS file
+  HostsDomain	.fido.de
+
+
+  #
+  # Zones and domains, the outbound directory is relative to the one
+  # specified with `Outbound'.
+  #
+  #		zone	Inet domain	FTN domain	Outbound
+  #		----	-----------	----------	--------
+  Zone		default .fido.sub.de	fidonet	 -
+  Zone		1	.fido.sub.de	fidonet	 outbound.001
+  Zone		2	.fido.sub.de	fidonet	 outbound
+  Zone		3	.fido.sub.de	fidonet	 outbound.003
+  Zone		4	.fido.sub.de	fidonet	 outbound.004
+  Zone		5	.fido.sub.de	fidonet	 outbound.005
+  Zone		6	.fido.sub.de	fidonet	 outbound.006
+  Zone		21	.ger.sub.de	gernet	  gernet
+  Zone		242	.fido.de	fidode	  fidode
+  #
+  # OPTIONAL:
+  #
+  # MSDOS client drive to UNIX server directory translation. This allows
+  # FIDOGATE running on a UNIX system and BinkleyTerm on an MSDOS PC.
+  #
+  #DosDrive	H:	/home
+  #DosDrive	I:	/var/spool
+  #DosDrive	I:	/usr/spool
+  #DosDrive	P:	/u1
+  #DosDrive	Q:	/u2
+  ______________________________________________________________________
+
+
+
+  Besonderes Augenmerk moechte ich dabei auf folgende Zeilen legen: Dies
+  ist mein Rechnername in Internet:
+
+  Hostname	spinnaker
+
+
+  Dies ist meine Domain im Internet:
+
+  Domain	  .rhein.de
+
+
+  Als ich nur ueber fido.de Internet-Zugang hatte, habe ich dort p13 als
+  Hostname und .flokiste.fido.de als Domain verwendet.	Wenn Du keine
+  Internet-Adresse hast, kannst Du notfall auch einen beliebigen Namen
+  als Hostname einsetzen und dann als Domain .uucp einsetzen (nicht den
+  Punkt vergessen). Besonders wichtig ist, dass Du dann unbedingt darauf
+  achtst, dass Du in config.gate NoFromLine definiert hast, da sonst
+  Internet-Adressen generiert werden, auf die man nicht antworten kann.
+  Das ist auch dann dringend anzuraten, wenn Du ueber ein Gate eine
+  Internet-Adresse hast. Bei fido.de werden beispielsweiese News-Artikel
+  gebounced, wenn diese eine FromLine enthalten, da es sich dabei um
+  potentielle Dupes handelt.
+
+  config.main ist wie folgt anzupassen:
+
+
+
+  ______________________________________________________________________
+  #:ts=8
+  #
+  # /usr/local/lib/fidogate/config.main
+  #
+  # FIDOGATE config file main AKA
+  #
+  # spinnaker.rhein.de
+  #
+  # Format:  keyword arg ...
+  #	  keyword and args may be put in double quotes "..."
+  #
+
+  #
+  # Include common stuff (%L = LIBDIR)
+  #
+  include	 %L/config.common
+
+  #
+  # FTN addresses
+  #
+  Address	 2:2450/111.13
+  Address	 21:100/64.13
+  Address	 242:5000/4.13
+
+
+  #
+  # AREAS.BBS EchoMail distribution list
+  #
+  AreasBBS	/usr/local/lib/fidogate/areas.bbs
+
+  #
+  # FAREAS.BBS file distribution list
+  #
+  FAreasBBS	/usr/local/lib/fidogate/fareas.bbs
+
+  #
+  # ftnaf: CC of reply mails
+  #
+  CCMail	  postmaster@spinnaker.rhein.de
+
+  #
+  # OPTIONAL for tosser
+  #
+  # Kill empty NetMails addressed to one of our AKAs
+  #
+  KillEmpty
+
+  #
+  # Kill EchoMail for unknown areas
+  #
+  #KillUnknown
+
+  #
+  # Kill routed EchoMail
+  #
+  #KillRouted
+
+  #
+  # Log sender/recipient of all NetMail messages
+  #
+  LogNetMail
+
+  #
+  # Check ^APATH for our own address
+  #
+  CheckPath
+
+  #
+  # Zonegate configuration for EchoMail
+  #
+  #		Address to	Add to SEEN-BYs
+  #		----------	---------------
+  #ZoneGate	2:123/456	123/456 2452/110
+  #ZoneGate	2:789/999	789/999 2452/110
+  #ZoneGate	1:105/42	105/42 2452/110
+
+  #
+  # Add extra nodes to SEEN-BY
+  #
+  #		Area		Nodes
+  #		----		-----
+  #AddToSeenBy	ABLED		2:24/24
+  #AddToSeenBy	ABLENEWS	2:24/24
+  ______________________________________________________________________
+
+
+  Letztendlich muss noch das File config.gate angepasst werden:
+
+
+
+  ______________________________________________________________________
+  #:ts=8
+  #
+  # /usr/local/lib/fidogate/config.gate
+  #
+  # FIDOGATE config file gateway programs
+  #
+  # spinnaker.rhein.de
+  #
+  # Format:  keyword arg ...
+  #	  keyword and args may be put in double quotes "..."
+
+  #
+  # Include common stuff (%L = LIBDIR)
+  #
+  include	 %L/config.common
+
+  #
+  # FTN addresses - there must be a corresponding `uplink' statement
+  # for each `address' statement
+  #
+  #		real
+  #		----
+  Address	 2:2450/111.13
+  Address	 21:100/64.13
+  Address	 242:5000/4.13
+
+  Uplink	  2:2450/111
+  Uplink	  21:100/64
+  Uplink	  242:5000/4
+
+  #
+  # Default origin line for EchoMail messages
+  #
+  Origin	  " Spinnaker - Linux-Point der FloKiste Koeln "
+
+  #
+  # Organization header for News
+  #
+  Organization	"Spinnaker-FTN-UseNet-Gate"
+
+  #
+  # Don't generate From: line, FSC-0035 kludges
+  # MUST be set for FIDOGATE points (no real gateway)
+  #
+  NoFromLine
+
+  #
+  # FTN - Internet gateway. If set, Internet mail will be routed via FTN
+  # and this gateway.
+  #
+  #Gateway		242:4900/99
+
+  #
+  # Generate `User.Name@do.main' instead of `User_Name@do.main'
+  #
+  #DotNames
+
+  #
+  # X-FTN header:
+  #
+  #	f    X-FTN-From
+  #	t    X-FTN-To
+  #	T    X-FTN-Tearline
+  #	O    X-FTN-Origin
+  #	V    X-FTN-Via
+  #	D    X-FTN-Domain
+  #	S    X-FTN-Seen-By
+  #	P    X-FTN-Path
+  #
+  X-FTN		ftTOVDP
+
+  #
+  # Maximum size of FTN messages (default value)
+  #
+  MaxMsgSize		15000
+  #MaxMsgSize		32000
+
+  #
+  # MAUS gateway support:
+  #
+  # If set, convert addresses for `User_Name@XY.MAUSDomain' to
+  # `User Name % XY @ MAUSGate' for the Fido-MAUS gateway.
+  #
+  MAUSDomain		.maus.de
+  MAUSGate		2:2452/101.6
+
+  #
+  # CC of bounced messages
+  #
+  BounceCCMail		postmaster@spinnaker.rhein.de
+
+  #
+  # Send mail from message trackers to
+  #
+  TrackerMail		postmaster@spinnaker.rhein.de
+  ______________________________________________________________________
+
+
+
+  Damit kommen wir gleich zur Datei hosts. Das gegebene Beispiel ist
+  speziell auf Martin Junius' Konfiguration angepasst und laesst sich
+  sonst leider von niemanden sinnvoll verwenden. Du hast jetzt zunaechst
+  mal die Moeglichkeit, die Datei zu loeschen (am besten anschliessend
+  mit touch hosts eine neue leere Datei anlegen), so dass keine
+  symbolischen Namen mehr fuer Rechner verwendet werden. Jedoch sollten
+  mindestens Deine eigenen Adressen darin stehen:
+
+  ______________________________________________________________________
+  # /usr/local/lib/fidogate/hosts
+  #
+  # Fields:
+  #
+  # node	FTN address
+  #
+  # hostname	Host name in the local domain (config: HostsDomain, Domain)
+  #		or fully qualified domain name (trailing `.') or `-' for
+  #		listed node without host name.
+  #
+  # options	-p  Generate addresses with point, e.g. `p99.hippo.fido.de'
+  #		-d  Node is currently down (can't receive mail)
+  #
+  # node	  hostname			options
+  #-----	  --------			-------
+  #
+  2:2450/111	flokiste			-p
+  242:5000/4	flokiste			-p
+  21:100/64	flokiste			-p
+  ______________________________________________________________________
+
+
+
+  Alternativ kannst Du auch alle Zeilen, die nicht mit 2: beginnen
+  loeschen, denn dann stehen nur noch die Fido-Adressen drin und Du hast
+  keine Proble mehr.  Wenn Du Lust hast, kannst Du auch Rechner von
+  anderen Domains eintragen, wie das Beispiel tweety.dfv.rwth-aachen.de
+  zeigt. Fuer Namen mit Domain solltest Du nur den abschliessenden Punkt
+  nicht vergessen. So koenntest Du z.B. auch die Rechner von schiele-
+  ct.de eintragen, die ja auch alle eine Fido- und eine Internet-Adresse
+  haben. Wenn Du nur schiele-ct.de-Rechner eintragen willst, dann kannst
+  Du im config-File HostsDomain auch auf schiele-ct.de aendern und dann
+  alle schiele-ct.de-Rechner ohne Domain in hosts eintragen. Ich hoffe,
+  das ist klar geworden, denn fuer alle Rechner, die nicht in hosts
+  drinstehen, wird die Adresse in z.B. p13.f111.n2450.z2.fido.sub.de
+  (o.ae.) gewandelt, bei den Rechnern in hosts, z.B. in
+  p13.flokiste.fido.de. Du solltest uebrigens moeglichst bei allen Rech-
+  nern in hosts das Flag -p setzen, damit Adressen mit Point generiert
+  werden. Ansonsten wird die Point-Nummer naemlich geloescht und dann
+  muss der Message-Tracker des Nodes wieder unnoetige Arbeit leisten.
+
+  Des weiteren kannst Du noch die bounce.*-Dateien auf Dein System
+  anpassen, aber ich kann mich nicht entsinnen, dass die bei mir
+  schonmal benoetigt wurden.  Auch aliases kannst Du anpassen, brauchst
+  Du aber nicht.
+
+  Es bleibt areas, welches mindestens alle Echmail-Areas, die Du
+  verwendest, enthalten sollte. Wenn mehr Areas darin stehen, stoert das
+  aber auch nicht. Man beachte, dass die deutschen Fido-Echos (z.B.
+  LINUX.GER) in fido.ger-Hiearchie (z.B. fido.ger.linux) konvertiert
+  werden. Internationale Fido-Echos werden nach fido.int.* umbenannt.
+  Die Namen der Usenet-Echos werden nur in Kleinschreibung konvertiert.
+  Weiterhin sollte man sich fuer jede andere Domain (Zone) eine eigene
+  Hierarchie anlegen.  Bei allen Areas, die nicht zur Zone 2 gehoeren,
+  muss weiterhin noch angegeben werden, zu welcher Zone sie gehoeren
+  (zur Sicherheit kann man das natuerlich auch fuer die Areas der Zone 2
+  explizit mit angeben). Es sind im uebrigen noch diverse andere Flags
+  moeglich. Hier ein Ausschnitt aus meiner areas-Datei:
+
+
+
+  ______________________________________________________________________
+  # /usr/local/lib/fidogate/areas
+  #
+  # Echomail area <-> News newsgroup conversion
+  #
+  # Options:
+  #	-z ZONE		Alternate zone AKA for this area
+  #	-d DISTRIBUTION	Distribution header for this newsgroups
+  #	-o ORIGIN	  * Origin line for this area
+  #	-g		 No gated messages
+  #	-l		 Only local crosspostings
+  #	-x		 No crosspostings
+  #	-8		 Messages with 8bit ISO-8859-1 charset
+  #	-H		 Names match entire hierarchy, names are translated
+  #	-!		 Don't gate area/newsgroup [hierarchy]
+  #	-R LVL		^ARFC header level
+  #	-m MAXSIZE	 MaxMsgSize for this area (0 = infinity)
+  #
+  # All fields may be quoted in "...", order is import, first area/newsgroup
+  # found matches!
+  #
+  # Format:
+  #
+  # area			newsgroup		     [-option]
+  # ------------------------	--------------------------    ---------
+  FLOKISTE.INTERN		fido.flokiste.intern
+  FLOKISTE.STAT			fido.flokiste.stat
+  LINUX.GER			fido.ger.linux
+  SAILING			fido.int.sailing
+  CT.GER			ger.ct			-z 21
+  CT.PROJEKTE			ger.ct.projekte		-z 21
+  CT.PRUEFSTAND			ger.ct.pruefstand	     -z 21
+  CT.SUPPORT			ger.ct.support		-z 21
+  FIDO.DE			fido.de			-z 242
+  5000.INTERNET			fido.5000.intern	      -z 242
+  ALT.RELIGION.EMACS		alt.religion.emacs	    -z 242
+  COMP.OS.			comp.os.		      -z 242 -H
+  REC.MUSIC.			rec.music.		    -z 242 -H
+  DE.ALT.BINARIES.		de.alt.binaries.	      -H -!
+  DE.				de.			   -z 242 -H
+  ______________________________________________________________________
+
+
+  Wie man sieht, ist es fuer die Usenet-Areas, die bis auf
+  Gross-/Kleinschreibung unter RFC und FTN den gleichen Namen haben,
+  moeglich, auch ganze Hierarchien (-H) einzubinden oder auch einzelne
+  Sub-Hierarchien auszuschliessen (-!).
+
+  Letztendlich solltest Du mit touch /usr/local/lib/fidogate/passwd noch
+  ein leeres File anlegen, ansonsten versagt rfc2ftn naemlich seinen
+  Dienst.
+
+
+
+  7.  Die Installation von ifcico
+
+
+  Ich beziehe mich hier auf die aktuelle Version von ifcico, welche sich
+  im Paket ifmail-2.8c findet.
+
+  Zunaechst muss man das globale Compiler-Konfigurations-File
+  ifmail/CONFIG editieren. Ich fuehre hier einfach mal alle bei mir
+  noetigen Aenderungen auf:
+
+
+  CONFIGFILE  = "/usr/local/lib/fnet/config"
+  LOCKDIR     = "/var/lock"
+  PUBDIR      = "/var/spool/uucppublic"
+  BINDIR = /usr/local/lib/fnet
+  OWNER = uucp
+
+
+  Der eine oder andere wird weiterhin ggf. noch einige andere Pfade aen-
+  dern wollen. So wird dabei das Debug-File in /tmp angelegt und das
+  Logfile in /usr/local/lib/fnet, was allerdings nicht stoert, da das
+  Logifile seit ifcico 2.3 sowieso vom syslogd gehandelt wird (mehr dazu
+  spaeter).
+
+  Falls Du einen 1.0.*-Kernel verwendest, musst Du leider noch eine
+  Aenderung vornehmen, damit sich ifmail compilieren laesst. Hierzu
+  musst Du im Verzeichnis ifmail/iflib folgenden Patch einbauen:
+
+  ______________________________________________________________________
+  --- trap.c~	Sun Jul 10 18:35:06 1994
+  +++ trap.c	Mon Aug 29 01:00:47 1994
+  @@ -15,6 +15,7 @@
+   #include <linux/signal.h>
+   #undef __KERNEL__
+   #define iBCS2
+  +#include "sigcontext.h"
+   #elif defined(sun)
+   #define SUNSTYLE
+   #elif defined(SVR4)
+  ______________________________________________________________________
+
+
+  Weiterhin musst Du in diesem Verzeichnis noch das File sigcontext.h
+  anlegen:
+
+  ______________________________________________________________________
+  struct sigcontext_struct {
+	  unsigned short gs, __gsh;
+	  unsigned short fs, __fsh;
+	  unsigned short es, __esh;
+	  unsigned short ds, __dsh;
+	  unsigned long edi;
+	  unsigned long esi;
+	  unsigned long ebp;
+	  unsigned long esp;
+	  unsigned long ebx;
+	  unsigned long edx;
+	  unsigned long ecx;
+	  unsigned long eax;
+	  unsigned long trapno;
+	  unsigned long err;
+	  unsigned long eip;
+	  unsigned short cs, __csh;
+	  unsigned long eflags;
+	  unsigned long esp_at_signal;
+	  unsigned short ss, __ssh;
+	  unsigned long i387;
+	  unsigned long oldmask;
+	  unsigned long cr2;
+  };
+  ______________________________________________________________________
+
+
+  Leider ist dieser ganze Aufwand noetig geworden, da obiger struct in
+  den 1.0-Kerneln in einem *.c-File enthalten war und damit nicht nach
+  aussen sichtbar war, waehrend er in den 1.1- und 1.2-Kerneln schon
+  fuer alle zugaenglich in einem Include-File liegt, welches von trap.c
+  eingebunden wird.
+
+  Jetzt sollte man noch das Verzeichnis /usr/local/lib/fnet anlegen
+  (User uucp, Group uucp) und kann dann mit
+
+  make depend
+  make all
+  make install
+
+
+  die Programmdateien in /usr/local/lib/fnet installieren.
+
+  Nun muss man noch das config-File von ifcico installieren. Ein
+  Beispiel findet man in ifmail/misc/config. Diese kopiert man nun nach
+  /usr/local/lib/fnet und editiert es passend. Hier ist ein Beispiel:
+
+
+
+  ______________________________________________________________________
+  # /usr/local/lib/fnet/config
+  #
+  # IFmail - Configurations-File
+  # von Roland Rosenfeld 07.08.94
+
+  # Log file name. Overrides compile-time default.
+  logfile	 /var/adm/iflog
+
+  # Debug file name. Overrides compile-time default.
+  debugfile	/var/adm/ifdebug
+
+  # Debugging verbosity level (is overidden by -x key). Default is 0.
+  # Folgende Kombination generiert ein Debug-File von ertraeglicher Laenge, das
+  # man noch lesen kann:
+  verbose		 bcdefghijklmnqrt
+
+  # Main address:
+  address	 2:2450/111.13@fidonet
+
+  # AKAs:
+  address	 21:100/64.13@gernet
+  address	 242:5000/4.13@fidode
+
+  # Passwords: Hier koennen die Passwords direkt stehen oder man lagert sie in
+  # eine externe Datei aus, welche dem User uucp gehoert und die Permissions
+  # 600 hat, damit niemand die Passwords lesen kann.
+  #include		/usr/local/lib/fnet/passwords
+  password	2:2450/111	GEHEIM
+  password	21:100/64	GEHEIM
+  password	242:5000/4	GEHEIM
+
+  # Directory for incoming packets/files:
+  inbound	 /var/spool/fnet/inbound
+  # Directories for "listed" and "protected" sessions
+  listinbound	/var/spool/fnet/inbound
+  protinbound	/var/spool/fnet/inbound
+
+  # Directory for outgoing packets (default domain and zone):
+  # other zones will be like "/usr/spool/fnet/outb.003",
+  # other domains will be like "/usr/spool/fnet/<domain>.<zone>"
+  outbound	/var/spool/fnet/outbound
+
+  # Directory from which the file requests are satisfied
+  public	  /var/spool/uucppublic
+
+  # Directory with executables to satisfy "magic" file requests
+  # if requested a file present in this directory, it will be
+  # executed and stdout sent to the remote system.  If the file
+  # is not executable, it is read line by line and the lines are
+  # processed as if they were received file requests (recusively).
+  # Execution of commands may compromize security!  You are warned.
+  magic		/usr/local/lib/fnet/magic
+
+  # Erste Nodeliste:
+  # Es wird nach nl_short.xxx gesucht und die neueste Version verwendet.
+  # nl_short generiere ich manuell aus der kompletten Nodeliste, da mir das
+  # Compilieren der kompletten Liste zu lange dauert.
+  nodelist	/var/spool/fnet/nodelist/nl_short
+
+  # Weitere Nodelisten der anderen Zonen:
+  # (Achtung: ifindex hat noch einen Bug, der zu einem Core fuehrt, falls eine
+  #  Nodenummer doppelt auftritt, wie z.B. bei Verwengung von nodelist und
+  #  r24classic)
+  #		filename	originating address
+  nodelist	gernet	  21:100/64.13@gernet
+  nodelist	242_list	242:5000/4.13@fidode
+
+  # Sequencer file (used to generate unique IDs)
+  sequencer	/usr/local/lib/fnet/seq
+
+  # An dieser Stelle stehen im Beispiel-Config-File (ifmail/misc/config) noch
+  # diverse Erlaeuterungen und Optionen, die ich groesstenteils nicht verwende
+  # und daher hier nicht auffuehre. Man sollte sich die Moeglichkeiten jedoch
+  # dort mal ansehen.
+
+  # Das Modem haengt an /dev/ttyS1, der FIFO ist auf 38400 gelockt (ohne FIFO
+  # sollte man stattdessen auf 19200 locken).
+  # Ich verwende ausdruecklich ttyS und nicht cua, da bei mir noch mgetty
+  # laeuft. Eine genau Erklaerung zu dem Thema findet sich in der Doku zu
+  # mgetty+sendfax von Gert Doering.
+  ModemPort	ttyS1:L38400
+
+  # Nun die Konvertierung der Telefonnummern. Ganz habe ich das noch nicht
+  # verstanden, aber folgendes sollte (mit der entsprechenden eigenen Vorwahl)
+  # fuer ganz Deutschland korrekt sein. Fuer Spezialfaelle sollte man sich ggf.
+  # nochmal ifmail/misc/config ansehen.
+
+  PhoneTrans	49-2236-	/
+  PhoneTrans	49-	/	0
+  PhoneTrans	/	00
+
+  # In ModemReset baue ich die passenden AT-Befehle fuer mein Modem ein:
+  # AT Z0   = Initialisieren mit Profile 0
+  # AT M3   = Lautsprecher nach dem Waehlen aus
+  ModemReset ATZ0\r\n\dATM3\r\n\d
+
+  # Pulswahl:
+  ModemDial	ATDP\T\r
+  ModemHangup	ATZ\r
+  ModemOK	 OK
+
+  # Statt einem einfachen "CONNECT" gebe ich viele Connect-Strings an, um
+  # nachher im Logfile sehen zu koennen, mit welcher Geschwindigkeit connected
+  # wurde.
+  ModemConnect	CONNECT\s76800
+  ModemConnect	CONNECT\s57600
+  ModemConnect	CONNECT\s38400
+  ModemConnect	CONNECT\s19200
+  ModemConnect	CONNECT\s16800
+  ModemConnect	CONNECT\s14400
+  ModemConnect	CONNECT\s1200
+  ModemConnect	CONNECT\s9600
+  ModemConnect	CONNECT\s7200
+  ModemConnect	CONNECT\s4800
+  ModemConnect	CONNECT\s2400
+  ModemConnect	CONNECT\s12000
+  ModemConnect	CONNECT\r
+  ModemError	BUSY
+  ModemError	NO\sCARRIER
+  ModemError	NO\sDIALTONE
+  ModemError	NO\sANSWER
+  ModemError	RING\r
+  ModemError	ERROR
+
+  # Timeouts to wait for "OK" and "CONNECT", cannot be prefixed by logical
+  # expression.
+  TimeoutReset	3
+  TimeoutConnect  90
+
+  # Hier stehen noch weitere Konfigurationsmoeglichkeiten fuer Inbound-Calls.
+  # Da ich keine Inbound-Calls zulasse, habe ich den Teil hier auch nicht
+  # aufgefuehrt, fuer weiter Infos siehe ifmail/misc/config.
+
+  # EMSI data for this node
+  # From this line on values CANNOT be prefixed with logical expression
+  # For now, escaping of '}' and ']' unimplemented, try to avoid these
+  # characters please!
+  Name		*** Spinnaker ***
+  Location	Bornheim-Widdig
+  SysOp		Roland Rosenfeld
+  Phone		- Unpublished -
+  Speed		9600
+  Flags		XA,V32B,V42B
+  ______________________________________________________________________
+
+
+  Um die Log-Messages von ifcico zu bekommen, solltest Du nun noch den
+  syslogd vernuenftig konfigurieren. Hierzu musst Du /etc/syslog.conf
+  editieren. Die Messages von ifcico erscheinen dabei als local0.* Ich
+  habe zu diesem Zweck folgende Zeile eingebaut:
+
+  local0.*		/var/adm/ifmail
+
+
+  (Achtung: Keine Leerzeichen, sondern ausschliesslich Tabs verwenden!).
+
+
+  Damit landen alle Log-Meldungen von ifcico in /var/adm/ifmail. Bei
+  neuen Versionen von syslogd reicht nun ein
+
+  killall -1 syslogd
+
+
+  um, das dem Daemon das neue Config-File nahe zu bringen. Bei aelteren
+  Versionen muss man das Logfile zunaechst anlegen und dann den Daemon
+  killen und neustarten.
+
+  Jetzt sollte man allerdings noch die Outbound-Directories in
+  /var/spool/fnet/ anlegen. Neben dem Standard outbound fuer Fido fehlen
+  noch fidode und gernet fuer die anderen Netze. Die Verzeichnisse
+  sollte alle uucp.uucp gehoeren und die Permissions 775 besitzen.
+  ifcico legt im uebrigen fuer weitere Netze fehlende Verzeichnisse
+  selber an, allerdings sollte man dann manuell die Permissions
+  entsprechend ueberarbeiten.
+
+
+
+  8.  Nodelisten-Compiler
+
+
+  Alle im Config-File angegebenen Nodelisten sollten im Verzeichnis
+  /var/spool/fnet/nodelist vorhanden sein. Dann ruft man einfach ifindex
+  auf, welcher dann index.dir und index.pag erstellt, welche die
+  compilierte Nodeliste enthalten.
+
+  Leider ist ifindex nicht besonders schnell, daher kuerze ich die
+  nodelist immer vor der Compilierung auf das, was ich (in Deutschland)
+  benoetige. Hierfuer verwende ich folgendes Skript:
+
+
+
+  ______________________________________________________________________
+  #!/bin/sh
+  #
+  # /var/spool/fnet/nodelist/strip.nodelist
+  #
+  if [ ! $1 ]
+  then
+      echo Fallscher Aufruf!
+      echo Start mit $0 xxx, wobei xxx die Nummer der aktuellen Nodelist ist.
+      exit
+  fi
+
+  NODELIST=nodelist.$1
+
+  if [ ! -s $NODELIST ]
+  then
+      echo $NODELIST ist keine korrekte Nodelist
+      exit
+  fi
+
+  NLSHORT=nl_short.$1
+
+  if [ -s $NLSHORT ]
+  then
+      echo $NLSHORT existiert schon und wird nach $NLSHORT.bak geschoben
+      mv -f $NLSHORT $NLSHORT.bak
+  fi
+
+  head -n 2 $NODELIST >> $NLSHORT
+  grep ',49-\|^Zone,' $NODELIST >> $NLSHORT
+
+  echo Fertig.
+  ______________________________________________________________________
+
+
+
+  Dieses Skript startet man mit strip.nodelist xxx, wobei xxx die
+  aktuelle Nummer der Nodeliste ist. Aus nodelist.xxx wird damit
+  nl_short.xxx generiert.
+
+  Nun muss man natuerlich auch Diffs einarbeiten koennen. Hierzu gibt es
+  seit ifmail-2.6 das Programm nlpatch, welches man mit der alten
+  Nodelist sowie dem aktuellen Diff als Parameter aufruft, z.B.:
+
+	  nlpatch nodelist.123 NODEDIFF.130
+
+
+  auf (natuerlich mit den entsprechenden Tag-Nummern). Es wird dann
+  automatisch nodelist.130 generiert.
+
+
+
+  9.  Poll-Skript und Entpacken
+
+
+  Zum Pollen verwende ich das Skript ifmail/misc/contrib/ifpoll in
+  leicht abgewandelter Form:
+
+
+
+  ______________________________________________________________________
+  #!/bin/sh
+  # ver 0.7r
+  # ifpoll, poll my boss node or the node given as argument 1
+  #
+  # i start this shell script every day by crond, but you can
+  # start it also by hand :) start it as the owner of ifcico.
+  # rasca, berlin 1993 (Rasca Gmelch, 2:2410/305.4)
+  #
+  # Erweiterte Fassung von Roland Rosenfeld
+
+  # where "ifcico" and "ifpack" reside
+  FIDOPATH=/usr/local/lib/fnet
+
+  # logfile of ifcico
+  IFLOG=/var/adm/ifmail
+  IFDEBUG=/var/adm/ifdebug
+
+  # owner of "ifcico"
+  IFCICO_OWNER=uucp
+
+  # sysop of fido stuff
+  IFCICO_SYSOP=postmaster
+
+  # my boss node (default address to poll)
+  NODE="f111.n2450.z2"
+
+  # how often should i try to call NODE?
+  MaxTry=20
+
+  # delay between outgoing calls in seconds
+  DELAY=60
+
+  # where to log processing - file or tty/console
+  INFO_TTY=/dev/tty11
+
+  function GetConnectMessage () {
+     grep 'chat got "CONNECT.*", continue' $IFLOG \
+	| tail -n1 \
+	| sed 's/.*chat got //;s/, continue//'
+  }
+
+  function GetNoConnectMessage () {
+     grep 'chat got .*, aborting' $IFLOG \
+	| tail -n1 \
+	| sed 's/.*chat got //;s/, aborting//'
+  }
+
+  mv -f $IFDEBUG $IFDEBUG.old
+  touch $IFDEBUG
+
+  echo "`date \"+%b %d %T\"` ifpoll[$$]: starting" >> $INFO_TTY
+
+  # remember me, not to run as root..
+  #
+  if [ `whoami` != "$IFCICO_OWNER" ]; then
+	  echo "*** run $0 as the owner of ifcico ***"
+	  echo "`date \"+%b %d %T\"` ifpoll[$$]: wrong uid (rc 2)" >> $INFO_TTY
+	  exit 2
+  fi
+
+  # argv[1] is the optional node to call
+  #
+  if [ "$1" != "" ]; then
+	  if [ "$1" = "-?" ] || [ "$1" = "-h" ]; then
+		  echo "usage: ifpoll [node]"
+		  exit 3
+	  else
+		  NODE=$1
+	  fi
+  fi
+
+  # let's pack the fido stuff..
+  #
+
+  $FIDOPATH/fgpack
+
+  # loop until ifcico could connect the node or MaxTry is encountered
+  #
+  i=1; errlv=1
+  while let 'i <= MaxTry' && let 'errlv != 0'
+  do
+	  echo -n "`date \"+%b %d %T\"` ifpoll[$$]: $i. try ($NODE) " \
+		  >> $INFO_TTY
+	  #
+	  # start ifcico in master mode ..
+	  #
+	  $FIDOPATH/ifcico -r 1 $NODE
+	  errlv=$?
+	  if [ $errlv != "0" ]; then
+		  GetNoConnectMessage >> $INFO_TTY
+		  if [ $i != $MaxTry ]; then
+			  sleep $DELAY
+		  fi
+		  let i=i+1
+	  else
+		  GetConnectMessage >> $INFO_TTY
+	  fi
+  done
+
+  # if the poll was fine, unpacking..
+  #
+  if [ $errlv = "0" ]; then
+	  echo "`date \"+%b %d %T\"` ifpoll[$$]: unpacking.. " >> $INFO_TTY
+	  $FIDOPATH/fgunpack $INFO_TTY
+	  # add here some additional lines for processing tic files or
+	  # incoming file-lists or simular..
+  else
+	  grep 'chat got .*, aborting' $IFLOG | \
+		  tail -n20 | \
+		  elm -s "ifpoll: failed" $IFCICO_SYSOP >/dev/null
+  fi
+
+  echo "`date \"+%b %d %T\"` ifpoll[$$]: finished (rc $errlv)" >> $INFO_TTY
+
+  # return the errorlevel of ifcico
+  exit $errlv
+  ______________________________________________________________________
+
+
+
+  Dieses Skript kann ohne Parameter gestartet werden und ruft dann
+  automatisch meinen Boss an, oder aber man gibt den gewuenschten Node
+  an (in pfnz-Notation, also z.B. ifpoll f111.n2450.z2).  Natuerlich
+  muss das Skript an den eigenen Bedarf angepasst werden (so hat nicht
+  jeder 12 Consolen etc.).
+
+  Dieses Skript ruft zunaechst das Pack-Skript auf:
+
+
+
+  ______________________________________________________________________
+  #!/bin/sh
+  # /usr/local/lib/fnet/fgpack
+  # pack-script for FidoGate (together with ifcico)
+  #
+  # written by Roland Rosenfeld	19.08.94
+  #	roland@p13.flokiste.fido.de	(2:2450/111.13)
+  #
+
+  FNET=/var/spool/fnet
+  FTNPACK=/usr/local/lib/fidogate/ftnpack
+
+  PATH=/bin:/usr/bin:/usr/local/bin
+
+  topack=
+
+  for pkt in $FNET/*/????????.out $FNET/*/????????.pnt/????????.out
+  do
+	  if [ -s $pkt ]
+	  then
+		  topack="$topack $pkt"
+	  fi
+  done
+  $FTNPACK $topack
+  ______________________________________________________________________
+
+
+
+  Damit werden die .out-Files in ARCmail-Files zusammengepackt, damit
+  sie effizienter verschickt werden koennen.
+
+  Damit ftnpack korrekt arbeitet, muss man in
+  /usr/local/lib/fidogate/packing noch den Packer definieren:
+
+
+  ______________________________________________________________________
+  # /usr/local/lib/fidogate/packing
+  #
+  # FIDOGATE ftnpack config file
+  #
+  # Commands:
+  #
+  #	arc    NAME  "/PATH/PROG %s %s"
+  #	prog   NAME  "/PATH/PROG %s"
+  #
+  #	pack   NAME  NODES
+  #	rpack  NAME  TARGET NODES
+  #	fpack  NAME  TARGET NODES
+  #
+
+  arc	zip	"/usr/bin/zip -gkjq %s %s"
+  arc	arc	"/usr/local/bin/arc an %s %s"
+
+  prog	gate	"/usr/local/lib/fidogate/ftn2rfc %s"
+
+  ######## P A C K I N G #######################################################
+
+  pack	zip	*
+  ______________________________________________________________________
+
+
+
+  Natuerlich sollte man die Pfade der Packer auf die eigenen
+  Beduerfnisse anpassen. Nach erfolgreichem Anruf von ifcico wird dann
+  das folgende Entpack-Skript aufgerufen:
+
+  ______________________________________________________________________
+  #!/bin/bash
+  # usr/local/lib/fnet/fgunpack
+  #
+  # unpack-script for FidoGate (together with ifcico)
+  #
+  # written by Roland Rosenfeld	12.06.94
+  #	roland@p13.flokiste.fido.de	(2:2450/111.13)
+  #
+  # corrected paths, usage of syslog, more packer, clean up, restructured
+  #	martin@erde.GUN.de (Martin Seine) <2:2448/413.100>
+  #
+
+  FNET=/usr/local/lib/fnet
+  FGATE=/usr/local/lib/fidogate
+  IFCFG=$FNET/config
+  IN=/var/spool/fnet/in
+
+  # Facility is the log-file facility, where syslog stores the messages
+  # if you're not using syslog, no need to change it
+  FACILITY=local0
+
+  # System-manager who receives notices, if there are unpacking errors
+  MANAGER=postmaster
+
+  PATH=/bin:/usr/bin:/usr/local/bin:$FGATE
+
+  if [ $1 ]
+  then
+	  INFO_TTY=$1
+  else
+	  INFO_TTY=/dev/console
+  fi
+
+  WEARE=`basename $0`
+
+  #
+  # get directory-names from $IFCFG
+  #
+  INBOUND=`grep -i "^[	]*inbound" $IFCFG | awk '{ print $2 }'`
+  LOGFILE=`grep -i "^[	]*logfile" $IFCFG | awk '{ print $2 }'`
+
+  if [ ! -d $INBOUND/bad ] ; then
+     if [ -e $INBOUND/bad ] ; then
+	  rm -Rf $INBOUND/bad
+     fi
+     mkdir $INBOUND/bad
+  fi
+
+  CORRECT=true
+
+  function iflog() {
+     if [ -S /dev/log ] ; then
+	  logger -i -p $FACILITY.info -t $WEARE $@
+     else
+	  echo "`date \"+%y/%m/%d %T\"` $$ $WEARE:" $@ >> $LOGFILE
+     fi
+     echo "`date \"+%b %d %T\"` $WEARE [$$]:" $@ >> $INFO_TTY
+  }
+
+
+  function unpack_mail() {
+     pushd $INBOUND >/dev/null
+     EMPTY=true
+     for f in *.mo? *.tu? *.we? *.th? *.fr? *.sa? *.su? *.pkt
+     do
+	  if [ -f $f ] ; then
+		  if [ $EMPTY = true ] ; then
+			  rm -rf bak.oo
+			  mv -f	bak.o	bak.oo >/dev/null
+			  mv -f	bak	bak.o  >/dev/null
+			  mkdir	bak
+		  fi
+		  mv -f	$f bak/
+		  ln -s -f $INBOUND/bak/$f $IN/$f
+		  EMPTY=false
+	  fi
+     done
+
+     # now all new packets lay in $INBOUND/bak
+
+     if [ $EMPTY = true ]
+     then
+	  iflog No new mail found in $INBOUND
+	  exit
+     fi
+
+     popd >/dev/null
+
+     pushd $IN >/dev/null
+     #
+     # Analyze packer with file(1) and unpack them if possible
+     #
+     for f in *.mo? *.tu? *.we? *.th? *.fr? *.sa? *.su?
+     do
+	 if [ -f $f ] ; then
+	    arc=`file -L $f | awk '{ print $2 }'`
+	    case $arc in
+	      ARJ) unarj e $f ;;
+	      ARC) arc e $f ;;
+	      ZIP) unzip -x $f < /dev/null ;;
+	      LHA) lharc e $f ;;
+	      ZOO) zoo eq $f ;;
+		*) iflog unknown packer \'$arc\' for $f
+		   false ;;
+	    esac
+	    if [ $? -gt 0 ] ; then
+		iflog couldn\'t unpack $f \(moved to $INBOUND/bad\)
+		cp -f $f $INBOUND/bad
+		CORRECT=false
+	    else
+		iflog unpacked $f \($arc\)-archive
+		rm -f $f
+	    fi
+	 fi
+     done
+     popd >/dev/null
+  }
+
+  #
+  #
+  # main unpack-program
+  #
+  #
+
+  export FNET
+  cd $FNET
+  unpack_mail
+
+  iflog starting ftn2rfc
+  ftn2rfc -x ftninpost -l
+
+  if [ $CORRECT = false ] ; then
+  /usr/lib/sendmail $MANAGER <<END
+  Subject: Fido-packet errors
+  There occured errors while processing Fido-Packets.
+
+  Please check the logfiles
+
+  Your Gateway
+  END
+  fi
+
+  #iflog starting Linux-TIC-Processor
+  #/usr/local/lib/tic/process_tics.pl < /dev/null
+  #/usr/local/lib/tic/poster.pl Daily < /dev/null
+  #/usr/local/lib/tic/lister.pl < /dev/null
+
+  #iflog starting dodeliver
+  #/usr/bin/nice /usr/local/lib/fnet/dodeliver
+  ______________________________________________________________________
+
+
+
+  Dieses Skript schiebt alle in /var/spool/fnet/inbound angekommenen
+  Mails nach /var/spool/fnet/inbound/bak, wobei dieses Verzeichnis
+  vorher in bak.o und bak.oo verschoben wird, so dass man immer die
+  letzten drei Poll-Resultate vorliegen hat um moegliche Probleme auch
+  nachtraeglich noch beheben zu koennen.  Anschliessend werden alle
+  .pkt-Files nach /var/spool/fnet/in kopiert und die Archive werden
+  dorthin entpackt (das Skript erkennt automatisch ZIP, ARJ, ARC und
+  LHA).	Hierzu muessen folgende Zeilen in /etc/magic enthalten sein
+  (moeglichst ganz oben, denn die Datei wird von oben nach unten
+  durchsucht):
+
+  ______________________________________________________________________
+  # Einige Eintraege fuer das ifcico-Shell-Script
+  #
+  0	byte		0x1a		ARC Archive (maybe)
+  0	string	  PK		ZIP Archive
+  2	string	  -lh		LHA Archive
+  0	string	  ZOO		ZOO Archive
+  0	short		0xea60	  ARJ Archive
+  ______________________________________________________________________
+
+
+  Ist das geschehen, wird ftn2rfc aufgerufen, welches die Pakete nach
+  Mail/News konvertiert und dann seinerseits mittels ftninpost sendmail
+  und rnews startet.
+
+  Im Anschluss daran koennen noch weitere Tools, wie z.B. ein TIC-
+  Prozessor oder ein Programm, das News fuer User des eigenen Systems
+  sucht, aufgerufen werden.
+
+
+
+  10.  Konfiguration von smail
+
+
+  Wenn Du Dich fuer Sendmail entschieden hast, kannst Du dieses Kapitel
+  ueberspringen.
+
+  Bei mir liegt smail im Verzeichnis /usr/local/lib/smail, wobei
+  /usr/lib/smail ein Link darauf ist. Die Konfigurationsdateien liegen
+  dabei gemaess Filesystem-Standard in /etc/smail, bei einigen
+  Distributionen auch in /var/lib/smail, dann muss man das entsprechend
+  anpassen.  Alle von mir hier beschriebenen Dateien sollten also in
+  diesem Verzeichnis liegen. Die systemweite Alias-Datei liegt gemaess
+  FSS in /etc/aliases, waehrend sie frueher in /usr/lib/aliases zu
+  finden war.
+
+  Zunaechst die allgemeine Konfiguration fuer die Benutzung ohne UUCP-
+  Connection zum Internet:
+
+  ______________________________________________________________________
+  # /etc/smail/config
+  #
+  #	smail configuration for p13.flokiste.fido.de
+  # (see smail(5) man page for details and other options)
+  #
+  -smtp_debug
+  hostname=p13.flokiste.fido.de
+  # more_hostnames gibt weitere Adressen an, die hier ausgewertet werden sollen
+  #   flokiste.fido.de muss hier auch aufgenommen werden, da ggf. Mails an
+  #   Roland Rosenfeld 2:2450/111 gehen, die dann vom ITrack meines Uplink an
+  #   mich umgelenkt werden.
+  #   Hostnamen mit pxxx.fxxx.nxxx.zxxx-Namen koennen hier entfallen, da die
+  #   alle in /usr/local/lib/fidogate/hosts auf p13.flokiste.fido.de oder
+  #   flokiste.fido.de gemappt werden sollen.
+  more_hostnames=flokiste.fido.de:spinnaker:spi:p13
+  -visible_name
+  -smart_path
+  -uucp_name
+  error_copy_postmaster
+  postmaster=postmaster
+  ______________________________________________________________________
+
+
+  Wenn Du noch einen direkten UUCP-Zugang zum Internet hast, musst Du
+  folgende Zeilen hinzufuegen:
+
+  ______________________________________________________________________
+  smart_path=rhein
+  smart_transport=uux
+  uucp_name=spinnaker.rhein.de
+  ______________________________________________________________________
+
+
+  UUCP-Name meines Uplinks.
+
+  Nun muss angegeben werden, was wie geroutet werden soll:
+
+  ______________________________________________________________________
+  # /etc/smail/routers
+  #
+  # smail routers for p13.flokiste.fido.de
+
+  # See smail(5) for a complete description of the contents of this
+  # file.
+
+  fido:
+	  driver = pathalias,
+	  transport = fido;
+	  file = /etc/smail/paths.ftn,
+	  proto = lsearch
+
+  smart_host:
+	  transport=fido,
+	  driver=smarthost;
+	  path=p0.f4.n5000.z242.fido.de
+  ______________________________________________________________________
+
+
+  Hier wird also alles ueber fido geroutet, wobei paths.ftn (s.u.)
+  angibt, wo welche FTN-Adressen eingesetzt werden sollen. Alles, was
+  nicht gemaess paths.ftn verarbeitet werden kann, wird dabei an das
+  fido.de-Internet-Gate geschickt.
+
+  Fuer die Konfiguration mit UUCP wird ein anderer Smarthost (dahin wird
+  alles geschickt, was nicht vorher definiert wurde) verwendet:
+
+  ______________________________________________________________________
+  smart_host:
+	  driver=smarthost,
+	  transport=uux
+  ______________________________________________________________________
+
+
+
+  paths.ftn sieht nun wie folgt aus:
+
+  ______________________________________________________________________
+   # /etc/smail/paths.ftn
+   #
+   .fido.sub.de	p0.f111.n2450.z2.fido.sub.de!%s
+   .z2		p0.f111.n2450.z2.fido.sub.de!%s
+   .fido.de	p0.f111.n2450.z2.fido.sub.de!%s
+   .maus.de	p0.f111.n2450.z2.fido.sub.de!%s
+   #
+   .ger.sub.de	f64.n100.z21.ger.sub.de!%s
+   #
+   .z242.fido.de  p0.f4.n5000.z242.fido.de!%s
+  ______________________________________________________________________
+
+
+  Letztendlich muss man noch angeben, wie die einzelnen Mails trans-
+  portiert werden sollen:
+
+  ______________________________________________________________________
+  # /etc/smail/transports
+  #
+  fido:	driver = pipe;
+	  group = uucp,
+	  cmd = "/usr/local/lib/fidogate/rfc2ftn -w Normal ${strip:user}",
+	  pipe_as_sender
+  ______________________________________________________________________
+
+
+  Da Messages aus dem Fido an den Realnamen adressiert werden, sollte
+  selbiger (mit Unterstrich zwischen Vor- und Nachname) auch auf dem
+  eigenen System vorhanden sein. Hierzu traegt man ihn in /etc/aliases
+  ein, so dass die Mail an den User selbst weiter geschickt wird.  Hier
+  ein Ausschnitt aus meinem Alias-File, wo die haeufigsten aliases
+  aufgefuehrt sind, so dass Mails mich praktisch immer erreichen, wenn
+  sie an mich adressiert sind:
+
+
+
+  ______________________________________________________________________
+  # /etc/aliases
+  #
+  # This is used by smail for sendmail compatibility.
+  # See also the /usr/lib/smail/lists directory for another way
+  # to make mail lists.
+  #
+  # Note: if your /etc/smail/directors says that the aliases
+  # director uses proto=dbm, you must use mkaliases to make
+  # /etc/aliases.pag and /etc/aliases.dir, which are the
+  # actual files used by smail.
+  #
+  # If you use proto=lsearch, smail will read this file.  (That's
+  # much slower but it's OK if this file is small.)
+  #
+  support: roland
+  admin: roland
+  Roland_Rosenfeld: roland
+  postmaster: roland
+  faxadmin: roland
+  usenet: roland
+  sysop: roland
+  rosenfeld: roland
+  roro: roland
+  uucp: roland
+  news: roland
+  ______________________________________________________________________
+
+
+  Man sollte die Funktion dieser Datei allerdings zunaechst mal mit
+  einer lokalen Mail testen, denn einige Versionen von smail (wenn sie
+  mit unguenstigen Parametern compiliert wurden) scheinen das File nur
+  als dbm zu erkennen, auch wenn man lsearch angibt (siehe Kommentar in
+  aliases). Daher sollte man nach jeder Aenderung an diesem File
+  mkaliases aufrufen, welches aliases.dir und aliases.pag auf den
+  neusten Stand bringt.
+
+  Da viele Fehlermeldungen des Newssytems an usenet, news oder uucp
+  geschickt werden, sollte man diese Messages ebenfalls auf sich selber
+  umleiten.
+
+
+
+  11.  Sendmail V8-Konfiguration
+
+
+  Wenn Du Sendmail installierst, solltest Du besonders darauf achten,
+  dass Du den kompletten Satz an Configurations-Files installierst,
+  welcher sich bei Slackware in dem Paket smailcnf.tgz versteckt.  Diese
+  Configurations-Files finden in einem Verzeichnisbaum unter
+  /usr/src/sendmail/cf. In diesem Verzeichnis sollte sich auch ein knapp
+  50KB grosses README befinden, dass die neue Konfigurationsmethode
+  beschreibt.
+
+  Obwohl Sendmail ueber ein gewoehnlich gut 20KB grosses Configurations-
+  File (/etc/sendmail.cf) gesteuert wird, musst man dieses File nicht
+  selber schreiben (das denken naemlich die meisten Leute, die von
+  Sendmail abgeschreckt werden). Vielmehr benoetigt man den
+  Macroprozessor M4, und ein kleines Konfigurationsfile (mc-File) in
+  /usr/src/sendmail/cf/cf.  M4 erzeugt dann aus dem mc-File und den
+  anderen (vom User normalerweise nicht zu aendernden) Config-Files das
+  sendmail.cf-File.
+
+  Zunaechst einmal muss FidoGate allerdings noch bekannt gemacht werden.
+  Hierzu muss das File /usr/src/sendmail/cf/mailer/ftn.m4 mit folgendem
+  Inhalt angelegt werden:
+
+  ______________________________________________________________________
+  PUSHDIVERT(-1)
+  #
+  # /usr/src/sendmail/cf/mailer/ftn.m4
+  #
+  # FIDOGATE FTN mailer for sendmail 8.6.12
+  #
+  # MAILER(smtp) and MAILER(uucp) must be included!
+  #
+
+  ifdef(`FTN_MAILER_PATH',, `define(`FTN_MAILER_PATH',
+				     /usr/local/lib/fidogate/rfc2ftn)')
+  ifdef(`FTN_MAILER_ARGS',, `define(`FTN_MAILER_ARGS', `rfc2ftn -w normal $u')')
+  ifdef(`FTN_MAILER_FLAGS',, `define(`FTN_MAILER_FLAGS', `')')
+  ifdef(`FTN_MAX_SIZE',, `define(`FTN_MAX_SIZE', 100000)')
+  POPDIVERT
+  #####################################
+  ###	FTN Mailer specification   ###
+  #####################################
+
+  VERSIONID(`ftn.m4')
+
+  ifdef(`_MAILER_smtp_',
+  `# FIDOGATE mailer
+  Mftn,	P=FTN_MAILER_PATH, F=CONCAT(mDFMhu, FTN_MAILER_FLAGS),
+	  S=52/31, R=ifdef(`_ALL_MASQUERADE_', `11/31', `21'),
+	  A=FTN_MAILER_ARGS
+   ')
+  ______________________________________________________________________
+
+
+
+  Wie man sieht, ist die Konfiguration zur Verwendung von rfc2ftn nicht
+  allzu aufwendig, aber was da genau passiert, braucht uns auch nicht zu
+  kuemmern, wir verwenden den eben definierten Mailer "ftn" jetzt
+  einfach, wie die vordefinierten Mailer "smtp", "uucp" etc.
+
+  Kommen wir also nun zur Konfiguration des mc-Files. Ich habe es
+  spinnaker.mc genannt, aber der Name tut nichts zur Sachen, das File
+  sollte nur in /usr/src/sendmail/cf/cf liegen. spinnaker.mc sieht bei
+  mir so aus:
+
+
+
+  ______________________________________________________________________
+  # /usr/src/sendmail/cf/cf/spinnaker.mc
+  #
+  # sendmail V8 configuration for spinnaker.rhein.de
+  # using UUCP and FidoGate
+  #
+  include(`../m4/cf.m4')
+  VERSIONID(`spinnaker.mc')
+
+  OSTYPE(linux)dnl
+
+  define(`confUSE_ERRORS_TO', `True')dnl
+  define(`confCOPY_ERRORS_TO', `postmaster')dnl
+
+  FEATURE(nocanonify)dnl
+  FEATURE(notsticky)dnl
+  FEATURE(mailertable,dbm /etc/sendmail/mailertable)dnl
+  FEATURE(always_add_domain)dnl
+  FEATURE(nodns)dnl
+
+  MAILER(local)dnl
+  MAILER(ftn)dnl
+  MAILER(smtp)dnl
+  MAILER(uucp)dnl
+
+  Cwspi spi.rhein.de
+  Cwp13 p13.flokiste.fido.de
+  Cwp13.f111.n2450.z2.fido.sub.de
+  Cwp13.f64.n100.z21.ger.sub.de
+
+  #define(`SMART_HOST', uucp-dom:rhein)
+  define(`SMART_HOST', ftn:f4.n5000.z2.fido.de)
+
+  LOCAL_RULE_3
+  # Route fidonet.org and fido.sub.org via FTN!
+  R$* < $* z2.fidonet.org > $*		$1 < $2 z2.fido.sub.de > $3
+  R$* < $* fido.sub.org > $*		$1 < $2 fido.sub.de > $3
+  ______________________________________________________________________
+
+
+  Hier wird zunaechst das Betriebssystem (Linux) definiert,
+  anschliessend wird definiert, dass alle MAILERDAEMON-Mails auch an
+  postmaster geschickt werden, damit ich Fehler schnell finden und
+  beheben kann.	Anschliessend werden einige Optionen angegeben, die
+  meine genaue Konfiguration angeben, die Du aber so uebernehmen kannst.
+  Weiterhin werden die Mailer "local" (fuer Mails an User auf dem gle-
+  ichen Rechner, welche mittels deliver ausgeliefert werden, das bei
+  Slackware im Sendmail-Paket enthalten ist), "ftn" (Fido-compatible
+  Netze via FidoGate), "smtp" (Transport ueber das Online-Mail-Protokoll
+  SMTP) und "uucp" (Transport per UUCP) definiert. Die letzten beiden
+  sind fuer ein System, das nur per FidoGate am Internet haengt nicht
+  noetig, aber der Mailer "ftn" basiert auf ihnen (nur so konnten wir
+  das ftn.m4 so kurz halten). In den mit Cw beginnenden Zeilen werden
+  jetzt noch diverse Namen fuer meinen Rechner definiert.
+
+  Mit
+
+  ______________________________________________________________________
+
+  define(`SMART_HOST', ftn:f4.n5000.z2.fido.de)
+  ______________________________________________________________________
+
+
+  wird alle Mail, die nicht schon anders transportiert wird via FidoGate
+  an meinen fido.de-Uplink geschickt. Wenn Du einen UUCP-Uplink hast,
+  kannst Du diese Zeile durch
+  ______________________________________________________________________
+  define(`SMART_HOST', uucp-dom:rhein)
+  ______________________________________________________________________
+
+
+  ersetzen, dabei wird alles zu meinem UUCP-Uplink rhein geschickt.
+
+  Zum Ende von spinnaker.mc habe ich noch ein besonderes Schmankerl
+  eingebaut:
+
+  ______________________________________________________________________
+  LOCAL_RULE_3
+  # Route fidonet.org and fido.sub.org via FTN!
+  R$* < $* z2.fidonet.org > $*		$1 < $2 z2.fido.sub.de > $3
+  R$* < $* fido.sub.org > $*		$1 < $2 fido.sub.de > $3
+  ______________________________________________________________________
+
+
+  Hier wird z2.fidonet.org in zw.fido.sub.de und fido.sub.org in
+  fido.sub.de umgemappt, so dass alle Fido-Mails an die diversen Fido-
+  Domains nach fido.sub.de geschickt werden, was dann per FTN (statt per
+  UUCP o.ae.) verschickt wird. Dabei sollte man darauf achten, dass
+  zwischen $* und $1 mindestens ein TAB stehen sollte (nicht nur
+  Blanks).
+
+  Hierzu wird das oben definierte File /etc/sendmail/mailertable
+  benoetigt. In diesem File werden "Ausnahmen" vom Default-Routing
+  angegeben, so z.B. auch das Routing ueber Fido.
+
+  ______________________________________________________________________
+   .fido.sub.de	ftn:f111.n2450.z2.fido.sub.de
+   .fido.sub.org   ftn:f111.n2450.z2.fido.sub.de
+   .z2.fidonet.org ftn:f111.n2450.z2.fido.sub.de
+   .fido.de	ftn:f111.n2450.z2.fido.sub.de
+   .ger.sub.de	ftn:f64.n100.z21.ger.sub.de
+   .z242.fido.de   ftn:f4.n5000.z242.fido.de
+  ______________________________________________________________________
+
+
+  Wie man sieht werden alle Fido-Mails per ftn transportiert. Diese
+  Mailertable muss nun noch nach jeder Aenderung in eine Datenbank com-
+  piliert werden. Hierzu gibt man im Verzeichnis /etc/sendmail einfach
+  folgendes Kommando ein:
+
+  ______________________________________________________________________
+  makemap dbm mailertable < mailertable
+  ______________________________________________________________________
+
+
+  Nachdem spinnaker.mc jetzt fertig editiert ist, koennen wir daraus
+  sendmail.cf erzeugen. Hierzu wechselt man ins Verzeichnis
+  /usr/src/sendmail/cf/cf und gibt dort pmake spinnaker.cf ein.
+  Daraufhin wird /usr/src/sendmail/cf/cf/obj/spinnaker.cf erstellt,
+  welches man nach nach /etc/sendmail.cf schiebt und schon ist die Kon-
+  figuration fertig. Falls pmake nicht installiert sein sollte kann man
+  stattdessen auch folgendes eingeben:
+
+  ______________________________________________________________________
+  m4 spinnaker.mc > obj/spinnaker.cf
+  ______________________________________________________________________
+
+
+  Abschliessend musst Du noch das ein Alias-File anlegen:
+
+
+
+  ______________________________________________________________________
+  #
+  # /etc/aliases
+  #
+  # compile with
+  #	newaliases
+  #
+  nobody: /dev/null
+  support: roland
+  admin: roland
+  operator: roland
+  Roland_Rosenfeld: roland
+  Roland.Rosenfeld: roland
+  postmaster: roland
+  faxadmin: roland
+  usenet: roland
+  sysop: roland
+  rosenfel: roland
+  rosenfeld: roland
+  roro: roland
+  uucp: roland
+  news: roland
+  ______________________________________________________________________
+
+
+  Dieses File muss nach jeder Aenderung mid dem Kommando newaliases in
+  eine Datenbank compiliert werden.
+
+  Nun muss Sendmail nur noch als Daemon gestartet werden, was mithilfe
+  des Kommandos
+
+  ______________________________________________________________________
+  /usr/sbin/sendmail -bd -q20m
+  ______________________________________________________________________
+
+
+  in /etc/rc.d/rc.local geschieht. Bei vielen Systemen ist selbiges auch
+  schon in /etc/rc.d/rc.M angegeben, was ebenfalls moeglich ist.
+
+  Sendmail schreibt seine Logmessages per syslog. Hierzu empfiehlt es
+  sich, folgenden Eintrag in /etc/syslog.conf aufzunehmen:
+
+  ______________________________________________________________________
+  mail.*		      /var/adm/mail
+  ______________________________________________________________________
+
+
+  Nicht vergessen, den syslogd nach dieser Aenderung mit killall -1
+  behandeln, wie schon in der ``Konfiguration von ificio'' beschrieben.
+
+
+
+  12.  cnews-Konfiguration
+
+
+  Wenn Du Dich fuer INN entschieden hast, kannst Du dieses Kapitel
+  ueberspringen.
+
+  Ich werde mich hier auf die Pfadkonventionen beziehen, die das cnews
+  aus Slackware 2.1 verwendet: /var/lib/news fuer die
+  Konfigurationsfiles, Logfiles und Statusfiles und /usr/lib/newsbin
+  fuer die cnews-Binaries.  In anderen Distributionen wird bzw. wurde
+  das alles gemeinsam in /usr/lib/news und /usr/lib/news/bin oder
+  /usr/local/lib/news und /usr/local/lib/news/bin plaziert.
+
+  Ich liste hier einfach mal alle wichtigen Konfigurations-Files auf:
+
+  Zunaechst das sys-File welches angibt, welche Newsgroups wohin
+  exportiert werden sollen:
+
+  ______________________________________________________________________
+  # /var/lib/news/sys
+  #
+  # Achtung: keine ueberfluessigen Leerzeichen einfuegen, das kann zu
+  #	  Problemen fuehren
+  #
+  # ME: gibt an, welche Newsgroups auf dem eigenen System gehalten werden
+  # sollen. Dabei sollte es auch moeglich sein einfach "all" zu schreiben. Das
+  # ist jedoch riskant, denn falls man auch noch uucp verwendet, dann koennten
+  # automatisch News-Hierarchien angelegt werden, die man nicht haben will.
+  ME:alt,comp,news,gnu,de,rec,fido,ger,spinnaker,junk
+
+  # FidoGate (alle FTN-Netze, die ueber FidoGate angesprochen werden):
+  # fido.*, ger.*, de.*, comp.*, rec.*, alt.*, gnu.*
+  fidogate/flokiste.fido.de:\
+  fido,de,comp,rec,alt,gnu/all:Lf:
+  ______________________________________________________________________
+
+
+  Hierfuer muss nun noch ein Outbound-Verzeichnis angelegt werden. cnews
+  erwartet dieses Verzeichniss als /var/spool/news/out.going/fidogate.
+  Dieses Verzeichniss sollte news.news gehoeren und die Permissions 775
+  haben.
+
+  Nun muss man angeben, wie die News per FidoGate verarbeitet werden
+  sollen:
+
+  ______________________________________________________________________
+  # /var/lib/news/batchparms
+  #
+  # site	  size	queue	builder muncher sender
+  # ----	  ----	-----	------- ------- ------
+  /default/	100000  20	batcher compcun viauux
+  #
+  fidogate	250000  200	batcher nocomp  viafido
+  ______________________________________________________________________
+
+
+  Das bedeutet, dass fuer fidogate das Skript viafido zum Transport ver-
+  wendet werden soll. Weiterhin sollen maximal 250K in ein Paket
+  gesteckt werden. Falls man wenig Platz auf der Platte hat, kann man
+  auch die "size" runtersetzen (fuer obiges braucht man naemlich min-
+  destens 10MB freien Speicher auf /tmp), nur werden dann kleinere .pkt-
+  Files generiert.
+
+  Das File viafido existiert nicht, es muss erst erstellt werden:
+
+
+  ______________________________________________________________________
+  #! /bin/sh
+  # /usr/lib/newsbin/batch/viafido
+  #
+  # Submit news batch to FIDOGATE's rfc2ftn -w.
+  #
+  # The 'exec' cuts down the number of processes active for this simple case.
+
+  exec /usr/local/lib/fidogate/rfc2ftn -w Normal -b -n
+  ______________________________________________________________________
+
+
+
+  Letztendlich muss noch die expire-List configuriert werden, welche
+  angibt, welche Artikel wie schnell geloescht werden duerfen:
+
+
+  ______________________________________________________________________
+  # /var/lib/news/explist
+  #
+  # Die History soll 30 Tage gehalten werden. Wenn Artikel ankommen, die aelter
+  # als 30 Tage sind, werden die gar nicht erst angezeigt, sondern sofort
+  # geloescht.
+  /expired/			x	30	-
+
+  # Artikel werden mindestens 3, maximal 90 Tage gehalten
+  /bounds/			x	3-5-90  -
+
+  # Alles weitere wird sequentiell von oben(!) abgearbeitet.
+  junk				x	7	-
+  fido.junk			x	7	-
+  control			 x	7	-
+  de.newusers.questions		x	8	-
+  de.newusers			x	90	-
+  de				x	14	-
+  comp.os.linux.announce	  x	90	-
+  comp.os.linux			x	8	-
+  fido.2450			x	27	-
+  fido.r24			x	10	-
+  fido.ger.linux		  x	18	-
+  fido.ger			x	14	-
+
+  # default:  9 Tage (d.h. alles, was durch obiges noch nicht getroffen wurde)
+  all				x	9	-
+  ______________________________________________________________________
+
+
+  Damit sollte das News-System funktionstuechtig sein, allerdings
+  muessen noch einige Dinge regelmaessig ausgefuehrt werden, damit es
+  funktioniert.
+
+  Hierzu verwende ein paar Cron-Jobs.  Die Crontab fuer den User news
+  sieht dafuer wie folgt aus:
+
+
+
+  ______________________________________________________________________
+  # crontab.news
+  #
+  SHELL=/bin/sh
+  MAILTO=news
+  #
+  # Crontab entries for news system
+  #
+  15 * * * * /bin/date >  /tmp/news_cron_ok
+
+  # Kurz vor meinen beiden Polls werden die News gesammelt und nach Fido
+  # exportiert. Zusaetzlich werden sie noch stuendlich exportiert.
+  27	8	* * *	/usr/local/lib/fidogate/run-batch
+  27	20	* * *	/usr/local/lib/fidogate/run-batch
+  13	*	* * *	/usr/local/lib/fidogate/run-batch
+
+  # Die Artikel sollen regelmaessig fuer alle User des Systems lesbar gemacht
+  # werden (danach kann man sie auch noch canceln und wenn noch kein run-batch
+  # ausgefuehrt wurde, wird der gecancelte Artikel auch nicht einmal
+  # exportiert): [das */5 bedeutet, dass alle 5 Miunten newsrun gestarte
+  # werden soll. Fuer naehere Informationen siehe man 5 crontab]
+  */5	*	* * *	/usr/lib/newsbin/input/newsrun
+
+  # Kontrollieren.... um 21:18
+  18	21	* * *	/usr/lib/newsbin/maint/newsdaily
+
+  # Aufraeumen...
+  24	8	* * *	/usr/lib/newsbin/expire/doexpire
+  24	20	* * *	/usr/lib/newsbin/expire/doexpire
+  ______________________________________________________________________
+
+
+  Dabei ist run-batch ein kleines Shell-Script, welches zuerst newsrun
+  und dann sendbatches aufruft:
+
+
+  ______________________________________________________________________
+  #!/bin/sh
+  # /usr/local/lib/fidogate/run-batch
+  #
+  # Call newsrun, sendbatches
+  #
+
+  /usr/lib/newsbin/input/newsrun
+  /usr/lib/newsbin/batch/sendbatches
+  ______________________________________________________________________
+
+
+  Nun muessen die Newsgroups noch in das News-System eingetragen werden.
+  Hierzu verwendet man das Programm /usr/lib/newsbin/maint/addgroup,
+  welches man mit dem Namen der Newsgroup sowie dem Parameter y aufruft,
+  z.B.:
+
+  /usr/lib/newsbin/maint/addgroup fido.ger.linux y
+
+
+  Damit wird nun die Newsgroup fido.ger.linux (entspricht bei mir der
+  Fido-Area LINUX.GER) eingerichtet. Dies muss man nun mit allen gewuen-
+  schten Newsgroups machen.  Weiterhin sollte man auch noch die beiden
+  Newsgroups fido.junk und junk anlegen, welche News aufnehmen, die in
+  keine andere Newsgroup einsortiert werden koennen. Wenn Fido-Echomail
+  in eine Area gehoert, die in /usr/local/lib/fidogate/areas nicht
+  aufgefuehrt ist, so wandert diese in fido.junk. Wenn die Area in fido-
+  gate/areas eingetragen ist, aber vergessen wurde, die entsprechende
+  Newsgroup mit addgroup anzulegen, dann wandert der Artikel nach junk.
+  Man sollte diese Newsgroup als Systemverwalter auch subscriben, damit
+  man fehlende Newsgroup-Eintraege bemerkt und eintragen kann.	Um
+  Artikel canceln zu koennen, benoetigt man uebrigens noch die Newsgroup
+  control, die man auch mittels addgroup anlegen sollte.
+
+  Falls noch Permission-Probleme auftreten koennen die auch in einem Bug
+  von relaynews begruendet sein, denn dort wird nach einem su weiterhin
+  die alte User-ID und Group-ID verwandt. Das laesst sich aber durch
+  folgenden Patch beheben:
+
+  ______________________________________________________________________
+  --- org/relaynews.c	Tue Mar 17 08:42:42 1992
+  +++ relaynews.c Sun Jan 30 13:48:34 1994
+  @@ -201,7 +201,7 @@
+	  else
+		  newsuid = geteuid(), newsgid = getegid();
+	  if (setgid(newsgid) < 0 || setuid(newsuid) < 0 ||
+  -	   getgid() != newsgid || getuid() != newsuid) {
+  +	   getegid() != newsgid || geteuid() != newsuid) {
+		  if (getenv("NEWSPERMS") != 0)
+			  error("recursive loop setting ids", "");
+		  /*
+  ______________________________________________________________________
+
+
+
+  13.  INN-Konfiguration
+
+
+  Zunaechst muss man INN natuerlich installieren, wofuer man entweder
+  ein vorkonfiguriertes Binary verwenden kann, oder halt sein Binary
+  selber compiliert, was anhand des Beispiel-config.data aus dem newspak
+  recht einfach moeglich sein sollte. Hier habe ich gegenueber dem
+  newspak folgende Aenderungen vorgenommen (das ist nicht das gesamte
+  config.data sondern nur die Unterschiede zwischen config.data.newspak
+  und meinen Anpassungen):
+
+  ______________________________________________________________________
+  _EXITVAL		void
+  INEWS_PATH		DONT
+  INND_NICE_VALUE	10
+  HAVE_UUSTAT		DO
+  _PATH_MOST_LOGS	/var/adm/inn
+  ______________________________________________________________________
+
+
+  Weiterhin habe ich die Pfade so geaendert, dass fuer NEWS-
+  PAK_NEWS_LIB_DIR /usr/local/lib/news und fuer NEWSPAK_SPOOL_DIR
+  /var/spool/news verwendet wird.  Slackware verwendt meines Wissens
+  /usr/lib/news, so dass man hier ggf. einen Link anbringen sollte, oder
+  etwas umdenken muss.
+
+  Nach der Installation sind in /usr/local/lib/news und dessen
+  Unterverzeichnissen diverse Aenderungen vorzunhemen. Ich werde hier zu
+  konfigurierenden Files einfach nacheinander besprechen:
+
+  Zunaechst einige kleinere Files: /usr/local/lib/news/passwd.nntp und
+  /usr/local/lib/news/nntpsend.ctl sollten nur Kommentare enthalten und
+  ansonsten leer sein. /usr/local/lib/news/hosts.nntp enthaelt nur
+  folgende eine Zeile:
+
+
+
+  ______________________________________________________________________
+  ##  hosts.nntp - names and addresses that feed us news
+  ##  Format
+  ##	<host>:
+  ##	<host>:<password>
+  ##  <host> can be a name or IP address; no wildcards.	Any hosts not
+  ##  listed here are handed off to nnrpd.
+  spinnaker.rhein.de:
+  ______________________________________________________________________
+
+
+  Damit darf nur mein eigener Rechner auf meinen NNTP-Server zugreifen.
+
+  /usr/local/lib/news/nnrp.acces sollte wie folgt aussehen:
+
+  ______________________________________________________________________
+  ##  nnrp.access - access file for on-campus NNTP sites
+  ##  Format:
+  ##	<host>:<perm>:<user>:<pass>:<groups>
+  ##  Connecting host must be found in this file; the last match found is
+  ##  used, so put defaults first.
+  ##	<host>	  Wildcard name or IP address
+  ##	<perm>	  R to read; P to post
+  ##	<user>	  Username for authentication before posting
+  ##	<pass>	  Password, for same reason
+  ##	<groups>	Newsgroup patterns that can be read or not read
+  ##  To disable posting put a space in the <user> and <pass> fields, since
+  ##  there is no way for client to enter one.
+  ##
+  ## Default is no access, no way to authentication, and no groups.
+  *:: -no- : -no- :!*
+  ##  Foo, Incorporated, hosts have no password, can read anything.
+  *:Read Post:::spinnaker*
+  localhost:Read Post:::*
+  spinnaker.rhein.de:Read Post:::*
+  ______________________________________________________________________
+
+
+  Damit darf jeder per NNRP (das ist das Protokoll, mit dem Newsreader
+  mit dem Newsserver kommunizieren) auf die Newsgroups, deren Name mit
+  spinnaker beginnt lesen und auch dorthinein posten. Alle anderen News-
+  groups duerfen sie nicht lesen und auf meinem Rechner darf jeder jede
+  Newsgroup lesen und darin schreiben.
+
+  Als naechstes ist /usr/local/lib/news/inn.conf wie folgt zu
+  konfigurieren:
+
+
+
+  ______________________________________________________________________
+  ##  inn.conf -- inn configuration data
+  ##  Format:
+  ##	<parameter>:<whitespace><value>
+  ##  Used by various programs and libinn.  The following parameters are defined:
+  ##	domain	  Local domain, without leading period.
+  ##	fromhost	What to put in the From line; default is FQDN
+  ##			of the local host.
+  ##	moderatormailer Where to mail moderated postings, if not found
+  ##			in the moderators file; see moderators(5).
+  ##	pathhost	What to put in the Path and Xref headers; default
+  ##			is FQDN of the local host.
+  ##	organization	If $ORGANIZATION doesn't exist.  What to put in
+  ##			the Organization header if blank.
+  ##	server	  If $NNTPSERVER doesn't exist.	Local NNTP server
+  ##			host to connect to.
+  ##
+  organization:	private site, Widdig, Germany
+  #server:	spinnaker.rhein.de
+  server:	 localhost
+  ______________________________________________________________________
+
+
+
+  Als naechstes das wichtigste File der INN-Konfiguration
+  /usr/local/lib/news/newsfeeds, in dem festgelegt wird, welche
+  Newsgroups an wen exportiert werden sollen.
+
+
+
+  ______________________________________________________________________
+  ##  newsfeeds - determine where Usenet articles get sent
+  ##  Format:
+  ##	site[/exclude,exclude...]\
+  ##		:pattern,pattern...[/distrib,distrib...]\
+  ##		:flag,flag...\
+  ##		:param
+  ##  Summary of flags:
+  ##	<size		Article must be less then size bytes.
+  ##	Aitems	  Article checks -- d (must have Distribution header)
+  ##			p (don't check for site in Path header).
+  ##	Bhigh/low	Internal buffer size before writing to output.
+  ##	H[count]	Article must have less then count hops; default is 1.
+  ##	Isize		Internal buffer size (if a file feed)
+  ##	Nm		Only moderated groups that match the patterns.
+  ##	Nu		Only unmoderated groups that match the patterns.
+  ##	Ssize		Start spooling if more than size bytes get queued.
+  ##	Ttype		Feed types -- f (file) m (funnel; param names the
+  ##			real entry) p (pipe to program) c (send to stdin
+  ##			channel of param's sub-process); x (like c, but
+  ##			handles commands on stdin).
+  ##	Witems	  What to write -- b (article bytesize) f (full path)
+  ##			g (first newsgroup) m (Message-ID) n (relative
+  ##			path) s (site that fed article) t (time received)
+  ##			* (names of funnel feed-in's or all sites that get
+  ##			the article) N (Newsgroups header) D (Distribution
+  ##			header) H (all headers) O (overview data) R
+  ##			(replication data).
+  ##  Param field depends on T flag.  For Tf, relative paths are from the
+  ##  out.going directory.  For Tp and Tc, it is a shell command to execute.
+  ##  If a Tm refers to this entry (which will have its own T param) then "*"
+  ##  is expanded to all the funnel sites that triggered this one.  Useful
+  ##  for spawning one mail process, e.g.
+  ##
+  ##  This file is complicated -- see newsfeeds.5!
+
+  # ME zeigt an, welche Newsgroups hier bestellt werden sollen:
+  ME\
+	  :!*\
+	  ::
+
+  # Alles, was per FidoGate verschickt werden soll:
+  # - fido.* ausser fido.junk, denn das ist eine Pseudo-Newsgroup in der
+  #   nur Artikel landen, die nicht ordentlich in Fidogate eingetragen
+  #   wurden,
+  # - ger.*, die Gernet-Newsgroups
+  # Wenn auch Internet ueber Fido (z.B. mittels fido.de) reinkommt, dann
+  # sind hier auch noch die entsprechenden Newsgroups (rec.*, comp.*,
+  # de.*, alt.*, gnu.*,...) einzutragen.
+  #
+  # Alle meine Uplinks haben den gleichen Namen (ueber die Datei
+  # /usr/local/lib/fidogate/hosts), naemlich flokiste.fido.de, daher ist
+  # dieser hier einzutragen, damit Mails, bei denen flokiste.fido.de im
+  # Pfad steht, nicht mehr dorthin exportiert werden (sonst gaebe es
+  # Dupes).
+  # Da ich Fido und Internet bei mir absolut auseinander halten moechte
+  # (die was ueber Fido reinkommt darf nicht ins Internet exportiert
+  # werden und umgekehrt), habe ich rhein hier ebenfalls als Alias
+  # eingetragen.
+  fidogate/flokiste.fido.de,rhein\
+	  :fido.*,!fido.junk,ger.*\
+	  :Tf,Wnb:
+
+  # Dies ist mein Internet (Usenet)-Feed.
+  # Hier werden die Areas comp.*,de.*,rec.*,alt.*,gnu.* exportiert.
+  # Damit hier nichts aus dem Fido rausgeht, steht flokiste.fido.de als
+  # Alias fuer rhein.
+  rhein/flokiste.fido.de\
+	  :comp.*,de.*,rec.*,alt.*,gnu.*\
+	  :Tf,Wfb:
+  ______________________________________________________________________
+
+
+
+  Als naechstes ist das File /usr/local/lib/news/expire.ctl zu
+  konfigurieren, welches angibt, wann welche Newsgroups expiren.
+
+  ______________________________________________________________________
+  ##  expire.ctl - expire control file
+  ##  Format:
+  ##	/remember/:<keep>
+  ##	<patterns>:<modflag>:<keep>:<default>:<purge>
+  ##  First line gives history retention; other lines specify expiration
+  ##  for newsgroups.  Must have a "*:A:..." line which is the default.
+  ##	<patterns>	wildmat-style patterns for the newsgroups
+  ##	<modflag>	Pick one of M U A -- modifies pattern to be only
+  ##			moderated, unmoderated, or all groups
+  ##	<keep>	  Mininum number of days to keep article
+  ##	<default>	Default number of days to keep the article
+  ##	<purge>	 Flush article after this many days
+  ##  <keep>, <default>, and <purge> can be floating-point numbers or the
+  ##  word "never."  Times are based on when received unless -p is used;
+  ##  see expire.8
+
+  ##  If article expires before 14 days, we still remember it for 14 days in
+  ##  case we get offered it again.  Depending on what you use for the innd
+  ##  -c flag and how paranoid you are about old news, you might want to
+  ##  make this 28, 30, etc.
+  /remember/:30
+
+  # Alle Newsgroups fuer mindestens 3, maximal 90 und normalerweise 5
+  # Tage behalten (relativ zur Ankunftszeit)
+  *:A:3:5:90
+  *:U:3:5:90
+  # Moderierte Newsgroups laenger behalten:
+  *:M:5:9:90
+
+  # Lokale Newsgroups normalerweise 90 Tage behalten:
+  spinnaker.*:A:3:90:90
+
+  # Deutsche Newsgroups 7 Tage behalten:
+  de.*:A:3:7:90
+  # de.comp.os.linux etwas laenger:
+  de.comp.os.linux:A:3:14:90
+
+  # Moderierte c.o.l.* laenger behalten:
+  comp.os.linux.*:M:5:90:90
+
+  # Fido etwas laenger behalten:
+  fido*:A:3:9:90
+  ger*:A:3:8:90
+
+  # Junk schnell loeschen:
+  fido.junk:A:3:4:90
+
+  # Und noch eine Ausnahme:
+  fido.ger.linux:A:3:24:90
+  ______________________________________________________________________
+
+
+  Das kann man natuerlich alles nach eigenem Geschmack aendern. Allerd-
+  ings sollte man die Default-Zeiten (insbesondere fuer Fido) moeglichst
+  nicht weiter verkuerzen, da die Messages meist lange unterwegs sind
+  und ansonsten gar nicht erst ins Newssystem eingestellt werden, son-
+  dern direkt expiren.
+
+  Als naechstes ist das File /usr/local/lib/news/send-fidogate zu
+  erstellen, das regelmaessig die zu verschickenden Fido-Echomails
+  zusammenpackt. Einen Prototyp fuer dieses File findet man unter
+  fidogate/config/inn/send-fidogate, allerdings muss man im Anfang des
+  Files zwei kleinere Aenderungen an den Pfaden vornehmen:
+
+  ______________________________________________________________________
+  #! /bin/sh
+  #:ts=8
+  ##  SH script to send batches to FIDOGATE
+
+  ##  =()<. @<_PATH_SHELLVARS>@>()=
+  \&. /usr/local/lib/inn/innshellvars
+
+  #
+  # FIDOGATE rfc2ftn
+  #
+  RFC2FTN="/usr/local/lib/fidogate/rfc2ftn -w Normal -b -n "
+  ______________________________________________________________________
+
+
+
+  Damit die News exportiert werden koennen, muss ein Batch-Verzeichnis
+  fuer sie existieren, das /var/spool/news/out.going heisst, news.news
+  gehoert und die Permissions 775 haben sollte.	Im Gegensatz zu cnews
+  duerfen in diesem Verzeichnis keine Unterverzeichnisse fuer die
+  einzelnen Newsfeeds angelegt werden, denn INN verwendet nur ein File
+  je Feed, welches er selber anlegt. Wer aber von cnews auf INN
+  umsteigt, sollte die bestehenden Verzeichnisse loeschen.
+
+  Da INN mit einem Daemon arbeitet, der immer laeuft, muss dieser beim
+  Booten gestartet werden. Hierzu fuegt man am Ende von /etc/rc.d/rc.M
+  vor dem Aufruf von rc.local folgendes ein:
+
+  ______________________________________________________________________
+    /usr/local/lib/inn/etc/rc.news &
+  ______________________________________________________________________
+
+
+  Fuer den ersten Start von INN kann dieses Skript (also root) auch
+  manuell gestartet werden. Allerdings ist darauf zu achten, dass nicht
+  versehentlich mehrere innd gleichzeitig laufen.
+
+  Weiterhin sind fuer den reibunslosen Betrieb von INN noch einige
+  Eintraege in der crontab des Users news notwendig:
+
+  ______________________________________________________________________
+  SHELL=/bin/sh
+  MAILTO=roland
+  #
+  # INN:
+  #
+  13  *	* * *	/usr/local/lib/inn/send-fidogate
+  17  *	* * *	/usr/local/lib/inn/send-uucp rhein
+  13  21  * * *	/usr/bin/nice /usr/local/lib/inn/bin/news.daily delayrm
+  48  21  * * *	/usr/local/lib/inn/rnews -U
+  ______________________________________________________________________
+
+
+  Hier werden einmal pro Stunde die Batches fuer alle Fidosysteme sowie
+  fuer das UUCP-System rhein gepackt (ohne UUCP-Connection kann der Teil
+  natuerlich entfallen). Weiterhin wird einmal pro Tag aufgeraeumt, und
+  darueber per Mail informiert. Abschliessend werden alle versehentlich
+  liegengebliebenen Artikel verarbeitet.
+
+  Es bleibt noch das Erstellen der Newsgroups. Hierzu sowie fuer fast
+  alle anderen Aenderungen am Newssystem wird nur das eine Kommando
+  ctlinnd verwendet. Es sollte immer nur vom User news aufgerufen werden
+  und es ist im Verzeichnis /usr/local/lib/news/bin zu finden.
+  Newsgroups werden dabei mittels ctlinnd newgroup fido.ger.linux
+  angelegt (mit der entsprechenden Newsgroup natuerlich).  Dabei sind
+  diverse weitere Optionen moeglich, die man alle in der Manpage zu
+  ctlinnd(8) nachlesen kann. Insbesondere sollten die Newsgroups
+  control, junk und fido.junk angelegt werden, die Control-Messages
+  (z.B. cancel), Artikel fuer nicht installierte Newsgroups und Artikel
+  fuer nicht in /usr/local/lib/fidogate/areas eingetragene Areas
+  auffangen.
+
+  Um im Newsreader die Beschreibungen der einzelnen Newsgroups zu
+  finden, kann man weiterhin noch das File
+  /usr/local/lib/news/newsgroups anlegen, welches in jeder Zeile den
+  Namen einer Newgroups und dahinter (durch einen Tab abgetrennt) die
+  Beschreibung der Newsgroup. Dabei stoert es nicht, wenn nicht
+  existierende Newsgroups eingetragen sind, Newsgroups doppelt
+  eingetragen sind (es wird der erste Eintrag angezeigt) oder Newsgroups
+  nicht eingetragen sind.
+
+  Da auch INN seine Log-Messages ueber syslog erstellt, sollte man
+  folgende Eintraege in /etc/syslog.conf vornehmen:
+
+  ______________________________________________________________________
+  news.crit				/var/adm/inn/news.crit
+  news.err				/var/adm/inn/news.err
+  news.notice				/var/adm/inn/news.notice
+  ______________________________________________________________________
+
+
+  Weiterhin sollte man noch das Verzeichnis /var/adm/inn anlegen.
+
+  Fuer weitere Informationen zu INN, die Umstellung eines cnews-Systems
+  auf INN, Probleme etc. verweise ich auf die sehr gute INN-FAQ und die
+  reichlich vorhandenen Manpages.
+
+
+
+  14.  News/Echomail lesen und schreiben
+
+
+  Ich persoenlich bevorzuge als Newsreader tin. Da dieser, wie alle
+  anderen auch nicht fuer Fido konstruiert wurde, gibt es
+  standardmaessig keine Moeglichkeit, bei Echomails einen Adressaten
+  anzugeben, was ja im Fido moeglich und ueblich ist.  FidoGate
+  ermoeglicht das jedoch ueber eine zusaetzliche Headerzeile X-Comment-
+  To:. Selbige kann man manuell erstellen, wobei zu beachten ist, dass
+  der Username in runden Klammern stehen muss. Es ist aber auch erlaubt,
+  hier eine komplette Internet-Adresse inclusive Realname anzugeben.
+
+  Beispiele:
+
+  X-Comment-To: (Roland Rosenfeld)
+  X-Comment-To: rosenfel@uran.informatik.uni-bonn.de (Roland Rosenfeld)
+
+
+
+  Im Verzeichnis fidogate/contrib/news findet man jedoch auch Patches
+  fuer tin, xrn und nn, die diese Zeile automatisch generieren, wenn man
+  auf einen Artikel antwortet.	Falls man tin nicht patchen moechte,
+  kann man auch folgende Zeile in ~/.tin/tinrc eintragen:
+
+  news_quote_format=X-Comment-To: (%N)\n\n%F wrote in msg %M:
+
+
+  dann darf man allerdings nicht vergessen, bei jedem Follow-Up die
+  ueberfluessige Leerzeile vor dem X-Comment-To: zu loeschen.
+
+  Wenn Du schon eine der Beta-Versionen von tin einsetzt (ab
+  tin-1.3beta-950824), dann kannst Du einfach folgendes in
+  ~/.tin/attributes eintragen:
+
+  ______________________________________________________________________
+  scope=*
+  auto_save_msg=OFF
+
+  scope=fido.*
+  x_comment_to=ON
+
+  scope=ger.*
+  x_comment_to=ON
+  ______________________________________________________________________
+
+
+  und schon weden in den Fido- und Gernet-Echos X-Comment-To:-Header
+  erstellt, ohne dass Du tin patchen musst.
+
+  Als weitere Alternative bietet sich seit FidoGate 3.9.5 an, den
+  Newsreader so zu konfigurieren, dass eine folgender Zeilen vorn in der
+  Message steht, denn dann wird diese zur Ermittlung des Realnames
+  verwendet:
+
+  user@do.main (User Name) writes:
+  User Name <user@do.main> writes:
+  user@do.main.writes:
+  user@do.main (User Name) wrote:
+  User Name <user@do.main> wrote:
+  user@do.main.wrote:
+  In article <id@do.main> user@do.main writes:
+  In article <id@do.main>, user@do.main writes:
+
+
+
+  15.  Mail/Netmail lesen und schreiben
+
+
+  Ich persoenlich verwende hierzu elm. Eigentlich muss man sich dabei
+  nicht um allzuviel kuemmern, man adressiert nur halt mit pfnz-
+  Notation. So wird aus
+
+  Roland Rosenfeld 2:2450/111.13
+
+
+  die Adresse
+
+  Roland_Rosenfeld@p13.f111.n2450.z2.fido.sub.de
+
+
+  oder gar
+
+  Roland_Rosenfeld@p13.f111.n2450.z2.fido.sub.de (Roland Rosenfeld)
+
+
+  und aus
+
+
+  Roland Rosenfeld 21:100/64.13
+
+
+  wird
+
+  Roland_Rosenfeld@p13.f64.n100.z21.ger.sub.de
+
+
+
+  Internet-Adressen kann man hingegen direkt angeben und fuer Maeuse
+  gibt man die entsprechende Internet-Adresse an, also z.B.
+  Vorname_Name@su.maus.de. Trotzdem wird die Mail ueber das Fido-Maus-
+  Gate geschickt (es sei denn man hat in fidogate/src/config.h etwas
+  anderes eingestellt).
+
+  Fuer Maus-Messages sollte die Datei /usr/local/lib/fidogate/maus immer
+  auf dem neusten Stand sein, damit die verschiedenen Maus-Domains
+  korrekt erkannt und konvertiert werden (nicht alle Maeuse sind unter
+  .maus.de erreichbar, es gibt diverse Ausnahmen. Bei FidoGate ist aber
+  immer eine aktuelle Version des Files dabei, welches man in
+  fidogate/lib/maus findet.
+
+  Wichtig ist nun auch, dass man Mails an Tools (Areafix, FileMgr,...)
+  schicken kann. Diese haben jedoch oft Probleme mit den von FidoGate
+  erstellen Mails.  Selbige haben naemlich meist in der ersten Zeile ein
+  " * To: adresse" stehen, was manche der Tools so interpretieren, dass
+  alle Areas ("*") anbestellt werden sollen. Will man also diese Zeile
+  abstellen, so kann man mit elm im Menue H)eader mit U)ser-Defined-
+  Header (vor dem Verschicken) eine zusaetzliche Header-Zeile eingeben:
+
+  X-Flags: N
+
+
+
+  Weiterhin hat FileScan beispielsweise in einigen Versionen den Bug,
+  dass er die Adresse nicht dem Header entnimmt, sondern der Message-ID.
+  Selbige enthaelt bei FidoGate-Messages aber nicht die FTN-Adresse
+  (Z:N/F.P), sondern die Internet-Adresse, so dass auch hier
+  Schwierigkeiten auftauchen. Selbige lassen sich aber mit
+
+  X-Flags: M
+
+
+  beheben, denn dann wird eine Fido-uebliche Message-ID generiert (fuer
+  verschiedene Netze mit der jeweiligen Adresse).
+
+  Man kann die X-Flags natuerlich auch kombinieren, ich verwende
+  beispielsweise fuer alle Mails an irgendwelche Robots immer
+
+  X-Flags: MN
+
+
+
+  Will man Crashmails verschicken, so muss man zusaetzlich "X-Flags: C"
+  setzen. Wird dabei an einen Point adressiert, so wird die Mail ueber
+  dessen Boss geroutet.
+
+  Auch FileAttaches sind seit FidoGate 3.8 moeglich. Hierzu gibt man "X-
+  Flags: F" an und gibt den Dateinamen mit Pfad(!) als Subject an.
+
+  Will man irgendwelche Flags fuer alle Mails setzen, dann hat man auch
+  die Moeglichkeit eine Datei ~/.elm/elmheaders anzulegen, welche nur
+  die entsprechende Headerzeile, also beispielsweise
+  X-Flags: MN
+
+
+  enthaelt. Dann wird diese Headerzeile in jeder Mail eingetragen.
+
+
+
+  16.  Files requesten
+
+
+  Fuer Filerequests kann man das Perl-Skript ifreq verwenden, welches
+  sich im Verzeichnis ifmail/misc/contrib befindet. Mit einigen DOS-
+  Request-Prozessoren macht das noch Probleme, da an den Zeilenenden das
+  Linefeed fehlt. Folgender Patch loest dieses Problem:
+
+  ______________________________________________________________________
+  --- ifreq~	Sat Aug  6 14:41:28 1994
+  +++ ifreq	Sat Oct  8 12:05:09 1994
+  @@ -73,7 +73,7 @@
+  # open the flofile for appending
+  open(FLOFILE, ">>" . $reqfile) || die "can't open $reqfile";
+  while (@files) {
+  -			print (FLOFILE shift(@files), "\n");
+  +			print (FLOFILE shift(@files), "\r\n");
+  }
+  close(FLOFILE);
+  ______________________________________________________________________
+
+
+
+  17.  Fehlersuche
+
+
+  Sollte Das alles trotz meiner Anleitung noch nicht auf Anhieb
+  funktionieren, so gibt es noch diverse Moeglichkeiten, einen Fehler
+  aufzuspueren.
+
+  Wichtigstes Tool hierzu ist das Programm ifstat, welches anzeigt,
+  welche Pakete fuer welche Adresse bereit liegen. Hier sollte man sich
+  nicht wundern, wenn die Pakete nach dem Start von ifpoll ploetzlich
+  geschrumpft sind, das liegt naemlich daran, dass die Mails dann zu
+  ZIP-Files gepackt wurden.
+
+
+
+  17.1.	Mail wird nicht verarbeitet
+
+
+  Hier ist es sinnvoll, das Debug-Level von rfc2ftn in
+  /etc/smail/transports bzw. im /etc/sendmail.cf hochzusetzen. Hierzu
+  gibt man im entsprechenden Netz den zusaetzlichen Parameter -v bei
+  rfc2ftn an (ggf. auch mehrfach, dann wird das Debug-Level entsprechend
+  hoeher, ich verwende meist -vvvvvvvvvvvvvvvvvvvvv oder so). Um die
+  Debug-Meldungen dann wirklich in die Hand zu bekommen, schicke ich die
+  Mail einfach mit einer Kopie an eine nicht existente Adresse und
+  bekomme dann den Ruecklaeufer mit saemtlichen Debug-Meldungen. Kommt
+  der Ruecklaeufer ueberhaupt nicht, so kann es durchaus sein, dass
+  irgendwelche Permissions nicht stimmen und das System einfach wartet
+  (man sieht das daran, dass noch sendmail und rfc2ftn als Prozesse
+  laufen). Dann findet sich das aktuelle Debug-File in
+  /var/spool/smail/msglog.  Unter /var/spool/smail findet man dann auch
+  die liegengebliebenen Messages. Bei Verwendung von Sendmail werden die
+  Log-Meldungen dagegen per syslog ins Syslogfile geschrieben, waehrend
+  die liegengebliebenen Messages in /var/spool/mqueue landen.
+
+
+
+  17.2.	News werden nicht verarbeitet
+
+
+  Analog zum Vorgehen bei Mail kann man auch bei News verfahren. Hier
+  gehe ich gewoehnlich so vor, dass ich in
+  /usr/lib/newsbin/batch/viafido (cnews) bzw. /usr/local/lib/news/send-
+  fidogate (INN) die entsprechenden -v's einbaue und dann an die
+  entsprechende Zeile ein 2> /tmp/fgate.out anhaenge, was dazu fuehrt,
+  dass stderr nach /tmp/fgate.out umgeleitet wird, das ich mir dann
+  anschauen kann.
+
+  Ansonsten sollte man bei cnews zwischen dem Aufruf von newsrun und
+  run-batch nachsehen, ob der Artikel in
+  /var/spool/news/out.going/*/togo aufgelistet wurde und dort
+  anschliessend auch wieder geloescht wurde. Manchmal (je nach cnews-
+  Version) werden die Artikel auch in /var/spool/news/in.coming
+  zwischengelagert.
+
+  Bei INN sollten die Artikel sofort ins Newssystem aufgenommen werden,
+  und damit auch direkt im File /var/spool/news/out.going/* erscheinen.
+  Nach dem send-fidogate sollten sie dort verschwinden und im Fido-
+  Outbound landen.
+
+  Weiterhin sollte man sich alle vorhandenen Logfiles ansehen:
+
+     smail
+	/var/spool/smail/log/logfile
+
+     Sendmail
+	/var/adm/mail
+
+     cnews
+	/var/lib/news/log.*  /var/lib/news/batchlog.*
+	/var/lib/news/errlog.*
+
+     INN
+	/usr/local/lib/news/log /usr/local/lib/news/errlog
+	/var/adm/inn/*
+
+     fidogate
+	/usr/local/lib/fidogate/log
+
+     ifcico
+	/var/adm/ifmail /var/adm/iflog /var/adm/ifdebug
+
+  Um die Korrektheit erstellter Pakete zu erkunden oder Probleme in
+  bestehenden Paketen zu finden, enthaelt FidoGate das Programm
+  pktdebug. Braucht man mehr Informationen, so sollte man sich das DOS-
+  Programm Inspect besorgen, welches problemlos in der Dosemu laeuft und
+  wenn man die Verzeichnisse entsprechend freigibt und die Dosemu dann
+  als User uucp startet, dann kann man die .pkt-Files und Archive sogar
+  veraendern.
+
+  Haengt CNews komplett, so bleibt einem nur ein Debugging der diversen
+  cnews-Shell-Scripts. Hierzu sollte man in das jeweilige Skript ein
+  "set -xv" am Anfang einbauen, welches genau ausgibt, welche Zeilen des
+  Skripts in welcher Reihenfolge und mit welchen Parametern aufgerufen
+  werden. Fuer weitere Informationen dazu empfehle ich die Manpage der
+  bash.
+
+
+  Falls nur das Posten von News-Artikeln nicht klappt, kann man auch mal
+  versuchen, mit Pnews aus dem Paket trn direkt zu posten. Selbiges ist
+  naemlich im Gegensatz zu tin ein einfaches Shell-Skript, bei dem die
+  Fehlermeldungen von cnews immerhin so lange stehen bleiben, bis man
+  sie gelesen hat (bei tin werden die direkt wieder vom Menue
+  ueberschrieben).
+
+
+
+  18.  Unterstuetzung
+
+
+  Bei dieser HOWTO wurde ich durch viele Kommentare und Verbesserungen
+  unterstuetzt. Besonders sind hier zu nennen:
+
+  o  andij@andi.tricbbs.fn.sub.org (Andreas Jellinghaus) 2:246/8112.16
+
+  o  uli@corno.cologne.de (Ulrich Villers) 2:2450/115.3
+
+  o  martin@erde.GUN.de (Martin Seine) 2:2448/413.100
+
+  Ergaenzungen, Fehler-Reports etc. werde ich gern einarbeiten.
+
+
+
