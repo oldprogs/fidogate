@@ -2,17 +2,15 @@
 
 X = for release 4.0alpha3
 
+	* ftnflo: finish -x.
+
+	* ftnflo: pipe to program processing the entries (e.g. send
+ 	  with FTP)
+
 	* rfc2ftn: better parsing of first line, don't use RFCAddr
 	  parser.
 
 	* rfc2ftn: handle MIME RFC1523 header
-
-X	* test/tc.gate5: test case for rfc2ftn, mail
-
-X	* test/tc.tick: test case for ftntick (Replaces)
-
-	* msg_body_parse(): there may be ^AVia in the kludges at the
-	  beginning of the messages!
 
 	* ftntick: remove FILES.BBS entry for old replaced file.
 

@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: message.c,v 4.2 1996/06/16 08:41:24 mj Exp $
+ * $Id: message.c,v 4.3 1996/06/16 16:06:17 mj Exp $
  *
  * Reading and processing FTN text body
  *
@@ -452,12 +452,15 @@ int msg_body_parse(Textlist *text, MsgBody *body)
     {
 	pn = p->next;
 
-	/**FIXME: ^AVia may be in the kludges, followed by normale text**/
-	if(p->line[0]=='\001'             && 	/* ^A kludge,    */
-	   strncmp(p->line, "\001Via", 4)   )	/* but not ^AVia */
+	if(p->line[0] == '\001') 		/* ^A kludge,    */
 	{
 	    tl_remove(text, p);
-	    tl_add(&body->kludge, p);
+#if 0
+	    if(! strncmp(p->line, "\001Via", 4))
+		tl_add(&body->via, p);
+	    else
+#endif
+		tl_add(&body->kludge, p);
 	    p = pn;
 	    continue;
 	}

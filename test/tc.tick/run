@@ -1,3 +1,20 @@
 #!/bin/sh
 
 ../tr.init
+
+H="../../src/tick/ftnhatch -L../cf -vvvv"
+T="../../src/tick/ftntick  -L../cf -vvvv"
+
+mkdir tmp_area
+cp testfile.txt tmp_area
+echo "testfile.txt  Test file ftnhatch/ftntick" >tmp_area/files.bbs
+
+$H -b fareas.bbs TEST testfile.txt "Test file ftnhatch/ftntick"
+
+mkdir tmp_in tmp_old
+cp testfile.txt test1.tic pin
+$T -b fareasin.bbs -I ./pin -t
+
+mv tmp_in/testfile.txt tmp_in/testold.txt
+cp testfile.txt test2.tic pin
+$T -b fareasin.bbs -I ./pin -t

@@ -1,6 +1,6 @@
 -*- Indented-Text -*-
 
-$Id: README,v 4.6 1996/06/16 16:06:15 mj Exp $
+$Id: testfile.txt,v 1.1 1996/06/16 16:06:19 mj Exp $
 
 ----------------------------------------------------------------------
 				   
@@ -22,9 +22,9 @@ The documentation in doc/ is currently NOT up-to-date!!!
 
 Major changes in FIDOGATE 4.0:
 
-* Areas in AREAS.BBS must now explicitly be marked as passthru (dir
-  entry must start with `#'), otherwise ftntoss will create packets
-  for the own address as well.
+* Areas in AREAS.BBS must now explicitly marked as passthru (dir entry
+  must start with `#'), otherwise ftntoss will create packets for the
+  own address as well.
 
 * Gateway can now work under the same main address as the tosser
   (config.gate: Address == Uplink).
@@ -73,8 +73,8 @@ Send mail to
 
     fgate-users-request@gondor.gun.de
 
-for subscription requests.
+for subscription.
 
 ----------------------------------------------------------------------
 
-Martin Junius <mj@fido.de>, $Date: 1996/06/16 16:06:15 $
+Martin Junius <mj@fido.de>, $Date: 1996/06/16 16:06:19 $

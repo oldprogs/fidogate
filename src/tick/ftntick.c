@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftntick.c,v 4.3 1996/06/16 08:41:25 mj Exp $
+ * $Id: ftntick.c,v 4.4 1996/06/16 16:06:17 mj Exp $
  *
  * Process incoming TIC files
  *
@@ -37,7 +37,7 @@
 
 
 #define PROGRAM		"ftntick"
-#define VERSION		"$Revision: 4.3 $"
+#define VERSION		"$Revision: 4.4 $"
 #define CONFIG		CONFIG_MAIN
 
 
@@ -238,6 +238,7 @@ int process_tic(Tick *tic)
 	{
 	    /* Copy to ReplacedFilesDir */
 	    BUF_COPY3(new_name, rdir, "/", tic->replaces);
+	    debug(1, "%s -> %s", old_name, new_name);
 	    copy_file(old_name, new_name);
 	}
 	/* Remove old file */
@@ -273,6 +274,7 @@ int process_tic(Tick *tic)
     /*
      * Send file to all nodes in LON new
      */
+    BUF_COPY3(new_name, bbs->dir, "/", tic->file);
     for(p=new.first; p; p=p->next)
 	if(tick_send(tic, &p->node, new_name) == ERROR)
 	    log("ERROR: send area %s file %s to %s failed",

@@ -2,6 +2,19 @@ Sun Jun 16 10:40:45 1996  Martin Junius  <mj@fido.de>
 
 	------- CVS commit ---------------------------------------------------
 
+	* test/tc.tick/: new test case for ftnhatch/ftntick.
+
+	* test/tc.gate5/: new test case for rfc2ftn mail messages.
+
+	* src/tick/ftntick.c (process_tic): set new_name[] to the right
+	  path after doing replace.
+
+	* src/common/message.c (msg_body_parse): if ^AVia lines occur at
+	  the beginning of the message, put them into body->via.
+	  (msg_body_parse): hmmm ... better leave them in body->kludge.
+
+	------- CVS commit ---------------------------------------------------
+
 	* src/include/patchlevel.h (ALPHA): set to 3.
 
 	* src/common/rfcheader.c (name_from_rfcaddr): removed.
