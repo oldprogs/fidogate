@@ -1,6 +1,6 @@
 PUSHDIVERT(-1)
 #
-# $Id: ftn.m4,v 4.4 1996/11/01 16:37:53 mj Exp $
+# $Id: ftn.m4,v 4.5 1996/12/20 10:12:31 mj Exp $
 #
 # FIDOGATE FTN mailer for sendmail V8
 #
@@ -17,7 +17,9 @@ ifdef(`FTN_MAILER_ARGS',,
 ifdef(`FTN_MAILER_ARGSI',,
   `define(`FTN_MAILER_ARGSI', `rfc2ftn -i $u')')
 ifdef(`FTN_MAILER_ARGSA',,
-  `define(`FTN_MAILER_ARGSA', `rfc2ftn -a $h -u $h -O %S/out/$h -i $u')')
+  `define(`FTN_MAILER_ARGSA', `rfc2ftn -a $h -u $h -i $u')')
+ifdef(`FTN_MAILER_ARGSO',,
+  `define(`FTN_MAILER_ARGSO', `rfc2ftn -a $h -u $h -O %S/out/$h -i $u')')
 ifdef(`FTN_MAILER_FLAGS',,
   `define(`FTN_MAILER_FLAGS', `')')
 POPDIVERT
@@ -26,7 +28,7 @@ POPDIVERT
 ###    FTN Mailer specification   ###
 #####################################
 
-VERSIONID(`$Revision: 4.4 $')
+VERSIONID(`$Revision: 4.5 $')
 
 ifdef(`_MAILER_smtp_',
 `# FIDOGATE mailer
@@ -38,3 +40,6 @@ Mftni,	P=FTN_MAILER_PATH, F=CONCAT(mDFMuX8, FTN_MAILER_FLAGS), S=11/31, R=ifdef(
 
 Mftna,	P=FTN_MAILER_PATH, F=CONCAT(mDFMuX8, FTN_MAILER_FLAGS), S=11/31, R=ifdef(`_ALL_MASQUERADE_', `21/31', `21'),
 	A=FTN_MAILER_ARGSA')
+
+Mftno,	P=FTN_MAILER_PATH, F=CONCAT(mDFMuX8, FTN_MAILER_FLAGS), S=11/31, R=ifdef(`_ALL_MASQUERADE_', `21/31', `21'),
+	A=FTN_MAILER_ARGSO')

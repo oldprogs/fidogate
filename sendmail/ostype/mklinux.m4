@@ -32,10 +32,13 @@ divert(-1)
 # OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
 # SUCH DAMAGE.
 #
+#	MkLinux support contributed by Paul DuBois <dubois@primate.wisc.edu>
+#
 
 divert(0)
-VERSIONID(`@(#)linux.m4	8.2 (Berkeley) 8/21/93')
-define(`LOCAL_MAILER_PATH',`/usr/bin/deliver')dnl
-define(`LOCAL_MAILER_FLAGS',`ShP')dnl
-define(`LOCAL_MAILER_ARGS',`deliver $u')dnl
-define(`QUEUE_DIR', /var/spool/mqueue)dnl
+VERSIONID(`@(#)mklinux.m4	8.2 (Berkeley) 11/17/96')
+ifdef(`STATUS_FILE',,
+	`define(`STATUS_FILE', /var/log/sendmail.st)')
+ifdef(`PROCMAIL_MAILER_PATH',,
+	define(`PROCMAIL_MAILER_PATH', `/usr/bin/procmail'))
+FEATURE(local_procmail)

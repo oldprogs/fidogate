@@ -34,32 +34,15 @@ divert(-1)
 #
 
 #
-#  This is a Berkeley-specific configuration file for a specific
-#  machine in the Computer Science Division at Berkeley, and should
-#  not be used elsewhere.   It is provided on the sendmail distribution
-#  as a sample only.
-#
-#  This file is for the primary CS Division mail server.
+#  This is a generic configuration file for NEXTSTEP 3.3 systems.
+#  It has support for local and SMTP mail only.  If you want to
+#  customize it, copy it to a name appropriate for your environment
+#  and do the modifications there.
 #
 
 divert(0)dnl
-VERSIONID(`@(#)mail.cs.mc	8.10 (Berkeley) 3/23/96')
-OSTYPE(ultrix4)dnl
-DOMAIN(Berkeley.EDU)dnl
-MASQUERADE_AS(CS.Berkeley.EDU)dnl
+VERSIONID(`@(#)generic-nextstep3.3.mc	8.2 (Berkeley) 3/23/96')
+OSTYPE(nextstep)dnl
+DOMAIN(generic)dnl
 MAILER(local)dnl
 MAILER(smtp)dnl
-define(`confUSERDB_SPEC', ``/usr/local/lib/users.cs.db,/usr/local/lib/users.eecs.db'')dnl
-
-LOCAL_CONFIG
-DDBerkeley.EDU
-
-# hosts for which we accept and forward mail (must be in .Berkeley.EDU)
-CF CS
-FF/etc/sendmail.cw
-
-LOCAL_RULE_0
-R< @ $=F . $D . > : $*		$@ $>7 $2		@here:... -> ...
-R$* $=O $* < @ $=F . $D . >	$@ $>7 $1 $2 $3		...@here -> ...
-
-R$* < @ $=F . $D . >		$#local $: $1		use UDB

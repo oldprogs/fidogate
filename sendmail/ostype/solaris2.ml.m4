@@ -32,34 +32,20 @@ divert(-1)
 # OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
 # SUCH DAMAGE.
 #
-
-#
-#  This is a Berkeley-specific configuration file for a specific
-#  machine in the Computer Science Division at Berkeley, and should
-#  not be used elsewhere.   It is provided on the sendmail distribution
-#  as a sample only.
-#
-#  This file is for the primary CS Division mail server.
+#	This ostype file is suitable for use on Solaris 2.x systems that
+#	have mail.local installed.  It is my understanding that this is
+#	standard as of Solaris 2.5.
 #
 
-divert(0)dnl
-VERSIONID(`@(#)mail.cs.mc	8.10 (Berkeley) 3/23/96')
-OSTYPE(ultrix4)dnl
-DOMAIN(Berkeley.EDU)dnl
-MASQUERADE_AS(CS.Berkeley.EDU)dnl
-MAILER(local)dnl
-MAILER(smtp)dnl
-define(`confUSERDB_SPEC', ``/usr/local/lib/users.cs.db,/usr/local/lib/users.eecs.db'')dnl
+divert(0)
+VERSIONID(`@(#)solaris2.ml.m4	8.2 (Berkeley) 9/25/96')
+divert(-1)
 
-LOCAL_CONFIG
-DDBerkeley.EDU
-
-# hosts for which we accept and forward mail (must be in .Berkeley.EDU)
-CF CS
-FF/etc/sendmail.cw
-
-LOCAL_RULE_0
-R< @ $=F . $D . > : $*		$@ $>7 $2		@here:... -> ...
-R$* $=O $* < @ $=F . $D . >	$@ $>7 $1 $2 $3		...@here -> ...
-
-R$* < @ $=F . $D . >		$#local $: $1		use UDB
+define(`ALIAS_FILE', /etc/mail/aliases)
+ifdef(`HELP_FILE',, `define(`HELP_FILE', /etc/mail/sendmail.hf)')
+ifdef(`STATUS_FILE',, `define(`STATUS_FILE', /etc/mail/sendmail.st)')
+ifdef(`LOCAL_MAILER_PATH',, `define(`LOCAL_MAILER_PATH', `/usr/lib/mail.local')')
+ifdef(`LOCAL_MAILER_FLAGS',, `define(`LOCAL_MAILER_FLAGS', `fSmn9')')
+ifdef(`LOCAL_MAILER_ARGS',, `define(`LOCAL_MAILER_ARGS', `mail.local -d $u')')
+ifdef(`UUCP_MAILER_ARGS',, `define(`UUCP_MAILER_ARGS', `uux - -r -a$g $h!rmail ($u)')')
+define(`confCW_FILE', /etc/mail/sendmail.cw)

@@ -1,6 +1,5 @@
-divert(-1)
 #
-# Copyright (c) 1983 Eric P. Allman
+# Copyright (c) 1996 Eric P. Allman
 # Copyright (c) 1988, 1993
 #	The Regents of the University of California.  All rights reserved.
 #
@@ -32,34 +31,20 @@ divert(-1)
 # OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
 # SUCH DAMAGE.
 #
-
-#
-#  This is a Berkeley-specific configuration file for a specific
-#  machine in the Computer Science Division at Berkeley, and should
-#  not be used elsewhere.   It is provided on the sendmail distribution
-#  as a sample only.
-#
-#  This file is for the primary CS Division mail server.
+#	Concurrent Computer Corporation Maxion system support contributed
+#	by Donald R. Laster Jr. <Laster@access.digex.com>.
 #
 
-divert(0)dnl
-VERSIONID(`@(#)mail.cs.mc	8.10 (Berkeley) 3/23/96')
-OSTYPE(ultrix4)dnl
-DOMAIN(Berkeley.EDU)dnl
-MASQUERADE_AS(CS.Berkeley.EDU)dnl
-MAILER(local)dnl
-MAILER(smtp)dnl
-define(`confUSERDB_SPEC', ``/usr/local/lib/users.cs.db,/usr/local/lib/users.eecs.db'')dnl
+divert(0)
+VERSIONID(`@(#)maxion.m4	8.3 (Berkeley) 9/25/96')
 
-LOCAL_CONFIG
-DDBerkeley.EDU
-
-# hosts for which we accept and forward mail (must be in .Berkeley.EDU)
-CF CS
-FF/etc/sendmail.cw
-
-LOCAL_RULE_0
-R< @ $=F . $D . > : $*		$@ $>7 $2		@here:... -> ...
-R$* $=O $* < @ $=F . $D . >	$@ $>7 $1 $2 $3		...@here -> ...
-
-R$* < @ $=F . $D . >		$#local $: $1		use UDB
+define(`ALIAS_FILE',        `/etc/ucbmail/aliases')dnl
+define(`HELP_FILE',         `/etc/ucbmail/sendmail.hf')dnl
+define(`QUEUE_DIR',         `/var/spool/mqueue')dnl
+define(`STATUS_FILE',       `/var/adm/log/sendmail.st')dnl
+define(`LOCAL_MAILER_PATH', `/usr/bin/mail')dnl
+define(`LOCAL_MAILER_FLAGS',`rmn9')dnl
+define(`LOCAL_SHELL_FLAGS', `ehuP')dnl
+define(`LOCAL_MAILER_ARGS', `mail $u')dnl
+define(`UUCP_MAILER_ARGS',  `uux - -r -a$g -gmedium $h!rmail ($u)')dnl
+divert(-1)

@@ -1,6 +1,6 @@
 divert(-1)
 #
-# Copyright (c) 1983 Eric P. Allman
+# Copyright (c) 1996 Eric P. Allman
 # Copyright (c) 1988, 1993
 #	The Regents of the University of California.  All rights reserved.
 #
@@ -33,33 +33,9 @@ divert(-1)
 # SUCH DAMAGE.
 #
 
-#
-#  This is a Berkeley-specific configuration file for a specific
-#  machine in the Computer Science Division at Berkeley, and should
-#  not be used elsewhere.   It is provided on the sendmail distribution
-#  as a sample only.
-#
-#  This file is for the primary CS Division mail server.
-#
-
-divert(0)dnl
-VERSIONID(`@(#)mail.cs.mc	8.10 (Berkeley) 3/23/96')
-OSTYPE(ultrix4)dnl
-DOMAIN(Berkeley.EDU)dnl
-MASQUERADE_AS(CS.Berkeley.EDU)dnl
-MAILER(local)dnl
-MAILER(smtp)dnl
-define(`confUSERDB_SPEC', ``/usr/local/lib/users.cs.db,/usr/local/lib/users.eecs.db'')dnl
-
-LOCAL_CONFIG
-DDBerkeley.EDU
-
-# hosts for which we accept and forward mail (must be in .Berkeley.EDU)
-CF CS
-FF/etc/sendmail.cw
-
-LOCAL_RULE_0
-R< @ $=F . $D . > : $*		$@ $>7 $2		@here:... -> ...
-R$* $=O $* < @ $=F . $D . >	$@ $>7 $1 $2 $3		...@here -> ...
-
-R$* < @ $=F . $D . >		$#local $: $1		use UDB
+divert(0)
+VERSIONID(`@(#)aix4.m4	8.1 (Berkeley) 11/13/96')
+ifdef(`LOCAL_MAILER_PATH',, `define(`LOCAL_MAILER_PATH', /bin/bellmail)')dnl
+ifdef(`LOCAL_MAILER_ARGS',, `define(`LOCAL_MAILER_ARGS', mail -F $g $u)')dnl
+ifdef(`LOCAL_MAILER_FLAGS',, `define(`LOCAL_MAILER_FLAGS', `mn9')')dnl
+define(`confTIME_ZONE', `USE_TZ')dnl

@@ -2,6 +2,8 @@
 
 X = for next release
 
+X	* sendmail: ftna mailer ohne -O, ftnao mit?
+
 	* ftntoss: make point tosser work without EchoMail4D
 
 	* rfc2ftn: improve parser for 1st line. Use regexp library?

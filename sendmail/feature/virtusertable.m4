@@ -33,33 +33,8 @@ divert(-1)
 # SUCH DAMAGE.
 #
 
-#
-#  This is a Berkeley-specific configuration file for a specific
-#  machine in the Computer Science Division at Berkeley, and should
-#  not be used elsewhere.   It is provided on the sendmail distribution
-#  as a sample only.
-#
-#  This file is for the primary CS Division mail server.
-#
+divert(0)
+VERSIONID(`@(#)virtusertable.m4	8.1 (Berkeley) 2/11/96')
+divert(-1)
 
-divert(0)dnl
-VERSIONID(`@(#)mail.cs.mc	8.10 (Berkeley) 3/23/96')
-OSTYPE(ultrix4)dnl
-DOMAIN(Berkeley.EDU)dnl
-MASQUERADE_AS(CS.Berkeley.EDU)dnl
-MAILER(local)dnl
-MAILER(smtp)dnl
-define(`confUSERDB_SPEC', ``/usr/local/lib/users.cs.db,/usr/local/lib/users.eecs.db'')dnl
-
-LOCAL_CONFIG
-DDBerkeley.EDU
-
-# hosts for which we accept and forward mail (must be in .Berkeley.EDU)
-CF CS
-FF/etc/sendmail.cw
-
-LOCAL_RULE_0
-R< @ $=F . $D . > : $*		$@ $>7 $2		@here:... -> ...
-R$* $=O $* < @ $=F . $D . >	$@ $>7 $1 $2 $3		...@here -> ...
-
-R$* < @ $=F . $D . >		$#local $: $1		use UDB
+define(`VIRTUSER_TABLE', ifelse(_ARG_, `', `hash -o /etc/virtusertable', `_ARG_'))dnl

@@ -1,4 +1,22 @@
+Fri Dec 20 09:47:56 1996  Martin Junius  <mj@fido.de>
+
+	------- CVS ci -------------------------------------------------------
+
+	* sendmail/mailer/ftn.m4 (Mftna): changed FTN_MAILER_ARGSA to only
+	  set -a and -u, not the output directory.
+	  (Mftno): like ftna, but also sets -O output directory (same as
+	  old ftna).
+
+	* sendmail/cf/orodruin.mc: adapted to new RedHat release.
+
+	* sendmail/cf.ORIG/obj/: removed entire directory.
+
+	* sendmail/*: updated with new files from RedHat 4.0 / sendmail
+	  8.8.4 configuration.
+
 Tue Dec 17 15:42:11 1996  Martin Junius  <mj@fido.de>
+
+	* version.h (PATCHLEVEL): set to 4.
 
 	------- CVS ci -------------------------------------------------------
 

@@ -32,34 +32,18 @@ divert(-1)
 # OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
 # SUCH DAMAGE.
 #
-
-#
-#  This is a Berkeley-specific configuration file for a specific
-#  machine in the Computer Science Division at Berkeley, and should
-#  not be used elsewhere.   It is provided on the sendmail distribution
-#  as a sample only.
-#
-#  This file is for the primary CS Division mail server.
+# Definitions for UXP/DS (Fujitsu/ICL DS/90 series)
+# Diego R. Lopez, CICA (Seville). 1995
 #
 
-divert(0)dnl
-VERSIONID(`@(#)mail.cs.mc	8.10 (Berkeley) 3/23/96')
-OSTYPE(ultrix4)dnl
-DOMAIN(Berkeley.EDU)dnl
-MASQUERADE_AS(CS.Berkeley.EDU)dnl
-MAILER(local)dnl
-MAILER(smtp)dnl
-define(`confUSERDB_SPEC', ``/usr/local/lib/users.cs.db,/usr/local/lib/users.eecs.db'')dnl
+divert(0)
+VERSIONID(`@(#)uxpds.m4	8.3 (Berkeley) 9/25/96')
 
-LOCAL_CONFIG
-DDBerkeley.EDU
-
-# hosts for which we accept and forward mail (must be in .Berkeley.EDU)
-CF CS
-FF/etc/sendmail.cw
-
-LOCAL_RULE_0
-R< @ $=F . $D . > : $*		$@ $>7 $2		@here:... -> ...
-R$* $=O $* < @ $=F . $D . >	$@ $>7 $1 $2 $3		...@here -> ...
-
-R$* < @ $=F . $D . >		$#local $: $1		use UDB
+define(`confDEF_GROUP_ID', `6')
+define(`ALIAS_FILE', /usr/ucblib/aliases)dnl
+ifdef(`HELP_FILE',,`define(`HELP_FILE', /usr/ucblib/sendmail.hf)')dnl
+ifdef(`STATUS_FILE',,`define(`STATUS_FILE', /usr/ucblib/sendmail.st)')dnl
+define(`LOCAL_MAILER_PATH', `/usr/ucblib/binmail')dnl
+define(`LOCAL_MAILER_FLAGS', `rmn9')dnl
+define(`LOCAL_SHELL_FLAGS', `ehuP')dnl
+define(`UUCP_MAILER_ARGS', `uux - -r -a$f -gmedium $h!rmail ($u)')dnl

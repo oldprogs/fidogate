@@ -35,7 +35,7 @@ divert(-1)
 
 divert(-1)
 VERSIONID(`@(#)linux.m4	8.2 (Berkeley) 8/21/93')
-define(`LOCAL_MAILER_PATH', `/usr/bin/procmail')dnl
-define(`LOCAL_MAILER_FLAGS', `ShPfn')dnl
-define(`LOCAL_MAILER_ARGS', `procmail -a $h -d $u')dnl
+define(`PROCMAIL_MAILER_PATH', `/usr/bin/procmail')dnl
+# define(`LOCAL_MAILER_FLAGS', `ShPfn')dnl
+# define(`LOCAL_MAILER_ARGS', `procmail -a $h -d $u')dnl
 define(`STATUS_FILE', `/var/log/sendmail.st')dnl
