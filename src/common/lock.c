@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: lock.c,v 4.2 1996/06/06 15:59:28 mj Exp $
+ * $Id: lock.c,v 4.3 1996/11/30 14:01:14 mj Exp $
  *
  * File locking
  *
@@ -113,15 +113,15 @@ int unlock_file(FILE *fp)
 
 
 /*
- * Create lock file
+ * Create lock file with PID (id==NULL) or arbitrary string (id!=NULL)
  */
-int lock_lockfile(char *name, int wait)
+int lock_lockfile_id(char *name, int wait, char *id)
 {
     int fd;
     FILE *fp;
     
     /* Create lock file */
-    debug(5, "Creating lock file %s ...", name);
+    debug(7, "Creating lock file %s ...", name);
     do
     {
 	/*
@@ -129,13 +129,16 @@ int lock_lockfile(char *name, int wait)
 	 * lock file already exists
 	 */
 	fd = open(name, O_RDWR | O_CREAT | O_EXCL, BSY_MODE);
-	debug(5, "Creating lock file %s %s.",
+	debug(7, "Creating lock file %s %s.",
 	      name, fd==-1 ? "failed" : "succeeded");
 	if(fd != -1)
 	{
 	    if((fp = fdopen(fd, "w")))
 	    {
-		fprintf(fp, "%d\n", (int)getpid());
+		if(id)
+		    fprintf(fp, "%s\n", id);
+		else
+		    fprintf(fp, "%d\n", (int)getpid());
 		fclose(fp);
 	    }
 	    close(fd);
@@ -151,6 +154,16 @@ int lock_lockfile(char *name, int wait)
 
 
 /*
+ * Create lock file with ID of the current process
+ */
+int lock_lockfile(char *name, int wait)
+{
+    return lock_lockfile_id(name, wait, NULL);
+}
+
+
+
+/*
  * Remove lock file
  */
 int unlock_lockfile(char *name)
@@ -158,7 +171,7 @@ int unlock_lockfile(char *name)
     int ret;
     
     ret = unlink(name);
-    debug(5, "Deleting lock file %s %s.",
+    debug(7, "Deleting lock file %s %s.",
 	  name, ret==-1 ? "failed" : "succeeded");
 
     return ret==-1 ? ERROR : OK;
@@ -169,13 +182,23 @@ int unlock_lockfile(char *name)
 /*
  * Create lock file for program in SPOOLDIR/LOCKS
  */
+int lock_program_id(char *name, int wait, char *id)
+{
+    char buf[MAXPATH];
+
+    BUF_COPY5(buf, cf_spooldir(), "/", LOCKS, "/", name);
+
+    return lock_lockfile_id(buf, wait, id);
+}
+
+
 int lock_program(char *name, int wait)
 {
     char buf[MAXPATH];
 
     BUF_COPY5(buf, cf_spooldir(), "/", LOCKS, "/", name);
 
-    return lock_lockfile(buf, wait);
+    return lock_lockfile_id(buf, wait, NULL);
 }
 
 

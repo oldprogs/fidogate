@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# $Id: rununpack.sh,v 4.5 1996/11/25 19:52:01 mj Exp $
+# $Id: rununpack.sh,v 4.6 1996/11/30 14:01:17 mj Exp $
 #
 # Unpack ArcMail archives
 #
@@ -20,7 +20,7 @@
 # Programs are searched in: /bin, /usr/bin, /usr/local/bin
 
 PRG=<LIBDIR>
-SPOOLDIR=`$PRG/ftnconfig =spooldir`
+SPOOL=`$PRG/ftnconfig =spooldir`
 OUTBOUND=`$PRG/ftnconfig =outbound`
 INBOUND=`$PRG/ftnconfig =inbound`
 PINBOUND=`$PRG/ftnconfig =pinbound`

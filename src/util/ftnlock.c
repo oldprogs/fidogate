@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftnlock.c,v 4.0 1996/04/17 18:17:43 mj Exp $
+ * $Id: ftnlock.c,v 4.1 1996/11/30 14:01:17 mj Exp $
  *
  * Command line interface to lock files in SPOOLDIR/locks
  *
@@ -36,7 +36,7 @@
 
 
 #define PROGRAM 	"ftnlock"
-#define VERSION 	"$Revision: 4.0 $"
+#define VERSION 	"$Revision: 4.1 $"
 #define CONFIG		CONFIG_MAIN
 
 
@@ -46,7 +46,7 @@
  */
 void short_usage(void)
 {
-    fprintf(stderr, "usage: %s [-options] [name]\n", PROGRAM);
+    fprintf(stderr, "usage: %s [-options] [name] [id]\n", PROGRAM);
     fprintf(stderr, "       %s --help  for more information\n", PROGRAM);
 }
 
@@ -56,10 +56,11 @@ void usage(void)
     fprintf(stderr, "FIDOGATE %s  %s %s\n\n",
 	    version_global(), PROGRAM, version_local(VERSION) );
     
-    fprintf(stderr, "usage:   %s [-options] [name]\n\n", PROGRAM);
+    fprintf(stderr, "usage:   %s [-options] [name] [id]\n\n", PROGRAM);
     fprintf(stderr, "\
 options: -l --lock                    create lock file\n\
          -u --unlock                  remove lock file\n\
+         -w --wait                    wait while creating lock file\n\
 \n\
 	 -v --verbose                 more verbose\n\
 	 -h --help                    this help\n\
@@ -75,15 +76,16 @@ options: -l --lock                    create lock file\n\
 int main(int argc, char **argv)
 {
     int c, ret;
-    int l_flag=TRUE, u_flag=FALSE;
+    int l_flag=TRUE, u_flag=FALSE, w_flag=NOWAIT;
     char *c_flag=NULL, *S_flag=NULL, *L_flag=NULL;
-    char *name;
+    char *name, *id;
     
     int option_index;
     static struct option long_options[] =
     {
-	{ "lock",         0, 0, 'l'},	/* Create lock file*/
-	{ "unlock",       0, 0, 'u'},	/* Remove lock file*/
+	{ "lock",         0, 0, 'l'},	/* Create lock file */
+	{ "unlock",       0, 0, 'u'},	/* Remove lock file */
+	{ "wait",         0, 0, 'w'},	/* Wait while creating */
 
 	{ "verbose",      0, 0, 'v'},	/* More verbose */
 	{ "help",         0, 0, 'h'},	/* Help */
@@ -100,7 +102,7 @@ int main(int argc, char **argv)
     cf_initialize();
 
 
-    while ((c = getopt_long(argc, argv, "luvhc:S:L:",
+    while ((c = getopt_long(argc, argv, "luwvhc:S:L:",
 			    long_options, &option_index     )) != EOF)
 	switch (c) {
 	/***** ftnpack options *****/
@@ -111,6 +113,9 @@ int main(int argc, char **argv)
         case 'u':
             l_flag = FALSE;
             u_flag = TRUE;
+            break;
+        case 'w':
+            w_flag = WAIT;
             break;
 	    
 	/***** Common options *****/
@@ -156,11 +161,13 @@ int main(int argc, char **argv)
 
     ret = EXIT_OK;
 
-    name = optind>=argc ? PROGRAM : argv[optind];
+    name = optind>=argc ? PROGRAM  : argv[optind];
+    optind++;
+    id   = optind>=argc ? "-none-" : argv[optind];
     
     /* Lock file */
     if(l_flag)
-	if(lock_program(name, FALSE) == ERROR)
+	if(lock_program_id(name, w_flag, id) == ERROR)
 	    /* Already busy */
 	    ret = EXIT_BUSY;
 	

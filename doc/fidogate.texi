@@ -2,7 +2,7 @@
 @c
 @c FIDOGATE documentation
 @c
-@c $Id: fidogate.texi,v 4.15 1996/11/25 19:51:47 mj Exp $
+@c $Id: fidogate.texi,v 4.16 1996/11/30 14:01:06 mj Exp $
 @c
 
 @setfilename fidogate.info
@@ -1701,7 +1701,7 @@ wil be run by @code{ftninpost} to recombine split messages.
 @noindent Usage:
 
 @example
-ftnlock  @r{[}@i{-options}@r{]}  @r{[}@i{NAME} @r{... ]}
+ftnlock  @r{[}@i{-options}@r{]}  @r{[}@i{NAME}@r{]}  @r{[}@i{ID}@r{]}
 @end example
 
 @noindent Options:
@@ -1709,10 +1709,17 @@ ftnlock  @r{[}@i{-options}@r{]}  @r{[}@i{NAME} @r{... ]}
 @table @code
 
 @item -l --lock
-Create lock file @i{NAME}, fail if it already exists.
+Create lock file @i{NAME}, fail if it already exists (exit code=2). If
+@i{NAME} is not specified, the default @code{ftnlock} is used. The
+optional parameter @i{ID} specifies the contents of the lock file, the
+default is @code{-none-}.
 
 @item -u --unlock
 Remove lock file @i{NAME}.
+
+@item -w --wait
+Wait while creating lock file. Default: immediately return, if the lock
+file can't be created because it already exists.
 
 @end table
 

@@ -1,7 +1,7 @@
 <HTML>
 <HEAD>
 <!-- This HTML file has been created by texi2html 1.51
-     from ../fidogate.texi on 25 November 1996 -->
+     from ../fidogate.texi on 30 November 1996 -->
 
 <TITLE>FIDOGATE
  - FIDOGATE Programs</TITLE>
@@ -971,7 +971,7 @@ Usage:
 </P>
 
 <PRE>
-ftnlock  [<I>-options</I>]  [<I>NAME</I> ... ]
+ftnlock  [<I>-options</I>]  [<I>NAME</I>]  [<I>ID</I>]
 </PRE>
 
 <P>
@@ -982,11 +982,19 @@ Options:
 
 <DT><CODE>-l --lock</CODE>
 <DD>
-Create lock file <I>NAME</I>, fail if it already exists.
+Create lock file <I>NAME</I>, fail if it already exists (exit code=2). If
+<I>NAME</I> is not specified, the default <CODE>ftnlock</CODE> is used. The
+optional parameter <I>ID</I> specifies the contents of the lock file, the
+default is <CODE>-none-</CODE>.
 
 <DT><CODE>-u --unlock</CODE>
 <DD>
 Remove lock file <I>NAME</I>.
+
+<DT><CODE>-w --wait</CODE>
+<DD>
+Wait while creating lock file. Default: immediately return, if the lock
+file can't be created because it already exists.
 
 </DL>
 

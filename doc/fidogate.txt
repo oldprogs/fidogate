@@ -1229,15 +1229,22 @@ ftnlock -- Create/Remove Lock Files
 
 Usage:
 
-     ftnlock  [-options]  [NAME ... ]
+     ftnlock  [-options]  [NAME]  [ID]
 
 Options:
 
 `-l --lock'
-     Create lock file NAME, fail if it already exists.
+     Create lock file NAME, fail if it already exists (exit code=2). If
+     NAME is not specified, the default `ftnlock' is used. The optional
+     parameter ID specifies the contents of the lock file, the default
+     is `-none-'.
 
 `-u --unlock'
      Remove lock file NAME.
+
+`-w --wait'
+     Wait while creating lock file. Default: immediately return, if the
+     lock file can't be created because it already exists.
 
    Lock files are created as SPOOLDIR/locks/NAME.
 

@@ -21,7 +21,7 @@ versions.
 
 Indirect:
 fidogate.info-1: 759
-fidogate.info-2: 47081
+fidogate.info-2: 47404
 
 Tag Table:
 (Indirect)
@@ -54,35 +54,35 @@ Node: ftnin33865
 Node: ftninpost34431
 Node: ftninrecomb34789
 Node: ftnlock35128
-Node: ftnlog35509
-Node: ftnpack35925
-Node: ftnroute37186
-Node: ftnseq37909
-Node: ftntick38322
-Node: ftntoss38717
-Node: ftnfattach40063
-Node: pktdebug40594
-Node: rfc2ftn41242
-Node: rundf42213
-Node: runin42761
-Node: runout43409
-Node: runtoss43811
-Node: rununpack44424
-Node: sumcrc45449
-Node: Config files46311
-Node: Config47081
-Node: Hosts60175
-Node: Aliases62420
-Node: Areas63215
-Node: Bounce66127
-Node: Passwd67322
-Node: Routing68545
-Node: Packing71983
-Node: Areas.bbs73672
-Node: Basic75134
-Node: Example Point75588
-Node: Example Point 277630
-Node: Example Node78046
-Node: Index80907
+Node: ftnlog35832
+Node: ftnpack36248
+Node: ftnroute37509
+Node: ftnseq38232
+Node: ftntick38645
+Node: ftntoss39040
+Node: ftnfattach40386
+Node: pktdebug40917
+Node: rfc2ftn41565
+Node: rundf42536
+Node: runin43084
+Node: runout43732
+Node: runtoss44134
+Node: rununpack44747
+Node: sumcrc45772
+Node: Config files46634
+Node: Config47404
+Node: Hosts60498
+Node: Aliases62743
+Node: Areas63538
+Node: Bounce66450
+Node: Passwd67645
+Node: Routing68868
+Node: Packing72306
+Node: Areas.bbs73995
+Node: Basic75457
+Node: Example Point75911
+Node: Example Point 277953
+Node: Example Node78369
+Node: Index81230
 
 End Tag Table

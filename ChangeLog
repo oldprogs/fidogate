@@ -1,4 +1,31 @@
+Sat Nov 30 14:35:27 1996  Martin Junius  <mj@fido.de>
+
+	------- CVS ci -------------------------------------------------------
+
+	* src/common/lock.c: all debug() levels set to 7.
+
+	* doc/fidogate.texi (ftnlock): updated.
+
+	* src/util/ftnlock.c (usage): new option -w --wait, new optional
+	  parameter id.
+	  (main): implemented new option -w --wait, use new
+	  lock_program_id() with optional command line parameter id. This
+	  allow scripts using the ftnlock utility to write the script PID
+	  to the lock file, not the PID of the called ftnlock, e.g. by
+	  executing ftnlock abcd $$.
+
+	* src/common/lock.c (lock_lockfile_id): new version of old
+	  lock_lockfile() function, using new id argument. If id!=NULL,
+	  this string will be put into the lockfiles, else the PID.
+	  (lock_lockfile): use new lock_lockfile_id() with id==NULL.
+	  (lock_program_id): new variant of lock_program(), passing new
+	  arg id to lock_lockfile_id().
+	  (lock_program): use lock_lockfile_id() wiht id==NULL.
+
 Fri Nov 29 22:17:54 1996  Martin Junius  <mj@fido.de>
+
+	* src/toss/rununpack.sh (SPOOL): fixed to use same var name as
+	  runtoss.
 
 	------- CVS ci -------------------------------------------------------
 
