@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway software UNIX <-> FIDO
  *
- * $Id: rfc2ftn.c,v 4.71 2004/02/11 21:25:33 n0ll Exp $
+ * $Id: rfc2ftn.c,v 4.72 2004/02/12 16:37:41 n0ll Exp $
  *
  * Read mail or news from standard input and convert it to a FIDO packet.
  *
@@ -39,7 +39,7 @@
 
 
 #define PROGRAM 	"rfc2ftn"
-#define VERSION 	"$Revision: 4.71 $"
+#define VERSION 	"$Revision: 4.72 $"
 #define CONFIG		DEFAULT_CONFIG_GATE
 
 
@@ -700,6 +700,10 @@ char *receiver(char *to, Node *node)
 	debug(5, "Alias postmaster: return %s", name);
 	return name;
     }
+
+    /* Sysop is always OK */
+    if(!stricmp(name, "sysop"))
+	return name;
 
     /* If RegisteredAliasesOnly is set, flag missing alias as error */
     if(!newsmode && registered_aliases_only) 
