@@ -1,7 +1,7 @@
 #
-# $Id: Makefile,v 1.3 1996/10/18 17:03:11 mj Exp $
+# $Id: Makefile,v 1.4 1996/12/22 10:39:35 mj Exp $
 #
-# Makefile FIDOGATE doc/
+# Makefile FIDOGATE doc/html/
 #
 
 TOPDIR		= ../..

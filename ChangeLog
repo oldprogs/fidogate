@@ -1,3 +1,22 @@
+Sun Dec 22 10:48:09 1996  Martin Junius  <mj@fido.de>
+
+	------- CVS ci -------------------------------------------------------
+
+	* sendmail/cf.ORIG/: removed entire directory.
+
+	* doc/fidogate.texi (Sendmail): added sendmail configuration section.
+
+	* doc/gatebau/Makefile: new Makefile for doc/gatebau/
+	  sub-directory, creating HTML, LaTeX, plain text documentation
+	  from SGML files.
+
+	* doc/Makefile (SUBDIRS): added gatebau sub-directory.
+
+Sat Dec 21 00:04:34 1996  Martin Junius  <mj@fido.de>
+
+	* doc/fidogate.texi (Example Point 2): more information based on
+ 	  input from Stephan Zellerhoff <stephan@poi.westfalen.de>
+
 Fri Dec 20 09:47:56 1996  Martin Junius  <mj@fido.de>
 
 	------- CVS ci -------------------------------------------------------

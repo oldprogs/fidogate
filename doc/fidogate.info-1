@@ -100,6 +100,7 @@ FIDOGATE Config Files
 
 Basic Configuration
 
+* Sendmail::	       Sendmail configuration
 * Example Point::      Example point configuration
 * Example Point 2::    Example configuration with 2 point addresses
 * Example Node::       Example leaf node configuration

@@ -1,7 +1,7 @@
 <HTML>
 <HEAD>
 <!-- This HTML file has been created by texi2html 1.51
-     from ../fidogate.texi on 2 December 1996 -->
+     from ../fidogate.texi on 22 December 1996 -->
 
 <TITLE>FIDOGATE
  - Basic Configuration</TITLE>
@@ -18,24 +18,93 @@ Go to the <A HREF="fidogate_1.html">first</A>, <A HREF="fidogate_4.html">previou
 
 </P>
 <P>
-There seems to be some confusion about how to configure the gateway and
-the tosser, so I added this chapter. Hopefully this will help ...
+There seems to be some confusion about how to configure the mail/news
+system, the gateway, and the tosser, so I added this chapter. Hopefully
+this will help ...
 
 </P>
 
 <UL>
-<LI><A HREF="fidogate_5.html#SEC61">Example Point</A>: Example point configuration
-<LI><A HREF="fidogate_5.html#SEC62">Example Point 2</A>: Example configuration with 2 point addresses
-<LI><A HREF="fidogate_5.html#SEC63">Example Node</A>: Example leaf node configuration
+<LI><A HREF="fidogate_5.html#SEC61">Sendmail</A>: Sendmail configuration
+<LI><A HREF="fidogate_5.html#SEC62">Example Point</A>: Example point configuration
+<LI><A HREF="fidogate_5.html#SEC63">Example Point 2</A>: Example configuration with 2 point addresses
+<LI><A HREF="fidogate_5.html#SEC64">Example Node</A>: Example leaf node configuration
 </UL>
 
 
 
-<H2><A NAME="SEC61" HREF="fidogate_toc.html#TOC61">Example Point Configuration</A></H2>
+<H2><A NAME="SEC61" HREF="fidogate_toc.html#TOC61">Sendmail Configuration</A></H2>
 <P>
 <A NAME="IDX85"></A>
 <A NAME="IDX86"></A>
+
+</P>
+<P>
+This section describes the FIDOGATE additions to the sendmail V8 m4
+configuration.
+
+</P>
+<P>
+FIDOGATE adds two new mailer files, <CODE>ftn.m4</CODE> and <CODE>ffx.m4</CODE>. Use
+<CODE>MAILER(ftn)</CODE> and/or <CODE>Mailer(ffx)</CODE> to include these mailer
+definitions.
+
+</P>
+<P>
+Please note that the new FIDOGATE mailers are based on the SMTP mailer
+sender/recipient rewrite rules, so including <CODE>MAILER(smtp)</CODE> is
+mandatory!
+
+</P>
+<P>
+FIDOGATE ftn mailers (using the <CODE>rfc2ftn</CODE> gateway program):
+
+</P>
+<DL COMPACT>
+
+<DT><CODE>ftn</CODE>
+<DD>
+Mailer for sending to systems registered in the <CODE>hosts</CODE> config
+file. <CODE>ftn</CODE> will bounce mails if the receiving hosts is not
+registered or marked as down.
+
+<DT><CODE>ftni</CODE>
+<DD>
+Mailer for sending to a typical p.f.n.z domain,
+e.g. <CODE>.fidonet.org</CODE>. <CODE>ftni</CODE> will send the mail to any system,
+regardless of the registration in <CODE>hosts</CODE>.
+
+<DT><CODE>ftna</CODE>
+<DD>
+Like <CODE>ftni</CODE>, but the <CODE>ftna</CODE> mailer also sets the address and
+uplink of the gateway to the relay host passed to this mailer.
+
+<DT><CODE>ftno</CODE>
+<DD>
+Like <CODE>ftna</CODE>. In addition, this mailer sets the directory for
+packets created by <CODE>rfc2ftn</CODE> to SPOOLDIR/out/<I>relayhost</I>.
+
+</DL>
+
+<P>
+FIDOGATE ffx mailer (using the <CODE>ffxmail</CODE> utitility):
+
+</P>
+<DL COMPACT>
+
+<DT><CODE>ffx</CODE>
+<DD>
+Mailer for sending via the FIDOGATE ffx sub-system.
+
+</DL>
+
+
+
+<H2><A NAME="SEC62" HREF="fidogate_toc.html#TOC62">Example Point Configuration</A></H2>
+<P>
 <A NAME="IDX87"></A>
+<A NAME="IDX88"></A>
+<A NAME="IDX89"></A>
 
 </P>
 <P>
@@ -148,46 +217,123 @@ needed for a point polling its mail at the boss node.
 
 
 
-<H2><A NAME="SEC62" HREF="fidogate_toc.html#TOC62">Example Configuration with 2 Point Addresses</A></H2>
+<H2><A NAME="SEC63" HREF="fidogate_toc.html#TOC63">Example Configuration with 2 Point Addresses</A></H2>
 <P>
-<A NAME="IDX88"></A>
-<A NAME="IDX89"></A>
 <A NAME="IDX90"></A>
-
-</P>
-<P>
-This section describes a point setup with 2 different point addresses and 2
-different boss nodes (uplinks).
-
-</P>
-<P>
-<B>NOT YET COMPLETE!!!</B>
-
-</P>
-<P>
-Hints:
-
-</P>
-
-<UL>
-
-<LI>
-
-Use the sendmail <CODE>ftna</CODE> mailer.
-
-<LI>
-
-<B>Disable</B> <CODE>CheckPath</CODE> in <CODE>config.main</CODE>.
-
-</UL>
-
-
-
-<H2><A NAME="SEC63" HREF="fidogate_toc.html#TOC63">Example Leaf Node configuration</A></H2>
-<P>
 <A NAME="IDX91"></A>
 <A NAME="IDX92"></A>
+
+</P>
+<P>
+This section describes a point setup with 2 different point addresses
+and 2 different boss nodes (uplinks). Thanks to Stephan Zellerhoff
+&#60;stephan@poi.westfalen.de&#62; for contributing some stuff.
+
+</P>
+<P>
+Let's assume the following addresses:
+
+</P>
+<P>
+Primary point address 2:2499/123.10, boss node 2:2499/123
+
+</P>
+<P>
+Secondary point address 2:2498/120.2, boss node 2:2498/120
+
+</P>
+<P>
+Setup with FIDOGATE:
+
+</P>
+<DL COMPACT>
+
+<DT><B>Addresses</B>
+<DD>
+Put the following address statements in <CODE>config.gate</CODE>
+
+<PRE>
+Address 2:2499/123.10
+Address 2:2498/120.2
+Uplink  2:2499/123.10
+Uplink  2:2498/120.2
+</PRE>
+
+and <CODE>config.main</CODE>
+
+<PRE>
+Address 2:2499/123.10
+Address 2:2498/120.2
+</PRE>
+
+Please note that the primary point address must be the <I>first</I> entry!
+
+<DT><B>Sendmail</B>
+<DD>
+Use the sendmail <CODE>mailertable</CODE> feature and create the following
+entries for routing Fidonet mail:
+
+<PRE>
+# Mail to 2:2498/*, secondary address
+.n2498.z2.fidonet.org    ftna:p2.f120.n2498.z2.fidonet.org
+# Everything else 2:*/*, primary address
+.z2.fidonet.org          ftna:p10.f123.n2499.z2.fidonet.org
+</PRE>
+
+Please note that in this setup, the relay host specified with the
+<CODE>ftna</CODE> mailer is your <I>own</I> address, not your boss node!!!
+
+<DT><B>Areas</B>
+<DD>
+Areas send to the primary boss don't require anything special in the
+<CODE>areas</CODE> config file, areas send to the secondary boss must have the
+<CODE>-a 2:2498/120.2</CODE> option, e.g.
+
+<PRE>
+LINUX.GER    fido.ger.linux    -a 2:2498/120.2
+</PRE>
+
+<DT><B>Areas.BBS</B>
+<DD>
+Likewise, areas send to the secondary boss must have the <CODE>-a
+2:2498/120.2</CODE> option in <CODE>areas.bbs</CODE> and the secondary boss as the
+uplink, e.g.
+
+<PRE>
+LINUX.GER    -a 2:2498/120.2    2:2498/120
+</PRE>
+
+<DT><B>Routing</B>
+<DD>
+The netmail routing must be adapted to send mail to the secondary boss,
+e.g. everything for net 2498:
+
+<PRE>
+route    normal   2:2498/120 2:2498/*.*
+route    normal   2:2499/123 2:*
+</PRE>
+
+<DT><B>Miscellaneous</B>
+<DD>
+
+<UL>
+<LI>
+
+<I>Disable</I> <CODE>CheckPath</CODE> in <CODE>config.main</CODE>.
+<LI>
+
+<I>Enable</I> <CODE>EchoMail4D</CODE> in <CODE>config.gate</CODE>.
+</UL>
+
+</DL>
+
+
+
+<H2><A NAME="SEC64" HREF="fidogate_toc.html#TOC64">Example Leaf Node configuration</A></H2>
+<P>
 <A NAME="IDX93"></A>
+<A NAME="IDX94"></A>
+<A NAME="IDX95"></A>
 
 </P>
 
@@ -320,7 +466,7 @@ filemgr: filefix
 </PRE>
 
 <P>
-That's it. Hope that this short chapter on basic configuration clarifies
+That's it. I hope that this short chapter on basic configuration clarifies
 some of the darker point of the FIDOGATE configuration. Anyway, please
 help to improve the FIDOGATE documentation.
 

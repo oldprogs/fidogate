@@ -21,68 +21,69 @@ versions.
 
 Indirect:
 fidogate.info-1: 759
-fidogate.info-2: 47713
+fidogate.info-2: 47756
 
 Tag Table:
 (Indirect)
 Node: Top759
-Node: Introduction3906
-Node: Installation6882
-Node: Point7792
-Node: config.h8845
-Node: config.make15883
-Node: Compiling18716
-Node: Integration19333
-Node: Testing19947
-Node: Connecting21375
-Node: Programs22215
-Node: ffx24784
-Node: ffxbatch25646
-Node: ffxmail26540
-Node: ffxqt26942
-Node: ffxrmail27745
-Node: ffxrun28159
-Node: ftn2ftn28513
-Node: ftn2rfc29534
-Node: ftnaf30421
-Node: ftnafmail31625
-Node: ftnbounce32159
-Node: ftnbsy32461
-Node: ftnconfig32924
-Node: ftnhatch33578
-Node: ftnin33877
-Node: ftninpost34443
-Node: ftninrecomb34801
-Node: ftnlock35140
-Node: ftnlog35844
-Node: ftnpack36260
-Node: ftnroute37818
-Node: ftnseq38541
-Node: ftntick38954
-Node: ftntoss39349
-Node: ftnfattach40695
-Node: pktdebug41226
-Node: rfc2ftn41874
-Node: rundf42845
-Node: runin43393
-Node: runout44041
-Node: runtoss44443
-Node: rununpack45056
-Node: sumcrc46081
-Node: Config files46943
-Node: Config47713
-Node: Hosts60880
-Node: Aliases63125
-Node: Areas63920
-Node: Bounce66832
-Node: Passwd68027
-Node: Routing69250
-Node: Packing72688
-Node: Areas.bbs74377
-Node: Basic75839
-Node: Example Point76293
-Node: Example Point 278335
-Node: Example Node78751
-Node: Index81612
+Node: Introduction3949
+Node: Installation6925
+Node: Point7835
+Node: config.h8888
+Node: config.make15926
+Node: Compiling18759
+Node: Integration19376
+Node: Testing19990
+Node: Connecting21418
+Node: Programs22258
+Node: ffx24827
+Node: ffxbatch25689
+Node: ffxmail26583
+Node: ffxqt26985
+Node: ffxrmail27788
+Node: ffxrun28202
+Node: ftn2ftn28556
+Node: ftn2rfc29577
+Node: ftnaf30464
+Node: ftnafmail31668
+Node: ftnbounce32202
+Node: ftnbsy32504
+Node: ftnconfig32967
+Node: ftnhatch33621
+Node: ftnin33920
+Node: ftninpost34486
+Node: ftninrecomb34844
+Node: ftnlock35183
+Node: ftnlog35887
+Node: ftnpack36303
+Node: ftnroute37861
+Node: ftnseq38584
+Node: ftntick38997
+Node: ftntoss39392
+Node: ftnfattach40738
+Node: pktdebug41269
+Node: rfc2ftn41917
+Node: rundf42888
+Node: runin43436
+Node: runout44084
+Node: runtoss44486
+Node: rununpack45099
+Node: sumcrc46124
+Node: Config files46986
+Node: Config47756
+Node: Hosts60923
+Node: Aliases63168
+Node: Areas63963
+Node: Bounce66875
+Node: Passwd68070
+Node: Routing69293
+Node: Packing72731
+Node: Areas.bbs74420
+Node: Basic75882
+Node: Sendmail76397
+Node: Example Point77711
+Node: Example Point 279756
+Node: Example Node81968
+Node: Index84831
 
 End Tag Table

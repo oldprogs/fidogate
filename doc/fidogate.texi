@@ -2,7 +2,7 @@
 @c
 @c FIDOGATE documentation
 @c
-@c $Id: fidogate.texi,v 4.18 1996/12/02 19:51:20 mj Exp $
+@c $Id: fidogate.texi,v 4.19 1996/12/22 10:39:29 mj Exp $
 @c
 
 @setfilename fidogate.info
@@ -152,6 +152,7 @@ FIDOGATE Config Files
 
 Basic Configuration
 
+* Sendmail::	       Sendmail configuration
 * Example Point::      Example point configuration
 * Example Point 2::    Example configuration with 2 point addresses
 * Example Node::       Example leaf node configuration
@@ -3555,15 +3556,17 @@ list.
 
 @c ***************************************************************************
 @page
-@node Basic, Example Point, Areas.bbs, Top
+@node Basic, Sendmail, Areas.bbs, Top
 @chapter Basic Configuration
 
 @cindex Configuration
 
-There seems to be some confusion about how to configure the gateway and
-the tosser, so I added this chapter. Hopefully this will help ...
+There seems to be some confusion about how to configure the mail/news
+system, the gateway, and the tosser, so I added this chapter. Hopefully
+this will help ...
 
 @menu
+* Sendmail::	       Sendmail configuration
 * Example Point::      Example point configuration
 * Example Point 2::    Example configuration with 2 point addresses
 * Example Node::       Example leaf node configuration
@@ -3572,7 +3575,63 @@ the tosser, so I added this chapter. Hopefully this will help ...
 
 
 @c ***************************************************************************
-@node Example Point, Example Point 2, Basic, Basic
+@node Sendmail, Example Point, Basic, Basic
+
+@section Sendmail Configuration
+@cindex Configuration
+@cindex sendmail
+
+@noindent
+This section describes the FIDOGATE additions to the sendmail V8 m4
+configuration.
+
+FIDOGATE adds two new mailer files, @code{ftn.m4} and @code{ffx.m4}. Use
+@code{MAILER(ftn)} and/or @code{Mailer(ffx)} to include these mailer
+definitions.
+
+Please note that the new FIDOGATE mailers are based on the SMTP mailer
+sender/recipient rewrite rules, so including @code{MAILER(smtp)} is
+mandatory!
+
+@noindent
+FIDOGATE ftn mailers (using the @code{rfc2ftn} gateway program):
+
+@table @code
+
+@item ftn
+Mailer for sending to systems registered in the @code{hosts} config
+file. @code{ftn} will bounce mails if the receiving hosts is not
+registered or marked as down.
+
+@item ftni
+Mailer for sending to a typical p.f.n.z domain,
+e.g. @code{.fidonet.org}. @code{ftni} will send the mail to any system,
+regardless of the registration in @code{hosts}.
+
+@item ftna
+Like @code{ftni}, but the @code{ftna} mailer also sets the address and
+uplink of the gateway to the relay host passed to this mailer.
+
+@item ftno
+Like @code{ftna}. In addition, this mailer sets the directory for
+packets created by @code{rfc2ftn} to SPOOLDIR/out/@i{relayhost}.
+
+@end table
+
+@noindent
+FIDOGATE ffx mailer (using the @code{ffxmail} utitility):
+
+@table @code
+
+@item ffx
+Mailer for sending via the FIDOGATE ffx sub-system.
+
+@end table
+
+
+
+@c ***************************************************************************
+@node Example Point, Example Point 2, Sendmail, Basic
 
 @section Example Point Configuration
 @cindex Configuration
@@ -3675,23 +3734,81 @@ needed for a point polling its mail at the boss node.
 @cindex Point
 
 @noindent
-This section describes a point setup with 2 different point addresses and 2
-different boss nodes (uplinks).
+This section describes a point setup with 2 different point addresses
+and 2 different boss nodes (uplinks). Thanks to Stephan Zellerhoff
+<stephan@@poi.westfalen.de> for contributing some stuff.
 
-@b{NOT YET COMPLETE!!!}
+Let's assume the following addresses:
+
+Primary point address 2:2499/123.10, boss node 2:2499/123
+
+Secondary point address 2:2498/120.2, boss node 2:2498/120
 
 @noindent
-Hints:
+Setup with FIDOGATE:
 
+@table @b
+
+@item Addresses
+Put the following address statements in @code{config.gate}
+@example
+Address 2:2499/123.10
+Address 2:2498/120.2
+Uplink  2:2499/123.10
+Uplink  2:2498/120.2
+@end example
+and @code{config.main}
+@example
+Address 2:2499/123.10
+Address 2:2498/120.2
+@end example
+Please note that the primary point address must be the @i{first} entry!
+
+@item Sendmail
+Use the sendmail @code{mailertable} feature and create the following
+entries for routing Fidonet mail:
+@example
+# Mail to 2:2498/*, secondary address
+.n2498.z2.fidonet.org    ftna:p2.f120.n2498.z2.fidonet.org
+# Everything else 2:*/*, primary address
+.z2.fidonet.org          ftna:p10.f123.n2499.z2.fidonet.org
+@end example
+Please note that in this setup, the relay host specified with the
+@code{ftna} mailer is your @i{own} address, not your boss node!!!
+
+@item Areas
+Areas send to the primary boss don't require anything special in the
+@code{areas} config file, areas send to the secondary boss must have the
+@code{-a 2:2498/120.2} option, e.g.
+@example
+LINUX.GER    fido.ger.linux    -a 2:2498/120.2
+@end example
+
+@item Areas.BBS
+Likewise, areas send to the secondary boss must have the @code{-a
+2:2498/120.2} option in @code{areas.bbs} and the secondary boss as the
+uplink, e.g.
+@example
+LINUX.GER    -a 2:2498/120.2    2:2498/120
+@end example
+
+@item Routing
+The netmail routing must be adapted to send mail to the secondary boss,
+e.g. everything for net 2498:
+@example
+route    normal   2:2498/120 2:2498/*.*
+route    normal   2:2499/123 2:*
+@end example
+
+@item Miscellaneous
 @itemize @bullet
-
 @item
-Use the sendmail @code{ftna} mailer.
-
+@i{Disable} @code{CheckPath} in @code{config.main}.
 @item
-@b{Disable} @code{CheckPath} in @code{config.main}.
-
+@i{Enable} @code{EchoMail4D} in @code{config.gate}.
 @end itemize
+
+@end table
 
 
 
@@ -3805,7 +3922,7 @@ filefix: "|/usr/local/lib/fidogate/ftnafmail -F"
 filemgr: filefix
 @end example
 
-That's it. Hope that this short chapter on basic configuration clarifies
+That's it. I hope that this short chapter on basic configuration clarifies
 some of the darker point of the FIDOGATE configuration. Anyway, please
 help to improve the FIDOGATE documentation.
 

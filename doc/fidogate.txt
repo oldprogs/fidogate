@@ -97,6 +97,7 @@ FIDOGATE Config Files
 
 Basic Configuration
 
+* Sendmail::	       Sendmail configuration
 * Example Point::      Example point configuration
 * Example Point 2::    Example configuration with 2 point addresses
 * Example Node::       Example leaf node configuration
@@ -2684,13 +2685,54 @@ nodes
 Basic Configuration
 *******************
 
-   There seems to be some confusion about how to configure the gateway
-and the tosser, so I added this chapter. Hopefully this will help ...
+   There seems to be some confusion about how to configure the mail/news
+system, the gateway, and the tosser, so I added this chapter. Hopefully
+this will help ...
 
 
+* Sendmail::	       Sendmail configuration
 * Example Point::      Example point configuration
 * Example Point 2::    Example configuration with 2 point addresses
 * Example Node::       Example leaf node configuration
+
+
+Sendmail Configuration
+======================
+
+This section describes the FIDOGATE additions to the sendmail V8 m4
+configuration.
+
+   FIDOGATE adds two new mailer files, `ftn.m4' and `ffx.m4'. Use
+`MAILER(ftn)' and/or `Mailer(ffx)' to include these mailer definitions.
+
+   Please note that the new FIDOGATE mailers are based on the SMTP
+mailer sender/recipient rewrite rules, so including `MAILER(smtp)' is
+mandatory!
+
+FIDOGATE ftn mailers (using the `rfc2ftn' gateway program):
+
+`ftn'
+     Mailer for sending to systems registered in the `hosts' config
+     file. `ftn' will bounce mails if the receiving hosts is not
+     registered or marked as down.
+
+`ftni'
+     Mailer for sending to a typical p.f.n.z domain, e.g.
+     `.fidonet.org'. `ftni' will send the mail to any system,
+     regardless of the registration in `hosts'.
+
+`ftna'
+     Like `ftni', but the `ftna' mailer also sets the address and
+     uplink of the gateway to the relay host passed to this mailer.
+
+`ftno'
+     Like `ftna'. In addition, this mailer sets the directory for
+     packets created by `rfc2ftn' to SPOOLDIR/out/relayhost.
+
+FIDOGATE ffx mailer (using the `ffxmail' utitility):
+
+`ffx'
+     Mailer for sending via the FIDOGATE ffx sub-system.
 
 
 Example Point Configuration
@@ -2765,15 +2807,60 @@ Example Configuration with 2 Point Addresses
 ============================================
 
 This section describes a point setup with 2 different point addresses
-and 2 different boss nodes (uplinks).
+and 2 different boss nodes (uplinks). Thanks to Stephan Zellerhoff
+<stephan@poi.westfalen.de> for contributing some stuff.
 
-   NOT YET COMPLETE!!!
+   Let's assume the following addresses:
 
-Hints:
+   Primary point address 2:2499/123.10, boss node 2:2499/123
 
-   * Use the sendmail `ftna' mailer.
+   Secondary point address 2:2498/120.2, boss node 2:2498/120
 
-   * Disable `CheckPath' in `config.main'.
+Setup with FIDOGATE:
+
+Addresses
+     Put the following address statements in `config.gate'
+          Address 2:2499/123.10
+          Address 2:2498/120.2
+          Uplink  2:2499/123.10
+          Uplink  2:2498/120.2
+     and `config.main'
+          Address 2:2499/123.10
+          Address 2:2498/120.2
+     Please note that the primary point address must be the first entry!
+
+Sendmail
+     Use the sendmail `mailertable' feature and create the following
+     entries for routing Fidonet mail:
+          # Mail to 2:2498/*, secondary address
+          .n2498.z2.fidonet.org    ftna:p2.f120.n2498.z2.fidonet.org
+          # Everything else 2:*/*, primary address
+          .z2.fidonet.org          ftna:p10.f123.n2499.z2.fidonet.org
+     Please note that in this setup, the relay host specified with the
+     `ftna' mailer is your own address, not your boss node!!!
+
+Areas
+     Areas send to the primary boss don't require anything special in
+     the `areas' config file, areas send to the secondary boss must
+     have the `-a 2:2498/120.2' option, e.g.
+          LINUX.GER    fido.ger.linux    -a 2:2498/120.2
+
+Areas.BBS
+     Likewise, areas send to the secondary boss must have the `-a
+     2:2498/120.2' option in `areas.bbs' and the secondary boss as the
+     uplink, e.g.
+          LINUX.GER    -a 2:2498/120.2    2:2498/120
+
+Routing
+     The netmail routing must be adapted to send mail to the secondary
+     boss, e.g. everything for net 2498:
+          route    normal   2:2498/120 2:2498/*.*
+          route    normal   2:2499/123 2:*
+
+Miscellaneous
+        * Disable `CheckPath' in `config.main'.
+
+        * Enable `EchoMail4D' in `config.gate'.
 
 
 Example Leaf Node configuration
@@ -2856,7 +2943,7 @@ working. You can then install suitable aliases in `/etc/aliases':
      filefix: "|/usr/local/lib/fidogate/ftnafmail -F"
      filemgr: filefix
 
-   That's it. Hope that this short chapter on basic configuration
+   That's it. I hope that this short chapter on basic configuration
 clarifies some of the darker point of the FIDOGATE configuration.
 Anyway, please help to improve the FIDOGATE documentation.
 
@@ -2882,6 +2969,7 @@ Index
 * Configuration <1>:                    Example Node.
 * Configuration <2>:                    Example Point 2.
 * Configuration <3>:                    Example Point.
+* Configuration <4>:                    Sendmail.
 * Configuration:                        Basic.
 * Connecting:                           Connecting.
 * CRC:                                  sumcrc.
@@ -2951,6 +3039,7 @@ Index
 * runout:                               runout.
 * runtoss:                              runtoss.
 * rununpack:                            rununpack.
+* sendmail:                             Sendmail.
 * sumcrc:                               sumcrc.
 * Testing:                              Testing.
 * Tossing <1>:                          rununpack.

@@ -2,7 +2,7 @@
 
 X = for next release
 
-X	* sendmail: ftna mailer ohne -O, ftnao mit?
+	* scripts/misc/: updated senduu/recvuu, using new ftnflo
 
 	* ftntoss: make point tosser work without EchoMail4D
 

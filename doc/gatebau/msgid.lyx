@@ -1,4 +1,4 @@
-#This file was created by <mj> Tue Dec 17 19:30:12 1996
+#This file was created by <mj> Sun Dec 22 11:00:38 1996
 #LyX 0.10 (C) 1995 1996 Matthias Ettrich and the LyX Team
 \lyxformat 2.10
 \textclass linuxdoc
@@ -20,8 +20,8 @@
 \paperpagestyle plain 
 
 \layout Title
-\fill_top \fill_bottom \cursor 6 
-^AMSGID / Message-ID Conversion for Fido-Internet Gateways 
+\fill_top \fill_bottom \cursor 0 
+MSGID / Message-ID Conversion for Fido-Internet Gateways 
 \layout Author
 
 Martin Junius
@@ -33,7 +33,7 @@ de>
 \layout Date
 
 $Revision: 4.
-1 $ of $Date: 1996/12/20 10:42:06 $ 
+1 $ of $Date: 1996/12/22 10:39:33 $ 
 \layout Abstract
 
 This document describes the conversion between FIDO ^AMSGID/^AREPLY and

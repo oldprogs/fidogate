@@ -5,9 +5,9 @@
 
 <article>
 
-<title>^AMSGID / Message-ID Conversion for Fido-Internet Gateways 
+<title>MSGID / Message-ID Conversion for Fido-Internet Gateways 
 <author>Martin Junius<tt> &lt;mj@fido.de&gt;</tt> 
-<date>&dollar;Revision: 4.1 &dollar; of &dollar;Date: 1996/12/17 14:43:12 &dollar; 
+<date>&dollar;Revision: 4.1 &dollar; of &dollar;Date: 1996/12/20 10:42:06 &dollar; 
 <abstract>This document describes the conversion between FIDO ^AMSGID/^AREPLY and Internet RFC mail/news Message-ID/References. It is a recommendation for a common handling of message ID passing for FIDONET-Internet gateways. 
 </abstract>
 <sect>Credits  
