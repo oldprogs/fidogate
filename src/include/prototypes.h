@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: prototypes.h,v 4.5 1996/05/11 15:05:38 mj Exp $
+ * $Id: prototypes.h,v 4.6 1996/05/12 15:35:07 mj Exp $
  *
  * Prototypes for functions in libfidogate.a
  *
@@ -322,7 +322,6 @@ char   *node_to_pfnz	        (Node *, int);
 int	node_eq			(Node *, Node *);
 void	node_clear		(Node *);
 void	node_invalid		(Node *);
-int	asc_to_node_partial	(char *, Node *);
 int	asc_to_node_diff	(char *, Node *, Node *);
 char   *node_to_asc_diff	(Node *, Node *);
 int	node_cmp		(Node *, Node *);
@@ -374,9 +373,12 @@ int	pkt_put_string_padded	(FILE *, char *, int);
 int	pkt_put_hdr		(FILE *, Packet *);
 
 /* parsenode.c */
+int	znfp_get_number		(char **);
 int	znfp_parse_partial	(char *, Node *);
 int	znfp_parse_diff		(char *, Node *, Node *);
+char   *znfp_put_number		(int, int);
 char   *znfp_print		(Node *, int, int);
+char   *znfp			(Node *);
 
 /* passwd.c */
 void	passwd_init		(void);

@@ -1,4 +1,37 @@
+Sun May 12 16:19:40 1996  Martin Junius  <mj@fido.de>
+
+	* src/common/parsenode.c (znfp_parse_partial): initial n.domain[]
+	  to empty string.
+	  (znfp_print): must initialize tcharp to empty string.
+
+	* src/common/node.c (pfnz_to_node): changed to use znfp_get_number().
+
+	* src/common/parsenode.c (znfp_get/put_number): no longer static.
+
+	* src/common/node.c (asc_to_node): rewritten to use
+	  znfp_parse_partial() and appropiate checks.
+	  (node_to_asc): rewritten to use znfp_print().
+	  (asc_to_node_partial): rewritten to use znfp_parse_partial().
+	  (asc_to_node_diff): rewritten to use znfp_parse_diff().
+	  (asc_to_node_partial): removed, was only used by asc_to_node_diff().
+
+	* src/common/parsenode.c (znfp_print): append @domain if domain is
+	  not an empty string.
+
+	* src/common/node.c (get_number): removed.
+
 Sat May 11 16:25:51 1996  Martin Junius  <mj@fido.de>
+
+	* src/common/parsenode.c (znfp): new function for standard output
+	  of Node struct == znfp_print(node, TRUE, TRUE).
+	  (znfp_print): only output "/" if node field follows.
+
+	* src/toss/ftnroute.c (do_routing): save matching node for routing
+	  command and pass on to do_cmd(). Changed debug() message to only
+	  include matching node.
+	  (do_cmd): additional argument "match", matching node pattern for
+	  routing command. Modified "send" syntax to be compliant with the
+	  behavior of SQUISH: send 1:2/3  ==  route 1:2/3.0 1:2/3.*
 
 	------- CVS commit ---------------------------------------------------
 

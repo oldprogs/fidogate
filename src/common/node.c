@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: node.c,v 4.0 1996/04/17 18:17:39 mj Exp $
+ * $Id: node.c,v 4.1 1996/05/12 15:35:06 mj Exp $
  *
  * Conversion Node structure <-> Z:N/F.P / pP.fF.nN.zZ
  *
@@ -35,15 +35,8 @@
 
 
 /*
- * Local prototypes
+ * pfnz_to_node() --- Convert p.f.n.z domain address to Node struct
  */
-static int get_number	(char **);
-
-
-
-
-/***** pfnz_to_node() --- Convert p.f.n.z domain address to Node struct ******/
-
 int pfnz_to_node(char *pfnz, Node *node, int point_flag)
 {
     char *s;
@@ -65,7 +58,7 @@ int pfnz_to_node(char *pfnz, Node *node, int point_flag)
 	    c = tolower(c);
 
 	    /* Value */
-	    if( (val = get_number(&s)) == ERROR )
+	    if( (val = znfp_get_number(&s)) < 0 )
 		return ERROR;
 	    /* '.' or '\0' expected */
 	    if(*s!='.' && *s!='\0')
@@ -120,116 +113,49 @@ int pfnz_to_node(char *pfnz, Node *node, int point_flag)
 
 
 
-/***** asc_to_node() --- Convert Z:N/F.P address to Node struct **************/
-
-static int get_number(char **ps)
-{
-    char *s = *ps;
-    int val = 0;
-
-    if(!isdigit(*s))
-	return ERROR;
-
-    while(isdigit(*s))
-	val = val*10 + *s++ - '0';
-
-    *ps = s;
-    
-    return val;
-}
-
-
+/*
+ * asc_to_node() --- Convert Z:N/F.P address to Node struct
+ */
 int asc_to_node(char *asc, Node *node, int point_flag)
 {
-    Node n;
-    char *s = asc;
-    int val, i;
+    if(znfp_parse_partial(asc, node) == ERROR)
+	return ERROR;
+
+    /* Wildcards are not allowed here */
+    if(node->zone==WILDCARD || node->net==WILDCARD ||
+       node->node==WILDCARD || node->point==WILDCARD)
+	return ERROR;
+
+    /* Empty zone, use default */
+    if(node->zone==EMPTY)
+	node->zone = cf_defzone();
     
-    n.zone  = -1;
-    n.net   = -1;
-    n.node  = -1;
-    n.point = -1;
-    n.domain[0] = 0;
-
-    if( (val = get_number(&s)) == ERROR )
+    /* Net, node must be set */
+    if(node->net==EMPTY || node->node==EMPTY)
 	return ERROR;
 
-    if(*s == ':')			/* Number is zone address part */
-    {
-	s++;
-	n.zone = val;			/* Zone address */
-	if( (val = get_number(&s)) == ERROR )
-	    return ERROR;
-    }
+    /* Empty point, set to 0 if point_flag==FALSE */
+    if(node->point==EMPTY && !point_flag)
+	node->point = 0;
 
-    if(*s != '/')			/* Number must be net part */
-	return ERROR;
-    s++;
-    n.net = val;			/* Net address */
-    if( (val = get_number(&s)) == ERROR )
-	return ERROR;
-    n.node = val;			/* Node address */
-
-    if(*s == '.')			/* Point addresse follows */
-    {
-	s++;
-	if( (val = get_number(&s)) == ERROR )
-	    return ERROR;
-	n.point = val;			/* Point address */
-    }
-    
-    if(*s == '@')			/* Domain address follows */
-    {
-	s++;
-	for(i=0; i<MAX_DOMAIN-1 && *s; n.domain[i++] = *s++) ;
-	n.domain[i] = 0;
-    }
-    else if(*s)
-	return ERROR;
-
-    if(n.zone == -1)
-	n.zone = cf_defzone();
-    if(n.point == -1 && !point_flag)
-	n.point = 0;
-
-    *node = n;
-    return 0;
+    return OK;
 }
 
 
 
-/***** node_to_asc() --- Convert Node struct to Z:N/F.P address string *******/
-
+/*
+ * node_to_asc() --- Convert Node struct to Z:N/F.P address string
+ */
 char *node_to_asc(Node *node, int point_flag)
 {
-    SHUFFLEBUFFERS;
-
-    if(node->zone == -1)
-    {
-	str_copy(tcharp, MAX_CONVERT_BUFLEN, "INVALID");
-	return tcharp;
-    }
-
-    if(node->point!=-1 && (node->point!=0 || point_flag))
-	sprintf(tcharp, 
-		"%d:%d/%d.%d", node->zone, node->net, node->node, node->point);
-    else
-	sprintf(tcharp,
-		"%d:%d/%d",    node->zone, node->net, node->node);
-
-    if(node->domain[0])
-    {
-	strcat(tcharp, "@");
-	strcat(tcharp, node->domain);
-    }
-
-    return tcharp;
+    return znfp_print(node, point_flag, FALSE);
 }
 
 
 
-/***** node_to_pfnz() --- Convert Node struct to p.f.n.z notation ************/
-
+/*
+ * node_to_pfnz() --- Convert Node struct to p.f.n.z notation
+ */
 char *node_to_pfnz(Node *node, int point_flag)
 {
     SHUFFLEBUFFERS;
@@ -281,104 +207,26 @@ void node_invalid(Node *n)
 
 
 /*
- * Convert partial Z:N/F.P address to Node
- */
-int asc_to_node_partial(char *asc, Node *node)
-{
-    Node n;
-    char *s = asc;
-    int val1, val;
-
-    val1    = -1;
-    node_invalid(&n);
-
-    if(!*s)
-	return ERROR;
-    
-    if(isdigit(*s))			/* Leading number */
-	if( (val1 = get_number(&s)) == ERROR )
-	    return ERROR;
-
-    if(*s == ':')			/* zone followed by net */
-    {
-	s++;
-	if(val1 != -1)
-	{
-	    n.zone = val1;
-	    val1   = -1;
-	}
-	if( (val = get_number(&s)) == ERROR )
-	    return ERROR;
-	n.net = val;
-    }
-    if(*s == '/')			/* net followed by node */
-    {
-	s++;
-	if(val1 != -1)
-	{
-	    n.net = val1;
-	    val1  = -1;
-	}
-	if( (val = get_number(&s)) == ERROR )
-	    return ERROR;
-	n.node = val;
-    }
-    if(*s == '.')			/* node followed by point */
-    {
-	s++;
-	if(val1 != -1)
-	{
-	    n.node = val1;
-	    val1   = -1;
-	}
-	if( (val = get_number(&s)) == ERROR )
-	    return ERROR;
-	n.point = val;
-    }
-    if(val1 != -1)			/* Single number is node */
-	n.node = val1;
-    
-    if(*s == '@')			/* Domain address may follow */
-    {
-	s++;
-	strncpy0(n.domain, s, sizeof(n.domain));
-    }
-    else if(*s)
-	return ERROR;
-
-    *node = n;
-    return OK;
-}
-
-
-/*
  * Convert partial Z:N/F.P address to Node, using previous node address
  */
 int asc_to_node_diff(char *asc, Node *node, Node *oldnode)
 {
-    if(asc_to_node_partial(asc, node) == ERROR)
+    if(znfp_parse_diff(asc, node, oldnode) == ERROR)
 	return ERROR;
     
-    if(node->zone == -1)
-    {
-	/* No zone, use old zone address */
-	node->zone = oldnode->zone;
-	if(node->net == -1)
-	{
-	    /* No net, use old net address */
-	    node ->net = oldnode->net;
-	    if(node->node == -1)
-	    {
-		node->node = oldnode->node;
-	    }
-	}
-    }
-    if(node->point == -1)
-	node->point = 0;
-    
-    if(node->zone==-1 || node->net==-1 || node->node==-1)
+    /* Wildcards are not allowed here */
+    if(node->zone==WILDCARD || node->net==WILDCARD ||
+       node->node==WILDCARD || node->point==WILDCARD)
+	return ERROR;
+
+    /* Zone, net, node must be set */
+    if(node->zone==EMPTY || node->net==EMPTY || node->node==EMPTY)
 	return ERROR;
 	    
+    /* Empty point is 0 */
+    if(node->point==EMPTY)
+	node->point = 0;
+
     return OK;
 }
 

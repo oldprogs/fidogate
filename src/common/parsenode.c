@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: parsenode.c,v 4.1 1996/05/03 19:18:43 mj Exp $
+ * $Id: parsenode.c,v 4.2 1996/05/12 15:35:06 mj Exp $
  *
  * Parse FTN address strings (Z:N/F.P)
  *
@@ -36,17 +36,9 @@
 
 
 /*
- * Prototypes
- */
-static int znfp_get_number		(char **);
-static char *znfp_put_number		(int, int);
-
-
-
-/*
  * Return: >=0 number, ERROR (-1) error, WILDCARD (-2) "*" or "All"
  */
-static int znfp_get_number(char **ps)
+int znfp_get_number(char **ps)
 {
     char *s = *ps;
     int val = 0;
@@ -87,7 +79,8 @@ int znfp_parse_partial(char *asc, Node *node)
 
     /* Set Node n to empty */
     n.zone = n.net = n.node = n.point = EMPTY;
-
+    n.domain[0] = 0;
+    
     /* Special case global wildcard "*", "All", or "World" */
     if(streq(asc, "*") || strieq(asc, "all") || strieq(asc, "world"))
     {
@@ -170,16 +163,16 @@ int znfp_parse_diff(char *asc, Node *node, Node *oldnode)
     if(znfp_parse_partial(asc, node) == ERROR)
 	return ERROR;
 
+    /* Replace empty parts (-1) with value from oldnode */
     if(node)
     {
-	/* Replace empty parts (-1) with value from oldnode */
 	if(node->zone == EMPTY)
 	{
 	    /* No zone, use old zone address */
 	    node->zone = oldnode->zone;
 	    if(node->net == EMPTY)
 	    {
-	    /* No net, use old net address */
+		/* No net, use old net address */
 		node ->net = oldnode->net;
 		if(node->node == EMPTY)
 		{
@@ -218,6 +211,9 @@ char *znfp_print(Node *node, int point0, int wildcards)
 {
     SHUFFLEBUFFERS;
 
+    /* Initialize to empty string */
+    tcharp[0] = 0;
+    
     /* Always display point address if wildcards==TRUE */
     if(wildcards)
 	point0 = TRUE;
@@ -252,7 +248,8 @@ char *znfp_print(Node *node, int point0, int wildcards)
     {
 	str_append(tcharp, MAX_CONVERT_BUFLEN,
 		   znfp_put_number(node->net, wildcards));
-	str_append(tcharp, MAX_CONVERT_BUFLEN, "/");
+	if(node->node != EMPTY)
+	    str_append(tcharp, MAX_CONVERT_BUFLEN, "/");
     }
     /* Node */
     if(node->node != EMPTY)
@@ -267,10 +264,26 @@ char *znfp_print(Node *node, int point0, int wildcards)
 	str_append(tcharp, MAX_CONVERT_BUFLEN,
 		   znfp_put_number(node->point, wildcards));
     }
-    
+
+    /* Domain */
+    if(node->domain[0])
+    {
+	str_append(tcharp,  MAX_CONVERT_BUFLEN, "@");
+	str_append(tcharp, MAX_CONVERT_BUFLEN, node->domain);
+    }
+
     return tcharp;
 }
 
+
+
+/*
+ * Standard output function for Node
+ */
+char *znfp(Node *node)
+{
+    return znfp_print(node, TRUE, TRUE);
+}
 
 
 
@@ -301,7 +314,7 @@ int main(int argc, char *argv[])
 	}
 	printf("testparse 1: val=%d:%d/%d.%d\n",
 	       n.zone, n.net, n.node, n.point   );
-	printf("             str=%s\n", znfp_print(&n, TRUE, TRUE));
+	printf("             str=%s\n", znfp(&n));
 	exit(0);
     }
     
@@ -320,8 +333,7 @@ int main(int argc, char *argv[])
 	}
 	printf("testparse 2: val1=%d:%d/%d.%d val2=%d:%d/%d.%d\n",
 	       o.zone, o.net, o.node, o.point, n.zone, n.net, n.node, n.point);
-	printf("             str1=%s str2=%s\n",
-	       znfp_print(&o, TRUE, TRUE), znfp_print(&n, TRUE, TRUE));
+	printf("             str1=%s str2=%s\n", znfp(&o), znfp(&n));
 	exit(0);
     }
 

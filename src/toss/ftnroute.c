@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftnroute.c,v 4.6 1996/05/11 15:05:39 mj Exp $
+ * $Id: ftnroute.c,v 4.7 1996/05/12 15:35:07 mj Exp $
  *
  * Route FTN NetMail/EchoMail
  *
@@ -39,7 +39,7 @@
 
 
 #define PROGRAM 	"ftnroute"
-#define VERSION 	"$Revision: 4.6 $"
+#define VERSION 	"$Revision: 4.7 $"
 #define CONFIG		CONFIG_MAIN
 
 
@@ -49,7 +49,7 @@
  */
 int	do_routing		(char *, FILE *, Packet *);
 int	do_move			(char *, FILE *, PktDesc *);
-int	do_cmd			(PktDesc *, Routing *);
+int	do_cmd			(PktDesc *, Routing *, Node *);
 int	do_packet		(char *, FILE *, Packet *, PktDesc *);
 void	add_via			(Textlist *, Node *);
 int	do_file			(char *);
@@ -75,6 +75,7 @@ int do_routing(char *name, FILE *fp, Packet *pkt)
     PktDesc *desc;
     Routing *r;
     LNode *p;
+    Node match;
     
     desc = parse_pkt_name(name, &pkt->from, &pkt->to);
     if(desc == NULL)
@@ -92,11 +93,13 @@ int do_routing(char *name, FILE *fp, Packet *pkt)
 	    for(p=r->nodes.first; p; p=p->next)
 		if(node_match(&desc->to, &p->node))
 		{
-		    debug(4, "routing: type=%c cmd=%c flav=%c flav_new=%c",
-			  r->type, r->cmd, r->flav, r->flav_new            );
-		    lon_debug(4, "routing: nodes=", &r->nodes, TRUE);
+		    match = p->node;
+		    debug(4, "routing: type=%c cmd=%c flav=%c flav_new=%c "
+			  "match=%s",
+			  r->type, r->cmd, r->flav, r->flav_new,
+			  znfp_print(&match, TRUE, TRUE)                   );
 		    
-		    if(do_cmd(desc, r))
+		    if(do_cmd(desc, r, &match))
 			goto ready;
 		    
 		    break;			/* Inner for loop */
@@ -159,7 +162,7 @@ int do_move(char *name, FILE *fp, PktDesc *desc)
 /*
  * Exec routing command
  */
-int do_cmd(PktDesc *desc, Routing *r)
+int do_cmd(PktDesc *desc, Routing *r, Node *match)
 {
     int ret = FALSE;
     
@@ -171,6 +174,12 @@ int do_cmd(PktDesc *desc, Routing *r)
 	    debug(4, "send %c %s", r->flav, node_to_asc(&desc->to, TRUE));
 	    desc->flav = r->flav;
 	    desc->move_only = FALSE;
+	    /*
+	     * Special SEND syntax:
+	     *   send 1:2/3  ==  route 1:2/3.0 1:2/3.*
+	     */
+	    if(match->point == EMPTY)
+		desc->to.point = 0;
 	    ret = TRUE;
 	}
 	break;
