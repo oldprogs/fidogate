@@ -1,5 +1,16 @@
 Sun May 11 21:23:01 1997  Martin Junius  <mj@fido.de>
 
+	======= Release 4.2.2 ================================================
+	------- CVS ci, tag R422 ---------------------------------------------
+
+	* fidogate.lsm: updated.
+
+	* ANNOUNCE: updated.
+
+	* test/tc.nomsgid/run: use new test packet.
+
+	* test/ti.pkt-misc/t-gw-nomsgid.pkt: new test packet.
+
 	------- CVS ci -------------------------------------------------------
 
 	* examples/abis.abra.de, nambi.north.de: updated example
