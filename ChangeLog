@@ -1,3 +1,44 @@
+Fri May  1 14:17:28 1998  Martin Junius  <mj@fido.de>
+
+	------- CVS ci -------------------------------------------------------
+
+	* config.make (DEFAULT_V_CHARSETMAP): added new config option.
+
+	* examples/orodruin/common.conf: added CHARSETMAP example.
+
+	* examples/orodruin/gate.conf: added DefaultCharset,
+	  NetMailCharset configuration examples.
+
+	* examples/orodruin/common.conf: added LogLevel example.
+
+	* src/toss/runtoss.pl: added LogLevel config option for syslog
+	  level (default: notice). 
+
+	* src/toss/rununpack.pl (run_arc): less ugly substitution of %a in
+	  archiver command.
+	  Added LogLevel config option for syslog level (default: notice).
+
+	* src/toss/runtoss.pl (log): dito.
+	  (df_prog): less ugly substitution of %p in DiskFreeProg.
+
+	* src/toss/rununpack.pl (log): fixed bug, @text was not written to
+	  logfile without -v.
+
+Wed Apr 29 21:52:27 1998  Martin Junius  <mj@fido.de>
+
+	* src/charset/new.c: new module for future charset.c code, for now
+	  living here.
+	  (charset_table_new): moved from charsetc.c
+	  (charset_alias_new): moved from charsetc.c
+	  (charset_write_bin): moved from charsetc.c
+	  (charset_read_bin): new function reading binary charset map file.
+	  (charset_qpen): new function converting char to MIME
+	  quoted-printable encoding =XX.
+	  (charset_map_c): new function mapping single character using the
+	  currently installed mapping table.
+	  (charset_set_in_out): set the currently installed mapping table.
+	  (main): test main() for testcharset.
+
 Tue Apr 28 20:53:57 1998  Martin Junius  <mj@fido.de>
 
 	------- CVS ci -------------------------------------------------------
