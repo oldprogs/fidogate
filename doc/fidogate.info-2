@@ -3,7 +3,7 @@ input file fidogate.texi.
 
    This file documents the usage of FIDOGATE version 4.0
 
-   Copyright (C) 1994-1995, Martin Junius
+   Copyright (C) 1994-1996, Martin Junius
 
    Permission is granted to make and distribute verbatim copies of this
 manual provided the copyright notice and this permission notice are
@@ -143,15 +143,45 @@ Common configuration:
 `Routing file'
      Use file instead of the default `routing' config file.
 
-Special configuration `ffx' (config file `config.ffx'):
+Special configuration `ffx', `ffxbatch', `ffxqt' (config file
+`config.ffx'):
 
-`FFXDataCompr parameter'
+`FFXDataFlav flavour'
+     Flavour to be used for file attachments created by the ffx
+     programs.
+
+`FFXDataCompr command ...'
+     Program to be used for creating compressed `ffx' data files.
+
 `FFXDataExt parameter'
+     File name extension to be used for compressed `ffx' data files.
+
 `FFXDataDecompr parameter'
+     Uncompressor name for compressed `ffx' data files (will be run by
+     `ffxqt').
+
 `FFXDataComprN parameter'
+     Program to be used for creating uncompress `ffx' data files (option
+     `-n').
+
 `FFXDataExtN parameter'
+     File name extension to be used for uncompressed `ffx' data files
+     (option `-n').
+
 `FFXDataDecomprN parameter'
-`FFXDataFlav parameter'
+     Uncompressor name for uncompressed `ffx' data files (option `-n',
+     will be run by `ffxqt').
+
+`FFXCommand name command ...'
+     List of command names and corresponding commands to be used by
+     `ffxqt'. Only the commands listed can be executed. This replaces
+     the old LIBDIR/ffxqt-dir/name structure of previous FIDOGATE
+     versions.
+
+`FFXUncompress name command ...'
+     List of uncompressor names and corresponding commands to be used by
+     `ffxqt'.
+
 Special configuration `ffxbatch' (config file `config.ffx'):
 
 `FFXBatchArc parameter'
@@ -369,6 +399,13 @@ Special configuration `ftntoss' (config file `config.main'):
      Specifies the `areas.bbs' EchoMail distribution file used by
      `ftnaf' and `ftntoss'.
 
+Special configuration `runtoss' (config file `config.main'):
+
+`MinDiskFree Kbyte'
+     Minimum free disk space required by the `runtoss' script.
+     `runtoss' will terminate if there is less than Kbyte free disk
+     space in SPOOLDIR.
+
 Special configuration `ftnfattach' (config file `config.main'):
 
 `FAttachFlav flavour'
@@ -527,8 +564,7 @@ options
      arguments!
 
     `-a address'
-          Select alternate FTN address for this area/newsgroup. NOT YET
-          IMPLEMENTED.
+          Select alternate FTN address for this area/newsgroup.
 
     `-z zone'
           Select zone AKA zone for this area/newsgroup.
@@ -889,11 +925,13 @@ area
 options
      Options for this area:
     `-a address'
-          Set alternate FTN AKA for this area. NOT YET IMPLEMENTED.
+          Set alternate FTN AKA for this area.
 
     `-z zone'
-          Set alternate zone AKA for this area. NOT YET IMPLEMENTED
-          (zone taken from first node in nodes list).
+          Set alternate zone AKA for  this area. If not  set, the zone
+          information is taken from  the first node in the  nodes list.
+          `ftnaf' will automatically rewrite `areas.bbs', inserting
+          the `-z' option.
 
     `-l lvl'
           Set Areafix/Filefix access level for this area.

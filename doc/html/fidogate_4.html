@@ -252,25 +252,56 @@ Use <I>file</I> instead of the default <CODE>routing</CODE> config file.
 </DL>
 
 <P>
-Special configuration <CODE>ffx</CODE> (config file <CODE>config.ffx</CODE>):
+Special configuration <CODE>ffx</CODE>, <CODE>ffxbatch</CODE>,
+<CODE>ffxqt</CODE> (config file <CODE>config.ffx</CODE>):
 
 </P>
 <DL COMPACT>
 
-<DT><CODE>FFXDataCompr <I>parameter</I></CODE>
+<DT><CODE>FFXDataFlav <I>flavour</I></CODE>
 <DD>
+Flavour to be used for file attachments created by the ffx programs.
+
+<DT><CODE>FFXDataCompr <I>command ...</I></CODE>
+<DD>
+Program to be used for creating compressed <CODE>ffx</CODE> data files.
+
 <DT><CODE>FFXDataExt <I>parameter</I></CODE>
 <DD>
+File name extension to be used for compressed <CODE>ffx</CODE> data files.
+
 <DT><CODE>FFXDataDecompr <I>parameter</I></CODE>
 <DD>
+Uncompressor name for compressed <CODE>ffx</CODE> data files (will be run by
+<CODE>ffxqt</CODE>).
+
 <DT><CODE>FFXDataComprN <I>parameter</I></CODE>
 <DD>
+Program to be used for creating uncompress <CODE>ffx</CODE> data files (option
+<CODE>-n</CODE>).
+
 <DT><CODE>FFXDataExtN <I>parameter</I></CODE>
 <DD>
+File name extension to be used for uncompressed <CODE>ffx</CODE> data files
+(option <CODE>-n</CODE>).
+
 <DT><CODE>FFXDataDecomprN <I>parameter</I></CODE>
 <DD>
-<DT><CODE>FFXDataFlav <I>parameter</I></CODE>
+Uncompressor name for uncompressed <CODE>ffx</CODE> data files (option
+<CODE>-n</CODE>, will be run by <CODE>ffxqt</CODE>).
+
+<DT><CODE>FFXCommand <I>name</I> <I>command ...</I></CODE>
 <DD>
+List of command names and corresponding commands to be used by
+<CODE>ffxqt</CODE>. Only the commands listed can be executed. This replaces
+the old LIBDIR/ffxqt-dir/<I>name</I> structure of previous FIDOGATE
+versions.
+
+<DT><CODE>FFXUncompress <I>name</I> <I>command ...</I></CODE>
+<DD>
+List of uncompressor names and corresponding commands to be used by
+<CODE>ffxqt</CODE>.
+
 </DL>
 
 <P>
@@ -606,6 +637,20 @@ Specifies the <CODE>areas.bbs</CODE> EchoMail distribution file used by
 </DL>
 
 <P>
+Special configuration <CODE>runtoss</CODE> (config file <CODE>config.main</CODE>):
+
+</P>
+<DL COMPACT>
+
+<DT><CODE>MinDiskFree <I>Kbyte</I></CODE>
+<DD>
+Minimum free disk space required by the <CODE>runtoss</CODE>
+script. <CODE>runtoss</CODE> will terminate if there is less than <I>Kbyte</I>
+free disk space in SPOOLDIR.
+
+</DL>
+
+<P>
 Special configuration <CODE>ftnfattach</CODE> (config file <CODE>config.main</CODE>):
 
 </P>
@@ -867,8 +912,7 @@ IMPORTANT: there must be spaces between the option and its arguments!
 
 <DT><CODE>-a <I>address</I></CODE>
 <DD>
-Select alternate FTN address for this area/newsgroup. NOT YET
-IMPLEMENTED.
+Select alternate FTN address for this area/newsgroup.
 
 <DT><CODE>-z <I>zone</I></CODE>
 <DD>
@@ -1390,11 +1434,12 @@ Options for this area:
 
 <DT><CODE>-a <I>address</I></CODE>
 <DD>
-Set alternate FTN AKA for this area. NOT YET IMPLEMENTED.
+Set alternate FTN AKA for this area.
 <DT><CODE>-z <I>zone</I></CODE>
 <DD>
-Set alternate zone AKA for this area. NOT YET IMPLEMENTED (zone taken
-from first node in <I>nodes</I> list).
+Set alternate zone AKA for  this area. If not  set, the zone information
+is taken from  the first node in the  <I>nodes</I> list.  <CODE>ftnaf</CODE> will
+automatically rewrite <CODE>areas.bbs</CODE>, inserting the <CODE>-z</CODE> option.
 <DT><CODE>-l <I>lvl</I></CODE>
 <DD>
 Set Areafix/Filefix access level for this area.

@@ -2,6 +2,21 @@ Sun Oct 13 13:55:57 1996  Martin Junius  <mj@fido.de>
 
 	------- CVS ci -------------------------------------------------------
 
+	* doc/fidogate.texi: several small fixes.
+
+	* scripts/Makefile (SUBDIRS): added cnews.
+
+	* scripts/cnews/: new (back again ;-) examples / configuration
+ 	  scripts for CNews: batchparms, compgz, run-batch, sys, vaiffx,
+	  viafidogate. 
+
+	* doc/fidogate.texi (Config): added runtoss with new parameter
+	  MinDiskFree. 
+	  (Config): added documentation for all the FFX parameters,
+	  including the new FFXCommand / FFXUncompress.
+
+	------- CVS ci -------------------------------------------------------
+
 	* src/toss/runtoss.sh (MINFREE): get parameter value MinDiskFree
 	  from config.main, default value is 10000.
 

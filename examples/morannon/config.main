@@ -157,3 +157,8 @@ MaxOpenFiles	40
 # Maximum size of ArcMail archives (KByte)
 #
 MaxArc		2048
+
+#
+# Minimum free disk space for runtoss (KByte)
+#
+MinDiskFree	10240

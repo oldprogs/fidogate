@@ -2,8 +2,6 @@
 
 X = for next release
 
-DONE.	* config.ffx: replace LIBDIR/ffxqt-dir/ with Command list.
-
 	* config.c: make Origin/Organization normal cf_get_string()
 	  parameters.
 

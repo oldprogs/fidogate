@@ -3,7 +3,7 @@ input file fidogate.texi.
 
    This file documents the usage of FIDOGATE version 4.0
 
-   Copyright (C) 1994-1995, Martin Junius
+   Copyright (C) 1994-1996, Martin Junius
 
    Permission is granted to make and distribute verbatim copies of this
 manual provided the copyright notice and this permission notice are
@@ -244,9 +244,9 @@ connectivity:
      nofromeline
      gateway   2:2476/2
 
-   See also `doc/FidoPnt.txt' for a complete description (German!) on
-how to install a point system on LINUX using FIDOGATE, ifcico, CNews,
-and smail.
+   See also `doc/Fido-Point-HOWTO' (German) and
+`doc/Fido-Point-eng-HOWT' (English) for a complete description how to
+install a point system.
 
 
 File: fidogate.info,  Node: config.h,  Next: config.make,  Prev: Point,  Up: Installation
@@ -539,7 +539,7 @@ The `config.make' Makefile Configuration
 This file is included in all FIDOGATE Makefiles.
 
    A special convention is used for defining macros: a macros definition
-which starts in the first column (no leading white space) while be used
+which starts in the first column (no leading white space) will be used
 by `subst.pl' to replace <something> in the various shell and perl
 scripts. Be careful and keep the formatting when editing this file.
 
@@ -764,7 +764,7 @@ mail to and from the UNIX system by some other means.
 
    If you want everything running on the UNIX system, you need a FIDO
 mailer for UNIX. To my knowledge there are two working FIDO mailers:
-   * BinkleyTerm 3.02pl10
+   * BinkleyTerm 3.02pl10a
 
    * ifcico 2.x from Eugene Crosser's ifmail package
 

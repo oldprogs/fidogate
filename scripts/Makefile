@@ -1,6 +1,6 @@
 #:ts=8
 #
-#    $Id: Makefile,v 4.3 1996/09/28 08:13:52 mj Exp $
+#    $Id: Makefile,v 4.4 1996/10/13 15:08:42 mj Exp $
 #
 #    Makefile for FIDOGATE scripts/
 #
@@ -16,7 +16,7 @@ include $(TOPDIR)/config.make
 include $(TOPDIR)/rules.make
 
 
-SUBDIRS		= filebase inn maintenance misc nodelist outbound run
+SUBDIRS		= cnews filebase inn maintenance misc nodelist outbound run
 
 
 all clean depend::

@@ -2,7 +2,7 @@
 @c
 @c FIDOGATE documentation
 @c
-@c $Id: fidogate.texi,v 4.5 1996/10/06 15:18:18 mj Exp $
+@c $Id: fidogate.texi,v 4.6 1996/10/13 15:08:37 mj Exp $
 @c
 
 @setfilename fidogate.info
@@ -17,7 +17,7 @@
 @ifinfo
 This file documents the usage of FIDOGATE version 4.0
 
-Copyright (C) 1994-1995, Martin Junius
+Copyright (C) 1994-1996, Martin Junius
 
 Permission is granted to make and distribute verbatim copies of
 this manual provided the copyright notice and this permission notice
@@ -346,9 +346,9 @@ nofromeline
 gateway   2:2476/2
 @end example
 
-See also @code{doc/FidoPnt.txt} for a complete description
-(German!) on how to install a point system on LINUX using FIDOGATE,
-ifcico, CNews, and smail.
+See also @code{doc/Fido-Point-HOWTO} (German) and
+@code{doc/Fido-Point-eng-HOWT} (English) for a complete description how
+to install a point system.
 
 
 
@@ -688,7 +688,7 @@ configuration dependent, see UNIX ulimits.
 This file is included in all FIDOGATE Makefiles.
 
 A special convention is used for defining macros: a macros definition
-which starts in the first column (no leading white space) while be used
+which starts in the first column (no leading white space) will be used
 by @code{subst.pl} to replace @i{<something>} in the various shell and
 perl scripts. Be careful and keep the formatting when editing this file.
 
@@ -961,7 +961,7 @@ mail to and from the UNIX system by some other means.
 If you want everything running on the UNIX system, you need a FIDO
 mailer for UNIX. To my knowledge there are two working FIDO mailers:
 @itemize @bullet
-@item BinkleyTerm 3.02pl10
+@item BinkleyTerm 3.02pl10a
 @item ifcico 2.x from Eugene Crosser's ifmail package
 @end itemize
 
@@ -2404,23 +2404,45 @@ Use @i{file} instead of the default @code{routing} config file.
 
 @c ---------------------------------------------------------------------------
 
-@noindent Special configuration @code{ffx} (config file @code{config.ffx}):
+@noindent Special configuration @code{ffx}, @code{ffxbatch},
+@code{ffxqt} (config file @code{config.ffx}):
 
 @table @code
 
-@item FFXDataCompr @i{parameter}
+@item FFXDataFlav @i{flavour}
+Flavour to be used for file attachments created by the ffx programs.
+
+@item FFXDataCompr @i{command ...}
+Program to be used for creating compressed @code{ffx} data files.
 
 @item FFXDataExt @i{parameter}
+File name extension to be used for compressed @code{ffx} data files.
 
 @item FFXDataDecompr @i{parameter}
+Uncompressor name for compressed @code{ffx} data files (will be run by
+@code{ffxqt}).
 
 @item FFXDataComprN @i{parameter}
+Program to be used for creating uncompress @code{ffx} data files (option
+@code{-n}).
 
 @item FFXDataExtN @i{parameter}
+File name extension to be used for uncompressed @code{ffx} data files
+(option @code{-n}).
 
 @item FFXDataDecomprN @i{parameter}
+Uncompressor name for uncompressed @code{ffx} data files (option
+@code{-n}, will be run by @code{ffxqt}).
 
-@item FFXDataFlav @i{parameter}
+@item FFXCommand @i{name} @i{command ...}
+List of command names and corresponding commands to be used by
+@code{ffxqt}. Only the commands listed can be executed. This replaces
+the old LIBDIR/ffxqt-dir/@i{name} structure of previous FIDOGATE
+versions.
+
+@item FFXUncompress @i{name} @i{command ...}
+List of uncompressor names and corresponding commands to be used by
+@code{ffxqt}.
 
 @end table
 
@@ -2697,6 +2719,18 @@ Specifies the @code{areas.bbs} EchoMail distribution file used by
 @end table
 
 
+@noindent Special configuration @code{runtoss} (config file @code{config.main}):
+
+@table @code
+
+@item MinDiskFree @i{Kbyte}
+Minimum free disk space required by the @code{runtoss}
+script. @code{runtoss} will terminate if there is less than @i{Kbyte}
+free disk space in SPOOLDIR.
+
+@end table
+
+
 @noindent Special configuration @code{ftnfattach} (config file @code{config.main}):
 
 @table @code
@@ -2900,8 +2934,7 @@ IMPORTANT: there must be spaces between the option and its arguments!
 @table @code
 
 @item -a @i{address}
-Select alternate FTN address for this area/newsgroup. NOT YET
-IMPLEMENTED.
+Select alternate FTN address for this area/newsgroup.
 
 @item -z @i{zone}
 Select zone AKA @i{zone} for this area/newsgroup.
@@ -3323,10 +3356,11 @@ The area name.
 Options for this area:
 @table @code
 @item -a @i{address}
-Set alternate FTN AKA for this area. NOT YET IMPLEMENTED.
+Set alternate FTN AKA for this area.
 @item -z @i{zone}
-Set alternate zone AKA for this area. NOT YET IMPLEMENTED (zone taken
-from first node in @i{nodes} list).
+Set alternate zone AKA for  this area. If not  set, the zone information
+is taken from  the first node in the  @i{nodes} list.  @code{ftnaf} will
+automatically rewrite @code{areas.bbs}, inserting the @code{-z} option.
 @item -l @i{lvl}
 Set Areafix/Filefix access level for this area.
 @item -k @i{key}
