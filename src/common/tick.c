@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: tick.c,v 4.1 1996/04/23 10:24:58 mj Exp $
+ * $Id: tick.c,v 4.2 1996/05/08 18:50:05 mj Exp $
  *
  * TIC file processing
  *
@@ -142,6 +142,9 @@ int tick_get(Tick *tic, char *name)
 	
 	key = strtok(buffer, " \t");		/* Keyword */
 	arg = strtok(NULL  , "");		/* Arg(s) */
+
+	if(!key || !arg)
+	    continue;
 	
 	if(! stricmp(key, "Origin"))
 	{

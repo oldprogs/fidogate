@@ -1,5 +1,7 @@
 Wed May  8 20:22:12 1996  Martin Junius  <mj@fido.de>
 
+	------- CVS tag r40alpha2 --------------------------------------------
+
 	------- CVS commit ---------------------------------------------------
 
 	* src/common/tick.c (tick_get): ignore empty or incomplete

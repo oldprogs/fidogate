@@ -2,6 +2,8 @@
 
 X = for release 4.0alpha2
 
+	* ftnpack: lock file for do_dirpack().
+
 	* ftn2rfc: bounce messages should include the complete FTN
 	  message with all kludges etc. to ease debugging.
 

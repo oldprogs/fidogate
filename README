@@ -1,6 +1,6 @@
 -*- Indented-Text -*-
 
-$Id: README,v 4.4 1996/05/05 12:26:52 mj Exp $
+$Id: README,v 4.5 1996/05/08 18:50:04 mj Exp $
 
 ----------------------------------------------------------------------
 				   
@@ -36,8 +36,8 @@ Major changes in FIDOGATE 4.0:
 
 * Dupe check: ftntoss now uses a MSGID history database if enabled.
 
-* Tons of new config options! See examples/orodruin/
-  examples/morannon/.
+* Tons of new config options! See examples/orodruin/... and
+  examples/morannon/...
 
 ----------------------------------------------------------------------
 
@@ -77,4 +77,4 @@ for subscription.
 
 ----------------------------------------------------------------------
 
-Martin Junius <mj@fido.de>, $Date: 1996/05/05 12:26:52 $
+Martin Junius <mj@fido.de>, $Date: 1996/05/08 18:50:04 $

@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# $Id: tr.init,v 4.3 1996/05/05 12:26:59 mj Exp $
+# $Id: tr.init,v 4.4 1996/05/08 18:50:06 mj Exp $
 #
 # FIDOGATE test initialization
 #
@@ -11,6 +11,7 @@ echo "tc: clean-up"
 
 echo "tc: init"
 
-mkdir toss toss/in toss/tmp toss/out toss/pack toss/bad bt
+mkdir toss toss/in toss/tmp toss/out toss/pack toss/bad
+mkdir bt pin
 mkdir in in/mail in/news in/bad out
 mkdir seq locks

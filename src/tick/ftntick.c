@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftntick.c,v 4.0 1996/04/17 18:17:42 mj Exp $
+ * $Id: ftntick.c,v 4.1 1996/05/08 18:50:05 mj Exp $
  *
  * Process incoming TIC files
  *
@@ -36,7 +36,7 @@
 
 
 #define PROGRAM		"ftntick"
-#define VERSION		"$Revision: 4.0 $"
+#define VERSION		"$Revision: 4.1 $"
 #define CONFIG		CONFIG_MAIN
 
 
@@ -396,7 +396,7 @@ int check_file(Tick *tic)
     /* Search file */
     if(dir_search(cf_inbound(), tic->file) == NULL)
     {
-	log("ERROR: can't file file %s", tic->file);
+	log("ERROR: can't find file %s", tic->file);
 	return ERROR;
     }
 

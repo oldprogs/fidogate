@@ -20,7 +20,7 @@ LibDir		../cf
 SpoolDir	.
 LogDir          .
 Outbound	./bt
-Inbound		./bt/pin
+Inbound		./pin
 
 #
 # Configuration files
