@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway software UNIX <-> FIDO
  *
- * $Id: config.h,v 4.23 1997/07/25 21:01:28 mj Exp $
+ * $Id: config.h,v 4.24 1997/08/10 17:34:20 mj Exp $
  *
  * Configuration header file
  *
@@ -333,8 +333,8 @@
 #define LOG		"log"		/* Default log file */
 
 /* Sequencer files */
-#define SEQ_MAIL	"seq.mail"	/* ftn2rfc: mail files */
-#define SEQ_NEWS	"seq.news"	/* ftn2rfc: news files */
+#define SEQ_MAIL	"seq.mail"	/* ftn2rfc: temp mail files */
+#define SEQ_NEWS	"seq.news"	/* ftn2rfc: temp news files */
 #define SEQ_MSGID	"seq.msgid"	/* local ^AMSGID */
 #define SEQ_PKT		"seq.pkt"	/* rfc2ftn: outgoing packets */
 #define SEQ_SPLIT	"seq.split"	/* rfc2ftn: msg # of split msgs */
@@ -352,8 +352,8 @@
  */
 #define INDIR		"in"		/* ftn2rfc: input .pkt's */
 #define INSECUREDIR	"insecure"	/* ftn2rfc: insecure input */
-#define INDIR_MAIL	"mail"		/* ftn2rfc: mail output, rel. INDIR */
-#define INDIR_NEWS	"news"		/* ftn2rfc: news output, rel. INDIR */
+#define INDIR_MAIL	"tmpmail"	/* ftn2rfc: mail output, rel. INDIR */
+#define INDIR_NEWS	"tmpnews"	/* ftn2rfc: news output, rel. INDIR */
 #define OUTDIR		"out"		/* rfc2ftn: output .pkt's */
 
 #define SEQ		"seq"		/* Dir for sequencer files */

@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftn2rfc.c,v 4.23 1997/07/01 19:34:50 mj Exp $
+ * $Id: ftn2rfc.c,v 4.24 1997/08/10 17:34:23 mj Exp $
  *
  * Convert FTN mail packets to RFC mail and news batches
  *
@@ -40,7 +40,7 @@
 
 
 #define PROGRAM 	"ftn2rfc"
-#define VERSION 	"$Revision: 4.23 $"
+#define VERSION 	"$Revision: 4.24 $"
 #define CONFIG		CONFIG_GATE
 
 
@@ -69,11 +69,7 @@ void	usage			(void);
  */
 int t_flag = FALSE;
 
-char in_dir   [MAXPATH];
-char news_dir [MAXPATH];
-char news_name[MAXPATH];
-char news_tmp [MAXPATH];
-FILE *news_file;
+char in_dir[MAXPATH];
 
 
 /*
@@ -131,6 +127,9 @@ static int use_ftn_to_address = FALSE;
 
 /* Kill split messages with ^ASPLIT kludge */
 static int kill_split = FALSE;
+
+/* Write single news article files, not one big news batch */
+static int single_articles = FALSE;
 
 
 
@@ -322,7 +321,6 @@ int unpack(FILE *pkt_file, Packet *pkt)
     tl_init(&theader);
     tl_init(&tbody);
     msg_body_init(&body);
-    news_file = NULL;
     ret = OK;
     
     /*
@@ -465,22 +463,6 @@ int unpack(FILE *pkt_file, Packet *pkt)
 		log("unknown area %s", area->area);
 		continue;
 	    }
-
-	    /* Open new news batch if needed */
-	    if(!news_file)
-	    {
-		long n = sequencer(SEQ_NEWS);
-
-		sprintf(news_tmp,  "%s/%08ld.tmp", news_dir, n);
-		sprintf(news_name, "%s/%08ld.msg", news_dir, n);
-		news_file = fopen(news_tmp, W_MODE);
-		if(!news_file)
-		{
-		    log("$ERROR: can't create output file %s", news_tmp);
-		    ret = ERROR;
-		    break;
-		}
-	    }
 	}
 	else
 	{
@@ -607,8 +589,8 @@ int unpack(FILE *pkt_file, Packet *pkt)
 	{
 	    if(msgbody_rfc_from)
 	    {
-		log("skipping message from gateway, origin=%s",
-		    node_to_asc(&msg.node_orig, TRUE));
+		log("skipping message from gateway, area %s, origin=%s",
+		    area->area, node_to_asc(&msg.node_orig, TRUE));
 		continue;
 	    }
 	
@@ -616,16 +598,16 @@ int unpack(FILE *pkt_file, Packet *pkt)
 	    if( (p = kludge_get(&body.kludge, "PID", NULL))  &&
 	       !strnicmp(p, "GIGO", 4)                         )
 	    {
-		log("skipping message from gateway (GIGO), origin=%s",
-		    node_to_asc(&msg.node_orig, TRUE));
+		log("skipping message from gateway (GIGO), area %s, origin=%s",
+		    area->area, node_to_asc(&msg.node_orig, TRUE));
 		continue;
 	    }
 
 	    /* Broken FidoZerb message splitting */
 	    if( (p = kludge_get(&body.kludge, "X-FZ-SPLIT", NULL)) )
 	    {
-		log("skipping message from gateway (X-FZ-SPLIT), origin=%s",
-		    node_to_asc(&msg.node_orig, TRUE));
+		log("skipping message from gateway (X-FZ-SPLIT), area %s, origin=%s",
+		    area->area, node_to_asc(&msg.node_orig, TRUE));
 		continue;
 	    }
 	    
@@ -907,12 +889,6 @@ int unpack(FILE *pkt_file, Packet *pkt)
 	if(area==NULL) {			/* Mail */
 	    log("MAIL: %s -> %s", from_line, to_line);
 	    
-	    if(mail_open() == ERROR)
-	    {
-		ret = ERROR;
-		break;
-	    }
-
 	    tl_appendf(&theader,
 			     "From %s %s\n", rfcaddr_to_asc(&addr_from, FALSE),
 			     date("%a %b %d %H:%M:%S %Y", NULL) );
@@ -1076,14 +1052,31 @@ int unpack(FILE *pkt_file, Packet *pkt)
 	 * Write header and message body to output file
 	 */
 	if(area) {
-	    /* News batch */
-	    fprintf(news_file, "#! rnews %ld\n", tl_size(&theader) +
-						 tl_size(&tbody)	);
-	    tl_print(&theader, news_file);
-	    tl_print(&tbody,   news_file);
+	    if(!mail_file())
+		if(mail_open('n') == ERROR)
+		{
+		    ret = ERROR;
+		    break;
+		}
+
+	    if(!single_articles)
+		/* News batch */
+		fprintf(mail_file(), "#! rnews %ld\n",
+			tl_size(&theader) + tl_size(&tbody) );
+	    tl_print(&theader, mail_file());
+	    tl_print(&tbody,   mail_file());
+
+	    if(single_articles)
+		mail_close();
 	}
 	else
 	{
+	    if(mail_open('m') == ERROR)
+	    {
+		ret = ERROR;
+		break;
+	    }
+
 	    /* Mail message */
 	    tl_print(&theader, mail_file());
 	    tl_print(&tbody,   mail_file());
@@ -1093,14 +1086,8 @@ int unpack(FILE *pkt_file, Packet *pkt)
 
     } /**while(type == MSG_TYPE)**/
 
-    if(news_file) 
-    {
-	/* Close news file */
-	fclose(news_file);
-	/* Rename .tmp -> .msg */
-	if(rename(news_tmp, news_name) == -1)
-	    log("$ERROR: can't rename %s to %s", news_tmp, news_name);
-    }
+    if(mail_file()) 
+	mail_close();
     
     return ret;
 }
@@ -1200,7 +1187,8 @@ void usage(void)
     
     fprintf(stderr, "usage:   %s [-options] [packet ...]\n\n", PROGRAM);
     fprintf(stderr, "\
-options: -i --ignore-hosts            do not bounce unknown host\n\
+options: -1 --single-articles         write single news articles, not batch\n\
+         -i --ignore-hosts            do not bounce unknown host\n\
 	 -t --insecure                process insecure packets\n\
          -I --in-dir name             set input packet directory\n\
          -l --lock-file               create lock file while processing\n\
@@ -1236,6 +1224,7 @@ int main(int argc, char **argv)
     int option_index;
     static struct option long_options[] =
     {
+	{ "single-articles", 0, 0, '1'},/* Write single article files */
 	{ "ignore-hosts", 0, 0, 'i'},	/* Do not bounce unknown hosts */
 	{ "insecure",     0, 0, 't'},	/* Toss insecure packets */
 	{ "in-dir",       1, 0, 'I'},	/* Set inbound packets directory */
@@ -1258,10 +1247,14 @@ int main(int argc, char **argv)
     cf_initialize();
 
 
-    while ((c = getopt_long(argc, argv, "itI:lx:vhc:S:L:a:u:",
+    while ((c = getopt_long(argc, argv, "1itI:lx:vhc:S:L:a:u:",
 			    long_options, &option_index     )) != EOF)
 	switch (c) {
 	/***** ftn2rfc options *****/
+	case '1':
+	    /* Write single article files */
+	    single_articles = TRUE;
+	    break;
 	case 'i':
 	    /* Don't bounce unknown hosts */
 	    ignore_hosts = TRUE;
@@ -1441,6 +1434,11 @@ int main(int argc, char **argv)
     {
 	debug(8, "config: KillSplit");
 	kill_split = TRUE;
+    }
+    if(cf_get_string("SingleArticles", TRUE))
+    {
+	debug(8, "config: SingleArticles");
+	single_articles = TRUE;
     }
     
     /*

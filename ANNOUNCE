@@ -44,6 +44,14 @@ Changes in 4.2.6:
 
 * nl-diff: fixed CRC comparison bug.
 
+WARNING!!! directories for temporary files created by ftn2rfc were
+renamed to SPOOLDIR/in/tmpmail and SPOOLDIR/in/tmpnews.
+
+* ftn2rfc: new -1 --single-articles option, forces ftn2rfc to single
+  news article files in SPOOLDIR/in/tmpnews. This enables FIDOGATE to
+  cooperate with other news posting tools such as innxmit and rpost
+  (from the suck package).
+
 
 
 Changes in 4.2.5:
@@ -131,6 +139,6 @@ End
 
 ======================================================================
 
-$Date: 1997/08/03 13:29:39 $
+$Date: 1997/08/10 17:34:18 $
 Martin Junius
 mailto:mj@fido.de

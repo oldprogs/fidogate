@@ -1,5 +1,5 @@
 #
-# $Id: Makefile,v 4.5 1997/04/27 11:19:03 mj Exp $
+# $Id: Makefile,v 4.6 1997/08/10 17:34:19 mj Exp $
 #
 # Makefile FIDOGATE TOPDIR
 #
@@ -24,8 +24,8 @@ install-dirs:
 	$(INSTALL_DIR)    $(LIBDIR)
 	$(INSTALL_DIR)    $(SPOOLDIR)
 	$(INSTALL_DIR)    $(SPOOLDIR)/in
-	$(INSTALL_DIR)    $(SPOOLDIR)/in/mail
-	$(INSTALL_DIR)    $(SPOOLDIR)/in/news
+	$(INSTALL_DIR)    $(SPOOLDIR)/in/tmpmail
+	$(INSTALL_DIR)    $(SPOOLDIR)/in/tmpnews
 	$(INSTALL_DIR)    $(SPOOLDIR)/in/bad
 	$(INSTALL_DIR)    $(SPOOLDIR)/insecure
 	$(INSTALL_DIR)    $(SPOOLDIR)/out

@@ -1,6 +1,6 @@
 #!/usr/local/bin/perl
 #
-# $Id: ftninrecomb.pl,v 4.0 1996/04/17 18:17:40 mj Exp $
+# $Id: ftninrecomb.pl,v 4.1 1997/08/10 17:34:24 mj Exp $
 #
 # Recombine split mail and news messages.
 
@@ -24,8 +24,8 @@ if($opt_S) {
 }
 $INDIR    = $opt_I if($opt_I);
 
-$maildir  = "$INDIR/mail";
-$newsdir  = "$INDIR/news";
+$maildir  = "$INDIR/tmpmail";
+$newsdir  = "$INDIR/tmpnews";
 $newsseq  = "seq.news";
 
 #

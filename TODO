@@ -2,14 +2,19 @@
 
 X = for next release
 
-	* doc: document FIDOGATE env var.
+	* doc: config.gate SingleArticles.
+
+	* scripts: check that process which created lock file still
+	  exists.
+
+	* doc: FIDOGATE env var.
 
 	* lock.c:lock_lockfile_id(): implement safer variant, see man 2
 	  open, NFS related bug with O_EXCL.
 
 	* ftn2rfc: ^ARFC-<mime> import.
 
-	* ftn2rfc: gateway check, log area.
+DONE.	* ftn2rfc: gateway check, log area.
 
 	* ftn2rfc/rfc2ftn: MAIL-log messages configurable.
 

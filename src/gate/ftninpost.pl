@@ -1,6 +1,6 @@
 #!/usr/local/bin/perl
 #
-# $Id: ftninpost.pl,v 4.3 1996/11/10 10:49:44 mj Exp $
+# $Id: ftninpost.pl,v 4.4 1997/08/10 17:34:24 mj Exp $
 #
 # Postprocessor for ftnin, feeds output of ftn2rfc to rnews and sendmail.
 # Call via ftnin's -x option or run after ftn2rfc. Replaces old fidorun
@@ -60,7 +60,7 @@ if($RECOMB) {
 }
 
 # mail
-$dir = "$INDIR/mail";
+$dir = "$INDIR/tmpmail";
 
 opendir(DIR, "$dir") || die "ftninpost: can't open $dir\n";
 @files = grep(/\.msg$/, readdir(DIR));
@@ -71,7 +71,7 @@ for $f (sort @files) {
 }
 
 # news
-$dir = "$INDIR/news";
+$dir = "$INDIR/tmpnews";
 
 opendir(DIR, "$dir") || die "ftninpost: can't open $dir\n";
 @files = grep(/\.msg$/, readdir(DIR));

@@ -1,3 +1,33 @@
+Sun Aug 10 18:18:41 1997  Martin Junius  <mj@fido.de>
+
+	------- CVS ci -------------------------------------------------------
+
+	* src/gate/ftninrecomb.pl: same.
+
+	* src/gate/ftninpost.pl: use new in/tmpmail, in/tmpnews.
+
+	* test/tc.gate1/run: added test run with ftn2rfc -1.
+
+	* test/tr.init: create new in/tmpmail, in/tmpnews.
+
+	* src/gate/ftn2rfc.c (unpack): removed early open of news output file.
+	  (unpack): new output file code, also support single news article
+	  files.
+
+	* src/common/mail.c (mail_open): added new sel argument, sel='m'
+	  creates mail file, sel='n' creates news file.
+
+	* config.h (INDIR_MAIL): changed to tmpmail.
+	  (INDIR_NEWS): change to tmpnews.
+
+	* src/common/mail.c: news_dir[] moved from ftn2rfc.c to mail.c.
+
+	* src/gate/ftn2rfc.c (unpack): added area name to "skipping
+	  message from gateway ..." log().
+	  (usage): new -1 --single-articles option.
+	  (main): implemented -1 --single-articles option, also enabled by
+	  config.gate SingleArticles.
+
 Sun Aug  3 09:47:38 1997  Martin Junius  <mj@fido.de>
 
 	------- CVS ci -------------------------------------------------------
