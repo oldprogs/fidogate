@@ -1,14 +1,14 @@
 -*- Indented-Text -*-
 
 X = for release 4.0alpha3
-
+	
 X	* rfc2ftn: use rfcaddr.c functions for rfc2ftn mail_sender() etc. and
 	  to replace the RFC parsing functions in rfcheader.c
 
 X	* rfc2ftn: check From, Reply-To for equal address, use real
 	  name in From header, if Reply-To is address only.
 
-	* ffxbatch: do nothing for empty batch directory.
+DONE.	* ffxbatch: do nothing for empty batch directory.
 
 	* ftnroute: new command "xroute" allowing routing based on
 	  source *and* destination address.
@@ -81,3 +81,29 @@ DONE.	  Problems with news batches (GD030V)?
 
 	* ftn2rfc, rfc2ftn: passthru operation for FTN messages, in
 	  particular EchoMail control information.
+
+	* ftntoss: strip ^APATH for ZoneGate
+
+	* ftntoss: ZoneGateFrom as suggested by <slapic@fido.hu>:
+-------------------------------------------------------------------------
+i receive mail from 1:270/101 as 1:270/104 (so i'm 1:270/104)
+my normal address is 2:371/2000
+i must forward/pack echomail as 2:371/2000
+i should strip seen-by and path when forwarding mail from 1:270/101 
+regardless whom i'm sending to.
+
+at this moment i have two installed fidogate, one with aka 1:270/104, and 
+one with aka 2:371/2000
+my 1:270/104 system receives from 1:270/101, and packs for 2:371/2000
+2:371/2000 receives from 1:270/104 and processes mail as normal.
+and at the end, 2:371/2000 exports to 1:270/101...
+it's not so nice... working, but not nice... i'd like to use one system 
+on a phisical system.
+so if i can do something like this:
+ZoneGateFrom    1:270/101       270/101 104 371/2000
+ZoneGate        1:270/101       270/101 371/2000
+and as the zonegatefrom specifies, fidogate should strip seen-by and path 
+every mail _from_ 1:270/101
+-------------------------------------------------------------------------
+	  This requires setting the sender address for the particular
+	  area. Something else?

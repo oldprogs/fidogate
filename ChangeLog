@@ -1,4 +1,21 @@
+Fri May 17 22:17:48 1996  Martin Junius  <mj@fido.de>
+
+	------- CVS tag r40alpha2a -------------------------------------------
+
+	------- CVS commit ---------------------------------------------------
+
+Wed May 15 22:22:57 1996  Martin Junius  <mj@fido.de>
+
+	* src/tick/ftnhatch.c (hatch): removed log() message, already in
+	  tick.c:tick_send(). 
+
 Sun May 12 16:19:40 1996  Martin Junius  <mj@fido.de>
+
+	* src/ffx/ffxbatch.c (ffx): moved log() message after
+	  pack_batch(), so no more log messages for empty batch
+	  directories.
+
+	------- CVS commit ---------------------------------------------------
 
 	* src/common/parsenode.c (znfp_parse_partial): initial n.domain[]
 	  to empty string.

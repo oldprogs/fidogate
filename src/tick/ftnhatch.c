@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: ftnhatch.c,v 4.0 1996/04/17 18:17:42 mj Exp $
+ * $Id: ftnhatch.c,v 4.1 1996/05/17 20:19:16 mj Exp $
  *
  * Hatch file into file area
  *
@@ -36,12 +36,12 @@
 
 
 #define PROGRAM		"ftnhatch"
-#define VERSION		"$Revision: 4.0 $"
+#define VERSION		"$Revision: 4.1 $"
 #define CONFIG		CONFIG_MAIN
 
 
 
-#define CREATOR		"by FIDOGATE/ftnhatch $Revision: 4.0 $"
+#define CREATOR		"by FIDOGATE/ftnhatch $Revision: 4.1 $"
 
 #define MY_AREASBBS	"FAreasBBS"    
 #define MY_CONTEXT	"ff"
@@ -72,8 +72,6 @@ int hatch(char *area, char *file, char *desc)
     Node node;
     LNode *p;
     int ret;
-    
-    log("area %s file %s", area, file);
     
     /*
      * Lookup area

@@ -1,6 +1,6 @@
 #:ts=8
 #
-#    $Id: Makefile,v 4.3 1996/05/05 12:26:57 mj Exp $
+#    $Id: Makefile,v 4.4 1996/05/17 20:19:16 mj Exp $
 #
 #    Makefile for FIDOGATE src/toss/
 #
@@ -52,7 +52,7 @@ install:
 	$(INSTALL_PROG)   runin       $(LIBDIR)
 	$(INSTALL_PROG)   runout      $(LIBDIR)
 	$(INSTALL_PROG)   rundf       $(LIBDIR)
-	$(INSTALL_SETUID) ftnaf       $(LIBDIR)
+	$(INSTALL_SETUID)  ftnaf       $(LIBDIR)
 
 
 
