@@ -2,14 +2,14 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway software UNIX <-> FIDO
  *
- * $Id: address.c,v 4.17 2002/07/15 20:21:57 n0ll Exp $
+ * $Id: address.c,v 4.18 2003/02/16 15:38:52 n0ll Exp $
  *
  * Parsing and conversion for FIDO and RFC addresses
  *
  *****************************************************************************
- * Copyright (C) 1990-2002
+ * Copyright (C) 1990-2003
  *  _____ _____
- * |	 |___  |   Martin Junius	     FIDO:	2:2452/110
+ * |	 |___  |   Martin Junius	     
  * | | | |   | |   Radiumstr. 18  	     Internet:	mj@fidogate.org
  * |_|_|_|@home|   D-51069 Koeln, Germany
  *
@@ -47,12 +47,6 @@ static int try_pfnz		(Node *, char *, char *, char *);
  */
 static int hosts_restricted = FALSE;
 
-
-
-/*
- * Address parsing error message
- */
-char address_error[ADDRESS_ERROR_SIZE];
 
 
 #ifdef AI_6

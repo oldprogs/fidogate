@@ -2,12 +2,12 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway software UNIX <-> FIDO
  *
- * $Id: rfc2ftn.c,v 4.68 2003/01/05 09:34:24 n0ll Exp $
+ * $Id: rfc2ftn.c,v 4.70 2003/02/16 15:39:01 n0ll Exp $
  *
  * Read mail or news from standard input and convert it to a FIDO packet.
  *
  *****************************************************************************
- * Copyright (C) 1990-2002
+ * Copyright (C) 1990-2003
  *  _____ _____
  * |     |___  |   Martin Junius             <mj@fidogate.org>
  * | | | |   | |   Radiumstr. 18
@@ -39,7 +39,7 @@
 
 
 #define PROGRAM 	"rfc2ftn"
-#define VERSION 	"$Revision: 4.68 $"
+#define VERSION 	"$Revision: 4.70 $"
 #define CONFIG		DEFAULT_CONFIG_GATE
 
 
@@ -144,12 +144,13 @@ int private = TRUE;
 /* News-article */
 int newsmode = FALSE;
 
-
-
-/*
- * Global Textlist to save message body
- */
+/* Global Textlist to save message body */
 Textlist body = { NULL, NULL };
+
+/* Address parsing error message */
+#define ADDRESS_ERROR_SIZE 256
+static char address_error[ADDRESS_ERROR_SIZE];
+static int  address_exit = 0;
 
 
 
@@ -546,6 +547,7 @@ int rfc_parse(RFCAddr *rfc, char *name, Node *node, int gw)
 		    str_printf(address_error, sizeof(address_error),
 			       "FTN address %s: currently down, unreachable",
 			       znfp1(n));
+		    address_exit = EX_NOHOST;
 		    ret = ERROR;
 		}
 	    }
@@ -558,6 +560,7 @@ int rfc_parse(RFCAddr *rfc, char *name, Node *node, int gw)
 	    str_printf(address_error, sizeof(address_error),
 		       "FTN address %s: not registered for this domain",
 		       znfp1(n));
+	    address_exit = EX_NOHOST;
 	    ret = ERROR;
 	}
 
@@ -569,6 +572,7 @@ int rfc_parse(RFCAddr *rfc, char *name, Node *node, int gw)
 	    str_printf(address_error, sizeof(address_error),
 		       "FTN address %s: zone %d not supported",
 		       znfp1(n), n->zone);
+	    address_exit = EX_NOHOST;
 	    ret = ERROR;
 	}
 	
@@ -701,6 +705,7 @@ char *receiver(char *to, Node *node)
     {
 	debug(5, "No alias found: returning address error");
 	BUF_COPY(address_error, "recipient is unknown");
+	address_exit = EX_NOUSER;
 	return NULL;
     }
     
@@ -909,7 +914,7 @@ int snd_mail(RFCAddr rfc_to, long size)
 	log("BOUNCE: from=%s, to=%s, reject=%s",
 	    s_rfcaddr_to_asc(&rfc_from, TRUE),
 	    s_rfcaddr_to_asc(&rfc_to, TRUE), msg);
-	TMPS_RETURN(EX_NOHOST);
+	TMPS_RETURN(address_exit ? address_exit : EX_NOHOST);
     }
     BUF_COPY(msg.name_to, p);
     fido = rfc_isfido();

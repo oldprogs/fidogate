@@ -2,12 +2,12 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: charsetc.c,v 1.11 2002/07/15 20:21:57 n0ll Exp $
+ * $Id: charsetc.c,v 1.12 2003/02/16 15:38:52 n0ll Exp $
  *
  * Charset mapping table compiler
  *
  *****************************************************************************
- * Copyright (C) 1990-2002
+ * Copyright (C) 1990-2003
  *  _____ _____
  * |     |___  |   Martin Junius             <mj@fidogate.org>
  * | | | |   | |   Radiumstr. 18
@@ -36,7 +36,7 @@
 
 
 #define PROGRAM		"charsetc"
-#define VERSION		"$Revision: 1.11 $"
+#define VERSION		"$Revision: 1.12 $"
 
 
 

@@ -2,12 +2,12 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: bounce.c,v 4.12 2002/07/15 20:21:57 n0ll Exp $
+ * $Id: bounce.c,v 4.13 2003/02/16 15:38:54 n0ll Exp $
  *
  * Bounce mails for various reasons, using LIBDIR/bounce.XXX messages
  *
  *****************************************************************************
- * Copyright (C) 1990-2002
+ * Copyright (C) 1990-2003
  *  _____ _____
  * |     |___  |   Martin Junius             <mj@fidogate.org>
  * | | | |   | |   Radiumstr. 18

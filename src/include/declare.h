@@ -2,12 +2,12 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: declare.h,v 4.7 2002/07/15 20:21:58 n0ll Exp $
+ * $Id: declare.h,v 4.8 2003/02/16 15:39:01 n0ll Exp $
  *
  * Declaration header for not-so-ANSI systems
  *
  *****************************************************************************
- * Copyright (C) 1990-2002
+ * Copyright (C) 1990-2003
  *  _____ _____
  * |     |___  |   Martin Junius             <mj@fidogate.org>
  * | | | |   | |   Radiumstr. 18

@@ -2,12 +2,12 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: packing.c,v 4.5 2002/07/15 20:22:01 n0ll Exp $
+ * $Id: packing.c,v 4.6 2003/02/16 15:39:02 n0ll Exp $
  *
  * Config file file "packing" parsing and related functions
  *
  *****************************************************************************
- * Copyright (C) 1990-2002
+ * Copyright (C) 1990-2003
  *  _____ _____
  * |     |___  |   Martin Junius             <mj@fidogate.org>
  * | | | |   | |   Radiumstr. 18

@@ -1,3 +1,25 @@
+2003-02-16  Martin Junius  <mj@m-j-s.net>
+
+	------- CVS ci -------------------------------------------------------
+
+	* src/*: updated copyright.
+
+	* src/gate/rfc2ftn.c: address_error[] moved to here, new global
+	  var address_exit for EX_xxx exit code.
+	  (rfc_parse): set address_exit = EX_NOHOST for unknown hosts.
+	  (receiver): set address_exit = EX_NOUSER for unknown recipient.
+	  (snd_mail): return value of address_exit if mail_receiver()
+	  fails and address_exit is set.
+
+	* src/include/prototypes.h: address_error[] decl removed.
+
+	* src/common/address.c: address_error[] move to rfc2ftn.c, not
+	  used anymore in this file.
+
+	* src/include/fidogate.h: added up-to-date EX_xxx list.
+
+	* test/tc.aliases/run: output rfc2ftn exit codes.
+
 2003-01-05  Martin Junius  <mj@m-j-s.net>
 
 	------- CVS ci -------------------------------------------------------

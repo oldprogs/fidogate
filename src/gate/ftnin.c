@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftnin.c,v 4.16 2002/07/15 20:21:58 n0ll Exp $
+ * $Id: ftnin.c,v 4.17 2003/02/16 15:39:01 n0ll Exp $
  *
  * Search for mail packets destined to gateway's FTN addresses and feed
  * them to ftn2rfc.
@@ -10,7 +10,7 @@
  * With full supporting cast of busy files and locking. ;-)
  *
  *****************************************************************************
- * Copyright (C) 1990-2002
+ * Copyright (C) 1990-2003
  *  _____ _____
  * |     |___  |   Martin Junius             <mj@fidogate.org>
  * | | | |   | |   Radiumstr. 18
@@ -39,7 +39,7 @@
 
 
 #define PROGRAM		"ftnin"
-#define VERSION		"$Revision: 4.16 $"
+#define VERSION		"$Revision: 4.17 $"
 #define CONFIG		DEFAULT_CONFIG_GATE
 
 

@@ -2,12 +2,12 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftnflo.c,v 4.15 2002/07/15 20:22:02 n0ll Exp $
+ * $Id: ftnflo.c,v 4.16 2003/02/16 15:39:04 n0ll Exp $
  *
  * Run script for every entry in FLO file for node
  *
  *****************************************************************************
- * Copyright (C) 1990-2002
+ * Copyright (C) 1990-2003
  *  _____ _____
  * |     |___  |   Martin Junius             <mj@fidogate.org>
  * | | | |   | |   Radiumstr. 18
@@ -38,7 +38,7 @@
 
 
 #define PROGRAM		"ftnflo"
-#define VERSION		"$Revision: 4.15 $"
+#define VERSION		"$Revision: 4.16 $"
 #define CONFIG		DEFAULT_CONFIG_MAIN
 
 

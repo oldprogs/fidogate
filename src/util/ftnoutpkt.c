@@ -2,12 +2,12 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftnoutpkt.c,v 4.7 2002/07/15 20:22:03 n0ll Exp $
+ * $Id: ftnoutpkt.c,v 4.8 2003/02/16 15:39:04 n0ll Exp $
  *
  * Create packet in OUTPKT with message from stdin.
  *
  *****************************************************************************
- * Copyright (C) 1990-2002
+ * Copyright (C) 1990-2003
  *  _____ _____
  * |     |___  |   Martin Junius             <mj@fidogate.org>
  * | | | |   | |   Radiumstr. 18
@@ -36,7 +36,7 @@
 
 
 #define PROGRAM		"ftnoutpkt"
-#define VERSION		"$Revision: 4.7 $"
+#define VERSION		"$Revision: 4.8 $"
 #define CONFIG		DEFAULT_CONFIG_MAIN
 
 

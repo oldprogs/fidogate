@@ -2,12 +2,12 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftnpack.c,v 4.30 2002/07/15 20:21:59 n0ll Exp $
+ * $Id: ftnpack.c,v 4.31 2003/02/16 15:39:02 n0ll Exp $
  *
  * Pack output packets of ftnroute for Binkley outbound (ArcMail)
  *
  *****************************************************************************
- * Copyright (C) 1990-2002
+ * Copyright (C) 1990-2003
  *  _____ _____
  * |     |___  |   Martin Junius             <mj@fidogate.org>
  * | | | |   | |   Radiumstr. 18
@@ -40,7 +40,7 @@
 
 
 #define PROGRAM 	"ftnpack"
-#define VERSION 	"$Revision: 4.30 $"
+#define VERSION 	"$Revision: 4.31 $"
 #define CONFIG		DEFAULT_CONFIG_MAIN
 
 

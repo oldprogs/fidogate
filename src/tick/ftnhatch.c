@@ -2,12 +2,12 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: ftnhatch.c,v 4.14 2002/07/28 08:24:28 n0ll Exp $
+ * $Id: ftnhatch.c,v 4.15 2003/02/16 15:39:02 n0ll Exp $
  *
  * Hatch file into file area
  *
  *****************************************************************************
- * Copyright (C) 1990-2002
+ * Copyright (C) 1990-2003
  *  _____ _____
  * |     |___  |   Martin Junius             <mj@fidogate.org>
  * | | | |   | |   Radiumstr. 18
@@ -36,7 +36,7 @@
 
 
 #define PROGRAM		"ftnhatch"
-#define VERSION		"$Revision: 4.14 $"
+#define VERSION		"$Revision: 4.15 $"
 #define CONFIG		DEFAULT_CONFIG_MAIN
 
 

@@ -2,12 +2,12 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: textlist.c,v 4.11 2002/07/15 20:21:58 n0ll Exp $
+ * $Id: textlist.c,v 4.12 2003/02/16 15:38:58 n0ll Exp $
  *
  * Store text file as chain of linked text lines in memory
  *
  *****************************************************************************
- * Copyright (C) 1990-2002
+ * Copyright (C) 1990-2003
  *  _____ _____
  * |     |___  |   Martin Junius             <mj@fidogate.org>
  * | | | |   | |   Radiumstr. 18

@@ -2,12 +2,12 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: read.c,v 4.6 2002/07/15 20:21:58 n0ll Exp $
+ * $Id: read.c,v 4.7 2003/02/16 15:38:57 n0ll Exp $
  *
  * Read lines from stdio FILE, optionally limited by size parameter
  *
  *****************************************************************************
- * Copyright (C) 1990-2002
+ * Copyright (C) 1990-2003
  *  _____ _____
  * |     |___  |   Martin Junius             <mj@fidogate.org>
  * | | | |   | |   Radiumstr. 18

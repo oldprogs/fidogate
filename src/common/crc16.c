@@ -2,13 +2,13 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: crc16.c,v 4.6 2002/07/15 20:21:57 n0ll Exp $
+ * $Id: crc16.c,v 4.7 2003/02/16 15:38:55 n0ll Exp $
  *
  * Compute CRC16
  *
  * Based on public domain source from unknown author.
  *****************************************************************************
- * Copyright (C) 1990-2002
+ * Copyright (C) 1990-2003
  *  _____ _____
  * |     |___  |   Martin Junius             <mj@fidogate.org>
  * | | | |   | |   Radiumstr. 18

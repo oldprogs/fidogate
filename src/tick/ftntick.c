@@ -2,12 +2,12 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftntick.c,v 4.26 2002/07/15 20:21:59 n0ll Exp $
+ * $Id: ftntick.c,v 4.27 2003/02/16 15:39:02 n0ll Exp $
  *
  * Process incoming TIC files
  *
  *****************************************************************************
- * Copyright (C) 1990-2002
+ * Copyright (C) 1990-2003
  *  _____ _____
  * |     |___  |   Martin Junius             <mj@fidogate.org>
  * | | | |   | |   Radiumstr. 18
@@ -37,7 +37,7 @@
 
 
 #define PROGRAM		"ftntick"
-#define VERSION		"$Revision: 4.26 $"
+#define VERSION		"$Revision: 4.27 $"
 #define CONFIG		DEFAULT_CONFIG_MAIN
 
 

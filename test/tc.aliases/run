@@ -18,6 +18,8 @@ From: Test User <test@blah.org>
 
 TEST - OK
 EOF
+ex=$?
+echo "Exit=$ex"
 
 echo " "
 echo "----- rfc2ftn: mail to Martin_Junius@orodruin.fido.de -----"
@@ -27,6 +29,8 @@ From: Test User <test@blah.org>
 
 TEST - OK
 EOF
+ex=$?
+echo "Exit=$ex"
 
 echo " "
 echo "----- rfc2ftn: mail to postmaster@orodruin.fido.de -----"
@@ -36,6 +40,8 @@ From: Test User <test@blah.org>
 
 TEST - OK
 EOF
+ex=$?
+echo "Exit=$ex"
 
 echo " "
 echo "----- rfc2ftn: mail to unknown@orodruin.fido.de -----"
@@ -45,6 +51,8 @@ From: Test User <test@blah.org>
 
 TEST - BOUNCE
 EOF
+ex=$?
+echo "Exit=$ex"
 
 echo " "
 echo "----- rfc2ftn: mail to Max_Tester@orodruin.fido.de -----"
@@ -54,6 +62,8 @@ From: Test User <test@blah.org>
 
 TEST - OK
 EOF
+ex=$?
+echo "Exit=$ex"
 
 echo " "
 echo "----- rfc2ftn: mail to Tester@orodruin.fido.de -----"
@@ -63,6 +73,8 @@ From: Test User <test@blah.org>
 
 TEST - OK
 EOF
+ex=$?
+echo "Exit=$ex"
 
 echo " "
 echo "----- rfc2ftn: mail to max_tester@orodruin.fido.de -----"
@@ -72,6 +84,8 @@ From: Test User <test@blah.org>
 
 TEST - OK
 EOF
+ex=$?
+echo "Exit=$ex"
 
 echo " "
 echo "----- rfc2ftn: mail to tester@orodruin. fido.de -----"
@@ -81,6 +95,8 @@ From: Test User <test@blah.org>
 
 TEST - OK
 EOF
+ex=$?
+echo "Exit=$ex"
 
 
 # Generate mail addressed to Test 1/Test 2

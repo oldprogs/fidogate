@@ -2,15 +2,15 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: aliases.c,v 4.12 2002/07/15 20:21:57 n0ll Exp $
+ * $Id: aliases.c,v 4.13 2003/02/16 15:38:54 n0ll Exp $
  *
  * Read user name aliases from file. The alias.users format is as follows:
  *	username    Z:N/F.P    Full Name
  *
  *****************************************************************************
- * Copyright (C) 1990-2002
+ * Copyright (C) 1990-2003
  *  _____ _____
- * |	 |___  |   Martin Junius	     FIDO:	2:2452/110
+ * |	 |___  |   Martin Junius	     
  * | | | |   | |   Radiumstr. 18  	     Internet:	mj@fidogate.org
  * |_|_|_|@home|   D-51069 Koeln, Germany
  *

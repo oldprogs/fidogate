@@ -2,12 +2,12 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: tmps.c,v 4.7 2002/07/15 20:21:58 n0ll Exp $
+ * $Id: tmps.c,v 4.8 2003/02/16 15:38:58 n0ll Exp $
  *
  * Function for handling temporary strings
  *
  *****************************************************************************
- * Copyright (C) 1990-2002
+ * Copyright (C) 1990-2003
  *  _____ _____
  * |     |___  |   Martin Junius             <mj@fidogate.org>
  * | | | |   | |   Radiumstr. 18
