@@ -1,0 +1,11 @@
+#
+# Local test config
+#
+include %L/config.gate
+
+
+#
+# Don't generate From: line at beginning of text body.
+#
+NoFromLine
+

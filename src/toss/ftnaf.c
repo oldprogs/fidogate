@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: ftnaf.c,v 4.4 1996/06/06 15:59:31 mj Exp $
+ * $Id: ftnaf.c,v 4.5 1996/08/25 10:16:08 mj Exp $
  *
  * Areafix-like AREAS.BBS EchoMail distribution manager. Commands somewhat
  * conforming to FSC-0057.
@@ -39,7 +39,7 @@
 
 
 #define PROGRAM		"ftnaf"
-#define VERSION		"$Revision: 4.4 $"
+#define VERSION		"$Revision: 4.5 $"
 #define CONFIG		CONFIG_MAIN
 
 
@@ -762,7 +762,6 @@ int cmd_add(Node *node, char *area)
 	if(wildmatch(p->area, area, TRUE))
 	{
 	    match = TRUE;
-	    fprintf(output, "%-39s: ", p->area);
 
 	    if(!authorized_cmdline)	/* Command line may do everything */
 	    {
@@ -770,7 +769,8 @@ int cmd_add(Node *node, char *area)
 		if(p->lvl > authorized_lvl)
 		{
 		    if(!iswc)
-			fprintf(output, "access denied (level)\n");
+			fprintf(output, "%-39s: access denied (level)\n",
+				p->area);
 		    continue;
 		}
 		if(p->key)
@@ -785,7 +785,8 @@ int cmd_add(Node *node, char *area)
 		    if(!key_ok)
 		    {
 			if(!iswc)
-			    fprintf(output, "access denied (key)\n");
+			    fprintf(output, "%-39s: access denied (key)\n",
+				    p->area);
 			continue;
 		    }
 		}
@@ -794,19 +795,20 @@ int cmd_add(Node *node, char *area)
 		if(areafix && p->zone!=node->zone)
 		{
 		    if(!iswc)
-			fprintf(output, "different zone (Z%d), not added\n",
-				p->zone);
+			fprintf(output,
+				"%-39s: different zone (Z%d), not added\n",
+				p->area, p->zone);
 		    continue;
 		}
 	    }
 	    
 	    if(lon_search(l, node))
-		fprintf(output, "already active\n");
+		fprintf(output, "%-39s: already active\n", p->area);
 	    else 
 	    {
 		lon_add(l, node);
 		areas_bbs_changed = TRUE;
-		fprintf(output, "added\n");
+		fprintf(output, "%-39s: added\n", p->area);
 
 		log("%s: +%s", node_to_asc(node, TRUE), p->area);
 	    }
@@ -849,18 +851,17 @@ int cmd_remove(Node *node, char *area)
 	if(wildmatch(p->area, area, TRUE))
 	{
 	    match = TRUE;
-	    fprintf(output, "%-39s: ", p->area);
 
 	    if(!lon_search(l, node))
 	    {
 		if(!areafix || p->zone==node->zone)
-		    fprintf(output, "not active\n");
+		    fprintf(output, "%-39s: not active\n", p->area);
 	    }
 	    else 
 	    {
 		lon_remove(l, node);
 		areas_bbs_changed = TRUE;
-		fprintf(output, "removed\n");
+		fprintf(output, "%-39s: removed\n", p->area);
 
 		log("%s: -%s", node_to_asc(node, TRUE), p->area);
 	    }

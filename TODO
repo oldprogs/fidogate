@@ -2,6 +2,8 @@
 
 X = for release 4.0alpha4
 
+	* Remove old MSGID processing code.
+
 	* ftnflo: pipe to program processing the entries (e.g. send
  	  with FTP)
 

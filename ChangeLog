@@ -1,4 +1,41 @@
+Sun Aug 25 10:59:36 1996  Martin Junius  <mj@fido.de>
+
+	------- CVS commit ---------------------------------------------------
+
+	* src/gate/rfc2ftn.c (rfc_parse): reformatted debug() messages.
+	  (rfc_parse): initialize ret=OK.
+	  (mail_sender): check for return code of rfc_parse() == OK.
+	  (cvt_user_name): new function for converting user name,
+	  capitalize, replace '_' and '.' by SPACE. Was a part of receiver().
+	  (receiver): replace old code with call to cvt_user_name().
+	  (mail_sender): call cvt_user_name(), if no real name.
+
+Thu Aug 22 21:18:43 1996  Martin Junius  <mj@fido.de>
+
+	* src/toss/ftnaf.c (cmd_add): changed fprintf()s to include area
+	  name, removed initial fprintf() with area name.
+	  (cmd_remove): same.
+
+Sun Aug 11 09:57:02 1996  Martin Junius  <mj@fido.de>
+
+	* src/tick/ftntick.c (move): added tic->date != -1 check.
+
+	* test/tc.gate6/run: new test case with large news articles (>16K).
+
+	* test/ti.news-l/: added test input directory with large news
+	  articles.
+
+Sun Jul  7 17:57:47 1996  Martin Junius  <mj@fido.de>
+
+	* scripts/maintenance/Makefile (install): added newsyslog to
+	  installed scripts.
+
+	* scripts/maintenance/newsyslog.sh: modified to cycle other syslog
+	  files, crond log file.
+
 Mon Jun 17 20:54:35 1996  Martin Junius  <mj@fido.de>
+
+	* examples/orodruin/config.ftp: added.
 
 	------- CVS tag r40alpha3 --------------------------------------------
 

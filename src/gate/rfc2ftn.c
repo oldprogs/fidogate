@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway software UNIX <-> FIDO
  *
- * $Id: rfc2ftn.c,v 4.5 1996/06/16 14:22:39 mj Exp $
+ * $Id: rfc2ftn.c,v 4.6 1996/08/25 10:16:07 mj Exp $
  *
  * Read mail or news from standard input and convert it to a FIDO packet.
  *
@@ -39,7 +39,7 @@
 
 
 #define PROGRAM 	"rfc2ftn"
-#define VERSION 	"$Revision: 4.5 $"
+#define VERSION 	"$Revision: 4.6 $"
 #define CONFIG		CONFIG_GATE
 
 
@@ -65,6 +65,7 @@ void	addr_set_mausgate	(char *);
 char   *get_name_from_body	(void);
 MIMEInfo *get_mime		(void);
 void	sendback		(const char *, ...);
+void	cvt_user_name		(char *);
 char   *receiver		(char *, Node *);
 char   *mail_receiver		(RFCAddr *, Node *);
 time_t	mail_date		(void);
@@ -395,7 +396,7 @@ static int rfc_isfido_flag = FALSE;
 int rfc_parse(RFCAddr *rfc, char *name, Node *node)
 {
     char *p;
-    int len, ret;
+    int len, ret=OK;
     Node nn;
     Node *n;
     Host *h;
@@ -405,8 +406,9 @@ int rfc_parse(RFCAddr *rfc, char *name, Node *node)
 
     in_domain = rfc_is_domain(rfc);
     
-    debug(3, "Name    %s", rfc->user);
-    debug(3, "Address %s %s", rfc->addr, in_domain ? "(local domain)" : "");
+    debug(3, "    Name:     %s", rfc->user);
+    debug(3, "    Address:  %s %s",
+	  rfc->addr, in_domain ? "(local domain)" : "");
 
     /*
      * Remove quotes "..." and copy to name[] arg
@@ -441,7 +443,7 @@ int rfc_parse(RFCAddr *rfc, char *name, Node *node)
 	if(len > dlen                          &&
 	   !strcmp(rfc->addr+diff, maus_domain)   )  /* Got it! */
 	{
-	    debug(2, "MAUS address %s", rfc->addr);
+	    debug(2, "    is MAUS:  %s", rfc->addr);
 
 	    if(name)
 	    {
@@ -451,7 +453,7 @@ int rfc_parse(RFCAddr *rfc, char *name, Node *node)
 		    i++, p++                          )
 		    name[i] = toupper(*p);
 		name[i] = 0;
-		debug(3, "     converted to %s", name);
+		debug(3, "    cvt to:   %s", name);
 	    }
 	    if(node)
 		*node = maus_gate;
@@ -475,7 +477,7 @@ int rfc_parse(RFCAddr *rfc, char *name, Node *node)
 	    *node = *n;
 	rfc_isfido_flag = TRUE;
 	ret = OK;
-	debug(3, "FTN Node %s", node_to_asc(node, TRUE));
+	debug(3, "    FTN node: %s", node_to_asc(node, TRUE));
 
 	/*
 	 * Look up in HOSTS
@@ -546,14 +548,60 @@ int rfc_isfido(void)
 
 
 /*
+ * cvt_user_name() --- Convert RFC user name to FTN name:
+ *                       - capitalization
+ *                       - '_' -> SPACE
+ *                       - '.' -> SPACE
+ */
+void cvt_user_name(char *s)
+{
+    int c, convert_flag, us_flag;
+    
+    /*
+     * All '_' characters are replaced by space and all words
+     * capitalized.  If no '_' chars are found, '.' are converted to
+     * spaces (User.Name@p.f.n.z.fidonet.org addressing style).
+     */
+    convert_flag = isupper(*s) ? -1 : 1;
+    us_flag      = strchr(s, '_') || strchr(s, ' ') || strchr(s, '@');
+    
+    for(; *s; s++) {
+	c = *s;
+	switch(c) {
+	case '_':
+	case '.':
+	    if( c=='_' || (!us_flag && c=='.') )
+		c = ' ';
+	    *s = c;
+	    if(!convert_flag)
+		convert_flag = 1;
+	    break;
+	case '%':
+	    if(convert_flag != -1)
+		convert_flag = 2;
+	    /**Fall thru**/
+	default:
+	    if(convert_flag > 0) {
+		*s = islower(c) ? toupper(c) : c;
+		if(convert_flag == 1)
+		    convert_flag = 0;
+	    }
+	    else
+		*s = c;
+	    break;
+	}
+    }
+}
+
+
+
+/*
  * receiver() --- Check for aliases and beautify name
  */
 char *receiver(char *to, Node *node)
 {
     static char name[MSG_MAXNAME];
-    int i, c, convert_flag;
     Alias *alias;
-    int us_flag;
     
     /*
      * Check for name alias
@@ -577,41 +625,11 @@ char *receiver(char *to, Node *node)
     }
     
     /*
-     * Alias not found. Return the the original receiver with all
-     * '_' characters replaced by space and all words capitalized.
-     * If no '_' chars are found, '.' are converted to spaces
-     * (User.Name@p.f.n.z.fidonet.org addressing style).
+     * Alias not found. Return the the original receiver processed by
+     * convert_user_name().
      */
-    convert_flag = isupper(*to) ? -1 : 1;
-    us_flag      = strchr(to, '_') || strchr(to, ' ') || strchr(to, '@');
-    
-    for(i=0; *to && i<35; i++, to++) {
-	c = *to;
-	switch(c) {
-	case '_':
-	case '.':
-	    if( c=='_' || (!us_flag && c=='.') )
-		c = ' ';
-	    name[i] = c;
-	    if(!convert_flag)
-		convert_flag = 1;
-	    break;
-	case '%':
-	    if(convert_flag != -1)
-		convert_flag = 2;
-	    /**Fall thru**/
-	default:
-	    if(convert_flag > 0) {
-		name[i] = islower(c) ? toupper(c) : c;
-		if(convert_flag == 1)
-		    convert_flag = 0;
-	    }
-	    else
-		name[i] = c;
-	    break;
-	}
-    }
-    name[i] = 0;
+    BUF_COPY(name, to);
+    cvt_user_name(name);
 
     /**FIXME: implement a generic alias with pattern matching**/
     /*
@@ -709,10 +727,11 @@ char *mail_sender(RFCAddr *rfc, Node *node)
 {
     static char name[MSG_MAXNAME];
     Node n;
-    int ok;
-    
+    int ret;
+
+    *name = 0;
     *node = cf_n_addr();
-    ok = rfc_parse(rfc, name, &n)!=ERROR && rfc_isfido();
+    ret = rfc_parse(rfc, name, &n)!=ERROR && rfc_isfido();
     
 #ifdef PASSTHRU_NETMAIL
     /*
@@ -720,13 +739,19 @@ char *mail_sender(RFCAddr *rfc, Node *node)
      * parameter node. This may cause problems when operating different
      * FTNs.
      */
-    if(ok)
+    if(ret == OK)
     {
 	*node = n;
 	debug(5, "              is FTN address %s", znfp(node));
     }
 #endif /**PASSTHRU_NETMAIL**/
 
+    /*
+     * If no real name, apply name conversion
+     */
+    if(!rfc->real[0])
+	cvt_user_name(name);
+    
     return name;
 }
 
@@ -750,7 +775,7 @@ int snd_mail(RFCAddr rfc_to, long size)
     node_to  .domain[0] = 0;
     
     if(rfc_to.user[0])
-	debug(3, "RFC To: %s", rfcaddr_to_asc(&rfc_to, TRUE));
+	debug(3, "RFC To:       %s", rfcaddr_to_asc(&rfc_to, TRUE));
 
     /*
      * From RFCAddr

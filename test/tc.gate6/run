@@ -1,0 +1,16 @@
+#!/bin/sh
+
+#
+# Test with large news articles (>16K)
+#
+../tr.init
+
+T="../../src/gate/rfc2ftn -L../cf -vvvvv"
+
+echo "tc: running"
+
+for f in ../ti.news-l/[0-9]*; do
+  echo "News article file $f"
+  $T -n <$f
+  $T -c./config -n <$f
+done
