@@ -1,4 +1,4 @@
-This is fidogate.info, produced by Makeinfo version 3.12h from
+This is fidogate.info, produced by Makeinfo version 3.12f from
 fidogate.texi.
 
    This file documents the installation and usage of FIDOGATE version
@@ -1868,7 +1868,7 @@ Special parameters:
 `=hostsdomain'
      Domain for entries in `hosts' config files.
 
-This is fidogate.info, produced by Makeinfo version 3.12h from
+This is fidogate.info, produced by Makeinfo version 3.12f from
 fidogate.texi.
 
    This file documents the installation and usage of FIDOGATE version
@@ -3490,7 +3490,7 @@ Packing
 
    Otherwise see the standard point configuration with a single address.
 
-This is fidogate.info, produced by Makeinfo version 3.12h from
+This is fidogate.info, produced by Makeinfo version 3.12f from
 fidogate.texi.
 
    This file documents the installation and usage of FIDOGATE version
