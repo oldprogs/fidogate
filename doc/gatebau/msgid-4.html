@@ -1,23 +1,23 @@
 <HTML>
 <HEAD>
-<TITLE>MSGID / Message-ID Conversion for Fido-Internet Gateways : Converting FTN &circ;AMSGID to RFC Message-ID </TITLE>
+<TITLE>MSGID / Message-ID Conversion for Fido-Internet Gateways : Converting FTN ^AMSGID to RFC Message-ID </TITLE>
 </HEAD>
 <BODY>
 <A HREF="msgid-3.html">Previous</A>
 <A HREF="msgid-5.html">Next</A>
 <A HREF="msgid.html#toc4">Table of Contents</A>
 <HR>
-<H2><A NAME="s4">4. Converting FTN &circ;AMSGID to RFC Message-ID </A></H2>
+<H2><A NAME="s4">4. Converting FTN ^AMSGID to RFC Message-ID </A></H2>
 
 
-<P>Converting &circ;AREPLY works the same way, using References for news or In-Reply-To for mail. </P>
-<H2><A NAME="ss4.1">4.1 FIDO messages without &circ;AMSGID </A></H2>
+<P>Converting ^AREPLY works the same way, using References for news or In-Reply-To for mail. </P>
+<H2><A NAME="ss4.1">4.1 FIDO messages without ^AMSGID </A></H2>
 
 
-<P>Some FIDO messages do not contain a unique &circ;AMSGID. In this case it is necessary to generate a Message-ID which is the same for all gateways. (Otherwise dupes on the Internet side cannot be detected.)</P>
+<P>Some FIDO messages do not contain a unique ^AMSGID. In this case it is necessary to generate a Message-ID which is the same for all gateways. (Otherwise dupes on the Internet side cannot be detected.)</P>
 <P>The proposed method works as follows: for each message without a MSGID the `id' part of Message-ID is composed of the string "NOMSGID_", the FTN sender address Z:N/F.P using MIME-style quoted printables for `:', `/' as in 3.3, the string "_", the date of the message formatted as "YYMMDD_HHMMSS" (year month day, hour minute second), the string "_", and a CRC32 over the concatenation of the FIDO headers From, To, and Subject. 
 <UL>
-<LI>The FTN sender address is taken from the origin line (EchoMail) or the message header + &circ;AINTL/FMPT/TOPT (NetMail). A node address must include the `.0'.  </LI>
+<LI>The FTN sender address is taken from the origin line (EchoMail) or the message header + ^AINTL/FMPT/TOPT (NetMail). A node address must include the `.0'.  </LI>
 <LI>The date is taken from the date field in the message header.  </LI>
 <LI>The CRC value is computed using the same polynomial and method as specified in section 6.   </LI>
 </UL>
