@@ -1,5 +1,12 @@
 Sun Nov 17 12:47:41 1996  Martin Junius  <mj@fido.de>
 
+	======= Release 4.1.2 ================================================
+	------- CVS ci, tag R412 ---------------------------------------------
+
+	* fidogate.lsm: updated.
+
+	* ANNOUNCE: updated.
+
 	* src/gate/ftn2rfc.c (unpack): initialize cvt8=0 for NetMail.
 	  (unpack_file): remove debug() message, same as log().
 
