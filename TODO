@@ -2,6 +2,22 @@
 
 X = for next release
 
+DONE.	* config.gate: NetMailOptions, same as options in AREAS file.
+
+DONE.	* ftn2rfc: MIME header
+
+	  MIME-Version: 1.0
+	  Content-Type: text/plain; charset=US-ASCII
+	  Content-Transfer-Encoding: 7bit
+	  
+	  MIME-Version: 1.0
+	  Content-Type: text/plain; charset=ISO-8859-1
+	  Content-Transfer-Encoding: 8bit
+	  
+	  MIME-Version: 1.0
+	  Content-Type: TEXT/PLAIN; charset=iso-8859-1
+	  Content-Transfer-Encoding: QUOTED-PRINTABLE
+	  
 	* "BestMatchAKA" parameter for all programs. Similar to
 	  setting AKA based on current zone, using the AKA with best
 	  fits the sender/receiver. For multi-point operation.
@@ -77,7 +93,7 @@ DONE.	  copy netmail packets (do_noarc()), use rename(). If archiver
 
 	* Check packet passwords of incoming packets.
 
-	* MIME support for outgoing RFC messages, especially using the
+DONE.	* MIME support for outgoing RFC messages, especially using the
 	  ISO-8859-1 character set (8 bit and MIME quoted printable)
 	  for news messages.
 

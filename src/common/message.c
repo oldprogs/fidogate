@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: message.c,v 4.3 1996/06/16 16:06:17 mj Exp $
+ * $Id: message.c,v 4.4 1996/10/22 19:58:22 mj Exp $
  *
  * Reading and processing FTN text body
  *
@@ -604,13 +604,19 @@ int msg_put_msgbody(FILE *fp, MsgBody *body, int term)
 /*
  * Convert text line read from FTN message body, using charset_xlate()
  */
-char *msg_xlate_line(char *buf, int n, char *line)
+char *msg_xlate_line(char *buf, int n, char *line, int cvt8)
               				/* Buffer for converted text */
           				/* Size of buffer */
                				/* Input */
 {
     char *s, *p, *xl;
-    int c;
+    int c, cidx;
+
+    cidx = 0;
+    if(cvt8 & AREA_8BIT)
+	cidx = 1;
+    else if(cvt8 & AREA_QP)
+	cidx = 2;
 
     n--;				/* Room for \0 char */
 
@@ -642,7 +648,7 @@ char *msg_xlate_line(char *buf, int n, char *line)
 	    /*
 	     * Translate special characters according to character set
 	     */
-	    xl = charset_xlate(c);
+	    xl = charset_xlate(c, cidx);
 	    if(!xl || !*xl)
 		continue;
 	    while(*xl)

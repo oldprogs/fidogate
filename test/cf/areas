@@ -24,15 +24,15 @@
 #
 # area                        newsgroup                     [-option]
 # ------------------------    --------------------------    ---------
-TEST                          test                          -z 2 -8
+TEST                          test                          -z 2 -Q
 
 # Fidonet *.GER
-LINUX.GER                     fido.ger.linux                -x -z 2 -8
-TOLKIEN.GER                   fido.ger.tolkien              -x -z 2 -8
+LINUX.GER                     fido.ger.linux                -x -z 2 -Q
+TOLKIEN.GER                   fido.ger.tolkien              -x -z 2 -Q
 
 # Usenet
-ALT.                          alt.                          -H -z 242
-COMP.                         comp.                         -H -z 242
-DE.                           de.                           -H -z 242
-REC.                          rec.                          -H -z 242
-SOC.                          soc.                          -H -z 242
+ALT.                          alt.                          -H -z 242 -8
+COMP.                         comp.                         -H -z 242 -8
+DE.                           de.                           -H -z 242 -8
+REC.                          rec.                          -H -z 242 -8
+SOC.                          soc.                          -H -z 242 -8

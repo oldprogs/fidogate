@@ -3,6 +3,11 @@ ftnbsy.o: ftnbsy.c ../../src/include/fidogate.h ../../config.h \
  ../../src/include/declare.h ../../src/include/node.h \
  ../../src/include/packet.h ../../src/include/structs.h \
  ../../src/include/prototypes.h ../../src/include/getopt.h
+ftnconfig.o: ftnconfig.c ../../src/include/fidogate.h ../../config.h \
+ ../../src/include/paths.h ../../src/include/sysexits.h \
+ ../../src/include/declare.h ../../src/include/node.h \
+ ../../src/include/packet.h ../../src/include/structs.h \
+ ../../src/include/prototypes.h ../../src/include/getopt.h
 ftnfattach.o: ftnfattach.c ../../src/include/fidogate.h ../../config.h \
  ../../src/include/paths.h ../../src/include/sysexits.h \
  ../../src/include/declare.h ../../src/include/node.h \

@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftn2rfc.c,v 4.8 1996/10/06 15:18:22 mj Exp $
+ * $Id: ftn2rfc.c,v 4.9 1996/10/22 19:58:23 mj Exp $
  *
  * Convert FTN mail packet to RFC messages (mail and news batches)
  *
@@ -40,7 +40,7 @@
 
 
 #define PROGRAM 	"ftn2rfc"
-#define VERSION 	"$Revision: 4.8 $"
+#define VERSION 	"$Revision: 4.9 $"
 #define CONFIG		CONFIG_GATE
 
 
@@ -103,41 +103,28 @@ int x_ftn_P = FALSE;
 static char *tracker_mail_to = NULL;
 
 
-/*
- * MSGID handling
- */
-static int no_unknown_msgid_zones = FALSE;
+/* MSGID handling */
+static int no_unknown_msgid_zones    = FALSE;
 static int no_messages_without_msgid = FALSE;
 
-
-/*
- * Use * Origin line for Organization header
- */
+/* Use * Origin line for Organization header */
 static int use_origin_for_organization = FALSE;
 
-
-/*
- * Don't bounce message from FTN address not listed in HOSTS
- */
+/* Don't bounce message from FTN address not listed in HOSTS */
 static int ignore_hosts = FALSE;
 
-
-/*
- * Newsgroup name for unknown FTN areas (NULL = don't gate)
- */
+/* Newsgroup name for unknown FTN areas (NULL = don't gate) */
 static char *ftn_junk_group = NULL;
 
-
-/*
- * Address for Errors-To header (NULL = none)
- */
+/* Address for Errors-To header (NULL = none) */
 static char *errors_to = NULL;
 
-
-/*
- * Do not allow RFC addresses (chars !, &, @) in FTN to field
- */
+/* Do not allow RFC addresses (chars !, &, @) in FTN to field */
 static int no_address_in_to_field = FALSE;
+
+/* Character conversion */
+static int netmail_8bit = FALSE;
+static int netmail_qp   = FALSE;
 
 
 
@@ -223,10 +210,18 @@ Area *news_msg(char *line)
 	}
 
 	/* Area not found */
-	area.next  = NULL;
-	area.area  = p;
-	area.group = NULL;
-	area.zone  = 0;
+	area.next  	  = NULL;
+	area.area  	  = p;
+	area.group 	  = NULL;
+	area.zone         = 0;
+	node_invalid(&area.addr);
+	area.origin       = NULL;
+	area.distribution = NULL;
+	area.flags        = 0;
+	area.rfc_lvl      = -1;
+	area.maxsize      = -1;
+	tl_init(&area.x_hdr);
+
 	return &area;
     }
 
@@ -269,6 +264,7 @@ int unpack(FILE *pkt_file, Packet *pkt)
     int ret;
     int rfc_lvl, rfc_lines;
     char *split_line;
+    int cvt8 = 0;			/* AREA_8BIT | AREA_QP */
     
 
     /*
@@ -400,6 +396,57 @@ int unpack(FILE *pkt_file, Packet *pkt)
 	    if(pl->line[0] == '\r')
 		tl_delete(&body.body, pl);
 	}
+
+	
+	/*
+	 * Check for mail or news.
+	 *
+	 * area == NULL  -  NetMail
+	 * area != NULL  -  EchoMail
+	 */
+	if( (area = news_msg(body.area)) )
+	{
+	    cvt8 = area->flags & (AREA_8BIT | AREA_QP);
+	    
+	    /* Set AKA according to area's zone */
+	    cf_set_zone(area->zone);
+
+	    /* Skip, if unknown and FTNJunkGroup not set */
+	    if(!area->group && !ftn_junk_group)
+	    {
+		log("unknown area %s", area->area);
+		continue;
+	    }
+
+	    /* Open new news batch if needed */
+	    if(!news_file)
+	    {
+		long n = sequencer(SEQ_NEWS);
+
+		sprintf(news_tmp,  "%s/%08ld.tmp", news_dir, n);
+		sprintf(news_name, "%s/%08ld.msg", news_dir, n);
+		news_file = fopen(news_tmp, W_MODE);
+		if(!news_file)
+		{
+		    log("$ERROR: can't create output file %s", news_tmp);
+		    ret = ERROR;
+		    break;
+		}
+	    }
+	}
+	else
+	{
+	    if(netmail_8bit)
+		cvt8 |= AREA_8BIT;
+	    if(netmail_qp)
+		cvt8 |= AREA_QP;
+	    
+	    /* Set AKA according to sender's zone */
+	    cf_set_zone(msg.node_orig.zone!=-1 
+			? msg.node_orig.zone
+			: msg.node_from.zone  );
+	}
+
 	
 	/*
 	 * Convert message body
@@ -432,7 +479,7 @@ int unpack(FILE *pkt_file, Packet *pkt)
 		check_chrs(p);			/* ^ACHRS / ^ACHARSET */
 	    else				/* Normal line */
 	    {
-		msg_xlate_line(buffer, sizeof(buffer), p);
+		msg_xlate_line(buffer, sizeof(buffer), p, cvt8);
 		if(rfc_lines)
 		{
 		    tl_append(&tbody, buffer);
@@ -443,50 +490,6 @@ int unpack(FILE *pkt_file, Packet *pkt)
 	    }
 	}
 
-	/*
-	 * Check for mail or news.
-	 *
-	 * area == NULL  -  NetMail
-	 * area != NULL  -  EchoMail
-	 */
-	if( (area = news_msg(body.area)) )
-	{
-	    /* Set AKA according to area's zone */
-	    cf_set_zone(area->zone);
-
-	    /* Skip, if unknown and FTNJunkGroup not set */
-	    if(!area->group && !ftn_junk_group)
-	    {
-		log("unknown area %s", area->area);
-		continue;
-	    }
-
-	    /* Open new news batch if needed */
-	    if(!news_file)
-	    {
-		long n = sequencer(SEQ_NEWS);
-
-		sprintf(news_tmp,  "%s/%08ld.tmp", news_dir, n);
-		sprintf(news_name, "%s/%08ld.msg", news_dir, n);
-		news_file = fopen(news_tmp, W_MODE);
-		if(!news_file)
-		{
-		    log("$ERROR: can't create output file %s", news_tmp);
-		    ret = ERROR;
-		    break;
-		}
-	    }
-	}
-	else
-	{
-	    /*
-	     * Set AKA according to sender's zone
-	     */
-	    cf_set_zone(msg.node_orig.zone!=-1 
-			? msg.node_orig.zone
-			: msg.node_from.zone  );
-	}
-	
 
 	/*
 	 * Convert FTN from/to addresses to RFCAddr struct
@@ -839,7 +842,7 @@ int unpack(FILE *pkt_file, Packet *pkt)
 	tl_appendf(&theader, "From: %s\n", from_line);
 	if(reply_to_line)
 	    tl_appendf(&theader, "Reply-To: %s\n", reply_to_line);
-	msg_xlate_line(buffer, sizeof(buffer), msg.subject);
+	msg_xlate_line(buffer, sizeof(buffer), msg.subject, 0);
 	tl_appendf(&theader, "Subject: %s\n", buffer);
 	tl_appendf(&theader, "Message-ID: %s\n", id_line);
 	
@@ -880,7 +883,7 @@ int unpack(FILE *pkt_file, Packet *pkt)
 	if(use_origin_for_organization && body.origin)
 	{
 	    strip_crlf(body.origin);
-	    msg_xlate_line(buffer, sizeof(buffer), body.origin);
+	    msg_xlate_line(buffer, sizeof(buffer), body.origin, 0);
 	    if((p = strrchr(buffer, '(')))
 		*p = 0;
 	    strip_space(buffer);
@@ -911,13 +914,13 @@ int unpack(FILE *pkt_file, Packet *pkt)
 	if(x_ftn_T  &&  body.tear && !strncmp(body.tear, "--- ", 4))
 	{
 	    strip_crlf(body.tear);
-	    msg_xlate_line(buffer, sizeof(buffer), body.tear);
+	    msg_xlate_line(buffer, sizeof(buffer), body.tear, 0);
 	    tl_appendf(&theader, "X-FTN-Tearline: %s\n", buffer+4);
 	}
 	if(!use_origin_for_organization  &&  x_ftn_O  &&  body.origin)
 	{
 	    strip_crlf(body.origin);
-	    msg_xlate_line(buffer, sizeof(buffer), body.origin);
+	    msg_xlate_line(buffer, sizeof(buffer), body.origin, 0);
 	    p = buffer + strlen(" * Origin: ");
 	    while(is_blank(*p))
 		p++;
@@ -928,7 +931,7 @@ int unpack(FILE *pkt_file, Packet *pkt)
 	    {
 		p = pl->line;
 		strip_crlf(p);
-		msg_xlate_line(buffer, sizeof(buffer), p+1);
+		msg_xlate_line(buffer, sizeof(buffer), p+1, 0);
 		tl_appendf(&theader, "X-FTN-Via: %s\n", buffer+4);
 	    }
 	if(x_ftn_D)
@@ -951,6 +954,16 @@ int unpack(FILE *pkt_file, Packet *pkt)
 
 	if(split_line)
 	    tl_appendf(&theader, "X-SPLIT: %s\n", split_line);
+
+	/*
+	 * MIME header
+	 */
+	tl_appendf(&theader, "MIME-Version: 1.0\n");
+	tl_appendf(&theader, "Content-Type: text/plain; charset=%s\n",
+		   cvt8 ? "iso-8859-1" : "us-ascii");
+	tl_appendf(&theader, "Content-Transfer-Encoding: %s\n",
+		   cvt8 ? ((cvt8 & AREA_QP) ? "quoted-printable" : "8bit")
+		        : "7bit");
 
 	/*
 	 * Add extra headers
@@ -1311,6 +1324,17 @@ int main(int argc, char **argv)
     {
 	debug(8, "config: NoAddressInToField");
 	no_address_in_to_field = TRUE;
+    }
+    if(cf_get_string("NetMail8bit", TRUE))
+    {
+	debug(8, "config: NetMail8bit");
+	netmail_8bit = TRUE;
+    }
+    if(cf_get_string("NetMailQuotedPrintable", TRUE) ||
+       cf_get_string("NetMailQP", TRUE)                )
+    {
+	debug(8, "config: NetMailQP");
+	netmail_qp = TRUE;
     }
     
     /*

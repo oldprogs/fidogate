@@ -10,12 +10,13 @@
 #     -g                 No gated messages
 #     -l                 Only local crosspostings
 #     -x                 No crosspostings
-#     -8                 Messages with 8bit ISO-8859-1 charset
 #     -H                 Names match entire hierarchy, names are translated
 #     -!                 Don't gate area/newsgroup [hierarchy]
 #     -R LVL             ^ARFC header level
 #     -m MAXSIZE         MaxMsgSize for this area (0 = infinity)
 #     -X "Xtra: xyz"     Add extra RFC headers (multiple -X allowed)
+#     -8                 Convert to 8bit ISO-8859-1 charset
+#     -Q                 Convert to quoted-printable ISO-8859-1 charset
 #
 # All fields may be quoted in "...", order is import, first area/newsgroup
 # found matches!

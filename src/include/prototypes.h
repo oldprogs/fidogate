@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: prototypes.h,v 4.12 1996/09/28 20:18:37 mj Exp $
+ * $Id: prototypes.h,v 4.13 1996/10/22 19:58:24 mj Exp $
  *
  * Prototypes for functions in libfidogate.a
  *
@@ -96,7 +96,7 @@ char   *buf_copy		(char *);
 /* charset.c */
 void	charset_reset		(void);
 void	charset_set		(char *);
-char   *charset_xlate		(int);
+char   *charset_xlate		(int, int);
 
 /* config.c */
 void	cf_check_gate		(void);
@@ -264,7 +264,7 @@ int	msg_body_parse		(Textlist *, MsgBody *);
 void	msg_body_debug		(FILE *, MsgBody *, int);
 int	msg_put_msgbody		(FILE *, MsgBody *, int);
 int	msg_put_line		(FILE *, char *);
-char   *msg_xlate_line		(char *, int, char *);
+char   *msg_xlate_line		(char *, int, char *, int);
 int	msg_format_buffer	(char *, Textlist *);
 int	msg_parse_origin	(char *, Node *);
 

@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: areas.c,v 4.3 1996/04/26 08:41:40 mj Exp $
+ * $Id: areas.c,v 4.4 1996/10/22 19:58:22 mj Exp $
  *
  * Area <-> newsgroups conversion
  *
@@ -129,6 +129,8 @@ long areas_get_maxmsgsize(void)
  *     -R LVL           ^ARFC header level
  *     -m MAXSIZE       set MaxMsgSize for this area (0 = infinity)
  *     -X "Xtra: xyz"	add extra RFC header (multiple -X are allowed)
+ *     -8               convert to 8bit iso-8859-1 characters
+ *     -Q               convert to quoted-printable iso-8859-1 characters
  */
 void areas_init(void)
 {
@@ -189,8 +191,6 @@ void areas_init(void)
 		p->flags |= AREA_NOXPOST;
 	    if(!strcmp(o, "-g"))
 		p->flags |= AREA_NOGATE;
-	    if(!strcmp(o, "-8"))
-		p->flags |= AREA_8BIT;
 	    if(!strcmp(o, "-H"))
 		p->flags |= AREA_HIERARCHY;
 	    if(!strcmp(o, "-!"))
@@ -207,6 +207,10 @@ void areas_init(void)
 		/* -X "Xtra: xyz" */
 		if((o = xstrtok(NULL, " \t")))
 		    tl_append(&p->x_hdr, o);
+	    if(!strcmp(o, "-8"))
+		p->flags |= AREA_8BIT;
+	    if(!strcmp(o, "-Q"))
+		p->flags |= AREA_QP;
 	}
 	if(p->maxsize < 0)
 	    /* Not set or error */

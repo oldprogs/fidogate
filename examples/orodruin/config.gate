@@ -1,6 +1,6 @@
 #:ts=8
 #
-# $Id: config.gate,v 4.10 1996/10/18 16:57:57 mj Exp $
+# $Id: config.gate,v 4.11 1996/10/22 19:58:21 mj Exp $
 #
 # FIDOGATE config file gateway programs
 #
@@ -224,3 +224,14 @@ FTNInRnews	/usr/bin/rnews
 # run ftninrecomb
 #
 #FTNInRecombine
+
+
+#
+# Use 8bit ISO-8859-1 characters when gating from FTN to RFC
+#
+#NetMail8bit
+
+#
+# Use MIME quoted-printable ISO-8859-1 characters when gating from FTN to RFC
+#
+NetMailQuotedPrintable

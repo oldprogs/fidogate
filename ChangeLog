@@ -1,3 +1,36 @@
+Tue Oct 22 20:52:14 1996  Martin Junius  <mj@fido.de>
+
+	------- CVS ci -------------------------------------------------------
+
+	* src/common/rfcaddr.c (rfcaddr_from_ftn): call charset_xlate()
+	  with cidx=0.
+
+	* src/common/charset.c (charset_xlate): additional arg cidx, used
+	  as index for xtab[][][].
+
+	* src/common/message.c (msg_xlate_line): call charset_xlate() with
+	  new arg cidx.
+
+	* src/common/charset.c (xtab): extended to 3d array, left index is
+	  type of conversion 0=US-ASCII, 1=ISO-8859-1 8BIT, 2=ISO-8859-1 QP.
+
+	* src/common/message.c (msg_xlate_line): new cvt8 argument.
+
+	* src/gate/ftn2rfc.c (news_msg): initialize all Area fields.
+	  (netmail_8bit, netmail_qp): new flags for config.gate
+	  "NetMail8bit", "NetMailQuotedPrintable".
+	  (main): get "NetMail8bit", "NetMailQuotedPrintable" from config.gate.
+	  (unpack): output MIME-Version, Content-Type,
+	  Content-Transfer-Encoding headers dependend on cvt8 flag
+	  settings (AREA_8BIT | AREA_QP).
+	  (unpack): moved check for mail or news before message body
+	  conversion (must set cvt8 before).
+	  (unpack): pass cvt8 / 0 as additional parameter to msg_xlate_line().
+
+	* src/common/areas.c (areas_init): implemented -Q option.
+
+	* src/include/structs.h (AREA_QP): new #define for -Q option.
+
 Sun Oct 20 10:53:14 1996  Martin Junius  <mj@fido.de>
 
 	------- CVS ci -------------------------------------------------------
