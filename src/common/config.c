@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: config.c,v 4.1 1996/04/22 14:31:11 mj Exp $
+ * $Id: config.c,v 4.2 1996/06/09 10:49:02 mj Exp $
  *
  * Configuration data and functions
  *
@@ -993,12 +993,41 @@ char *cf_dos_xlate(char *name)
 	len = strlen(scf_dos[i].path);
 	if(!strncmp(name, scf_dos[i].path, len))
 	{
-	    strncpy0(buf, scf_dos[i].drive, MAXPATH);
-	    strncat0(buf, name+len        , MAXPATH);
+	    BUF_COPY2(buf, scf_dos[i].drive, name+len);
 	    for(s=buf; *s; s++)
 		switch(*s)
 		{
 		case '/':	*s = '\\';  break;
+		}
+	    return buf;
+	}
+    }
+    
+    return NULL;
+}
+
+
+
+/*
+ * Convert MSDOS path back to UNIX path
+ */
+char *cf_unix_xlate(char *name)
+{
+    static char buf[MAXPATH];
+    int i;
+    char *s;
+    int len;
+    
+    for(i=0; i<scf_ndos; i++)
+    {
+	len = strlen(scf_dos[i].drive);
+	if(!strncmp(name, scf_dos[i].drive, len))
+	{
+	    BUF_COPY2(buf, scf_dos[i].path, name+len);
+	    for(s=buf; *s; s++)
+		switch(*s)
+		{
+		case '\\':	*s = '/';  break;
 		}
 	    return buf;
 	}

@@ -2,6 +2,8 @@ Sun Jun  9 11:22:02 1996  Martin Junius  <mj@fido.de>
 
 	------- CVS commit ---------------------------------------------------
 
+	* test/tc.flo/: new test case for testing flo.c
+
 	* src/common/flo.c (flo_mark): new function writing '~' to
 	  beginning of entry line last read, marking the entry as sent.
 	  (flo_close): new parameter del. If TRUE, remove FLO file before

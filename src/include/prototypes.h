@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: prototypes.h,v 4.7 1996/06/06 15:59:30 mj Exp $
+ * $Id: prototypes.h,v 4.8 1996/06/09 10:49:03 mj Exp $
  *
  * Prototypes for functions in libfidogate.a
  *
@@ -143,6 +143,7 @@ char   *cf_zones_ftn_domain	(int);
 Node   *cf_addr_trav		(int);
 int	cf_dos			(void);
 char   *cf_dos_xlate		(char *);
+char   *cf_unix_xlate		(char *);
 void	cf_set_inbound		(char *);
 char   *cf_inbound		(void);
 Node    cf_gateway		(void);
@@ -181,6 +182,12 @@ char   *dir_search		(char *, char *);
 
 /* exit.c */
 void	fidogate_exit		(int);
+
+/* flo.c */
+int	flo_open		(Node *, int);
+char   *flo_gets		(char *, size_t);
+int	flo_close		(Node *, int, int);
+int	flo_mark		(void);
 
 /* fopen.c */
 FILE   *fopen_expand_name	(char *, char *);

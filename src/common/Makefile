@@ -1,6 +1,6 @@
 #:ts=8
 #
-#    $Id: Makefile,v 4.2 1996/06/06 15:59:28 mj Exp $
+#    $Id: Makefile,v 4.3 1996/06/09 10:49:01 mj Exp $
 #
 #    Makefile for FIDOGATE src/common/
 #
@@ -23,7 +23,7 @@ OBJS		= address.o aliases.o areas.o areasbbs.o binkley.o\
 		  message.o misc.o msgid.o node.o outpkt.o packet.o passwd.o\
 		  parsedate.o read.o rfcaddr.o rfcheader.o routing.o\
 		  sequencer.o textlist.o version.o wildmat.o\
-		  xalloc.o xstrtok.o mime.o tick.o parsenode.o
+		  xalloc.o xstrtok.o mime.o tick.o parsenode.o flo.o
 
 LIBOBJS		= $(OBJS:%=$(LIB)(%))
 
@@ -50,7 +50,7 @@ clean:
 #
 # Test programs
 #
-check:		testparse testmatch
+check:		testparse testmatch testflo
 
 testparse:	testparse.o
 	$(CC) $(LFLAGS) -o testparse testparse.o $(LIBS)
@@ -61,6 +61,11 @@ testmatch:	testmatch.o
 	$(CC) $(LFLAGS) -o testmatch testmatch.o $(LIBS)
 testmatch.o:	wildmat.c
 	$(CC) $(CFLAGS) $(LOCAL_CFLAGS) -DTEST -c wildmat.c -o testmatch.o
+
+testflo:	testflo.o
+	$(CC) $(LFLAGS) -o testflo testflo.o $(LIBS)
+testflo.o:	flo.c
+	$(CC) $(CFLAGS) $(LOCAL_CFLAGS) -DTEST -c flo.c -o testflo.o
 
 
 #

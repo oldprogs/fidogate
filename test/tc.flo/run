@@ -1,0 +1,21 @@
+#!/bin/sh
+
+T1="../../src/util/ftnfattach -L../cf -c./tmp_config.dos -v"
+T2="../../src/common/testflo -L../cf -c./tmp_config.dos -vvvvv"
+A="1:2/3.4"
+
+../tr.init
+cp config.dos tmp_config.dos
+echo "DosDrive X: "`pwd` >>tmp_config.dos
+cp config.dos tmp_file1.txt
+cp config.dos tmp_file2.xyz
+
+echo "tc: running"
+$T1 $A `pwd`/run
+$T1 $A `pwd`/tmp_file1.txt
+$T1 $A `pwd`/tmp_file2.xyz
+$T1 $A \^`pwd`/run
+$T1 $A \#`pwd`/tmp_file1.txt
+$T1 $A `pwd`/tmp_file2.xyz
+
+$T2 1:2/3.4
