@@ -1,4 +1,36 @@
+2001-05-28  Martin Junius  <mj@m-j-s.net>
+
+	------- CVS ci -------------------------------------------------------
+
+	* test/tc.gate12/run: new test case for long References headers
+	  and the problems which are now fixed. Thanx to
+	  Stephan Heitbrink <heitbrink@gmx.net> for reporting the bug
+	  and providing the test input news article files.
+
+	* src/common/rfcheader.c (TMPS_LEN_GETCOMPLETE): set to
+	  BUFFERSIZE, 256 is too low for e.g. long References headers.
+
+	* examples/orodruin/fidogate.conf: dito.
+
+	* test/cf/fidogate.conf: new Regex1stLine.
+
+2001-05-27  Martin Junius  <mj@m-j-s.net>
+
+	* src/common/rfcheader.c (header_read): use input buf[] of
+	  BUFFERSIZE avoiding in particular problems with long References
+	  header lines, sometimes > BUFSIZ = 1024.
+
+2001-03-15  Martin Junius  <mj@m-j-s.net>
+
+	* scripts/misc/hosts2dns.pl: default MX is now only morannon.fido.de.
+
+2001-03-09  Martin Junius  <mj@m-j-s.net>
+
+	* scripts/Makefile (SUBDIRS): added missing areas dir.
+
 2001-03-04  Martin Junius  <mj@m-j-s.net>
+
+	* update-morannon: fixed some problems, copy .lsm
 
 	======= Release 4.4.3 ================================================
 	------- CVS tag R443 -------------------------------------------------

@@ -1,0 +1,559 @@
+tc: clean-up
+tc: init
+tc: running
+
+---------- News article file articles/ack/8419 ----------
+RFC From:     HHullen_BS@BTX.dtag.de (Helmut Hullen)
+RFC Reply-To: Helmut@hullen.de
+RFC Sender:   Helmut Hullen <HHullen_BS@BTX.dtag.de>
+Name for alias checking: All
+No alias found: return All
+    Name:     HHullen_BS
+    Address:  BTX.dtag.de
+Name for alias checking: HHullen_BS
+E-mail for alias checking: HHullen_BS@BTX.dtag.de
+RFC Date: 01 May 2001 08:34:00 +0200
+RFC Newsgroups: ger.ct
+Look up newsgroup ger.ct
+Found: CT.GER ger.ct Zone=2 Addr=INVALID
+charset: in=iso-8859-1 out=LATIN-1
+charset: table found in=iso-8859-1 out=iso-8859-1
+New packet file ./outpkt/news/00000001.pkt (tmp ./outpkt/news/00000001.tmp)
+Writing FTN packet header:
+    From: 2:2452/110.2
+    To  : 2:2452/110.2
+    Baud: 0
+    Prod: 00 fe
+    Rev : x.x
+    Pass: ""
+    Capw: 0001
+
+---------- News article file articles/ack/8424 ----------
+RFC From:     Rocco Rutte <pdmef@gmx.net>
+RFC Reply-To: pdmef@gmx.net
+RFC Sender:   Rocco Rutte <pdmef@gmx.net>
+    Name:     Michael Tabel
+    Address:  
+Name for alias checking: Michael Tabel
+No alias found: return Michael Tabel
+    Name:     pdmef
+    Address:  gmx.net
+Name for alias checking: pdmef
+E-mail for alias checking: pdmef@gmx.net
+RFC Date: Tue, 1 May 2001 11:19:55 +0200
+RFC Newsgroups: ger.ct
+Look up newsgroup ger.ct
+Found: CT.GER ger.ct Zone=2 Addr=INVALID
+charset: in=us-ascii out=us-ascii
+charset: table found in=us-ascii out=us-ascii
+New packet file ./outpkt/news/00000002.pkt (tmp ./outpkt/news/00000002.tmp)
+Writing FTN packet header:
+    From: 2:2452/110.2
+    To  : 2:2452/110.2
+    Baud: 0
+    Prod: 00 fe
+    Rev : x.x
+    Pass: ""
+    Capw: 0001
+
+---------- News article file articles/nak/8405 ----------
+RFC From:     usenet-042001@foertsch.com (Torgen Foertsch)
+RFC Reply-To: usenet-042001@foertsch.com
+RFC Sender:   Torgen Foertsch <usenet-042001@foertsch.com>
+    Name:     Torgen Foertsch
+    Address:  
+Name for alias checking: Torgen Foertsch
+No alias found: return Torgen Foertsch
+    Name:     usenet-042001
+    Address:  foertsch.com
+Name for alias checking: usenet-042001
+E-mail for alias checking: usenet-042001@foertsch.com
+RFC Date: Mon, 30 Apr 2001 20:57:21 +0200
+RFC Newsgroups: ger.ct
+Look up newsgroup ger.ct
+Found: CT.GER ger.ct Zone=2 Addr=INVALID
+charset: in=iso-8859-1 out=LATIN-1
+charset: table found in=iso-8859-1 out=iso-8859-1
+New packet file ./outpkt/news/00000003.pkt (tmp ./outpkt/news/00000003.tmp)
+Writing FTN packet header:
+    From: 2:2452/110.2
+    To  : 2:2452/110.2
+    Baud: 0
+    Prod: 00 fe
+    Rev : x.x
+    Pass: ""
+    Capw: 0001
+
+---------- News article file articles/nak/8408 ----------
+RFC From:     Marc Brockschmidt <Marc_Brockschmidt@gmx.de>
+RFC Sender:   Marc Brockschmidt <Marc_Brockschmidt@gmx.de>
+    Name:     Wilfried Kramer
+    Address:  
+Name for alias checking: Wilfried Kramer
+No alias found: return Wilfried Kramer
+    Name:     Marc_Brockschmidt
+    Address:  gmx.de
+Name for alias checking: Marc_Brockschmidt
+E-mail for alias checking: Marc_Brockschmidt@gmx.de
+RFC Date: Mon, 30 Apr 2001 22:05:27 +0200
+RFC Newsgroups: ger.ct
+Look up newsgroup ger.ct
+Found: CT.GER ger.ct Zone=2 Addr=INVALID
+charset: in=iso-8859-1 out=LATIN-1
+charset: table found in=iso-8859-1 out=iso-8859-1
+New packet file ./outpkt/news/00000004.pkt (tmp ./outpkt/news/00000004.tmp)
+Writing FTN packet header:
+    From: 2:2452/110.2
+    To  : 2:2452/110.2
+    Baud: 0
+    Prod: 00 fe
+    Rev : x.x
+    Pass: ""
+    Capw: 0001
+
+---------- News article file articles/nak/8409 ----------
+RFC From:     Marc Brockschmidt <Marc_Brockschmidt@gmx.de>
+RFC Sender:   Marc Brockschmidt <Marc_Brockschmidt@gmx.de>
+    Name:     Benjamin Gawert
+    Address:  
+Name for alias checking: Benjamin Gawert
+No alias found: return Benjamin Gawert
+    Name:     Marc_Brockschmidt
+    Address:  gmx.de
+Name for alias checking: Marc_Brockschmidt
+E-mail for alias checking: Marc_Brockschmidt@gmx.de
+RFC Date: Mon, 30 Apr 2001 22:07:13 +0200
+RFC Newsgroups: ger.ct
+Look up newsgroup ger.ct
+Found: CT.GER ger.ct Zone=2 Addr=INVALID
+charset: in=us-ascii out=us-ascii
+charset: table found in=us-ascii out=us-ascii
+New packet file ./outpkt/news/00000005.pkt (tmp ./outpkt/news/00000005.tmp)
+Writing FTN packet header:
+    From: 2:2452/110.2
+    To  : 2:2452/110.2
+    Baud: 0
+    Prod: 00 fe
+    Rev : x.x
+    Pass: ""
+    Capw: 0001
+
+---------- News article file articles/nak/8444 ----------
+RFC From:     Eric Wick <eric.wick@gmx.de>
+RFC Sender:   Eric Wick <eric.wick@gmx.de>
+    Name:     WHDKramer
+    Address:  gmx.de
+Name for alias checking: Wilfried Kramer
+No alias found: return Wilfried Kramer
+    Name:     eric.wick
+    Address:  gmx.de
+Name for alias checking: eric.wick
+E-mail for alias checking: eric.wick@gmx.de
+RFC Date: Tue, 1 May 2001 18:22:47 +0200
+RFC Newsgroups: ger.ct
+Look up newsgroup ger.ct
+Found: CT.GER ger.ct Zone=2 Addr=INVALID
+charset: in=iso-8859-1 out=LATIN-1
+charset: table found in=iso-8859-1 out=iso-8859-1
+New packet file ./outpkt/news/00000006.pkt (tmp ./outpkt/news/00000006.tmp)
+Writing FTN packet header:
+    From: 2:2452/110.2
+    To  : 2:2452/110.2
+    Baud: 0
+    Prod: 00 fe
+    Rev : x.x
+    Pass: ""
+    Capw: 0001
+==============================================================================
+FTN packet header:
+    From: 2:2452/110.2
+    To  : 2:2452/110.2
+    Baud: 0
+    Prod: 00 fe
+    Rev : x.x
+    Pass: ""
+    Capw: 0001
+==============================================================================
+FTN message header:
+    From: Helmut Hullen                        @ 2:2452/110.2
+    To  : All                                  @ 2:2452/110.2
+    Subj: Re: Ich finde c't sollte vom Erwerb von WindowsXP   generell abraten!
+    Attr: 0000
+------------------------------------------------------------------------------
+AREA:CT.GER
+^AMSGID: <800C7l2NfjB@hhullen.btx.dtag.de> e927d20e
+^AREPLY: <3AEE0636.C02D1977@tabel.de> 12876515
+^AREPLYADDR <HHullen_BS@BTX.dtag.de>
+^AREPLYTO 2:2452/110.2 Helmut Hullen
+^ACHRS: LATIN-1 2
+^ARFC: 1 0
+^ARFC-From: HHullen_BS@BTX.dtag.de (Helmut Hullen)
+^ARFC-Newsgroups: ger.ct
+^ARFC-Date: 01 May 2001 08:34:00 +0200
+^ARFC-Reply-To: Helmut@hullen.de
+^ARFC-MIME-Version: 1.0
+^ARFC-Content-Type: text/plain; charset=iso-8859-1
+^ARFC-Content-Transfer-Encoding: 8bit
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
+------------------------------------------------------------------------------
+From: HHullen_BS@BTX.dtag.de (Helmut Hullen)
+Reply-To: Helmut@hullen.de
+------------------------------------------------------------------------------
+
+Hallo, Michael,
+
+Du meintest am 01.05.01 zum Thema Re: Ich finde c't sollte vom Erwerb von WindowsXP   generell abraten!:
+
+> Wer ohne MEMMAKER 621k freimachen konnte war Profi.
+
+Oder benutzte DR-DOS.
+
+Viele Gruesse!
+Helmut Hullen
+BS
+
+
+------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
+ * Origin: Martin Junius' orodruin.fido.de (2:2452/110.2)
+SEEN-BY: 2452/110.2
+^APATH: 2452/110.2
+==============================================================================
+==============================================================================
+FTN packet header:
+    From: 2:2452/110.2
+    To  : 2:2452/110.2
+    Baud: 0
+    Prod: 00 fe
+    Rev : x.x
+    Pass: ""
+    Capw: 0001
+==============================================================================
+FTN message header:
+    From: Rocco Rutte                          @ 2:2452/110.2
+    To  : Michael Tabel                        @ 2:2452/110.2
+    Subj: Re: Ich finde c't sollte vom Erwerb von WindowsXP   generell abraten!
+    Attr: 0000
+------------------------------------------------------------------------------
+AREA:CT.GER
+^AMSGID: <3aee8d9f$1@news03.heise.de> 437eae58
+^AREPLY: <3AEE0636.C02D1977@tabel.de> 12876515
+^AREPLYADDR <pdmef@gmx.net>
+^AREPLYTO 2:2452/110.2 Rocco Rutte
+^ACHRS: ASCII 2
+^ARFC: 1 0
+^ARFC-From: Rocco Rutte <pdmef@gmx.net>
+^ARFC-Newsgroups: ger.ct
+^ARFC-Date: Tue, 1 May 2001 11:19:55 +0200
+^ARFC-Reply-To: pdmef@gmx.net
+^ARFC-MIME-Version: 1.0
+^ARFC-Content-Type: text/plain; charset=us-ascii
+^ARFC-Content-Transfer-Encoding: 7bit
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
+------------------------------------------------------------------------------
+From: Rocco Rutte <pdmef@gmx.net>
+Reply-To: pdmef@gmx.net
+------------------------------------------------------------------------------
+
+Michael Tabel wrote:
+
+> [...]
+> Wer ohne MEMMAKER 621k freimachen konnte war Profi.
+> [...]
+
+Echt? Auf meinem alten 80386 waren >630k bei richtiger Konfiguration und 
+Novell Dos 7 kein Problem. Dafuer hattest du dann oben 'raus weniger XMS 
+(?), was aber nicht so schlimm war, da viele Programme Base Memory-hungrig 
+waren.
+
+Interessiert die Belegungsstatistik der ersten 640k heute ueberhaupt noch 
+jemanden? Die Zeiten, dass du Programme ins Regal zurueckgestellt hast, 
+weil dein Rechner nicht genug Speicher hatte, duerften doch vorbei sein.
+
+-- 
+sure is there's nothing really sure. not even that.
+joachim ringelnatz
+
+------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
+ * Origin: Martin Junius' orodruin.fido.de (2:2452/110.2)
+SEEN-BY: 2452/110.2
+^APATH: 2452/110.2
+==============================================================================
+==============================================================================
+FTN packet header:
+    From: 2:2452/110.2
+    To  : 2:2452/110.2
+    Baud: 0
+    Prod: 00 fe
+    Rev : x.x
+    Pass: ""
+    Capw: 0001
+==============================================================================
+FTN message header:
+    From: Torgen Foertsch                      @ 2:2452/110.2
+    To  : Torgen Foertsch                      @ 2:2452/110.2
+    Subj: Re: Speicherverwaltung unter Win98 SE
+    Attr: 0000
+------------------------------------------------------------------------------
+AREA:CT.GER
+^AMSGID: <slrn9erd59.ek.usenet-042001@susan.local.foertsch.com> 2ba45a8e
+^AREPLY: <slrn9ejred.gg.usenet-042001@susan.local.foertsch.com> 41c36eeb
+^AREPLYADDR <usenet-042001@foertsch.com>
+^AREPLYTO 2:2452/110.2 Torgen Foertsch
+^ACHRS: LATIN-1 2
+^ARFC: 1 0
+^ARFC-From: usenet-042001@foertsch.com (Torgen Foertsch)
+^ARFC-Newsgroups: ger.ct
+^ARFC-Date: Mon, 30 Apr 2001 20:57:21 +0200
+^ARFC-Reply-To: usenet-042001@foertsch.com
+^ARFC-MIME-Version: 1.0
+^ARFC-Content-Type: text/plain; charset=iso-8859-1
+^ARFC-Content-Transfer-Encoding: 8bit
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
+------------------------------------------------------------------------------
+From: usenet-042001@foertsch.com (Torgen Foertsch)
+Reply-To: usenet-042001@foertsch.com
+------------------------------------------------------------------------------
+
+<Torgen Foertsch><usenet-042001@foertsch.com> wrote:
+
+
+[Linux Speichererkennung]
+>> die mit mehr als 16 MB Probleme haben habe ich das letzte
+>> Mal 1996 gesehen. Nebenbei erklaert er auch nicht, wie
+>> der Kernel den Speicher erkennt.
+> 
+> Ich hab mal eben über die KernelSource gegrept aber die Stelle
+> auf anhieb nicht gefunden. Mehr wenn ich wieder mehr Zeit habe.
+
+tfoerts@susan:/usr/src/linux/arch/i386/kernel > less setup.c
+
+/*
+ * Copy the BIOS e820 map into a safe place.
+ *
+ * Sanity-check it while we're at it..
+ *
+ * If we're lucky and live on a modern system, the setup code
+ * will have given us a memory map that we can use to properly
+ * set up memory.  If we aren't, we'll fake a memory map.
+ *
+ * We check to see that the memory map contains at least 2 elements
+ * before we'll use it, because the detection code in setup.S may
+ * not be perfect and most every PC known to man has two memory
+ * regions: one from 0 to 640k, and one from 1mb up.  (The IBM
+ * thinkpad 560x, for example, does not cooperate with the memory
+ * detection code.)
+ */
+static int __init copy_e820_map(struct e820entry * biosmap, int nr_map)
+{
+...
+
+
+-- 
+Torgen Foertsch  -  torgen@foertsch.com  -  http://www.foertsch.com/
+"When people aren't stupid Usenet is even more useful. Too bad this
+ happens so rarely."                                (Jef Poskanzer)
+
+------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
+ * Origin: Martin Junius' orodruin.fido.de (2:2452/110.2)
+SEEN-BY: 2452/110.2
+^APATH: 2452/110.2
+==============================================================================
+==============================================================================
+FTN packet header:
+    From: 2:2452/110.2
+    To  : 2:2452/110.2
+    Baud: 0
+    Prod: 00 fe
+    Rev : x.x
+    Pass: ""
+    Capw: 0001
+==============================================================================
+FTN message header:
+    From: Marc Brockschmidt                    @ 2:2452/110.2
+    To  : Wilfried Kramer                      @ 2:2452/110.2
+    Subj: Re: Ich finde c´t sollte vom Erwerb von WindowsXP   
+    Attr: 0000
+------------------------------------------------------------------------------
+AREA:CT.GER
+^AMSGID: <9ckgn5$e9gtm$1@ID-53561.news.dfncis.de> 78c92912
+^AREPLY: <3af69e01.87716142@wid.soscha.de> 88b5557f
+^AREPLYADDR <Marc_Brockschmidt@gmx.de>
+^AREPLYTO 2:2452/110.2 Marc Brockschmidt
+^ACHRS: LATIN-1 2
+^ARFC: 1 0
+^ARFC-From: Marc Brockschmidt <Marc_Brockschmidt@gmx.de>
+^ARFC-Newsgroups: ger.ct
+^ARFC-Date: Mon, 30 Apr 2001 22:05:27 +0200
+^ARFC-MIME-Version: 1.0
+^ARFC-Content-Type: text/plain; charset=iso-8859-1
+^ARFC-Content-Transfer-Encoding: 8bit
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
+------------------------------------------------------------------------------
+From: Marc Brockschmidt <Marc_Brockschmidt@gmx.de>
+------------------------------------------------------------------------------
+
+Wilfried Kramer schrieb:
+
+> Wann hängt der so lange? Vielleicht solltest Du mal in den 
+> abgesicherten Modus gehen, und all die Geräte entfernen, die Du schon 
+> lange nicht mehr hast.
+
+Bei mir wird das wohl kaum Auftreten, da ich das Sys siet der letzten
+Installation (*ähhh* 12 Tage alt etwa) nicht erweitert habe. Ich hab nur
+die übliche Bootpause durch Promise-Controller vom A7V. Trotz 3 Geräten
+dran bruacht er fast 10 sek... Ich muß mir endlich ein DVD kaufen, dann
+sollte die Pause verschwinden!
+ 
+> >>>Kann man einen 'newuser' mal aufklären, was MCSE ist?
+> >>Der Führerschein für deine Maus. (Microsoft Certified System 
+> >>Engineer)
+> >MCSE = Mimesweeper Consultant and Solitair Expert
+> 
+> Darf ich das in der Kombination siggen?
+
+Wenn dir danach ist sicher!
+
+cu
+^IHE
+
+------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
+ * Origin: Martin Junius' orodruin.fido.de (2:2452/110.2)
+SEEN-BY: 2452/110.2
+^APATH: 2452/110.2
+==============================================================================
+==============================================================================
+FTN packet header:
+    From: 2:2452/110.2
+    To  : 2:2452/110.2
+    Baud: 0
+    Prod: 00 fe
+    Rev : x.x
+    Pass: ""
+    Capw: 0001
+==============================================================================
+FTN message header:
+    From: Marc Brockschmidt                    @ 2:2452/110.2
+    To  : Benjamin Gawert                      @ 2:2452/110.2
+    Subj: Re: Ich finde c´t sollte vom Erwerb von WindowsXP 
+    Attr: 0000
+------------------------------------------------------------------------------
+AREA:CT.GER
+^AMSGID: <9ckgn4$e4vc1$1@ID-53561.news.dfncis.de> 030e7cb4
+^AREPLY: <9ckc1r$e7kbk$1@ID-22005.news.dfncis.de> 9f1d5079
+^AREPLYADDR <Marc_Brockschmidt@gmx.de>
+^AREPLYTO 2:2452/110.2 Marc Brockschmidt
+^ACHRS: ASCII 2
+^ARFC: 1 0
+^ARFC-From: Marc Brockschmidt <Marc_Brockschmidt@gmx.de>
+^ARFC-Newsgroups: ger.ct
+^ARFC-Date: Mon, 30 Apr 2001 22:07:13 +0200
+^ARFC-MIME-Version: 1.0
+^ARFC-Content-Type: text/plain; charset=us-ascii
+^ARFC-Content-Transfer-Encoding: 7bit
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
+------------------------------------------------------------------------------
+From: Marc Brockschmidt <Marc_Brockschmidt@gmx.de>
+------------------------------------------------------------------------------
+
+Benjamin Gawert schrieb:
+
+> > > Michael, ist Notebook-Speicher eigentlich standardisiert?
+> >
+> > Ja.
+>
+> Nein, ist er nicht, jedenfalls nicht immer.
+
+Sollte aber sein. Aber die meisten Notebooks (Acer, Tosh, IBM z.B.)
+halten sich an die geltenden Standards.
+
+cu
+^IHE
+
+------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
+ * Origin: Martin Junius' orodruin.fido.de (2:2452/110.2)
+SEEN-BY: 2452/110.2
+^APATH: 2452/110.2
+==============================================================================
+==============================================================================
+FTN packet header:
+    From: 2:2452/110.2
+    To  : 2:2452/110.2
+    Baud: 0
+    Prod: 00 fe
+    Rev : x.x
+    Pass: ""
+    Capw: 0001
+==============================================================================
+FTN message header:
+    From: Eric Wick                            @ 2:2452/110.2
+    To  : Wilfried Kramer                      @ 2:2452/110.2
+    Subj: Re: Ich finde c´t sollte vom Erwerb von WindowsXP   gene rell abraten!
+    Attr: 0000
+------------------------------------------------------------------------------
+AREA:CT.GER
+^AMSGID: <589.3aeee3f5.8e207@procyon.ew-tech.dialin.t-online.de> ab3b49a1
+^AREPLY: <3af69e01.87716142@wid.soscha.de> 88b5557f
+^AREPLYADDR <eric.wick@gmx.de>
+^AREPLYTO 2:2452/110.2 Eric Wick
+^ACHRS: LATIN-1 2
+^ARFC: 1 0
+^ARFC-From: Eric Wick <eric.wick@gmx.de>
+^ARFC-Newsgroups: ger.ct
+^ARFC-Date: Tue, 1 May 2001 18:22:47 +0200
+^ARFC-MIME-Version: 1.0
+^ARFC-Content-Type: text/plain; charset=iso-8859-1
+^ARFC-Content-Transfer-Encoding: 8bit
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
+------------------------------------------------------------------------------
+From: Eric Wick <eric.wick@gmx.de>
+------------------------------------------------------------------------------
+
+Wilfried Kramer <WHDKramer@gmx.de> wrote:
+
+>Argl, regnet es bei Dir?
+
+Normalerweise vertipper ich mich gerne dabei, der Dos-Schrim ist mehr
+verbreitet:)
+
+>Wann hängt der so lange? Vielleicht solltest Du mal in den abgesicherten
+>Modus gehen, und all die Geräte entfernen, die Du schon lange nicht mehr
+>hast.
+
+Gute Frage, also ich kann die DOS Startdateien nicht entfernen weil die
+SB128PCI das nicht mag und augenblicklich neue anlegt. Mehr als der Aufruf der
+Soundkarte und Virenscanner ist auch nicht drin. Ich könnte mir höchstens noch
+vorstellen, daß es mit dem Netzwerk zu tun hat. Vieleicht müssen alle Freigaben
+und möglichen Shares vorher bebetet werden.
+
+>>MCSE = Mimesweeper Consultant and Solitair Expert
+>
+>Darf ich das in der Kombination siggen?
+
+Gerne, man kann es ja nicht oft genug erwähnen wenn jeder diesen Schein haben
+will und sich was darauf einbildet. Inzwischen gibts auch schon den RHCE
+Radical Hacking Customers Environment...........
+
+>Ich bin auch drin, aber Boris Becker hab' ich noch nich' getroffen...
+>(Moxi in dafa)
+
+Zumal: Na dann kann ich ja noch fünfmal!
+
+Gruß
+Eric
+-- 
+Linuxgateway, L-Notebook, Drucker, Hardwareentlärmung, Amiga
+SN-Newsserver, Netzwerk, Digi-Fotografie, Speeddragon, LCD 
+http://ew-tech.bei.t-online.de : Maillimit 2.5MB
+
+
+------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
+ * Origin: Martin Junius' orodruin.fido.de (2:2452/110.2)
+SEEN-BY: 2452/110.2
+^APATH: 2452/110.2
+==============================================================================

@@ -6,7 +6,7 @@
 if [ $# -lt 1 ]; then
     echo "usage:   update-morannon MAJ.MIN.PL"
     echo " "
-    echo "example: update-morannon 4.4.0"
+    echo "example: update-morannon 4.4.4"
     exit 1
 fi
 
@@ -25,5 +25,7 @@ scp \
     /usr/src/redhat/RPMS/i386/fidogate-$REL-*.i386.rpm \
     morannon:/pub/fidogate
 
+scp fidogate.lsm morannon:/pub/fidogate/fidogate-$REL.lsm
+
 ssh morannon \
-    '(cd /pub/fidogate; ln -s fidogate-$REL.tar.gz fgate$TAG.tgz)'
+    "(cd /pub/fidogate; ln -s fidogate-$REL.tar.gz fgate$TAG.tgz)"

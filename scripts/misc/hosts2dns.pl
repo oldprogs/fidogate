@@ -1,6 +1,6 @@
 #!/usr/bin/perl
 #
-# $Id: hosts2dns.pl,v 4.1 2000/06/03 20:36:40 mj Exp $
+# $Id: hosts2dns.pl,v 4.2 2001/05/28 15:09:25 mj Exp $
 #
 # Convert FIDOGATE hosts list to DNS MX record
 #
@@ -11,9 +11,10 @@ use FileHandle;
 
 
 my $PROGRAM = 'hosts2dns';
-my $VERSION = '0.0 $Revision: 4.1 $ ';
+my $VERSION = '0.0 $Revision: 4.2 $ ';
 
-my $DEF_MX  = "10\tmorannon.fido.de;100\tmonster.informatik.uni-oldenburg.de";
+#my $DEF_MX  = "10\tmorannon.fido.de;100\tmonster.informatik.uni-oldenburg.de";
+my $DEF_MX  = "10\tmorannon.fido.de";
 my $DEF_EXCL= "berlin\$";
 
 # Common configuration for perl scripts 

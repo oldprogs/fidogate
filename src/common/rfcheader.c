@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: rfcheader.c,v 4.9 2000/01/28 22:01:11 mj Exp $
+ * $Id: rfcheader.c,v 4.10 2001/05/28 15:09:25 mj Exp $
  *
  * Functions to process RFC822 header lines from messages
  *
@@ -113,16 +113,16 @@ void header_delete(void)
  */
 void header_read(FILE *file)
 {
-    char buffer[BUFSIZ];
+    static char buf[BUFFERSIZE];
     
     tl_clear(&header);
 
-    while(read_line(buffer, BUFSIZ, file))
+    while(read_line(buf, sizeof(buf), file))
     {
-	if(buffer[0] == '\n')
+	if(buf[0] == '\n')
 	    break;
-	strip_crlf(buffer);
-	tl_append(&header, buffer);
+	strip_crlf(buf);
+	tl_append(&header, buf);
     }
 }
 
@@ -296,7 +296,7 @@ char *header_getnext(void)
 /*
  * Return complete header line, concat continuation lines if necessary.
  */
-#define TMPS_LEN_GETCOMPLETE 256
+#define TMPS_LEN_GETCOMPLETE BUFFERSIZE
 
 char *s_header_getcomplete(char *name)
 {

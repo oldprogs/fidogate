@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: misc.c,v 4.19 2000/10/17 21:04:35 mj Exp $
+ * $Id: misc.c,v 4.20 2001/05/28 15:09:25 mj Exp $
  *
  * Miscellaneous functions
  *
@@ -64,6 +64,7 @@ int str_printf(char *buf, size_t len, const char *fmt, ...)
     
 #ifdef HAS_SNPRINTF    
     n = vsnprintf(buf, len, fmt, args);
+    /**FIXME: check for n==-1 and errno**/
 #else
     n = vsprintf(buf, fmt, args);
     if(n >= len)
@@ -74,8 +75,9 @@ int str_printf(char *buf, size_t len, const char *fmt, ...)
     }
 #endif
     /* Make sure that buf[] is terminated with a \0. vsnprintf()
-     * should do this automatically, but one never knows ... see also
-     * posting on BugTraq */
+     * should do this automatically as required by the ANSI C99
+     * proposal, but one never knows ... see also discussion on
+     * BugTraq */
     buf[len - 1] = 0;
 
     va_end(args);
