@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftn2rfc.c,v 4.32 1998/01/18 17:49:11 mj Exp $
+ * $Id: ftn2rfc.c,v 4.33 1998/01/24 14:07:30 mj Exp $
  *
  * Convert FTN mail packets to RFC mail and news batches
  *
@@ -40,7 +40,7 @@
 
 
 #define PROGRAM 	"ftn2rfc"
-#define VERSION 	"$Revision: 4.32 $"
+#define VERSION 	"$Revision: 4.33 $"
 #define CONFIG		DEFAULT_CONFIG_GATE
 
 
@@ -1341,11 +1341,11 @@ int main(int argc, char **argv)
     /*
      * Process local options
      */
-    BUF_EXPAND(in_dir, I_flag ? I_flag : cf_p_inbound());
+    BUF_EXPAND(in_dir, I_flag ? I_flag : cf_p_pinbound());
 
     /* Initialize mail_dir[], news_dir[] output directories */
-    BUF_EXPAND(mail_dir, OUTRFC_MAIL);
-    BUF_EXPAND(news_dir, OUTRFC_NEWS);
+    BUF_EXPAND(mail_dir, DEFAULT_OUTRFC_MAIL);
+    BUF_EXPAND(news_dir, DEFAULT_OUTRFC_NEWS);
 
     /* Process optional config statements */
     if(cf_get_string("DotNames", TRUE))

@@ -1,5 +1,5 @@
 #
-# $Id: config,v 4.1 1996/08/26 19:10:35 mj Exp $
+# $Id: config,v 4.2 1998/01/24 14:07:41 mj Exp $
 #
 # Test config with UseOrganizationForOrigin
 #
@@ -7,4 +7,4 @@
 # *first* match is used!
 UseOriginForOrganization
 
-include %L/config.gate
+include ../cf/gate.conf

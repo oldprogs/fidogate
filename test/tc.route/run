@@ -2,11 +2,11 @@
 
 ../tr.init
 
-G="../../src/gate/rfc2ftn -L../cf -vv -c./config -i"
+G="../../src/gate/rfc2ftn -vv -c./config -i"
 
-T="../../src/toss/ftntoss  -L../cf -vv -r./routing"
-R="../../src/toss/ftnroute -L../cf -vv -r./routing"
-P="../../src/toss/ftnpack  -L../cf -v"
+T="../../src/toss/ftntoss  -c../cf/toss.conf -vv -r./routing"
+R="../../src/toss/ftnroute -c../cf/toss.conf -vv -r./routing"
+P="../../src/toss/ftnpack  -c../cf/toss.conf -v"
 
 echo "tc: running"
 
@@ -40,7 +40,7 @@ EOF
 
 
 # Move to SPOOLDIR/toss/in and run ftntoss/ftnroute
-mv out/*.pkt toss/in
+mv outpkt/mail/*.pkt pin
 $T
 $R
 $P
@@ -57,7 +57,7 @@ TEST CRASH
 EOF
 
 # Move to SPOOLDIR/toss/in and run ftntoss/ftnroute
-mv out/*.pkt toss/in
+mv outpkt/mail/*.pkt pin
 $T
 $R
 $P

@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ffx.c,v 4.6 1998/01/18 09:47:56 mj Exp $
+ * $Id: ffx.c,v 4.7 1998/01/24 14:07:28 mj Exp $
  *
  * ffx FIDO-FIDO execution
  *
@@ -38,7 +38,7 @@
 
 
 #define PROGRAM		"ffx"
-#define VERSION		"$Revision: 4.6 $"
+#define VERSION		"$Revision: 4.7 $"
 #define CONFIG		DEFAULT_CONFIG_FFX
 
 
@@ -103,7 +103,7 @@ char *new_job_id(int f)
     static char buf[16];
     long seq;
 
-    seq = sequencer(SEQ_FF) % 1000000;		/* max. 6 digits */
+    seq = sequencer(DEFAULT_SEQ_FF) % 1000000;		/* max. 6 digits */
     if(!f)
 	f = 'f';
   

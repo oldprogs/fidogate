@@ -3,7 +3,7 @@
 /*
  * FIDOGATE
  *
- * $Id: cf_abbrev.mak,v 4.3 1998/01/18 15:33:06 mj Exp $
+ * $Id: cf_abbrev.mak,v 4.4 1998/01/24 14:07:24 mj Exp $
  */
 
 { 'B', cf_p_btbasedir },

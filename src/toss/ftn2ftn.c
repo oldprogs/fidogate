@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: ftn2ftn.c,v 4.4 1998/01/18 17:49:13 mj Exp $
+ * $Id: ftn2ftn.c,v 4.5 1998/01/24 14:07:34 mj Exp $
  *
  * FTN-FTN gateway for NetMail, using the %Z:N/F.P addressing in the
  * from/to fields.
@@ -35,7 +35,7 @@
 
 
 #define PROGRAM 	"ftn2ftn"
-#define VERSION 	"$Revision: 4.4 $"
+#define VERSION 	"$Revision: 4.5 $"
 #define CONFIG		DEFAULT_CONFIG_MAIN
 
 
@@ -420,7 +420,7 @@ int main(int argc, char **argv)
     if(O_flag)
 	pkt_outdir(O_flag, NULL);
     else
-	pkt_outdir(OUTPKT, NULL);
+	pkt_outdir(DEFAULT_OUTPKT, NULL);
 
     passwd_init();
 

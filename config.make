@@ -1,15 +1,35 @@
 # -*- Makefile -*-
 #
-# $Id: config.make,v 4.15 1998/01/18 15:33:01 mj Exp $
+# $Id: config.make,v 4.16 1998/01/24 14:07:20 mj Exp $
 #
 # FIDOGATE main configuration
 #
 
 ##############################################################################
+#         C O N F I G   P A R A M E T E R S   D E F I N I T I O N S          #
 ##############################################################################
 #
-# Settings used by subst.pl, default values for directories
-# (subst.pl will use DEFAULT_XXX and ABBREV_XXX macros)
+# DEFAULT_* macros used by subst.pl:
+#
+#	DEFAULT_P_XXX	variable config parameter
+#			- default value define here
+#			- substitutes <XXX> in scripts
+#			- config file parameter XXX
+#			- C code cf_p_xxx(), cf_s_xxx() automatically generated
+#			- #define DEFAULT_XXX in paths.h
+#
+#	DEFAULT_F_XXX	fixed config parameter
+#			- default value define here
+#			- substitutes <XXX> in scripts
+#			- #define DEFAULT_XXX in paths.h
+#
+#	DEFAULT_A_XXX	abbreviation %X for config parameters
+#			- C, perl code automatically generated
+#
+# WARNING!!!
+# DON'T REMOVE ANY OF THE MACRO DEFINITIONS BELOW, THIS MAY BREAK FIDOGATE!!!!
+# 
+##############################################################################
 #
 # Directory		Compile-time		Run-time	Abbrev
 # ---------		------------		--------	------
@@ -27,66 +47,89 @@
 # Uuencode inbound	DEFAULT_UUINBOUND	UUInbound	%U
 # FTP inbound		DEFAULT_FTPINBOUND	FTPInbound
 #
-# INN config		DEFAULT_NEWSETCDIR	NewsEtcDir
-# INN var lib		DEFAULT_NEWSVARDIR	NewsVarDir
-# INN main lib		DEFAULT_NEWSLIBDIR	NewsLibDir
-# INN spool		DEFAULT_NEWSSPOOL	NewsSpoolDir
+# INN config		DEFAULT_NEWSETCDIR
+# INN var lib		DEFAULT_NEWSVARDIR
+# INN main lib		DEFAULT_NEWSLIBDIR
+# INN spool		DEFAULT_NEWSSPOOL
 #
-# Ifmail main lib	DEFAULT_IFMAILDIR	IfmailDir
-#
-# DON'T REMOVE ANY OF THE DEFINITIONS BELOW!!!
-# C CODE IS AUTOMATICALLY GENERATED FOR ALL CONFIG PARAMETERS DEFINED HERE!!!
+# Ifmail main lib	DEFAULT_IFMAILDIR
 #
 
-# directories
-DEFAULT_CONFIGDIR	= /etc/fidogate
-DEFAULT_LIBDIR		= /usr/lib/fidogate
-DEFAULT_BINDIR		= $(DEFAULT_LIBDIR)/bin
-DEFAULT_LOGDIR		= /var/log/fidogate
-DEFAULT_VARDIR		= /var/lib/fidogate
-DEFAULT_LOCKDIR		= /var/lock/fidogate
-DEFAULT_SPOOLDIR	= /var/spool/fidogate
-DEFAULT_BTBASEDIR	= /var/spool/bt
+# variable parameters, can be changed at run-time, DO NOT DELETE ANYTHING!!!
+DEFAULT_V_CONFIGDIR	= /etc/fidogate
+DEFAULT_V_LIBDIR	= /usr/lib/fidogate
+DEFAULT_V_BINDIR	= $(DEFAULT_V_LIBDIR)/bin
+DEFAULT_V_LOGDIR	= /var/log/fidogate
+DEFAULT_V_VARDIR	= /var/lib/fidogate
+DEFAULT_V_LOCKDIR	= /var/lock/fidogate
+DEFAULT_V_SPOOLDIR	= /var/spool/fidogate
+DEFAULT_V_BTBASEDIR	= /var/spool/bt
+DEFAULT_V_INBOUND	= $(DEFAULT_V_BTBASEDIR)/in
+DEFAULT_V_PINBOUND	= $(DEFAULT_V_BTBASEDIR)/pin
+DEFAULT_V_UUINBOUND	= $(DEFAULT_V_BTBASEDIR)/uuin
+DEFAULT_V_FTPINBOUND	= $(DEFAULT_V_BTBASEDIR)/ftpin
 
-DEFAULT_INBOUND		= $(DEFAULT_BTBASEDIR)/in
-DEFAULT_PINBOUND	= $(DEFAULT_BTBASEDIR)/pin
-DEFAULT_UUINBOUND	= $(DEFAULT_BTBASEDIR)/uuin
-DEFAULT_FTPINBOUND	= $(DEFAULT_BTBASEDIR)/ftpin
+DEFAULT_V_ALIASES	= %C/aliases
+DEFAULT_V_AREAS		= %C/areas
+DEFAULT_V_HOSTS		= %C/hosts
+DEFAULT_V_PASSWD	= %C/passwd
+DEFAULT_V_PACKING	= %C/packing
+DEFAULT_V_ROUTING	= %C/routing
+DEFAULT_V_HISTORY	= %V/history
+DEFAULT_V_LOGFILE	= %G/log
 
-DEFAULT_NEWSETCDIR	= /etc/news
-DEFAULT_NEWSVARDIR	= /var/lib/news
-DEFAULT_NEWSLIBDIR	= /usr/lib/news
-DEFAULT_NEWSSPOOLDIR	= /var/spool/news
 
-DEFAULT_IFMAILDIR       = /usr/local/lib/ifmail
+# fixed parameters, DO NOT DELETE ANYTHING!!!
+DEFAULT_F_NEWSETCDIR	= /etc/news
+DEFAULT_F_NEWSVARDIR	= /var/lib/news
+DEFAULT_F_NEWSLIBDIR	= /usr/lib/news
+DEFAULT_F_NEWSSPOOLDIR	= /var/spool/news
+DEFAULT_F_IFMAILDIR     = /usr/local/lib/ifmail
 
-# directory abbreviations
-ABBREV_CONFIGDIR	= %C
-ABBREV_LIBDIR		= %L
-ABBREV_BINDIR		= %N
-ABBREV_LOGDIR		= %G
-ABBREV_VARDIR		= %V
-ABBREV_LOCKDIR		= %K
-ABBREV_SPOOLDIR		= %S
-ABBREV_BTBASEDIR	= %B
+DEFAULT_F_CONFIG_GATE	= %C/gate.conf
+DEFAULT_F_CONFIG_MAIN	= %C/toss.conf
+DEFAULT_F_CONFIG_FFX	= %C/ffx.conf
 
-ABBREV_INBOUND		= %I
-ABBREV_PINBOUND		= %P
-ABBREV_UUINBOUND	= %U
+DEFAULT_F_SEQ_MAIL	= %V/seq/mail
+DEFAULT_F_SEQ_NEWS	= %V/seq/news
+DEFAULT_F_SEQ_MSGID	= %V/seq/msgid
+DEFAULT_F_SEQ_PKT	= %V/seq/pkt
+DEFAULT_F_SEQ_SPLIT	= %V/seq/split
+DEFAULT_F_SEQ_FF	= %V/seq/ff
+DEFAULT_F_SEQ_TOSS	= %V/seq/toss
+DEFAULT_F_SEQ_PACK	= %V/seq/pack
+DEFAULT_F_SEQ_TICK	= %V/seq/tick
 
-# files
-DEFAULT_CONFIG_GATE	= %C/gate.conf
-DEFAULT_CONFIG_MAIN	= %C/toss.conf
-DEFAULT_CONFIG_FFX	= %C/ffx.conf
+DEFAULT_F_LOCK_HISTORY	= history
 
-DEFAULT_ALIASES		= %C/aliases
-DEFAULT_AREAS		= %C/areas
-DEFAULT_HOSTS		= %C/hosts
-DEFAULT_PASSWD		= %C/passwd
-DEFAULT_PACKING		= %C/packing
-DEFAULT_ROUTING		= %C/routing
-DEFAULT_HISTORY		= %V/history
-DEFAULT_LOGFILE		= %G/log
+DEFAULT_F_OUTRFC_MAIL	= %S/outrfc/mail
+DEFAULT_F_OUTRFC_NEWS	= %S/outrfc/news
+DEFAULT_F_OUTPKT	= %S/outpkt
+DEFAULT_F_OUTPKT_MAIL	= %S/outpkt/mail
+DEFAULT_F_OUTPKT_NEWS	= %S/outpkt/news
+
+DEFAULT_F_TOSS_TOSS	= %S/toss/toss
+DEFAULT_F_TOSS_ROUTE	= %S/toss/route
+DEFAULT_F_TOSS_PACK	= %S/toss/pack
+DEFAULT_F_TOSS_BAD	= %S/toss/bad
+
+DEFAULT_F_TICK_HOLD	= %B/tick
+
+
+
+# directory abbreviations, DO NOT CHANGE!!!
+DEFAULT_A_CONFIGDIR	= %C
+DEFAULT_A_LIBDIR	= %L
+DEFAULT_A_BINDIR	= %N
+DEFAULT_A_LOGDIR	= %G
+DEFAULT_A_VARDIR	= %V
+DEFAULT_A_LOCKDIR	= %K
+DEFAULT_A_SPOOLDIR	= %S
+DEFAULT_A_BTBASEDIR	= %B
+DEFAULT_A_INBOUND	= %I
+DEFAULT_A_PINBOUND	= %P
+DEFAULT_A_UUINBOUND	= %U
+
 
 # The perl interpreter used by subst.pl
 PERL			= /usr/bin/perl
@@ -96,25 +139,27 @@ INFODIR			= /usr/info
 HTMLDIR			= /home/mj/public_html/fidogate
 
 ##############################################################################
-##############################################################################
-
 
 # The old names back again ... (to be out-phased)
-BINDIR		= $(DEFAULT_BINDIR)
-LIBDIR		= $(DEFAULT_LIBDIR)
-SPOOLDIR	= $(DEFAULT_SPOOLDIR)
-LOGDIR		= $(DEFAULT_LOGDIR)
-OUTBOUND	= $(DEFAULT_BTBASEDIR)
-INBOUND		= $(DEFAULT_INBOUND)
-PINBOUND	= $(DEFAULT_PINBOUND)
-UUINBOUND	= $(DEFAULT_UUINBOUND)
-NEWSETCDIR	= $(DEFAULT_NEWSETCDIR)
-NEWSVARDIR	= $(DEFAULT_NEWSVARDIR)
-NEWSLIBDIR	= $(DEFAULT_NEWSLIBDIR)
-NEWSSPOOLDIR	= $(DEFAULT_NEWSSPOOLDIR)
-IFMAILDIR       = $(DEFAULT_IFMAILDIR)
+BINDIR		= $(DEFAULT_V_BINDIR)
+LIBDIR		= $(DEFAULT_V_LIBDIR)
+SPOOLDIR	= $(DEFAULT_V_SPOOLDIR)
+LOGDIR		= $(DEFAULT_V_LOGDIR)
+OUTBOUND	= $(DEFAULT_V_BTBASEDIR)
+INBOUND		= $(DEFAULT_V_INBOUND)
+PINBOUND	= $(DEFAULT_V_PINBOUND)
+UUINBOUND	= $(DEFAULT_V_UUINBOUND)
+
+NEWSETCDIR	= $(DEFAULT_F_NEWSETCDIR)
+NEWSVARDIR	= $(DEFAULT_F_NEWSVARDIR)
+NEWSLIBDIR	= $(DEFAULT_F_NEWSLIBDIR)
+NEWSSPOOLDIR	= $(DEFAULT_F_NEWSSPOOLDIR)
+IFMAILDIR       = $(DEFAULT_F_IFMAILDIR)
 
 
+##############################################################################
+#           S Y S T E M   S P E C I F I C   D E F I N I T I O N S            #
+##############################################################################
 # OS2: comment out
 SHELL		= /bin/sh
 

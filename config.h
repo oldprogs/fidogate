@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway software UNIX <-> FIDO
  *
- * $Id: config.h,v 4.31 1998/01/20 21:47:30 mj Exp $
+ * $Id: config.h,v 4.32 1998/01/24 14:07:19 mj Exp $
  *
  * Configuration header file
  *
@@ -333,36 +333,6 @@
  *              Think twice before changing anything below!!!               *
  *                                                                          *
  ****************************************************************************/
-
-/* Sequencer files */
-#define SEQ_MAIL	"%V/seq/mail"	/* ftn2rfc: temp mail files */
-#define SEQ_NEWS	"%V/seq/news"	/* ftn2rfc: temp news files */
-#define SEQ_MSGID	"%V/seq/msgid"	/* local ^AMSGID */
-#define SEQ_PKT		"%V/seq/pkt"	/* rfc2ftn: outgoing packets */
-#define SEQ_SPLIT	"%V/seq/split"	/* rfc2ftn: msg # of split msgs */
-#define SEQ_FF		"%V/seq/ff"	/* ffx: control/data files */
-#define SEQ_TOSS	"%V/seq/toss"	/* ftntoss/ftnroute: output packets */
-#define SEQ_PACK	"%V/seq/pack"	/* ftnpack: archived .pkts */
-#define SEQ_TICK	"%V/seq/tick"	/* ftnhatch/ftntick: .tic file ids */
-
-/* Program lock files */
-#define LOCK_HISTORY	"history"	/* Access to MSGID history database */
-
-/* Directories in SPOOLDIR */
-#define OUTRFC_MAIL	"%S/outrfc/mail"/* ftn2rfc RFC mail output */
-#define OUTRFC_NEWS	"%S/outrfc/news"/* ftn2rfc RFC news output */
-#define OUTPKT		"%S/outpkt"	/* common PKT output */
-#define OUTPKT_MAIL	"%S/outpkt/mail"/* rfc2ftn PKT mail output */
-#define OUTPKT_NEWS	"%S/outpkt/news"/* rfc2ftn PKT news output */
-
-#define TOSS_TOSS	"%S/toss/toss"	/* ftntoss temp output */
-#define TOSS_ROUTE	"%S/toss/route"	/* ftnroute temp output */
-#define TOSS_PACK	"%S/toss/pack"	/* ftnpack temp output */
-#define TOSS_BAD	"%S/toss/bad"	/* ftntoss bad packets */
-
-/* Misc */
-#define TICK_HOLD	"%B/tick"	/* ftnhatch/ftntick .TIC files */
-
 
 /*
  * Permissions

@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftnroute.c,v 4.16 1998/01/18 17:49:14 mj Exp $
+ * $Id: ftnroute.c,v 4.17 1998/01/24 14:07:37 mj Exp $
  *
  * Route FTN NetMail/EchoMail
  *
@@ -40,7 +40,7 @@
 
 
 #define PROGRAM 	"ftnroute"
-#define VERSION 	"$Revision: 4.16 $"
+#define VERSION 	"$Revision: 4.17 $"
 #define CONFIG		DEFAULT_CONFIG_MAIN
 
 
@@ -632,8 +632,8 @@ int main(int argc, char **argv)
     /*
      * Process local options
      */
-    BUF_EXPAND(in_dir, I_flag ? I_flag : TOSS_TOSS);
-    pkt_outdir(O_flag ? O_flag : TOSS_ROUTE, NULL);
+    BUF_EXPAND(in_dir, I_flag ? I_flag : DEFAULT_TOSS_TOSS);
+    pkt_outdir(O_flag ? O_flag : DEFAULT_TOSS_ROUTE, NULL);
 
     routing_init(r_flag ? r_flag : cf_p_routing() );
     passwd_init();

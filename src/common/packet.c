@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: packet.c,v 4.5 1998/01/18 15:33:08 mj Exp $
+ * $Id: packet.c,v 4.6 1998/01/24 14:07:27 mj Exp $
  *
  * Functions to read/write packets and messages
  *
@@ -133,7 +133,7 @@ static char *pkt_newname(char *name)
     }
     else
     {
-	long n = sequencer(SEQ_PKT);
+	long n = sequencer(DEFAULT_SEQ_PKT);
 	sprintf(packet_name, "%s/%08ld.pkt", packet_dir, n);
 	sprintf(packet_tmp , "%s/%08ld.tmp", packet_dir, n);
     }

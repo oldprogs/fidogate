@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: outpkt.c,v 4.2 1998/01/18 09:47:52 mj Exp $
+ * $Id: outpkt.c,v 4.3 1998/01/24 14:07:26 mj Exp $
  *
  * Output packet handling for ftntoss and ftroute.
  *
@@ -121,7 +121,7 @@ char *outpkt_outputname(char *buf,
  */
 long outpkt_sequencer(void)
 {
-    return sequencer(SEQ_TOSS) & 0x000fffff;
+    return sequencer(DEFAULT_SEQ_TOSS) & 0x000fffff;
 }
 
 

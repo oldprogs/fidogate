@@ -1,6 +1,6 @@
 #!/usr/bin/perl
 #
-# $Id: ftninpost.pl,v 4.6 1997/10/11 21:24:27 mj Exp $
+# $Id: ftninpost.pl,v 4.7 1998/01/24 14:07:31 mj Exp $
 #
 # Postprocessor for ftnin, feeds output of ftn2rfc to rnews and sendmail.
 # Call via ftnin's -x option or run after ftn2rfc. Replaces old fidorun
@@ -8,48 +8,59 @@
 #
 
 require "getopts.pl";
-&Getopts('vL:S:I:');
+&Getopts('vL:S:c:');
 
 # defaults
-$LIBDIR   = "<LIBDIR>";
-$SPOOLDIR = "<SPOOLDIR>";
-$INDIR    = "<SPOOLDIR>/in";
+$CONFIG      = $opt_c ? $opt_c : "<CONFIG_GATE>";
+$LIBDIR      = $opt_L ? $opt_L : "<LIBDIR>";
 
+# config.pl
+require "$LIBDIR/config.pl";
+&CONFIG_read($CONFIG);
 
 # options
 undef @options;
+if($opt_c) {
+    push @options, ("-c", $CONFIG);
+}
+if($opt_v) {
+    push @options, "-v";
+}
 if($opt_L) {
-    $LIBDIR   = $opt_L;
-    push(@options, "-L$LIBDIR");
+    $CONFIG{"libdir"} = $opt_L;
+    push @options, ("-L", $opt_L);
 }
 if($opt_S) {
-    $SPOOLDIR = $opt_S;
-    push(@options, "-S$SPOOLDIR");
-}
-$INDIR    = $opt_I if($opt_I);
-if($opt_v) {
-    push(@options, "-v");
+    $CONFIG{"spooldir"} = $opt_S;
+    push @options, ("-S", $opt_S);
 }
 
-# get config.gate parameters
-$SENDMAIL = `$LIBDIR/ftnconfig -c $LIBDIR/config.gate -l FTNInSendmail`;
-$RNEWS    = `$LIBDIR/ftnconfig -c $LIBDIR/config.gate -l FTNInRnews`;
-$RECOMB   = `$LIBDIR/ftnconfig -c $LIBDIR/config.gate -l -t FTNInRecombine`;
+
+# get gate.conf parameters
+$SENDMAIL    = &CONFIG_get("FTNInSendmail");
+$RNEWS       = &CONFIG_get("FTNInRnews");
+$RECOMB      = &CONFIG_get("FTNInRecombine");
+
+$OUTRFC_MAIL = &CONFIG_get("OUTRFC_MAIL");
+$OUTRFC_NEWS = &CONFIG_get("OUTRFC_NEWS");
 
 if(! $SENDMAIL) {
-    print STDERR "ftninpost:config.gate:FTNInSendmail not specified\n";
+    print STDERR "ftninpost:$CONFIG:FTNInSendmail not specified\n";
     exit 1;
 }
 if(! $RNEWS) {
-    print STDERR "ftninpost:config.gate:FTNInRnews not specified\n";
+    print STDERR "ftninpost:$CONFIG:FTNInRnews not specified\n";
     exit 1;
 }
 
 print
     "sendmail  = $SENDMAIL\n",
     "rnews     = $RNEWS\n",
-    "recombine = $RECOMB\n"
+    "recombine = $RECOMB\n",
+    "mail      = $OUTRFC_MAIL\n",
+    "news      = $OUTRFC_NEWS\n"
     if($opt_v);
+
 
 # command lists
 @sendmail = split(' ', $SENDMAIL);
@@ -71,17 +82,17 @@ if($fidx > -1) {
 
 # do recombining of split messages
 if($RECOMB) {
-    @cmd = ("$LIBDIR/ftninrecomb");
+    @cmd = (&CONFIG_expand($RECOMB));
     push(@cmd, @options);
     print "Running @cmd\n" if($opt_v);
     system @cmd;
 }
 
 # mail
-$dir = "$INDIR/tmpmail";
+$dir = $OUTRFC_MAIL;
 
 opendir(DIR, "$dir") || die "ftninpost: can't open $dir\n";
-@files = grep(/\.msg$/, readdir(DIR));
+@files = grep(/\.rfc$/, readdir(DIR));
 closedir(DIR);
 
 for $f (sort @files) {
@@ -89,10 +100,10 @@ for $f (sort @files) {
 }
 
 # news
-$dir = "$INDIR/tmpnews";
+$dir = $OUTRFC_NEWS;
 
 opendir(DIR, "$dir") || die "ftninpost: can't open $dir\n";
-@files = grep(/\.msg$/, readdir(DIR));
+@files = grep(/\.rfc$/, readdir(DIR));
 closedir(DIR);
 
 for $f (sort @files) {
@@ -105,7 +116,7 @@ for $f (sort @files) {
 
 sub do_file {
     local($mail, $file) = @_;
-    local($ret);
+    local($ret, $bad);
 
     if($mail) {
 	# Mail
@@ -118,7 +129,7 @@ sub do_file {
 	@cmd = @rnews;
     }
 
-    print "CMD: @cmd\n" if($opt_v);
+    print "CMD: @cmd" if($opt_v);
 
     # Save STDIN, open $file as new STDIN
     open(SAVE, "<&STDIN") || die "ftninpost: can't save STDIN\n";
@@ -132,11 +143,13 @@ sub do_file {
     open(STDIN, "<&SAVE") || die "ftninpost: can't restore STDIN\n";
 
     if($ret == 0) {
-	print "SUCCESS\n" if($opt_v);
+	print " - SUCCESS\n" if($opt_v);
 	unlink($file) || die "ftninpost: can't unlink $file\n";
     }
     else {
-	print "ERROR\n" if($opt_v);
+	print " - ERROR\n" if($opt_v);
+	$bad = $file;
+	$bad =~ s/\.rfc$/.bad/;
 	rename($file, $bad) || die "ftninpost: can't move $file -> $bad\n";
     }
 }

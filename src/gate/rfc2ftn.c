@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway software UNIX <-> FIDO
  *
- * $Id: rfc2ftn.c,v 4.35 1998/01/18 17:49:12 mj Exp $
+ * $Id: rfc2ftn.c,v 4.36 1998/01/24 14:07:32 mj Exp $
  *
  * Read mail or news from standard input and convert it to a FIDO packet.
  *
@@ -39,7 +39,7 @@
 
 
 #define PROGRAM 	"rfc2ftn"
-#define VERSION 	"$Revision: 4.35 $"
+#define VERSION 	"$Revision: 4.36 $"
 #define CONFIG		DEFAULT_CONFIG_GATE
 
 
@@ -1316,7 +1316,7 @@ int snd_message(Message *msg, Area *parea,
 	    if(part == 1)
 	    {
 		time_split = time(NULL);
-		seq        = sequencer(SEQ_SPLIT) % 100000;/* Max. 5 digits */
+		seq        = sequencer(DEFAULT_SEQ_SPLIT) % 100000;/* Max. 5 digits */
 	    }
 	    
 	    sprintf(buf, "%d/%d", cf_addr()->net, cf_addr()->node);
@@ -1524,7 +1524,7 @@ int print_local_msgid(FILE *fp)
 {
     long msgid;
 
-    msgid = sequencer(SEQ_MSGID);
+    msgid = sequencer(DEFAULT_SEQ_MSGID);
     fprintf(fp, "\001MSGID: %s %08ld\r\n",
 	    node_to_asc(cf_addr(), FALSE), msgid);
 
@@ -1875,9 +1875,9 @@ int main(int argc, char **argv)
      * Process local options
      */
     if(newsmode)
-	pkt_outdir(OUTPKT_NEWS, NULL);
+	pkt_outdir(DEFAULT_OUTPKT_NEWS, NULL);
     else
-	pkt_outdir(OUTPKT_MAIL, NULL);
+	pkt_outdir(DEFAULT_OUTPKT_MAIL, NULL);
     if(O_flag)
 	pkt_outdir(O_flag, NULL);
 

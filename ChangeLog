@@ -1,3 +1,68 @@
+Sat Jan 24 12:33:39 1998  Martin Junius  <mj@fido.de>
+
+	------- CVS ci -------------------------------------------------------
+
+	* src/gate/ftninpost.pl: pass -c option to ftninrecomb.
+
+	* src/gate/ftninrecomb.pl: adapted to new configuration, using
+	  config.pl. 
+
+	* src/gate/ftninpost.pl: pass -L, -S options to ftninrecomb, use
+	  config parameter FTNInRecombine for program name.
+
+	* test/tc.route/run: adapted to new configuration.
+
+	* test/tc.af/run: adapted to new configuration.
+
+	* src/toss/ftnaf.c (main): removed -L, -S options.
+
+	* test/tr.verify: renamed tr.check -> tr.verify.
+
+	* test/tc.gate1/run.verify: verify file created for test case.
+
+	* src/*/*.c: all references to old #define's from config.h
+	  replaced with DEFAULT_XXX.
+
+	* src/gate/ftninpost.pl: $OUTRFC_MAIL/NEWS can now be retrieved
+	  from config.
+
+	* config.h (SEQ*,LOCK*,OUT*,TOSS*,TICK*): all #defines moved as
+	  DEFAULT_F_XXX to config.make.
+
+	* subst.pl: modified to use new DEFAULT_* semantics, -C,-H,-E
+	  generate C code only for variable parameters.
+
+	* config.make (DEFAULT_*): new semantics for DEFAULT_* macros:
+	  DEFAULT_V_XXX defines a variable parameter (C code generated)
+	  DEFAULT_F_XXX defines a fixed parameter
+	  DEFAULT_A_XXX defines an abbreviation %X for XXX
+
+	* Makefile: config.pl rules moved to src/Makefile.
+
+	* config.pl/plt: moved to src/.
+
+Fri Jan 23 20:19:05 1998  Martin Junius  <mj@fido.de>
+
+	* test/tc.gate1/run: added ftninpost test.
+
+	* config.plt: new perl routines for reading FIDOGATE config files,
+	  will be compiled to config.pl, which is require'd in perl scripts.
+
+	* src/gate/ftninpost.pl: rewrite using new config.pl routines for
+	  reading FIDOGATE config file.
+
+	* test/tc.gate1/rdummy: dummy script.
+
+	* test/tr.clean: adapted to new configuration.
+
+	* test/tc.gate1/config: adapted to new configuration.
+
+	* test/tc.gate1/run: adapted to new configuration.
+
+	* test/tr.init: adapted to new configuration.
+
+	* src/gate/ftn2rfc.c (main): default input directory in PINBOUND.
+
 Tue Jan 20 21:02:19 1998  Martin Junius  <mj@fido.de>
 
 	------- CVS ci -------------------------------------------------------

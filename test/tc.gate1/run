@@ -1,23 +1,29 @@
 #!/bin/sh
 
 ../tr.init
+F1="../../src/gate/ftn2rfc -v"
+F2="../../src/gate/ftninpost -v"
+
 
 echo "tc: copying input packets"
-cp ../ti.pkt-z2/*.[pP][kK][tT] in
+cp ../ti.pkt-z2/*.[pP][kK][tT] pin
 
 echo "tc: running (1)"
-../../src/gate/ftn2rfc -L../cf -I./in -v
+$F1 -c../cf/gate.conf -v
+
+echo "tc: running ftninpost"
+$F2 -L../../src -cconfig2
 
 echo "tc: copying input packets"
-cp ../ti.pkt-z2/*.[pP][kK][tT] in
+cp ../ti.pkt-z2/*.[pP][kK][tT] pin
 
 echo "tc: running (2)"
-../../src/gate/ftn2rfc -L../cf -I./in -cconfig -v
-
+$F1 -c./config -v
 
 echo "tc: copying input packets"
-cp ../ti.pkt-z2/*.[pP][kK][tT] in
+cp ../ti.pkt-z2/*.[pP][kK][tT] pin
 
 echo "tc: running (3)"
-../../src/gate/ftn2rfc -L../cf -I./in -1 -v
+$F1 -c../cf/gate.conf -1 -v
 
+ls -R outrfc

@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftnpack.c,v 4.18 1998/01/18 17:49:14 mj Exp $
+ * $Id: ftnpack.c,v 4.19 1998/01/24 14:07:36 mj Exp $
  *
  * Pack output packets of ftnroute for Binkley outbound (ArcMail)
  *
@@ -40,7 +40,7 @@
 
 
 #define PROGRAM 	"ftnpack"
-#define VERSION 	"$Revision: 4.18 $"
+#define VERSION 	"$Revision: 4.19 $"
 #define CONFIG		DEFAULT_CONFIG_MAIN
 
 
@@ -413,7 +413,7 @@ char *pkttime_name(char *name)
     
 #if 0
     /* Return nnnnnnnn.pkt in out_dir[] */
-    sprintf(buf, "%s/%08ld.pkt", out_dir, sequencer(SEQ_PACK));
+    sprintf(buf, "%s/%08ld.pkt", out_dir, sequencer(DEFAULT_SEQ_PACK));
 #endif
 
     /* Same base name in out_dir[] */
@@ -1180,8 +1180,8 @@ int main(int argc, char **argv)
     /*
      * Process local options
      */
-    BUF_EXPAND(in_dir , I_flag ? I_flag : TOSS_ROUTE);
-    BUF_EXPAND(out_dir, O_flag ? O_flag : TOSS_PACK);
+    BUF_EXPAND(in_dir , I_flag ? I_flag : DEFAULT_TOSS_ROUTE);
+    BUF_EXPAND(out_dir, O_flag ? O_flag : DEFAULT_TOSS_PACK);
 
     packing_init(p_flag ? p_flag : cf_p_packing() );
     passwd_init();

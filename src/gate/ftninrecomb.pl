@@ -1,32 +1,39 @@
 #!/usr/local/bin/perl
 #
-# $Id: ftninrecomb.pl,v 4.2 1998/01/02 14:37:09 mj Exp $
+# $Id: ftninrecomb.pl,v 4.3 1998/01/24 14:07:31 mj Exp $
 #
 # Recombine split mail and news messages.
 
 require "getopts.pl";
-&Getopts('vL:S:I:');
+&Getopts('vL:S:c:');
 
 # defaults
-$LIBDIR   = "<LIBDIR>";
-$SPOOLDIR = "<SPOOLDIR>";
-$INDIR    = "<SPOOLDIR>/in";
+$CONFIG      = $opt_c ? $opt_c : "<CONFIG_GATE>";
+$LIBDIR      = $opt_L ? $opt_L : "<LIBDIR>";
+
+# config.pl
+require "$LIBDIR/config.pl";
+&CONFIG_read($CONFIG);
 
 # options
 $options = "";
 if($opt_L) {
+    $CONFIG{"libdir"} = $opt_L;
     $LIBDIR   = $opt_L;
     $options  = "$options -L$LIBDIR";
 }
 if($opt_S) {
+    $CONFIG{"spooldir"} = $opt_S;
     $SPOOLDIR = $opt_S;
     $options  = "$options -L$SPOOLDIR";
 }
 $INDIR    = $opt_I if($opt_I);
 
-$maildir  = "$INDIR/tmpmail";
-$newsdir  = "$INDIR/tmpnews";
+$maildir  = &CONFIG_get("OUTRFC_MAIL");
+$newsdir  = &CONFIG_get("OUTRFC_NEWS");
 $newsseq  = "seq.news";
+
+
 
 #
 # main program:

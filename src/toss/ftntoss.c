@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftntoss.c,v 4.24 1998/01/18 17:49:14 mj Exp $
+ * $Id: ftntoss.c,v 4.25 1998/01/24 14:07:37 mj Exp $
  *
  * Toss FTN NetMail/EchoMail
  *
@@ -39,7 +39,7 @@
 
 
 #define PROGRAM 	"ftntoss"
-#define VERSION 	"$Revision: 4.24 $"
+#define VERSION 	"$Revision: 4.25 $"
 #define CONFIG		DEFAULT_CONFIG_MAIN
 
 
@@ -1643,8 +1643,8 @@ int main(int argc, char **argv)
      * Process local options
      */
     BUF_EXPAND(in_dir, I_flag ? I_flag : cf_p_pinbound());
-    pkt_outdir(O_flag ? O_flag : TOSS_TOSS, NULL);
-    pkt_baddir(O_flag ? O_flag : TOSS_BAD , NULL);
+    pkt_outdir(O_flag ? O_flag : DEFAULT_TOSS_TOSS, NULL);
+    pkt_baddir(O_flag ? O_flag : DEFAULT_TOSS_BAD , NULL);
     
     /*
      * Get name of areas.bbs file from config file
@@ -1695,7 +1695,7 @@ int main(int argc, char **argv)
 	/* Open history */
 	if(dupe_check)
 	{
-	    if(lock_program(LOCK_HISTORY, FALSE) == ERROR)
+	    if(lock_program(DEFAULT_LOCK_HISTORY, FALSE) == ERROR)
 	    {
 		/* Already busy, exit */
 		if(l_flag)
@@ -1722,7 +1722,7 @@ int main(int argc, char **argv)
 	/* Close history */
 	if(dupe_check)
 	{
-	    unlock_program(LOCK_HISTORY);
+	    unlock_program(DEFAULT_LOCK_HISTORY);
 	    hi_close();
 	}
 	
@@ -1743,7 +1743,7 @@ int main(int argc, char **argv)
 	/* Open history */
 	if(dupe_check)
 	{
-	    if(lock_program(LOCK_HISTORY, FALSE) == ERROR)
+	    if(lock_program(DEFAULT_LOCK_HISTORY, FALSE) == ERROR)
 	    {
 		/* Already busy, exit */
 		if(l_flag)
@@ -1771,7 +1771,7 @@ int main(int argc, char **argv)
 	/* Close history */
 	if(dupe_check)
 	{
-	    unlock_program(LOCK_HISTORY);
+	    unlock_program(DEFAULT_LOCK_HISTORY);
 	    hi_close();
 	}
 	
