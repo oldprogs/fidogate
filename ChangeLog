@@ -2,6 +2,13 @@ Tue Feb 24 18:24:11 1998  Martin Junius  <mj@fido.de>
 
 	------- CVS ci -------------------------------------------------------
 
+	* examples/abis.abra.de,namib.north.de: new config examples for
+	  4.3a1 from Andreas Braukmann <andy@abra.de>.
+	
+	* cvsupd: new utility, run CVS update.
+
+	------- CVS ci -------------------------------------------------------
+
 	* version.h (ALPHA): set to 2 (4.3a2).
 
 	* examples/abis.abra.de,namib.north.de: deleted.
