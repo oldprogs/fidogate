@@ -1,8 +1,8 @@
 \input texinfo  @c -*-texinfo-*-
 @c
-@c FIDOGATE documentation for 4.3
+@c FIDOGATE documentation for 4.4
 @c
-@c $Id: fidogate.texi,v 4.49 2000/01/28 21:59:25 mj Exp $
+@c $Id: fidogate.texi,v 4.50 2000/03/07 10:50:06 mj Exp $
 @c
 
 @setfilename fidogate.info
@@ -49,7 +49,7 @@ into other languages, under the above conditions for modified versions.
 @subtitle Fido Mail Processor
 @subtitle Fido File Processor
 @subtitle Fido Areafix/Filefix
-@subtitle Version 4.3
+@subtitle Version 4.4
 @author by Martin Junius
 
 @page
@@ -1779,7 +1779,7 @@ ftninrecomb  @r{[}@i{-options}@r{]}
 
 If @code{FTNInRecombine} is enabled in @code{fidogate.conf}, this script
 wil be run by @code{ftninpost} to recombine split messages. NOT TESTED
-FOR RELEASE 4.3!!!
+FOR RELEASE 4.4!!!
 
 
 

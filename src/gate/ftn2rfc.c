@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftn2rfc.c,v 4.54 2000/01/28 22:01:12 mj Exp $
+ * $Id: ftn2rfc.c,v 4.55 2000/03/07 10:50:09 mj Exp $
  *
  * Convert FTN mail packets to RFC mail and news batches
  *
@@ -40,7 +40,7 @@
 
 
 #define PROGRAM 	"ftn2rfc"
-#define VERSION 	"$Revision: 4.54 $"
+#define VERSION 	"$Revision: 4.55 $"
 #define CONFIG		DEFAULT_CONFIG_GATE
 
 
@@ -584,9 +584,11 @@ int unpack(FILE *pkt_file, Packet *pkt)
 	    if(*p == '\001')			/* Kludge in message body */
 	    {
 		if(strnieq(p + 1, "CHRS: ", 6))
-		    cs_in = charset_chrs_name(p + 6);
+		    if( (s = charset_chrs_name(p + 6)) )
+			cs_in = s;
 		if(strnieq(p + 1, "CHARSET: ", 9))
-		    cs_in = charset_chrs_name(p + 9);
+		    if( (s = charset_chrs_name(p + 9)) )
+			cs_in = s;
 		/**FIXME: change in/out charset if needed**/
 	    }
 	    else				/* Normal line */
@@ -606,6 +608,8 @@ int unpack(FILE *pkt_file, Packet *pkt)
 	/*
 	 * Convert FTN from/to addresses to RFCAddr struct
 	 */
+	if(!cs_in)
+	    cs_in = cs_def;
 	charset_set_in_out(cs_in, CHARSET_STD7BIT);
 	addr_from = rfcaddr_from_ftn(msg.name_from, &msg.node_orig);
 	addr_to   = rfcaddr_from_ftn(msg.name_to,   &msg.node_to  );

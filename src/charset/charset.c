@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: charset.c,v 1.6 2000/01/28 22:01:08 mj Exp $
+ * $Id: charset.c,v 1.7 2000/03/07 10:50:09 mj Exp $
  *
  * NEW charset.c code using charset.bin mapping file
  *
@@ -282,6 +282,9 @@ int charset_set_in_out(char *in, char *out)
 {
     CharsetTable *pt;
     CharsetAlias *pa;
+
+    if(!in || !out)
+	return ERROR;
 
     debug(5, "charset: in=%s out=%s", in, out);
     

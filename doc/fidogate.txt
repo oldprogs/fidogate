@@ -1,4 +1,4 @@
-This is fidogate.info, produced by Makeinfo version 3.12f from
+This is fidogate.info, produced by Makeinfo version 3.12h from
 fidogate.texi.
 
    This file documents the installation and usage of FIDOGATE version
@@ -1366,7 +1366,7 @@ Usage:
 
    If `FTNInRecombine' is enabled in `fidogate.conf', this script wil
 be run by `ftninpost' to recombine split messages. NOT TESTED FOR
-RELEASE 4.3!!!
+RELEASE 4.4!!!
 
 
 ftnmail -- `rfc2ftn' Setuid Frontend
@@ -1868,7 +1868,7 @@ Special parameters:
 `=hostsdomain'
      Domain for entries in `hosts' config files.
 
-This is fidogate.info, produced by Makeinfo version 3.12f from
+This is fidogate.info, produced by Makeinfo version 3.12h from
 fidogate.texi.
 
    This file documents the installation and usage of FIDOGATE version
@@ -3490,7 +3490,7 @@ Packing
 
    Otherwise see the standard point configuration with a single address.
 
-This is fidogate.info, produced by Makeinfo version 3.12f from
+This is fidogate.info, produced by Makeinfo version 3.12h from
 fidogate.texi.
 
    This file documents the installation and usage of FIDOGATE version

@@ -1,0 +1,23 @@
+#!/bin/sh
+#
+# Upload FIDOGATE release to morannon.fido.de
+#
+
+if [ $# -lt 1 ]; then
+    echo "usage:   update-morannon MAJ.MIN.PL"
+    echo " "
+    echo "example: update-morannon 4.4.0"
+    exit 1
+fi
+
+REL="$1"
+TAG=`echo $REL | tr -d .`
+
+scp \
+    /usr/src/redhat/SOURCES/fidogate-$REL.tar.gz \
+    /usr/src/redhat/SRPMS/fidogate-$REL-*.src.rpm \
+    /usr/src/redhat/RPMS/i386/fidogate-$REL-*.i386.rpm \
+    morannon:/pub/fidogate
+
+ssh morannon \
+    '(cd /pub/fidogate; ln -s fidogate-$REL.tar.gz fgate$TAG.tgz)'

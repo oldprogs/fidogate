@@ -1,4 +1,34 @@
+2000-03-07  Martin Junius  <mj@fido.de>
+
+	------- CVS ci -------------------------------------------------------
+
+	* ANNOUNCE: updated.
+
+	* fidogate.spec: updated.
+
+	* fidogate.lsm: updated.
+
+	* version.h (PATCHLEVEL): changed to 1, version 4.4.1.
+
+2000-03-06  Martin Junius  <mj@fido.de>
+
+	* src/gate/ftn2rfc.c (unpack): only accept non-NULL returns from
+	  charset_chrs_name(), make double sure that cs_in is non-NULL.
+
+	* src/charset/charset.c (charset_set_in_out): return ERROR if in
+	  or out is NULL.
+
+2000-02-21  Martin Junius  <mj@fido.de>
+
+	* fidogate.lsm: updated.
+
+	* ANNOUNCE: updated.
+
 2000-02-11  Martin Junius  <mj@fido.de>
+
+	* doc/fidogate.texi: update version to 4.4.
+
+	* update-morannon: upload script.
 
 	======= Release 4.4.0 ================================================
 	------- CVS tag R440 -------------------------------------------------
