@@ -1,5 +1,42 @@
+Sun Sep 15 12:11:05 1996  Martin Junius  <mj@fido.de>
+
+	------- CVS ci -------------------------------------------------------
+
+	* src/common/packet.c (pkt_get_hdr): use node_clear() to
+	  initialize from/to node (0 instead of -1), check cw!=0 for type 2+.
+
+	* src/toss/ftntoss.c (do_echomail): check for routed echomail, not
+	  routed if destination is current address (set by -a but not in
+	  address list).
+	  (do_echomail): use area->area instead of buffer for area name
+	  (buffer is used by dupe check). Use case-insensitive matching
+	  for AddToSeenBy list.
+
+	* src/gate/rfc2ftn.c (snd_message): make flags checking
+	  case-insensitive. 
+
+	* src/gate/ftn2rfc.c (unpack): added gateway check for
+	  ^AX-FZ-SPLIT to kill messages from broken FidoZerb message
+	  splitting. 
+
+Sun Sep  8 12:17:21 1996  Martin Junius  <mj@fido.de>
+
+	* README: added ftp sites.
+
+	* doc/Fido-Point-eng-HOWTO: new file from Roland.
+
+	* doc/Fido-Point-HOWTO: new version from Roland.
+
 Sat Sep  7 18:09:32 1996  Martin Junius  <mj@fido.de>
 
+	======== Release 4.0 alpha 5 =========================================
+	
+	------- CVS tag R40a5b -----------------------------------------------
+
+	------- CVS ci -------------------------------------------------------
+
+	* ./: updated dependencies.
+	
 	------- CVS tag R40a5a -----------------------------------------------
 
 	------- CVS ci -------------------------------------------------------
@@ -41,6 +78,8 @@ Tue Sep  3 20:42:23 1996  Martin Junius  <mj@fido.de>
 
 Thu Aug 29 21:00:26 1996  Martin Junius  <mj@fido.de>
 
+	======= Release 4.0 alpha 4 ==========================================
+	
 	------- CVS tag r40alpha4a -------------------------------------------
 
 	------- CVS commit ---------------------------------------------------
@@ -133,7 +172,7 @@ Sun Aug 25 10:59:36 1996  Martin Junius  <mj@fido.de>
 	  copying real name from rfc to name[].
 
 	* src/common/mime.c (mime_deheader): new function decoding MIME
-	  RFC1523 header.
+	  RFC1522 header.
 
 	* src/gate/rfc2ftn.c (mail_receiver): use rfc_parse() to get name
 	  from X-Comment-To header or 1st line of message body.
@@ -205,6 +244,8 @@ Mon Jun 17 20:54:35 1996  Martin Junius  <mj@fido.de>
 
 	* examples/orodruin/config.ftp: added.
 
+	======= Release 4.0 alpha 3 ==========================================
+	
 	------- CVS tag r40alpha3 --------------------------------------------
 
 	------- CVS commit ---------------------------------------------------
