@@ -1,0 +1,1204 @@
+tc: clean-up
+tc: init
+tc: running
+------------------------------------------------------------------------
+RFC To:       Martin_Junius@f110.n2452.z2.fidonet.org
+RFC From:     Martin Junius <mj@orodruin.fido.de>
+RFC Sender:   Martin Junius <mj@orodruin.fido.de>
+    Name:     Martin_Junius
+    Address:  f110.n2452.z2.fidonet.org
+    FTN node: 2:2452/110.0
+Name for alias checking: Martin_Junius
+No alias found: return Martin Junius
+    Name:     mj
+    Address:  orodruin.fido.de
+    FTN node: 242:1000/5.0
+Name for alias checking: mj
+Alias found: mj 2:2452/110.2 Martin Junius
+RFC Date: Sun, 27 Oct 1996 14:20:22 +0100 (MET)
+rfc2ftn MAIL: Martin Junius <mj@orodruin.fido.de> -> Martin_Junius@f110.n2452.z2.fidonet.org
+charset: in=iso-8859-1 out=LATIN-1
+charset: table found in=iso-8859-1 out=iso-8859-1
+New packet file ./outpkt/mail/00000001.pkt (tmp ./outpkt/mail/00000001.tmp)
+Writing FTN packet header:
+    From: 2:2452/110.2
+    To  : 2:2452/110.2
+    Baud: 0
+    Prod: 00 fe
+    Rev : x.x
+    Pass: ""
+    Capw: 0001
+RFC To:       Martin_Junius@f110.n2452.z2.fidonet.org
+RFC From:     Martin Junius <mj@orodruin.fido.de>
+RFC Sender:   Martin Junius <mj@orodruin.fido.de>
+    Name:     Martin_Junius
+    Address:  f110.n2452.z2.fidonet.org
+    FTN node: 2:2452/110.0
+Name for alias checking: Martin_Junius
+No alias found: return Martin Junius
+    Name:     mj
+    Address:  orodruin.fido.de
+    FTN node: 242:1000/5.0
+Name for alias checking: mj
+Alias found: mj 2:2452/110.2 Martin Junius
+RFC Date: Wed, 13 Nov 1996 22:13:13 +0100 (MET)
+rfc2ftn MAIL: Martin Junius <mj@orodruin.fido.de> -> Martin_Junius@f110.n2452.z2.fidonet.org
+charset: in=iso-8859-1 out=LATIN-1
+charset: table found in=iso-8859-1 out=iso-8859-1
+New packet file ./outpkt/mail/00000002.pkt (tmp ./outpkt/mail/00000002.tmp)
+Writing FTN packet header:
+    From: 2:2452/110.2
+    To  : 2:2452/110.2
+    Baud: 0
+    Prod: 00 fe
+    Rev : x.x
+    Pass: ""
+    Capw: 0001
+------------------------------------------------------------------------
+==============================================================================
+FTN packet header:
+    From: 2:2452/110.2
+    To  : 2:2452/110.2
+    Baud: 0
+    Prod: 00 fe
+    Rev : x.x
+    Pass: ""
+    Capw: 0001
+==============================================================================
+FTN message header:
+    From: Martin Junius                        @ 2:2452/110.2
+    To  : Martin Junius                        @ 2:2452/110.0
+    Subj: (no subject)
+    Attr: 0001
+------------------------------------------------------------------------------
+^AINTL 2:2452/110 2:2452/110
+^AFMPT 2
+^AMSGID: <Pine.LNX.3.95.961027141912.291K-100000@orodruin.fido.de> e88fcd27
+^AREPLYADDR <mj@orodruin.fido.de>
+^AREPLYTO 2:2452/110.2 Martin Junius
+^ACHRS: LATIN-1 2
+^ARFC: 1 0
+^ARFC-Date: Sun, 27 Oct 1996 14:20:22 +0100 (MET)
+^ARFC-From: Martin Junius <mj@orodruin.fido.de>
+^ARFC-To: Martin Junius <mj@orodruin.fido.de>
+^ARFC-MIME-Version: 1.0
+^ARFC-Content-Type: TEXT/PLAIN; charset=iso-8859-1
+^ARFC-Content-Transfer-Encoding: 8bit
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
+------------------------------------------------------------------------------
+From: Martin Junius <mj@orodruin.fido.de>
+------------------------------------------------------------------------------
+
+Test-Mail mit Umlauten:
+
+ö ä ü ß
+Ö Ä Ü
+
+Und einigen anderen 8bit-Zeichen:
+
+§ µ
+
+Alle 8bit-Zeichen 0xa0 ... 0xff:
+
+  ¡ ¢ £ ¤ ¥ ¦ § ¨ © ª « ¬ ­ ® ¯
+° ± ² ³ ´ µ ¶ · ¸ ¹ º » ¼ ½ ¾ ¿
+À Á Â Ã Ä Å Æ Ç È É Ê Ë Ì Í Î Ï
+Ð Ñ Ò Ó Ô Õ Ö × Ø Ù Ú Û Ü Ý Þ ß
+à á â ã ä å æ ç è é ê ë ì í î ï
+ð ñ ò ó ô õ ö ÷ ø ù ú û ü ý þ ÿ
+
+
+Martin
+-- 
+ _____ _____
+|     |___  |   Martin Junius                   Fido:  2:2452/110.2
+| | | |   | |   Am Krausen Baum 11              mailto:mj@fido.de
+|_|_|_|@home|   D-40489 Duesseldorf, Germany    http://www.fido.de/~mj
+
+
+------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
+==============================================================================
+==============================================================================
+FTN packet header:
+    From: 2:2452/110.2
+    To  : 2:2452/110.2
+    Baud: 0
+    Prod: 00 fe
+    Rev : x.x
+    Pass: ""
+    Capw: 0001
+==============================================================================
+FTN message header:
+    From: Martin Junius                        @ 2:2452/110.2
+    To  : Martin Junius                        @ 2:2452/110.0
+    Subj: Test MIME
+    Attr: 0001
+------------------------------------------------------------------------------
+^AINTL 2:2452/110 2:2452/110
+^AFMPT 2
+^AMSGID: <Pine.LNX.3.95.961113221254.294B-100000@orodruin.fido.de> f05b32f4
+^AREPLYADDR <mj@orodruin.fido.de>
+^AREPLYTO 2:2452/110.2 Martin Junius
+^ACHRS: LATIN-1 2
+^ARFC: 1 0
+^ARFC-Return-Path: mj@orodruin.fido.de
+^ARFC-Date: Wed, 13 Nov 1996 22:13:13 +0100 (MET)
+^ARFC-From: Martin Junius <mj@orodruin.fido.de>
+^ARFC-To: Martin Junius <mj@orodruin.fido.de>
+^ARFC-MIME-Version: 1.0
+^ARFC-Content-Type: TEXT/PLAIN; charset=iso-8859-1
+^ARFC-Content-Transfer-Encoding: 8bit
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE x.x.x]
+------------------------------------------------------------------------------
+From: Martin Junius <mj@orodruin.fido.de>
+------------------------------------------------------------------------------
+
+!"§$%&/()=?
+
+öäüßÖÄÜ
+
+Martin
+-- 
+ _____ _____
+|     |___  |   Martin Junius                  Fido:  2:2452/110.2
+| | | |   | |   Am Krausen Baum 11             mailto:mj@fido.de
+|_|_|_|@home|   D-40489 Düsseldorf, Germany    http://www.fido.de/~mj
+
+
+------------------------------------------------------------------------------
+--- FIDOGATE x.x.x
+==============================================================================
+------------------------------------------------------------------------
+Reading FTN packet header:
+    From: 2:2452/110.2
+    To  : 2:2452/110.2
+    Baud: 0
+    Prod: 00 fe
+    Rev : x.x
+    Pass: ""
+    Capw: 0001
+ftn2rfc packet ./pin/1a.pkt (1208b) from 2:2452/110.2 to 2:2452/110.2
+cvt8:
+FSC-0054 ^ACHRS/CHARSET: LATIN-1 2
+FSC-0054 level 2 charset=LATIN-1
+charset: in=LATIN-1 out=us-ascii
+charset: table found in=iso-8859-1 out=us-ascii
+charset: in=LATIN-1 out=us-ascii
+charset: table found in=iso-8859-1 out=us-ascii
+ftn2rfc MAIL: Martin Junius <mj@orodruin.fido.de> -> mj@orodruin.fido.de
+Reading FTN packet header:
+    From: 2:2452/110.2
+    To  : 2:2452/110.2
+    Baud: 0
+    Prod: 00 fe
+    Rev : x.x
+    Pass: ""
+    Capw: 0001
+ftn2rfc packet ./pin/1b.pkt (1241b) from 2:2452/110.2 to 2:2452/110.2
+cvt8:
+FSC-0054 ^ACHRS/CHARSET: LATIN-1 2
+FSC-0054 level 2 charset=LATIN-1
+charset: in=LATIN-1 out=us-ascii
+charset: table found in=iso-8859-1 out=us-ascii
+charset: in=LATIN-1 out=us-ascii
+charset: table found in=iso-8859-1 out=us-ascii
+ftn2rfc MAIL: Martin Junius <mj@orodruin.fido.de> -> mj@orodruin.fido.de
+Reading FTN packet header:
+    From: 2:2452/110.2
+    To  : 2:2452/110.2
+    Baud: 0
+    Prod: 00 fe
+    Rev : x.x
+    Pass: ""
+    Capw: 0001
+ftn2rfc packet ./pin/1c.pkt (1241b) from 2:2452/110.2 to 2:2452/110.2
+cvt8: 8bit
+FSC-0054 ^ACHRS/CHARSET: LATIN-1 2
+FSC-0054 level 2 charset=LATIN-1
+charset: in=LATIN-1 out=iso-8859-1
+charset: table found in=iso-8859-1 out=iso-8859-1
+charset: in=LATIN-1 out=us-ascii
+charset: table found in=iso-8859-1 out=us-ascii
+ftn2rfc MAIL: Martin Junius <mj@orodruin.fido.de> -> mj@orodruin.fido.de
+Reading FTN packet header:
+    From: 2:2452/110.2
+    To  : 2:2452/110.2
+    Baud: 0
+    Prod: 00 fe
+    Rev : x.x
+    Pass: ""
+    Capw: 0001
+ftn2rfc packet ./pin/1d.pkt (1253b) from 2:2452/110.2 to 2:2452/110.2
+cvt8: quoted-printable
+FSC-0054 ^ACHRS/CHARSET: LATIN-1 2
+FSC-0054 level 2 charset=LATIN-1
+charset: in=LATIN-1 out=iso-8859-1
+charset: table found in=iso-8859-1 out=iso-8859-1
+charset: in=LATIN-1 out=us-ascii
+charset: table found in=iso-8859-1 out=us-ascii
+ftn2rfc MAIL: Martin Junius <mj@orodruin.fido.de> -> mj@orodruin.fido.de
+Reading FTN packet header:
+    From: 2:2452/110.2
+    To  : 2:2452/110.2
+    Baud: 0
+    Prod: 00 fe
+    Rev : x.x
+    Pass: ""
+    Capw: 0001
+ftn2rfc packet ./pin/2a.pkt (901b) from 2:2452/110.2 to 2:2452/110.2
+cvt8:
+FSC-0054 ^ACHRS/CHARSET: LATIN-1 2
+FSC-0054 level 2 charset=LATIN-1
+charset: in=LATIN-1 out=us-ascii
+charset: table found in=iso-8859-1 out=us-ascii
+charset: in=LATIN-1 out=us-ascii
+charset: table found in=iso-8859-1 out=us-ascii
+ftn2rfc MAIL: Martin Junius <mj@orodruin.fido.de> -> mj@orodruin.fido.de
+Reading FTN packet header:
+    From: 2:2452/110.2
+    To  : 2:2452/110.2
+    Baud: 0
+    Prod: 00 fe
+    Rev : x.x
+    Pass: ""
+    Capw: 0001
+ftn2rfc packet ./pin/2b.pkt (961b) from 2:2452/110.2 to 2:2452/110.2
+cvt8:
+FSC-0054 ^ACHRS/CHARSET: LATIN-1 2
+FSC-0054 level 2 charset=LATIN-1
+charset: in=LATIN-1 out=us-ascii
+charset: table found in=iso-8859-1 out=us-ascii
+charset: in=LATIN-1 out=us-ascii
+charset: table found in=iso-8859-1 out=us-ascii
+ftn2rfc MAIL: Martin Junius <mj@orodruin.fido.de> -> mj@orodruin.fido.de
+Reading FTN packet header:
+    From: 2:2452/110.2
+    To  : 2:2452/110.2
+    Baud: 0
+    Prod: 00 fe
+    Rev : x.x
+    Pass: ""
+    Capw: 0001
+ftn2rfc packet ./pin/1a.pkt (1208b) from 2:2452/110.2 to 2:2452/110.2
+cvt8: 8bit
+FSC-0054 ^ACHRS/CHARSET: LATIN-1 2
+FSC-0054 level 2 charset=LATIN-1
+charset: in=LATIN-1 out=iso-8859-1
+charset: table found in=iso-8859-1 out=iso-8859-1
+charset: in=LATIN-1 out=us-ascii
+charset: table found in=iso-8859-1 out=us-ascii
+ftn2rfc MAIL: Martin Junius <mj@orodruin.fido.de> -> mj@orodruin.fido.de
+Reading FTN packet header:
+    From: 2:2452/110.2
+    To  : 2:2452/110.2
+    Baud: 0
+    Prod: 00 fe
+    Rev : x.x
+    Pass: ""
+    Capw: 0001
+ftn2rfc packet ./pin/1b.pkt (1241b) from 2:2452/110.2 to 2:2452/110.2
+cvt8:
+FSC-0054 ^ACHRS/CHARSET: LATIN-1 2
+FSC-0054 level 2 charset=LATIN-1
+charset: in=LATIN-1 out=us-ascii
+charset: table found in=iso-8859-1 out=us-ascii
+charset: in=LATIN-1 out=us-ascii
+charset: table found in=iso-8859-1 out=us-ascii
+ftn2rfc MAIL: Martin Junius <mj@orodruin.fido.de> -> mj@orodruin.fido.de
+Reading FTN packet header:
+    From: 2:2452/110.2
+    To  : 2:2452/110.2
+    Baud: 0
+    Prod: 00 fe
+    Rev : x.x
+    Pass: ""
+    Capw: 0001
+ftn2rfc packet ./pin/1c.pkt (1241b) from 2:2452/110.2 to 2:2452/110.2
+cvt8: 8bit
+FSC-0054 ^ACHRS/CHARSET: LATIN-1 2
+FSC-0054 level 2 charset=LATIN-1
+charset: in=LATIN-1 out=iso-8859-1
+charset: table found in=iso-8859-1 out=iso-8859-1
+charset: in=LATIN-1 out=us-ascii
+charset: table found in=iso-8859-1 out=us-ascii
+ftn2rfc MAIL: Martin Junius <mj@orodruin.fido.de> -> mj@orodruin.fido.de
+Reading FTN packet header:
+    From: 2:2452/110.2
+    To  : 2:2452/110.2
+    Baud: 0
+    Prod: 00 fe
+    Rev : x.x
+    Pass: ""
+    Capw: 0001
+ftn2rfc packet ./pin/1d.pkt (1253b) from 2:2452/110.2 to 2:2452/110.2
+cvt8: quoted-printable
+FSC-0054 ^ACHRS/CHARSET: LATIN-1 2
+FSC-0054 level 2 charset=LATIN-1
+charset: in=LATIN-1 out=iso-8859-1
+charset: table found in=iso-8859-1 out=iso-8859-1
+charset: in=LATIN-1 out=us-ascii
+charset: table found in=iso-8859-1 out=us-ascii
+ftn2rfc MAIL: Martin Junius <mj@orodruin.fido.de> -> mj@orodruin.fido.de
+Reading FTN packet header:
+    From: 2:2452/110.2
+    To  : 2:2452/110.2
+    Baud: 0
+    Prod: 00 fe
+    Rev : x.x
+    Pass: ""
+    Capw: 0001
+ftn2rfc packet ./pin/2a.pkt (901b) from 2:2452/110.2 to 2:2452/110.2
+cvt8: 8bit
+FSC-0054 ^ACHRS/CHARSET: LATIN-1 2
+FSC-0054 level 2 charset=LATIN-1
+charset: in=LATIN-1 out=iso-8859-1
+charset: table found in=iso-8859-1 out=iso-8859-1
+charset: in=LATIN-1 out=us-ascii
+charset: table found in=iso-8859-1 out=us-ascii
+ftn2rfc MAIL: Martin Junius <mj@orodruin.fido.de> -> mj@orodruin.fido.de
+Reading FTN packet header:
+    From: 2:2452/110.2
+    To  : 2:2452/110.2
+    Baud: 0
+    Prod: 00 fe
+    Rev : x.x
+    Pass: ""
+    Capw: 0001
+ftn2rfc packet ./pin/2b.pkt (961b) from 2:2452/110.2 to 2:2452/110.2
+cvt8:
+FSC-0054 ^ACHRS/CHARSET: LATIN-1 2
+FSC-0054 level 2 charset=LATIN-1
+charset: in=LATIN-1 out=us-ascii
+charset: table found in=iso-8859-1 out=us-ascii
+charset: in=LATIN-1 out=us-ascii
+charset: table found in=iso-8859-1 out=us-ascii
+ftn2rfc MAIL: Martin Junius <mj@orodruin.fido.de> -> mj@orodruin.fido.de
+Reading FTN packet header:
+    From: 2:2452/110.2
+    To  : 2:2452/110.2
+    Baud: 0
+    Prod: 00 fe
+    Rev : x.x
+    Pass: ""
+    Capw: 0001
+ftn2rfc packet ./pin/1a.pkt (1208b) from 2:2452/110.2 to 2:2452/110.2
+cvt8: quoted-printable
+FSC-0054 ^ACHRS/CHARSET: LATIN-1 2
+FSC-0054 level 2 charset=LATIN-1
+charset: in=LATIN-1 out=iso-8859-1
+charset: table found in=iso-8859-1 out=iso-8859-1
+charset: in=LATIN-1 out=us-ascii
+charset: table found in=iso-8859-1 out=us-ascii
+ftn2rfc MAIL: Martin Junius <mj@orodruin.fido.de> -> mj@orodruin.fido.de
+Reading FTN packet header:
+    From: 2:2452/110.2
+    To  : 2:2452/110.2
+    Baud: 0
+    Prod: 00 fe
+    Rev : x.x
+    Pass: ""
+    Capw: 0001
+ftn2rfc packet ./pin/1b.pkt (1241b) from 2:2452/110.2 to 2:2452/110.2
+cvt8:
+FSC-0054 ^ACHRS/CHARSET: LATIN-1 2
+FSC-0054 level 2 charset=LATIN-1
+charset: in=LATIN-1 out=us-ascii
+charset: table found in=iso-8859-1 out=us-ascii
+charset: in=LATIN-1 out=us-ascii
+charset: table found in=iso-8859-1 out=us-ascii
+ftn2rfc MAIL: Martin Junius <mj@orodruin.fido.de> -> mj@orodruin.fido.de
+Reading FTN packet header:
+    From: 2:2452/110.2
+    To  : 2:2452/110.2
+    Baud: 0
+    Prod: 00 fe
+    Rev : x.x
+    Pass: ""
+    Capw: 0001
+ftn2rfc packet ./pin/1c.pkt (1241b) from 2:2452/110.2 to 2:2452/110.2
+cvt8: 8bit
+FSC-0054 ^ACHRS/CHARSET: LATIN-1 2
+FSC-0054 level 2 charset=LATIN-1
+charset: in=LATIN-1 out=iso-8859-1
+charset: table found in=iso-8859-1 out=iso-8859-1
+charset: in=LATIN-1 out=us-ascii
+charset: table found in=iso-8859-1 out=us-ascii
+ftn2rfc MAIL: Martin Junius <mj@orodruin.fido.de> -> mj@orodruin.fido.de
+Reading FTN packet header:
+    From: 2:2452/110.2
+    To  : 2:2452/110.2
+    Baud: 0
+    Prod: 00 fe
+    Rev : x.x
+    Pass: ""
+    Capw: 0001
+ftn2rfc packet ./pin/1d.pkt (1253b) from 2:2452/110.2 to 2:2452/110.2
+cvt8: quoted-printable
+FSC-0054 ^ACHRS/CHARSET: LATIN-1 2
+FSC-0054 level 2 charset=LATIN-1
+charset: in=LATIN-1 out=iso-8859-1
+charset: table found in=iso-8859-1 out=iso-8859-1
+charset: in=LATIN-1 out=us-ascii
+charset: table found in=iso-8859-1 out=us-ascii
+ftn2rfc MAIL: Martin Junius <mj@orodruin.fido.de> -> mj@orodruin.fido.de
+Reading FTN packet header:
+    From: 2:2452/110.2
+    To  : 2:2452/110.2
+    Baud: 0
+    Prod: 00 fe
+    Rev : x.x
+    Pass: ""
+    Capw: 0001
+ftn2rfc packet ./pin/2a.pkt (901b) from 2:2452/110.2 to 2:2452/110.2
+cvt8: quoted-printable
+FSC-0054 ^ACHRS/CHARSET: LATIN-1 2
+FSC-0054 level 2 charset=LATIN-1
+charset: in=LATIN-1 out=iso-8859-1
+charset: table found in=iso-8859-1 out=iso-8859-1
+charset: in=LATIN-1 out=us-ascii
+charset: table found in=iso-8859-1 out=us-ascii
+ftn2rfc MAIL: Martin Junius <mj@orodruin.fido.de> -> mj@orodruin.fido.de
+Reading FTN packet header:
+    From: 2:2452/110.2
+    To  : 2:2452/110.2
+    Baud: 0
+    Prod: 00 fe
+    Rev : x.x
+    Pass: ""
+    Capw: 0001
+ftn2rfc packet ./pin/2b.pkt (961b) from 2:2452/110.2 to 2:2452/110.2
+cvt8:
+FSC-0054 ^ACHRS/CHARSET: LATIN-1 2
+FSC-0054 level 2 charset=LATIN-1
+charset: in=LATIN-1 out=us-ascii
+charset: table found in=iso-8859-1 out=us-ascii
+charset: in=LATIN-1 out=us-ascii
+charset: table found in=iso-8859-1 out=us-ascii
+ftn2rfc MAIL: Martin Junius <mj@orodruin.fido.de> -> mj@orodruin.fido.de
+------------------------------------------------------------------------
+Received: by p2.hippo.fido.de (FIDOGATE x.x.x)
+From: Martin Junius <mj@orodruin.fido.de>
+Subject: (no subject)
+Message-ID: <Pine.LNX.3.95.961027141912.291K-100000@orodruin.fido.de>
+To: mj@orodruin.fido.de
+Organization: Martin Junius' orodruin.fido.de
+Lines: 26
+X-Gateway: FIDO orodruin.fido.de [FIDOGATE x.x.x]
+X-FTN-From: Martin Junius @ 2:2452/110.2
+X-FTN-To: Martin Junius @ 2:2452/110.0
+X-FTN-Tearline: FIDOGATE x.x.x
+X-FTN-Via: FIDOGATE/rfc2ftn 2:2452/110.2, Wed Mar 26 1997 at 22:38:04 MET
+X-FTN-Domain: Z2@FidoNet
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Transfer-Encoding: 7bit
+
+Test-Mail mit Umlauten:
+
+oe ae ue ss
+Oe Ae Ue
+
+Und einigen anderen 8bit-Zeichen:
+
+S mu
+
+Alle 8bit-Zeichen 0xa0 ... 0xff:
+
+  ! c # ? Y | S " (C) a << - - (R) -
+o +- ^2 ^3 ' mu P . , ^1 o >> 1/4 1/2 3/4 ?
+A A A A Ae A AE C E E E E I I I I
+D N O O O O Oe x O U U U Ue Y ? ss
+a a a a ae a ae c e e e e i i i i
+? n o o o o oe / o u u u ue y ? y
+
+
+Martin
+-- 
+ _____ _____
+|     |___  |   Martin Junius                   Fido:  2:2452/110.2
+| | | |   | |   Am Krausen Baum 11              mailto:mj@fido.de
+|_|_|_|@home|   D-40489 Duesseldorf, Germany    http://www.fido.de/~mj
+
+Received: by p2.hippo.fido.de (FIDOGATE x.x.x)
+From: Martin Junius <mj@orodruin.fido.de>
+Subject: (no subject)
+Message-ID: <Pine.LNX.3.95.961027141912.291K-100000@orodruin.fido.de>
+To: mj@orodruin.fido.de
+Organization: Martin Junius' orodruin.fido.de
+Lines: 26
+X-Gateway: FIDO orodruin.fido.de [FIDOGATE x.x.x]
+X-FTN-From: Martin Junius @ 2:2452/110.2
+X-FTN-To: Martin Junius @ 2:2452/110.0
+X-FTN-Tearline: FIDOGATE x.x.x
+X-FTN-Via: FIDOGATE/rfc2ftn 2:2452/110.2, Wed Mar 26 1997 at 22:38:04 MET
+X-FTN-Domain: Z2@FidoNet
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Transfer-Encoding: 7bit
+
+Test-Mail mit Umlauten:
+
+oe ae ue ss
+Oe Ae Ue
+
+Und einigen anderen 8bit-Zeichen:
+
+S mu
+
+Alle 8bit-Zeichen 0xa0 ... 0xff:
+
+  ! c # ? Y | S " (C) a << - - (R) -
+o +- ^2 ^3 ' mu P . , ^1 o >> 1/4 1/2 3/4 ?
+A A A A Ae A AE C E E E E I I I I
+D N O O O O Oe x O U U U Ue Y ? ss
+a a a a ae a ae c e e e e i i i i
+? n o o o o oe / o u u u ue y ? y
+
+
+Martin
+-- 
+ _____ _____
+|     |___  |   Martin Junius                   Fido:  2:2452/110.2
+| | | |   | |   Am Krausen Baum 11              mailto:mj@fido.de
+|_|_|_|@home|   D-40489 Duesseldorf, Germany    http://www.fido.de/~mj
+
+Received: by p2.hippo.fido.de (FIDOGATE x.x.x)
+From: Martin Junius <mj@orodruin.fido.de>
+Subject: (no subject)
+Message-ID: <Pine.LNX.3.95.961027141912.291K-100000@orodruin.fido.de>
+To: mj@orodruin.fido.de
+Organization: Martin Junius' orodruin.fido.de
+Lines: 26
+X-Gateway: FIDO orodruin.fido.de [FIDOGATE x.x.x]
+X-FTN-From: Martin Junius @ 2:2452/110.2
+X-FTN-To: Martin Junius @ 2:2452/110.0
+X-FTN-Tearline: FIDOGATE x.x.x
+X-FTN-Via: FIDOGATE/rfc2ftn 2:2452/110.2, Wed Mar 26 1997 at 22:38:04 MET
+X-FTN-Domain: Z2@FidoNet
+MIME-Version: 1.0
+Content-Type: text/plain; charset=iso-8859-1
+Content-Transfer-Encoding: 8bit
+
+Test-Mail mit Umlauten:
+
+ö ä ü ß
+Ö Ä Ü
+
+Und einigen anderen 8bit-Zeichen:
+
+§ µ
+
+Alle 8bit-Zeichen 0xa0 ... 0xff:
+
+  ¡ ¢ £ ¤ ¥ ¦ § ¨ © ª « ¬ ­ ® ¯
+° ± ² ³ ´ µ ¶ · ¸ ¹ º » ¼ ½ ¾ ¿
+À Á Â Ã Ä Å Æ Ç È É Ê Ë Ì Í Î Ï
+Ð Ñ Ò Ó Ô Õ Ö × Ø Ù Ú Û Ü Ý Þ ß
+à á â ã ä å æ ç è é ê ë ì í î ï
+ð ñ ò ó ô õ ö ÷ ø ù ú û ü ý þ ÿ
+
+
+Martin
+-- 
+ _____ _____
+|     |___  |   Martin Junius                   Fido:  2:2452/110.2
+| | | |   | |   Am Krausen Baum 11              mailto:mj@fido.de
+|_|_|_|@home|   D-40489 Duesseldorf, Germany    http://www.fido.de/~mj
+
+Received: by p2.hippo.fido.de (FIDOGATE x.x.x)
+From: Martin Junius <mj@orodruin.fido.de>
+Subject: (no subject)
+Message-ID: <Pine.LNX.3.95.961027141912.291K-100000@orodruin.fido.de>
+To: mj@orodruin.fido.de
+Organization: Martin Junius' orodruin.fido.de
+Lines: 26
+X-Gateway: FIDO orodruin.fido.de [FIDOGATE x.x.x]
+X-FTN-From: Martin Junius @ 2:2452/110.2
+X-FTN-To: Martin Junius @ 2:2452/110.0
+X-FTN-Tearline: FIDOGATE x.x.x
+X-FTN-Via: FIDOGATE/rfc2ftn 2:2452/110.2, Wed Mar 26 1997 at 22:38:04 MET
+X-FTN-Domain: Z2@FidoNet
+MIME-Version: 1.0
+Content-Type: text/plain; charset=iso-8859-1
+Content-Transfer-Encoding: quoted-printable
+
+Test-Mail mit Umlauten:
+
+=F6 =E4 =FC =DF
+=D6 =C4 =DC
+
+Und einigen anderen 8bit-Zeichen:
+
+=A7 =B5
+
+Alle 8bit-Zeichen 0xa0 ... 0xff:
+
+=A0 =A1 =A2 =A3 =A4 =A5 =A6 =A7 =A8 =A9 =AA =AB =AC =AD =AE =AF
+=B0 =B1 =B2 =B3 =B4 =B5 =B6 =B7 =B8 =B9 =BA =BB =BC =BD =BE =BF
+=C0 =C1 =C2 =C3 =C4 =C5 =C6 =C7 =C8 =C9 =CA =CB =CC =CD =CE =CF
+=D0 =D1 =D2 =D3 =D4 =D5 =D6 =D7 =D8 =D9 =DA =DB =DC =DD =DE =DF
+=E0 =E1 =E2 =E3 =E4 =E5 =E6 =E7 =E8 =E9 =EA =EB =EC =ED =EE =EF
+=F0 =F1 =F2 =F3 =F4 =F5 =F6 =F7 =F8 =F9 =FA =FB =FC =FD =FE =FF
+
+
+Martin
+-- 
+ _____ _____
+|     |___  |   Martin Junius                   Fido:  2:2452/110.2
+| | | |   | |   Am Krausen Baum 11              mailto:mj@fido.de
+|_|_|_|@home|   D-40489 Duesseldorf, Germany    http://www.fido.de/~mj
+
+Received: by p2.hippo.fido.de (FIDOGATE x.x.x)
+From: Martin Junius <mj@orodruin.fido.de>
+Subject: Test MIME
+Message-ID: <Pine.LNX.3.95.961113221254.294B-100000@orodruin.fido.de>
+To: mj@orodruin.fido.de
+Organization: Martin Junius' orodruin.fido.de
+Lines: 11
+X-Gateway: FIDO orodruin.fido.de [FIDOGATE x.x.x]
+X-FTN-From: Martin Junius @ 2:2452/110.2
+X-FTN-To: Martin Junius @ 2:2452/110.0
+X-FTN-Tearline: FIDOGATE x.x.x
+X-FTN-Via: FIDOGATE/rfc2ftn 2:2452/110.2, Wed Mar 26 1997 at 22:38:05 MET
+X-FTN-Domain: Z2@FidoNet
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Transfer-Encoding: 7bit
+
+!"S$%&/()=?
+
+oeaeuessOeAeUe
+
+Martin
+-- 
+ _____ _____
+|     |___  |   Martin Junius                  Fido:  2:2452/110.2
+| | | |   | |   Am Krausen Baum 11             mailto:mj@fido.de
+|_|_|_|@home|   D-40489 Duesseldorf, Germany    http://www.fido.de/~mj
+
+Received: by p2.hippo.fido.de (FIDOGATE x.x.x)
+From: Martin Junius <mj@orodruin.fido.de>
+Subject: Test MIME
+Message-ID: <Pine.LNX.3.95.961113221254.294B-100000@orodruin.fido.de>
+To: mj@orodruin.fido.de
+Organization: Martin Junius' orodruin.fido.de
+Lines: 12
+X-Gateway: FIDO orodruin.fido.de [FIDOGATE x.x.x]
+X-FTN-From: Martin Junius @ 2:2452/110.2
+X-FTN-To: Martin Junius @ 2:2452/110.0
+X-FTN-Tearline: FIDOGATE x.x.x
+X-FTN-Via: FIDOGATE/rfc2ftn 2:2452/110.2, Wed Mar 26 1997 at 22:38:05 MET
+X-FTN-Domain: Z2@FidoNet
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Transfer-Encoding: 7bit
+
+!"$%&/()=?
+
+Testmail ohne 8bit-Sonderzeichen.
+= = = = = = = = = = = = = = = = =
+
+Martin
+-- 
+ _____ _____
+|     |___  |   Martin Junius                  Fido:  2:2452/110.2
+| | | |   | |   Am Krausen Baum 11             mailto:mj@fido.de
+|_|_|_|@home|   D-40489 Duesseldorf, Germany   http://www.fido.de/~mj
+
+Received: by p2.hippo.fido.de (FIDOGATE x.x.x)
+From: Martin Junius <mj@orodruin.fido.de>
+Subject: (no subject)
+Message-ID: <Pine.LNX.3.95.961027141912.291K-100000@orodruin.fido.de>
+To: mj@orodruin.fido.de
+Organization: Martin Junius' orodruin.fido.de
+Lines: 26
+X-Gateway: FIDO orodruin.fido.de [FIDOGATE x.x.x]
+X-FTN-From: Martin Junius @ 2:2452/110.2
+X-FTN-To: Martin Junius @ 2:2452/110.0
+X-FTN-Tearline: FIDOGATE x.x.x
+X-FTN-Via: FIDOGATE/rfc2ftn 2:2452/110.2, Wed Mar 26 1997 at 22:38:04 MET
+X-FTN-Domain: Z2@FidoNet
+MIME-Version: 1.0
+Content-Type: text/plain; charset=iso-8859-1
+Content-Transfer-Encoding: 8bit
+
+Test-Mail mit Umlauten:
+
+ö ä ü ß
+Ö Ä Ü
+
+Und einigen anderen 8bit-Zeichen:
+
+§ µ
+
+Alle 8bit-Zeichen 0xa0 ... 0xff:
+
+  ¡ ¢ £ ¤ ¥ ¦ § ¨ © ª « ¬ ­ ® ¯
+° ± ² ³ ´ µ ¶ · ¸ ¹ º » ¼ ½ ¾ ¿
+À Á Â Ã Ä Å Æ Ç È É Ê Ë Ì Í Î Ï
+Ð Ñ Ò Ó Ô Õ Ö × Ø Ù Ú Û Ü Ý Þ ß
+à á â ã ä å æ ç è é ê ë ì í î ï
+ð ñ ò ó ô õ ö ÷ ø ù ú û ü ý þ ÿ
+
+
+Martin
+-- 
+ _____ _____
+|     |___  |   Martin Junius                   Fido:  2:2452/110.2
+| | | |   | |   Am Krausen Baum 11              mailto:mj@fido.de
+|_|_|_|@home|   D-40489 Duesseldorf, Germany    http://www.fido.de/~mj
+
+Received: by p2.hippo.fido.de (FIDOGATE x.x.x)
+From: Martin Junius <mj@orodruin.fido.de>
+Subject: (no subject)
+Message-ID: <Pine.LNX.3.95.961027141912.291K-100000@orodruin.fido.de>
+To: mj@orodruin.fido.de
+Organization: Martin Junius' orodruin.fido.de
+Lines: 26
+X-Gateway: FIDO orodruin.fido.de [FIDOGATE x.x.x]
+X-FTN-From: Martin Junius @ 2:2452/110.2
+X-FTN-To: Martin Junius @ 2:2452/110.0
+X-FTN-Tearline: FIDOGATE x.x.x
+X-FTN-Via: FIDOGATE/rfc2ftn 2:2452/110.2, Wed Mar 26 1997 at 22:38:04 MET
+X-FTN-Domain: Z2@FidoNet
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Transfer-Encoding: 7bit
+
+Test-Mail mit Umlauten:
+
+oe ae ue ss
+Oe Ae Ue
+
+Und einigen anderen 8bit-Zeichen:
+
+S mu
+
+Alle 8bit-Zeichen 0xa0 ... 0xff:
+
+  ! c # ? Y | S " (C) a << - - (R) -
+o +- ^2 ^3 ' mu P . , ^1 o >> 1/4 1/2 3/4 ?
+A A A A Ae A AE C E E E E I I I I
+D N O O O O Oe x O U U U Ue Y ? ss
+a a a a ae a ae c e e e e i i i i
+? n o o o o oe / o u u u ue y ? y
+
+
+Martin
+-- 
+ _____ _____
+|     |___  |   Martin Junius                   Fido:  2:2452/110.2
+| | | |   | |   Am Krausen Baum 11              mailto:mj@fido.de
+|_|_|_|@home|   D-40489 Duesseldorf, Germany    http://www.fido.de/~mj
+
+Received: by p2.hippo.fido.de (FIDOGATE x.x.x)
+From: Martin Junius <mj@orodruin.fido.de>
+Subject: (no subject)
+Message-ID: <Pine.LNX.3.95.961027141912.291K-100000@orodruin.fido.de>
+To: mj@orodruin.fido.de
+Organization: Martin Junius' orodruin.fido.de
+Lines: 26
+X-Gateway: FIDO orodruin.fido.de [FIDOGATE x.x.x]
+X-FTN-From: Martin Junius @ 2:2452/110.2
+X-FTN-To: Martin Junius @ 2:2452/110.0
+X-FTN-Tearline: FIDOGATE x.x.x
+X-FTN-Via: FIDOGATE/rfc2ftn 2:2452/110.2, Wed Mar 26 1997 at 22:38:04 MET
+X-FTN-Domain: Z2@FidoNet
+MIME-Version: 1.0
+Content-Type: text/plain; charset=iso-8859-1
+Content-Transfer-Encoding: 8bit
+
+Test-Mail mit Umlauten:
+
+ö ä ü ß
+Ö Ä Ü
+
+Und einigen anderen 8bit-Zeichen:
+
+§ µ
+
+Alle 8bit-Zeichen 0xa0 ... 0xff:
+
+  ¡ ¢ £ ¤ ¥ ¦ § ¨ © ª « ¬ ­ ® ¯
+° ± ² ³ ´ µ ¶ · ¸ ¹ º » ¼ ½ ¾ ¿
+À Á Â Ã Ä Å Æ Ç È É Ê Ë Ì Í Î Ï
+Ð Ñ Ò Ó Ô Õ Ö × Ø Ù Ú Û Ü Ý Þ ß
+à á â ã ä å æ ç è é ê ë ì í î ï
+ð ñ ò ó ô õ ö ÷ ø ù ú û ü ý þ ÿ
+
+
+Martin
+-- 
+ _____ _____
+|     |___  |   Martin Junius                   Fido:  2:2452/110.2
+| | | |   | |   Am Krausen Baum 11              mailto:mj@fido.de
+|_|_|_|@home|   D-40489 Duesseldorf, Germany    http://www.fido.de/~mj
+
+Received: by p2.hippo.fido.de (FIDOGATE x.x.x)
+From: Martin Junius <mj@orodruin.fido.de>
+Subject: (no subject)
+Message-ID: <Pine.LNX.3.95.961027141912.291K-100000@orodruin.fido.de>
+To: mj@orodruin.fido.de
+Organization: Martin Junius' orodruin.fido.de
+Lines: 26
+X-Gateway: FIDO orodruin.fido.de [FIDOGATE x.x.x]
+X-FTN-From: Martin Junius @ 2:2452/110.2
+X-FTN-To: Martin Junius @ 2:2452/110.0
+X-FTN-Tearline: FIDOGATE x.x.x
+X-FTN-Via: FIDOGATE/rfc2ftn 2:2452/110.2, Wed Mar 26 1997 at 22:38:04 MET
+X-FTN-Domain: Z2@FidoNet
+MIME-Version: 1.0
+Content-Type: text/plain; charset=iso-8859-1
+Content-Transfer-Encoding: quoted-printable
+
+Test-Mail mit Umlauten:
+
+=F6 =E4 =FC =DF
+=D6 =C4 =DC
+
+Und einigen anderen 8bit-Zeichen:
+
+=A7 =B5
+
+Alle 8bit-Zeichen 0xa0 ... 0xff:
+
+=A0 =A1 =A2 =A3 =A4 =A5 =A6 =A7 =A8 =A9 =AA =AB =AC =AD =AE =AF
+=B0 =B1 =B2 =B3 =B4 =B5 =B6 =B7 =B8 =B9 =BA =BB =BC =BD =BE =BF
+=C0 =C1 =C2 =C3 =C4 =C5 =C6 =C7 =C8 =C9 =CA =CB =CC =CD =CE =CF
+=D0 =D1 =D2 =D3 =D4 =D5 =D6 =D7 =D8 =D9 =DA =DB =DC =DD =DE =DF
+=E0 =E1 =E2 =E3 =E4 =E5 =E6 =E7 =E8 =E9 =EA =EB =EC =ED =EE =EF
+=F0 =F1 =F2 =F3 =F4 =F5 =F6 =F7 =F8 =F9 =FA =FB =FC =FD =FE =FF
+
+
+Martin
+-- 
+ _____ _____
+|     |___  |   Martin Junius                   Fido:  2:2452/110.2
+| | | |   | |   Am Krausen Baum 11              mailto:mj@fido.de
+|_|_|_|@home|   D-40489 Duesseldorf, Germany    http://www.fido.de/~mj
+
+Received: by p2.hippo.fido.de (FIDOGATE x.x.x)
+From: Martin Junius <mj@orodruin.fido.de>
+Subject: Test MIME
+Message-ID: <Pine.LNX.3.95.961113221254.294B-100000@orodruin.fido.de>
+To: mj@orodruin.fido.de
+Organization: Martin Junius' orodruin.fido.de
+Lines: 11
+X-Gateway: FIDO orodruin.fido.de [FIDOGATE x.x.x]
+X-FTN-From: Martin Junius @ 2:2452/110.2
+X-FTN-To: Martin Junius @ 2:2452/110.0
+X-FTN-Tearline: FIDOGATE x.x.x
+X-FTN-Via: FIDOGATE/rfc2ftn 2:2452/110.2, Wed Mar 26 1997 at 22:38:05 MET
+X-FTN-Domain: Z2@FidoNet
+MIME-Version: 1.0
+Content-Type: text/plain; charset=iso-8859-1
+Content-Transfer-Encoding: 8bit
+
+!"§$%&/()=?
+
+öäüßÖÄÜ
+
+Martin
+-- 
+ _____ _____
+|     |___  |   Martin Junius                  Fido:  2:2452/110.2
+| | | |   | |   Am Krausen Baum 11             mailto:mj@fido.de
+|_|_|_|@home|   D-40489 Düsseldorf, Germany    http://www.fido.de/~mj
+
+Received: by p2.hippo.fido.de (FIDOGATE x.x.x)
+From: Martin Junius <mj@orodruin.fido.de>
+Subject: Test MIME
+Message-ID: <Pine.LNX.3.95.961113221254.294B-100000@orodruin.fido.de>
+To: mj@orodruin.fido.de
+Organization: Martin Junius' orodruin.fido.de
+Lines: 12
+X-Gateway: FIDO orodruin.fido.de [FIDOGATE x.x.x]
+X-FTN-From: Martin Junius @ 2:2452/110.2
+X-FTN-To: Martin Junius @ 2:2452/110.0
+X-FTN-Tearline: FIDOGATE x.x.x
+X-FTN-Via: FIDOGATE/rfc2ftn 2:2452/110.2, Wed Mar 26 1997 at 22:38:05 MET
+X-FTN-Domain: Z2@FidoNet
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Transfer-Encoding: 7bit
+
+!"$%&/()=?
+
+Testmail ohne 8bit-Sonderzeichen.
+= = = = = = = = = = = = = = = = =
+
+Martin
+-- 
+ _____ _____
+|     |___  |   Martin Junius                  Fido:  2:2452/110.2
+| | | |   | |   Am Krausen Baum 11             mailto:mj@fido.de
+|_|_|_|@home|   D-40489 Duesseldorf, Germany   http://www.fido.de/~mj
+
+Received: by p2.hippo.fido.de (FIDOGATE x.x.x)
+From: Martin Junius <mj@orodruin.fido.de>
+Subject: (no subject)
+Message-ID: <Pine.LNX.3.95.961027141912.291K-100000@orodruin.fido.de>
+To: mj@orodruin.fido.de
+Organization: Martin Junius' orodruin.fido.de
+Lines: 26
+X-Gateway: FIDO orodruin.fido.de [FIDOGATE x.x.x]
+X-FTN-From: Martin Junius @ 2:2452/110.2
+X-FTN-To: Martin Junius @ 2:2452/110.0
+X-FTN-Tearline: FIDOGATE x.x.x
+X-FTN-Via: FIDOGATE/rfc2ftn 2:2452/110.2, Wed Mar 26 1997 at 22:38:04 MET
+X-FTN-Domain: Z2@FidoNet
+MIME-Version: 1.0
+Content-Type: text/plain; charset=iso-8859-1
+Content-Transfer-Encoding: quoted-printable
+
+Test-Mail mit Umlauten:
+
+=F6 =E4 =FC =DF
+=D6 =C4 =DC
+
+Und einigen anderen 8bit-Zeichen:
+
+=A7 =B5
+
+Alle 8bit-Zeichen 0xa0 ... 0xff:
+
+=A0 =A1 =A2 =A3 =A4 =A5 =A6 =A7 =A8 =A9 =AA =AB =AC =AD =AE =AF
+=B0 =B1 =B2 =B3 =B4 =B5 =B6 =B7 =B8 =B9 =BA =BB =BC =BD =BE =BF
+=C0 =C1 =C2 =C3 =C4 =C5 =C6 =C7 =C8 =C9 =CA =CB =CC =CD =CE =CF
+=D0 =D1 =D2 =D3 =D4 =D5 =D6 =D7 =D8 =D9 =DA =DB =DC =DD =DE =DF
+=E0 =E1 =E2 =E3 =E4 =E5 =E6 =E7 =E8 =E9 =EA =EB =EC =ED =EE =EF
+=F0 =F1 =F2 =F3 =F4 =F5 =F6 =F7 =F8 =F9 =FA =FB =FC =FD =FE =FF
+
+
+Martin
+-- 
+ _____ _____
+|     |___  |   Martin Junius                   Fido:  2:2452/110.2
+| | | |   | |   Am Krausen Baum 11              mailto:mj@fido.de
+|_|_|_|@home|   D-40489 Duesseldorf, Germany    http://www.fido.de/~mj
+
+Received: by p2.hippo.fido.de (FIDOGATE x.x.x)
+From: Martin Junius <mj@orodruin.fido.de>
+Subject: (no subject)
+Message-ID: <Pine.LNX.3.95.961027141912.291K-100000@orodruin.fido.de>
+To: mj@orodruin.fido.de
+Organization: Martin Junius' orodruin.fido.de
+Lines: 26
+X-Gateway: FIDO orodruin.fido.de [FIDOGATE x.x.x]
+X-FTN-From: Martin Junius @ 2:2452/110.2
+X-FTN-To: Martin Junius @ 2:2452/110.0
+X-FTN-Tearline: FIDOGATE x.x.x
+X-FTN-Via: FIDOGATE/rfc2ftn 2:2452/110.2, Wed Mar 26 1997 at 22:38:04 MET
+X-FTN-Domain: Z2@FidoNet
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Transfer-Encoding: 7bit
+
+Test-Mail mit Umlauten:
+
+oe ae ue ss
+Oe Ae Ue
+
+Und einigen anderen 8bit-Zeichen:
+
+S mu
+
+Alle 8bit-Zeichen 0xa0 ... 0xff:
+
+  ! c # ? Y | S " (C) a << - - (R) -
+o +- ^2 ^3 ' mu P . , ^1 o >> 1/4 1/2 3/4 ?
+A A A A Ae A AE C E E E E I I I I
+D N O O O O Oe x O U U U Ue Y ? ss
+a a a a ae a ae c e e e e i i i i
+? n o o o o oe / o u u u ue y ? y
+
+
+Martin
+-- 
+ _____ _____
+|     |___  |   Martin Junius                   Fido:  2:2452/110.2
+| | | |   | |   Am Krausen Baum 11              mailto:mj@fido.de
+|_|_|_|@home|   D-40489 Duesseldorf, Germany    http://www.fido.de/~mj
+
+Received: by p2.hippo.fido.de (FIDOGATE x.x.x)
+From: Martin Junius <mj@orodruin.fido.de>
+Subject: (no subject)
+Message-ID: <Pine.LNX.3.95.961027141912.291K-100000@orodruin.fido.de>
+To: mj@orodruin.fido.de
+Organization: Martin Junius' orodruin.fido.de
+Lines: 26
+X-Gateway: FIDO orodruin.fido.de [FIDOGATE x.x.x]
+X-FTN-From: Martin Junius @ 2:2452/110.2
+X-FTN-To: Martin Junius @ 2:2452/110.0
+X-FTN-Tearline: FIDOGATE x.x.x
+X-FTN-Via: FIDOGATE/rfc2ftn 2:2452/110.2, Wed Mar 26 1997 at 22:38:04 MET
+X-FTN-Domain: Z2@FidoNet
+MIME-Version: 1.0
+Content-Type: text/plain; charset=iso-8859-1
+Content-Transfer-Encoding: 8bit
+
+Test-Mail mit Umlauten:
+
+ö ä ü ß
+Ö Ä Ü
+
+Und einigen anderen 8bit-Zeichen:
+
+§ µ
+
+Alle 8bit-Zeichen 0xa0 ... 0xff:
+
+  ¡ ¢ £ ¤ ¥ ¦ § ¨ © ª « ¬ ­ ® ¯
+° ± ² ³ ´ µ ¶ · ¸ ¹ º » ¼ ½ ¾ ¿
+À Á Â Ã Ä Å Æ Ç È É Ê Ë Ì Í Î Ï
+Ð Ñ Ò Ó Ô Õ Ö × Ø Ù Ú Û Ü Ý Þ ß
+à á â ã ä å æ ç è é ê ë ì í î ï
+ð ñ ò ó ô õ ö ÷ ø ù ú û ü ý þ ÿ
+
+
+Martin
+-- 
+ _____ _____
+|     |___  |   Martin Junius                   Fido:  2:2452/110.2
+| | | |   | |   Am Krausen Baum 11              mailto:mj@fido.de
+|_|_|_|@home|   D-40489 Duesseldorf, Germany    http://www.fido.de/~mj
+
+Received: by p2.hippo.fido.de (FIDOGATE x.x.x)
+From: Martin Junius <mj@orodruin.fido.de>
+Subject: (no subject)
+Message-ID: <Pine.LNX.3.95.961027141912.291K-100000@orodruin.fido.de>
+To: mj@orodruin.fido.de
+Organization: Martin Junius' orodruin.fido.de
+Lines: 26
+X-Gateway: FIDO orodruin.fido.de [FIDOGATE x.x.x]
+X-FTN-From: Martin Junius @ 2:2452/110.2
+X-FTN-To: Martin Junius @ 2:2452/110.0
+X-FTN-Tearline: FIDOGATE x.x.x
+X-FTN-Via: FIDOGATE/rfc2ftn 2:2452/110.2, Wed Mar 26 1997 at 22:38:04 MET
+X-FTN-Domain: Z2@FidoNet
+MIME-Version: 1.0
+Content-Type: text/plain; charset=iso-8859-1
+Content-Transfer-Encoding: quoted-printable
+
+Test-Mail mit Umlauten:
+
+=F6 =E4 =FC =DF
+=D6 =C4 =DC
+
+Und einigen anderen 8bit-Zeichen:
+
+=A7 =B5
+
+Alle 8bit-Zeichen 0xa0 ... 0xff:
+
+=A0 =A1 =A2 =A3 =A4 =A5 =A6 =A7 =A8 =A9 =AA =AB =AC =AD =AE =AF
+=B0 =B1 =B2 =B3 =B4 =B5 =B6 =B7 =B8 =B9 =BA =BB =BC =BD =BE =BF
+=C0 =C1 =C2 =C3 =C4 =C5 =C6 =C7 =C8 =C9 =CA =CB =CC =CD =CE =CF
+=D0 =D1 =D2 =D3 =D4 =D5 =D6 =D7 =D8 =D9 =DA =DB =DC =DD =DE =DF
+=E0 =E1 =E2 =E3 =E4 =E5 =E6 =E7 =E8 =E9 =EA =EB =EC =ED =EE =EF
+=F0 =F1 =F2 =F3 =F4 =F5 =F6 =F7 =F8 =F9 =FA =FB =FC =FD =FE =FF
+
+
+Martin
+-- 
+ _____ _____
+|     |___  |   Martin Junius                   Fido:  2:2452/110.2
+| | | |   | |   Am Krausen Baum 11              mailto:mj@fido.de
+|_|_|_|@home|   D-40489 Duesseldorf, Germany    http://www.fido.de/~mj
+
+Received: by p2.hippo.fido.de (FIDOGATE x.x.x)
+From: Martin Junius <mj@orodruin.fido.de>
+Subject: Test MIME
+Message-ID: <Pine.LNX.3.95.961113221254.294B-100000@orodruin.fido.de>
+To: mj@orodruin.fido.de
+Organization: Martin Junius' orodruin.fido.de
+Lines: 11
+X-Gateway: FIDO orodruin.fido.de [FIDOGATE x.x.x]
+X-FTN-From: Martin Junius @ 2:2452/110.2
+X-FTN-To: Martin Junius @ 2:2452/110.0
+X-FTN-Tearline: FIDOGATE x.x.x
+X-FTN-Via: FIDOGATE/rfc2ftn 2:2452/110.2, Wed Mar 26 1997 at 22:38:05 MET
+X-FTN-Domain: Z2@FidoNet
+MIME-Version: 1.0
+Content-Type: text/plain; charset=iso-8859-1
+Content-Transfer-Encoding: quoted-printable
+
+!"=A7$%&/()=3D?
+
+=F6=E4=FC=DF=D6=C4=DC
+
+Martin
+-- 
+ _____ _____
+|     |___  |   Martin Junius                  Fido:  2:2452/110.2
+| | | |   | |   Am Krausen Baum 11             mailto:mj@fido.de
+|_|_|_|@home|   D-40489 D=FCsseldorf, Germany    http://www.fido.de/~mj
+
+Received: by p2.hippo.fido.de (FIDOGATE x.x.x)
+From: Martin Junius <mj@orodruin.fido.de>
+Subject: Test MIME
+Message-ID: <Pine.LNX.3.95.961113221254.294B-100000@orodruin.fido.de>
+To: mj@orodruin.fido.de
+Organization: Martin Junius' orodruin.fido.de
+Lines: 12
+X-Gateway: FIDO orodruin.fido.de [FIDOGATE x.x.x]
+X-FTN-From: Martin Junius @ 2:2452/110.2
+X-FTN-To: Martin Junius @ 2:2452/110.0
+X-FTN-Tearline: FIDOGATE x.x.x
+X-FTN-Via: FIDOGATE/rfc2ftn 2:2452/110.2, Wed Mar 26 1997 at 22:38:05 MET
+X-FTN-Domain: Z2@FidoNet
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Transfer-Encoding: 7bit
+
+!"$%&/()=?
+
+Testmail ohne 8bit-Sonderzeichen.
+= = = = = = = = = = = = = = = = =
+
+Martin
+-- 
+ _____ _____
+|     |___  |   Martin Junius                  Fido:  2:2452/110.2
+| | | |   | |   Am Krausen Baum 11             mailto:mj@fido.de
+|_|_|_|@home|   D-40489 Duesseldorf, Germany   http://www.fido.de/~mj
+
+------------------------------------------------------------------------
+outrfc/mail/00000001.rfc:Content-Type: text/plain; charset=us-ascii
+outrfc/mail/00000001.rfc:Content-Transfer-Encoding: 7bit
+outrfc/mail/00000002.rfc:Content-Type: text/plain; charset=us-ascii
+outrfc/mail/00000002.rfc:Content-Transfer-Encoding: 7bit
+outrfc/mail/00000003.rfc:Content-Type: text/plain; charset=iso-8859-1
+outrfc/mail/00000003.rfc:Content-Transfer-Encoding: 8bit
+outrfc/mail/00000004.rfc:Content-Type: text/plain; charset=iso-8859-1
+outrfc/mail/00000004.rfc:Content-Transfer-Encoding: quoted-printable
+outrfc/mail/00000005.rfc:Content-Type: text/plain; charset=us-ascii
+outrfc/mail/00000005.rfc:Content-Transfer-Encoding: 7bit
+outrfc/mail/00000006.rfc:Content-Type: text/plain; charset=us-ascii
+outrfc/mail/00000006.rfc:Content-Transfer-Encoding: 7bit
+outrfc/mail/00000007.rfc:Content-Type: text/plain; charset=iso-8859-1
+outrfc/mail/00000007.rfc:Content-Transfer-Encoding: 8bit
+outrfc/mail/00000008.rfc:Content-Type: text/plain; charset=us-ascii
+outrfc/mail/00000008.rfc:Content-Transfer-Encoding: 7bit
+outrfc/mail/00000009.rfc:Content-Type: text/plain; charset=iso-8859-1
+outrfc/mail/00000009.rfc:Content-Transfer-Encoding: 8bit
+outrfc/mail/00000010.rfc:Content-Type: text/plain; charset=iso-8859-1
+outrfc/mail/00000010.rfc:Content-Transfer-Encoding: quoted-printable
+outrfc/mail/00000011.rfc:Content-Type: text/plain; charset=iso-8859-1
+outrfc/mail/00000011.rfc:Content-Transfer-Encoding: 8bit
+outrfc/mail/00000012.rfc:Content-Type: text/plain; charset=us-ascii
+outrfc/mail/00000012.rfc:Content-Transfer-Encoding: 7bit
+outrfc/mail/00000013.rfc:Content-Type: text/plain; charset=iso-8859-1
+outrfc/mail/00000013.rfc:Content-Transfer-Encoding: quoted-printable
+outrfc/mail/00000014.rfc:Content-Type: text/plain; charset=us-ascii
+outrfc/mail/00000014.rfc:Content-Transfer-Encoding: 7bit
+outrfc/mail/00000015.rfc:Content-Type: text/plain; charset=iso-8859-1
+outrfc/mail/00000015.rfc:Content-Transfer-Encoding: 8bit
+outrfc/mail/00000016.rfc:Content-Type: text/plain; charset=iso-8859-1
+outrfc/mail/00000016.rfc:Content-Transfer-Encoding: quoted-printable
+outrfc/mail/00000017.rfc:Content-Type: text/plain; charset=iso-8859-1
+outrfc/mail/00000017.rfc:Content-Transfer-Encoding: quoted-printable
+outrfc/mail/00000018.rfc:Content-Type: text/plain; charset=us-ascii
+outrfc/mail/00000018.rfc:Content-Transfer-Encoding: 7bit
+------------------------------------------------------------------------
