@@ -1,6 +1,6 @@
 -*- Indented-Text -*-
 
-$Id: README,v 4.28 1999/01/10 16:55:54 mj Exp $
+$Id: README,v 4.29 1999/03/20 14:30:50 mj Exp $
 
 ======================================================================
 				   
@@ -27,13 +27,211 @@ note the following *MAJOR* changes:
 		/etc/fidogate/fidogate.conf for *all* programs.
 
 Please subscribe to the FIDOGATE mailing list, if you want to use
-4.3.x! (see below)
-
-
+4.3.x!!! (see below)
 
 ======================================================================
 
 [See ANNOUNCE for more recent changes]
+
+
+Changes in 4.3a5:
+
+* ftntoss/ftn2rfc: bug-fix for processing packets with point
+  addresses, should fix NetMail problems with non-point addresses in
+  packets from/to point addresses.
+
+* src/*/*.pl: improved and adapted to Perl5.
+
+* ftntoss: new config options AddOtherAKAs, forces ftntoss to all AKAs 
+  for the current zone to SEEN-BY.
+
+* Config functions updated to support new option GateAddr, which will
+  replace the multiple config files and the to some extent confusing
+  Address/Uplink settings in the next FIDOGATE release. NO CHANGES IN
+  THIS RELEASE YET!!!
+
+* ftn2rfc: new config option NewsPathTail. If set to
+  "fidogate!not-for-mail" it will make a correct setup of the INN
+  newsfeeds entry for FIDOGATE much more easy, avoiding news being send
+  back to the Fido uplink.
+
+* ftn2rfc: fix for AI_2 alias processing of recipient address.
+
+
+
+Changes in 4.3a4:
+
+* ftn2rfc / areas: support for -C default:in:out charset option.
+
+* Integrated various patches contributed by Andy Igoshin <ai@vsu.ru>,
+  see contrib/fidogate-4.3a3-ai-pl9.1/ for some documentation and
+  examples. Controlled by #define AI_x in config.h, not all of them
+  are enabled per default.
+  Also includes Russian charset mapping table.
+
+
+
+Changes in 4.3a3:
+
+* rununpack/runtoss: use correct config file (toss.conf), syslog
+  support is there, but commented due to some problems with my perl
+  installation. New LogFacility, LogLevel config options (toss.conf).
+
+* ftnafutil: avoid error log messages for uplinks without uplink entry
+  in passwd.
+
+* packet writing code: no more ^AFMPT 0 (run-time configuration will
+  be available for rfc2ftn in the future, don't use PASSTHRU_NETMAIL
+  with this release!)
+
+* charset mapping: old charset mapping code (charset.c) removed,
+  replaced with new code using charset.bin (compiled version of
+  charset.map), new config option CHARSETMAP (see config.make,
+  common.conf).
+
+* ftn2rfc: uses new charset mapping, new DefaultCharset,
+  NetMailCharset config options (gate.conf).
+
+* logcheck: bugfix, removed duplicate entries without -r option.
+
+* ftnin: now supports FLO files with *.pkt entries.
+
+* areasbbssync: new script for synchronizing INN's active and
+  FIDOGATE's areas.bbs.
+
+
+
+Changes in 4.3a2:
+
+* New config examples for 4.3
+
+* Perl scripts: config.pl now compiled into all perl scripts, -L/-S
+  options removed from all perl scripts.
+
+* rununpack: complete rewrite using perl.
+
+* runtoss: complete rewrite using perl,
+  new config (toss.conf) options: DiskFreeMin, DiskFreeMethod, DiskFreeProgram
+
+* ftnaf/ftnafpkt: major changes to commands, external help file:
+
+      Help for Areafix/Filefix, FIDOGATE 4.3
+      
+      Send mail
+      
+	To:      AreaFix @ Z:N/F.P
+	     or  AreaMgr @ Z:N/F.P
+	     or  FileFix @ Z:N/F.P
+	     or  FileMgr @ Z:N/F.P
+	Subject: PASSWORD [-l] [-q]
+				^^-- same as QUERY command
+			   ^^------- same as LIST command
+      
+      Commands in message body, optional prefix %% allowed:
+      
+	listall                      list all available areas
+	list                         list areas available to node
+	query                        list subscribed areas
+	unlinked                     list unsubscribed areas
+	from Z:N/F.P PASSWORD        set address and password
+	passwd Z:N/F.P PASSWORD
+	password Z:N/F.P PASSWORD
+	+AREA                        subscribe to AREA
+	AREA    
+	subscribe AREA
+	sub AREA
+	-AREA                        unsubscribe from AREA
+	unsubscribe AREA
+	unsub AREA
+	vacation AREA                set vacation flag for AREA
+	&AREA [-options]             create new AREA
+	new AREA [-options]
+	~AREA                        delete AREA
+	delete AREA
+	comment TEXT                 arbitrary comment (ignored)
+	help                         this help
+      
+      AREA names are not case-sensitive and support shell-style wildcards
+	* ? [a-z] [abc], e.g. COMP.OS.*, [A-D]*.GER
+
+  Now supports remote deletion and creation of areas (area key ~ and &
+  for authorization).
+
+* charsetc: new compiler for charset mapping tables. New mapping
+  tables not yet implemented, though.
+
+* logcheck/logsendmail: updated to sendmail 8.8.7
+
+* out-rmbsy: updated.
+
+* rfc2ftn: new option CheckAreasBBS, checking areas.bbs for downlinks
+  when gating. Areas won't be gated if no downlink.
+
+* rfc2ftn: new command line option -f / --batch-file BATCH, allows
+  direct processing of INN's batch files in /var/spool/news/out.going
+  without using the batcher, a major performance improvement.
+
+* send-fidogate: adapted to new rfc2ftn -f BATCH.
+
+* Busy files: use NFS-safe locking code.
+
+* areas.bbs: new option -s STATE for storing state information of
+  area. If set to 'U', the area is marked as not subscribed at the
+  uplink, an appropiate note will be printed by ftnaf.
+
+* ftnafutil: automatically
+  * delete areas from areas.bbs with no uplink (ftnafutil delete)
+  * send Areafix request to uplink, if
+    - an area with state -s U has new downlinks (ftnafutil subscribe) or
+    - an area with state -s S has no more downlinks (ftnafutil unsubscribe).
+
+* passwd: new context "uplink" for ftnafutil Areafix requests.
+
+* rununpack: don't remove extracted files, if archiver program fails.
+
+
+
+Changes in 4.3a1:
+
+* First release starting major restructuring of the FIDOGATEE code.
+
+* syslog support.
+
+* Totally new compile-time/run-time configuration controlled by
+  DEFAULT_* macros in config.make.
+    - compile-time defaults defined in config.make
+    - run-time values can be set in config files (*.conf)
+    - environment variables FIDOGATE_* to override
+
+* New default directory structure (see doc/dirs.html for details):
+    /etc/fidogate
+    /var/lib/fidogate
+    /var/lock/fidogate
+    /var/log/fidogate
+    /var/spool/fidogate
+    /var/spool/bt
+    /usr/lib/fidogate
+
+* Config files renamed to common.conf, ffx.conf, gate.conf, toss.conf.
+
+* config.h now only for system specific configuration.
+
+* -L, -S options removed from all programs.
+
+* Run-time configuration available to perl scripts.
+
+* ftnoutpkt: new utility for creating FTN packets.
+
+* New Areafix code structure.
+
+* ftnafpkt: new Areafix utility reading/writing FTN packets.
+
+* ftnpack: new commands dirmove, progn.
+
+* ftnmail: new setuid frontend for rfc2ftn to be used by sendmail.
+
+* contrib/*: new stuff contributed by FIDOGATE users
+
 
 
 Changes in 4.2.9:
@@ -457,7 +655,7 @@ GNU-WIN32 information can be found at
     http://www.cygnus.com/misc/gnu-win32/
 
 Perl for WIN32 information can be found at
-    http://www.activeware.com/
+    http://www.activestate.com/
 
 ======================================================================
 
@@ -478,6 +676,6 @@ not integrate your patches.
 
 ======================================================================
 
-$Date: 1999/01/10 16:55:54 $
+$Date: 1999/03/20 14:30:50 $
 Martin Junius
 mailto:mj@fido.de

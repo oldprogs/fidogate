@@ -1,4 +1,25 @@
+1999-03-20  Martin Junius  <mj@fido.de>
+
+	======= Release 4.3.1 ================================================
+	------- CVS tag R431 -------------------------------------------------
+	------- CVS ci -------------------------------------------------------
+
+	* doc/dirs.html: updated.
+
+	* README: updated.
+
+	* ANNOUNCE: 4.3aX changes moved to README.
+
+	* examples/morannon/fidogate.conf: Maus*, ftp removed. Old config
+	  files removed.
+
+	* fidogate.lsm: updated.
+
 1999-03-19  Martin Junius  <mj@fido.de>
+
+	* src/gate/ftn2rfc.c (unpack): xfree(cs_save) must be called after 
+	  creating the MIME headers. Thanx to
+	  <root@neffets.isdn.cs.tu-berlin.de> for reporting this bug.
 
 	------- CVS ci -------------------------------------------------------
 
