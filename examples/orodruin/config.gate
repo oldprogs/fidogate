@@ -1,6 +1,6 @@
 #:ts=8
 #
-# $Id: config.gate,v 4.14 1997/02/09 10:40:20 mj Exp $
+# $Id: config.gate,v 4.15 1997/02/16 13:57:23 mj Exp $
 #
 # FIDOGATE config file gateway programs
 #
@@ -100,12 +100,17 @@ EchoMail4D
 # Don't gate messages with unknown zone in ^AMSGID (known zones are defined
 # in config.common).
 #
-#KillUnknownMSGIDZone
+KillUnknownMSGIDZone
 
 #
 # Don't gate messages without a valid ^AMSGID (or similar)
 #
 #KillNoMSGID
+
+#
+# Don't gate split messages with a ^ASPLIT kludge
+#
+#KillSplit
 
 
 #

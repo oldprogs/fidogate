@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: date.c,v 4.1 1996/12/17 17:19:41 mj Exp $
+ * $Id: date.c,v 4.2 1997/02/16 13:57:26 mj Exp $
  *
  * date() date/time print function
  *
@@ -64,12 +64,18 @@ static char *get_tz_name(struct tm *tm)
 
 
 /*
- * Format date/time according to format string using strftime() if available
+ * Format date/time according to strftime() format string
  */
-
 char *date(char *fmt, time_t *t)
 {
     static char buf[128];
+
+    return date_buf(buf, fmt, t);
+}
+
+
+char *date_buf(char *buf, char *fmt, time_t *t)
+{
     TIMEINFO ti;
     struct tm *tm;
 

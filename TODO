@@ -2,6 +2,11 @@
 
 X = for next release
 
+	* rfc2ftn: configuration option for mail RFC level *per*
+	  *host*, e.g. option in HOSTS.
+
+DONE.	* ftn2rfc: option to kill split messages (^ASPLIT).
+
 	* rfcaddr.c: using quotes for "som(e)thing%special"@host
 	  causes problems with news reading. Son-of-rfc1036 saiz that
 	  quotes are not allowed in addresses.
@@ -87,8 +92,6 @@ DONE.	* ftn2rfc:702: config option, instead of @FQDN, add @addr_to.addr
 
 	* ftn2rfc: restrict gateway to certain *Internet* addresses.
 
-	* ftntick: announce new files via mail or news posting.
-
 	* X-Gateway / ^AGATEWAY processing.
 
 	* ftn2rfc: Newsgroups header?
@@ -101,7 +104,7 @@ DONE.	  copy netmail packets (do_noarc()), use rename(). If archiver
 
 	* ftntoss: check # of ^AVia lines
 
-	* ftntoss: kill old messages (older than 2 weeks?)
+DONE.	* ftntoss: kill old messages (older than 2 weeks?)
 
 OS2	* MSDOS, OS/2 port: switch stdin to binary mode. Command line option?
 DONE.	  Problems with news batches (GD030V)?

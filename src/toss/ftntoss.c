@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftntoss.c,v 4.12 1996/12/17 17:19:59 mj Exp $
+ * $Id: ftntoss.c,v 4.13 1997/02/16 13:57:30 mj Exp $
  *
  * Toss FTN NetMail/EchoMail
  *
@@ -39,7 +39,7 @@
 
 
 #define PROGRAM 	"ftntoss"
-#define VERSION 	"$Revision: 4.12 $"
+#define VERSION 	"$Revision: 4.13 $"
 #define CONFIG		CONFIG_MAIN
 
 
@@ -113,7 +113,14 @@ int check_path    = FALSE;		/* config: CheckPath */
 int dupe_check    = FALSE;		/* config: DupeCheck */
 int kill_dupe     = FALSE;		/* config: KillDupe */
 int kill_nomsgid  = FALSE;		/* config: KillNoMSGID */
+int kill_old      = FALSE;		/* config: KillOld */
 
+/* Values checking for old messages */
+static double max_history = 14;		/* Max. number of days entry stays
+					   in MSGID history database */
+static time_t max_sec = 0;
+static time_t now_sec = 0;
+static time_t exp_sec = 0;
 
 
 /*
@@ -649,6 +656,21 @@ int do_echomail(Packet *pkt, Message *msg, MsgBody *body)
 	    msgid = buffer;
 	}
 
+	/* Check for old message (date < NOW - MaxHistory) */
+	if(kill_old)
+	{
+	    if(msg->date < exp_sec)
+	    {
+		log("message too old, treated as dupe: %s origin %s date %s",
+		    area->area, node_to_asc(&msg->node_orig, TRUE),
+		    date(DATE_FTS_0001, &msg->date)                          );
+		msgs_dupe++;
+		if(!kill_dupe)
+		    return do_bad_msg(msg, body);
+		return OK;
+	    }
+	}
+	
 	/* Check for existence in MSGID history */
 	if(hi_test(msgid))
 	{
@@ -1107,7 +1129,10 @@ int unpack(FILE *pkt_file, Packet *pkt)
 	}
 	else 
 	{
-	    msg.node_orig = msg.node_from;
+	    /* Retrieve address information from * Origin line */
+	    if(msg_parse_origin(body.origin, &msg.node_orig) == ERROR)
+		/* No * Origin line address, use header */
+		msg.node_orig = msg.node_from;
 
 	    debug(5, "EchoMail: %s -> %s",
 		  node_to_asc(&msg.node_from, TRUE),
@@ -1178,10 +1203,18 @@ int unpack_file(char *pkt_name)
 {
     Packet pkt;
     FILE *pkt_file;
+    TIMEINFO ti;
 
-    /*
-     * Open packet and read header
-     */
+    /* Update time info for old messages */
+    GetTimeInfo(&ti);
+    now_sec = ti.time;
+    max_sec = 24L * 3600L * max_history;
+    exp_sec = now_sec - max_sec;
+    if(exp_sec < 0)
+	exp_sec = 0;
+    debug(4, "now=%ld max=%ld, old < %ld", now_sec, max_sec, exp_sec);
+    
+    /* Open packet and read header */
     pkt_file = fopen(pkt_name, R_MODE);
     if(!pkt_file) {
 	log("$ERROR: can't open packet %s", pkt_name);
@@ -1196,9 +1229,7 @@ int unpack_file(char *pkt_name)
 	return OK;
     }
     
-    /*
-     * Unpack it
-     */
+    /* Unpack it */
     log("packet %s (%ldb) from %s for %s", pkt_name, check_size(pkt_name),
 	node_to_asc(&pkt.from, TRUE), node_to_asc(&pkt.to, TRUE) );
     
@@ -1498,6 +1529,18 @@ int main(int argc, char **argv)
     }
     if(M_flag)
 	outpkt_set_maxopen(atoi(M_flag));
+    if(cf_get_string("KillOld", TRUE))
+    {
+	debug(8, "config: KillOld");
+	kill_old = TRUE;
+    }
+    if( (p = cf_get_string("MaxHistory", TRUE)) )
+    {
+	max_history = atof(p);
+	if(max_history < 0)
+	    max_history = 0;
+	debug(8, "config: MaxHistory %lg", max_history);
+    }
 
     zonegate_init();
     addtoseenby_init();

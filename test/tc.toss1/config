@@ -1,0 +1,9 @@
+#
+# $Id: config,v 4.1 1997/02/16 13:57:33 mj Exp $
+#
+# Test config with KillOld
+#
+
+KillOld
+
+include %L/config.main

@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftn2rfc.c,v 4.15 1997/02/09 10:04:28 mj Exp $
+ * $Id: ftn2rfc.c,v 4.16 1997/02/16 13:57:27 mj Exp $
  *
  * Convert FTN mail packets to RFC mail and news batches
  *
@@ -40,7 +40,7 @@
 
 
 #define PROGRAM 	"ftn2rfc"
-#define VERSION 	"$Revision: 4.15 $"
+#define VERSION 	"$Revision: 4.16 $"
 #define CONFIG		CONFIG_GATE
 
 
@@ -128,6 +128,9 @@ static int netmail_qp   = FALSE;
 
 /* Use FTN to address (cvt to Internet address) for mail_to */
 static int use_ftn_to_address = FALSE;
+
+/* Kill split messages with ^ASPLIT kludge */
+static int kill_split = FALSE;
 
 
 
@@ -524,6 +527,20 @@ int unpack(FILE *pkt_file, Packet *pkt)
 	msgbody_rfc_cc       = get_cc      (&body.rfc);
 	msgbody_rfc_bcc      = get_bcc     (&body.rfc);
 
+	/*
+	 * If kill_split is set, skip messages with ^ASPLIT
+	 */
+	if(kill_split)
+	{
+	    /* ^A SPLIT */
+	    if( (p = kludge_get(&body.kludge, "SPLIT", NULL)) )
+	    {
+		log("skipping split message, origin=%s",
+		    node_to_asc(&msg.node_orig, TRUE));
+		continue;
+	    }
+	}
+	
 	/*
 	 * If -g flag is set for area and message seems to comme from
 	 * another gateway, skip it.
@@ -1349,6 +1366,11 @@ int main(int argc, char **argv)
     {
 	debug(8, "config: UseFTNToAddress");
 	use_ftn_to_address = TRUE;
+    }
+    if(cf_get_string("KillSplit", TRUE))
+    {
+	debug(8, "config: KillSplit");
+	kill_split = TRUE;
     }
     
     /*
