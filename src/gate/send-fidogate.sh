@@ -1,9 +1,12 @@
 #!/bin/sh
 #
-# $Id: send-fidogate.sh,v 4.4 2003/06/09 12:10:57 n0ll Exp $
+# $Id: send-fidogate.sh,v 4.5 2004/08/22 08:59:01 n0ll Exp $
 #
 # SH script to send batches to FIDOGATE
 #
+
+# Uncomment to use optimized rfc2ftn -f version
+#OPTIMIZE=yes
 
 # Output to "log-news" log file
 FIDOGATE_LOGFILE="%G/log-news"
@@ -62,10 +65,23 @@ for SITE in ${LIST}; do
 
     echo "${PROGNAME}: [$$] begin ${SITE}"
 
-    case "$VERSION" in
+    INNVERSION="unknown"
+    if [ "$OPTIMIZE" = "yes" ]; then
+	INNVERSION="$VERSION"
+    fi
+
+    case "$INNVERSION" in
     "INN 2.2"*)
-	# optimized version for INN 2.2, no longer works with INN 2.3
+	# optimized version for INN 2.2, no longer works with INN 2.3+
 	time $RFC2FTN -f $BATCHFILE -m 500
+	;;
+    "INN 2.4*")
+	# optimized version for INN 2.4 using sm <vik>
+	while read a b; do
+	    echo `$NEWSBIN/sm -i $a` $b | sed -e 's/\:\ /\//' >> $BATCHFILE.fullpath
+	done < $BATCHFILE 2> /dev/null
+	rm -f $BATCHFILE
+	time $RFC2FTN -f $BATCHFILE.fullpath -m 500
 	;;
     *)
 	# generic version using batcher

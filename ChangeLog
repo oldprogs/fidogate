@@ -1,3 +1,16 @@
+2004-08-22  Martin Junius  <mj.at.n0ll.dot.net>
+
+	------- CVS ci -------------------------------------------------------
+
+	* src/common/log.c (log_program): removed insecure code entirely,
+	  thanks to Niels Heinen for pointing this out.
+
+	* src/gate/send-fidogate.sh: added optimized version using rfc2ftn
+	  -f for INN 2.4, thanks to Viktor Kafke.
+	  Optimized versions for INN 2.2 und INN 2.4 enabled by
+	  OPTIMIZED=yes at the start of this script, default = commented =
+	  off.
+
 2004-08-20  Martin Junius  <mj.at.n0ll.dot.net>
 
 	------- CVS ci -------------------------------------------------------
