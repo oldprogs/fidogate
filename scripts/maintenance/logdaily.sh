@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# $Id: logdaily.sh,v 4.3 1998/11/08 18:27:57 mj Exp $
+# $Id: logdaily.sh,v 4.4 1999/02/07 11:05:21 mj Exp $
 #
 # Daily log processing
 #
@@ -21,9 +21,13 @@ if [ -f <LOGDIR>/log-in.1.gz ]; then
     zcat <LOGDIR>/log-in.1.gz \
     | <BINDIR>/logstat -m admin-logs -t '(inbound)'
 fi
-if [ -f <LOGDIR>/log-out.1.gz ]; then
-    zcat <LOGDIR>/log-out.1.gz \
-    | <BINDIR>/logstat -m admin-logs -t '(news gateway output)'
+if [ -f <LOGDIR>/log-mail.1.gz ]; then
+    zcat <LOGDIR>/log-mail.1.gz \
+    | <BINDIR>/logstat -m admin-logs -t '(gateway output mail)'
+fi
+if [ -f <LOGDIR>/log-news.1.gz ]; then
+    zcat <LOGDIR>/log-news.1.gz \
+    | <BINDIR>/logstat -m admin-logs -t '(gateway output news)'
 fi
 
 # run logreport

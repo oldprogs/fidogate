@@ -1,8 +1,37 @@
+1999-02-07  Martin Junius  <mj@fido.de>
+
+	------- CVS ci -------------------------------------------------------
+
+	* scripts/maintenance/logsendmail.pl: new version with many bug
+	  fixes, new stats, and improved output.
+
+1999-02-04  Martin Junius  <mj@fido.de>
+
+	* scripts/maintenance/logsendmail.pl: don't depend on $HOSTNAME
+	  for parsing syslog line. Major changes, Perl5'ified. Added
+	  counter for bounced messages, bounced messages are no longer
+	  included in traffic matrix.
+
+1999-01-30  Martin Junius  <mj@fido.de>
+
+	* scripts/maintenance/logdaily.sh: run logstat for log files
+	  log-in, log-mail, log-news.
+
+1999-01-16  Martin Junius  <mj@fido.de>
+
+	* examples/morannon/fidogate.conf: new example single
+	  configuration with setting for morannon.fido.de (gateway and
+	  large hub).
+
+	* scripts/run/runpoll-binkd.sh: modified version of
+	  runpoll-orodruin.sh using binkd for polling boss node.
+
 1999-01-10  Martin Junius  <mj@fido.de>
 
 	======= Release 4.3.0 ================================================
 	------- CVS tag R430 -------------------------------------------------
 	------- CVS ci -------------------------------------------------------
+
 	* fidogate.lsm: updated.
 
 	* ANNOUNCE: updated.

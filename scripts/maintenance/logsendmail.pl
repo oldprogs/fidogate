@@ -1,38 +1,50 @@
 #!/usr/bin/perl
 #
-# $Id: logsendmail.pl,v 4.1 1998/03/22 17:57:35 mj Exp $
+# $Id: logsendmail.pl,v 4.2 1999/02/07 11:05:21 mj Exp $
 #
 # Gather statistics from sendmail V8 syslog output
 #
 
-$VERSION    = '$Revision: 4.1 $ ';
-$PROGRAM    = "logsendmail";
+require 5.000;
 
-$NEWSGROUPS = "fido.de.lists";
-$SUBJECT    = "Fido.DE Sendmail Accounting Report";
+my $VERSION    = '$Revision: 4.2 $ ';
+my $PROGRAM    = "logsendmail";
 
-$INEWS      = "/usr/bin/inews -h -S";
-$SENDMAIL   = "/usr/sbin/sendmail";
-
+use strict;
+use vars qw($opt_v $opt_c $opt_o $opt_g $opt_s $opt_n $opt_m);
+use Getopt::Std;
 
 # Common configuration for perl scripts 
 <INCLUDE config.pl>
 
-require "getopts.pl";
-&Getopts('vc:o:g:s:nm:');
+
+my $NEWSGROUPS = "fido.de.lists";
+my $SUBJECT    = "Fido.DE Sendmail Accounting Report";
+
+my $INEWS      = "/usr/bin/inews -h -S";
+my $SENDMAIL   = "/usr/sbin/sendmail";
+
+
+getopts('vc:o:g:s:nm:');
 
 # read config
-$CONFIG      = $opt_c ? $opt_c : "<CONFIG_GATE>";
-&CONFIG_read($CONFIG);
+my $CONFIG     = $opt_c ? $opt_c : "<CONFIG_GATE>";
+CONFIG_read($CONFIG);
 
-$HOSTNAME   = &CONFIG_get("hostname");
-$DOMAIN     = &CONFIG_get("domainname");
-$DOMAIN     = ".$DOMAIN" if(! $DOMAIN =~ /^\./);
-##TEST
-$HOSTNAME   = "morannon";
-$DOMAIN     = ".fido.de";
-##TEST
-$FQDN       = $HOSTNAME.$DOMAIN;
+my $HOSTNAME   = CONFIG_get("Hostname");
+my $DOMAIN     = CONFIG_get("Domain");
+$DOMAIN        = ".$DOMAIN" if(! $DOMAIN =~ /^\./);
+my $FQDN       = $HOSTNAME.$DOMAIN;
+
+print 
+  "hostname = $HOSTNAME\n",
+  "domain   = $DOMAIN\n",
+  "fqdn     = $FQDN\n"
+  if ($opt_v);
+
+
+my $out_flag;
+my $output;
 
 if($opt_g) {
     $NEWSGROUPS = $opt_g;
@@ -64,12 +76,10 @@ print "Newsgroups: $NEWSGROUPS\n" if($opt_n);
 print "Subject: $SUBJECT\n" if($opt_m || $opt_n);
 print "\n" if($opt_m || $opt_n);
 
-print "# statistics for $FQDN\n" if ($opt_v);
-
 
 sub parse_addr {
-    local($addr) = @_;
-    local($user,$site);
+    my($addr) = @_;
+    my($user,$site);
 
     # Special: address is program
     if( $addr =~ /^\"\|/ ) {
@@ -104,12 +114,74 @@ sub parse_addr {
 }
 
 
+my $first_date;
+my $output_date;
+my $last_date;
+my $date;
+my $id;
+my $rest;
+my $v;
+my $to;
+my $size;
+my ($user, $site);
+my $from;
+
+my %id_size;
+my %id_from;
+my %entry;
+my %dsn;
+my %dsn_count;
+my %ruleset_reject;
+my $ruleset_count;
+
+my %to_total_size;
+my %to_total_msgs;
+my $to_total_size;
+my $to_total_msgs;
+my %to_intern_size;
+my %to_intern_msgs;
+my $to_intern_size;
+my $to_intern_msgs;
+my %to_de_size;
+my %to_de_msgs;
+my $to_de_size;
+my $to_de_msgs;
+my %to_intl_size;
+my %to_intl_msgs;
+my $to_intl_size;
+my $to_intl_msgs;
+
+my %from_total_size;
+my %from_total_msgs;
+my $from_total_size;
+my $from_total_msgs;
+my %from_intern_size;
+my %from_intern_msgs;
+my $from_intern_size;
+my $from_intern_msgs;
+my %from_de_size;
+my %from_de_msgs;
+my $from_de_size;
+my $from_de_msgs;
+my %from_intl_size;
+my %from_intl_msgs;
+my $from_intl_size;
+my $from_intl_msgs;
+
+my $bouncemsgs;
+my $unaccounted;
+my $stat_host_unknown;
+my $stat_ftn_unknown;
+my $stat_service_unavail;
+my $stat_user_unknown;
+
+
 
 # 1st run: collect from=, size= data
 while(<>) {
     chop;
 
-    if( /^(.+) $HOSTNAME sendmail\[\d+\]: (\w+): (.*)$/ ) {
+    if( /^(.+) [a-zA-Z0-9_\-]+ sendmail\[\d+\]: ([A-Z0-9]+): (.*)$/ ) {
 	$date = $1;
 	$id   = $2;
 	$rest = $3;
@@ -121,11 +193,19 @@ while(<>) {
 	}
 	$last_date  = $1;
 
-	# Process clone
+	# clone
 	if($rest =~ /^clone (\w+),/) {
 	    print "# $id: $rest\n" if($opt_v);
 	    $id_size{$id} = $id_size{$1};
 	    $id_from{$id} = $id_from{$1};
+	}
+
+	# bounce message
+	if($rest =~ /^([A-Z0-9]+): (.*?): (.*)$/) {
+	    $dsn{$1} = "$id:$2:$3";
+	    $dsn_count{$2}++;
+	    print "DSN: $1, $id, $2, $3\n" if($opt_v);
+	    next;
 	}
 
 	undef %entry;
@@ -146,19 +226,50 @@ while(<>) {
 
 	next if($entry{"stat"} =~ /^Queued/);
 	next if($entry{"stat"} =~ /^Deferred/);
-#	next if($entry{"stat"} =~ /^User unknown/);
+
+	# ruleset entry
+	if($v = $entry{"ruleset"}) {
+	    print "ruleset $v, from=$entry{\"arg1\"}\n" if($opt_v);
+	    $ruleset_reject{$v}++;
+	    $ruleset_count++;
+	    next;
+	}
 
 	# To entry
 	if($entry{"to"}) {
+	    if($entry{"stat"} =~ /^Host unknown/) {
+		$stat_host_unknown++;
+		$stat_ftn_unknown++ if($entry{"mailer"} =~ /^ftn/);
+		next;
+	    }
+	    if($entry{"stat"} =~ /^User unknown/) {
+		$stat_user_unknown++;
+		next;
+	    }
+	    if($entry{"stat"} =~ /^Service unavailable/) {
+		$stat_service_unavail++;
+		next;
+	    }
+	    if(! $entry{"stat"} =~ /^Sent/) {
+		print "unknown stat=$entry{\"stat\"} for mail $id to=$entry{\"to\"}\n" if($opt_v);
+		next;
+	    }		
+
 	    ($user,$site) = &parse_addr($entry{"to"});
 	    $to   = $site;
-	    $size = $id_size{$id};
-	    if(!$size) {
-		print "# no from= for mail $id to=$entry{\"to\"}\n" if($opt_v);
+	    if($size = $id_size{$id}) {
+		$from = $id_from{$id};
+	    }
+	    elsif($v = $dsn{$id}) {
+		print "bounce msg $id = $dsn{$id}\n" if($opt_v);
+		$bouncemsgs++;
+		next;
+	    }
+	    else {
+		print "no from= for mail $id to=$entry{\"to\"}\n" if($opt_v);
 		$unaccounted++;
 		next;
 	    }
-	    $from = $id_from{$id};
 
 	    # To Fido.DE sites
 	    if($site =~ /fido\.de$/i) {
@@ -228,16 +339,60 @@ while(<>) {
 
 
 
+# output
 
-print "# sendmail statistics: $first_date -- $last_date\n\n";
+my $txt = "Sendmail statistics: $first_date -- $last_date";
+my $len = length($txt);
 
-print "# $unaccounted mails not accounted (bounced messages)\n\n"
-    if($unaccounted);
+print
+  " " x ((79-$len)/2), $txt, "\n",
+  " " x ((79-$len)/2), "=" x $len, "\n";
 
-print "# ------------------------------ I N B O U N D -----------------------------\n";
-print "#   FROM->                   Total       Fido.DE           .DE     Internat.\n";
-print "# TO-v                  #    bytes    #    bytes    #    bytes    #    bytes\n";
-print "# ------------------ ------------- ------------- ------------- -------------\n";
+print
+  "\n",
+  "------------------------------------ T O T A L -----------------------------\n";
+printf
+  "IN : %4d msgs %6.2f MB\nOUT: %4d msgs %6.2f MB\n",
+  $to_total_msgs, $to_total_size / 1024. / 1024.,
+  $from_total_msgs, $from_total_size / 1024. / 1024.;
+
+print
+  "\n",
+  "----------------------------------- B O U N C E ----------------------------\n";
+
+printf
+  "     %4d bounce messages sent by sendmail\n", $bouncemsgs
+  if($bouncemsgs);
+printf
+  "     %4d unaccounted (strange!) messages sent by sendmail\n", $unaccounted
+  if($unaccounted);
+
+print
+  "\n";
+printf
+  "     %4d messages rejected (anti-SPAM rulesets)\n\n", $ruleset_count
+  if($ruleset_count);
+printf
+  "     %4d messages bounced (Host unknown)\n", $stat_host_unknown
+  if($stat_host_unknown);
+printf
+  "          (including %d RFC->FTN gateway)\n", $stat_ftn_unknown
+  if($stat_ftn_unknown);
+printf
+  "     %4d messages bounced (User unknown)\n", $stat_user_unknown
+  if($stat_user_unknown);
+printf
+  "     %4d messages bounced (Service unavailable)\n", $stat_service_unavail
+  if($stat_service_unavail);
+
+print
+  "\n\n",
+  "(traffic stats below do NOT include bounced messages!)\n",
+  "\n",
+  "-------------------------------- I N B O U N D -----------------------------\n",
+  "              FROM->           All       Fido.DE           .DE         Other\n",
+  "TO-v                    #    bytes    #    bytes    #    bytes    #    bytes\n",
+  "-------------------- ------------- ------------- ------------- -------------\n";
 
 for $site (sort keys(%to_total_msgs)) {
     printf "%-20.20s", $site;
@@ -248,18 +403,19 @@ for $site (sort keys(%to_total_msgs)) {
     print "\n";
 }
 
-print "# ------------------ ------------- ------------- ------------- -------------\n";
+print "-------------------- ------------- ------------- ------------- -------------\n";
 print "TOTAL               ";
 printf " %4d %8d", $to_total_msgs, $to_total_size;
 printf " %4d %8d", $to_intern_msgs, $to_intern_size;
 printf " %4d %8d", $to_de_msgs, $to_de_size;
 printf " %4d %8d", $to_intl_msgs, $to_intl_size;
-print "\n\n";
 
-print "# ---------------------------- O U T B O U N D -----------------------------\n";
-print "#     TO->                   Total       Fido.DE           .DE     Internat.\n";
-print "# FROM-v                #    bytes    #    bytes    #    bytes    #    bytes\n";
-print "# ------------------ ------------- ------------- ------------- -------------\n";
+print
+  "\n\n",
+  "------------------------------ O U T B O U N D -----------------------------\n",
+  "                TO->           All       Fido.DE           .DE         Other\n",
+  "FROM-v                  #    bytes    #    bytes    #    bytes    #    bytes\n",
+  "-------------------- ------------- ------------- ------------- -------------\n";
 
 for $site (sort keys(%from_total_msgs)) {
     printf "%-20.20s", $site;
@@ -270,7 +426,7 @@ for $site (sort keys(%from_total_msgs)) {
     print "\n";
 }
 
-print "# ------------------ ------------- ------------- ------------- -------------\n";
+print "-------------------- ------------- ------------- ------------- -------------\n";
 print "TOTAL               ";
 printf " %4d %8d", $from_total_msgs, $from_total_size;
 printf " %4d %8d", $from_intern_msgs, $from_intern_size;

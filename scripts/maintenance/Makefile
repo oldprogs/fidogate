@@ -1,6 +1,6 @@
 #:ts=8
 #
-#    $Id: Makefile,v 4.8 1998/11/08 18:27:56 mj Exp $
+#    $Id: Makefile,v 4.9 1999/02/07 11:05:21 mj Exp $
 #
 #    Makefile for FIDOGATE scripts/filebase/
 #
@@ -26,10 +26,10 @@ all:		$(PROGS)
 
 install:
 	$(INSTALL_PROG) logsendmail $(PREFIX)$(BINDIR)
-	$(INSTALL_PROG) logmaint $(PREFIX)$(BINDIR)
 	$(INSTALL_PROG) logreport $(PREFIX)$(BINDIR)
 	$(INSTALL_PROG) logstat $(PREFIX)$(BINDIR)
 	$(INSTALL_PROG) logdaily $(PREFIX)$(BINDIR)
+	$(INSTALL_PROG) logcheck $(PREFIX)$(BINDIR)
 
 
 clean:
