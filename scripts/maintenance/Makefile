@@ -1,6 +1,6 @@
 #:ts=8
 #
-#    $Id: Makefile,v 4.9 1999/02/07 11:05:21 mj Exp $
+#    $Id: Makefile,v 4.10 1999/05/15 20:54:36 mj Exp $
 #
 #    Makefile for FIDOGATE scripts/filebase/
 #
@@ -21,6 +21,7 @@ PROGS		= logcheck logreport logstat logdaily logsendmail\
 
 
 all:		$(PROGS)
+$(PROGS):	$(TOPDIR)/config.make $(TOPDIR)/config.pl
 
 
 

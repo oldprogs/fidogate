@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: areafix.c,v 1.13 1999/04/03 13:29:01 mj Exp $
+ * $Id: areafix.c,v 1.14 1999/05/15 20:54:39 mj Exp $
  *
  * Common Areafix functions
  *
@@ -121,7 +121,7 @@ int areafix_tlprintf(const char *fmt, ...)
     n = vsnprintf(buf, sizeof(buf), fmt, args);
 #else
     n = vsprintf(buf, fmt, args);
-    if(n >= len)
+    if(n >= sizeof(buf))
     {
         fatal("Internal error - areafix_tlprintf() buf overflow", EX_SOFTWARE);
         /**NOT REACHED**/
@@ -901,6 +901,8 @@ int cmd_unlinked(Node *node)
 {
     AreasBBS *p;
     LON *l;
+    char *s;
+    int key_ok;
     
     log("%s: unlinked", znfp1(node));
 
@@ -920,6 +922,20 @@ int cmd_unlinked(Node *node)
 	l = &p->nodes;
 
 	/* Check permissions */
+	if(p->lvl > authorized_lvl)
+	    continue;
+	if(p->key)
+	{
+	    key_ok = TRUE;
+	    for(s=p->key; *s; s++)
+		if(!strchr(authorized_key, *s))
+		{
+		    key_ok = FALSE;
+		    break;
+		}
+	    if(!key_ok)
+		continue;
+	}
 
 	/* Check zone */
 	if(areafix && p->zone!=node->zone)

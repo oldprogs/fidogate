@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: dir.c,v 4.4 1999/01/02 16:34:58 mj Exp $
+ * $Id: dir.c,v 4.5 1999/05/15 20:54:41 mj Exp $
  *
  * Reading/sorting directories
  *
@@ -100,6 +100,7 @@ static void dir_resize(int new)
 int dir_compare(const void *pa, const void *pb)
 {
     DirEntry *a, *b;
+    int ret;
     
     a = (DirEntry *)pa;
     b = (DirEntry *)pb;
@@ -111,9 +112,13 @@ int dir_compare(const void *pa, const void *pb)
     case DIR_SORTNAMEI:
 	return stricmp(a->name, b->name);
     case DIR_SORTSIZE:
-	return (int)(a->size - b->size);
+	ret = a->size - b->size;
+	if(ret != 0) return ret;
+	return strcmp(a->name, b->name);
     case DIR_SORTMTIME:
-	return (int)(a->mtime - b->mtime);
+	ret = a->mtime - b->mtime;
+	if(ret != 0) return ret;
+	return strcmp(a->name, b->name);
     case DIR_SORTNONE:
     default:
 	return 0;

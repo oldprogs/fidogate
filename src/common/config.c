@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: config.c,v 4.21 1999/04/03 12:13:21 mj Exp $
+ * $Id: config.c,v 4.22 1999/05/15 20:54:40 mj Exp $
  *
  * Configuration data and functions
  *
@@ -348,10 +348,8 @@ char *cf_getline(char *buffer, int len, FILE *fp)
     while (fgets(buffer, len, fp)) {
 	cf_lineno++;
 	strip_crlf(buffer);
-	if((p = strchr(buffer, '#')))		/* Strip comments */
-	    *p = 0;
-	for(p=buffer; *p && is_space(*p); p++) ;	/* Skip white spaces */
-	if (*p)
+	for(p=buffer; *p && is_space(*p); p++) ; /* Skip white spaces */
+	if (*p != '#')
 	    return p;
     }
     return NULL;

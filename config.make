@@ -1,6 +1,6 @@
 # -*- Makefile -*-
 #
-# $Id: config.make,v 4.23 1999/01/10 10:26:26 mj Exp $
+# $Id: config.make,v 4.24 1999/05/15 20:54:31 mj Exp $
 #
 # FIDOGATE main configuration
 #
@@ -82,11 +82,14 @@ DEFAULT_V_CHARSETMAP	= %L/charset.bin
 
 
 # fixed parameters, DO NOT DELETE ANYTHING!!!
+# INN (Redhat 5.2)
 DEFAULT_F_NEWSETCDIR	= /etc/news
 DEFAULT_F_NEWSVARDIR	= /var/lib/news
 DEFAULT_F_NEWSLIBDIR	= /usr/lib/news
 DEFAULT_F_NEWSSPOOLDIR	= /var/spool/news
-DEFAULT_F_IFMAILDIR     = /usr/local/lib/ifmail
+# ifcico-3.0.cm.alpha-4.1
+#DEFAULT_F_IFMAILDIR     = /usr/lib/ifmail
+DEFAULT_F_IFMAILDIR     = /usr/lib/ifcico
 
 # old-style config
 #DEFAULT_F_CONFIG_GATE	= %C/gate.conf

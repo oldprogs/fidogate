@@ -1,6 +1,6 @@
 #:ts=8
 #
-#    $Id: Makefile,v 4.3 1998/11/15 10:59:03 mj Exp $
+#    $Id: Makefile,v 4.4 1999/05/15 20:54:36 mj Exp $
 #
 #    Makefile for FIDOGATE scripts/filebase/
 #
@@ -20,6 +20,7 @@ PROGS		= areasbbssync recvuu senduu senduumail
 
 
 all:		$(PROGS)
+$(PROGS):	$(TOPDIR)/config.make $(TOPDIR)/config.pl
 
 
 SUBSTCMD	= $(PERL) $(TOPDIR)/subst.pl -t$(TOPDIR) \

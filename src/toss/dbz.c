@@ -298,8 +298,8 @@ static int bytesame;			/* is database order same as mine? */
  * alternative (under most compilers) is to pack around 2K of unused
  * strings -- there's just no way to get rid of them.
  */
-static int debug;			/* controlled by dbzdebug() */
 #ifdef DBZDEBUG
+static int debug;			/* controlled by dbzdebug() */
 #define DEBUG(args) if (debug) { (void) printf args ; }
 #else
 #define	DEBUG(args)	;

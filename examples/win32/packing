@@ -15,13 +15,12 @@
 arc		zip	"/usr/bin/zip -gkjq %s %s"
 arc		arc	"/usr/bin/arc an %s %s"
 
-prog		gate	"/usr/local/lib/fidogate/ftn2rfc %s"
+prog		gate	"/fidogate/lib/ftn2rfc %s"
 
 
 ######## P A C K I N G #######################################################
 
-pack		noarc	2:2499/111.2
-pack		noarc	242:1111/2
+pack		noarc	2:2499/99
 
 #pack		zip	*
 pack		noarc	*

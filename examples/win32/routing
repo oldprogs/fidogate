@@ -24,18 +24,15 @@
 NetMail
 
 # Ourselves
-route		hold		2:2499/111.2
-route		hold		242:1111/2
+route		hold		2:2499/99
 
 # Uplink
-route		normal		2:2452/111 1:* 2:* 3:* 4:* 5:* 6:*
-route		normal		242:1111/0 242:*
+route		normal		2:2499/1 1:* 2:* 3:* 4:* 5:* 6:*
 
 
 ######## E C H O M A I L #####################################################
 EchoMail
 
-sendmove	hold		2:2499/111.2
-sendmove	hold		242:1111/2
+sendmove	hold		2:2499/99
 
 sendmove	normal		*

@@ -3,7 +3,7 @@
 /*
  * FIDOGATE
  *
- * $Id: paths.h,v 4.12 1999/01/10 10:26:31 mj Exp $
+ * $Id: paths.h,v 4.13 1999/05/15 20:54:43 mj Exp $
  */
 
 #define DEFAULT_LOGDIR                  "/var/log/fidogate"
@@ -18,7 +18,7 @@
 #define DEFAULT_TOSS_BAD                "%S/toss/bad"
 #define DEFAULT_OUTRFC_NEWS             "%S/outrfc/news"
 #define DEFAULT_TOSS_TOSS               "%S/toss/toss"
-#define DEFAULT_IFMAILDIR               "/usr/local/lib/ifmail"
+#define DEFAULT_IFMAILDIR               "/usr/lib/ifcico"
 #define DEFAULT_HISTORY                 "%V/history"
 #define DEFAULT_PASSWD                  "%C/passwd"
 #define DEFAULT_SEQ_TICK                "%V/seq/tick"

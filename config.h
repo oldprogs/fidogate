@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway software UNIX <-> FIDO
  *
- * $Id: config.h,v 4.39 1999/03/28 10:04:26 mj Exp $
+ * $Id: config.h,v 4.40 1999/05/15 20:54:31 mj Exp $
  *
  * Configuration header file
  *
@@ -57,11 +57,6 @@
 /* #define AMIGADOS_4D_OUTBOUND */
 
 /*
- * Secure permissions
- */
-#define SECURE
-
-/*
  * Default max. message size for FIDO. Due to some more brain damage
  * in FIDONET programs we have to split larger messages into several
  * smaller ones. May be set with the -M option in AREAS or MaxMsgSize
@@ -78,7 +73,7 @@
 #define FTN_INVALID_DOMAIN "INVALID_FTN_ADDRESS"
 
 /*
- * syslog facility using for logging if logfile == "syslog"
+ * syslog facility used for logging if logfile == "syslog"
  * (only for HAS_SYSLOG defined)
  */
 #define FACILITY	LOG_LOCAL0
@@ -377,7 +372,7 @@
 # undef  HAS_HARDLINKS
 #endif
 
-#ifdef __CYGWIN32__		/* GNU-Win32 Beta 18 */
+#ifdef __CYGWIN32__		/* GNU-Win32 Beta 20.1 */
 # undef  HAS_FCNTL_LOCK
 # undef  HAS_GETTIMEOFDAY
 # undef  HAS_TM_GMTOFF
@@ -391,8 +386,13 @@
 # define DO_BINARY
 # undef  DO_DOSIFY
 # undef  HAS_SYSLOG		/* syslog(), vsyslog() not supported */
-# undef  HAS_SNPRINTF		/* ? */
+# undef  HAS_SNPRINTF		/* in stdio.h, but not in libraries */
 # undef  HAS_HARDLINKS
+#endif
+
+/* Reset some #define's based on system config */
+#ifndef HAS_HARDLINKS
+# undef  NFS_SAFE_LOCK_FILES
 #endif
 
 /***** End of configuration *************************************************/
@@ -420,21 +420,12 @@
 /*
  * Permissions
  */
-#ifdef SECURE		/* Secure permissions */
-# define PACKET_MODE	0600		/* Mode for outbound packets */
-# define BSY_MODE	0644		/* Mode for BSY files */
-# define FLO_MODE	0644		/* Mode for FLO files */
-# define DATA_MODE	0600		/* Mode for ffx data files */
-# define DIR_MODE	0755		/* Mode for directories */
-# define CONF_MODE	0644		/* Mode for written config files */
-#else			/* Open permissions */
-# define PACKET_MODE	0666		/* Mode for outbound packets */
-# define BSY_MODE	0666		/* Mode for BSY files */
-# define FLO_MODE	0666		/* Mode for FLO files */
-# define DATA_MODE	0666		/* Mode for ffx data files */
-# define DIR_MODE	0777		/* Mode for directories */
-# define CONF_MODE	0666		/* Mode for written config files */
-#endif
+#define PACKET_MODE	0600		/* Mode for outbound packets */
+#define BSY_MODE	0644		/* Mode for BSY files */
+#define FLO_MODE	0644		/* Mode for FLO files */
+#define DATA_MODE	0600		/* Mode for ffx data files */
+#define DIR_MODE	0755		/* Mode for directories */
+#define CONF_MODE	0644		/* Mode for written config files */
 
 /*
  * RFC headers recognized at beginning of FTN message body

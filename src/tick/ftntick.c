@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftntick.c,v 4.18 1999/04/03 12:13:24 mj Exp $
+ * $Id: ftntick.c,v 4.19 1999/05/15 20:54:43 mj Exp $
  *
  * Process incoming TIC files
  *
@@ -37,7 +37,7 @@
 
 
 #define PROGRAM		"ftntick"
-#define VERSION		"$Revision: 4.18 $"
+#define VERSION		"$Revision: 4.19 $"
 #define CONFIG		DEFAULT_CONFIG_MAIN
 
 
@@ -363,8 +363,10 @@ int move(Tick *tic, char *old, char *new)
 	ut.actime = ut.modtime = tic->date;
 	if(utime(new, &ut) == ERROR)
 	{
-	    log("$ERROR: can't set time of %s", new);
+	    log("$WARNING: can't set time of %s", new);
+#if 0
 	    return ERROR;
+#endif
 	}
     }
 

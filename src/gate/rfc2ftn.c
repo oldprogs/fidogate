@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway software UNIX <-> FIDO
  *
- * $Id: rfc2ftn.c,v 4.50 1999/04/03 13:29:02 mj Exp $
+ * $Id: rfc2ftn.c,v 4.51 1999/05/15 20:54:42 mj Exp $
  *
  * Read mail or news from standard input and convert it to a FIDO packet.
  *
@@ -39,7 +39,7 @@
 
 
 #define PROGRAM 	"rfc2ftn"
-#define VERSION 	"$Revision: 4.50 $"
+#define VERSION 	"$Revision: 4.51 $"
 #define CONFIG		DEFAULT_CONFIG_GATE
 
 
@@ -779,6 +779,7 @@ int check_downlinks(char *area)
     
     n = a->nodes.size;
     debug(5, "area %s, LON size %d", area, n);
+    /**FIXME: if gate=main AKA, all entries are downlinks!**/
     return n < 1 ? 0 : n - 1;
 }
 
@@ -1098,7 +1099,7 @@ int snd_message(Message *msg, Area *parea,
      * mime  	 MIME stuff
      */
 {
-    static nmsg = 0;
+    static int nmsg = 0;
     static int last_zone = -1;		/* Zone address of last packet */
     static FILE *sf;			/* Packet file */
     char *header;

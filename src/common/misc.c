@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: misc.c,v 4.14 1999/03/07 17:37:09 mj Exp $
+ * $Id: misc.c,v 4.15 1999/05/15 20:54:41 mj Exp $
  *
  * Miscellaneous functions
  *
@@ -404,7 +404,7 @@ char *str_dosify(char *s)
  */
 int run_system(char *s)
 {
-    char cmd[MAXPATH];
+    char cmd[BUFFERSIZE];
 
     BUF_EXPAND(cmd, s);
     DOSIFY_IF_NEEDED(cmd);

@@ -106,7 +106,7 @@ char *xstrtok(char *s,char *Space)
   return Str.Cur;
 } 
 
-static void KillChar(register char *s,register c)
+static void KillChar(register char *s,register int c)
 {
   register char *Ptr;
   for (Ptr=s;*s;s++)

@@ -1,6 +1,6 @@
 #:ts=8
 #
-#    $Id: Makefile,v 1.1 1998/11/15 10:59:04 mj Exp $
+#    $Id: Makefile,v 1.2 1999/05/15 20:54:36 mj Exp $
 #
 #    Makefile for FIDOGATE scripts/www/
 #
@@ -20,6 +20,7 @@ PROGS		= gate.cgi
 
 
 all:		$(PROGS)
+$(PROGS):	$(TOPDIR)/config.make $(TOPDIR)/config.pl
 
 
 

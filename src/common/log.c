@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: log.c,v 4.15 1999/03/28 10:04:32 mj Exp $
+ * $Id: log.c,v 4.16 1999/05/15 20:54:41 mj Exp $
  *
  * Log and debug functions
  *
@@ -237,13 +237,17 @@ void log_file(char *name)
 
     if(streq(name, "stdout"))
     {
+#ifdef HAS_SYSLOG
 	use_syslog = FALSE;
+#endif
 	logfile = debugfile = stdout;
 	BUF_COPY(logname, "-");
     }
     else if(streq(name, "stderr"))
     {
+#ifdef HAS_SYSLOG
 	use_syslog = FALSE;
+#endif
 	logfile = debugfile = stderr;
 	BUF_COPY(logname, "-");
     }
@@ -258,7 +262,9 @@ void log_file(char *name)
     else
     {
 	logfile = debugfile = NULL;
+#ifdef HAS_SYSLOG
 	use_syslog = FALSE;
+#endif
 	BUF_EXPAND(logname, name);
     }
 }

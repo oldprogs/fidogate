@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: areas.c,v 4.12 1999/04/03 12:13:21 mj Exp $
+ * $Id: areas.c,v 4.13 1999/05/15 20:54:39 mj Exp $
  *
  * Area <-> newsgroups conversion
  *
@@ -305,6 +305,7 @@ Area *areas_lookup(char *area, char *group)
     for(p=area_list; p; p=p->next)
     {
 	if(area && area[0]==p->area[0])
+	{
 	    if(p->flags & AREA_HIERARCHY)
 	    {
 		if(!strncmp(area, p->area, strlen(p->area)))
@@ -316,8 +317,10 @@ Area *areas_lookup(char *area, char *group)
 		if(!strcmp(area,  p->area ))
 		    return p->flags & AREA_NO ? NULL : p;
 	    }
-	
+	}
+
 	if(group && group[0]==p->group[0])
+	{
 	    if(p->flags & AREA_HIERARCHY)
 	    {
 		if(!strncmp(group, p->group, strlen(p->group)))
@@ -329,6 +332,7 @@ Area *areas_lookup(char *area, char *group)
 		if(!strcmp(group, p->group))
 		    return p->flags & AREA_NO ? NULL : p;
 	    }
+	}
     }
     
     return NULL;

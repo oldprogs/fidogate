@@ -1,6 +1,6 @@
 #!/usr/bin/perl
 #
-# $Id: runtoss.pl,v 4.8 1998/11/08 18:28:02 mj Exp $
+# $Id: runtoss.pl,v 4.9 1999/05/15 20:54:44 mj Exp $
 #
 # Wrapper for ftntoss, ftnroute, ftnpack doing the toss process
 #
@@ -10,7 +10,7 @@
  
 require 5.000;
 
-my $VERSION = '$Revision: 4.8 $ ';
+my $VERSION = '$Revision: 4.9 $ ';
 my $PROGRAM = "runtoss";
 
 use strict;
@@ -251,8 +251,9 @@ sub run_prog {
     my(@args, $rc);
 
     @args = split(' ', $cmd);
+    $args[0] = "$PRG/$args[0]";
     print "Running @args\n" if($opt_v);
-    $rc = system { "$PRG/$args[0]" } @args;
+    $rc = system @args;
     $status = $rc >> 8;
     print "Status $status\n" if($opt_v);
 

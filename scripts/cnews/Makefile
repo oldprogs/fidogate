@@ -1,6 +1,6 @@
 #:ts=8
 #
-#    $Id: Makefile,v 1.1 1996/10/13 15:08:42 mj Exp $
+#    $Id: Makefile,v 1.2 1999/05/15 20:54:35 mj Exp $
 #
 #    Makefile for FIDOGATE scripts/filebase/
 #
@@ -20,7 +20,7 @@ PROGS		= run-batch viaffx viafidogate
 
 
 all:		$(PROGS)
-
+$(PROGS):	$(TOPDIR)/config.make $(TOPDIR)/config.pl
 
 
 install:

@@ -1,6 +1,6 @@
 #:ts=8
 #
-#    $Id: Makefile,v 4.6 1997/10/11 21:24:24 mj Exp $
+#    $Id: Makefile,v 4.7 1999/05/15 20:54:36 mj Exp $
 #
 #    Makefile for FIDOGATE scripts/filebase/
 #
@@ -22,6 +22,7 @@ PROGS		= latest\
 
 
 all:		$(PROGS)
+$(PROGS):	$(TOPDIR)/config.make $(TOPDIR)/config.pl
 
 
 

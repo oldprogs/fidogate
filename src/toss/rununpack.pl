@@ -1,6 +1,6 @@
 #!/usr/bin/perl
 #
-# $Id: rununpack.pl,v 4.9 1999/03/28 10:04:36 mj Exp $
+# $Id: rununpack.pl,v 4.10 1999/05/15 20:54:44 mj Exp $
 #
 # Unpack ArcMail archives
 #
@@ -9,7 +9,7 @@
 
 require 5.000;
 
-my $VERSION = '$Revision: 4.9 $ ';
+my $VERSION = '$Revision: 4.10 $ ';
 my $PROGRAM = "rununpack";
 
 use strict;
@@ -171,7 +171,7 @@ sub arc_type {
 my $status = 0;				# Global status of last run_prog
 
 sub run_prog {
-    my($output, $prog, @args) = @_;
+    my($output, @args) = @_;
     my($rc);
     local(*SAVEOUT, *SAVEERR);
 
@@ -180,7 +180,7 @@ sub run_prog {
     open(STDOUT,  ">$output") || die "$PROGRAM: can't open $output\n";
     open(STDERR,  ">&STDOUT") || die "$PROGRAM: can't dup STDOUT\n";
 
-    $rc = system { $prog } @args;
+    $rc = system @args;
     $status = $rc >> 8;
 
     close(STDOUT);
@@ -214,9 +214,10 @@ sub run_arc {
     }
     return 0 if(!$prog);
 
-    print "Run arc: { $prog } @args\n" if($opt_v);
+    $args[0] = $prog;
+    print "Run arc: @args\n" if($opt_v);
     
-    return run_prog($output, $prog, @args);
+    return run_prog($output, @args);
 }
 
 

@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: charsetc.c,v 1.6 1999/01/02 16:34:56 mj Exp $
+ * $Id: charsetc.c,v 1.7 1999/05/15 20:54:39 mj Exp $
  *
  * Charset mapping table compiler
  *
@@ -36,7 +36,7 @@
 
 
 #define PROGRAM		"charsetc"
-#define VERSION		"$Revision: 1.6 $"
+#define VERSION		"$Revision: 1.7 $"
 
 
 
@@ -125,6 +125,8 @@ int charset_do_line(char *line)
     debug(16, "charset.map line: %s", line);
 
     key = strtok(line, " \t");
+    if(!key)
+	return OK;
 
     /* Include map file */
     if(      strieq(key, "include") ) 
@@ -266,7 +268,9 @@ int charset_do_file(char *name)
     FILE *fp;
     char *p;
     long oldn;
-    
+
+    if(!name)
+	return ERROR;
     debug(1, "Reading charset.map file %s", name);
     
     oldn = cf_lineno_set(0);

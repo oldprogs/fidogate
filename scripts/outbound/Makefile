@@ -1,6 +1,6 @@
 #:ts=8
 #
-#    $Id: Makefile,v 4.2 1999/03/06 17:51:22 mj Exp $
+#    $Id: Makefile,v 4.3 1999/05/15 20:54:36 mj Exp $
 #
 #    Makefile for FIDOGATE scripts/filebase/
 #
@@ -20,6 +20,7 @@ PROGS		= out-freq out-ls out-manip out-rm0 out-rmbsy
 
 
 all:		$(PROGS)
+$(PROGS):	$(TOPDIR)/config.make $(TOPDIR)/config.pl
 
 
 

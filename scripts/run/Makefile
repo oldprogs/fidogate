@@ -1,6 +1,6 @@
 #:ts=8
 #
-#    $Id: Makefile,v 4.7 1999/03/06 17:51:24 mj Exp $
+#    $Id: Makefile,v 4.8 1999/05/15 20:54:36 mj Exp $
 #
 #    Makefile for FIDOGATE scripts/run/
 #
@@ -20,6 +20,7 @@ PROGS		= runpoll runpoll-orodruin runpoll-binkd
 
 
 all:		$(PROGS)
+$(PROGS):	$(TOPDIR)/config.make $(TOPDIR)/config.pl
 
 
 

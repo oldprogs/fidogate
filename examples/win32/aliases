@@ -1,18 +1,14 @@
 #:ts=8
 #
-#   $Id: aliases,v 1.1 1997/10/12 18:16:58 mj Exp $
+#   $Id: aliases,v 1.2 1999/05/15 20:54:34 mj Exp $
 #
 # User name aliases
 #
 # username	FTN address		Full name
 # --------	-----------		---------
-root		2:2452/110.1		"Super User"
-root		242:4900/99		"Super User"
+root		2:2499/99		"Sysop"
 
-postmaster	2:2452/110.1		"Mail Delivery Subsystem"
-postmaster	242:4900/99		"Mail Delivery Subsystem"
+postmaster	2:2499/99		"Mail Delivery Subsystem"
 
 mj		2:2452/110.2		"Martin Junius"
-mj		2:2452/110.2		"Sysop"
 mj		242:1000/5		"Martin Junius"
-mj		242:1000/5		"Sysop"

@@ -1,10 +1,10 @@
 X-Emacs-Mode: -*- indented-text -*-
-Subject: FIDOGATE 4.3.1 --- Fido-Internet Gateway and Tosser
+Subject: FIDOGATE 4.3.2 --- Fido-Internet Gateway and Tosser
 Keywords: fido ftn netmail echomail tosser areafix mail news gateway
 Followup-To: comp.os.linux.misc
 
   ==================================================================
-  FIDOGATE 4.3.1, a development snapshot of the new FIDOGATE release
+  FIDOGATE 4.3.2, a development snapshot of the new FIDOGATE release
   ==================================================================
 
 			   FIDOGATE Version 4
@@ -29,7 +29,7 @@ Followup-To: comp.os.linux.misc
     (probably still in .../pub/Linux/Incoming)
 ...]
 
-    fidogate-4.3.1.tar.gz	1250 Kbyte
+    fidogate-4.3.2.tar.gz	1250 Kbyte
 
 [NOT FOR DEVELOPMENT SNAPSHOTS! ...
   Fido File Request:
@@ -47,6 +47,23 @@ WARNING:
 !!! Examples not up-to-date !!! (except examples/orodruin/ and .../morannon/)
 
 ======================================================================
+
+Changes in 4.3.2:
+
+* parsedate() and date() tested for Y2k compliance, everything is (and 
+  was!) OK.
+
+* Major code clean-up for node-as-ascii-string output functions, using 
+  static buffers where possible and avoiding the usage of tmps
+  strings.
+
+* misc.c:run_system(): cmd[] buffer was too small, now BUFFERSIZE,
+  in particular fixes ffxqt problems with long command lines.
+
+* config files: inline comments are no longer supported, only lines
+  starting with (some white space and) '#' are treated as comments!
+
+
 
 Changes in 4.3.1:
 
@@ -144,6 +161,6 @@ Needed:
 
 ======================================================================
 
-$Date: 1999/03/20 14:30:48 $
+$Date: 1999/05/15 20:54:28 $
 Martin Junius
 mailto:mj@fido.de

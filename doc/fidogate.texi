@@ -2,7 +2,7 @@
 @c
 @c FIDOGATE documentation
 @c
-@c $Id: fidogate.texi,v 4.38 1998/01/18 09:47:28 mj Exp $
+@c $Id: fidogate.texi,v 4.39 1999/05/15 20:54:32 mj Exp $
 @c
 
 @setfilename fidogate.info
@@ -15,16 +15,16 @@
 
 
 @ifinfo
-This file documents the usage of FIDOGATE version 4
+This file documents the installation and usage of FIDOGATE version 4.3
 
-Copyright (C) 1994-1996, Martin Junius
+Copyright (C) 1994-1999, Martin Junius
 
 Permission is granted to make and distribute verbatim copies of
 this manual provided the copyright notice and this permission notice
 are preserved on all copies.
 
 @ignore
-Permission is granted to process this file through Tex and print the
+Permission is granted to process this file through TeX and print the
 results, provided the printed document carries copying permission
 notice identical to this one except for the removal of this paragraph
 (this paragraph not being relevant to the printed manual).
@@ -54,7 +54,7 @@ into other languages, under the above conditions for modified versions.
 
 @page
 
-Copyright @copyright{} 1994-1996 Martin Junius
+Copyright @copyright{} 1994-1999 Martin Junius
 
 Permission is granted to make and distribute verbatim copies of
 this manual provided the copyright notice and this permission notice
@@ -81,6 +81,9 @@ This manual documents how to install and use FIDOGATE. It is the first
 step toward a concise documentation. Alas, writing documentation is a
 somewhat tedious business, so this manual is far from complete.
 
+In addition, the major changes in configuration from previous version to 
+4.3 are not completely documented here.
+
 @menu
 * Introduction::Introduction to FIDOGATE
 * Installation::Compiling and installing FIDOGATE
@@ -95,7 +98,6 @@ somewhat tedious business, so this manual is far from complete.
 
 Compiling and installing FIDOGATE
 
-* Point::       Installing a FIDOGATE point system
 * config.h::    The @code{config.h} header file
 * config.make:: The @code{config.make} Makefile configuration
 * Compiling::   Compiling and installing FIDOGATE
@@ -201,7 +203,6 @@ http://www.fido.de/fidogate/
 Internet anonymous ftp:
 @example
 ftp://ftp.fido.de/pub/fidogate/
-ftp://ftp.comnets.rwth-aachen.de/pub/mail+news/fidogate/
 @end example
 
 @noindent
@@ -218,22 +219,16 @@ BBS and FIDO frequest:
 
 @item
 Something that gets you FIDONET mail. If you want a UNIX-based FIDO
-mailer, I recommend using ifcico from Eugene Crosser's ifmail package.
+mailer, I recommend using ifcico.
 
 @item
-Installed news system. (CNews, INN)
+Installed news system. (e.g. INN)
 
 @item
-A news reader. (nn, tin, Emacs GNUS, netscape, slrn, trn, knews, xrn, ...)
+A mail transport agent. (e.g. sendmail)
 
 @item
-A mail transport agent. (sendmail, smail)
-
-@item
-A mail user agent. (mail, elm, pine, Emacs VM, netscape, xfmail, ...)
-
-@item
-Perl. (version 4.036 or 5.000+)
+Perl. (version 5)
 
 @item
 M4 for compiling the sendmail config files.
@@ -316,14 +311,13 @@ The wildmat() function from GNU tar, modified and adopted for FIDOGATE.
 
 
 @c ***************************************************************************
-@node Installation, Point, Introduction, Top
+@node Installation, config.h, Introduction, Top
 
 @chapter Compiling and installing FIDOGATE
 
 @cindex Installation
 
 @menu
-* Point::       Installing a FIDOGATE point system
 * config.h::    The @code{config.h} header file
 * config.make:: The @code{config.make} Makefile configuration
 * Compiling::   Compiling and installing FIDOGATE
@@ -334,66 +328,28 @@ The wildmat() function from GNU tar, modified and adopted for FIDOGATE.
 
 @noindent
 This chapter describes the FIDOGATE configuration and installation.  You
-must also edit the config files to be installed in the LIBDIR
-directory. Create @code{config.common}, @code{config.gate},
-@code{config.main}, @code{config.ffx}, @code{areas}, @code{hosts},
+must also create and edit the config files to be installed in the
+CONFIGDIR directory, @code{fidogate.conf}, @code{areas}, @code{hosts},
 @code{passwd}, @code{routing}, @code{packing}, @code{aliases} according
-to your setup (examples in the examples subdirectory).
+to your setup (see the examples subdirectory).
 
 The chapter on config files describes them in detail.
 
 
 
 @c ***************************************************************************
-@node Point, config.h, Installation, Installation
-
-@section Installing a FIDGATE Point System
-@cindex Point
-
-@noindent
-Hints for setting up a FIDOGATE point system without Internet mail
-connectivity:
-
-@itemize @bullet
-
-@item
-Choose a host name and a domain name. Since both won't be visible to the
-outside world, you may choose whatever you want.
-
-@item
-Put the @code{NoFromLine} keyword into @code{config}!!!
-
-@item
-Comment out @code{PASSTHRU_NETMAIL} and @code{PASSTHRU_ECHOMAIL} in
-@code{src/config.h}. These functions are not necessary for a point system
-and may cause trouble.
-
-@item
-If you want to send Internet mail via a Fido-Internet gateway, set its
-address with @code{Gateway} in @code{config.gate}. FIDOGATE can then be
-used as your default mailer, delivering all non-Fido mail to this
-gateway.
-
-@end itemize
-
-See also @code{doc/Fido-Point-HOWTO} (German) and
-@code{doc/Fido-Point-eng-HOWTO} (English) for a complete description how
-to install a point system. Furthermore, there is a section on point
-configuration at the end of this document.
-
-
-
-
-@c ***************************************************************************
-@node config.h, config.make, Point, Installation
+@node config.h, config.make, Installation, Installation
 
 @section The @code{config.h} Header File
 
 @noindent
-Comment/uncomment/change the @code{#define}s to suit your requirements.
+Normally, if you want to compile a standard version of FIDOGATE on one
+of the supported platforms, it is @i{not} necessary to change anything
+in this file. Most things can be configured or overridden in
+@code{config.make} (compile-time) or @code{fidogate.conf} (run-time).
 
 @noindent
-Common configuration:
+If you really want to edit @code{config.h}, here are the gory details:
 
 @table @code
 
@@ -404,8 +360,11 @@ instead of @i{User_name@@p.f.n.z.domain}.
 @item DO_BSY_FILES
 Create Binkley-style busy files while accessing the Binkley outbound.
 
-@item SECURE
-Enable secure permissions for packet and data files.
+@item NFS_SAFE_LOCK_FILES
+Create lock / bsy files in an NFS-safe way.
+
+@item AMIGADOS_4D_OUTBOUND
+Use AmigaDOS-style outbound file names.
 
 @item MAXMSGSIZE
 Maximum size of FIDO messages generated by @code{rfc2ftn}, larger
@@ -415,45 +374,40 @@ setting. This is the default value.
 @item FTN_INVALID_DOMAIN
 Domain address to be used for invalid FTN addresses.
 
-@end table
+@item FACILITY
+syslog facility used if @code{Logfile} is set to "syslog".
 
+@item CHARSET_STDFTN
+Default charset for Fido messages.
 
-@noindent
-@code{ftn2rfc} configuration:
-
-@table @code
+@item CHARSET_STD7BIT
+Default charset for RFC messages with 7bit encoding.
 
 @item ALIASES_ARE_LOCAL
 Addresses found in the @code{aliases} config file are rewritten so
 that the sender's address is the gateway.
 
-@item CHARSET_DEFAULT_IBMPC
-Make IBMPC the default char set (no @code{^ACHRS} kludge).
-
-@end table
-
-@noindent
-@code{rfc2ftn} configuration:
-
-@table @code
-
 @item PASSTHRU_NETMAIL
 Passthru operation for NetMail: if the sender of the message is an FTN
 address, the origin address of the resulting FTN message will be that
-FTN address.
+FTN address. WARNING: enabled only if you really know what you're doing!
 
 @item PASSTHRU_ECHOMAIL
 Passthru operation for EchoMail: X-FTN-Tearline, X-FTN-Origin,
-X-FTN-Seen-By, X-FTN-Path headers will be used for tear line, *
-Origin, SEEN-BY, ^APATH, when gating from Internet to FTN.
+X-FTN-Seen-By, X-FTN-Path headers will be used for tear line, * Origin,
+SEEN-BY, ^APATH, when gating from Internet to FTN. WARNING: enabled only
+if you really know what you're doing!
 
-@item FTN_FORCE_INTL
-Always generate a @code{^AINTL} kludge, even if sender and receiver are
-in the same default zone (first @code{Address} in @code{config}).
-
-@item NO_CONTROL
-Do not pass news control messages (newgroup, cancel, etc.) to the FTN
-side of the gateway.
+@item AI_1
+@item AI_2
+@item AI_3
+@item AI_4
+@item AI_5
+@item AI_6
+@item AI_7
+@item AI_8
+Configuration for Andy Igoshin's patches, see
+@code{contrib/fidogate-4.3a3-ai-pl9.1/README.ai} for details.
 
 @end table
 
@@ -510,6 +464,21 @@ Define, if files must be opened in binary mode.
 @item DO_DOSIFY
 Define, if filenames must be converted to DOS, OS2-style @code{\}.
 
+@item RECEIVED_BY_MAILER
+Define, if extra Received lines are inserted by the mail system,
+currently only used for NeXT.
+
+@item HAS_SYSLOG
+Define, if syslogd and the library function @code{syslog()},
+@code{vsyslog()} are suppored.
+
+@item HAS_SNPRINTF
+Define, if @code{snprintf()} and @code{vsnprintf()} are supported.
+
+@item HAS_HARDLINKS
+Define, if the system supports file systems with hard links and the
+library function @code{link()}.
+
 @end table
 
 Define only one of @code{HAS_TM_ZONE}, @code{HAS_STRFTIME},
@@ -519,147 +488,20 @@ Define only one of @code{HAS_TM_ZONE}, @code{HAS_STRFTIME},
 
 
 @noindent
-@i{THE FOLLOWING DEFINES SHOULD NORMALLY LEFT AS IS!!!}
-
-@noindent
-Message ID configuration:
+@i{THE FOLLOWING DEFINES SHOULD REALLY BE LEFT AS IS!!!}
 
 @table @code
 
-@item FIDODOMAIN
-Default Internet domain for standard FIDO addresses (zone 1--6). Used
-for Message-IDs only, so DO NOT CHANGE.
+@item MSGID_FIDONET_DOMAIN
+Default domain for standard FIDO addresses (zone 1--6). Used for
+Message-IDs only, so DO NOT CHANGE.
 
-@item MSGID_ORIGID
-Generate Gatebau '93 @code{^AORIGID}, @code{^AORIGREF}
-kludges.
-
-@end table
-
-
-
-@noindent
-Files and directories used by FIDOGATE:
-
-@table @code
-
-@item DEFAULT_CONFIG_GATE
-@item DEFAULT_CONFIG_MAIN
-@item DEFAULT_CONFIG_FFX
-Names of FIDOGATE config files.
-
-@item DEF_ALIASES
-Default user aliases config file.
-
-@item DEF_AREAS
-Default FTN area / newsgroup conversion config file.
-
-@item DEF_HOSTS
-Default FTN addresses / host names registration config file.
-
-@item DEF_PASSWD
-Default password config file.
-
-@item DEF_PACKING
-Default packing config file.
-
-@item DEF_ROUTING
-Default routing config file.
-
-@item DEF_HISTORY
-Default database of @code{^AMSGID}s for dupe checking.
-
-@item HOSTS
-@item ALIASES
-@item AREAS
-@item PASSWD
-@item PACKING
-@item ROUTING
-Definitions from config file.
-
-@item LOG
-Default log file.
-
-@item SEQ_MAIL
-Sequencer file used by @code{ftn2rfc} for mail messages.
-
-@item SEQ_NEWS
-Sequencer file used by @code{ftn2rfc} for news messages.
-
-@item SEQ_MSGID
-Sequencer file used by @code{rfc2ftn} for @code{^AMSGID}s.
-
-@item SEQ_PKT
-Sequencer file used by @code{rfc2ftn} for outbound packet names.
-
-@item SEQ_SPLIT
-Sequencer file used by @code{rfc2ftn} for split messages number.
-
-@item SEQ_FF
-Sequencer file used by @code{ffx} for control and data files.
-
-@item SEQ_TOSS
-Sequencer file used by @code{ftntoss}, @code{ftnroute} for output
-packet files.
-
-@item SEQ_PACK
-Sequencer file used by @code{ftnpack} for packet names in arcmail
-archives.
-
-@item SEQ_MQ
-Sequencer file used by @code{queuemail}. NOT YET IMPLEMENTED.
-
-@item SEQ_TICK
-Sequencer file used by @code{ftnhatch} and @code{ftntick}.
-
-@item LOCK_HISTORY
-Name of lock file for history access.
-
-@item INDIR
-Input directory for @code{ftn2rfc}, relative to @code{SPOOLDIR}.
-
-@item INSECUREDIR
-Insecure input directory for @code{ftn2rfc}, relative to @code{SPOOLDIR}.
-
-@item INDIR_MAIL
-Directory where @code{ftn2rfc} creates converted mail messages,
-relative to @code{SPOOLDIR/INDIR}.
-
-@item INDIR_NEWS
-Directory where @code{ftn2rfc} creates converted news messages,
-relative to @code{SPOOLDIR/INDIR}.
-
-@item OUTDIR
-Directory where @code{rfc2ftn} creates output packets, relative to
-@code{SPOOLDIR}. 
-
-@item SEQ
-Directory where FIDOGATE creates its sequencer files, relative to
-@code{SPOOLDIR}.
-
-@item LOCKS
-Directory where lock files are created, relativ to @code{SPOOLDIR}.
-
-@item TOSS_IN
-@item TOSS_TMP
-@item TOSS_OUT
-@item TOSS_PACK
-Tosser input, temporary, output, and arcmail packet directory, relative
-to @code{SPOOLDIR}. Used by @code{ftntoss}, @code{ftnroute},
-@code{ftnpack}.
-
-@item TOSS_BAD
-Directory where tosser puts packets with bad messages, e.g. insecure,
-dupes, etc.
-
-@item QUEUE
-Directory for queueing. NOT YET IMPLEMENTED.
-
-@item TICK_HOLD
-Hold directory for TIC files, relative to OUTBOUND. Used by
-@code{ftnhatch} and @code{ftntick}.
-
-@item @i{xxxx}_MODE
+@item PACKET_MODE
+@item BSY_MODE
+@item FLO_MODE
+@item DATA_MODE
+@item DIR_MODE
+@item CONF_MODE
 Permissions for files processed by FIDOGATE.
 
 @item FTN_RFC_HEADERS
@@ -668,33 +510,27 @@ RFC headers recognized at the beginning of FTN messages.
 @item RFC_LVL_1_HEADERS
 RFC headers put into FTN messages for RFC level 1.
 
-@end table
-
-
-
-@noindent
-Program constants, increase the MAX values if needed.
-
-@table @code
-
-@item @i{xx}_MODE
+@item @R_MODE
+@item @W_MODE
+@item @A_MODE
+@item @RP_MODE
+@item @WP_MODE
+@item @AP_MODE
 Modes (@code{fopen}) for opening files.
 
+@item DATE_LOG
 @item DATE_DEFAULT
-Default date format string.
-
 @item DATE_NEWS
-Date format string for news articles.
-
 @item DATE_MAIL
-Date format string for mail.
-
-@item DATE_FIDO
-Date format string for FTN messages.
+@item DATE_FROM
+@item DATE_FTS_0002
+@item DATE_TICK_PATH
+@item DATE_VIA
+@item DATE_SPLIT
+Date format strings.
 
 @item PRODUCT_CODE
-FIDO product code used by @code{rfc2ftn}. Should be left as is
-(@code{0xfe}). 
+FIDO product code used by @code{rfc2ftn}.
 
 @item MAX_LINELEN
 Maximum line length for formatting (line break) FIDO messages.

@@ -1,3 +1,77 @@
+1999-05-15  Martin Junius  <mj@fido.de>
+
+	------- CVS ci -------------------------------------------------------
+
+	* src/common/dir.c (dir_compare): if size or mtime are the same,
+	  compare name, yielding a deterministic order in which files with 
+	  the same mtime are processed.
+
+	* src/toss/rununpack.pl (run_prog): dito.
+	  (run_arc): dito.
+
+	* src/toss/runtoss.pl (run_prog): $args[0] contains full path
+	  name, using system { $fullpath } @args doesn't seem to work with 
+	  ActiveState perl on Win32.
+
+	* config.h: #undef HAS_GETTIMEOFDAY for Win32, returns wrong
+	  system time (time zone). #undef NFS_SAFE_LOCK_FILES if
+	  HAS_HARDLINKS is not defined, e.g. Win32.	  
+
+	* examples/win32/*: updated, added new example files.
+
+	* src/tick/ftntick.c (move): dito.
+
+	* src/toss/ftnroute.c (do_move): if utime() fails (seems to happen 
+	  on Win32) make this a warning.
+
+1999-05-13  Martin Junius  <mj@fido.de>
+
+	* doc/fidogate.texi (config.h): updated for 4.3.
+	  (Installation): updated.
+	  (Introduction): updated.
+
+	* config.h (SECURE): removed, secure is now the one and only default.
+
+	* doc/fidogate.texi (Point): removed node.
+
+1999-05-09  Martin Junius  <mj@fido.de>
+
+	* src/areafix/areafix.c (cmd_unlinked): use same check permissions 
+	  code as for command %list, so areas without access right aren't
+	  listed for %unlinked.
+
+1999-05-04  Martin Junius  <mj@fido.de>
+
+	* *: added patches for some minor problems when compiling with
+	  Cygwin32. 
+
+	* examples/win32/config.make: compile config file for Cygwin32
+	  port, everything lives under /fidogate/...
+
+	* src/charset/charsetc.c: added some NULL pointer checks.
+
+1999-04-18  Martin Junius  <mj@fido.de>
+
+	* src/common/config.c (cf_getline): don't allow inline '#'
+	  comments, only lines starting with white space and a '#' are
+	  treated as comments and skipped.
+
+1999-04-10  Martin Junius  <mj@fido.de>
+
+	* scripts/*/Makefile: make all PROGS depend on config.make and
+	  config.pl
+
+	* config.make (DEFAULT_F_IFMAILDIR): set to /usr/lib/ifcico, which 
+	  is the new directory where I installed ifcico-3.0.cm.alpha-4.1
+	  ( distribution default is /usr/lib/ifmail ).
+
+1999-04-09  Martin Junius  <mj@fido.de>
+
+	* ANNOUNCE: updated.
+
+	* src/common/misc.c (run_system): make cmd[] as large as buffer[], 
+	  may contain a long command line, e.g. from ffxqt!
+
 1999-04-03  Martin Junius  <mj@fido.de>
 
 	------- CVS ci -------------------------------------------------------

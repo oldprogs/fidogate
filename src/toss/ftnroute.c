@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftnroute.c,v 4.23 1999/04/03 12:13:24 mj Exp $
+ * $Id: ftnroute.c,v 4.24 1999/05/15 20:54:43 mj Exp $
  *
  * Route FTN NetMail/EchoMail
  *
@@ -40,7 +40,7 @@
 
 
 #define PROGRAM 	"ftnroute"
-#define VERSION 	"$Revision: 4.23 $"
+#define VERSION 	"$Revision: 4.24 $"
 #define CONFIG		DEFAULT_CONFIG_MAIN
 
 
@@ -156,8 +156,10 @@ int do_move(char *name, FILE *fp, PktDesc *desc)
     /* Set a/mtime to current time after renaming */
     if(utime(buffer, NULL) == ERROR)
     {
-	log("$ERROR: can't set time of %s", buffer);
+	log("$WARNING: can't set time of %s", buffer);
+#if 0
 	return ERROR;
+#endif
     }
     
     return OK;

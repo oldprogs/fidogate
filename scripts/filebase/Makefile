@@ -1,6 +1,6 @@
 #:ts=8
 #
-#    $Id: Makefile,v 4.1 1997/10/11 21:24:23 mj Exp $
+#    $Id: Makefile,v 4.2 1999/05/15 20:54:35 mj Exp $
 #
 #    Makefile for FIDOGATE scripts/filebase/
 #
@@ -20,6 +20,7 @@ PROGS		= fb-chkfiles fb-filelist fb-linkpre
 
 
 all:		$(PROGS)
+$(PROGS):	$(TOPDIR)/config.make $(TOPDIR)/config.pl
 
 
 
