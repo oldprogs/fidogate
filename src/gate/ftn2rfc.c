@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftn2rfc.c,v 4.63 2004/08/22 10:30:02 n0ll Exp $
+ * $Id: ftn2rfc.c,v 4.64 2004/08/22 20:08:14 n0ll Exp $
  *
  * Convert FTN mail packets to RFC mail and news batches
  *
@@ -40,7 +40,7 @@
 
 
 #define PROGRAM 	"ftn2rfc"
-#define VERSION 	"$Revision: 4.63 $"
+#define VERSION 	"$Revision: 4.64 $"
 #define CONFIG		DEFAULT_CONFIG_GATE
 
 
@@ -1090,6 +1090,7 @@ int unpack(FILE *pkt_file, Packet *pkt)
 	}
 	
 	/* Common header */
+	p = NULL;
 	if(use_origin_for_organization && body.origin)
 	{
 	    strip_crlf(body.origin);
@@ -1104,12 +1105,13 @@ int unpack(FILE *pkt_file, Packet *pkt)
 	    p = buffer + strlen(" * Origin: ");
 	    while(is_blank(*p))
 		p++;
-	    tl_appendf(&theader, "Organization: %s\n", p);
+	    if(!*p)
+		p = NULL;
 	}
-	else
-	{
-	    tl_appendf(&theader, "Organization: %s\n", cf_p_organization() );
-	}
+	if(!p)
+	    p = cf_p_organization();
+	tl_appendf(&theader, "Organization: %s\n", p);
+
 	tl_appendf(&theader, "Lines: %d\n", lines);
 	if(gateway)
 	    tl_appendf(&theader, "X-Gateway: FIDO %s [FIDOGATE %s], %s\n",
