@@ -1,16 +1,15 @@
 #!/bin/sh
 #
-# $Id: runpoll.sh,v 4.14 1999/03/06 17:51:25 mj Exp $
+# $Id: runpoll.sh,v 4.15 2000/04/19 17:07:28 mj Exp $
 #
-# Poll uplink
+# Generic poll script for FIDOGATE points
 #
 
 LIBDIR=<LIBDIR>
 BINDIR=<BINDIR>
 IFMAIL=<IFMAILDIR>
-NEWS=<NEWSETCDIR>
 
-XTERM=/usr/X11/bin/xterm
+XTERM=/usr/X11R6/bin/xterm
 
 UPLINK=f<NODE>.n<NET>.z2
 #       ^^^^^^  ^^^^^
@@ -29,7 +28,7 @@ set -x
 
 
 # News gateway (INN)
-$NEWS/send-fidogate
+$BINDIR/send-fidogate
 
 # Tosser w/o file attachments
 $BINDIR/runtoss outpkt
@@ -49,7 +48,7 @@ $LIBDIR/ftnin -x %L/ftninpost
 # Process tic files
 $LIBDIR/ftntick
 
-# Process mail queue
+# Process mail queue (depending on your config, not strictly necessary)
 /usr/sbin/sendmail -q
 
 # Tosser expire

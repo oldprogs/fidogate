@@ -1,19 +1,17 @@
 #!/bin/sh
 #
-# $Id: runpoll-orodruin.sh,v 4.3 1999/05/24 12:06:00 mj Exp $
+# $Id: runpoll-orodruin.sh,v 4.4 2000/04/19 17:07:28 mj Exp $
 #
-# Poll uplink
+# orodruin.fido.de's poll script using ifcico
 #
 
 LIBDIR=<LIBDIR>
 BINDIR=<BINDIR>
 IFMAIL=<IFMAILDIR>
-NEWS=<NEWSETCDIR>
 
 UPLINK=f2.n1000.z242
 
-XTERM=/usr/X11/bin/xterm
-
+XTERM=/usr/X11R6/bin/xterm
 
 # -xterm: run in XTerm window
 if [ "$1" = "-xterm" ]; then
@@ -27,13 +25,13 @@ set -x
 
 
 # Batch ffx news
-$NEWS/send-ffx
+$BINDIR/send-ffx
 
 # Batch ffx mail
 $LIBDIR/ftnpack -f 242:1000/1 -I %B/out.0f2/morannon
 
 # Gateway
-$NEWS/send-fidogate
+$BINDIR/send-fidogate
 
 # Tosser w/o file attachments
 $BINDIR/runtoss outpkt

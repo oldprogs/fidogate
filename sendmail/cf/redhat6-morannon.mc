@@ -1,12 +1,12 @@
 #
-# $Id: redhat6-morannon.mc,v 4.4 1999/11/21 17:25:34 mj Exp $
+# $Id: redhat6-morannon.mc,v 4.5 2000/04/19 17:07:28 mj Exp $
 #
 # Fido.DE (morannon.fido.de)
 #
 
 include(`../m4/cf.m4')
 
-VERSIONID(`$Id: redhat6-morannon.mc,v 4.4 1999/11/21 17:25:34 mj Exp $')
+VERSIONID(`$Id: redhat6-morannon.mc,v 4.5 2000/04/19 17:07:28 mj Exp $')
 
 dnl #
 dnl # Configuration
@@ -68,7 +68,6 @@ Cwmorannon.fido.de morannon
 Cwwww.fido.de www
 Cwftp.fido.de ftp
 Cwgate.fido.de gate
-Cwm-j-s.net
 
 LOCAL_CONFIG
 # More trusted users

@@ -1,6 +1,6 @@
 #:ts=8
 #
-#    $Id: Makefile,v 4.9 1999/11/21 17:25:32 mj Exp $
+#    $Id: Makefile,v 4.10 2000/04/19 17:07:28 mj Exp $
 #
 #    Makefile for FIDOGATE scripts/run/
 #
@@ -25,13 +25,9 @@ $(PROGS):	$(TOPDIR)/config.make $(TOPDIR)/config.pl
 
 
 install:
-
-install-point:
 	$(INSTALL_PROG) runpoll          $(PREFIX)$(BINDIR)
-
-install-orodruin:
-	$(INSTALL_PROG) runpoll-orodruin $(PREFIX)$(BINDIR)/runpoll
-	$(INSTALL_PROG) runpoll-binkd    $(PREFIX)$(BINDIR)/runpolli
+	$(INSTALL_PROG) runpoll-orodruin $(PREFIX)$(BINDIR)
+	$(INSTALL_PROG) runpoll-binkd    $(PREFIX)$(BINDIR)
 
 
 clean:

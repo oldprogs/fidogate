@@ -1,20 +1,18 @@
 #!/bin/sh
 #
-# $Id: runpoll-binkd.sh,v 4.5 1999/11/21 17:25:34 mj Exp $
+# $Id: runpoll-binkd.sh,v 4.6 2000/04/19 17:07:28 mj Exp $
 #
-# Poll uplink
+# orodruin.fido.de's poll script using binkd
 #
 
 LIBDIR=<LIBDIR>
 BINDIR=<BINDIR>
-NEWS=<NEWSETCDIR>
 
 BINKD=/usr/sbin/binkd
 BINKDCFG=/etc/binkd/binkd.cfg
 
-XTERM=/usr/X11/bin/xterm
+XTERM=/usr/X11R6/bin/xterm
 
-BOSSNODE="242:1000/2"
 DUMMYADDR="nobody@fido.de"
 
 # -xterm: run in XTerm window
@@ -34,13 +32,13 @@ EOF
 sleep 2
 
 # Batch ffx news
-$NEWS/send-ffx
+$BINDIR/send-ffx
 
 # Batch ffx mail
 $LIBDIR/ftnpack -f 242:1000/1 -I %B/out.0f2/morannon
 
 # Gateway
-$NEWS/send-fidogate
+$BINDIR/send-fidogate
 
 # Tosser w/o file attachments
 $BINDIR/runtoss outpkt
@@ -48,7 +46,6 @@ $BINDIR/runtoss outpkt/mail
 $BINDIR/runtoss outpkt/news
 
 # Poll
-#$BINDIR/out-manip poll $BOSSNODE
 $BINKD -p $BINKDCFG
 
 # Tosser, only protected inbound
