@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: prototypes.h,v 4.21 1997/02/16 13:57:28 mj Exp $
+ * $Id: prototypes.h,v 4.22 1997/03/28 11:31:23 mj Exp $
  *
  * Prototypes for functions in libfidogate.a
  *
@@ -49,6 +49,8 @@ Alias  *alias_lookup		(Node *, char *, char *);
 /* areas.c */
 void	areas_maxmsgsize	(long);
 long	areas_get_maxmsgsize	(void);
+void	areas_limitmsgsize	(long);
+long	areas_get_limitmsgsize	(void);
 void    areas_init		(void);
 Area   *areas_lookup		(char *, char *);
 

@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway software UNIX <-> FIDO
  *
- * $Id: fidogate.h,v 4.3 1996/12/17 17:19:53 mj Exp $
+ * $Id: fidogate.h,v 4.4 1997/03/28 11:31:23 mj Exp $
  *
  * Common header file
  *
@@ -58,7 +58,39 @@
 #include <errno.h>
 #include <dirent.h>
 
-#include "sysexits.h"			/* EX_* defines */
+#ifdef DO_HAVE_SYSEXITS_H
+
+# include <sysexits.h>			/* EX_* defines */
+
+#else /**!DO_HAVE_SYSEXITS_H**/
+
+/* BSD error codes (used by sendmail */
+# define EX_OK		 0		/* successful termination */
+
+# define EX_USAGE	64		/* command line usage error */
+# define EX_DATAERR	65		/* data format error */
+# define EX_NOINPUT	66		/* cannot open input */
+# define EX_NOHOST	68		/* host name unknown */
+# define EX_UNAVAILABLE	69		/* service unavailable */
+# define EX_SOFTWARE	70		/* internal software error */
+# define EX_OSERR	71		/* system error (e.g., can't fork) */
+# define EX_OSFILE	72		/* critical OS file missing */
+# define EX_CANTCREAT	73		/* can't create (user) output file */
+# define EX_IOERR	74		/* input/output error */
+
+#endif /**DO_HAVE_SYSEXITS_H**/
+
+
+
+/*
+ * Exit codes used by FIDOGATE
+ */
+#define EXIT_OK		0		/* successful */
+#define EXIT_ERROR	1		/* error */
+#define EXIT_BUSY	2		/* program already running */
+#define EXIT_CONTINUE	3		/* still work to do */
+
+#define EXIT_KILL	32		/* killed: exit code = 32 + signum */
 
 
 

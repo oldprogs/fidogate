@@ -1,0 +1,15 @@
+#
+# Local test config
+#
+include %L/config.gate
+
+
+#
+# Don't generate From: line at beginning of text body.
+#
+NoFromLine
+
+#
+# Limit message size for gateway, bigger messages will be bounced/not gated
+#
+LimitMsgSize	50000

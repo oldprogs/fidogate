@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway software UNIX <-> FIDO
  *
- * $Id: config.h,v 4.15 1997/03/26 20:46:40 mj Exp $
+ * $Id: config.h,v 4.16 1997/03/28 11:31:18 mj Exp $
  *
  * Configuration header file
  *
@@ -109,6 +109,8 @@
  *
  *   DO_HAVE_TM_GMTOFF		Does your (struct tm) have a tm_gmtoff field?
  *
+ *   DO_HAVE_SYSEXITS_H         Do you have sysexists.h?
+ *
  *
  * Define only one of DO_HAVE_TM_ZONE, DO_HAVE_STRFTIME, DO_HAVE_TZNAME!!!
  *
@@ -132,6 +134,7 @@
 #ifdef __sun__				/* SUNOS 4.1.x, GNU gcc */
 # define DO_HAVE_GETTIMEOFDAY
 # define DO_HAVE_TM_GMTOFF
+# define DO_HAVE_SYSEXISTS_H
 # undef  DO_HAVE_TM_ZONE
 # define DO_HAVE_STRFTIME
 # undef  DO_HAVE_TZNAME
@@ -140,9 +143,10 @@
 # undef  DO_BINARY
 #endif
 
-#ifdef __linux__			/* LINUX 1.x, GNU gcc */
+#ifdef __linux__			/* LINUX LIBC 5.x.x, GNU gcc */
 # define DO_HAVE_GETTIMEOFDAY
 # undef  DO_HAVE_TM_GMTOFF
+# define DO_HAVE_SYSEXISTS_H
 # undef  DO_HAVE_TM_ZONE
 # define DO_HAVE_STRFTIME
 # undef  DO_HAVE_TZNAME
@@ -154,6 +158,7 @@
 #ifdef ISC				/* ISC 3.x, GNU gcc, -DISC necessary */
 # define DO_HAVE_GETTIMEOFDAY
 # undef  DO_HAVE_TM_GMTOFF
+# undef  DO_HAVE_SYSEXISTS_H		/* ? */
 # undef  DO_HAVE_TM_ZONE
 # undef  DO_HAVE_STRFTIME
 # define DO_HAVE_TZNAME
@@ -164,6 +169,7 @@
 
 #ifdef MSDOS				/* MSDOS, DJGPP GNU gcc */
 # define DO_HAVE_TM_GMTOFF
+# undef  DO_HAVE_SYSEXISTS_H		/* ? */
 # undef  DO_HAVE_TM_ZONE
 # define DO_HAVE_GETTIMEOFDAY
 # define DO_HAVE_STRFTIME
@@ -178,6 +184,7 @@
 # endif
 #endif
 #ifdef OS2
+# undef  DO_HAVE_SYSEXISTS_H		/* ? */
 # define DO_HAVE_GETTIMEOFDAY
 # define DO_HAVE_STRFTIME
 # undef  DO_HAVE_STRCASECMP

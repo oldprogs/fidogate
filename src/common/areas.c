@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: areas.c,v 4.5 1996/12/17 17:19:38 mj Exp $
+ * $Id: areas.c,v 4.6 1997/03/28 11:31:21 mj Exp $
  *
  * Area <-> newsgroups conversion
  *
@@ -91,9 +91,10 @@ static void areas_init_xlate(void)
 
 
 /*
- * Default max. msg size
+ * Default max/limit msg size
  */
-static long areas_def_maxsize = MAXMSGSIZE;	/* config.h */
+static long areas_def_maxsize   = MAXMSGSIZE;	/* config.h */
+static long areas_def_limitsize = 0;		/* default unlimited */
 
 
 void areas_maxmsgsize(long int sz)
@@ -101,10 +102,19 @@ void areas_maxmsgsize(long int sz)
     areas_def_maxsize = sz;
 }
 
-
 long areas_get_maxmsgsize(void)
 {
     return areas_def_maxsize;
+}
+
+void areas_limitmsgsize(long int sz)
+{
+    areas_def_limitsize = sz;
+}
+
+long areas_get_limitmsgsize(void)
+{
+    return areas_def_limitsize;
 }
 
 
@@ -128,6 +138,7 @@ long areas_get_maxmsgsize(void)
  *                      translated automatically
  *     -R LVL           ^ARFC header level
  *     -m MAXSIZE       set MaxMsgSize for this area (0 = infinity)
+ *     -L LIMITSIZE     set LimitMsgSize for this area (0 = infinity)
  *     -X "Xtra: xyz"	add extra RFC header (multiple -X are allowed)
  *     -8               convert to 8bit iso-8859-1 characters
  *     -Q               convert to quoted-printable iso-8859-1 characters
@@ -163,6 +174,7 @@ void areas_init(void)
 	p->flags        = 0;
 	p->rfc_lvl      = -1;
 	p->maxsize      = -1;
+	p->limitsize    = -1;
 	tl_init(&p->x_hdr);
 	
 	for(o=xstrtok(NULL, " \t");	/* Options */
@@ -202,7 +214,11 @@ void areas_init(void)
 	    if(!strcmp(o, "-m"))
 		/* -m MAXMSGSIZE */
 		if((o = xstrtok(NULL, " \t")))
-		    p->maxsize = atoi(o);
+		    p->maxsize = atol(o);
+	    if(!strcmp(o, "-L"))
+		/* -L LIMITMSGSIZE */
+		if((o = xstrtok(NULL, " \t")))
+		    p->limitsize = atol(o);
 	    if(!strcmp(o, "-X"))
 		/* -X "Xtra: xyz" */
 		if((o = xstrtok(NULL, " \t")))
@@ -212,9 +228,11 @@ void areas_init(void)
 	    if(!strcmp(o, "-Q"))
 		p->flags |= AREA_QP;
 	}
-	if(p->maxsize < 0)
-	    /* Not set or error */
-	    p->maxsize = areas_def_maxsize;
+	/* Value not set or error */
+	if(p->maxsize   < 0)
+	    p->maxsize   = areas_def_maxsize;
+	if(p->limitsize < 0)
+	    p->limitsize = areas_def_limitsize;
 	
 	debug(15, "areas: %s %s Z=%d A=%s R=%d S=%ld",
 	      p->area, p->group, p->zone,
@@ -305,6 +323,7 @@ static Area *area_build(Area *pa, char *area, char *group)
     ret.flags        = pa->flags;
     ret.rfc_lvl      = pa->rfc_lvl;
     ret.maxsize      = pa->maxsize;
+    ret.limitsize    = pa->limitsize;
     ret.x_hdr        = pa->x_hdr;
     
     /* AREA -> Newsgroup */

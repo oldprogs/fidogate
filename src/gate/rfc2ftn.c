@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway software UNIX <-> FIDO
  *
- * $Id: rfc2ftn.c,v 4.21 1997/02/09 10:04:30 mj Exp $
+ * $Id: rfc2ftn.c,v 4.22 1997/03/28 11:31:22 mj Exp $
  *
  * Read mail or news from standard input and convert it to a FIDO packet.
  *
@@ -39,7 +39,7 @@
 
 
 #define PROGRAM 	"rfc2ftn"
-#define VERSION 	"$Revision: 4.21 $"
+#define VERSION 	"$Revision: 4.22 $"
 #define CONFIG		CONFIG_GATE
 
 
@@ -757,8 +757,11 @@ int snd_mail(RFCAddr rfc_to, long size)
     char *flags = NULL;
     MIMEInfo *mime;
     int from_is_local = FALSE;
-    node_from.domain[0] = 0;
-    node_to  .domain[0] = 0;
+    long limitsize;
+
+
+    node_clear(&node_from);
+    node_clear(&node_to);
     
     if(rfc_to.user[0])
 	debug(3, "RFC To:       %s", rfcaddr_to_asc(&rfc_to, TRUE));
@@ -821,8 +824,20 @@ int snd_mail(RFCAddr rfc_to, long size)
     
     if(private)
     {
+	/* Check message size limit */
+	limitsize = areas_get_limitmsgsize();
+	if(limitsize>0 && size>limitsize)
+	{
+	    /* Too large, don't gate it */
+	    log("message too big (%ldb, limit %ldb) for mail %s -> %s",
+		size, limitsize, rfcaddr_to_asc(&rfc_from, TRUE),
+		rfcaddr_to_asc(&rfc_to, TRUE)                            );
+	    sendback("Address %s:\n  message too big (%ldb, limit %ldb)",
+		     rfcaddr_to_asc(&rfc_to, TRUE), size, limitsize      );
+	    return(EX_UNAVAILABLE);
+	}
+	
 	msg.attr |= MSG_PRIVATE;
-
 	p = flags;
 	
 	/*
@@ -926,6 +941,16 @@ int snd_mail(RFCAddr rfc_to, long size)
 		    }
 		}
 
+		/* Check message size limit */
+		limitsize = pa->limitsize;
+		if(limitsize>0 && size>limitsize)
+		{
+		    /* Too large, don't gate it */
+		    log("message too big (%ldb, limit %ldb) for area %s",
+			size, limitsize, pa->area                        );
+		    continue;
+		}
+		
 		/* Set address or zone aka for this area */
 		if(pa->addr.zone != -1)
 		    cf_set_curr(&pa->addr);
@@ -961,15 +986,18 @@ int snd_mail(RFCAddr rfc_to, long size)
 
 int snd_message(Message *msg, Area *parea,
 		RFCAddr rfc_from, RFCAddr rfc_to, char *subj,
-		long int size, char *flags, int fido, MIMEInfo *mime)
-    /* msg   	--- FTN nessage structure */
-    /* parea 	--- area/newsgroup description structure */
-    /* rfc_from --- Internet sender */
-    /* rfc_to   --- Internet recipient */
-    /* subj  	--- Internet Subject line */
-    /* flags 	--- X-Flags header */
-    /* fido  	--- TRUE: recipient is FTN address */
-    /* mime  	--- MIME stuff */
+		long size, char *flags, int fido, MIMEInfo *mime)
+    /*
+     * msg   	 FTN nessage structure
+     * parea 	 area/newsgroup description structure
+     * rfc_from  Internet sender
+     * rfc_to    Internet recipient
+     * subj  	 Internet Subject line
+     * size      Message size
+     * flags 	 X-Flags header
+     * fido  	 TRUE: recipient is FTN address
+     * mime  	 MIME stuff
+     */
 {
     static int last_zone = -1;		/* Zone address of last packet */
     static FILE *sf;			/* Packet file */
@@ -984,6 +1012,7 @@ int snd_message(Message *msg, Area *parea,
     long seq          = 0;
     int mime_qp = 0;			/* quoted-printable flag */
     int rfc_level = default_rfc_level;
+
 
     /*
      * ^ARFC level
@@ -1049,7 +1078,7 @@ int snd_message(Message *msg, Area *parea,
      * Compute number of split messages if any
      */
     maxsize = parea ? parea->maxsize : areas_get_maxmsgsize();
-
+ 
     if(maxsize > 0)
     {
 	split = 1;
@@ -1324,8 +1353,8 @@ int print_origin(FILE *fp, char *origin)
     char bufa[30];
     int len;
     
-    strncpy0(buf, " * Origin: ", sizeof(buf));
-    strncpy0(bufa, node_to_asc(cf_addr(), TRUE), sizeof(bufa));
+    BUF_COPY(buf , " * Origin: ");
+    BUF_COPY(bufa, node_to_asc(cf_addr(), TRUE));
     
     /*
      * Max. allowed length of origin line is 79 (80 - 1) chars,
@@ -1334,11 +1363,11 @@ int print_origin(FILE *fp, char *origin)
     len = 80 - strlen(bufa) - 3;
 
     /* Add origin text */
-    strncat0(buf, origin, len);
+    str_append(buf, len, origin);
     /* Add address */
-    strncat0(buf, " (", sizeof(buf));
-    strncat0(buf, bufa, sizeof(buf));
-    strncat0(buf, ")" , sizeof(buf));
+    BUF_APPEND(buf, " (");
+    BUF_APPEND(buf, bufa);
+    BUF_APPEND(buf, ")" );
     
     /* Origin */
     fprintf(fp, "%s\r\n", buf);
@@ -1659,12 +1688,23 @@ int main(int argc, char **argv)
     {
 	long sz;
 	
-	debug(8, "config: maxmsgsize %s", p);
+	debug(8, "config: MaxMsgSize %s", p);
 	sz = atol(p);
 	if(sz <= 0)
-	    log("WARNING: illegal maxmsgsize value %s", p);
+	    log("WARNING: illegal MaxMsgSize value %s", p);
 	else
 	    areas_maxmsgsize(sz);
+    }
+    if( (p = cf_get_string("LimitMsgSize", TRUE)) )
+    {
+	long sz;
+	
+	debug(8, "config: LimitMsgSize %s", p);
+	sz = atol(p);
+	if(sz <= 0)
+	    log("WARNING: illegal LimitMsgSize value %s", p);
+	else
+	    areas_limitmsgsize(sz);
     }
     if( (p = cf_get_string("MAUSDomain", TRUE)) )
     {

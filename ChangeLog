@@ -1,3 +1,35 @@
+Fri Mar 28 10:48:20 1997  Martin Junius  <mj@fido.de>
+
+	------- CVS ci -------------------------------------------------------
+
+	* src/common/areas.c (area_build): copy limitsize.
+
+	* test/tc.gate6/run: added test with config2, setting LimitMsgSize.
+
+	* examples/orodruin/config.gate: added LimitMsgSize example.
+
+	* examples/orodruin/areas: added -L to description in comment.
+
+	* examples/orodruin/config.gate: added LimitMsgSize example.
+
+	* src/include/sysexits.h: removed, #define's move to fidogate.h.
+
+	* src/include/fidogate.h (EX_*): if DO_HAVE_SYSEXITS_H is defined
+	  use sysexits.h system header file, else use the local
+	  definitions here.
+
+	* src/gate/rfc2ftn.c (main): new LimitMsgSize config option.
+	  (print_origin): use BUF_COPY(), str_append(), BUF_APPEND().
+	  (snd_mail): check message size against limit, bounce/don't gate
+	  if limit is exceeded.
+
+	* src/common/areas.c (areas_init): added code for -L LIMITSIZE
+	  option, use atol() for long values.
+	  (areas_limitmsgsize): new function to set default limitmsgsize.
+	  (areas_get_limitmsgsize): new function to get default limitmsgsize.
+
+	* src/include/structs.h (Area): added limitsize field for -L option.
+
 Wed Mar 26 21:26:18 1997  Martin Junius  <mj@fido.de>
 
 	------- CVS ci -------------------------------------------------------

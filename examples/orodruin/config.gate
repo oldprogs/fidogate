@@ -1,6 +1,6 @@
 #:ts=8
 #
-# $Id: config.gate,v 4.15 1997/02/16 13:57:23 mj Exp $
+# $Id: config.gate,v 4.16 1997/03/28 11:31:19 mj Exp $
 #
 # FIDOGATE config file gateway programs
 #
@@ -130,10 +130,15 @@ X-FTN		ftTOVD
 
 
 #
-# Maximum size of FTN messages (default value)
+# Maximum size of FTN messages (default value) for splitting
 #
 MaxMsgSize		15000
 #MaxMsgSize		32000
+
+#
+# Limit message size for gateway, bigger messages will be bounced/not gated
+#
+LimitMsgSize		256000
 
 
 #
