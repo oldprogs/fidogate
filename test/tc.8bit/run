@@ -19,3 +19,5 @@ cp ../ti.8bit/*.pkt pin
 $T2 -c config2
 cp ../ti.8bit/*.pkt pin
 $T2 -c config3
+
+grep ^Content outrfc/mail/*.rfc

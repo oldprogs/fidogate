@@ -1,6 +1,6 @@
 #:ts=8
 #
-# $Id: config3,v 1.3 1998/01/31 20:22:36 mj Exp $
+# $Id: config3,v 1.4 1998/05/03 14:30:33 mj Exp $
 #
 # FIDOGATE config file gateway programs
 #
@@ -229,3 +229,22 @@ FTNInRnews	/usr/bin/rnews
 # Use MIME quoted-printable ISO-8859-1 characters when gating from FTN to RFC
 #
 NetMailQuotedPrintable
+
+
+#
+# Charset mapping
+#
+# Format	default:ftn:rfc
+#		            ^^^ charset in RFC message, when gating FTN->RFC
+#		        ^^^---- charset in FTN message, when gating RFC->FTN
+#		^^^^^^^-------- charset assumed for FTN message, if no
+#				^ACHRS kludge is present
+#
+# Default charset mapping, if NetMailCharset or -C is not set
+#
+DefaultCharset	x-ibmpc:iso-8859-1:iso-8859-1
+
+#
+# Charset mapping for NetMail
+#
+NetMailCharset	x-ibmpc:iso-8859-1:iso-8859-1

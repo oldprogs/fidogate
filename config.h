@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway software UNIX <-> FIDO
  *
- * $Id: config.h,v 4.35 1998/04/28 19:02:23 mj Exp $
+ * $Id: config.h,v 4.36 1998/05/03 14:30:30 mj Exp $
  *
  * Configuration header file
  *
@@ -83,6 +83,16 @@
  */
 #define FACILITY	LOG_LOCAL0
 
+/*
+ * Default assumed charset for Fido messages (see also DefaultCharset)
+ */
+#define CHARSET_STDFTN	"ibmpc"
+
+/*
+ * Default charset for RFC messages with forced 7bit encoding
+ */
+#define CHARSET_STD7BIT	"us-ascii"
+
 
 
 /***** ftn2rfc configuration ************************************************/
@@ -92,11 +102,6 @@
  * gateway address. The reverse direction requires suitable MTA aliases.
  */
 /* #define ALIASES_ARE_LOCAL */
-
-/*
- * Make the IBMPC char set the default (no ^ACHRS kludge)
- */
-#define CHARSET_DEFAULT_IBMPC
 
 
 

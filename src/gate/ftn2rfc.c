@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftn2rfc.c,v 4.36 1998/05/03 12:56:07 mj Exp $
+ * $Id: ftn2rfc.c,v 4.37 1998/05/03 14:30:31 mj Exp $
  *
  * Convert FTN mail packets to RFC mail and news batches
  *
@@ -40,7 +40,7 @@
 
 
 #define PROGRAM 	"ftn2rfc"
-#define VERSION 	"$Revision: 4.36 $"
+#define VERSION 	"$Revision: 4.37 $"
 #define CONFIG		DEFAULT_CONFIG_GATE
 
 
@@ -130,6 +130,12 @@ static int kill_split = FALSE;
 
 /* Write single news article files, not one big news batch */
 static int single_articles = FALSE;
+
+/* Charset stuff */
+static char *default_charset_def = NULL;
+static char *default_charset_out = NULL;
+static char *netmail_charset_def = NULL;
+static char *netmail_charset_out = NULL;
 
 
 
@@ -297,8 +303,7 @@ int unpack(FILE *pkt_file, Packet *pkt)
     int rfc_lvl, rfc_lines;
     char *split_line;
     int cvt8 = 0;			/* AREA_8BIT | AREA_QP */
-    char *cs_in, *cs_out;		/* Charset in (=FTN), out (=RFC) */
-    int cs_qp;				/* Flag for MIME qp encoding */
+    char *cs_def, *cs_in, *cs_out;	/* Charset def, in(=FTN), out(=RFC) */
 
 
     /*
@@ -488,16 +493,37 @@ int unpack(FILE *pkt_file, Packet *pkt)
 	    if(strieq(p, "quoted-printable")) 
 		cvt8 = AREA_QP;
 	}
+	debug(5, "cvt8:%s%s",
+	      (cvt8 & AREA_8BIT ? " 8bit" : ""),
+	      (cvt8 & AREA_QP   ? " quoted-printable" : ""));
 	
-	/* Convert message body */
+	/*
+	 * Convert message body
+	 */
+
+	/* charset input (=FTN message) and output (=RFC message) */
+	cs_in  = NULL;
+	cs_def = area ? /**area->charset_def**/ NULL : netmail_charset_def;
+	if(!cs_def)
+	    cs_def = default_charset_out;
+	if(!cs_def)
+	    cs_def = CHARSET_STDFTN;
+	cs_out = area ? /**area->charset_out**/ NULL : netmail_charset_out;
+	if(!cs_out)
+	    cs_out = default_charset_out;
+	if(cvt8==0 || !cs_out)
+	    cs_out = CHARSET_STD7BIT;
+	
 	lines = 0;
-	cs_in = NULL;
 	if( (p = kludge_get(&body.kludge, "CHRS", NULL)) )
 	    cs_in = charset_chrs_name(p);
 	else if( (p = kludge_get(&body.kludge, "CHARSET", NULL)) )
 	    cs_in = charset_chrs_name(p);
-	/**FIXME: set in/out charset**/
+	if(!cs_in)
+	    cs_in = cs_def;
+	charset_set_in_out(cs_in, cs_out);
 
+	/* ^ARFC level and line break flag */
 	rfc_lvl   = 0;
 	rfc_lines = FALSE;
 	if( (p = kludge_get(&body.kludge, "RFC", NULL)) )
@@ -525,7 +551,7 @@ int unpack(FILE *pkt_file, Packet *pkt)
 	    }
 	    else				/* Normal line */
 	    {
-		msg_xlate_line(buffer, sizeof(buffer), p, cvt8);
+		msg_xlate_line(buffer, sizeof(buffer), p, cvt8 & AREA_QP);
 		if(rfc_lines)
 		{
 		    tl_append(&tbody, buffer);
@@ -1034,7 +1060,7 @@ int unpack(FILE *pkt_file, Packet *pkt)
 	 */
 	tl_appendf(&theader, "MIME-Version: 1.0\n");
 	tl_appendf(&theader, "Content-Type: text/plain; charset=%s\n",
-		   cvt8 ? "iso-8859-1" : "us-ascii");
+		   cvt8 ? cs_out : CHARSET_STD7BIT);
 	tl_appendf(&theader, "Content-Transfer-Encoding: %s\n",
 		   cvt8 ? ((cvt8 & AREA_QP) ? "quoted-printable" : "8bit")
 		        : "7bit");
@@ -1453,6 +1479,20 @@ int main(int argc, char **argv)
 	}
 	rfcaddr_mode(m);
 	debug(8, "config: RFCAddrMode %d", m);
+    }
+    if( (p = cf_get_string("DefaultCharset", TRUE)) )
+    {
+	debug(8, "config: DefaultCharset %s", p);
+	default_charset_def = strtok(p, ":");
+	strtok(NULL, ":");
+	default_charset_out = strtok(NULL, ":");
+    }
+    if( (p = cf_get_string("NetMailCharset", TRUE)) )
+    {
+	debug(8, "config: NetMailCharset %s", p);
+	netmail_charset_def = strtok(p, ":");
+	strtok(NULL, ":");
+	netmail_charset_out = strtok(NULL, ":");
     }
     
     /*

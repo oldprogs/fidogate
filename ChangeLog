@@ -1,6 +1,29 @@
 Sun May  3 10:27:29 1998  Martin Junius  <mj@fido.de>
 
+	------- CVS ci -------------------------------------------------------
+
+	* test/tc.8bit/run: adapted to new config options.
+
+	* src/gate/ftn2rfc.c (unpack): set cs_out to CHARSET_STD7BIT, if
+	  output forced to 7bit (cvt8=0).
+	  (unpack): strsave(), strtok() destroys charset option.
+	  (main): split config option DefaultCharset, NetMailCharset using
+	  strtok().
+	  (unpack): cs_def/in/out rewritten.
+
+	* test/tc.8bit/config*: added DefaultCharset/NetMailCharset.
+
+	* src/gate/ftn2rfc.c (unpack): use new CHARSET_STDFTN, CHARSET_STD7BIT.
+
+	* config.h (CHARSET_DEFAULT_IBMPC): removed.
+	  (CHARSET_STDFTN): new #define for input charset, if
+	  DefaultCharset is not set in gate.conf.
+	  (CHARSET_STD7BIT): new #define for 7bit output charsed, used if
+	  DefaultCharset is not set or output is forced to 7bit encoding.
+
 	* src/gate/ftn2rfc.c (main): added charset_init().
+	  (main): added DefaultCharset, NetMailCharset config options.
+	  (unpack): get and set input/output charset.
 
 	------- CVS ci -------------------------------------------------------
 

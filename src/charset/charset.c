@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: charset.c,v 1.1 1998/05/03 12:46:29 mj Exp $
+ * $Id: charset.c,v 1.2 1998/05/03 14:30:31 mj Exp $
  *
  * NEW charset.c code using charset.bin mapping file
  *
@@ -306,7 +306,7 @@ char *charset_chrs_name(char *s)
     debug(5, "FSC-0054 ^ACHRS/CHARSET: %s", s);
 
     BUF_COPY(name, s);
-    p = strtok(s, " \t");
+    p = strtok(name, " \t");
     if(!p)
 	return NULL;
 
