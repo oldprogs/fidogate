@@ -2,6 +2,8 @@ Fri Jul 25 22:01:56 1997  Martin Junius  <mj@fido.de>
 
 	------- CVS ci -------------------------------------------------------
 
+	* version.h (PATCHLEVEL): set to 6 (version 4.2.6).
+
 	* doc/info2txt.pl: changed name to .pl.
 
 	* doc/Makefile (fidogate.txt): use $(PERL) to run info2txt.pl
