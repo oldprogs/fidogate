@@ -15,26 +15,26 @@ $T -b areas.bbs -- 2:2452/110.90 listall
 
 cp areas.bbs tmp_areas.bbs
 
-$T -b tmp_areas.bbs -- 2:2452/110.1 add linux.ger
-$T -b tmp_areas.bbs -- 2:2452/110.1 add tolkien.ger
-$T -b tmp_areas.bbs -- 2:2452/110.1 add xx
-$T -b tmp_areas.bbs -- 2:2452/110.1 add yy
-$T -b tmp_areas.bbs -- 99:2452/110.1 add zz
+$T -b tmp_areas.bbs -- 2:2452/110.1 sub linux.ger
+$T -b tmp_areas.bbs -- 2:2452/110.1 +tolkien.ger
+$T -b tmp_areas.bbs -- 2:2452/110.1 subscribe xx
+$T -b tmp_areas.bbs -- 2:2452/110.1 +yy
+$T -b tmp_areas.bbs -- 99:2452/110.1 +zz
 
-$T -b tmp_areas.bbs -- 2:2452/110.1 add UNKNOWN.GER
-#$T -b tmp_areas.bbs -x./unknown 2:2452/110.1 add UNKNOWN.GER
+$T -b tmp_areas.bbs -- 2:2452/110.1 UNKNOWN.GER
+#$T -b tmp_areas.bbs -x./unknown 2:2452/110.1 sub UNKNOWN.GER
 
-$T -b tmp_areas.bbs -- 2:99/99 del test1
-$T -b tmp_areas.bbs -- 2:99/99 del test2
-$T -b tmp_areas.bbs -- 2:99/99 del test2
+$T -b tmp_areas.bbs -- 2:99/99 unsub test1
+$T -b tmp_areas.bbs -- 2:99/99 -test2
+$T -b tmp_areas.bbs -- 2:99/99 unsubscribe test2
 
-$T -b tmp_areas.bbs -- 2:99/99 create LINUX.GER
-$T -b tmp_areas.bbs -- 2:99/99 create LINUX.GER -#
-$T -b tmp_areas.bbs -- 2:99/99 create AREA.NEW -d New-Test-Area
-$T -b tmp_areas.bbs -- 2:99/99 create AREA.NEW -#
-$T -b tmp_areas.bbs -- 2:99/99 create AREA.NEW1 -p -r
-$T -b tmp_areas.bbs -- 2:99/99 create AREA.NEWER -p -l 10
-$T -b tmp_areas.bbs -- 2:99/99 create AREA.NEWEST -l 5 -k abcxyz
+$T -b tmp_areas.bbs -- 2:99/99 new LINUX.GER
+$T -b tmp_areas.bbs -- 2:99/99 new LINUX.GER -#
+$T -b tmp_areas.bbs -- 2:99/99 new AREA.NEW -d New-Test-Area
+$T -b tmp_areas.bbs -- 2:99/99 new AREA.NEW -#
+$T -b tmp_areas.bbs -- 2:99/99 new AREA.NEW1 -p -r
+$T -b tmp_areas.bbs -- 2:99/99 new AREA.NEWER -p -l 10
+$T -b tmp_areas.bbs -- 2:99/99 new AREA.NEWEST -l 5 -k abcxyz
 
 echo " "
 
@@ -45,13 +45,13 @@ $T -m -n -b tmp_areas.bbs <<EOF
 From: Sysop@f5678.n1234.z2.fidonet.org
 Subject: WUSEL
 
-add *.GER
-add TEST1
-add TEST2
-list
-query
-unlinked
-create NEW
+%+*.GER
+%+TEST1
+%+TEST2
+%list
+%query
+%unlinked
+%new NEW
 EOF
 
 $T -m -n -b tmp_areas.bbs <<EOF
@@ -62,21 +62,23 @@ Subject: WUSEL
 vacation *.ger
 -TEST1
 -TEST2
+&NEW
+~XX
 EOF
 
 $T -m -n -b tmp_areas.bbs <<EOF
 From: mj@fido.de
 Subject: Areafix request
 
-add *.GER
++*.GER
 EOF
 
 $T -m -n -b tmp_areas.bbs <<EOF
 From: mj@fido.de
 Subject: Areafix request
 
-password 2:1234/5678 WUSEL
-add *.GER
+from 2:1234/5678 WUSEL
++*.GER
 list
 EOF
 

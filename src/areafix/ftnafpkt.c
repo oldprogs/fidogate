@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftnafpkt.c,v 1.2 1998/02/19 16:15:48 mj Exp $
+ * $Id: ftnafpkt.c,v 1.3 1998/03/08 21:07:35 mj Exp $
  *
  * Areafix processing FTN packets
  *
@@ -37,7 +37,7 @@
 
 
 #define PROGRAM 	"ftnafpkt"
-#define VERSION 	"$Revision: 1.2 $"
+#define VERSION 	"$Revision: 1.3 $"
 #define CONFIG		DEFAULT_CONFIG_MAIN
 
 
@@ -85,6 +85,9 @@ int do_netmail(Message *msg, MsgBody *body)
     Message outmsg;
     
     tl_init(&outbody);
+
+    /* Check Areafix ./. Filefix */
+    /**FIXME: implement check of msg->name_to**/
 
     /* Run Areafix */
     if(areafix_do(&msg->node_from, msg->subject, &body->body,

@@ -2,7 +2,9 @@
 
 	************** TODO list for FIDOGATE development **************
 
-	* runtoss,rununpack: rewrite using Perl.
+	* ftnafpkt: automatically recognize Areafix/Filefix as name_to
+
+DONE	* runtoss,rununpack: rewrite using Perl.
 
 DONE	* config.pl: install in CONFIGDIR, not LIBDIR, remove -L
 	  option from perl scripts.

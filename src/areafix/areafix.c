@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: areafix.c,v 1.3 1998/02/19 16:15:47 mj Exp $
+ * $Id: areafix.c,v 1.4 1998/03/08 21:07:35 mj Exp $
  *
  * Common Areafix functions
  *
@@ -53,16 +53,17 @@ int	areafix_stdprintf	(const char *fmt, ...);
 int	is_wildcard		(char *);
 int	rewrite_areas_bbs	(void);
 int	areafix_do_cmd		(Node *, char *, Textlist *);
-int	cmd_create		(Node *, char *);
+int	cmd_new		(Node *, char *);
 int	cmd_vacation		(Node *, char *);
 int	cmd_list		(Node *);
 int	cmd_listall		(Node *);
 int	cmd_query		(Node *);
 int	cmd_unlinked		(Node *);
-int	cmd_add			(Node *, char *);
-int	cmd_remove		(Node *, char *);
+int	cmd_sub			(Node *, char *);
+int	cmd_unsub		(Node *, char *);
 int	cmd_help		(Node *);
 int	cmd_passwd		(Node *, char *);
+int	cmd_delete		(Node *, char *);
 
 
 
@@ -428,13 +429,14 @@ int rewrite_areas_bbs(void)
 #define CMD_LIST	1
 #define CMD_QUERY	2
 #define CMD_UNLINKED	3
-#define CMD_ADD		4
-#define CMD_REMOVE	5
+#define CMD_SUB		4
+#define CMD_UNSUB	5
 #define CMD_HELP	6
 #define CMD_PASSWD	7
 #define CMD_LISTALL     8
-#define CMD_CREATE	9
+#define CMD_NEW		9
 #define CMD_VACATION	10
+#define CMD_DELETE	11
 
 int areafix_do_cmd(Node *node, char *line, Textlist *out)
 {
@@ -460,23 +462,34 @@ int areafix_do_cmd(Node *node, char *line, Textlist *out)
 
     debug(2, "node=%s command=%s", znfp(node), line);
 
+    if(line[0] == '%')
+    {
+	percent = TRUE;
+	line++;
+    }
+
     if(line[0] == '+')
     {
-	cmd = CMD_ADD;
+	cmd = CMD_SUB;
 	arg = line + 1;
     }
     else if(line[0] == '-')
     {
-	cmd = CMD_REMOVE;
+	cmd = CMD_UNSUB;
+	arg = line + 1;
+    }
+    else if(line[0] == '&')
+    {
+	cmd = CMD_NEW;
+	arg = line + 1;
+    }
+    else if(line[0] == '~')
+    {
+	cmd = CMD_DELETE;
 	arg = line + 1;
     }
     else
     {
-	if(line[0] == '%')
-	{
-	    percent = TRUE;
-	    line++;
-	}
 	for(i=0; line[i] && !is_space(line[i]) && i<sizeof(buf)-1; i++)
 	    buf[i] = line[i];
 	buf[i] = 0;
@@ -488,28 +501,30 @@ int areafix_do_cmd(Node *node, char *line, Textlist *out)
 	    cmd = CMD_QUERY;
 	else if(!stricmp(buf, "unlinked"))
 	    cmd = CMD_UNLINKED;
-	else if(!stricmp(buf, "add"))
-	    cmd = CMD_ADD;
-	else if(!stricmp(buf, "remove"))
-	    cmd = CMD_REMOVE;
-	else if(!stricmp(buf, "delete"))
-	    cmd = CMD_REMOVE;
-	else if(!stricmp(buf, "del"))
-	    cmd = CMD_REMOVE;
+	else if(!stricmp(buf, "subscribe"))
+	    cmd = CMD_SUB;
+	else if(!stricmp(buf, "sub"))
+	    cmd = CMD_SUB;
+	else if(!stricmp(buf, "unsubscribe"))
+	    cmd = CMD_UNSUB;
+	else if(!stricmp(buf, "unsub"))
+	    cmd = CMD_UNSUB;
 	else if(!stricmp(buf, "help"))
 	    cmd = CMD_HELP;
 	else if(!stricmp(buf, "passwd"))
 	    cmd = CMD_PASSWD;
 	else if(!stricmp(buf, "password"))
 	    cmd = CMD_PASSWD;
-	else if(!stricmp(buf, "pass"))
+	else if(!stricmp(buf, "from"))
 	    cmd = CMD_PASSWD;
 	else if(!stricmp(buf, "listall"))
 	    cmd = CMD_LISTALL;
-	else if(!stricmp(buf, "create"))
-	    cmd = CMD_CREATE;
+	else if(!stricmp(buf, "new"))
+	    cmd = CMD_NEW;
 	else if(!stricmp(buf, "vacation"))
 	    cmd = CMD_VACATION;
+	else if(!stricmp(buf, "delete"))
+	    cmd = CMD_DELETE;
 	else
 	{
 	    if(percent)
@@ -520,7 +535,7 @@ int areafix_do_cmd(Node *node, char *line, Textlist *out)
 	    else
 	    {
 		/* Interpret line as area to add */
-		cmd = CMD_ADD;
+		cmd = CMD_SUB;
 		arg = line;
 	    }
 	}
@@ -543,11 +558,11 @@ int areafix_do_cmd(Node *node, char *line, Textlist *out)
     case CMD_UNLINKED:
 	ret = cmd_unlinked(node);
 	break;
-    case CMD_ADD:
-	ret = cmd_add(node, arg);
+    case CMD_SUB:
+	ret = cmd_sub(node, arg);
 	break;
-    case CMD_REMOVE:
-	ret = cmd_remove(node, arg);
+    case CMD_UNSUB:
+	ret = cmd_unsub(node, arg);
 	break;
     case CMD_HELP:
 	ret = cmd_help(node);
@@ -558,11 +573,14 @@ int areafix_do_cmd(Node *node, char *line, Textlist *out)
     case CMD_LISTALL:
 	ret = cmd_listall(node);
 	break;
-    case CMD_CREATE:
-	ret = cmd_create(node, arg);
+    case CMD_NEW:
+	ret = cmd_new(node, arg);
 	break;
     case CMD_VACATION:
 	ret = cmd_vacation(node, arg);
+	break;
+    case CMD_DELETE:
+	ret = cmd_delete(node, arg);
 	break;
     }	
     
@@ -574,7 +592,7 @@ int areafix_do_cmd(Node *node, char *line, Textlist *out)
 /*
  * Create command
  */
-int cmd_create(Node *node, char *line)
+int cmd_new(Node *node, char *line)
 {
     AreasBBS *p;
     char *name, *o1, *o2;
@@ -649,7 +667,7 @@ int cmd_create(Node *node, char *line)
 
     areasbbs_add(p);
 
-    log("%s: created %s lvl=%d key=%s desc=%s%s%s",
+    log("%s: new %s lvl=%d key=%s desc=%s%s%s",
 	node_to_asc(node, TRUE),
 	p->area,
 	p->lvl,
@@ -873,7 +891,7 @@ int cmd_unlinked(Node *node)
 /*
  * Add command
  */
-int cmd_add(Node *node, char *area)
+int cmd_sub(Node *node, char *area)
 {
     AreasBBS *p;
     LON *l;
@@ -884,7 +902,7 @@ int cmd_add(Node *node, char *area)
     
     if(!authorized)
     {
-	areafix_printf("Command ADD: not authorized.");
+	areafix_printf("Command SUBSCRIBE: not authorized.");
 	return OK;
     }
 
@@ -942,7 +960,7 @@ int cmd_add(Node *node, char *area)
 	    {
 		lon_add(l, node);
 		areas_bbs_changed = TRUE;
-		areafix_printf("%-41s: added", p->area);
+		areafix_printf("%-41s: subscribed", p->area);
 
 		log("%s: +%s", node_to_asc(node, TRUE), p->area);
 	    }
@@ -961,9 +979,9 @@ int cmd_add(Node *node, char *area)
 
 
 /*
- * Remove command
+ * Unsubscribe command
  */
-int cmd_remove(Node *node, char *area)
+int cmd_unsub(Node *node, char *area)
 {
     AreasBBS *p;
     LON *l;
@@ -971,7 +989,7 @@ int cmd_remove(Node *node, char *area)
 
     if(!authorized)
     {
-	areafix_printf("Command REMOVE: not authorized.");
+	areafix_printf("Command UNSUBSCRIBE: not authorized.");
 	return OK;
     }
     
@@ -992,7 +1010,7 @@ int cmd_remove(Node *node, char *area)
 	    {
 		lon_remove(l, node);
 		areas_bbs_changed = TRUE;
-		areafix_printf("%-41s: removed", p->area);
+		areafix_printf("%-41s: unsubscribed", p->area);
 
 		log("%s: -%s", node_to_asc(node, TRUE), p->area);
 	    }
@@ -1013,39 +1031,26 @@ int cmd_remove(Node *node, char *area)
  */
 int cmd_help(Node *node)
 {
+    FILE *fp;
+    char *helpfile;
+
     log("%s: help", znfp(node));
 
-    areafix_printf("");
-    areafix_printf("Help for %s, FIDOGATE %s", MY_NAME, version_global());
-    areafix_printf("");
-    areafix_printf("Send mail");
-    areafix_printf("");
-    areafix_printf("  To:      %s @ %s", MY_NAME, znfp(cf_addr()));
-    areafix_printf("  Subject: PASSWORD");
-    areafix_printf("");
-    areafix_printf("Commands in message body:");
-    areafix_printf("");
-    areafix_printf("  listall                  list all available areas");
-    areafix_printf("  list                     list areas available to node");
-    areafix_printf("  query                    list subscribed areas");
-    areafix_printf("  unlinked                 list unsubscribed areas");
-    areafix_printf("  passwd Z:N/F.P PASSWORD  set address and password");
-    areafix_printf("  password Z:N/F.P PASSWORD");
-    areafix_printf("  pass Z:N/F.P PASSWORD");
-    areafix_printf("  add AREA                 subscribe to area");
-    areafix_printf("  +AREA");
-    areafix_printf("  AREA");
-    areafix_printf("  remove AREA              unsubscribe to area");
-    areafix_printf("  delete AREA");
-    areafix_printf("  del AREA");
-    areafix_printf("  -AREA");
-    areafix_printf("  vacation AREA            set vacation flag for area");
-    areafix_printf("  create AREA [-options]   create new area");
-    areafix_printf("  help                     this help");
-    areafix_printf("");
-    areafix_printf("AREA names are not case-sensitive "
-		   "and support shell-style wildcards");
-    areafix_printf("  * ? [a-z] [abc], e.g. COMP.OS.*, [A-D]*.GER");
+    if( (helpfile = cf_get_string("AreaFixHelp", TRUE)) )
+    {
+	if( (fp = fopen_expand_name(helpfile, R_MODE, FALSE)) ) 
+	{
+	    while(fgets(buffer, sizeof(buffer), fp))
+	    {
+		strip_crlf(buffer);
+		areafix_printf(buffer);
+	    }
+	    fclose(fp);
+	    return OK;
+	}
+    }
+
+    areafix_printf("Sorry, no help available.");
 
     return OK;
 }
@@ -1122,5 +1127,17 @@ int cmd_passwd(Node *node, char *arg)
     debug(3, "passwd key : %s", authorized_key);
     debug(3, "passwd name: %s", authorized_name);
     
+    return OK;
+}
+
+
+
+/*
+ * Delete command
+ */
+int cmd_delete(Node *node, char *area)
+{
+    areafix_printf("Command DELETE: sorry, not yet implemented.");
+	
     return OK;
 }

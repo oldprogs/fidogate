@@ -1,6 +1,6 @@
 #!/usr/bin/perl
 #
-# $Id: runtoss.pl,v 4.1 1998/03/07 16:53:31 mj Exp $
+# $Id: runtoss.pl,v 4.2 1998/03/08 21:07:39 mj Exp $
 #
 # Wrapper for ftntoss, ftnroute, ftnpack doing the toss process
 #
@@ -8,8 +8,8 @@
 #    or  runtoss /path/dir
 #
 
-$VERSION = '$Revision: 4.1 $ ';
-$PROGRAM = "rununpack";
+$VERSION = '$Revision: 4.2 $ ';
+$PROGRAM = "runtoss";
 
 
 # Common configuration for perl scripts 
@@ -253,7 +253,7 @@ while($flag) {
     &df_check($OUTBOUND) || exit 1;
 
     # Toss
-    &run_prog("ftntoss -x -I$INPUT $GRADE $FLAGS $ARGS");
+    &run_prog("ftntoss -x -I $INPUT $GRADE $FLAGS $ARGS");
     if($status == 0) {		# Normal exit
 	$flag = 0;
     }

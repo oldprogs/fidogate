@@ -1,6 +1,6 @@
 #:ts=8
 #
-#    $Id: Makefile,v 1.2 1998/02/14 17:13:56 mj Exp $
+#    $Id: Makefile,v 1.3 1998/03/08 21:07:34 mj Exp $
 #
 #    Makefile for FIDOGATE src/areafix/
 #
@@ -42,7 +42,7 @@ install:
 	$(INSTALL_PROG) ftnaf$(EXE) $(PREFIX)$(LIBDIR)
 	$(INSTALL_PROG) ftnafpkt$(EXE) $(PREFIX)$(LIBDIR)
 	$(INSTALL_SETUID) ftnafmail$(EXE) $(PREFIX)$(LIBDIR)
-
+	$(INSTALL_DATA) areafix.help $(PREFIX)$(LIBDIR)
 
 
 clean veryclean:

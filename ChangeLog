@@ -1,4 +1,33 @@
+Sun Mar  8 17:05:55 1998  Martin Junius  <mj@fido.de>
+
+	------- CVS ci -------------------------------------------------------
+
+	* test/tc.af/run: adapted to changes in Areafix commands.
+
+	* examples/orodruin/toss.conf: added example for AreaFixHelp.
+
+	* src/areafix/areafix.c (cmd_help): rewritten to use new
+	  areafix.help text file, new config AreaFixHelp for location.
+	  (CMD_ADD): renamed to CMD_SUB.
+	  (CMD_REMOVE): renamed to CMD_UNSUB.
+	  (CMD_CREATE): renamed to CMD_NEW.
+	  (CMD_DELETE): new, remove area (delete AREA, ~AREA).
+	  (areafix_do_cmd): changes to command names, new command delete,
+	  see also areafix.help.
+	  (cmd_add): renamed to cmd_sub().
+	  (cmd_remove): renamed to cmd_unsub().
+	  (cmd_create): renamed to cmd_new().
+
+	* src/areafix/Makefile (install): added areafix.help -> LIBDIR.
+
+	* src/areafix/areafix.help: new help file for areafix.
+
+	* src/toss/runtoss.pl: $PROGRAM is runtoss.
+
 Sat Mar  7 16:15:17 1998  Martin Junius  <mj@fido.de>
+
+	* src/toss/rununpack.pl (log): fixed output to log file if option
+	  -v is not set.
 
 	------- CVS ci -------------------------------------------------------
 

@@ -1,13 +1,13 @@
 #!/usr/bin/perl
 #
-# $Id: rununpack.pl,v 4.1 1998/03/07 16:53:31 mj Exp $
+# $Id: rununpack.pl,v 4.2 1998/03/08 21:07:39 mj Exp $
 #
 # Unpack ArcMail archives
 #
 # Usage: rununpack name
 #
 
-$VERSION = '$Revision: 4.1 $ ';
+$VERSION = '$Revision: 4.2 $ ';
 $PROGRAM = "rununpack";
 
 $BADDIR  = "bad";
@@ -93,7 +93,7 @@ else {
 
 sub log {
     local(@text) = @_;
-    local(*F, @x);
+    local(*F, @x, $d);
     
     print "$PROGRAM @text\n" if($opt_v);
 
@@ -109,10 +109,9 @@ sub log {
     }
     
     @x = localtime;
-    printf
-	F "%s %02d %02d:%02d:%02d ",
-	$month[$x[4]], $x[3], $x[2], $x[1], $x[0]; 
-    print F "$PROGRAM @text\n" if($opt_v);
+    $d = sprintf "%s %02d %02d:%02d:%02d",
+	         $month[$x[4]], $x[3], $x[2], $x[1], $x[0]; 
+    print F "$d $PROGRAM @text\n";
 
     close(F);
 }
