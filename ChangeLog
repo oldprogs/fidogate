@@ -2,6 +2,10 @@
 
 	------- CVS ci -------------------------------------------------------
 
+	* version.h (PATCHLEVEL): set to 6, version 4.4.6
+
+	------- CVS ci -------------------------------------------------------
+
 	* doc/fidogate.texi (Config): added documentation for this option.
 
 	* src/gate/ftn2rfc.c (main): added DontIgnore0x8d aka
