@@ -3,6 +3,7 @@
 
 4.3.5!!	* ftnpack/bink_attach(): check that FLO file contains entry
 	  for ArcMail archive, always call bink_attach().
+	  bink_attach(): use flo_xxx() functions.
 
 	* Areafix: if %from is used for address, send reply *both* to
 	  original sender and %from address.

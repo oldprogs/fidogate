@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: binkley.c,v 4.9 1999/04/03 12:13:21 mj Exp $
+ * $Id: binkley.c,v 4.10 1999/07/18 15:00:29 mj Exp $
  *
  * BinkleyTerm-style outbound directory functions
  *
@@ -355,22 +355,16 @@ int bink_attach(Node *node, int mode, char *name, char *flav, int bsy)
     if(!flo)
 	return ERROR;
 
-    /*
-     * Create directory if necessary
-     */
+    /* Create directory if necessary */
     if(bink_mkdir(node) == ERROR)
 	return ERROR;
     
-    /*
-     * Create BSY file
-     */
+    /* Create BSY file */
     if(bsy)
 	if(bink_bsy_create(node, WAIT) == ERROR)
 	    return ERROR;
     
-    /*
-     * Open and lock FLO file
-     */
+    /* Open and lock FLO file */
     do
     {
 	/* Open FLO file for append */
@@ -532,3 +526,75 @@ int check_old(char *name, time_t dt)
 
     return t - st.st_mtime > dt;
 }
+
+
+
+
+/*****************************************************************************/
+#ifdef TEST
+
+#include "getopt.h"
+
+
+#define CONFIG		DEFAULT_CONFIG_MAIN
+
+
+int main(int argc, char *argv[])
+{
+    Node node;
+    int c;
+    char *c_flag=NULL;
+    char mode[] = "-";
+    char *line;
+    
+    int option_index;
+    static struct option long_options[] =
+    {
+	{ "verbose",      0, 0, 'v'},	/* More verbose */
+	{ "config",       1, 0, 'c'},	/* Config file */
+	{ 0,              0, 0, 0  }
+    };
+
+    /* Init configuration */
+    cf_initialize();
+
+    while ((c = getopt_long(argc, argv, "vc:",
+			    long_options, &option_index     )) != EOF)
+	switch (c) {
+	/***** Common options *****/
+	case 'v':
+	    verbose++;
+	    break;
+	case 'c':
+	    c_flag = optarg;
+	    break;
+	}
+
+    /*
+     * Read config file
+     */
+    cf_read_config_file(c_flag ? c_flag : CONFIG);
+
+    /***** Test **************************************************************/
+    if(optind >= argc)
+    {
+	fprintf(stderr,
+		"usage: testbinkley [-v] [-c CONFIG] Z:N/F.P [^#]FILE\n");
+	exit(1);
+    }
+
+    if(asc_to_node(argv[optind], &node, FALSE) == ERROR)
+    {
+	fprintf(stderr, "testbinkley: %s is not an FTN address\n",
+		argv[optind]);
+	exit(1);
+    }
+
+    
+    exit(0);
+
+    /**NOT REACHED**/
+    return 0;
+}
+
+#endif /**TEST**/

@@ -2,7 +2,7 @@
 @c
 @c FIDOGATE documentation for 4.3
 @c
-@c $Id: fidogate.texi,v 4.46 1999/06/27 19:18:08 mj Exp $
+@c $Id: fidogate.texi,v 4.47 1999/07/18 15:00:21 mj Exp $
 @c
 
 @setfilename fidogate.info
@@ -738,6 +738,9 @@ Abbreviations for configured directories.
 @item PERL
 Full path name of perl executable.
 
+@item SENDMAIL_CF_DIR
+Directory where the sendmail m4 configuration files are installed
+(@code{/usr/lib/sendmail-cf} on RedHat Linux systems).
 
 @item INFODIR
 Directory for installing info documentation files.

@@ -1,3 +1,31 @@
+1999-07-18  Martin Junius  <mj@fido.de>
+
+	------- CVS ci -------------------------------------------------------
+
+	* doc/fidogate.texi (config.make): added SENDMAIL_CF_DIR.
+
+	* sendmail/mkclean: new script, removing symlinks to
+	  /usr/lib/sendmail-cf.
+
+	* sendmail/Makefile: new Makefile for sendmail dir.
+
+	* sendmail/mklinks (DIRS): new script, creating links to original
+	  sendmail m4 config files living under /usr/lib/sendmail-cf.
+
+	* config.make (SENDMAIL_CF_DIR): new macro setting directory,
+	  where sendmail m4 configuration files are installed.
+
+1999-07-03  Martin Junius  <mj@fido.de>
+
+	* src/common/binkley.c (main): added test main().
+
+	* src/common/flo.c (flo_openx): renamed old flo_open() because of
+	  new argument wpmode. If wpmode is TRUE, the function will try
+	  again if the access() check fails after sucessfully locking the
+	  FLO file.
+	  (flo_open): wrapper for flo_openx(), wpmode=FALSE.
+	  (flo_file): new function returning flo_fp.
+
 1999-06-27  Martin Junius  <mj@fido.de>
 
 	------- CVS ci -------------------------------------------------------

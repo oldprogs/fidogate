@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: flo.c,v 4.6 1999/04/03 12:13:21 mj Exp $
+ * $Id: flo.c,v 4.7 1999/07/18 15:00:29 mj Exp $
  *
  * Functions for handling BinkleyTerm-style FLO files
  *
@@ -44,66 +44,83 @@ static long  flo_off_next = -1;		/* Offset beginning of next line */
 
 
 
+/*
+ * Return FLO file pointer
+ */
+FILE *flo_file(void)
+{
+    return flo_fp;
+}
+
+
 
 /*
  * Open FLO file for read/write, complete with BSY files and locking
  */
 int flo_open(Node *node, int bsy)
 {
-    char *flo;
+    return flo_openx(node, bsy, FALSE);
+}
 
+
+int flo_openx(Node *node, int bsy, int wpmode)
+{
+    char *flo;
+    char *mode;
+
+    mode = wpmode ? WP_MODE : RP_MODE;
+
+    /* Find existing or new FLO file */
     flo = bink_find_flo(node, NULL);
     if(!flo)
 	return ERROR;
     BUF_COPY(flo_name, flo);
     
-    /*
-     * Create directory if necessary
-     */
+    /* Create directory if necessary */
     if(bink_mkdir(node) == ERROR)
 	return ERROR;
     
-    /*
-     * Create BSY file
-     */
+    /* Create BSY file */
     if(bsy)
 	if(bink_bsy_create(node, WAIT) == ERROR)
 	    return ERROR;
-    
-    /*
-     * Open FLO file for read/write
-     */
+
+ again:    
+    /* Open FLO file for read/write */
     debug(4, "Opening FLO file in read/write mode");
-    flo_fp = fopen(flo_name, RP_MODE);
+    flo_fp = fopen(flo_name, mode);
     if(flo_fp == NULL)
     {
 	log("$opening FLO file %s failed", flo_name);
 	if(bsy)
 	    bink_bsy_delete(node);
-	    return ERROR;
+	return ERROR;
     }
-    
-    /*
-     * Lock it, waiting for lock to be granted
-     */
+    chmod(flo_name, FLO_MODE);
+
+    /* Lock it, waiting for lock to be granted */
     debug(4, "Locking FLO file");
     if(lock_file(flo_fp))
     {
+	/* Lock error ... */
 	log("$locking FLO file %s failed", flo_name);
 	if(bsy)
 	    bink_bsy_delete(node);
+	fclose(flo_fp);
 	return ERROR;
     }
 
-    /*
-     * Lock succeeded, but the FLO file may have been deleted
-     */
-    if(access(flo, F_OK) == ERROR)
+    /* Lock succeeded, but the FLO file may have been deleted */
+    if(access(flo_name, F_OK) == ERROR)
     {
 	debug(4, "FLO file %s deleted after locking", flo_name);
 	if(bsy)
 	    bink_bsy_delete(node);
-	return ERROR;
+	fclose(flo_fp);
+	if(wpmode)
+	    goto again;
+	else
+	    return ERROR;
     }
 
     debug(4, "FLO file %s open and locking succeeded", flo_name);
@@ -230,7 +247,7 @@ int flo_mark(void)
 #include "getopt.h"
 
 
-#define CONFIG		"%L/config.main"
+#define CONFIG		DEFAULT_CONFIG_MAIN
 
 
 int main(int argc, char *argv[])
