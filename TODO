@@ -2,6 +2,10 @@
 	************** TODO list for FIDOGATE development **************
 
 
+	* rfcparse.c: allow
+	      Real Name <user@do.main>
+	  format for output, config option.
+
 4.3.x	* rfc2ftn: different output dirs for mail and news.
 
 4.3.x	* log.c: add alternate logging via openlog(), syslog().
