@@ -3,7 +3,7 @@
 ../tr.init
 
 F="./ffxmail"
-P="../../src/toss/ftnpack -L../cf -vvv"
+P="../../src/toss/ftnpack -c../cf/toss.conf -vvv"
 
 echo "tc: running"
 
@@ -49,4 +49,4 @@ TEST
 EOF
 
 # Pack it
-$P -f 242:1/1 -I %O/out.0f2/test
+$P -f 242:1/1 -I %B/out.0f2/test

@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: prototypes.h,v 4.37 1998/01/31 20:22:35 mj Exp $
+ * $Id: prototypes.h,v 4.38 1998/02/01 18:51:20 mj Exp $
  *
  * Prototypes for functions in libfidogate.a
  *
@@ -38,7 +38,7 @@ void	addr_restricted		(int);
 int	addr_is_restricted	(void);
 void	addr_ignore		(int);
 char   *ftn_to_inet		(Node *, int);
-char   *ftn_to_inet_pfnz	(Node *);
+char   *s_ftn_to_inet_pfnz	(Node *);
 Node   *inet_to_ftn		(char *);
 int	addr_is_local		(char *);
 int	addr_is_domain		(char *);
@@ -183,6 +183,12 @@ int	flo_mark		(void);
 FILE   *fopen_expand_name	(char *, char *, int);
 FILE   *xfopen			(char *, char *);
 
+/* ftnaddr.c */
+void	ftnaddr_init		(FTNAddr *);
+void	ftnaddr_invalid		(FTNAddr *);
+FTNAddr	ftnaddr_parse		(char *);
+char   *s_ftnaddr_print		(FTNAddr *);
+
 /* getdate.y */
 time_t	get_date		(char *, void *);
 
@@ -289,6 +295,7 @@ char   *str_copy5		(char *, size_t, char *, char *, char *,
 #define BUF_COPY4(d,s1,s2,s3,s4)	str_copy4 (d,sizeof(d),s1,s2,s3,s4)
 #define BUF_COPY5(d,s1,s2,s3,s4,s5)	str_copy5 (d,sizeof(d),s1,s2,s3,s4,s5)
 
+char   *str_copy_range		(char *, size_t, char *, char *);
 char   *strncpy0		(char *, char *, int);
 char   *strncat0		(char *, char *, int);
 #ifdef HAS_STRCASECMP
@@ -473,12 +480,14 @@ void    tmps_free		(TmpS *);
 void    tmps_freeall		(void);
 TmpS   *tmps_printf		(const char *, ...);
 TmpS   *tmps_copy		(char *);
+TmpS   *tmps_stripsize		(TmpS *);
 char   *s_alloc			(size_t);
 char   *s_realloc		(char *, size_t);
 void    s_free			(char *s);
 void    s_freeall		(void);
 char   *s_printf		(const char *, ...);
 char   *s_copy			(char *);
+char   *s_stripsize		(char *);
 
 /* version.c */
 char   *version_global		(void);

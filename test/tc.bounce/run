@@ -2,7 +2,7 @@
 
 ../tr.init
 
-T="../../src/gate/rfc2ftn -L../cf -v"
+T="../../src/gate/rfc2ftn -c../cf/gate.conf -v"
 
 echo "tc: running"
 

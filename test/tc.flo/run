@@ -1,11 +1,12 @@
 #!/bin/sh
 
-T1="../../src/util/ftnfattach -L../cf -c./tmp_config.dos -v"
-T2="../../src/common/testflo -L../cf -c./tmp_config.dos -vvvvv"
-T3="../../src/util/ftnflo -L../cf -c./tmp_config.dos"
+../tr.init
+
+T1="../../src/util/ftnfattach -c./tmp_config.dos -v"
+T2="../../src/common/testflo  -c./tmp_config.dos -vvvvv"
+T3="../../src/util/ftnflo     -c./tmp_config.dos"
 A="1:2/3.4"
 
-../tr.init
 cp config.dos tmp_config.dos
 echo "DosDrive X: "`pwd` >>tmp_config.dos
 cp config.dos tmp_file1.txt

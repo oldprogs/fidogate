@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# $Id: tr.verify,v 4.2 1998/01/28 22:00:25 mj Exp $
+# $Id: tr.verify,v 4.3 1998/02/01 18:51:22 mj Exp $
 #
 # FIDOGATE test check script, compares run output against run.verify
 #
@@ -18,7 +18,10 @@ fi
 
 if [ -f $VERIFY ]; then
 
-    ./run 2>&1 | grep -v '^ *Date:' >$OUT
+    ./run 2>&1 \
+	| grep -v '^ *Date:' \
+	| grep -v '^now=' \
+	> $OUT
     diff -u $VERIFY $OUT >$DIFF 2>&1
     status=$?
     if [ $status -ne 0 ]; then

@@ -1,0 +1,114 @@
+tc: clean-up
+tc: init
+tc: running
+RFC To:       test@2:2452/110.2
+    Name:     test
+    Address:  2:2452/110.2
+    FTN node: 2:2452/110.2
+    Name:     test
+    Address:  f99.n2499.z2.fidonet.org
+    FTN node: 2:2499/99.0
+rfc2ftn X-Flags: mn, From: test@f99.n2499.z2.fidonet.org
+rfc2ftn MAIL: test@f99.n2499.z2.fidonet.org -> test@2:2452/110.2
+Writing FTN packet header:
+    From: 2:2499/99.0
+    To  : 2:2452/110.2
+    Baud: 0
+    Prod: 00 fe
+    Rev : 4.3
+    Pass: ""
+    Capw: 0001
+RFC To:       uucp@2:2452/110.2
+    Name:     uucp
+    Address:  2:2452/110.2
+    FTN node: 2:2452/110.2
+    Name:     test
+    Address:  f99.n2499.z2.fidonet.org
+    FTN node: 2:2499/99.0
+rfc2ftn X-Flags: mn, From: test@f99.n2499.z2.fidonet.org
+rfc2ftn MAIL: test@f99.n2499.z2.fidonet.org -> uucp@2:2452/110.2
+Writing FTN packet header:
+    From: 2:2499/99.0
+    To  : 2:2452/110.2
+    Baud: 0
+    Prod: 00 fe
+    Rev : 4.3
+    Pass: ""
+    Capw: 0001
+RFC To:       uucp@2:2452/110.2
+    Name:     uucp
+    Address:  2:2452/110.2
+    FTN node: 2:2452/110.2
+    Name:     test
+    Address:  f99.n2499.z2.fidonet.org
+    FTN node: 2:2499/99.0
+rfc2ftn X-Flags: mn, From: test@f99.n2499.z2.fidonet.org
+rfc2ftn MAIL: test@f99.n2499.z2.fidonet.org -> uucp@2:2452/110.2
+Writing FTN packet header:
+    From: 2:2499/99.0
+    To  : 2:2452/110.2
+    Baud: 0
+    Prod: 00 fe
+    Rev : 4.3
+    Pass: ""
+    Capw: 0001
+RFC To:       uucp@2:2452/110.2
+    Name:     uucp
+    Address:  2:2452/110.2
+    FTN node: 2:2452/110.2
+    Name:     test
+    Address:  f2.n242.z2.fidonet.org
+    FTN node: 2:242/2.0
+rfc2ftn X-Flags: mn, From: test@f2.n242.z2.fidonet.org
+rfc2ftn MAIL: test@f2.n242.z2.fidonet.org -> uucp@2:2452/110.2
+Writing FTN packet header:
+    From: 2:242/2.0
+    To  : 2:2452/110.2
+    Baud: 0
+    Prod: 00 fe
+    Rev : 4.3
+    Pass: ""
+    Capw: 0001
+Reading FTN packet header:
+    From: 2:2499/99.0
+    To  : 2:2452/110.2
+    Baud: 0
+    Prod: 00 fe
+    Rev : 4.3
+    Pass: ""
+    Capw: 0001
+ftn2rfc packet ./pin/00000001.pkt (319b) from 2:2499/99.0 to 2:2452/110.2
+ftn2rfc MAIL: Test <Test@f99.n2499.z2.fidonet.org> -> Test@orodruin.fido.de
+Reading FTN packet header:
+    From: 2:2499/99.0
+    To  : 2:2452/110.2
+    Baud: 0
+    Prod: 00 fe
+    Rev : 4.3
+    Pass: ""
+    Capw: 0001
+ftn2rfc packet ./pin/00000002.pkt (319b) from 2:2499/99.0 to 2:2452/110.2
+Message to `UUCP' or `GATEWAY' without To line
+ftn2rfc BOUNCE: mail from Test <Test@f99.n2499.z2.fidonet.org> without To line
+Reading FTN packet header:
+    From: 2:2499/99.0
+    To  : 2:2452/110.2
+    Baud: 0
+    Prod: 00 fe
+    Rev : 4.3
+    Pass: ""
+    Capw: 0001
+ftn2rfc packet ./pin/00000003.pkt (348b) from 2:2499/99.0 to 2:2452/110.2
+Not a registered node: 2:2499/99
+ftn2rfc BOUNCE: mail from unregistered Test <Test@f99.n2499.z2.fidonet.org>
+Reading FTN packet header:
+    From: 2:242/2.0
+    To  : 2:2452/110.2
+    Baud: 0
+    Prod: 00 fe
+    Rev : 4.3
+    Pass: ""
+    Capw: 0001
+ftn2rfc packet ./pin/00000004.pkt (342b) from 2:242/2.0 to 2:2452/110.2
+Registered node is down: 2:242/2
+ftn2rfc BOUNCE: mail from down Test <Test@yftn.fido.de>

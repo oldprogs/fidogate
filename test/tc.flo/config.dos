@@ -1,9 +1,9 @@
 #
-# $Id: config.dos,v 1.1 1996/06/09 10:50:34 mj Exp $
+# $Id: config.dos,v 1.2 1998/02/01 18:51:26 mj Exp $
 #
 # Test with DosDrive configuration
 #
 
-include %L/config.gate
+include ../cf/gate.conf
 
 # DosDrive X: <cwd> append here

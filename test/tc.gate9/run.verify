@@ -1,0 +1,33 @@
+tc: clean-up
+tc: init
+Internet Mail via Fido Gateway
+Message body size 14 (+CR!)
+RFC To:       test@abc.def.org
+RFC From:     mj@fido.de (Martin Junius)
+RFC Sender:   mj@fido.de (Martin Junius)
+    Name:     test
+    Address:  abc.def.org
+Name for alias checking: UUCP
+No alias found: return UUCP
+    Name:     mj
+    Address:  fido.de
+addr_is_local(): From=mj@fido.de (Martin Junius) FQDN=orodruin.fido.de
+rfc2ftn MAIL: mj@fido.de (Martin Junius) -> test@abc.def.org
+RFC MIME-Version:              -NONE-
+RFC Content-Type:              -NONE-
+RFC Content-Transfer-Encoding: -NONE-
+New packet file ./outpkt/mail/00000001.pkt (tmp ./outpkt/mail/00000001.tmp)
+Writing FTN packet header:
+    From: 2:2452/110.2
+    To  : 2:2452/110.2
+    Baud: 0
+    Prod: 00 fe
+    Rev : 4.3
+    Pass: ""
+    Capw: 0001
+Writing FTN message header:
+    From: Martin Junius                        @ 2:2452/110.2
+    To  : UUCP                                 @ 2:2452/110.1
+    Subj: Test Gateway
+    Attr: 0001
+using local time

@@ -2,13 +2,13 @@
 
 ../tr.init
 
-V="-v"
-#V="-vvvvvvvvv"
+#V="-v"
+V="-vvvvvvvvv"
 
-T="../../src/toss/ftntoss  -L../cf -S. -cconfig.main"
-R="../../src/toss/ftnroute -L../cf -S. -cconfig.main"
+T="../../src/toss/ftntoss  -cconfig.main"
+R="../../src/toss/ftnroute -cconfig.main"
 
-G="../../src/gate/rfc2ftn -L../cf -S. -cconfig.gate"
+G="../../src/gate/rfc2ftn  -cconfig.gate"
 
 
 # Generate some EchoMail messages
@@ -25,6 +25,6 @@ EOF
 done
 
 # Toss'em up
-cp out/*.pkt toss/in
+cp outpkt/news/*.pkt pin
 $T $V
 $R $V

@@ -2,8 +2,8 @@
 
 ../tr.init
 
-R="../../src/gate/rfc2ftn -L../cf -vvv"
-F="../../src/gate/ftn2rfc -L../cf -vvv"
+R="../../src/gate/rfc2ftn -c../cf/gate.conf -vvv"
+F="../../src/gate/ftn2rfc -c../cf/gate.conf -vvv"
 
 echo "tc: running"
 
@@ -17,15 +17,14 @@ TEST
 EOF
 
 # Move to SPOOLDIR/in and run ftn2rfc
-mv out/*.pkt in
+mv outpkt/*/*.pkt pin
 $F
 
 # Run rfc2ftn on output
-for f in in/tmpnews/*.msg; do
+for f in outrfc/news/*.rfc; do
     $R -n <$f && rm -f $f;
 done
 
 # Move to SPOOLDIR/in and run ftn2rfc
-mv out/*.pkt in
+mv outpkt/*/*.pkt pin
 $F
-

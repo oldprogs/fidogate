@@ -1,6 +1,6 @@
 #:ts=8
 #
-# $Id: config.gate,v 1.1 1997/06/01 16:22:08 mj Exp $
+# $Id: config.gate,v 1.2 1998/02/01 18:51:31 mj Exp $
 #
 # FIDOGATE config file gateway programs
 #
@@ -11,12 +11,12 @@
 #
 
 # Special: areas file
-Areas		%L/areas
+Areas		../cf/areas
 
 #
 # Include common stuff (%L = LIBDIR)
 #
-include		%L/config.common
+include		../cf/common.conf
 
 
 #

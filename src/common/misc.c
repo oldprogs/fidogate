@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: misc.c,v 4.8 1998/01/18 09:47:51 mj Exp $
+ * $Id: misc.c,v 4.9 1998/02/01 18:51:19 mj Exp $
  *
  * Miscellaneous functions
  *
@@ -167,6 +167,22 @@ char *str_copy5(char *d, size_t n, char *s1, char *s2, char *s3, char *s4, char 
 }
 
     
+
+/*
+ * Copy string range
+ */
+char *str_copy_range(char *d, size_t n, char *s, char *lim)
+{
+    int i;
+    
+    for(i=0; i<n-1 && s<lim; i++, s++)
+	d[i] = *s;
+    d[i] = 0;
+
+    return d;
+}
+
+
 
 /*
  * strncpy0() --- strncpy() with terminating '\0' char

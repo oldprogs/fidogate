@@ -1,11 +1,14 @@
 #!/bin/sh
 #
-# $Id: mk.verify,v 4.1 1998/01/28 22:00:25 mj Exp $
+# $Id: mk.verify,v 4.2 1998/02/01 18:51:22 mj Exp $
 #
 # Create run.verify
 #
 
 VERIFY=run.verify
 
-./run 2>&1 | grep -v '^ *Date:' >$VERIFY
+./run 2>&1 \
+    | grep -v '^ *Date:' \
+    | grep -v '^now=' \
+    > $VERIFY
 

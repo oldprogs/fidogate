@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway software UNIX <-> FIDO
  *
- * $Id: address.c,v 4.8 1998/01/28 22:00:17 mj Exp $
+ * $Id: address.c,v 4.9 1998/02/01 18:51:19 mj Exp $
  *
  * Parsing and conversion for FIDO and RFC addresses
  *
@@ -114,15 +114,16 @@ char *ftn_to_inet(Node *node, int force_flag)
 /*
  * ftn_to_inet_pfnz(): convert FTN address to p.f.n.z Internet address
  */
-char *ftn_to_inet_pfnz(Node *node)
+char *s_ftn_to_inet_pfnz(Node *node)
 {
-    char *s;
+    TmpS *s;
 
-    s = s_alloc(MAXINETADDR);
-    str_copy  (s, MAXINETADDR, node_to_pfnz(node, FALSE));
-    str_append(s, MAXINETADDR, cf_zones_inet_domain(node->zone));
+    s = tmps_alloc(MAXINETADDR);
+    str_copy  (s->s, s->len, node_to_pfnz(node, FALSE));
+    str_append(s->s, s->len, cf_zones_inet_domain(node->zone));
+    tmps_stripsize(s);
 
-    return s;
+    return s->s;
 }
 
 

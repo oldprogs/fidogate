@@ -1,0 +1,257 @@
+tc: clean-up
+tc: init
+tc: running
+Message body size 52 (+CR!)
+RFC To:       Martin_Junius@f110.n2452.z2.fidonet.org
+RFC From:     mj@fido.de
+RFC Sender:   mj@fido.de
+    Name:     Martin_Junius
+    Address:  f110.n2452.z2.fidonet.org
+    FTN node: 2:2452/110.0
+Name for alias checking: Martin_Junius
+No alias found: return Martin Junius
+    Name:     mj
+    Address:  fido.de
+addr_is_local(): From=mj@fido.de FQDN=orodruin.fido.de
+rfc2ftn MAIL: mj@fido.de -> Martin_Junius@f110.n2452.z2.fidonet.org
+RFC MIME-Version:              -NONE-
+RFC Content-Type:              -NONE-
+RFC Content-Transfer-Encoding: -NONE-
+New packet file ./outpkt/mail/00000001.pkt (tmp ./outpkt/mail/00000001.tmp)
+Writing FTN packet header:
+    From: 2:2452/110.2
+    To  : 2:2452/110.2
+    Baud: 0
+    Prod: 00 fe
+    Rev : 4.3
+    Pass: ""
+    Capw: 0001
+Writing FTN message header:
+    From: Mj                                   @ 2:2452/110.2
+    To  : Martin Junius                        @ 2:2452/110.0
+    Subj: Test Body 1
+    Attr: 0001
+using local time
+Message body size 52 (+CR!)
+RFC To:       Martin_Junius@f110.n2452.z2.fidonet.org
+RFC From:     mj@fido.de (Martin Junius)
+RFC Reply-To: mj@fido.de
+RFC Sender:   Martin Junius <mj@fido.de>
+    Name:     Martin_Junius
+    Address:  f110.n2452.z2.fidonet.org
+    FTN node: 2:2452/110.0
+Name for alias checking: Martin_Junius
+No alias found: return Martin Junius
+    Name:     mj
+    Address:  fido.de
+addr_is_local(): From=Martin Junius <mj@fido.de> FQDN=orodruin.fido.de
+rfc2ftn MAIL: Martin Junius <mj@fido.de> -> Martin_Junius@f110.n2452.z2.fidonet.org
+RFC MIME-Version:              -NONE-
+RFC Content-Type:              -NONE-
+RFC Content-Transfer-Encoding: -NONE-
+New packet file ./outpkt/mail/00000002.pkt (tmp ./outpkt/mail/00000002.tmp)
+Writing FTN packet header:
+    From: 2:2452/110.2
+    To  : 2:2452/110.2
+    Baud: 0
+    Prod: 00 fe
+    Rev : 4.3
+    Pass: ""
+    Capw: 0001
+Writing FTN message header:
+    From: Martin Junius                        @ 2:2452/110.2
+    To  : Martin Junius                        @ 2:2452/110.0
+    Subj: Test Body 2
+    Attr: 0001
+using local time
+Message body size 52 (+CR!)
+RFC To:       Martin_Junius@f110.n2452.z2.fidonet.org
+RFC From:     Martin_Junius@p2.f110.n2452.z2.fidonet.org
+RFC Sender:   Martin_Junius@p2.f110.n2452.z2.fidonet.org
+    Name:     Martin_Junius
+    Address:  f110.n2452.z2.fidonet.org
+    FTN node: 2:2452/110.0
+Name for alias checking: Martin_Junius
+No alias found: return Martin Junius
+    Name:     Martin_Junius
+    Address:  p2.f110.n2452.z2.fidonet.org
+    FTN node: 2:2452/110.2
+addr_is_local(): From=Martin_Junius@p2.f110.n2452.z2.fidonet.org FQDN=orodruin.fido.de
+rfc2ftn MAIL: Martin_Junius@p2.f110.n2452.z2.fidonet.org -> Martin_Junius@f110.n2452.z2.fidonet.org
+RFC MIME-Version:              -NONE-
+RFC Content-Type:              -NONE-
+RFC Content-Transfer-Encoding: -NONE-
+New packet file ./outpkt/mail/00000003.pkt (tmp ./outpkt/mail/00000003.tmp)
+Writing FTN packet header:
+    From: 2:2452/110.2
+    To  : 2:2452/110.2
+    Baud: 0
+    Prod: 00 fe
+    Rev : 4.3
+    Pass: ""
+    Capw: 0001
+Writing FTN message header:
+    From: Martin Junius                        @ 2:2452/110.2
+    To  : Martin Junius                        @ 2:2452/110.0
+    Subj: Test Body 3
+    Attr: 0001
+using local time
+Message body size 52 (+CR!)
+RFC To:       Martin_Junius@f110.n2452.z2.fidonet.org
+RFC From:     test@hippo.fido.de (Test User)
+RFC Sender:   Test User <test@hippo.fido.de>
+    Name:     Martin_Junius
+    Address:  f110.n2452.z2.fidonet.org
+    FTN node: 2:2452/110.0
+Name for alias checking: Martin_Junius
+No alias found: return Martin Junius
+    Name:     test
+    Address:  hippo.fido.de
+    FTN node: 242:1000/1.0
+addr_is_local(): From=Test User <test@hippo.fido.de> FQDN=orodruin.fido.de
+rfc2ftn MAIL: Test User <test@hippo.fido.de> -> Martin_Junius@f110.n2452.z2.fidonet.org
+RFC MIME-Version:              -NONE-
+RFC Content-Type:              -NONE-
+RFC Content-Transfer-Encoding: -NONE-
+New packet file ./outpkt/mail/00000004.pkt (tmp ./outpkt/mail/00000004.tmp)
+Writing FTN packet header:
+    From: 2:2452/110.2
+    To  : 2:2452/110.2
+    Baud: 0
+    Prod: 00 fe
+    Rev : 4.3
+    Pass: ""
+    Capw: 0001
+Writing FTN message header:
+    From: Test User                            @ 2:2452/110.2
+    To  : Martin Junius                        @ 2:2452/110.0
+    Subj: Test Body 4
+    Attr: 0001
+using local time
+Message body size 52 (+CR!)
+RFC To:       Martin_Junius@hippo.fido.de
+RFC From:     mj@fido.de
+RFC Sender:   mj@fido.de
+    Name:     Martin_Junius
+    Address:  hippo.fido.de
+    FTN node: 242:1000/1.0
+Name for alias checking: Martin_Junius
+No alias found: return Martin Junius
+    Name:     mj
+    Address:  fido.de
+addr_is_local(): From=mj@fido.de FQDN=orodruin.fido.de
+rfc2ftn MAIL: mj@fido.de -> Martin_Junius@hippo.fido.de
+RFC MIME-Version:              -NONE-
+RFC Content-Type:              -NONE-
+RFC Content-Transfer-Encoding: -NONE-
+New packet file ./outpkt/mail/00000005.pkt (tmp ./outpkt/mail/00000005.tmp)
+Writing FTN packet header:
+    From: 242:1000/5.0
+    To  : 242:1000/5.0
+    Baud: 0
+    Prod: 00 fe
+    Rev : 4.3
+    Pass: ""
+    Capw: 0001
+Writing FTN message header:
+    From: Mj                                   @ 242:1000/5.0
+    To  : Martin Junius                        @ 242:1000/1.0
+    Subj: Test Body 1
+    Attr: 0001
+using local time
+Message body size 52 (+CR!)
+RFC To:       Martin_Junius@hippo.fido.de
+RFC From:     mj@fido.de (Martin Junius)
+RFC Reply-To: mj@fido.de
+RFC Sender:   Martin Junius <mj@fido.de>
+    Name:     Martin_Junius
+    Address:  hippo.fido.de
+    FTN node: 242:1000/1.0
+Name for alias checking: Martin_Junius
+No alias found: return Martin Junius
+    Name:     mj
+    Address:  fido.de
+addr_is_local(): From=Martin Junius <mj@fido.de> FQDN=orodruin.fido.de
+rfc2ftn MAIL: Martin Junius <mj@fido.de> -> Martin_Junius@hippo.fido.de
+RFC MIME-Version:              -NONE-
+RFC Content-Type:              -NONE-
+RFC Content-Transfer-Encoding: -NONE-
+New packet file ./outpkt/mail/00000006.pkt (tmp ./outpkt/mail/00000006.tmp)
+Writing FTN packet header:
+    From: 242:1000/5.0
+    To  : 242:1000/5.0
+    Baud: 0
+    Prod: 00 fe
+    Rev : 4.3
+    Pass: ""
+    Capw: 0001
+Writing FTN message header:
+    From: Martin Junius                        @ 242:1000/5.0
+    To  : Martin Junius                        @ 242:1000/1.0
+    Subj: Test Body 2
+    Attr: 0001
+using local time
+Message body size 52 (+CR!)
+RFC To:       Martin_Junius@hippo.fido.de
+RFC From:     Martin_Junius@p2.f110.n2452.z2.fidonet.org
+RFC Sender:   Martin_Junius@p2.f110.n2452.z2.fidonet.org
+    Name:     Martin_Junius
+    Address:  hippo.fido.de
+    FTN node: 242:1000/1.0
+Name for alias checking: Martin_Junius
+No alias found: return Martin Junius
+    Name:     Martin_Junius
+    Address:  p2.f110.n2452.z2.fidonet.org
+    FTN node: 2:2452/110.2
+addr_is_local(): From=Martin_Junius@p2.f110.n2452.z2.fidonet.org FQDN=orodruin.fido.de
+rfc2ftn MAIL: Martin_Junius@p2.f110.n2452.z2.fidonet.org -> Martin_Junius@hippo.fido.de
+RFC MIME-Version:              -NONE-
+RFC Content-Type:              -NONE-
+RFC Content-Transfer-Encoding: -NONE-
+New packet file ./outpkt/mail/00000007.pkt (tmp ./outpkt/mail/00000007.tmp)
+Writing FTN packet header:
+    From: 242:1000/5.0
+    To  : 242:1000/5.0
+    Baud: 0
+    Prod: 00 fe
+    Rev : 4.3
+    Pass: ""
+    Capw: 0001
+Writing FTN message header:
+    From: Martin Junius                        @ 242:1000/5.0
+    To  : Martin Junius                        @ 242:1000/1.0
+    Subj: Test Body 3
+    Attr: 0001
+using local time
+Message body size 52 (+CR!)
+RFC To:       Martin_Junius@hippo.fido.de
+RFC From:     test@hippo.fido.de (Test User)
+RFC Sender:   Test User <test@hippo.fido.de>
+    Name:     Martin_Junius
+    Address:  hippo.fido.de
+    FTN node: 242:1000/1.0
+Name for alias checking: Martin_Junius
+No alias found: return Martin Junius
+    Name:     test
+    Address:  hippo.fido.de
+    FTN node: 242:1000/1.0
+addr_is_local(): From=Test User <test@hippo.fido.de> FQDN=orodruin.fido.de
+rfc2ftn MAIL: Test User <test@hippo.fido.de> -> Martin_Junius@hippo.fido.de
+RFC MIME-Version:              -NONE-
+RFC Content-Type:              -NONE-
+RFC Content-Transfer-Encoding: -NONE-
+New packet file ./outpkt/mail/00000008.pkt (tmp ./outpkt/mail/00000008.tmp)
+Writing FTN packet header:
+    From: 242:1000/5.0
+    To  : 242:1000/5.0
+    Baud: 0
+    Prod: 00 fe
+    Rev : 4.3
+    Pass: ""
+    Capw: 0001
+Writing FTN message header:
+    From: Test User                            @ 242:1000/5.0
+    To  : Martin Junius                        @ 242:1000/1.0
+    Subj: Test Body 4
+    Attr: 0001
+using local time

@@ -28,11 +28,6 @@ bounce.o: bounce.c ../../src/include/fidogate.h ../../config.h \
  ../../src/include/node.h ../../src/include/packet.h \
  ../../src/include/structs.h ../../src/include/prototypes.h \
  ../../src/include/cf_funcs.h
-bufstring.o: bufstring.c ../../src/include/fidogate.h ../../config.h \
- ../../src/include/paths.h ../../src/include/declare.h \
- ../../src/include/node.h ../../src/include/packet.h \
- ../../src/include/structs.h ../../src/include/prototypes.h \
- ../../src/include/cf_funcs.h ../../src/include/shuffle.h
 cf_abbrev.o: cf_abbrev.c
 cf_env.o: cf_env.c
 cf_funcs.o: cf_funcs.c ../../src/include/fidogate.h ../../config.h \
@@ -77,6 +72,11 @@ flo.o: flo.c ../../src/include/fidogate.h ../../config.h \
  ../../src/include/structs.h ../../src/include/prototypes.h \
  ../../src/include/cf_funcs.h
 fopen.o: fopen.c ../../src/include/fidogate.h ../../config.h \
+ ../../src/include/paths.h ../../src/include/declare.h \
+ ../../src/include/node.h ../../src/include/packet.h \
+ ../../src/include/structs.h ../../src/include/prototypes.h \
+ ../../src/include/cf_funcs.h
+ftnaddr.o: ftnaddr.c ../../src/include/fidogate.h ../../config.h \
  ../../src/include/paths.h ../../src/include/declare.h \
  ../../src/include/node.h ../../src/include/packet.h \
  ../../src/include/structs.h ../../src/include/prototypes.h \

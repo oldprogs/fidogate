@@ -2,10 +2,10 @@
 
 ../tr.init
 
-G="../../src/gate/rfc2ftn  -L../cf -v -i -cconfig.gate"
-T="../../src/toss/ftntoss  -L../cf -v -cconfig.main"
-R="../../src/toss/ftnroute -L../cf -v -cconfig.main"
-P="../../src/toss/ftnpack  -L../cf -v -cconfig.main"
+G="../../src/gate/rfc2ftn  -v -i -cconfig.gate"
+T="../../src/toss/ftntoss  -v -cconfig.main"
+R="../../src/toss/ftnroute -v -cconfig.main"
+P="../../src/toss/ftnpack  -v -cconfig.main"
 
 # create messages
 
@@ -24,6 +24,6 @@ MfG ... The Test User ;-)
 EOF
 
 # toss messages
-$T -I./out -b./areas.bbs
+$T -Ioutpkt/news -b./areas.bbs
 $R 
 #$P

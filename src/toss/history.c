@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: history.c,v 4.5 1998/01/18 09:48:14 mj Exp $
+ * $Id: history.c,v 4.6 1998/02/01 18:51:22 mj Exp $
  *
  * MSGID history functions and dupe checking
  *
@@ -293,7 +293,7 @@ int main(int argc, char *argv[])
     }
     else 
     {
-	while(gets(buffer))
+	while( fgets(buffer, sizeof(buffer), stdin) )
 	{
 	    strip_crlf(buffer);
 	    m = buffer;

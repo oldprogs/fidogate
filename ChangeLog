@@ -1,3 +1,42 @@
+Sun Feb  1 17:57:27 1998  Martin Junius  <mj@fido.de>
+
+	* src/common/ftnaddr.c (ftnaddr_init): new function, init FTNAddr.
+	  (ftnaddr_invalid): new function, invalidate FTNAddr.
+
+	* src/common/tmps.c (s_stripsize): resize temp string to actual
+	  length.
+	  (s_stripsize): dito, s_ variant.
+
+	* src/common/address.c (ftn_to_inet_pfnz): renamed to
+	  s_ftn_to_inet_pfnz(), uses temp string.
+	  (s_ftn_to_inet_pfnz): call tmps_stripsize().
+
+	* src/common/ftnaddr.c (ftnaddr_parse): new function, parsing
+	  string into FTNAddr.
+	  (s_ftnaddr_print): new function, output FTNAddr using temp string.
+
+	* src/common/misc.c (str_copy_range): new function, copying string
+	  until limit pointer.
+
+	* src/common/ftnaddr.c: new module, functions for handling FTNAddr
+	  structs.
+
+	* test/tc.history/run1,2: new configuration.
+
+	* test/tc.gateway/run: new configuration.
+
+	* test/tc.gatenode/run: new configuration.
+
+	* test/tc.flo/run: new configuration.
+
+	* test/tc.ffx/run: new configuration.
+
+	* test/tc.bounce2/run: new configuration.
+
+	* test/tc.bounce/run: new configuration.
+
+	* test/tc.boss/run: new configuration.
+
 Sat Jan 31 18:00:56 1998  Martin Junius  <mj@fido.de>
 
 	------- CVS ci -------------------------------------------------------
