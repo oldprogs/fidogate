@@ -1,42 +1,20 @@
--*-Indented-Text-*- $Id: msgid.doc,v 4.0 1996/04/17 18:17:34 mj Exp $
+-*-Indented-Text-*- $Id: msgid.doc,v 4.1 1996/12/17 14:43:12 mj Exp $
 
 
                 FTN ^AMSGID  <->  Internet Message-ID
                               Conversion
-                                 for
+				 for
                         FTN-Internet Gateways
 
-                                  by
+				  by
 
-                            Martin Junius
-               Republikplatz 3, D-52072 Aachen, Germany
-                          FIDO 2:2452/110.1
-                     Internet mj@sungate.fido.de
-
-
-           $Revision: 4.0 $ of $Date: 1996/04/17 18:17:34 $
+			    Martin Junius
+		 Radiumstr. 18, D-51069 Köln, Germany
+			  FIDO 2:2452/110.1
+			 Internet mj@fido.de
 
 
-ChangeLog:
-
-# $Log: msgid.doc,v $
-# Revision 4.0  1996/04/17 18:17:34  mj
-# Initial revision
-#
-# Revision 3.9.2.6  1995/09/08  07:46:13  mj
-# See ChangeLog
-#
-# Revision 3.9.2.6  1995/09/08  07:46:13  mj
-# See ChangeLog
-#
-# Revision 3.9.0.2  1995/02/08  21:49:50  mj
-# More examples for 3.3 and 4.3, fixed some typos.
-#
-# Revision 3.9.0.1  1995/02/05  10:32:30  mj
-# clarification "NOMSGID_" Message-IDs, some formatting changes.
-#
-# Revision: 3.9  1995/01/23 09:16:52  mj
-# final version of MSGID.DOC recommendation
+	   $Revision: 4.1 $ of $Date: 1996/12/17 14:43:12 $
 
 
 
@@ -48,13 +26,14 @@ FIDONET-Internet gateways.
 Credit: this work is not entirely mine. It includes suggestions and
 improvements by
 
-        Joerg_Stattaus@ac.maus.de
-        albi@fido.sub.org (Albi Rebmann)
-        Michael_Holzt@mhs.ftg.donut.ruhr.com
-        Martin_Horneffer@ac2.maus.de
-        J.H.ADDICKS@BLUEBOCS.donut.ruhr.com (Johann H. Addicks)
-        jfesler@wmeonlin.sacbbx.com (Jason Fesler)
-	odinn@winboss.dk (Odinn Sorensen)
+   Joerg Stattaus	mailto:Joerg_Stattaus@ac.maus.de
+   Albi Rebmann		mailto:albi@life.sub.org
+   Michael Holzt	mailto:Michael_Holzt@mhs.ftg.donut.ruhr.com
+   Martin Horneffer	mailto:Martin_Horneffer@ac2.maus.de
+   Johann H. Addicks	mailto:J.H.ADDICKS@BLUEBOCS.donut.ruhr.com
+   Jason Fesler		mailto:jfesler@wmeonlin.sacbbx.com
+   Odinn Sorensen	mailto:odinn@winboss.dk
+
 
         
 1. Formats
@@ -125,7 +104,7 @@ improvements by
 	  - The date is taken from the date field in the message
 	    header.
 
-	  - The CRC value is computed using the same polynom and
+	  - The CRC value is computed using the same polynomial and
             method as specified in section 6.
 
 	The `do.main' part is the Internet domain appropiate for this
