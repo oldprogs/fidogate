@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# $Id: runtoss.sh,v 4.9 1997/11/16 18:25:45 mj Exp $
+# $Id: runtoss.sh,v 4.10 1998/01/24 15:45:58 mj Exp $
 #
 # Wrapper for ftntoss, ftnroute, ftnpack doing the toss process
 #
@@ -9,11 +9,12 @@
 #
 
 PRG=<LIBDIR>
-SPOOL=`$PRG/ftnconfig =spooldir`
-OUTBOUND=`$PRG/ftnconfig =outbound`
-INBOUND=`$PRG/ftnconfig =inbound`
-PINBOUND=`$PRG/ftnconfig =pinbound`
-UUINBOUND=`$PRG/ftnconfig =uuinbound`
+SPOOL=`$PRG/ftnconfig spooldir`
+OUTBOUND=`$PRG/ftnconfig btbasedir`
+INBOUND=`$PRG/ftnconfig inbound`
+PINBOUND=`$PRG/ftnconfig pinbound`
+UUINBOUND=`$PRG/ftnconfig uuinbound`
+FTPINBOUND=`$PRG/ftnconfig ftpinbound`
 
 if [ -z "$SPOOL" ]; then
   echo "runtoss: parameter spooldir missing"
@@ -33,6 +34,10 @@ if [ -z "$PINBOUND" ]; then
 fi
 if [ -z "$UUINBOUND" ]; then
   echo "runtoss: parameter uuinbound missing"
+  exit 1
+fi
+if [ -z "$FTPINBOUND" ]; then
+  echo "runtoss: parameter ftpinbound missing"
   exit 1
 fi
 
@@ -66,22 +71,22 @@ case X$NAME in
 	   GRADE=
 	   FLAGS=-s
 	   ;;
-  Xout)
-	   INPUT=-I$SPOOL/out
+  Xoutpkt)
+	   INPUT=-I$SPOOL/outpkt
 	   FADIR=
-	   GRADE=-gn
-	   FLAGS="-n -t -p"
-	   ;;
-  Xoutf)
-	   INPUT=-I$SPOOL/out
-	   FADIR=-F/
-	   GRADE=-gn
+	   GRADE=
 	   FLAGS="-n -t -p"
 	   ;;
   Xoutpkt/mail)
 	   INPUT=-I$SPOOL/outpkt/mail
 	   FADIR=
 	   GRADE=-gm
+	   FLAGS="-n -t -p"
+	   ;;
+  Xoutpkt/news)
+	   INPUT=-I$SPOOL/outpkt/news
+	   FADIR=
+	   GRADE=-gn
 	   FLAGS="-n -t -p"
 	   ;;
   Xpin)
@@ -102,6 +107,12 @@ case X$NAME in
 	   GRADE=-gu
 	   FLAGS=-s
 	   ;;
+  Xftpin)
+	   INPUT=-I$FTPINBOUND
+	   FADIR=
+	   GRADE=-gf
+	   FLAGS=-s
+	   ;;
   Xtest)
 	   INPUT=
 	   FADIR=
@@ -111,7 +122,7 @@ case X$NAME in
 	   SPOOL=.
 	   LIBDIR=../cf
 	   PRG=../../src/toss
-	   ARGS="-L$PRG -S$SPOOL $ARGS"
+	   ARGS="-c../cf/toss.conf $ARGS"
 	   ;;
   X/*)
 	   INPUT=-I$NAME

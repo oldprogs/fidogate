@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# $Id: rununpack.sh,v 4.12 1997/10/05 13:43:36 mj Exp $
+# $Id: rununpack.sh,v 4.13 1998/01/24 15:45:58 mj Exp $
 #
 # Unpack ArcMail archives
 #
@@ -20,30 +20,35 @@
 # Programs are searched in: /bin, /usr/bin, /usr/local/bin
 
 PRG=<LIBDIR>
-SPOOL=`$PRG/ftnconfig =spooldir`
-OUTBOUND=`$PRG/ftnconfig =outbound`
-INBOUND=`$PRG/ftnconfig =inbound`
-PINBOUND=`$PRG/ftnconfig =pinbound`
-UUINBOUND=`$PRG/ftnconfig =uuinbound`
+SPOOL=`$PRG/ftnconfig spooldir`
+OUTBOUND=`$PRG/ftnconfig btbasedir`
+INBOUND=`$PRG/ftnconfig inbound`
+PINBOUND=`$PRG/ftnconfig pinbound`
+UUINBOUND=`$PRG/ftnconfig uuinbound`
+FTPINBOUND=`$PRG/ftnconfig ftpinbound`
 
 if [ -z "$SPOOL" ]; then
-  echo "runtoss: parameter spooldir missing"
+  echo "rununpack: parameter spooldir missing"
   exit 1
 fi
 if [ -z "$OUTBOUND" ]; then
-  echo "runtoss: parameter outbound missing"
+  echo "rununpack: parameter outbound missing"
   exit 1
 fi
 if [ -z "$INBOUND" ]; then
-  echo "runtoss: parameter inbound missing"
+  echo "rununpack: parameter inbound missing"
   exit 1
 fi
 if [ -z "$PINBOUND" ]; then
-  echo "runtoss: parameter pinbound missing"
+  echo "rununpack: parameter pinbound missing"
   exit 1
 fi
 if [ -z "$UUINBOUND" ]; then
-  echo "runtoss: parameter uuinbound missing"
+  echo "rununpack: parameter uuinbound missing"
+  exit 1
+fi
+if [ -z "$FTPINBOUND" ]; then
+  echo "rununpack: parameter ftpinbound missing"
   exit 1
 fi
 
@@ -67,6 +72,9 @@ case X$NAME in
 		;;
 	Xuuin)
 		INPUT=$UUINBOUND
+		;;
+	Xftpin)
+		INPUT=$FTPINBOUND
 		;;
 	X/*)
 		INPUT=$NAME

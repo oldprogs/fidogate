@@ -2,6 +2,8 @@
 
 	************** TODO list for FIDOGATE development **************
 
+	* rundf: get df program from config.make
+
 DONE	* lock.c: implement NFS-safe lock file.
 
 	* binkley.c: use lock_lockfile_nfs() for BSY files.

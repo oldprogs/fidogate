@@ -1,6 +1,6 @@
 #!/usr/bin/perl
 #
-# $Id: subst.pl,v 4.5 1998/01/24 14:07:20 mj Exp $
+# $Id: subst.pl,v 4.6 1998/01/24 15:45:49 mj Exp $
 #
 # Substitute directory names for FIDOGATE scripts
 #
@@ -102,6 +102,7 @@ open(P, "$config") || die "can't open config.make\n";
 
 undef %macros;
 undef %macros_v;
+undef %subst;
 
 while(<P>) {
     chop;
@@ -112,21 +113,22 @@ while(<P>) {
 	print "subst: $1=$2\n" if($opt_v);
 	$macros{$1} = $2;
     }
-
-    if( /^\s*DEFAULT_V_([A-Z0-9_]+)\s*=\s*(.*)\s*$/ ) {
+    elsif( /^\s*DEFAULT_V_([A-Z0-9_]+)\s*=\s*(.*)\s*$/ ) {
 	print "subst: $1=$2\n" if($opt_v);
 	$macros{$1} = $2;
 	$macros_v{$1} = 1;
     }
-
-    if( /^\s*DEFAULT_A_([A-Z0-9_]+)\s*=\s*%(.)\s*$/ ) {
+    elsif( /^\s*DEFAULT_A_([A-Z0-9_]+)\s*=\s*%(.)\s*$/ ) {
 	print "subst: $1=%$2\n" if($opt_v);
 	$abbrevs{$1} = $2;
     }
-
-    if( /^\s*PERL\s*=\s*(.*)\s*$/ ) {
+    elsif( /^\s*PERL\s*=\s*(.*)\s*$/ ) {
 	print "subst: perl=$1\n" if($opt_v);
 	$perl = $1;
+    }
+    elsif( /^\s*([A-Z0-9_]+)\s*=\s*(.*)\s*$/ ) {
+	# all other macros in config.make
+	$subst{$1} = $2 if(! $macros{$1});
     }
 }
 close(P);
@@ -305,6 +307,10 @@ while(<>) {
 
     for $s (keys %macros) {
 	$r = $macros{$s};
+	s/<$s>/$r/g;
+    }
+    for $s (keys %subst) {
+	$r = $subst{$s};
 	s/<$s>/$r/g;
     }
 

@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# $Id: runpoll.sh,v 4.9 1997/11/16 15:53:25 mj Exp $
+# $Id: runpoll.sh,v 4.10 1998/01/24 15:45:52 mj Exp $
 #
 # Poll uplink
 #
@@ -26,35 +26,30 @@ set -x
 $NEWS/send-ffx
 
 # Batch ffx mail
-#$FIDOGATE/ffxbatch -F Normal -w -b morannon 242:1000/1
 $FIDOGATE/ftnpack -f 242:1000/1 -I %O/out.0f2/morannon
 
 # Gateway
 $NEWS/send-fidogate
 
-# Tosser w/file attachments
-#$FIDOGATE/runtoss outf
 # Tosser w/o file attachments
 $FIDOGATE/runtoss outpkt/mail
-$FIDOGATE/runtoss out
+$FIDOGATE/runtoss outpkt/news
 
 # Poll
 $IFMAIL/ifcico $UPLINK
 
-# Tosser
-#$FIDOGATE/runin
-# only protected inbound
+# Tosser, only protected inbound
 $FIDOGATE/rununpack pin
 $FIDOGATE/runtoss   pin
+
+# Gateway
+$FIDOGATE/ftnin -x %L/ftninpost
 
 # Unbatch and process ffx files
 $FIDOGATE/ffxqt
 
 # Process tic files
 $FIDOGATE/ftntick
-
-# Gateway
-$FIDOGATE/ftnin -x %L/ftninpost
 
 # Process mail queue
 /usr/sbin/sendmail -q

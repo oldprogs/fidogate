@@ -2,6 +2,40 @@ Sat Jan 24 12:33:39 1998  Martin Junius  <mj@fido.de>
 
 	------- CVS ci -------------------------------------------------------
 
+	* src/util/ftnlog.c (main): removed -L, -S options.
+
+	* src/util/ftnflo.c (main): removed -L, -S options.
+
+	* src/util/ftnfattach.c (main): removed -L, -S options.
+
+	* src/util/ftnconfig.c (main): removed -L, -S options.
+
+	* src/util/ftnbsy.c (main): removed -L, -S options.
+
+	* src/tick/ftnhatch.c (main): removed -L, -S options.
+
+	* src/ffx/ffxbatch.c: removed.
+
+	* src/ffx/ffxrun.sh: removed.
+
+	* scripts/run/runpoll.sh: some changes.
+
+	* src/toss/rununpack.sh added FTPINBOUND.
+
+	* src/toss/runtoss.sh: added FTNINBOUND, outpkt/news.
+
+	* src/toss/runmail.sh: modified.
+
+	* src/toss/runout.sh: renamed to runmail.sh
+
+	* src/toss/runin.sh: check directories, added FTPINBOUND.
+
+	* src/toss/rundf.sh: <DF> from config.make.
+
+	* subst.pl: substitute all macros defined in config.make.
+
+	------- CVS ci -------------------------------------------------------
+
 	* src/gate/ftninpost.pl: pass -c option to ftninrecomb.
 
 	* src/gate/ftninrecomb.pl: adapted to new configuration, using

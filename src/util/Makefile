@@ -1,6 +1,6 @@
 #:ts=8
 #
-#    $Id: Makefile,v 4.7 1997/10/11 21:24:30 mj Exp $
+#    $Id: Makefile,v 4.8 1998/01/24 15:45:58 mj Exp $
 #
 #    Makefile for FIDOGATE src/util/
 #
@@ -37,7 +37,7 @@ install:
 	$(INSTALL_PROG) ftnbsy$(EXE) $(PREFIX)$(LIBDIR)
 	$(INSTALL_PROG) ftnconfig$(EXE) $(PREFIX)$(LIBDIR)
 	$(INSTALL_PROG) ftnseq$(EXE) $(PREFIX)$(LIBDIR)
-	$(INSTALL_PROG) ftnfattach$(EXE) $(PREFIX)$(LIBDIR)
+	$(INSTALL_PROG) ftnfattach$(EXE) $(PREFIX)$(BINDIR)
 	$(INSTALL_PROG) ftnflo$(EXE) $(PREFIX)$(LIBDIR)
 	$(INSTALL_PROG) sumcrc$(EXE) $(PREFIX)$(BINDIR)
 	$(INSTALL_PROG) ftnlock$(EXE) $(PREFIX)$(LIBDIR)

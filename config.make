@@ -1,6 +1,6 @@
 # -*- Makefile -*-
 #
-# $Id: config.make,v 4.16 1998/01/24 14:07:20 mj Exp $
+# $Id: config.make,v 4.17 1998/01/24 15:45:49 mj Exp $
 #
 # FIDOGATE main configuration
 #
@@ -163,8 +163,11 @@ IFMAILDIR       = $(DEFAULT_F_IFMAILDIR)
 # OS2: comment out
 SHELL		= /bin/sh
 
-# m4
+# GNU m4
 M4		= m4
+
+# GNU df (from fileutils)
+DF		= df
 
 # owner / group
 OWNER		= news

@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftnlog.c,v 4.3 1998/01/18 09:48:17 mj Exp $
+ * $Id: ftnlog.c,v 4.4 1998/01/24 15:46:00 mj Exp $
  *
  * Write log message to FIDOGATE log file
  *
@@ -36,7 +36,7 @@
 
 
 #define PROGRAM 	"ftnlog"
-#define VERSION 	"$Revision: 4.3 $"
+#define VERSION 	"$Revision: 4.4 $"
 #define CONFIG		DEFAULT_CONFIG_MAIN
 
 
@@ -62,9 +62,7 @@ options: -p --program                 program name for log entry\n\
 \n\
 	 -v --verbose                 more verbose\n\
 	 -h --help                    this help\n\
-         -c --config NAME             read config file (\"\" = none)\n\
-	 -L --lib-dir NAME            set lib directory\n\
-	 -S --spool-dir NAME          set spool directory\n"           );
+         -c --config NAME             read config file (\"\" = none)\n");
 }
 
 
@@ -75,7 +73,7 @@ int main(int argc, char **argv)
 {
     int c;
     char *p_flag=NULL;
-    char *c_flag=NULL, *S_flag=NULL, *L_flag=NULL;
+    char *c_flag=NULL;
     
     int option_index;
     static struct option long_options[] =
@@ -85,8 +83,6 @@ int main(int argc, char **argv)
 	{ "verbose",      0, 0, 'v'},	/* More verbose */
 	{ "help",         0, 0, 'h'},	/* Help */
 	{ "config",       1, 0, 'c'},	/* Config file */
-	{ "spool-dir",    1, 0, 'S'},	/* Set FIDOGATE spool directory */
-	{ "lib-dir",      1, 0, 'L'},	/* Set FIDOGATE lib directory */
 	{ 0,              0, 0, 0  }
     };
 
@@ -94,7 +90,7 @@ int main(int argc, char **argv)
     cf_initialize();
 
 
-    while ((c = getopt_long(argc, argv, "p:vhc:S:L:",
+    while ((c = getopt_long(argc, argv, "p:vhc:",
 			    long_options, &option_index     )) != EOF)
 	switch (c) {
 	/***** ftnlog options *****/
@@ -113,12 +109,6 @@ int main(int argc, char **argv)
 	case 'c':
 	    c_flag = optarg;
 	    break;
-	case 'S':
-	    S_flag = optarg;
-	    break;
-	case 'L':
-	    L_flag = optarg;
-	    break;
 	default:
 	    short_usage();
 	    exit(EX_USAGE);
@@ -128,17 +118,7 @@ int main(int argc, char **argv)
     /*
      * Read config file
      */
-    if(L_flag)				/* Must set libdir beforehand */
-	cf_s_libdir(L_flag);
     cf_read_config_file(c_flag ? c_flag : CONFIG);
-
-    /*
-     * Process config options
-     */
-    if(L_flag)
-	cf_s_libdir(L_flag);
-    if(S_flag)
-	cf_s_spooldir(S_flag);
 
     cf_debug();
 

@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftnflo.c,v 4.7 1998/01/18 09:48:16 mj Exp $
+ * $Id: ftnflo.c,v 4.8 1998/01/24 15:46:00 mj Exp $
  *
  * Run script for every entry in FLO file for node
  *
@@ -38,7 +38,7 @@
 
 
 #define PROGRAM		"ftnflo"
-#define VERSION		"$Revision: 4.7 $"
+#define VERSION		"$Revision: 4.8 $"
 #define CONFIG		DEFAULT_CONFIG_MAIN
 
 
@@ -173,9 +173,7 @@ options:  -B --binkley NAME            set Binkley-style outbound directory\n\
 \n\
           -v --verbose                 more verbose\n\
 	  -h --help                    this help\n\
-          -c --config name             read config file (\"\" = none)\n\
-	  -L --lib-dir name            set lib directory\n\
-	  -S --spool-dir name          set spool directory\n");
+          -c --config name             read config file (\"\" = none)\n");
     
     exit(0);
 }
@@ -189,7 +187,6 @@ int main(int argc, char **argv)
     int c;
     char *B_flag=NULL;
     char *c_flag=NULL;
-    char *S_flag=NULL, *L_flag=NULL;
     Node node;
     
     int option_index;
@@ -203,8 +200,6 @@ int main(int argc, char **argv)
 	{ "verbose",      0, 0, 'v'},	/* More verbose */
 	{ "help",         0, 0, 'h'},	/* Help */
 	{ "config",       1, 0, 'c'},	/* Config file */
-	{ "spool-dir",    1, 0, 'S'},	/* Set FIDOGATE spool directory */
-	{ "lib-dir",      1, 0, 'L'},	/* Set FIDOGATE lib directory */
 	{ 0,              0, 0, 0  }
     };
 
@@ -215,7 +210,7 @@ int main(int argc, char **argv)
     cf_initialize();
 
 
-    while ((c = getopt_long(argc, argv, "B:x:lnvhc:S:L:",
+    while ((c = getopt_long(argc, argv, "B:x:lnvhc:",
 			    long_options, &option_index     )) != EOF)
 	switch (c) {
 	case 'B':
@@ -242,12 +237,6 @@ int main(int argc, char **argv)
 	case 'c':
 	    c_flag = optarg;
 	    break;
-	case 'S':
-	    S_flag = optarg;
-	    break;
-	case 'L':
-	    L_flag = optarg;
-	    break;
 	default:
 	    short_usage();
 	    break;
@@ -260,8 +249,6 @@ int main(int argc, char **argv)
     /*
      * Read config file
      */
-    if(L_flag)				/* Must set libdir beforehand */
-	cf_s_libdir(L_flag);
     cf_read_config_file(c_flag ? c_flag : CONFIG);
 
     /*
@@ -269,10 +256,6 @@ int main(int argc, char **argv)
      */
     if(B_flag)
 	cf_s_btbasedir(B_flag);
-    if(L_flag)
-	cf_s_libdir(L_flag);
-    if(S_flag)
-	cf_s_spooldir(S_flag);
 
     cf_debug();
 

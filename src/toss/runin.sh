@@ -1,48 +1,47 @@
 #!/bin/sh
 #
-# $Id: runin.sh,v 4.2 1996/11/30 15:46:13 mj Exp $
+# $Id: runin.sh,v 4.3 1998/01/24 15:45:56 mj Exp $
 #
-# Run protected and normal inbound tossing (rununpack, runtoss)
+# Toss inbound, protected inbound, uuencode inbound, ftp inbound
 #
 # Usage: runin
 #
 
 PRG=<LIBDIR>
-LOGDIR=`$PRG/ftnconfig =logdir`
+LOCK=runin
 
-if [ -z "$LOGDIR" ]; then
-  echo "runtoss: parameter logdir missing"
-  exit 1
-fi
-
-
-#
 # Output to "log-in" log file
-#
-LOGFILE="$LOGDIR/log-in"
-export LOGFILE
+FIDOGATE_LOGFILE="%G/log-in"
+export FIDOGATE_LOGFILE
 
-#
 # Lock it
-#
-$PRG/ftnlock -l runin $$
+$PRG/ftnlock -l $LOCK $$
 st=$?
 if [ $st -ne 0 ]; then
 	exit 2
 fi
 
-$PRG/rununpack in
-$PRG/runtoss   in
+if [ -d <INBOUND> ]; then
+    $PRG/rununpack in
+    $PRG/runtoss   in
+fi
 
-$PRG/rununpack pin
-$PRG/runtoss   pin
+if [ -d <PINBOUND> ]; then
+    $PRG/rununpack pin
+    $PRG/runtoss   pin
+fi
 
-$PRG/rununpack uuin
-$PRG/runtoss   uuin
+if [ -d <UUINBOUND> ]; then
+    $PRG/rununpack uuin
+    $PRG/runtoss   uuin
+fi
 
-#
+if [ -d <FTPINBOUND> ]; then
+    $PRG/rununpack ftpin
+    $PRG/runtoss   ftpin
+fi
+
 # Unlock it
-#
-$PRG/ftnlock -u runin
+$PRG/ftnlock -u $LOCK
 
 exit 0
