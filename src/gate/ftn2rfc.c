@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftn2rfc.c,v 4.60 2002/07/15 20:21:58 n0ll Exp $
+ * $Id: ftn2rfc.c,v 4.61 2002/07/21 18:26:11 n0ll Exp $
  *
  * Convert FTN mail packets to RFC mail and news batches
  *
@@ -40,7 +40,7 @@
 
 
 #define PROGRAM 	"ftn2rfc"
-#define VERSION 	"$Revision: 4.60 $"
+#define VERSION 	"$Revision: 4.61 $"
 #define CONFIG		DEFAULT_CONFIG_GATE
 
 
@@ -1602,6 +1602,12 @@ int main(int argc, char **argv)
     {
 	debug(8, "config: NetMailCharsetUse1st");
 	netmail_charset_use_1st = TRUE;
+    }
+    if(cf_get_string("DontIgnore0x8d", TRUE)   ||
+       cf_get_string("DontIgnoreSoftCR", TRUE)   )
+    {
+	debug(8, "config: DontIgnore0x8d");
+	msg_ignore_0x8d = FALSE;
     }
     
     /* Init various modules */

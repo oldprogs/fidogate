@@ -23,7 +23,7 @@ versions.
 Indirect:
 fidogate.info-1: 764
 fidogate.info-2: 50274
-fidogate.info-3: 98016
+fidogate.info-3: 98252
 
 Tag Table:
 (Indirect)
@@ -84,22 +84,22 @@ Node: pktmore54373
 Node: sumcrc54665
 Node: Config files55594
 Node: Config56893
-Node: Hosts74561
-Node: Aliases76807
-Node: Areas77676
-Node: Bounce80807
-Node: Passwd82002
-Node: Routing83591
-Node: Packing87520
-Node: Areas.bbs89445
-Node: Basic91474
-Node: Sendmail91999
-Node: Example Point93402
-Node: Example Point 295461
-Node: Example Node98016
-Node: Usage100960
-Node: RFC Headers101175
-Node: X Headers102536
-Node: Index103382
+Node: Hosts74797
+Node: Aliases77043
+Node: Areas77912
+Node: Bounce81043
+Node: Passwd82238
+Node: Routing83827
+Node: Packing87756
+Node: Areas.bbs89681
+Node: Basic91710
+Node: Sendmail92235
+Node: Example Point93638
+Node: Example Point 295697
+Node: Example Node98252
+Node: Usage101196
+Node: RFC Headers101411
+Node: X Headers102772
+Node: Index103618
 
 End Tag Table

@@ -2665,6 +2665,13 @@ Gateway configuration:
      break) from Fido messages. This replaces the old `MAX_LINELEN' from
      `config.h'. The default value is 72.
 
+`DontIgnore0x8d'
+
+`DontIgnoreSoftCR'
+     Normally, soft CR characters (hex 0x8d) in FTN messages are
+     ignored. When this option is turned on, they are treated as normal
+     characters. Useful e.g. for the cyrillic cp866 charset.
+
 FFX configuration:
 
    (FFX is a part of FIDOGATE, an uux-like mechanism for remote

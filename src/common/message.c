@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: message.c,v 4.20 2002/07/15 20:21:57 n0ll Exp $
+ * $Id: message.c,v 4.21 2002/07/21 18:26:11 n0ll Exp $
  *
  * Reading and processing FTN text body
  *
@@ -631,7 +631,7 @@ char *msg_xlate_line(char *buf, int n, char *line, int qp)
 	/*
 	 * Special chars require special treatment ...
 	 */
-	if(c=='\n')			/* Ignore \n */
+	if(c == '\n')			/* Ignore \n */
 	    continue;
 	if(msg_ignore_0x8d && c==0x8d)	/* Ignore soft \r */
 	    continue;

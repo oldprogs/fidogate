@@ -1,3 +1,12 @@
+2002-07-21  Martin Junius  <mj@m-j-s.net>
+
+	------- CVS ci -------------------------------------------------------
+
+	* doc/fidogate.texi (Config): added documentation for this option.
+
+	* src/gate/ftn2rfc.c (main): added DontIgnore0x8d aka
+	  DontIgnoreSoftCR config option.
+
 2002-07-15  Martin Junius  <mj@m-j-s.net>
 
 	------- CVS ci -------------------------------------------------------
