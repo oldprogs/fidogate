@@ -1,3 +1,11 @@
+Fri Sep 20 17:48:40 1996  Martin Junius  <mj@fido.de>
+
+	------- CVS ci -------------------------------------------------------
+
+	* version.h (ALPHA): commented.
+	  (BETA): uncommented, set to 1.
+	  (STATE): changed to beta.
+
 Mon Sep 16 21:50:43 1996  Martin Junius  <mj@fido.de>
 
 	------- CVS ci -------------------------------------------------------
