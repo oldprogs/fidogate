@@ -3,10 +3,12 @@
 ../tr.init
 
 T="../../src/gate/rfc2ftn -L../cf -vvvvv"
+#X="-w normal"
+P="-a 2:2452/110.2 -u 2:2452/110.0 $X"
 
 echo "tc: running"
 
-$T Martin_Junius@f110.n2452.z2.fidonet.org <body1
-$T Martin_Junius@f110.n2452.z2.fidonet.org <body2
-$T Martin_Junius@f110.n2452.z2.fidonet.org <body3
-$T Martin_Junius@f110.n2452.z2.fidonet.org <body4
+$T $P Martin_Junius@f110.n2452.z2.fidonet.org <body1
+$T $P Martin_Junius@f110.n2452.z2.fidonet.org <body2
+$T $P Martin_Junius@f110.n2452.z2.fidonet.org <body3
+$T $P Martin_Junius@f110.n2452.z2.fidonet.org <body4

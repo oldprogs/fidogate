@@ -1,7 +1,7 @@
 <HTML>
 <HEAD>
 <!-- This HTML file has been created by texi2html 1.51
-     from ../fidogate.texi on 30 November 1996 -->
+     from ../fidogate.texi on 1 December 1996 -->
 
 <TITLE>FIDOGATE
  - FIDOGATE Programs</TITLE>
@@ -1072,6 +1072,12 @@ Sets directory, where <CODE>ftnpack</CODE> looks for file attachments. Should
 be the appropiate inbound directory, see also the <CODE>runtoss</CODE>
 script. If this option is not specified, no file attachments are
 processed.
+
+If <CODE>-F /</CODE> is specified, <CODE>ftnpack</CODE> accepts a complete path name
+in the subject and doesn't search the directory. Warning: this option
+compromises security to some degree, because it allows <B>any</B> user to
+send <B>any</B> file readable by the user id running the tosser and
+mailer!!!
 
 <DT><CODE>-g --grade <I>grade</I></CODE>
 <DD>

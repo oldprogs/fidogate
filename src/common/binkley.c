@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: binkley.c,v 4.1 1996/04/23 10:24:57 mj Exp $
+ * $Id: binkley.c,v 4.2 1996/12/01 11:28:23 mj Exp $
  *
  * BinkleyTerm-style outbound directory functions
  *
@@ -80,7 +80,7 @@ char *flav_to_asc(int flav)
 	if(outb_types[i].type == flav)
 	    return outb_types[i].flav;
 
-    return "-UNKNOWN-";
+    return "Normal";
 }
 
 

@@ -1,4 +1,21 @@
+Sun Dec  1 11:29:54 1996  Martin Junius  <mj@fido.de>
+
+	------- CVS ci -------------------------------------------------------
+
+	* src/common/routing.c (parse_pkt_name): added sanity check for
+	  grade/type/flavor taken from packet file name. If type or flavor
+	  is invalid use default -/-/Normal.
+
+	* src/common/binkley.c (flav_to_asc): return "Normal" for unknown
+	  flavor code.
+
+	* doc/fidogate.texi (ftnpack): added -F / and appropriate
+	  warning.
+
 Sat Nov 30 14:35:27 1996  Martin Junius  <mj@fido.de>
+
+	* src/toss/ftnpack.c (do_noarc): call bink_attach() with mode==0,
+	  not trying to delete the attachment.
 
 	------- CVS ci -------------------------------------------------------
 

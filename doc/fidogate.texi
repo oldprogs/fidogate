@@ -2,7 +2,7 @@
 @c
 @c FIDOGATE documentation
 @c
-@c $Id: fidogate.texi,v 4.16 1996/11/30 14:01:06 mj Exp $
+@c $Id: fidogate.texi,v 4.17 1996/12/01 11:28:13 mj Exp $
 @c
 
 @setfilename fidogate.info
@@ -1780,6 +1780,12 @@ Sets directory, where @code{ftnpack} looks for file attachments. Should
 be the appropiate inbound directory, see also the @code{runtoss}
 script. If this option is not specified, no file attachments are
 processed.
+
+If @code{-F /} is specified, @code{ftnpack} accepts a complete path name
+in the subject and doesn't search the directory. Warning: this option
+compromises security to some degree, because it allows @b{any} user to
+send @b{any} file readable by the user id running the tosser and
+mailer!!!
 
 @item -g --grade @i{grade}
 Only process packets with @i{grade} (single letter).

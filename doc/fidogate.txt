@@ -1283,6 +1283,12 @@ Options:
      script. If this option is not specified, no file attachments are
      processed.
 
+     If `-F /' is specified, `ftnpack' accepts a complete path name in
+     the subject and doesn't search the directory. Warning: this option
+     compromises security to some degree, because it allows any user to
+     send any file readable by the user id running the tosser and
+     mailer!!!
+
 `-g --grade grade'
      Only process packets with grade (single letter).
 

@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftnpack.c,v 4.9 1996/11/30 16:18:47 mj Exp $
+ * $Id: ftnpack.c,v 4.10 1996/12/01 11:28:24 mj Exp $
  *
  * Pack output packets of ftnroute for Binkley outbound (ArcMail)
  *
@@ -40,7 +40,7 @@
 
 
 #define PROGRAM 	"ftnpack"
-#define VERSION 	"$Revision: 4.9 $"
+#define VERSION 	"$Revision: 4.10 $"
 #define CONFIG		CONFIG_MAIN
 
 
@@ -590,7 +590,7 @@ int do_noarc(char *name, Node *flonode,
 	    {
 		/* fa_name in subject is complete path */
 		    sz  = check_size(fa_name);
-		    ret = bink_attach(flonode, '^', fa_name,
+		    ret = bink_attach(flonode, 0, fa_name,
 				      flav_to_asc(desc->flav), FALSE );
 		    if(ret == ERROR)
 			log("ERROR: file attach %s for %s failed",
