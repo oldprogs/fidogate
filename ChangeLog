@@ -1,3 +1,17 @@
+Tue Sep  3 20:42:23 1996  Martin Junius  <mj@fido.de>
+
+	* src/common/address.c (addr_is_domain): fixed user@DOMAIN.
+
+	* src/gate/rfc2ftn.c (rfc_is_domain): use addr_is_domain().
+	  (rfc_is_local): use addr_is_local().
+	  Changed level of some debug() messages.
+
+	* src/common/address.c (addr_is_local, _domain): return FALSE, if
+	  argument is NULL.
+	  (addr_is_local): added debug() message.
+	  (addr_is_domain): added debug() message, fixed user@DOMAIN
+	  comparison.
+
 Thu Aug 29 21:00:26 1996  Martin Junius  <mj@fido.de>
 
 	------- CVS tag r40alpha4a -------------------------------------------

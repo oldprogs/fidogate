@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway software UNIX <-> FIDO
  *
- * $Id: address.c,v 4.2 1996/06/16 14:22:39 mj Exp $
+ * $Id: address.c,v 4.3 1996/09/03 19:17:50 mj Exp $
  *
  * Parsing and conversion for FIDO and RFC addresses
  *
@@ -254,8 +254,13 @@ int addr_is_local(char *addr)
 {
     RFCAddr rfc;
     
+    if(!addr)
+	return FALSE;
+
     rfc = rfcaddr_from_rfc(addr);
     
+    debug(7, "addr_is_local(): From=%s FQDN=%s",
+	  rfcaddr_to_asc(&rfc, TRUE), cf_fqdn());
     return  rfc.addr[0] == '\0'  ||  stricmp(rfc.addr, cf_fqdn()) == 0;
 }
 
@@ -271,21 +276,28 @@ int addr_is_domain(char *addr)
     char *d;
     int l, ld;
     
+    if(!addr)
+	return FALSE;
+
     rfc = rfcaddr_from_rfc(addr);
     
-    if(rfc.addr[0] == '\0')
-	return TRUE;
-    
+    debug(7, "addr_is_domain(): From=%s domain=%s",
+	  rfcaddr_to_asc(&rfc, TRUE), d           );
+
     d  = cf_domainname();
     ld = strlen(d);
     l  = strlen(rfc.addr);
 
-    if(ld > l)
-	return FALSE;
+    if(rfc.addr[0] == '\0')
+	return TRUE;
     
     /* user@DOMAIN */
-    if(*d == '.' && stricmp(rfc.addr, d) == 0)
+    if(*d == '.' && stricmp(rfc.addr, d+1) == 0)
+	return TRUE;
+    else if(stricmp(rfc.addr, d) == 0)
 	return TRUE;
     /* user@*.DOMAIN */
+    if(ld > l)
+	return FALSE;
     return stricmp(rfc.addr + l - ld, d) == 0;
 }

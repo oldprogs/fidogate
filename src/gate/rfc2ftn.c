@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway software UNIX <-> FIDO
  *
- * $Id: rfc2ftn.c,v 4.10 1996/08/29 20:16:41 mj Exp $
+ * $Id: rfc2ftn.c,v 4.11 1996/09/03 19:17:52 mj Exp $
  *
  * Read mail or news from standard input and convert it to a FIDO packet.
  *
@@ -39,7 +39,7 @@
 
 
 #define PROGRAM 	"rfc2ftn"
-#define VERSION 	"$Revision: 4.10 $"
+#define VERSION 	"$Revision: 4.11 $"
 #define CONFIG		CONFIG_GATE
 
 
@@ -363,18 +363,7 @@ RFCAddr rfc_sender(void)
  */
 int rfc_is_local(void)
 {
-    char *from = header_getcomplete("From");
-    RFCAddr rfc;
-
-    if(!from)
-	return FALSE;
-
-    rfcaddr_init(&rfc);
-    rfc = rfcaddr_from_rfc(from);
-
-    debug(7, "rfc_is_local(): From=%s FQDN=%s",
-	  rfcaddr_to_asc(&rfc, TRUE), cf_fqdn());
-    return  rfc.addr[0] == '\0'  ||  stricmp(rfc.addr, cf_fqdn()) == 0;
+    return addr_is_local( header_getcomplete("From") );
 }
 
 
@@ -385,38 +374,7 @@ int rfc_is_local(void)
  */
 int rfc_is_domain(void)
 {
-    char *from = header_getcomplete("From");
-    RFCAddr rfc;
-    char *d;
-    int l, ld;
-    
-    if(!from)
-	return FALSE;
-
-    d  = cf_domainname();
-    if(!d)
-	return FALSE;
-    ld = strlen(d);
-    l  = strlen(rfc.addr);
-
-    rfcaddr_init(&rfc);
-    rfc = rfcaddr_from_rfc(from);
-
-    debug(7, "rfc_is_domain(): From=%s domain=%s",
-	  rfcaddr_to_asc(&rfc, TRUE), d           );
-
-    if(rfc.addr[0] == '\0')
-	return TRUE;
-    if(ld > l)
-	return FALSE;
-    
-    /* user@DOMAIN */
-    if(*d == '.' && stricmp(rfc.addr, d+1) == 0)
-	return TRUE;
-    else if(stricmp(rfc.addr, d) == 0)
-	return TRUE;
-    /* user@*.DOMAIN */
-    return stricmp(rfc.addr + l - ld, d) == 0;
+    return addr_is_domain( header_getcomplete("From") );
 }
 
 
@@ -472,7 +430,7 @@ int rfc_parse(RFCAddr *rfc, char *name, Node *node)
 	if(len > dlen                          &&
 	   !strcmp(rfc->addr+diff, maus_domain)   )  /* Got it! */
 	{
-	    debug(2, "    is MAUS:  %s", rfc->addr);
+	    debug(3, "    is MAUS:  %s", rfc->addr);
 
 	    if(name)
 	    {
@@ -800,7 +758,7 @@ int snd_mail(RFCAddr rfc_to, long size)
      * From RFCAddr
      */
     rfcaddr_init(&rfc_from);
-    rfc_from  	  = rfc_sender();
+    rfc_from = rfc_sender();
     
     /*
      * To name/node
@@ -865,7 +823,7 @@ int snd_mail(RFCAddr rfc_to, long size)
 	else
 	{
 	    if(flags)
-		log("non-local From: %s, Reply-To: %s, X-Flags: %s",
+		log("NON-LOCAL From: %s, Reply-To: %s, X-Flags: %s",
 		    header_getcomplete("From"),
 		    header_getcomplete("Reply-To"), flags           );
 	    flags = p = NULL;
@@ -1777,7 +1735,7 @@ int main(int argc, char **argv)
 	    tl_append(&body, buffer);
 	    size += strlen(buffer) + 1;	    /* `+1' for additional CR */
 	}
-	debug(1, "Message body size %ld (+CR!)", size);
+	debug(7, "Message body size %ld (+CR!)", size);
 
 	rfcaddr_init(&rfc_to);
 	

@@ -2,7 +2,11 @@
 
 X = for next release
 
-X	* rfc2ftn: node marked as DOWN working?
+	* rfc2ftn: config parameter to disable/enable X-Flags
+	  processing.
+
+DONE.	* rfc2ftn: integrate rfc_is_local(), rfc_is_domain() with
+	  address.c:addr_is_local(), addr_is_domain(), fix addr_is_* code.
 
 	* ftn2rfc: rewrite, split huge unpack() function into parts
 	  for processing netmail and echomail.

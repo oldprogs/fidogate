@@ -1,0 +1,91 @@
+#!/bin/sh
+
+../tr.init
+
+T="../../src/gate/rfc2ftn -L../cf -v"
+
+echo "tc: running"
+
+##### Test down/rfc_is_domain() ##############################################
+#
+# yftn is marked as down
+#
+
+$T test@yftn.fido.de <<EOF
+Subject: Test
+From: abc@blubber.fasel.org
+
+TEST ;-)
+EOF
+
+echo " "
+
+$T test@yftn.fido.de <<EOF
+Subject: Test
+From: abc@fido.de
+
+TEST ;-)
+EOF
+
+echo " "
+
+$T test@yftn.fido.de <<EOF
+Subject: Test
+From: abc@xyz.fido.de
+
+TEST ;-)
+EOF
+
+echo " "
+
+##### Test X-Flags/rfc_is_local() ############################################
+
+$T test@hippo.fido.de <<EOF
+Subject: Test
+From: abc@blubber.fasel.org
+X-Flags: MNC
+
+TEST ;-)
+EOF
+
+echo " "
+
+$T test@hippo.fido.de <<EOF
+Subject: Test
+From: abc@fido.de
+Reply-To: xyz@wusel.wuehl.org
+X-Flags: MNC
+
+TEST ;-)
+EOF
+
+echo " "
+
+$T test@hippo.fido.de <<EOF
+Subject: Test
+From: abc@orodruin.fido.de
+Reply-To: xyz@wusel.wuehl.org
+X-Flags: MNC
+
+TEST ;-)
+EOF
+
+echo " "
+
+$T test@hippo.fido.de <<EOF
+Subject: Test
+From: abc@orodruin.fido.de
+X-Flags: MNC
+
+TEST ;-)
+EOF
+
+echo " "
+
+$T test@hippo.fido.de <<EOF
+Subject: Test
+From: abc (ABC User)
+X-Flags: MNC
+
+TEST ;-)
+EOF
