@@ -3,10 +3,12 @@
 ../tr.init
 
 A="../../src/areafix/ftnafutil -c../cf/toss.conf -vvv"
-
+D="../../src/util/pktdebug"
 
 cp areas.bbs tmp_areas.bbs
 
 $A -b tmp_areas.bbs   DELETE
 $A -b tmp_areas.bbs   SUBSCRIBE
 $A -b tmp_areas.bbs   UNSUBSCRIBE
+
+$D -t outpkt/*.pkt

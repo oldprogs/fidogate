@@ -117,10 +117,10 @@ Changes in 4.3a2:
   uplink, an appropiate note will be printed by ftnaf.
 
 * ftnafutil: automatically
-  * delete areas from areas.bbs with no uplink
+  * delete areas from areas.bbs with no uplink (ftnafutil delete)
   * send Areafix request to uplink, if
-    - an area with state -s U has new downlinks (subscribe at uplink) or
-    - an area with state -s S has no more downlinks (unsubscribe at uplink).
+    - an area with state -s U has new downlinks (ftnafutil subscribe) or
+    - an area with state -s S has no more downlinks (ftnafutil unsubscribe).
 
 * passwd: new context "uplink" for ftnafutil Areafix requests.
 
@@ -189,6 +189,6 @@ Needed:
 
 ======================================================================
 
-$Date: 1998/04/18 20:19:58 $
+$Date: 1998/04/19 10:15:28 $
 Martin Junius
 mailto:mj@fido.de

@@ -1,123 +1,115 @@
-						   -*- Indented-Text -*-
+							 -*- Indented-Text -*-
+===== TODO list for FIDOGATE development =====================================
 
-	************** TODO list for FIDOGATE development **************
+=== 4.3aX development snapshots
+
+    Priority 1
+    
+    Features
 
 	* ftnafutil: option to sort areas.bbs, including zone/keys.
 
-DONE	* areafix: additional commands to process areas.bbs
-	  - subscribe at uplink to all areas with state -s U and at
-	    least one (new) downlink
-	  - unsubscribe at uplink from all areas with state -s S
-	    and no more downlinks
-          - remove areas without uplink (without any link)
-DONE	  new utility ftnafutil
+	* ftn2rfc/rfc2ftn: integrate new charset mapping
 
-DONE	* ftnaf*: add flag to areas.bbs if area is not subscribed at
-	  uplink, issue appropiate message to user. 
-
-DONE	* areas.bbs: new -s STATE option.
-
-DONE	* rfc2ftn: directly process batch file in
-	  /var/spool/news/out.going.
-
-DONE	* rfc2ftn: check areas.bbs in news mode, only gate if area has
-	  downlinks.
-
-DONE	* ftnin: process address by address, don't try to create bsy
-	  files for all addresses at once.
-
-DONE	* ftnpack: allow %X in programs (pack, prog, progn)
-
-	* ftnafpkt: automatically recognize Areafix/Filefix as name_to
-
-DONE	* runtoss,rununpack: rewrite using Perl.
-
-DONE	* config.pl: install in CONFIGDIR, not LIBDIR, remove -L
-	  option from perl scripts.
-
-DONE	* ftnmail: new setuid frontend for rfc2ftn to fix security
-
-	* Update documentation.
-
-DONE	* ftnpack: movedir packing option.
-
-	* ftn2rfc, ftnin: integrate programs.
-
-DONE	* ftn2rfc: get rid of buf_sprintf().
-
-DONE	* ftnaf: send reply to Fido address!
-
-DONE	* rundf: get df program from config.make
-
-DONE	* lock.c: implement NFS-safe lock file.
-
-DONE	* binkley.c: use lock_lockfile_nfs() for BSY files.
-	  lock.c: rewrite lock_lockfile_nfs()
-
-DONE	* dir.c,
-DONE	  ftntick: allow %X as directory name.
-
-DONE	* bounce.c: read from CONFIGDIR.
-
-DONE	* ftntick/ffxqt: default inbound cf_p_pinbound().
-
-DONE	* config.c:
-DONE	  - replace cf_set_* with cf_s_*
-DONE	  - replace cf_* with cf_p_*
-DONE	  - replace cf_outbound with cf_p_btbasedir
-DONE	  - remove OUTBOUND config parameter
-
-DONE	* rfc2ftn.c (+other?): header_getcomplete() may return NULL,
-	  log() messages in snd_mail().
-
-DONE	* log.c: switch on syslog logging from config file, new config
-	  LogFile syslog.
-
-DONE	* ftnaf:
-areafix.c - separate common functions af.c
-	  - command line frontend ftnaf
-	  - Internet mail frontend ftnafmail
-ftnafpkt  - Fido mail frontend ftnafnetmail
-	  
-DONE	* senduu: accept several addresses on command line.
-
-???	* config.*: common address settings, e.g. Address for main
-	  AKA, GateAddress for gateway???
-
-	* new implementation of strtok(), xstrtok() function, using
-	  reentrant common routine.
-
+	* charset.c: use new mapping tables
 	* ^ACHRS default configurable per area + character translation
 	  for RFC -> Fido.
 
-4.3.x	* Different Message-ID and sender Internet domain
+	* Different Message-ID and sender Internet domain
 	  configuration (extended Zone config).
 
 	* rfc2ftn: mail split limit configurable per host.
 
+	* ftn2rfc: ^ARFC-<mime> import.
+
+	* ftn2rfc/rfc2ftn: MAIL-log messages configurable.
+	* ftn2rfc/rfc2ftn: mail log + size / message date
+
+	* ftn2rfc: send bounce mails directly as FTN messages, not via
+	  the mail system.
+ 	  ftn2rfc: bounce messages should include the complete FTN
+	  message with all kludges etc. to ease debugging.
+
+	* ftnpack: runtime configuration of arcmail extension
+	  usage. Use XX0-9 only, XX0-9 + XXA-F, wrap around to XX0 if
+	  last one is too large, etc.
+	  ArcMail extensions: mo[0-9], plus mo[a-f], maybe mo[a-z]?
+	  runtime configuration of arcmail extensions usage.
+
+    Code rewrite
+
+	* new implementation of strtok(), xstrtok() function, using
+	  reentrant common routine.
+
+	* rfcheader.c: rewrite all *header_get* functions using the
+	  new rfcheader_geth().
+
+STARTED * Replace calls to strncpy0/strncat0 with str_copy/str_append.
+
+MOSTLY	* ftnpack: better file attach processing, -F DIR option. Don't
+DONE	  copy netmail packets (do_noarc()), use rename(). If archiver
+	  fails, move packets back to toss/out directory.
+
+
+    Priority 2
+
+    Features
+
+STARTED	* areas.bbs: read-only/vacation flag for downlinks,
+	  e.g. Z:N/F.P=flags 
+	  ftnaf: commands for vacation flag.
+
+	* ftntoss: check # of ^AVia lines
+
+	* rfc2ftn: option to use node address, not gateway point
+	  address for local users.
+
+	* ftn2rfc: process ^ARFC headers. If RFC level 1, import
+	  important headers such as Date, Message-ID. If RFC level 2,
+	  import all headers present.
+
+
+    Priority 3
+
+    Features
+
+	* Generic alias matching: name@Z:N/F.P <-> user@do.main (Name),
+	  recipient *and* sender
+
+	* rfc2ftn: improve parser for 1st line. Use regexp library?
+
+
+
+=== 4.3bX pre-release
+
+	* ftn2rfc, ftnin: integrate programs.
+
+
+
+=== 4.3.X release
+
+	* Update documentation.
+
+
+
+===== Later ==================================================================
+
+        * ftntick: charset translation when writing to files.bbs
+
+	* packing: different packing for NetMail/EchoMail
+
+	* packing: MaxArc configurable per node
+
+???	* config.*: common address settings, e.g. Address for main
+	  AKA, GateAddress for gateway???
+
 	* Allow config parameters on command line for all programs.
-
-DONE	* rfc2ftn: different output dirs for mail and news.
-
-DONE	* log.c: add alternate logging via openlog(), syslog().
 
 	* Direct mailing list support, gateway EchoMail <-> mailing
 	  list.
 
-DONE	* config: different lib and sbin directory?
-
 	* scripts: check that process which created lock file still
 	  exists.
-
-DONE	* lock.c:lock_lockfile_id(): implement safer variant, see man 2
-	  open, NFS related bug with O_EXCL.
-
-4.3.x	* ftn2rfc: ^ARFC-<mime> import.
-
-4.3.x	* ftn2rfc/rfc2ftn: MAIL-log messages configurable.
-	* ftn2rfc/rfc2ftn: mail log + size / message date
-
-DONE	* config: move config files to /etc/fidogate, %C for config dir.
 
 	* rfc2ftn: filter function for SPAM.
 
@@ -126,24 +118,12 @@ DONE	* config: move config files to /etc/fidogate, %C for config dir.
 
 	* ftn2rfc: allow Newsgroups, Followup-To: header.
 
-	* rfcheader.c: rewrite all *header_get* functions using the
-	  new rfcheader_geth().
-
 	* config: run-time configuration for FTN_RFC_HEADERS,
 	  RFC_LVL_1_HEADERS, and text headers put into FTN message by
 	  rfc2ftn.
 
-STARTED	* areas.bbs: read-only/vacation flag for downlinks,
-	  e.g. Z:N/F.P=flags 
-	  ftnaf: commands for vacation flag.
-
 	* rfc2ftn: check for multiple entries of the same groups in
 	  the Newsgroups header.
-
-	* ftn2rfc: send bounce mails directly as FTN messages, not via
-	  the mail system.
- 	  ftn2rfc: bounce messages should include the complete FTN
-	  message with all kludges etc. to ease debugging.
 
 	* rfc2ftn: save large mails to file, fattach on hold for
 	  recipient?
@@ -154,30 +134,9 @@ STARTED	* areas.bbs: read-only/vacation flag for downlinks,
 	* ftntick: call script for incoming TICs, passing file area,
 	  name, ... for announcements
 
-DONE	* ftnaf: marker in areas.bbs to show if an area is subscribed
-	  at the uplink (option or using directory), regularly check
-	  if area is subscribed by any downlink and send add/del
-	  request to uplink.
-	  #+ AREA is subscribed
-	  #- AREA is not subscribed
-
-STARTED * Replace calls to strncpy0/strncat0 with str_copy/str_append.
-
-	* Generic alias matching: name@Z:N/F.P <-> user@do.main (Name),
-	  recipient *and* sender
-
-	* rfc2ftn: improve parser for 1st line. Use regexp library?
-
-	* rfc2ftn: option to use node address, not gateway point
-	  address for local users.
-
 	* "BestMatchAKA" parameter for all programs. Similar to
 	  setting AKA based on current zone, using the AKA with best
 	  fits the sender/receiver. For multi-point operation.
-
-	* ftn2rfc: process ^ARFC headers. If RFC level 1, import
-	  important headers such as Date, Message-ID. If RFC level 2,
-	  import all headers present.
 
 	* ftnflo: pipe to program processing the entries (e.g. send
  	  with FTP), new scripts senduu, senduumail.
@@ -196,21 +155,7 @@ STARTED * Replace calls to strncpy0/strncat0 with str_copy/str_append.
 	* ftnhatch: copy option: copy file to file area and put entry
 	  into files.bbs (standard hatch behavior).
 
-	* ftnpack: runtime configuration of arcmail extension
-	  usage. Use XX0-9 only, XX0-9 + XXA-F, wrap around to XX0 if
-	  last one is too large, etc.
-	  ArcMail extensions: mo[0-9], plus mo[a-f], maybe mo[a-z]?
-	  runtime configuration of arcmail extensions usage.
-
-	* ftn2rfc: restrict gateway to certain *Internet* addresses.
-
-MOSTLY	* ftnpack: better file attach processing, -F DIR option. Don't
-DONE	  copy netmail packets (do_noarc()), use rename(). If archiver
-	  fails, move packets back to toss/out directory.
-
 	* Check packet passwords of incoming packets.
-
-	* ftntoss: check # of ^AVia lines
 
 	* ftntoss: strip ^APATH for ZoneGate
 

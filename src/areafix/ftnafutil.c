@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: ftnafutil.c,v 1.1 1998/04/18 20:20:06 mj Exp $
+ * $Id: ftnafutil.c,v 1.2 1998/04/19 10:15:35 mj Exp $
  *
  * Utility program for Areafix.
  *
@@ -36,7 +36,7 @@
 
 
 #define PROGRAM		"ftnafutil"
-#define VERSION		"$Revision: 1.1 $"
+#define VERSION		"$Revision: 1.2 $"
 #define CONFIG		DEFAULT_CONFIG_MAIN
 
 
@@ -70,15 +70,17 @@ int do_mail(Node *node, char *area, char *s)
     Textlist outbody;
     Message outmsg;
     Passwd *pwd;
+    char *to;
 
     /* Get password for uplink */
     pwd = passwd_lookup("uplink", node);
-    if(!pwd)
+    if(!pwd || !pwd->passwd)
     {
 	log("ERROR: no uplink password for %s, can't send request", 
 	    znfp(node));
 	return ERROR;
     }
+    to = pwd->args && *pwd->args ? pwd->args : areafix_name();
 
     /* Send Areafix message */
     tl_init(&outbody);
@@ -91,7 +93,7 @@ int do_mail(Node *node, char *area, char *s)
     outmsg.date      = time(NULL);
     BUF_COPY  (outmsg.name_from, areafix_name());
     BUF_APPEND(outmsg.name_from, " Daemon"     );
-    BUF_COPY  (outmsg.name_to  , "Areafix"     );
+    BUF_COPY  (outmsg.name_to  , to            );
     BUF_COPY  (outmsg.subject  , pwd->passwd   );
     outmsg.area      = NULL;
 
