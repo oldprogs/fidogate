@@ -2,6 +2,9 @@
 
 	************** TODO list for FIDOGATE development **************
 
+	* log.c: switch on syslog logging from config file, new config
+	  LogFile syslog.
+
 	* ftnaf:
 	  - separate common functions af.c
 	  - command line frontend ftnaf

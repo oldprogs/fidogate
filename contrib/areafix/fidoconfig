@@ -20,11 +20,17 @@ passwd 2:2432/600  GEHEIM
 passwd 44:4932/0   GEHEIM
 passwd 998:200/0   GEHEIM
 
+# Passwortfile von Fidogate
+passwdfile /fido/fidogate/passwd
+
 # Wo ist die Areas.bbs von Fidogate?
 areasbbs /fido/fidogate/areas.bbs
 
 # Wo ist die config.common von Fidogate?
 configcommon /fido/fidogate/config.common
+
+# Wo ist die Datei die bei "%help" gesendet werden soll?
+helpfile /fido/data/hilfe.txt
 
 # Wo ist die packing von Fidogate?
 packing /fido/fidogate/packing
@@ -41,7 +47,10 @@ tosendfile /fido/fnet/in/areafix.pkt
 outbegin /fido/fnet
 
 # Tearline for Messages
-tearline Areafix .6beta
+tearline Areafix .6.5beta
+
+# Um das Sequenzer File fuer die MsgID zu speichern
+datadir /fido/data
 
 #Testmode
 test 0

@@ -12,7 +12,7 @@
   <body leftmargin=22 topmargin=22 bgcolor="#ffffff">
     <!-- MSIE leftmargin/topmargin: same margins as Netscape -->
 
-    $Id: dirs.html,v 4.2 1998/01/02 14:37:00 mj Exp $
+    $Id: dirs.html,v 4.3 1998/01/03 17:25:19 mj Exp $
 
     <h1>FIDOGATE Directories</h1>
     
@@ -24,8 +24,8 @@
     systems.
     
     <dl>
-      <dt><tt>/etc/fido/</tt>
-      <dd>Configuration files live here:
+      <dt><tt>/etc/fidogate/</tt>
+      <dd>FIDOGATE configuration files live here:
 	<dl>
 	  <dt><tt>common.conf</tt><dd>FIDOGATE common configuration
 	  <dt><tt>gate.conf</tt><dd>FIDOGATE gateway configuration
@@ -41,7 +41,7 @@
 	</dl>
 	<p>
     
-      <dt><tt>/var/lib/fido/</tt>
+      <dt><tt>/var/lib/fidogate/</tt>
       <dd>Variable files live here:
 	<dl>
 	  <dt><tt>seq/</tt><dd>Directory for sequencer files
@@ -52,17 +52,17 @@
 	</dl>
 	<p>
 
-      <dt><tt>/var/lock/fido/</tt>
+      <dt><tt>/var/lock/fidogate/</tt>
       <dd>Lock files for FIDOGATE programs and scripts live here.
 	<p>
 
-      <dt><tt>/var/spool/fido/</tt>
+      <dt><tt>/var/spool/fidogate/</tt>
       <dd>Fido related programs spool area:
 	<dl>
 	  <dt><tt>outpkt/</tt><dd>Directory for output FTN packets (.pkt)
 	    <dl>
 	      <dt><tt>mail/</tt><dd>Mail packets created by rfc2ftn
-	      <dt><tt>news/</tt><dd>News packets created by rfc2ftn
+	      <dt><tt>news/</tt><dd>News packets created by rfc2ftn -n
 	    </dl>
 	  <dt><tt>outrfc/</tt><dd>Directory for output RFC messages (.rfc)
 	    <dl>
@@ -74,6 +74,8 @@
 	      <dt><tt>toss/</tt><dd>Temporary packets created by ftntoss
 	      <dt><tt>route/</tt><dd>Temporary packets created by ftnroute
 	      <dt><tt>pack/</tt><dd>Temporary packets created by ftnpack
+	      <dt><tt>bad/</tt><dd>Bad (insecure, routed, etc.)
+		packets created by ftnpack 
 	    </dl>
 	</dl>
 	<p>

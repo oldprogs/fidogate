@@ -26,6 +26,17 @@ VIEL tun. (Das Vorliegene Programm ist die Arbeit von ca. 10 Stunden.)
 + Handling von Level & Key (-l -k)
 + Automatisches bestellen/abbestellen von Areas beim Uplink
 
+0.6beta -> 0.6.2beta
+(Von Thomas Winter gefunden)
+
+! Tippfehler
+! Fehlende Eintraege in der fidoconfig
+
+0.6.2beta -> 0.6.5beta
+
+! Grober Denkfehler beseitigt.
++ Externe Hilfe
+
 2. Kleiner Hinweis
 ------------------
 
@@ -63,8 +74,12 @@ passwd <AKA> Passwort
 Weiterhin braucht der areafix ein paar Dateien von Fidogate
 
 areasbbs	(Das ist die Datei um die sich alles dreht.)
+passwdfile      (Passwort-File von Fidogate. Hinweis zum Format siehe 3.5)
 configcommon	(Wird zum herausbekommen des richtigen Verzeichniss benoetigt)
 packing		(Fuer das Kommando %compess)
+helpfile        (Fuer den Hilfe-Text der bei %help geschickt werden soll)
+datadir         (Verzeichniss wo die Sequencer-Datei fuer die Msgid 
+                 gespeichert werden kann.)
 
 Am Ende gibt man noch die Points an an die die Mails, die fuer den Areafix 
 bestimmt sind, umgeleitet worden sind.

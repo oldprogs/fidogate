@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway software UNIX <-> FIDO
  *
- * $Id: config.h,v 4.26 1997/10/11 21:24:14 mj Exp $
+ * $Id: config.h,v 4.27 1998/01/03 17:25:16 mj Exp $
  *
  * Configuration header file
  *
@@ -31,6 +31,12 @@
  *****************************************************************************/
 
 /***** General configuration *************************************************/
+
+/*
+ * Use syslog if log file name is "syslog" for log() and debug() messages
+ * (Requires support from OS, see HAS_SYSLOG below)
+ */
+#define USE_SYSLOG
 
 /*
  * Generate local FTN addresses, e.g.
@@ -166,6 +172,7 @@
 # define DO_HAVE_STRERROR
 # undef  DO_BINARY
 # undef  DO_DOSIFY
+# undef  HAS_SYSLOG			/* syslog(), vsyslog() not supported */
 
 
 #ifdef __sun__				/* SUNOS 4.1.x, GNU gcc */
@@ -181,6 +188,7 @@
 # undef  DO_HAVE_STRERROR
 # undef  DO_BINARY
 # undef  DO_DOSIFY
+# define HAS_SYSLOG
 #endif
 
 #ifdef __linux__			/* LINUX LIBC 5.x.x, GNU gcc */
@@ -196,6 +204,7 @@
 # define DO_HAVE_STRERROR
 # undef  DO_BINARY
 # undef  DO_DOSIFY
+# define HAS_SYSLOG
 #endif
 
 #ifdef __FreeBSD__			/* FreeBSD 2.1.6., GNU gcc */
@@ -211,6 +220,7 @@
 # undef  DO_HAVE_STRERROR		/* ? */
 # undef  DO_BINARY
 # undef  DO_DOSIFY
+# define HAS_SYSLOG
 #endif
 
 #ifdef ISC				/* ISC 3.x, GNU gcc, -DISC necessary */
@@ -226,6 +236,7 @@
 # undef  DO_HAVE_STRERROR		/* ? */
 # undef  DO_BINARY
 # undef  DO_DOSIFY
+# define HAS_SYSLOG
 #endif
 
 #ifdef MSDOS				/* MSDOS, DJGPP GNU gcc */
@@ -240,6 +251,7 @@
 # undef  DO_HAVE_STRERROR		/* ? */
 # define DO_BINARY
 # define DO_DOSIFY
+# undef  HAS_SYSLOG	/* syslog(), vsyslog() not supported */
 #endif
 
 #ifdef __EMX__				/* OS/2, EMX GNU gcc */
@@ -257,6 +269,7 @@
 # undef  DO_HAVE_STRERROR		/* ? */
 # define DO_BINARY
 # define DO_DOSIFY
+# undef  HAS_SYSLOG	/* syslog(), vsyslog() not supported */
 #endif
 
 #ifdef __NeXT__                         /* NEXTSTEP 3.3 (Intel only?) */
@@ -272,6 +285,7 @@
 # undef  DO_BINARY
 # define RECEIVED_BY_MAILER "Received: by NeXT.Mailer"
 # undef  DO_DOSIFY
+# define HAS_SYSLOG
 #endif /* __NeXT__ */
 
 #ifdef __CYGWIN32__			/* GNU-Win32 Beta 18 */
@@ -287,6 +301,7 @@
 # define DO_HAVE_STRERROR
 # define DO_BINARY
 # undef  DO_DOSIFY
+# undef  HAS_SYSLOG	/* syslog(), vsyslog() not supported */
 #endif
 
 /***** End of configuration *************************************************/

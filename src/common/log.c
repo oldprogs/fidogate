@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: log.c,v 4.6 1997/10/11 21:24:26 mj Exp $
+ * $Id: log.c,v 4.7 1998/01/03 17:25:22 mj Exp $
  *
  * Log and debug functions
  *
@@ -34,36 +34,36 @@
 
 
 
-/*
- * Debug level -v --verbose option
- */
+/* Debug level -v --verbose option */
 int verbose = 0;
 
-/*
- * Inhibit debug output
- */
+/* Inhibit debug output */
 int no_debug = FALSE;
 
-
-/*
- * Log file name
- */
+/* Log file name */
 static char logname[MAXPATH] = "";
 
-/*
- * Log file
- */
+/* Log file */
 static FILE *logfile = NULL;
 
-/*
- * Log program
- */
+/* Log program */
 static char logprog[MAXPATH] = "FIDOGATE";
 
-/*
- * Debug file
- */
+/* Debug file */
 static FILE *debugfile = NULL;
+
+/* Syslog support */
+#ifndef HAS_SYSLOG
+#undef USE_SYSLOG
+#endif
+
+#ifdef USE_SYSLOG
+static int use_syslog   = FALSE;
+static int must_openlog = TRUE;
+
+#include <syslog.h>
+#define FACILITY	LOG_LOCAL0
+#endif
 
 
 
@@ -102,51 +102,64 @@ void log(const char *fmt, ...)
     
     va_start(args, fmt);
 
-    if(logfile)
-	/* Use set FILE (stdout or stderr) */
-	fp = logfile;
-    else
-    {
-	/* Open logname[] or default */
-	if(!logname[0])
-	{
-	    BUF_COPY3(logname, cf_logdir(), "/", LOG);
+#ifdef USE_SYSLOG
+    if(use_syslog) {
+	if(must_openlog) {
+	    openlog(logprog, LOG_PID, FACILITY);
+	    must_openlog = FALSE;
 	}
-	if((fp = fopen(logname, A_MODE)) == NULL)
+	vsyslog(LOG_NOTICE, *fmt == '$' ? fmt + 1 : fmt, args);
+	if (*fmt == '$')
+	    syslog(LOG_NOTICE, "  (errno=%d: %m)", errno);
+	
+    }
+    else {
+#endif	
+	if(logfile)
+	    /* Use set FILE (stdout or stderr) */
+	    fp = logfile;
+	else
 	{
-	    fprintf(stderr, "log(): can't open log file %s\n", logname);
-	    if(!verbose)
-		verbose = -1;
+	    /* Open logname[] or default */
+	    if(!logname[0])
+	    {
+		BUF_COPY3(logname, cf_logdir(), "/", LOG);
+	    }
+	    if((fp = fopen(logname, A_MODE)) == NULL)
+	    {
+		fprintf(stderr, "log(): can't open log file %s\n", logname);
+		if(!verbose)
+		    verbose = -1;
+	    }
 	}
-    }
+	if(fp)
+	{
+	    fprintf(fp, "%s %s ",
+		    date_buf(buf, "%b %d %H:%M:%S", (long *)0), logprog);
+	    vfprintf(fp, *fmt == '$' ? fmt + 1 : fmt, args);
+	    if (*fmt == '$')
+		fprintf(fp, "  (errno=%d: %s)", errno, strerror(errno));
+	    fprintf(fp, "\n");
+	    if(logfile == NULL)
+		fclose(fp);
+	}
 
-    if(fp)
-    {
-	fprintf(fp, "%s %s ",
-		date_buf(buf, "%b %d %H:%M:%S", (long *)0), logprog);
-	vfprintf(fp, *fmt == '$' ? fmt + 1 : fmt, args);
-	if (*fmt == '$')
-	    fprintf(fp, "  (errno=%d: %s)", errno, strerror(errno));
-	fprintf(fp, "\n");
-	if(logfile == NULL)
-	    fclose(fp);
-    }
+	/* if verbose is set, print also to debugfile (without date) */
+	if (verbose)
+	{
+	    if(!debugfile)
+		debugfile = stderr;
 
-    /*
-     * if verbose is set, print also to LOG_OUTPUT (without date)
-     */
-    if (verbose)
-    {
-        if(!debugfile)
-	    debugfile = stderr;
-
-	fprintf(debugfile, "%s ", logprog);
-	vfprintf(debugfile, *fmt == '$' ? fmt + 1 : fmt, args);
-	if (*fmt == '$')
-	    fprintf(debugfile, "  (errno=%d: %s)", errno, strerror(errno));
-	fprintf(debugfile, "\n");
-	fflush(debugfile);
+	    fprintf(debugfile, "%s ", logprog);
+	    vfprintf(debugfile, *fmt == '$' ? fmt + 1 : fmt, args);
+	    if (*fmt == '$')
+		fprintf(debugfile, "  (errno=%d: %s)", errno, strerror(errno));
+	    fprintf(debugfile, "\n");
+	    fflush(debugfile);
+	}
+#ifdef USE_SYSLOG
     }
+#endif	
 
     va_end(args);
 }
@@ -162,24 +175,50 @@ void debug(int lvl, const char *fmt, ...)
 
     va_start(args, fmt);
 
-    if(!debugfile)
-        debugfile = stderr;
-
-    if(verbose >= lvl)
-    {
-	if(no_debug)
+#ifdef USE_SYSLOG
+    if(use_syslog) {
+	if(verbose >= lvl)
 	{
-	    fprintf(debugfile,
-		    "debug called for uid=%d euid=%d, output disabled\n",
-		    (int)getuid(), (int)geteuid());
+	    if(no_debug)
+	    {
+		syslog(LOG_DEBUG,
+		       "debug called for uid=%d euid=%d, output disabled\n",
+		       (int)getuid(), (int)geteuid());
+	    }
+	    else
+	    {
+		if(must_openlog) {
+		    openlog(logprog, LOG_PID, FACILITY);
+		    must_openlog = FALSE;
+		}
+		vsyslog(LOG_DEBUG, fmt, args);
+	    }
 	}
-	else
-	{
-	    vfprintf(debugfile, fmt, args);
-	    fprintf(debugfile, "\n");
-	    fflush(debugfile);
-	}
+	
     }
+    else {
+#endif	
+	if(!debugfile)
+	    debugfile = stderr;
+
+	if(verbose >= lvl)
+	{
+	    if(no_debug)
+	    {
+		fprintf(debugfile,
+			"debug called for uid=%d euid=%d, output disabled\n",
+			(int)getuid(), (int)geteuid());
+	    }
+	    else
+	    {
+		vfprintf(debugfile, fmt, args);
+		fprintf(debugfile, "\n");
+		fflush(debugfile);
+	    }
+	}
+#ifdef USE_SYSLOG
+    }
+#endif	
 
     va_end(args);
 }
@@ -194,16 +233,24 @@ void log_file(char *name)
     logfile   = NULL;
     debugfile = stderr;
 
-    if(!strcmp(name, "stdout"))
+    if(streq(name, "stdout"))
     {
 	logfile = debugfile = stdout;
 	logname[0] = 0;
     }
-    else if(!strcmp(name, "stderr"))
+    else if(streq(name, "stderr"))
     {
 	logfile = debugfile = stderr;
 	logname[0] = 0;
     }
+#ifdef USE_SYSLOG
+    else if(streq(name, "syslog"))
+    {
+	use_syslog = TRUE;
+	logfile = debugfile = NULL;
+	logname[0] = 0;
+    }
+#endif
     else
     {
 	str_expand_name(logname, sizeof(logname), name);
@@ -222,5 +269,7 @@ void log_program(char *name)
     BUF_COPY(logprog, name);
 
     if( (p = getenv("LOGFILE")) )
+       log_file(p);
+    if( (p = getenv("FIDOGATE_LOGFILE")) )
        log_file(p);
 }

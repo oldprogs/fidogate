@@ -1,3 +1,23 @@
+Sat Jan  3 11:41:17 1998  Martin Junius  <mj@fido.de>
+
+	------- CVS ci -------------------------------------------------------
+
+	* config.h (HAS_SYSLOG): new #define for controlling OS support of
+	  openlog(), syslog(), vsyslog().
+
+	* src/common/log.c (log_file): if log file is "syslog", set
+	  use_syslog flag.
+	  (log): modified to use (v)syslog() for log messages if
+	  use_syslog is set. Facility is LOG_LOCAL0, priority is LOG_NOTICE.
+	  (debug): dito, priority LOG_DEBUG.
+
+	* config.h (USE_SYSLOG): added new configuration #define.
+
+	* src/common/log.c (log_program): also use environment variable
+	  FIDOGATE_LOGFILE.
+
+	* contrib/areafix/: update.
+
 Fri Jan  2 15:32:58 1998  Martin Junius  <mj@fido.de>
 
 	------- CVS ci -------------------------------------------------------

@@ -1,13 +1,15 @@
 #!/usr/bin/perl
 
-require "fido.pli";
+require "./fido.pli";
 
-$orig="2:2432/605";
-$dest="2:2432/600";
+&readconfig;
+
+$orig="2:2432/605.1";
+$dest="2:2432/605";
 $from="Matthias Schniedermeyer";
 $to="Areafix";
 $subject="GEHEIM";
-$message="+JAVA.GER\r\n";
+$message="%help\r\n";
 $tearline="TestProggie 1";
 $area="DARKNESS.POINTS";
 $origin=" * Origin: Halllllllooooooooooo Schwester (2:2432/605.1)\r";
