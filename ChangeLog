@@ -1,3 +1,28 @@
+1999-01-09  Martin Junius  <mj@fido.de>
+
+	------- CVS ci -------------------------------------------------------
+
+	* test/tc.gate5/run: same as tc.gate3
+
+	* test/tc.gate3/run: use new fidogate.conf, added pktdebug output
+	  of all created packets.
+
+	* test/tc.gate2/run: use new fidogate.conf, added output of all
+	  created RFC messages.
+
+	* test/tc.newcf/run: new test case for checking configuration with 
+	  single config file fidogate.conf.
+
+	* examples/orodruin/fidogate.conf: example of new single
+	  configuration file.
+
+	* src/toss/ftntoss.c (main): config option "EchoMail4D" renamed to 
+	  "TossEchoMail4D" to avoid conflicts with gateway "EchoMail4D"
+	  configuration. 
+
+	* config.make (DEFAULT_F_CONFIG_xxx): added new macro defs with
+	  single config file fidogate.conf, commented for the time being.
+
 1999-01-02  Martin Junius  <mj@fido.de>
 
 	------- CVS ci -------------------------------------------------------

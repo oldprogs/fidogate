@@ -18,6 +18,9 @@ file of course ... ;-).
     passwd
     routing
 
+Here is also an example of the new *single* configuration file
+    fidogate.conf
+
 /var/lib/fidogate:
     areas.bbs
     fareas.bbs

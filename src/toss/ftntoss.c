@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftntoss.c,v 4.30 1999/01/02 16:35:05 mj Exp $
+ * $Id: ftntoss.c,v 4.31 1999/01/09 17:39:42 mj Exp $
  *
  * Toss FTN NetMail/EchoMail
  *
@@ -39,7 +39,7 @@
 
 
 #define PROGRAM 	"ftntoss"
-#define VERSION 	"$Revision: 4.30 $"
+#define VERSION 	"$Revision: 4.31 $"
 #define CONFIG		DEFAULT_CONFIG_MAIN
 
 
@@ -1796,9 +1796,9 @@ int main(int argc, char **argv)
 	    max_history = 0;
 	debug(8, "config: MaxHistory %lg", max_history);
     }
-    if( cf_get_string("EchoMail4D", TRUE) )
+    if( cf_get_string("TossEchoMail4D", TRUE) )
     {
-	debug(8, "config: EchoMail4D");
+	debug(8, "config: TossEchoMail4D");
 	echomail4d = TRUE;
     }
     if( cf_get_string("NoEmptyPath", TRUE) )

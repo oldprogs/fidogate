@@ -2,6 +2,42 @@ tc: clean-up
 tc: init
 tc: copying input packets
 tc: running
+config: switching to gateway, using GateAddress
+config: address Z2   : GATE addr=2:2452/110.2 uplink=2:2452/110.2
+config: address Z242 : GATE addr=242:1000/5.0 uplink=242:1000/5.0
+config: fqdn=orodruin.fido.de
+config: address Z2   : addr=2:2452/110.2 uplink=2:2452/110.2 gateaddr=2:2452/110.2
+config: address Z242 : addr=242:1000/5.0 uplink=242:1000/5.0 gateaddr=242:1000/5.0
+config: zone 0   : .Fido.DE  FidoDE  -
+config: zone 1   : .fidonet.org  FidoNet  out.001
+config: zone 2   : .fidonet.org  FidoNet  out
+config: zone 3   : .fidonet.org  FidoNet  out.003
+config: zone 4   : .fidonet.org  FidoNet  out.004
+config: zone 5   : .fidonet.org  FidoNet  out.005
+config: zone 6   : .fidonet.org  FidoNet  out.006
+config: zone 21  : .gernet.heise.de  GerNet  out.015
+config: zone 242 : .Fido.DE  FidoDE  out.0f2
+config: gateway=0:0/0.0
+config: PINBOUND ./pin
+config: SPOOLDIR .
+config: X-FTN ftTOVD
+config: BounceCCMail postmaster@orodruin.fido.de
+config: TrackerMail postmaster@orodruin.fido.de
+config: KillUnknownMSGIDZone
+config: HostsRestricted
+config: FTNJunkGroup fido.junk
+config: NetMailQP
+config: RFCAddrMode 1
+config: DefaultCharset x-ibmpc:iso-8859-1:iso-8859-1
+config: NetMailCharset x-ibmpc:iso-8859-1:iso-8859-1
+config: NewsPathTail fidogate!not-for-mail
+config: AreasXlate _		-
+config: AREAS %C/areas
+config: CONFIGDIR ../cf
+config: HOSTS %C/hosts
+config: ALIASES %C/aliases
+config: CHARSETMAP %L/charset.bin
+config: LIBDIR ../lib
 Reading FTN packet header:
     From: 2:2452/110.0
     To  : 2:2452/110.2
@@ -10,7 +46,60 @@ Reading FTN packet header:
     Rev : 3.9
     Pass: ""
     Capw: 0001
+config: LOGFILE %G/log
+config: LOGDIR .
 ftn2rfc packet ./pin/t-msgid1.pkt (7438b) from 2:2452/110.0 to 2:2452/110.2
+Reading FTN message header:
+    From: Roland Rosenfeld                     @ 2:2452/110.0
+    To  : All                                  @ 2:2452/110.2
+    Subj: *** Linux Neueinsteiger *** Bitte lesen ***
+    Attr: 0000
+FIDO sender (from/origin): 2:2450/111.13
+FIDO Area: LINUX.GER
+Found: LINUX.GER fido.ger.linux Z2
+cvt8:
+FSC-0054 ^ACHRS/CHARSET: LATIN-1 2
+FSC-0054 level 2 charset=LATIN-1
+charset: in=LATIN-1 out=us-ascii
+charset: table found in=iso-8859-1 out=us-ascii
+charset: in=LATIN-1 out=us-ascii
+charset: table found in=iso-8859-1 out=us-ascii
+Checking for alias: All <All@hippo.fido.de>
+config: Organization Martin Junius' orodruin.fido.de
+config: VARDIR .
+Reading FTN message header:
+    From: Roland Rosenfeld                     @ 2:2452/110.0
+    To  : Armin Schreppel                      @ 2:2452/110.2
+    Subj: Re: S3 Trio64
+    Attr: 0000
+FIDO sender (from/origin): 2:2450/111.13
+FIDO Area: LINUX.GER
+Found: LINUX.GER fido.ger.linux Z2
+cvt8:
+FSC-0054 ^ACHRS/CHARSET: LATIN-1 2
+FSC-0054 level 2 charset=LATIN-1
+charset: in=LATIN-1 out=us-ascii
+charset: table found in=iso-8859-1 out=us-ascii
+charset: in=LATIN-1 out=us-ascii
+charset: table found in=iso-8859-1 out=us-ascii
+Checking for alias: Armin Schreppel <Armin_Schreppel@hippo.fido.de>
+Reading FTN message header:
+    From: Roland
+Rosenfeld                     @ 2:2452/110.0
+    To  : Thomas Kobienia                      @ 2:2452/110.2
+    Subj: Re: Probs mit Fidogate
+    Attr: 0000
+FIDO sender (from/origin): 2:2450/111.13
+FIDO Area: LINUX.GER
+Found: LINUX.GER fido.ger.linux Z2
+cvt8:
+FSC-0054 ^ACHRS/CHARSET: LATIN-1 2
+FSC-0054 level 2 charset=LATIN-1
+charset: in=LATIN-1 out=us-ascii
+charset: table found in=iso-8859-1 out=us-ascii
+charset: in=LATIN-1 out=us-ascii
+charset: table found in=iso-8859-1 out=us-ascii
+Checking for alias: Thomas Kobienia <Thomas_Kobienia@hippo.fido.de>
 Reading FTN packet header:
     From: 2:2452/110.0
     To  : 2:2452/110.2
@@ -20,3 +109,321 @@ Reading FTN packet header:
     Pass: ""
     Capw: 0001
 ftn2rfc packet ./pin/t-msgid2.pkt (5849b) from 2:2452/110.0 to 2:2452/110.2
+Reading FTN message header:
+    From: Frank Drolshagen                     @ 2:2452/110.0
+    To  : Jens Benecke                         @ 2:2452/110.2
+    Subj: "foo"
+    Attr: 0000
+FIDO sender (from/origin): 2:244/6301.18
+FIDO Area: LINUX.GER
+Found: LINUX.GER fido.ger.linux Z2
+cvt8:
+charset: in=x-ibmpc out=us-ascii
+charset: table found in=x-ibmpc out=us-ascii
+charset: in=x-ibmpc out=us-ascii
+charset: table found in=x-ibmpc out=us-ascii
+Checking for alias: Frank Drolshagen <Frank_Drolshagen@p18.f6301.n244.z2.fidonet.org>
+Checking for alias: Jens Benecke <Jens_Benecke@hippo.fido.de>
+Reading FTN message header:
+    From: Florian Steiper                      @ 2:2452/110.0
+    To  : Roland Rosenfeld                     @ 2:2452/110.2
+    Subj: Re: Staroffice =?ISO-8859-1?Q?f=FCr?= Linux
+    Attr: 0000
+FIDO sender (from/origin): 2:2461/336.23
+FIDO Area: LINUX.GER
+Found: LINUX.GER fido.ger.linux Z2
+cvt8:
+charset: in=x-ibmpc out=us-ascii
+charset: table found in=x-ibmpc out=us-ascii
+charset: in=x-ibmpc out=us-ascii
+charset: table found in=x-ibmpc out=us-ascii
+Checking for alias: Florian Steiper <Florian_Steiper@p23.f336.n2461.z2.fidonet.org>
+Checking for alias: Roland Rosenfeld <Roland_Rosenfeld@hippo.fido.de>
+ftn2rfc MSGID 9999:2461/336.23@fidonet c29b2982: unknown zone, not gated
+Reading FTN message header:
+    From: Helmut vom Sondern                   @ 2:2452/110.0
+    To  : Michael Nessler                      @ 2:2452/110.2
+    Subj: Re: sendmail
+    Attr: 0000
+FIDO sender (from/origin): 2:2448/448.7
+FIDO Area: LINUX.GER
+Found: LINUX.GER fido.ger.linux Z2
+cvt8:
+FSC-0054 ^ACHRS/CHARSET: IBMPC 2
+FSC-0054 level 2 charset=IBMPC
+charset: in=IBMPC out=us-ascii
+charset: table found in=x-ibmpc out=us-ascii
+charset: in=IBMPC out=us-ascii
+charset: table found in=x-ibmpc out=us-ascii
+Checking for alias: Helmut vom Sondern <Helmut_vom_Sondern@p7.f448.n2448.z2.fidonet.org>
+Checking for alias: Michael Nessler <Michael_Nessler@hippo.fido.de>
+Reading FTN message header:
+    From: Diedrich Vorberg                     @ 2:2452/110.0
+    To  : Dirk Polke                           @ 2:2452/110.2
+    Subj: Re: Test
+    Attr: 0000
+FIDO sender (from/origin): 2:2444/4528.14
+FIDO Area: LINUX.GER
+Found: LINUX.GER fido.ger.linux Z2
+cvt8: quoted-printable
+charset: in=x-ibmpc out=iso-8859-1
+charset: table found in=x-ibmpc out=iso-8859-1
+charset: in=x-ibmpc out=us-ascii
+charset: table found in=x-ibmpc out=us-ascii
+Checking for alias: Diedrich Vorberg <Diedrich_Vorberg@p14.f4528.n2444.z2.fidonet.org>
+Checking for alias: Dirk Polke <Dirk_Polke@hippo.fido.de>
+ftn2rfc MSGID 123:2444/4528.14@fidonet c291d721: unknown zone, not gated
+#! rnews 4311
+Path: p2.hippo.fido.de!hippo.fido.de!p13.f111.n2450.z2.fidonet.org!fidogate!not-for-mail
+From: Roland Rosenfeld <roland@spinnaker.rhein.de>
+Subject: *** Linux Neueinsteiger *** Bitte lesen ***
+Message-ID: <NOMSGID_2=3A2450=2F111.13_960314_212503_238f6d34@fidonet.org>
+Newsgroups: fido.ger.linux
+Organization: Martin Junius' orodruin.fido.de
+Lines: 65
+X-Gateway: FIDO orodruin.fido.de [FIDOGATE 4.3.0]
+X-FTN-Tearline: FIDOGATE 3.9.6
+X-FTN-Origin: Spinnaker - Linux-Point der FloKiste Koeln  (2:2450/111.13)
+X-FTN-Domain: Z2@FidoNet
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Transfer-Encoding: 7bit
+
+Hi Linux-Neueinsteiger,
+
+bevor du hier nun anfaengst, lauter Fragen zu stellen, die schon tausendmal
+gefragt und auch beantwortet wurden, und dir damit weniger erfreuliche oder
+halt keine Antworten einhandelst, solltest du dir erstmal die folgenden
+Sachen besorgen/ansehen:
+
+- Linux-Meta-FAQ (META-FAQ.H2Z)
+- Linux-Info-Sheet (INFO-SHE.H2Z)
+- Linux-FAQ (LXFAQASC.GZ)
+- Howto's (H2HARDW.GZ, H2INSTAL.GZ, H2DOSEMU.GZ, PRINTING.H2Z, H2SERIAL.GZ, 
+           H2SCSI.GZ, H2EMAIL.GZ, H2NEWS.GZ, H2UUCP.GZ, H2XF86.GZ, H2ELF.GZ,
+           ETHERNET.H2Z, NET-2.H2Z, FTAPE.H2Z, H2MGR.GZ, H2PCI.GZ, H2TIPS.GZ,
+           H2KEYSTR.GZ, H2FIREWL.GZ, H2GERMAN.GZ,KERNEL.H2Z, DISTRI.H2Z, 
+           H2SOUND.GZ, BOOTDISK.H2Z, HAM.H2Z, CDROM.H2Z, H2PPP.GZ, H2UPS.GZ,
+           H2SCSIPR.GZ, H2TERM.GZ, UISDN.H2Z, GERMAN.H2Z, JAVA.H2Z, IPX.H2Z, 
+           SHADOW.H2Z, BUSMOUSE.H2Z, COMMERC.H2Z, BOOTPROM.H2Z, INDEX.H2Z)
+- Mini-Howto's (*.MH2)
+- Installation and Getting Started (IG222TXT.GZ), Network Administrators Guide
+  (NAG*), System Administrators Guide (SAG*)
+
+Zum Thema Fido mit FidoGate und ifcico unter Linux gibt das File FIDOPNT.GZ
+Auskunft, welches immer aktuell bei 2:2450/111 (02203-31231) verfuegbar ist. 
+
+Ansehen kannst Du diese Files unter Linux mittels "zless <filename.gz>" oder
+unter DOS mit "gzip -dc <filename.gz> | list /s".  Die Buecher kannst Du unter
+X11 mit xdvi <filename.dvi> oder ghostview <filename.ps> ansehen. 
+
+Natuerlich fragst du dich jetzt, wo/wie du diese Files bekommst. Einiges davon
+kann man (leider z.T. etwas veraltet) bei Slackware in /usr/doc finden. (Fast)
+Immer aktuelle Files gibt es u.a. im LinuxNet, ueber das deutschlandweit (und
+auch drueber hinaus) alle wichtigen Linux-Programme verteilt werden.
+
+Eine Liste der LinuxNet-Systeme (mit Telefonnummern!) wird hier woechentlich
+gepostet. Bei diesen Systemen liegt auch die Datei LINUXBBS.*, die noch mehr
+Systeme enthaelt, bei denen man bzgl. Linux fuendig werden kann.
+
+Wenn Du trotz all dem total ratlos bist, weil Du noch keine Erfahrung mit
+Unix hast, solltest Du Dir irgendein Unix-Buch besorgen. Insbesondere moechte
+ich hier auf folgende Buecher hinweisen:
+
+Hetze, Hohndel, Mueller, Kirch:          Matt Welsh:
+Linux-Anwenderhandbuch                   Linux Installation & Getting Started
+ISBN 3-929764-04-0  (5. Auflage)         ISBN 3-926671-12-2
+LunetIX Softfair                         Extent Verlag Berlin
+Preis: 49.- DM                           Preisempf.: 15.80 DM
+
+Jetzt weisst Du aber nicht, wie ein bestimmtes Kommando funktioniert: Kein
+Problem, Linux bringt sein eigenes "Handbuch" immer mit. Mittels "man
+kommando" wird Dir eine genaue Beschreibung gegeben, wie Du "kommando"
+verwenden kannst. Weisst Du nicht, wie ein bestimmtest Kommando heisst, so
+kannst Du mit "man -k stichwort" oder auch "apropos stichwort" nach
+Stichworten suchen und bekommst eine Liste aller Komandos, deren Man-Pages
+Wissenswertes zu dem Thema enthalten. Falls Du mit "man" keine Anleitung zu
+einem Programm findest, kannst das Kommando "info" ausprobieren, das die
+Anleitungen zu einigen Programmen im Info-Format darstellt.
+
+Trozdem noch ratlos dann sieh mal in die LinuX Support List wird ebenfalls
+hier gepostet dort findest du bestimmt jemanden den du um Rat fragen kannst.
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++++ Dies ist ein automatisches Posting, das einmal pro Woche erscheint,  +++
++++ um Anfaengern ueber die ersten Huerden zu helfen und das Rauschen in +++
++++ der LINUX.GER niedrig zu halten.                                     +++
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+#! rnews 1495
+Path: p2.hippo.fido.de!hippo.fido.de!p13.f111.n2450.z2.fidonet.org!fidogate!not-for-mail
+From: Roland Rosenfeld <roland@spinnaker.rhein.de>
+Subject: Re: S3 Trio64
+Message-ID: <NOMSGID_2=3A2450=2F111.13_960315_014504_23e78795@fidonet.org>
+Newsgroups: fido.ger.linux
+X-Comment-To: (Armin Schreppel)
+Organization: Martin Junius' orodruin.fido.de
+Lines: 27
+X-Gateway: FIDO orodruin.fido.de [FIDOGATE 4.3.0]
+X-FTN-Tearline: FIDOGATE 3.9.6
+X-FTN-Origin: Spinnaker - Linux-Point der FloKiste Koeln  (2:2450/111.13)
+X-FTN-Domain: Z2@FidoNet
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Transfer-Encoding: 7bit
+
+In article <MSGID_2=3A2490=2F1917.0_144bba40@fidonet.org>
+Armin Schreppel <Armin_Schreppel@f1917.n2490.z2.fido.sub.de> wrote:
+
+> > gibt es eigentlich einen XF86-Server, welcher den S3 Trio64 Chipsatz
+> > unterstuetzt?
+
+>  RR> Ja, das macht der S3-Server von XFree86[tm].  Ab Version
+>  RR> 3.1.2 laeuft das ganze wunderbar.
+
+> kannst Du mir evtl. einen Tip geben, wie ich diese Karte bei mir,
+> Slackware 2.0, Kernel 1.1.59, zum laufen bringe.
+
+Der steht doch da oben:  XFree86[tm] 3.1.2 oder neuer installieren.
+
+> Superprobe meldet: 
+> Chipset: S3 (chipset unknown)
+>          Signature data: e1 (please report)
+
+Bei Slackware 2.0 war vermutlich noch XFree86[tm] 2.1 oder so dabei.
+Damals wurde die Karte halt noch nicht unterstuetzt.
+
+Tschoeee
+
+        Roland
+
+-- 
+  * Internet: roland@spinnaker.rhein.de * Fido: 2:2450/30.1 *
+#! rnews 2171
+Path: p2.hippo.fido.de!hippo.fido.de!p13.f111.n2450.z2.fidonet.org!fidogate!not-for-mail
+From: Roland Rosenfeld <roland@spinnaker.rhein.de>
+Subject: Re: Probs mit Fidogate
+Message-ID: <MSGID_2=3A9999=2F9999.9999_87ed6879@fidonet.org>
+Newsgroups: fido.ger.linux
+X-Comment-To: (Thomas Kobienia)
+Organization: Martin Junius' orodruin.fido.de
+Lines: 39
+X-Gateway: FIDO orodruin.fido.de [FIDOGATE 4.3.0]
+X-FTN-Tearline: FIDOGATE 3.9.6
+X-FTN-Origin: Spinnaker - Linux-Point der FloKiste Koeln  (2:2450/111.13)
+X-FTN-Domain: Z2@FidoNet
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Transfer-Encoding: 7bit
+
+In article <4hkq3k$7g@funny.informatik.tu-cottbus.de>
+Thomas Kobienia <Thomas_Kobienia@p10.f7020.n249.z2.fido.sub.de> wrote:
+
+> missing: 20 Jan 96 18:50:12 @2474/570    14100  01 / 02
+> message <> incomplete!
+> missing: 28 Dec 95 00:04:53 @2476/888    12     02 / 02
+> message <> incomplete!
+
+>    Was hat das zu bedeuten. Es ist auch jedesmal genau die gleiche Meldung.
+
+Du hast das Skript zum Zusammenkleben gesplitteter Mails in ftninpost
+aktiviert (&do_cmd("$LIBDIR/ftninrecomb $options");).
+
+Dieses Skript hat herausgefunden, dass Du da zwei Message-Teile
+rumliegen hast, bei denen je ein Teil der Nachricht fehlt (bei der
+ersten von beiden Fehlt Teil 2/2, bei der zweiten fehlt Teil 1/2).
+
+Du kannst diese beiden defekten Broesel jetzt in
+/var/spool/fnet/in/[mail|news]/ loeschen, nach 2-3 Monaten kommen die
+fehlenden Teile sicher nicht mehr an :-)
+
+> 2. Laut Fido-Point-HOWTO sollte mittels X-Flags: N 
+>    die Zeile:
+>     * To: <adresse> , die FidoGate in jede mail einfuegt, abgestellt werden.
+>   Dies geschieht aber nicht. Wo koennte da der Fehler liegen.
+
+Vermutlich hast Du in /usr/local/lib/fidogate/config.common unter
+Hostname und Domain einen anderen Rechnernamen angegeben, als den, der
+unter dem Du die Mails dann verschickst.  Die X-Flags werden
+allerdings nur dann ausgewertet, wenn das uebereinstimmt.  Andernfalls
+schreibt FidoGate eine Fehlermeldung in sein Logfile (schau mal dort
+nach).
+
+Tschoeeee
+
+        Roland
+
+-- 
+  * Internet: roland@spinnaker.rhein.de * Fido: 2:2450/30.1 *
+#! rnews 1095
+Path: p2.hippo.fido.de!hippo.fido.de!p18.f6301.n244.z2.fidonet.org!fidogate!not-for-mail
+From: Frank Drolshagen <Frank_Drolshagen@p18.f6301.n244.z2.fidonet.org>
+Subject: "foo"
+Message-ID: <MSGID_2=3A244=2F6301.18=40fidonet_c29303d1@fidonet.org>
+References: <MSGID_2=3A240=2F5010.45_c28a4880@fidonet.org>
+Newsgroups: fido.ger.linux
+X-Comment-To: (Jens Benecke)
+Organization: Martin Junius' orodruin.fido.de
+Lines: 18
+X-Gateway: FIDO orodruin.fido.de [FIDOGATE 4.3.0]
+X-FTN-Tearline: CrossPoint v3.1 R
+X-FTN-Origin: fdg@abnet.alpha.de (2:244/6301.18)
+X-FTN-Domain: Z2@FidoNet
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Transfer-Encoding: 7bit
+
+Hallo Jens !
+
+[foo]
+JB> bei mir ist gerade eine Netmail mit einer sehr ausfuehrlichen erklaerung
+JB> eingetroffen.
+JB> Wenn der *MOD* nix dagegen hat, kann ich sie ja mal posten ...
+
+Da es hier, soweit ich weiss, keinen Mod mehr gibt, kann er auch nichts  
+dagegen haben !   ;-)))
+
+Also her damit !
+(Ich will ja schliesslich wissen, ob meine kurze Erklaerung gestimmt hat.)
+
+
+
+Bye
+f.d.g.
+
+#! rnews 1333
+Path: p2.hippo.fido.de!hippo.fido.de!p7.f448.n2448.z2.fidonet.org!fidogate!not-for-mail
+From: Helmut vom Sondern <Helmut_vom_Sondern@p7.f448.n2448.z2.fidonet.org>
+Subject: Re: sendmail
+Message-ID: <MSGID_2=3A2448=2F448.7=40fidonet_c2064eff@fidonet.org>
+References: <MSGID_2=3A310=2F65.770=40FidoNet_1d88c05a@fidonet.org>
+Newsgroups: fido.ger.linux
+X-Comment-To: (Michael Nessler)
+Organization: Martin Junius' orodruin.fido.de
+Lines: 19
+X-Gateway: FIDO orodruin.fido.de [FIDOGATE 4.3.0]
+X-FTN-Tearline: CrossPoint v3.02
+X-FTN-Origin: life is a minestrone (2:2448/448.7)
+X-FTN-Domain: Z2@FidoNet
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Transfer-Encoding: 7bit
+
+>(Michael Nessler schrieb am 27.02.96 an All zum Thema: sendmail)<
+
+Hallo Michael,
+
+MN>My host name (hades) does not seem to exist!: Connection refused
+MN>
+MN>Im File /etc/HOSTNAME ist der richtige Hostname (hades.nes.at)
+MN>eingetragen. Alle meine Versuche sendmail von der Richtigkeit des
+MN>Hostnamens zu ueberzeugen,  scheiterten. Wie tu ich?
+
+Der Hostname ist bestimmt in /etc/hosts eingetragen (hades hades.nes.at).
+Schau auch mal in das File /etc/resolv.conf. Vielleicht kennt der  
+NameServer den Host nicht.
+Ein "ping hades" sollte auf jeden Fall klappen.
+
+
+Helmut
+
+Helmut vom Sondern 2:2448/448.7
