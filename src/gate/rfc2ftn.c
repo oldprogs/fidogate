@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway software UNIX <-> FIDO
  *
- * $Id: rfc2ftn.c,v 4.18 1996/11/30 15:46:13 mj Exp $
+ * $Id: rfc2ftn.c,v 4.19 1996/12/06 07:50:22 mj Exp $
  *
  * Read mail or news from standard input and convert it to a FIDO packet.
  *
@@ -39,7 +39,7 @@
 
 
 #define PROGRAM 	"rfc2ftn"
-#define VERSION 	"$Revision: 4.18 $"
+#define VERSION 	"$Revision: 4.19 $"
 #define CONFIG		CONFIG_GATE
 
 
@@ -457,6 +457,9 @@ int rfc_parse(RFCAddr *rfc, char *name, Node *node, int gw)
 	    return OK;
 	}
     }
+
+    if(!node)
+	return OK;
     
     n = inet_to_ftn(rfc->addr);
     if(!n)
@@ -468,8 +471,7 @@ int rfc_parse(RFCAddr *rfc, char *name, Node *node, int gw)
     
     if(n)
     {
-	if(node)
-	    *node = *n;
+	*node = *n;
 	rfc_isfido_flag = TRUE;
 	ret = OK;
 	debug(3, "    FTN node: %s", node_to_asc(n, TRUE));
@@ -520,8 +522,7 @@ int rfc_parse(RFCAddr *rfc, char *name, Node *node, int gw)
 	 * If Gateway is set in config file, insert address of
 	 * FIDO<->Internet gateway for non-FIDO addresses
 	 */
-	if(node)
-	    *node = cf_gateway();
+	*node = cf_gateway();
 	if(name)
 	    strcpy(name, "UUCP");
 	
@@ -653,7 +654,7 @@ char *mail_receiver(RFCAddr *rfc, Node *node)
 	/*
 	 * Address is argument
 	 */
-	if(rfc_parse(rfc, name, node, TRUE)) {
+	if(rfc_parse(rfc, name, node, TRUE) == ERROR) {
 	    log("BOUNCE: address <%s>", rfcaddr_to_asc(rfc, TRUE));
 	    return NULL;
 	}
@@ -672,12 +673,12 @@ char *mail_receiver(RFCAddr *rfc, Node *node)
 	if( (to = header_get("X-Comment-To")) )
 	{
 	    h = rfcaddr_from_rfc(to);
-	    rfc_parse(&h, name, NULL, TRUE);
+	    rfc_parse(&h, name, NULL, FALSE);
 	}
 	else if( (to = get_name_from_body()) )
 	{
 	    h = rfcaddr_from_rfc(to);
-	    rfc_parse(&h, name, NULL, TRUE);
+	    rfc_parse(&h, name, NULL, FALSE);
 	}
     }
 

@@ -1,3 +1,19 @@
+Fri Dec  6 08:16:28 1996  Martin Junius  <mj@fido.de>
+
+	------- CVS ci -------------------------------------------------------
+
+	* src/gate/rfc2ftn.c (rfc_parse): if node==NULL return OK after
+	  MAUS parsing.
+	  (mail_receiver): call rfc_parse() with gw==FALSE for EchoMail.
+
+	* test/tc.gate7/run: added EchoMail tests with Gateway
+ 	  242:4900/99.
+
+	* test/tc.gate7/config: added local config file setting Gateway
+	  address. 
+
+	* test/tc.gate7/run: added test with X-Comment-To: ().
+
 Tue Dec  3 21:22:34 1996  Martin Junius  <mj@fido.de>
 
 	======= Release 4.1.3 ================================================
