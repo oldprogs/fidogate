@@ -7,6 +7,8 @@
     
     Features
 
+DONE	* ftnin: support for FLO files with *.pkt
+
 DONE	* logcheck: fix list for output without relay (addresses only
 	  once).
 
@@ -22,9 +24,11 @@ DONE	* packet.c:pkt_put_msg_hdr(): add run-time configuration for
 
 	* ftnafutil: option to sort areas.bbs, including zone/keys.
 
-	* ftn2rfc/rfc2ftn: integrate new charset mapping
+MOSTLY	* ftn2rfc: integrate new charset mapping
 
-	* charset.c: use new mapping tables
+	* rfc2ftn: implement new charset mapping
+
+DONE	* charset.c: use new mapping tables
 
 	* ^ACHRS default configurable per area
 
@@ -49,6 +53,8 @@ DONE	* packet.c:pkt_put_msg_hdr(): add run-time configuration for
     Code rewrite
 
 	* config.make/subst.pl: configuration macro if syslog is available.
+
+	* config.h: NFS_SAFE_LOCK_FILES not for DOS, WIN32 etc.
 
 
 
@@ -103,13 +109,12 @@ DONE	  copy netmail packets (do_noarc()), use rename(). If archiver
 
 === 4.3bX pre-release
 
-	* ftn2rfc, ftnin: integrate programs.
+	* Update documentation.
 
 
 
 === 4.3.X release
 
-	* Update documentation.
 
 
 

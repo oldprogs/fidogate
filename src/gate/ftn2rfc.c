@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftn2rfc.c,v 4.37 1998/05/03 14:30:31 mj Exp $
+ * $Id: ftn2rfc.c,v 4.38 1998/05/12 20:12:31 mj Exp $
  *
  * Convert FTN mail packets to RFC mail and news batches
  *
@@ -40,14 +40,12 @@
 
 
 #define PROGRAM 	"ftn2rfc"
-#define VERSION 	"$Revision: 4.37 $"
+#define VERSION 	"$Revision: 4.38 $"
 #define CONFIG		DEFAULT_CONFIG_GATE
 
 
 
-/*
- * Prototypes
- */
+/* Prototypes */
 char   *get_from		(Textlist *, Textlist *);
 char   *get_reply_to		(Textlist *);
 char   *get_to			(Textlist *);
@@ -63,17 +61,14 @@ void	usage			(void);
 
 
 
-/*
- * Command line options
- */
+/* Command line options */
 int n_flag = FALSE;
 int t_flag = FALSE;
 
 char in_dir[MAXPATH];
 
 
-/*
- * X-FTN flags
+/* X-FTN flags
  *    f    X-FTN-From
  *    t    X-FTN-To
  *    T    X-FTN-Tearline
@@ -81,8 +76,7 @@ char in_dir[MAXPATH];
  *    V    X-FTN-Via
  *    D    X-FTN-Domain
  *    S    X-FTN-Seen-By
- *    P    X-FTN-Path
- */
+ *    P    X-FTN-Path      */
 int x_ftn_f = FALSE;
 int x_ftn_t = FALSE;
 int x_ftn_T = FALSE;
@@ -93,11 +87,8 @@ int x_ftn_S = FALSE;
 int x_ftn_P = FALSE;
 
 
-/*
- * TrackerMail
- */
+/* TrackerMail */
 static char *tracker_mail_to = NULL;
-
 
 /* MSGID handling */
 static int no_unknown_msgid_zones    = FALSE;
@@ -566,7 +557,7 @@ int unpack(FILE *pkt_file, Packet *pkt)
 	/*
 	 * Convert FTN from/to addresses to RFCAddr struct
 	 */
-	/**FIXME: set out charset to us-ascii**/
+	charset_set_in_out(cs_in, CHARSET_STD7BIT);
 	addr_from = rfcaddr_from_ftn(msg.name_from, &msg.node_orig);
 	addr_to   = rfcaddr_from_ftn(msg.name_to,   &msg.node_to  );
 
@@ -602,7 +593,7 @@ int unpack(FILE *pkt_file, Packet *pkt)
 	}
 	
 	/*
-	 * If -g flag is set for area and message seems to comme from
+	 * If -g flag is set for area and message seems to come from
 	 * another gateway, skip it.
 	 */
 	if(area && (area->flags & AREA_NOGATE))
@@ -630,7 +621,6 @@ int unpack(FILE *pkt_file, Packet *pkt)
 		    area->area, node_to_asc(&msg.node_orig, TRUE));
 		continue;
 	    }
-	    
 	}
 
 	/*
@@ -670,10 +660,8 @@ int unpack(FILE *pkt_file, Packet *pkt)
 		BUF_COPY(mail_to, addr_to.user);
 	}
 
-	/*
-	 * Special handling for -t flag (insecure):
-	 *   Messages with To line will be bounced
-	 */
+	/* Special handling for -t flag (insecure): Messages with To
+	 * line will be bounced */
 	if(area==NULL && t_flag && msgbody_rfc_to)
 	{
 	    debug(1, "Insecure message with To line");
@@ -683,11 +671,9 @@ int unpack(FILE *pkt_file, Packet *pkt)
 	    continue;
 	}
 	    
-	/*
-	 * There are message trackers out there in FIDONET. Obviously
-	 * they can't handling addressing the gateway so we send mail
-	 * from "MsgTrack..." etc. to TrackerMail.
-	 */
+	/* There are message trackers out there in FIDONET. Most of
+	 * they can't handle addressing the gateway so we send mail
+	 * from "MsgTrack..." etc. to TrackerMail.  */
 	if(tracker_mail_to)
 	    if(   !strnicmp(addr_from.user, "MsgTrack", 8)
 	       || !strnicmp(addr_from.user, "Reflex_Netmail_Policeman", 24)
@@ -709,10 +695,8 @@ int unpack(FILE *pkt_file, Packet *pkt)
 	origindomain = msg.node_orig.zone != -1
 	    ? ftn_to_inet(&msg.node_orig, TRUE) : FTN_INVALID_DOMAIN;
 
-	/*
-	 * Bounce mail from nodes not registered in HOSTS,
-	 * but allow mail to local users.
-	 */
+	/* Bounce mail from nodes not registered in HOSTS, but allow
+	 * mail to local users.  */
 	if(addr_is_restricted() && !ignore_hosts &&
 	   area==NULL && msgbody_rfc_to && !addr_is_domain(msgbody_rfc_to))
 	{
@@ -796,9 +780,7 @@ int unpack(FILE *pkt_file, Packet *pkt)
 		BUF_APPEND(mail_to, cf_fqdn());
 	}
 
-	/*
-	 * Construct string for From: header line
-	 */
+	/* Construct string for From: header line */
 	if(msgbody_rfc_from) {
 	    RFCAddr rfc;
 	    
@@ -810,14 +792,10 @@ int unpack(FILE *pkt_file, Packet *pkt)
 	}
 	from_line = rfcaddr_to_asc(&addr_from, TRUE);
 
-	/*
-	 * Construct Reply-To line
-	 */
+	/* Construct Reply-To line */
 	reply_to_line = msgbody_rfc_reply_to;
 	
-	/*
-	 * Construct string for To:/X-Comment-To: header line
-	 */
+	/* Construct string for To:/X-Comment-To: header line */
 	if(msgbody_rfc_to) {
 	    if(strchr(msgbody_rfc_to, '(') || strchr(msgbody_rfc_to, '<') ||
 	       !*addr_to.real || uucp_flag                                   )
@@ -840,15 +818,11 @@ int unpack(FILE *pkt_file, Packet *pkt)
 		to_line = s_printf("%s", mail_to);
 	}
 
-	/*
-	 * Construct Cc/Bcc header lines
-	 */
+	/* Construct Cc/Bcc header lines */
 	cc_line  = msgbody_rfc_to ? msgbody_rfc_cc  : NULL;
 	bcc_line = msgbody_rfc_to ? msgbody_rfc_bcc : NULL;
 	
-	/*
-	 * Construct Message-ID and References header lines
-	 */
+	/* Construct Message-ID and References header lines */
 	id_line  = NULL;
 	ref_line = NULL;
 	
@@ -1055,9 +1029,7 @@ int unpack(FILE *pkt_file, Packet *pkt)
 	if(split_line)
 	    tl_appendf(&theader, "X-SPLIT: %s\n", split_line);
 
-	/*
-	 * MIME header
-	 */
+	/* MIME header */
 	tl_appendf(&theader, "MIME-Version: 1.0\n");
 	tl_appendf(&theader, "Content-Type: text/plain; charset=%s\n",
 		   cvt8 ? cs_out : CHARSET_STD7BIT);
@@ -1065,18 +1037,14 @@ int unpack(FILE *pkt_file, Packet *pkt)
 		   cvt8 ? ((cvt8 & AREA_QP) ? "quoted-printable" : "8bit")
 		        : "7bit");
 
-	/*
-	 * Add extra headers
-	 */
+	/* Add extra headers */
 	if(area)
 	    for(pl=area->x_hdr.first; pl; pl=pl->next)
 		tl_appendf(&theader, "%s\n", pl->line);
 	    
 	tl_appendf(&theader, "\n");
 
-	/*
-	 * Write header and message body to output file
-	 */
+	/* Write header and message body to output file */
 	if(area) {
 	    if(!mail_file('n'))
 		if(mail_open('n') == ERROR)
@@ -1157,9 +1125,7 @@ int unpack_file(char *pkt_name)
     Packet pkt;
     FILE *pkt_file;
 
-    /*
-     * Open packet and read header
-     */
+    /* Open packet and read header */
     pkt_file = fopen(pkt_name, R_MODE);
     if(!pkt_file) {
 	log("$ERROR: can't open packet %s", pkt_name);
@@ -1183,9 +1149,7 @@ int unpack_file(char *pkt_name)
 	}
     }
     
-    /*
-     * Unpack it
-     */
+    /* * Unpack it */
     log("packet %s (%ldb) from %s to %s", pkt_name, check_size(pkt_name),
 	node_to_asc(&pkt.from, TRUE), node_to_asc(&pkt.to, TRUE) );
     
@@ -1344,14 +1308,10 @@ int main(int argc, char **argv)
 	    break;
 	}
 
-    /*
-     * Read config file
-     */
+    /* Read config file */
     cf_read_config_file(c_flag ? c_flag : CONFIG);
 
-    /*
-     * Process config options
-     */
+    /* Process config options */
     if(a_flag)
 	cf_set_addr(a_flag);
     if(u_flag)
@@ -1359,9 +1319,7 @@ int main(int argc, char **argv)
 
     cf_debug();
     
-    /*
-     * Process local options
-     */
+    /* Process local options */
     BUF_EXPAND(in_dir, I_flag ? I_flag : cf_p_pinbound());
 
     /* Initialize mail_dir[], news_dir[] output directories */
@@ -1495,17 +1453,13 @@ int main(int argc, char **argv)
 	netmail_charset_out = strtok(NULL, ":");
     }
     
-    /*
-     * Init various modules
-     */
+    /* Init various modules */
     areas_init();
     hosts_init();
     alias_init();
     charset_init();
 
-    /*
-     * If called with -l lock option, try to create lock FILE
-     */
+    /* If called with -l lock option, try to create lock FILE */
     if(l_flag)
 	if(lock_program(PROGRAM, NOWAIT) == ERROR)
 	    exit(EXIT_BUSY);
@@ -1532,18 +1486,14 @@ int main(int argc, char **argv)
     }
     else
     {
-	/*
-	 * Process packet files on command line
-	 */
+	/* Process packet files on command line */
 	for(; optind<argc; optind++)
 	    if(unpack_file(argv[optind]) != OK)
 		ret = EXIT_ERROR;
     }
     
 
-    /*
-     * Execute given command, if option -x set.
-     */
+    /* Execute given command, if option -x set.  */
     if(execprog)
     {
 	int retx;

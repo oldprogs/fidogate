@@ -1,4 +1,22 @@
+Tue May 12 22:09:27 1998  Martin Junius  <mj@fido.de>
+
+	------- CVS ci -------------------------------------------------------
+
+	* src/gate/ftn2rfc.c (unpack): change output charset to
+	  CHARSET_STD7BIT (us-ascii) for converting Fido headers.
+
+Tue May  5 19:35:03 1998  Martin Junius  <mj@fido.de>
+
+	* src/gate/ftnin.c (do_packets): processing FLO files with *.pkt
+	  started, idea contributed by
+	  <Jens_Elsner@p666.f206.n2437.z2.fidonet.org>.
+	  (exec_ftn2rfc): use BUF_COPY, BUF_APPEND.
+	  (do_flo_line): new function processing entry from FLO file.
+	  (do_packets): implemented FLO file processing.
+
 Sun May  3 10:27:29 1998  Martin Junius  <mj@fido.de>
+
+	* src/gate/ftn2rfc.c: various changes to comment formatting.
 
 	------- CVS ci -------------------------------------------------------
 
@@ -9,7 +27,7 @@ Sun May  3 10:27:29 1998  Martin Junius  <mj@fido.de>
 	  (unpack): strsave(), strtok() destroys charset option.
 	  (main): split config option DefaultCharset, NetMailCharset using
 	  strtok().
-	  (unpack): cs_def/in/out rewritten.
+	  (unpack): cs_def/in/out code rewritten.
 
 	* test/tc.8bit/config*: added DefaultCharset/NetMailCharset.
 

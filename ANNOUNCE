@@ -40,10 +40,28 @@ Fido File Request:
 
 Changes in 4.3a3:
 
-* rununpack/runtoss: use correct config file (toss.conf)
+* rununpack/runtoss: use correct config file (toss.conf), syslog
+  support is there, but commented due to some problems with my perl
+  installation. New LogFacility, LogLevel config options (toss.conf).
 
 * ftnafutil: avoid error log messages for uplinks without uplink entry
   in passwd.
+
+* packet writing code: no more ^AFMPT 0 (run-time configuration will
+  be available for rfc2ftn in the future, don't use PASSTHRU_NETMAIL
+  with this release!)
+
+* charset mapping: old charset mapping code (charset.c) removed,
+  replaced with new code using charset.bin (compiled version of
+  charset.map), new config option CHARSETMAP (see config.make,
+  common.conf).
+
+* ftn2rfc: uses new charset mapping, new DefaultCharset,
+  NetMailCharset config options (gate.conf).
+
+* logcheck: bugfix, removed duplicate entries without -r option.
+
+* ftnin: now supports FLO files with *.pkt entries.
 
 
 
@@ -198,6 +216,6 @@ Needed:
 
 ======================================================================
 
-$Date: 1998/04/28 19:02:21 $
+$Date: 1998/05/12 20:12:29 $
 Martin Junius
 mailto:mj@fido.de

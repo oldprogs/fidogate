@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftnin.c,v 4.7 1998/04/07 12:21:56 mj Exp $
+ * $Id: ftnin.c,v 4.8 1998/05/12 20:12:32 mj Exp $
  *
  * Search for mail packets destined to gateway's FTN addresses and feed
  * them to ftn2rfc.
@@ -39,7 +39,7 @@
 
 
 #define PROGRAM		"ftnin"
-#define VERSION		"$Revision: 4.7 $"
+#define VERSION		"$Revision: 4.8 $"
 #define CONFIG		DEFAULT_CONFIG_GATE
 
 
@@ -60,22 +60,14 @@ void	usage			(void);
 
 
 
-/*
- * List of addresses we're processing packets for
- */
-Node *addr[2 * MAXADDRESS];
-int naddr = 0;
+/* Filenames read from FLO file */
+static char line[MAXPATH];
 
-
-/*
- * Command and args ftn2rfc
- */
+/* Command and args ftn2rfc */
 static char cmd[MAXPATH];
 static char args[MAXPATH];
 
-/*
- * Command for script
- */
+/* Command for script */
 static char script[MAXPATH];
 
 /*
@@ -91,7 +83,38 @@ int x_flag = FALSE;
  */
 void args_add(char *s)
 {
-    strncat0(args, s, sizeof(args));
+    BUF_APPEND(args, s);
+}
+
+
+
+/*
+ * Process line from FLO file
+ */
+int do_flo_line(char *s)
+{
+    int mode = 0;
+    
+    if(*s == '^' || *s == '#')
+	mode = *s++;
+
+    if(!wildmatch(s, "*.pkt", TRUE))		/* only *.pkt */
+    {
+	debug(5, "ignoring FLO entry: %s", s);
+	return OK;
+    }
+
+    debug(5, "processing FLO entry: %s", s);
+    if(cf_dos())
+    {
+	s = cf_unix_xlate(s);
+	debug(5, "converted to UNIX path: %s", s);
+	if(!s)
+	    return ERROR;
+    }
+    
+    return exec_ftn2rfc(s);
+    /* the packet files will be removed by ftn2rfc */
 }
 
 
@@ -104,7 +127,8 @@ int do_packets(void)
     char *name;
     Node *node;
     int ret = OK;
-
+    char *p;
+    
     /*
      * If -n option not given, call ftn2rfc for each packet
      */
@@ -118,9 +142,38 @@ int do_packets(void)
 		log("%s busy, skipping", znfp(node));
 		continue;
 	    }
+
+	    /* Try *.?UT packets */
 	    if((name = bink_find_out(node, NULL)))
+	    {
+		debug(5, "OUT file=%s", name);
 		if(exec_ftn2rfc(name) == ERROR)
 		    ret = ERROR;
+	    }
+	    
+	    /* Try *.?LO with *.pkt */
+	    if((name = bink_find_flo(node, NULL)))
+	    {
+		debug(5, "FLO file=%s", name);
+		if(flo_open(node, FALSE) == ERROR)
+		{
+		    ret = ERROR;
+		    continue;
+		}
+		
+		while( (p = flo_gets(line, sizeof(line))) )
+		{
+		    if(*p==';' || *p=='~')
+			continue;
+		    if(do_flo_line(p) == ERROR)
+			ret = ERROR;
+		    flo_mark();
+		}
+
+		if(flo_close(node, FALSE, TRUE) == ERROR)
+		    ret = ERROR;
+	    }
+	    
 	    bink_bsy_delete(node);
 	}
     
@@ -155,10 +208,10 @@ int exec_ftn2rfc(char *name)
     
     debug(2, "Packet: %s", name);
     
-    strncpy0(buffer, cmd , BUFFERSIZE);
-    strncat0(buffer, args, BUFFERSIZE);
-    strncat0(buffer, " " , BUFFERSIZE);
-    strncat0(buffer, name, BUFFERSIZE);
+    BUF_COPY  (buffer, cmd );
+    BUF_APPEND(buffer, args);
+    BUF_APPEND(buffer, " " );
+    BUF_APPEND(buffer, name);
     debug(2, "Command: %s", buffer);
 
     ret = run_system(buffer);
