@@ -2,9 +2,9 @@ Subject: FIDOGATE 4.3a2 --- Fido-Internet Gateway and Tosser
 Keywords: fido ftn netmail echomail tosser areafix mail news gateway
 Followup-To: comp.os.linux.misc
 
-=========================================================================
-FIDOGATE 4.3a2, a major new version of the FIDOGATE package is available.
-=========================================================================
+======================================================================
+FIDOGATE 4.3a2, a development snapshot of the new FIDOGATE release 4.3
+======================================================================
 
 			   FIDOGATE Version 4
 		      ===========================
@@ -114,9 +114,17 @@ Changes in 4.3a2:
 
 * areas.bbs: new option -s STATE for storing state information of
   area. If set to 'U', the area is marked as not subscribed at the
-  uplink, an appropiate note will be printed by ftnaf. An improved
-  ftnaf will use this feature to automatically subscribe/unsubscribe
-  to areas at the uplink when downlink subscribe/unsubscribe to areas.
+  uplink, an appropiate note will be printed by ftnaf.
+
+* ftnafutil: automatically
+  * delete areas from areas.bbs with no uplink
+  * send Areafix request to uplink, if
+    - an area with state -s U has new downlinks (subscribe at uplink) or
+    - an area with state -s S has no more downlinks (unsubscribe at uplink).
+
+* passwd: new context "uplink" for ftnafutil Areafix requests.
+
+* rununpack: don't remove extracted files, if archiver program fails.
 
 
 
@@ -181,6 +189,6 @@ Needed:
 
 ======================================================================
 
-$Date: 1998/04/11 16:30:56 $
+$Date: 1998/04/18 20:19:58 $
 Martin Junius
 mailto:mj@fido.de

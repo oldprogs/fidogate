@@ -1,6 +1,6 @@
 #:ts=8
 #
-#    $Id: Makefile,v 1.3 1998/03/08 21:07:34 mj Exp $
+#    $Id: Makefile,v 1.4 1998/04/18 20:20:05 mj Exp $
 #
 #    Makefile for FIDOGATE src/areafix/
 #
@@ -16,10 +16,11 @@ include $(TOPDIR)/config.make
 include $(TOPDIR)/rules.make
 
 
-PROGS		= ftnaf ftnafmail ftnafpkt
+PROGS		= ftnaf ftnafmail ftnafpkt ftnafutil
 
 OBJS_AF		= ftnaf.o areafix.o
 OBJS_AFPKT	= ftnafpkt.o areafix.o
+OBJS_AFUTIL	= ftnafutil.o areafix.o
 
 LOCAL_CFLAGS	=
 LOCAL_LFLAGS	=
@@ -37,10 +38,14 @@ ftnaf:		$(TOPDIR)/src/common/$(LIB) $(OBJS_AF)
 ftnafpkt:	$(TOPDIR)/src/common/$(LIB) $(OBJS_AFPKT)
 	$(CC) $(LFLAGS) $(LOCAL_LFLAGS) -o ftnafpkt $(OBJS_AFPKT) $(LIBS)
 
+ftnafutil:	$(TOPDIR)/src/common/$(LIB) $(OBJS_AFUTIL)
+	$(CC) $(LFLAGS) $(LOCAL_LFLAGS) -o ftnafutil $(OBJS_AFUTIL) $(LIBS)
+
 
 install:
 	$(INSTALL_PROG) ftnaf$(EXE) $(PREFIX)$(LIBDIR)
 	$(INSTALL_PROG) ftnafpkt$(EXE) $(PREFIX)$(LIBDIR)
+	$(INSTALL_PROG) ftnafutil(EXE) $(PREFIX)$(BINDIR)
 	$(INSTALL_SETUID) ftnafmail$(EXE) $(PREFIX)$(LIBDIR)
 	$(INSTALL_DATA) areafix.help $(PREFIX)$(LIBDIR)
 

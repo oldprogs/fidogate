@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: areasbbs.c,v 4.13 1998/04/11 16:31:03 mj Exp $
+ * $Id: areasbbs.c,v 4.14 1998/04/18 20:20:07 mj Exp $
  *
  * Function for processing AREAS.BBS EchoMail distribution file.
  *
@@ -37,6 +37,24 @@
 static char     *areasbbs_1stline = NULL;
 static AreasBBS *areasbbs_list    = NULL;
 static AreasBBS *areasbbs_last    = NULL;
+
+
+
+/*
+ * Remove area from areas.bbs
+ */
+void areasbbs_remove(AreasBBS *cur, AreasBBS *prev)
+{
+    if(!cur)
+	return;
+    
+    if(prev)
+	prev->next = cur->next;
+    else
+	areasbbs_list = cur->next;
+    if(areasbbs_last == cur)
+	areasbbs_last = prev;
+}
 
 
 

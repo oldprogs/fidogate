@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: areafix.c,v 1.7 1998/04/11 16:31:03 mj Exp $
+ * $Id: areafix.c,v 1.8 1998/04/18 20:20:05 mj Exp $
  *
  * Common Areafix functions
  *
@@ -1169,4 +1169,14 @@ int cmd_delete(Node *node, char *area)
     areafix_printf("Command DELETE: sorry, not yet implemented.");
 	
     return OK;
+}
+
+
+
+/*
+ * Set areas_bbs_changed flag
+ */
+void areafix_set_changed(void)
+{
+    areas_bbs_changed = TRUE;
 }

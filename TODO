@@ -2,7 +2,17 @@
 
 	************** TODO list for FIDOGATE development **************
 
-	* ftnaf*: add flag to areas.bbs if area is not subscribed at
+	* ftnafutil: option to sort areas.bbs, including zone/keys.
+
+DONE	* areafix: additional commands to process areas.bbs
+	  - subscribe at uplink to all areas with state -s U and at
+	    least one (new) downlink
+	  - unsubscribe at uplink from all areas with state -s S
+	    and no more downlinks
+          - remove areas without uplink (without any link)
+DONE	  new utility ftnafutil
+
+DONE	* ftnaf*: add flag to areas.bbs if area is not subscribed at
 	  uplink, issue appropiate message to user. 
 
 DONE	* areas.bbs: new -s STATE option.
@@ -99,7 +109,7 @@ DONE	* config: different lib and sbin directory?
 	* scripts: check that process which created lock file still
 	  exists.
 
-	* lock.c:lock_lockfile_id(): implement safer variant, see man 2
+DONE	* lock.c:lock_lockfile_id(): implement safer variant, see man 2
 	  open, NFS related bug with O_EXCL.
 
 4.3.x	* ftn2rfc: ^ARFC-<mime> import.
@@ -108,8 +118,6 @@ DONE	* config: different lib and sbin directory?
 	* ftn2rfc/rfc2ftn: mail log + size / message date
 
 DONE	* config: move config files to /etc/fidogate, %C for config dir.
-
-	* ftnaf: option to sort areas.bbs, including zone/keys.
 
 	* rfc2ftn: filter function for SPAM.
 
@@ -146,7 +154,7 @@ STARTED	* areas.bbs: read-only/vacation flag for downlinks,
 	* ftntick: call script for incoming TICs, passing file area,
 	  name, ... for announcements
 
-	* ftnaf: marker in areas.bbs to show if an area is subscribed
+DONE	* ftnaf: marker in areas.bbs to show if an area is subscribed
 	  at the uplink (option or using directory), regularly check
 	  if area is subscribed by any downlink and send add/del
 	  request to uplink.

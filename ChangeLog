@@ -1,3 +1,40 @@
+Sat Apr 18 18:22:34 1998  Martin Junius  <mj@fido.de>
+
+	------- CVS ci -------------------------------------------------------
+
+	* test/cf/passwd: added uplink passwords.
+
+	* src/areafix/ftnafutil.c (do_mail): new function sending mail to
+	  Areafix at uplink.
+	  (usage): added -O --out-dir option.
+	  (main): implemented -O --out-dir.
+
+	* test/tc.af3/run: new test case for ftnafutil.
+
+	* src/common/areasbbs.c (areasbbs_remove): new function removing
+	  area from areas.bbs list.
+
+	* src/areafix/ftnafutil.c (do_areasbbs): new function doing the
+	  actual areas.bbs processing.
+
+	* src/areafix/areafix.c (areafix_set_changed): new function
+	  setting areas_bbs_changed flag to TRUE.
+
+Wed Apr 15 21:23:12 1998  Martin Junius  <mj@fido.de>
+
+	* src/areafix/Makefile: added ftnafutil.
+
+	* src/areafix/ftnafutil.c: new utility program for Areafix.
+
+	* src/areafix/ftnaf.c (main): if areafix_do_cmd() fails, exit with
+	  return code EX_DATAERR.
+
+Tue Apr 14 22:03:08 1998  Martin Junius  <mj@fido.de>
+
+	* src/toss/rununpack.pl (run_arc): don't remove extracted files,
+	  when extract command fails. There may be some usable packets
+	  after all.
+
 Sat Apr 11 16:19:20 1998  Martin Junius  <mj@fido.de>
 
 	------- CVS ci -------------------------------------------------------

@@ -1,13 +1,13 @@
 #!/usr/bin/perl
 #
-# $Id: rununpack.pl,v 4.2 1998/03/08 21:07:39 mj Exp $
+# $Id: rununpack.pl,v 4.3 1998/04/18 20:20:08 mj Exp $
 #
 # Unpack ArcMail archives
 #
 # Usage: rununpack name
 #
 
-$VERSION = '$Revision: 4.2 $ ';
+$VERSION = '$Revision: 4.3 $ ';
 $PROGRAM = "rununpack";
 
 $BADDIR  = "bad";
@@ -245,16 +245,16 @@ for $arc (@files) {
 	open(F, "$TMPOUT") || die "$PROGRAM: can't open $TMPOUT\n";
 	while(<F>) {
 	    chop;
-	    &log("ERROR: $_");
+	    &log("ERROR:     $_");
 	}
 	close(F);
 
-	&log("ERROR: removing extracted files");
-	opendir(DIR, "$INPUT/$TMPDIR")
-	    || die "$PROGRAM: can't open $INPUT/$TMPDIR\n";
-	@xf = grep(/[^.].*/, readdir(DIR));
-	closedir(DIR);
-	unlink @xf || die "$PROGRAM: can't remove extracted files\n";
+# 	&log("ERROR: removing extracted files");
+# 	opendir(DIR, "$INPUT/$TMPDIR")
+# 	    || die "$PROGRAM: can't open $INPUT/$TMPDIR\n";
+# 	@xf = grep(/[^.].*/, readdir(DIR));
+# 	closedir(DIR);
+# 	unlink @xf || die "$PROGRAM: can't remove extracted files\n";
 
 	&log("moving archive to $INPUT/$BADDIR");
 	rename("$INPUT/$arc", "$INPUT/$BADDIR/$arc")
