@@ -1,3 +1,29 @@
+2001-03-04  Martin Junius  <mj@m-j-s.net>
+
+	======= Release 4.4.3 ================================================
+	------- CVS tag R444 -------------------------------------------------
+	------- CVS ci -------------------------------------------------------
+
+	* update-morannon: copy to /u1/archive/fidogate, too.
+
+	* fidogate.spec: updated.
+
+	* fidogate.lsm: updated.
+
+	* ANNOUNCE: updated.
+
+	* scripts/areas/areassucksync.pl: include groups already in
+	  sucknewsrc in output.
+
+2001-02-01  Martin Junius  <mj@m-j-s.net>
+
+	* src/gate/rfc2ftn.c (main): new config options
+	  DontChangeContentTypeCharset, DontProcessReturnReceiptTo.
+	  (snd_mail): don't set RRREQ flag when DontProcessReturnReceiptTo
+	  is enabled.
+	  (snd_message): set cs_out_rfc to original value cs_in when
+	  DontChangeContentTypeCharset is enabled.
+
 2001-01-28  Martin Junius  <mj@m-j-s.net>
 
 	------- CVS ci -------------------------------------------------------
