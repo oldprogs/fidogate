@@ -2,12 +2,12 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: lock.c,v 4.12 2000/01/28 22:01:10 mj Exp $
+ * $Id: lock.c,v 4.13 2001/05/28 18:00:27 mj Exp $
  *
  * File locking
  *
  *****************************************************************************
- * Copyright (C) 1990-2000
+ * Copyright (C) 1990-2001
  *  _____ _____
  * |     |___  |   Martin Junius             FIDO:      2:2452/110
  * | | | |   | |   Radiumstr. 18             Internet:  mj@fido.de

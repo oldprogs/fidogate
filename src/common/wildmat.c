@@ -2,12 +2,12 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: wildmat.c,v 4.6 2000/01/28 22:01:11 mj Exp $
+ * $Id: wildmat.c,v 4.7 2001/05/28 18:00:27 mj Exp $
  *
  * Wildcard matching
  *
  *****************************************************************************
- * Copyright (C) 1990-2000
+ * Copyright (C) 1990-2001
  *  _____ _____
  * |     |___  |   Martin Junius             FIDO:      2:2452/110
  * | | | |   | |   Radiumstr. 18             Internet:  mj@fido.de

@@ -2,12 +2,12 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: ftnafutil.c,v 1.11 2001/01/28 15:53:16 mj Exp $
+ * $Id: ftnafutil.c,v 1.12 2001/05/28 18:00:27 mj Exp $
  *
  * Utility program for Areafix.
  *
  *****************************************************************************
- * Copyright (C) 1990-2000
+ * Copyright (C) 1990-2001
  *  _____ _____
  * |     |___  |   Martin Junius             FIDO:      2:2452/110
  * | | | |   | |   Radiumstr. 18             Internet:  mj@fido.de
@@ -36,7 +36,7 @@
 
 
 #define PROGRAM		"ftnafutil"
-#define VERSION		"$Revision: 1.11 $"
+#define VERSION		"$Revision: 1.12 $"
 #define CONFIG		DEFAULT_CONFIG_MAIN
 
 

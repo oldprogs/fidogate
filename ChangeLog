@@ -2,6 +2,22 @@
 
 	------- CVS ci -------------------------------------------------------
 
+	* src/*/*: updated copyright to 1990-2001.
+
+	* fidogate.spec: updated.
+
+	* fidogate.lsm: updated.
+
+	* ANNOUNCE: updated.
+
+	* version.h (PATCHLEVEL): changed to 4, version 4.4.4.
+
+	* test/: re-run verify on all test cases, output is ok, with the
+	  usual diffs due to summer time ./. winter time 1-byte changes in
+	  packet length. Re-run all-mk-verfiy.
+
+	------- CVS ci -------------------------------------------------------
+
 	* test/tc.gate12/run: new test case for long References headers
 	  and the problems which are now fixed. Thanx to
 	  Stephan Heitbrink <heitbrink@gmx.net> for reporting the bug

@@ -2,12 +2,12 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: outpkt.c,v 4.11 2000/10/18 21:53:57 mj Exp $
+ * $Id: outpkt.c,v 4.12 2001/05/28 18:00:27 mj Exp $
  *
  * Output packet handling for ftntoss and ftroute.
  *
  *****************************************************************************
- * Copyright (C) 1990-2000
+ * Copyright (C) 1990-2001
  *  _____ _____
  * |     |___  |   Martin Junius             FIDO:      2:2452/110
  * | | | |   | |   Radiumstr. 18             Internet:  mj@fido.de

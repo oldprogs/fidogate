@@ -225,7 +225,7 @@ Reading FTN packet header:
     Rev : x.x
     Pass: ""
     Capw: 0001
-ftnafpkt packet ./pin/00000001.pkt (330b) from 2:1234/5678.0 to 2:2499/1.0
+ftnafpkt packet ./pin/00000001.pkt (331b) from 2:1234/5678.0 to 2:2499/1.0
 Reading FTN message header:
     From: Sysop                                @ 2:1234/5678.0
     To  : Areafix                              @ 2:2499/1.0
@@ -292,7 +292,7 @@ Reading FTN packet header:
     Rev : x.x
     Pass: ""
     Capw: 0001
-ftnafpkt packet ./pin/00000002.pkt (299b) from 2:1234/5678.0 to 2:2499/1.0
+ftnafpkt packet ./pin/00000002.pkt (300b) from 2:1234/5678.0 to 2:2499/1.0
 Reading FTN message header:
     From: Sysop                                @ 2:1234/5678.0
     To  : Areafix                              @ 2:2499/1.0
@@ -341,7 +341,7 @@ Reading FTN packet header:
     Rev : x.x
     Pass: ""
     Capw: 0001
-ftnafpkt packet ./pin/00000003.pkt (290b) from 2:2452/110.2 to 2:2499/1.0
+ftnafpkt packet ./pin/00000003.pkt (291b) from 2:2452/110.2 to 2:2499/1.0
 Reading FTN message header:
     From: mj                                   @ 2:2452/110.2
     To  : Areafix                              @ 2:2499/1.0
@@ -378,7 +378,7 @@ Reading FTN packet header:
     Rev : x.x
     Pass: ""
     Capw: 0001
-ftnafpkt packet ./pin/00000004.pkt (324b) from 2:2452/110.2 to 2:2499/1.0
+ftnafpkt packet ./pin/00000004.pkt (325b) from 2:2452/110.2 to 2:2499/1.0
 Reading FTN message header:
     From: mj                                   @ 2:2452/110.2
     To  : Areafix                              @ 2:2499/1.0
@@ -429,7 +429,7 @@ Reading FTN packet header:
     Rev : x.x
     Pass: ""
     Capw: 0001
-ftnafpkt packet ./pin/00000005.pkt (590b) from 2:2452/110.2 to 2:2499/1.0
+ftnafpkt packet ./pin/00000005.pkt (591b) from 2:2452/110.2 to 2:2499/1.0
 Reading FTN message header:
     From: Sysop                                @ 2:2452/110.2
     To  : Areafix                              @ 2:2499/1.0
@@ -782,7 +782,6 @@ TOLKIEN.GER                              : already active
 TEST1                                    : subscribed
 TEST1                                    : already active
 BLAH.GER                                 : unsubscribed
-AAAA.GER                                 : not active
 LINUX.GER                                : unsubscribed
 TOLKIEN.GER                              : unsubscribed
 Command VACATION: sorry, not yet implemented.

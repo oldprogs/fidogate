@@ -2,12 +2,12 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: flo.c,v 4.9 2000/01/28 22:01:10 mj Exp $
+ * $Id: flo.c,v 4.10 2001/05/28 18:00:27 mj Exp $
  *
  * Functions for handling BinkleyTerm-style FLO files
  *
  *****************************************************************************
- * Copyright (C) 1990-2000
+ * Copyright (C) 1990-2001
  *  _____ _____
  * |     |___  |   Martin Junius             FIDO:      2:2452/110
  * | | | |   | |   Radiumstr. 18             Internet:  mj@fido.de

@@ -2,12 +2,12 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftnconfig.c,v 4.10 2000/11/17 21:18:09 mj Exp $
+ * $Id: ftnconfig.c,v 4.11 2001/05/28 18:00:28 mj Exp $
  *
  * Fetch FIDOGATE config.* parameters
  *
  *****************************************************************************
- * Copyright (C) 1990-2000
+ * Copyright (C) 1990-2001
  *  _____ _____
  * |     |___  |   Martin Junius             FIDO:      2:2452/110
  * | | | |   | |   Radiumstr. 18             Internet:  mj@fido.de
@@ -36,7 +36,7 @@
 
 
 #define PROGRAM 	"ftnconfig"
-#define VERSION 	"$Revision: 4.10 $"
+#define VERSION 	"$Revision: 4.11 $"
 #define CONFIG		DEFAULT_CONFIG_MAIN
 
 

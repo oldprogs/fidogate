@@ -1,6 +1,6 @@
 Summary: Fido-Internet Gateway and Fido Tosser
 Name: fidogate
-Version: 4.4.3
+Version: 4.4.4
 Release: 1
 Copyright: GPL
 Group: System Environment/Daemons
@@ -57,6 +57,9 @@ rm -rf $RPM_BUILD_ROOT
 %config /var/lib/fidogate/fareas.bbs
 
 %changelog
+* Mon May 28 2001 Martin Junius <mj@m-j-s.net>
+- Updated to version 4.4.4
+
 * Sun Mar 04 2001 Martin Junius <mj@m-j-s.net>
 - Updated to version 4.4.3
 

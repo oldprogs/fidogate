@@ -2,13 +2,13 @@ tc: clean-up
 tc: init
 --------- ftnafutil DELETE ----------
 processing area T1: state= uplink=(none) #dl=-1
-ftnafutil area T1: no uplink, deleted
+ftnafutil area T1: no uplink, deleting
 processing area T2: state= uplink=(none) #dl=-1
-ftnafutil area T2: no uplink, deleted
+ftnafutil area T2: no uplink, deleting
 processing area BLAH.GER: state=U uplink=2:2499/99.0 #dl=0
 processing area XYZ.GER: state=S uplink=2:2499/99.0 #dl=0
 processing area AAAA.GER: state=U uplink=(none) #dl=-1
-ftnafutil area AAAA.GER: no uplink, deleted
+ftnafutil area AAAA.GER: no uplink, deleting
 processing area LINUX.GER: state=U uplink=2:2452/1.0 #dl=1
 processing area TOLKIEN.GER: state= uplink=2:2452/1.0 #dl=4
 processing area XX: state= uplink=242:1000/1.0 #dl=1
@@ -16,11 +16,11 @@ processing area YY: state= uplink=242:1000/1.0 #dl=0
 processing area YY2: state= uplink=242:1000/2.0 #dl=0
 processing area ZZ: state=U uplink=242:1000/1.0 #dl=0
 processing area T3: state= uplink=(none) #dl=-1
-ftnafutil area T3: no uplink, deleted
+ftnafutil area T3: no uplink, deleting
 processing area T4: state= uplink=(none) #dl=-1
-ftnafutil area T4: no uplink, deleted
+ftnafutil area T4: no uplink, deleting
 processing area T5: state= uplink=(none) #dl=-1
-ftnafutil area T5: no uplink, deleted
+ftnafutil area T5: no uplink, deleting
 ftnafutil tmp_areas.bbs changed
 --------- ftnafutil SUBSCRIBE ----------
 processing area BLAH.GER: state=U uplink=2:2499/99.0 #dl=0

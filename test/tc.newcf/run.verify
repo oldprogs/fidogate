@@ -386,6 +386,7 @@ areas: TEST test Z=2 A= R=-1 S=14000
 areas: ABC abc Z=2 A= R=-1 S=14000
 areas: DEF def Z=2 A= R=-1 S=14000
 areas: FIDO.DE fido.de Z=242 A= R=-1 S=14000
+areas: CT.GER ger.ct Z=2 A= R=-1 S=14000
 areas: LINUX.GER fido.ger.linux Z=2 A= R=-1 S=14000
 areas: TOLKIEN.GER fido.ger.tolkien Z=2 A= R=-1 S=14000
 areas: ALT. alt. Z=242 A= R=-1 S=14000
@@ -1169,6 +1170,7 @@ regex: pattern=^(.* \([a-z0-9_.\-]*@[a-z0-9_.\-]*\)) (writes|wrote|schreibt|schr
 regex: pattern=^([a-z0-9_.\-]*@[a-z0-9_.\-]*) (writes|wrote|schreibt|schrieb)
 regex: pattern=^On ..., .. ... .... ..:..:.. [+\-]...., (.*) (writes|wrote|schreibt|schrieb):$
 regex: pattern=^On .. ... .... ..:..:.. [+\-]...., (.*) (writes|wrote|schreibt|schrieb):$
+regex: pattern=^<([^<>@]*)><.*@.*> (writes|wrote|schreibt|schrieb):$
 regex: pattern=^[ 	]*([^>|].*) (writes|wrote|schreibt|schrieb):$
 Message body size 0 (+CR!)
 ---------- ftntick -----------------------------------------------------

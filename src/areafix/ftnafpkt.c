@@ -2,12 +2,12 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftnafpkt.c,v 1.12 2000/11/17 21:18:06 mj Exp $
+ * $Id: ftnafpkt.c,v 1.13 2001/05/28 18:00:27 mj Exp $
  *
  * Areafix processing FTN packets
  *
  *****************************************************************************
- * Copyright (C) 1990-2000
+ * Copyright (C) 1990-2001
  *  _____ _____
  * |     |___  |   Martin Junius             FIDO:      2:2452/110
  * | | | |   | |   Radiumstr. 18             Internet:  mj@fido.de
@@ -37,7 +37,7 @@
 
 
 #define PROGRAM 	"ftnafpkt"
-#define VERSION 	"$Revision: 1.12 $"
+#define VERSION 	"$Revision: 1.13 $"
 #define CONFIG		DEFAULT_CONFIG_MAIN
 
 
