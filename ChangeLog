@@ -1,3 +1,19 @@
+Wed May  1 19:01:46 1996  Martin Junius  <mj@fido.de>
+
+	------- CVS commit ---------------------------------------------------
+
+	* README: some updates.
+
+	* Makefile (install-history): new target to create empty MSGID
+	  history database.
+
+	* src/Makefile: "install-dirs" target moved to top-level Makefile.
+
+	* src/toss/ftnroute.c (main): initialize M_flag=NULL.
+
+	* doc/Makefile (fidogate.txt): use "./info2txt", "." may not be in
+	  PATH. 
+
 Fri Apr 26 08:27:37 1996  Martin Junius  <mj@fido.de>
 
 	------- CVS tag r40alpha1 --------------------------------------------
