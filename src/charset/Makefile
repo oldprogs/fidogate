@@ -1,6 +1,6 @@
 #:ts=8
 #
-#    $Id: Makefile,v 1.3 1998/05/03 12:46:29 mj Exp $
+#    $Id: Makefile,v 1.4 1999/06/07 21:24:25 mj Exp $
 #
 #    Makefile for FIDOGATE src/charset/
 #
@@ -44,7 +44,7 @@ charsetc:	$(LIBA) $(OBJS_CHARSETC)
 	$(CC) $(LFLAGS) $(LOCAL_LFLAGS) -o charsetc $(OBJS_CHARSETC) $(LIBS)
 
 
-$(CHARSETMAP):	$(CHARSETSRC)
+$(CHARSETMAP):	$(CHARSETSRC) $(PROGS)
 	./charsetc -v $(CHARSETSRC) $(CHARSETMAP)
 
 

@@ -1,6 +1,6 @@
 #:ts=8
 #
-#    $Id: Makefile,v 4.17 1999/06/01 20:59:07 mj Exp $
+#    $Id: Makefile,v 4.18 1999/06/07 21:24:26 mj Exp $
 #
 #    Makefile for FIDOGATE src/common/
 #
@@ -62,8 +62,7 @@ OBJS		= acl.o \
 		  tmps.o \
 		  version.o \
 		  wildmat.o \
-		  xalloc.o \
-		  xstrtok.o
+		  xalloc.o
 
 
 

@@ -223,4 +223,3 @@ xalloc.o: xalloc.c ../../src/include/fidogate.h ../../config.h \
  ../../src/include/node.h ../../src/include/packet.h \
  ../../src/include/structs.h ../../src/include/prototypes.h \
  ../../src/include/cf_funcs.h
-xstrtok.o: xstrtok.c

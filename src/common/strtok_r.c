@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: strtok_r.c,v 4.1 1999/06/01 21:19:34 mj Exp $
+ * $Id: strtok_r.c,v 4.2 1999/06/07 21:24:26 mj Exp $
  *
  * Specialized strtok() variants for FIDOGATE, based on NetBSD strtok_r.c,
  * see below for original copyright.
@@ -66,21 +66,32 @@
  * SUCH DAMAGE.
  */
 
-
-
 #include "fidogate.h"
 
-/**prototypes.h**/
-#define DELIM_WS	" \t\r\n"
-#define DELIM_EOL	"\r\n"
-#define QUOTE		'\"'
-#define DQUOTE		'\"'
-#define SQUOTE		'\''
 
 
-char   *strtok_r_ext		(char *, const char *, char **, int);
+char *strtok(char *s, const char *delim)
+{
+    static char *lasts;
+    
+    return strtok_r_ext(s, delim, &lasts, FALSE);
+}
 
-/****************/
+
+
+char *xstrtok(char *s, const char *delim)
+{
+    static char *lasts;
+    
+    return strtok_r_ext(s, delim, &lasts, DQUOTE);
+}
+
+
+
+char *strtok_r(char *s, const char *delim, char **lasts)
+{
+    return strtok_r_ext(s, delim, lasts, FALSE);
+}
 
 
 
@@ -202,6 +213,15 @@ int main(int argc, char *argv[])
 
 
     BUF_COPY(buffer, "Dies ist \"ein Test\\\" \\\"fuer die\" strtok-Funktionen\n");
+    d = DELIM_WS;
+    printf("String = %s", buffer);
+    for(i = 0, p = strtok_r_ext(buffer, d, &last, DQUOTE);
+	p;
+	i++,   p = strtok_r_ext(NULL, d, &last, DQUOTE))
+        printf("    %02d = [%s]\n", i, p);
+
+
+    BUF_COPY(buffer, "Dies\\s ist \"ein\\1 Test\\\" \\\"fuer \\2die\" strtok-Funktionen\\n\n");
     d = DELIM_WS;
     printf("String = %s", buffer);
     for(i = 0, p = strtok_r_ext(buffer, d, &last, DQUOTE);

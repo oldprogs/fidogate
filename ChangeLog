@@ -1,3 +1,18 @@
+1999-06-07  Martin Junius  <mj@fido.de>
+
+	------- CVS ci -------------------------------------------------------
+
+	* src/common/xstrtok.c: module removed, obsoleted by strtok_r.c
+
+	* src/common/Makefile (OBJS): removed xstrtok.o, obsoleted by new
+	  module strtok_r.o
+
+	* src/common/strtok_r.c (strtok): reimplemented using strtok_r_ext().
+	  (xstrtok): dito.
+	  (strtok_r): dito.
+
+	* src/include/prototypes.h: added strtok_r.c functions and #define's.
+
 1999-06-01  Martin Junius  <mj@fido.de>
 
 	------- CVS ci -------------------------------------------------------

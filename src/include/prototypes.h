@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: prototypes.h,v 4.56 1999/05/22 12:05:01 mj Exp $
+ * $Id: prototypes.h,v 4.57 1999/06/07 21:24:26 mj Exp $
  *
  * Prototypes for functions in libfidogate.a
  *
@@ -494,6 +494,23 @@ PktDesc*parse_pkt_name		(char *, Node *, Node *);
 long	sequencer		(char *);
 long	sequencer_nx		(char *, int);
 
+/* strtok_r.c */
+#define DELIM_WS	" \t\r\n"
+#define DELIM_EOL	"\r\n"
+#define NONE		0
+#define QUOTE		'\"'
+#define DQUOTE		'\"'
+#define SQUOTE		'\''
+
+char   *strtok			(char *, const char *);
+char   *xstrtok                 (char *, const char *);
+char   *strtok_r		(char *, const char *, char **);
+char   *strtok_r_ext		(char *, const char *, char **, int);
+
+#define LOCAL_STRTOK		char *local_strtok_lasts;
+#define STRTOK(s,d)		strtok_r_ext(s,d,&local_strtok_lasts,NONE)
+#define STRTOK_Q(s,d)		strtok_r_ext(s,d,&local_strtok_lasts,DQUOTE)
+
 /* textlist.c */
 int	tl_fput			(FILE *, Textlist *);
 void	tl_add			(Textlist *, Textline *);
@@ -555,7 +572,4 @@ void   *xmalloc			(int);
 void   *xrealloc		(void *, int);
 void	xfree			(void *);
 char   *strsave			(char *);
-
-/* xstrtok.c --- module by Wolfram Roesler */
-char   *xstrtok			(char *,char *);
 char   *strsaveline		(char *);
