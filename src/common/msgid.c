@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: msgid.c,v 4.1 1996/04/22 14:31:12 mj Exp $
+ * $Id: msgid.c,v 4.2 1996/08/25 17:16:16 mj Exp $
  *
  * MSGID <-> Message-ID conversion handling. See also ../doc/msgid.doc
  *
@@ -44,13 +44,11 @@
  * Prototypes
  */
 static void  msgid_fts9_quote	(char *, char *, int);
-#ifdef MSGID_NEW_FTNID
 static void  msgid_mime_quote	(char *, char *, int);
 static char *msgid_domain	(int);
-#endif
 
 
-#ifdef MSGID_NEW_MSGID
+
 /*
  * Quote string containing <SPACE> according to FTS-0009
  */
@@ -73,11 +71,9 @@ static void msgid_fts9_quote(char *d, char *s, int n)
 	d[i++] = '\"';					/* " */
     d[i] = 0;
 }
-#endif /**MSGID_NEW_MSGID**/
 
 
 
-#ifdef MSGID_NEW_FTNID
 /*
  * Quote ^AMSGID string using MIME-style quoted-printable =XX
  */
@@ -113,7 +109,6 @@ static char *msgid_domain(int zone)
     else
 	return cf_zones_inet_domain(zone) + 1;
 }
-#endif /**MSGID_NEW_FTNID**/
 
 
 
@@ -126,9 +121,7 @@ char *msgid_fido_to_rfc(char *msgid, int *pzone)
     char *origaddr, *serialno;
     char *p, *s;
     Node idnode;
-#ifdef MSGID_NEW_FTNID
     int zone;
-#endif
     
     save = strsave(msgid);
     
@@ -197,8 +190,6 @@ char *msgid_fido_to_rfc(char *msgid, int *pzone)
 
     /***** FTN-style *****/
 
-#ifdef MSGID_NEW_FTNID
-
     /*
      * Search for parsable FTN address in origaddr
      */
@@ -228,32 +219,6 @@ char *msgid_fido_to_rfc(char *msgid, int *pzone)
     strncat0(tcharp, msgid_domain(zone), MAX_CONVERT_BUFLEN);
     strncat0(tcharp, ">", MAX_CONVERT_BUFLEN);
     
-#else /**!MSGID_NEW_FTNID**/
-
-    /*
-     * Old-style Message-ID: <abcd1234%DOMAIN@p.f.n.z.fidonet.org>
-     */
-    while(*serialno == '0')		/* Skip leading `0's */
-	serialno++;
-
-    if(asc_to_node(origaddr, &idnode, TRUE) != ERROR)
-    {
-	if(idnode.domain[0])		    /* With DOMAIN part */
-	    sprintf(tcharp, "<%s%%%s@%s%s>",
-		    serialno, idnode.domain, node_to_pfnz(&idnode, TRUE),
-		    MSGID_FIDONET_DOMAIN);
-	else
-	    sprintf(tcharp, "<%s@%s%s>",
-		    serialno, node_to_pfnz(&idnode, TRUE),
-		    MSGID_FIDONET_DOMAIN);
-    }
-    else
-    {
-	sprintf(tcharp, "<%s@%s>", serialno, origaddr);
-    }
-
-#endif /**MSGID_NEW_FTNID**/
-
     xfree(save);
     return tcharp;
 }
@@ -276,20 +241,10 @@ char *msgid_default(Node *node, char *msg_from, char *msg_to, char *msg_subj, ti
     crc32_compute(msg_to  , strlen(msg_to  ));
     crc32_compute(msg_subj, strlen(msg_subj));
 
-#ifdef MSGID_NEW_FTNID
-
     sprintf(tcharp, "<NOMSGID_%d=3A%d=2F%d.%d_%s_%08lx@%s>",
 	    node->zone, node->net, node->node, node->point,
 	    date("%y%m%d_%H%M%S", &msg_date), crc32_value(),
 	    msgid_domain(node->zone)                          );
-    
-#else
-
-    sprintf(tcharp, "<NOMSGID-%s-%08lx@%s%s>",
-	    date("%y%m%d-%H%M%S", &msg_date),
-	    crc32_value(), node_to_pfnz(node, TRUE), MSGID_FIDONET_DOMAIN);
-
-#endif
     
     return tcharp;
 }
@@ -420,8 +375,6 @@ char *msgid_rfc_to_fido(int *origid_flag, char *message_id, int part, int split,
 
     /***** Generate ^AMSGID according to msgid.doc specs *****/
 
-#ifdef MSGID_NEW_MSGID
-
     /*
      * New-style FIDO-Gatebau '94 ^AMSGID
      */
@@ -448,18 +401,6 @@ char *msgid_rfc_to_fido(int *origid_flag, char *message_id, int part, int split,
     msgid_fts9_quote(tcharp, id, MAX_CONVERT_BUFLEN);
     sprintf(tcharp + strlen(tcharp), " %08lx", crc32);
     
-#else /**!MSGID_NEW_MSGID**/
-
-    /*
-     * Old-style Gatebau ^AMSGID
-     */
-    crc32 = compute_crc32((unsigned char *)id, strlen(id));
-    if(split)
-	crc32 += part - 1;
-    sprintf(tcharp, "%s %08lx", host, crc32);
-
-#endif /**MSGID_NEW_MSGID**/
-
     xfree(savep);
     if(origid_flag)
 	*origid_flag = TRUE;

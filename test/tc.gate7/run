@@ -126,3 +126,20 @@ X-Comment-To: Hans Test User
 
 TEST ;-)
 EOF
+
+
+##### MIME #####
+
+$T test_user@f123.n2499.z2.fidonet.org <<EOF
+Subject: Test tc.gate7 / 00000015
+From: kris@schulung.netuse.de (Kristian =?ISO-8859-1?Q?K=F6hntopp?= )
+
+TEST ;-)
+EOF
+
+$T test_user@f123.n2499.z2.fidonet.org <<EOF
+Subject: Test tc.gate7 / 00000016
+From: kris@schulung.netuse.de (=?ISO-8859-1?Q?Kristian K=F6hntopp?=)
+
+TEST ;-)
+EOF

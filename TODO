@@ -2,6 +2,9 @@
 
 X = for release 4.0alpha4
 
+ALPHA4	* ftn2rfc: config "NoAddressInTo", inhibit '%', '!', '@' char
+	  in Fido to field.
+
 ALPHA4	* rfc2ftn: config "UseOrganizationForOrigin", putting
 	  Organization header line into Fido * Origin.
 

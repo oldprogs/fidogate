@@ -2,6 +2,22 @@ Sun Aug 25 10:59:36 1996  Martin Junius  <mj@fido.de>
 
 	------- CVS commit ---------------------------------------------------
 
+	* config.h (MSGID_NEW_MSGID, MSGID_NEW_FTNID): removed.
+
+	* src/common/msgid.c: removed #ifdef MSGID_NEW_MSGID, #ifdef
+	  MSGID_NEW_FTNIN, old code is not totally obsolete.
+
+	* src/gate/rfc2ftn.c (rfc_parse): use new mime_deheader() for
+	  copying real name from rfc to name[].
+
+	* src/common/mime.c (mime_deheader): new function decoding MIME
+	  RFC1523 header.
+
+	* src/gate/rfc2ftn.c (mail_receiver): use rfc_parse() to get name
+	  from X-Comment-To header or 1st line of message body.
+
+	------- CVS commit ---------------------------------------------------
+
 	* README: added OS/2 version info.
 
 	* scripts/nodelist/Makefile: added new nl-2hosts script

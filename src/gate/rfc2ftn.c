@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway software UNIX <-> FIDO
  *
- * $Id: rfc2ftn.c,v 4.7 1996/08/25 11:25:55 mj Exp $
+ * $Id: rfc2ftn.c,v 4.8 1996/08/25 17:16:18 mj Exp $
  *
  * Read mail or news from standard input and convert it to a FIDO packet.
  *
@@ -39,7 +39,7 @@
 
 
 #define PROGRAM 	"rfc2ftn"
-#define VERSION 	"$Revision: 4.7 $"
+#define VERSION 	"$Revision: 4.8 $"
 #define CONFIG		CONFIG_GATE
 
 
@@ -388,6 +388,7 @@ int rfc_is_domain(RFCAddr *rfc)
 
 
 
+char *mime_deheader(char *d, size_t n, char *s, int flags);
 /*
  * Parse RFCAddr as FTN address, return name and node
  */
@@ -426,7 +427,7 @@ int rfc_parse(RFCAddr *rfc, char *name, Node *node)
 	    if(p[len-1] == '\"')	/* " makes C-mode happy */
 	    p[len-1] = 0;
 	}
-	str_copy(name, MSG_MAXNAME, p);
+	mime_deheader(name, MSG_MAXNAME, p, 0);
     }
 
     /*
@@ -678,18 +679,12 @@ char *mail_receiver(RFCAddr *rfc, Node *node)
 	if( (to = header_get("X-Comment-To")) )
 	{
 	    h = rfcaddr_from_rfc(to);
-	    if(h.real[0])
-		BUF_COPY(name, h.real);
-	    else if(h.user[0])
-		BUF_COPY(name, h.user);
+	    rfc_parse(&h, name, NULL);
 	}
 	else if( (to = get_name_from_body()) )
 	{
 	    h = rfcaddr_from_rfc(to);
-	    if(h.real[0])
-		BUF_COPY(name, h.real);
-	    else if(h.user[0])
-		BUF_COPY(name, h.user);
+	    rfc_parse(&h, name, NULL);
 	}
     }
 

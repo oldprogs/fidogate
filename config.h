@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway software UNIX <-> FIDO
  *
- * $Id: config.h,v 4.5 1996/08/25 11:25:54 mj Exp $
+ * $Id: config.h,v 4.6 1996/08/25 17:16:14 mj Exp $
  *
  * Configuration header file
  *
@@ -198,14 +198,12 @@
 
 
 /***** ^AMSGID/Message-ID configuration *************************************/
-/*
- * !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
- * !!! DON'T TOUCH THIS, IF YOU'RE NOT ABSOLUTELY SURE WHAT YOU'RE DOING !!!
- * !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
- */
 
 /*
  * Standard FIDONET domain for Z1-6 Message-IDs
+ * !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+ * !!! DON'T TOUCH THIS, IF YOU'RE NOT ABSOLUTELY SURE WHAT YOU'RE DOING !!!
+ * !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
  */
 #define MSGID_FIDONET_DOMAIN	".fidonet.org"
 
@@ -215,24 +213,6 @@
  *     ^AORIGREF: <id@do.main>
  */
 /* #define MSGID_ORIGID */
-
-/*
- * Create new FIDO-Gatebau '94 ^AMSGID:
- *     ^AMSGID: <id@do.main> abcd1234
- * Old (undef'ed):
- *     ^AMSGID: do.main abcd1234
- */
-#define MSGID_NEW_MSGID
-
-/*
- * Create new FIDO-Gatebau '94 Message-IDs for FTN ^AMSGIDs:
- *     Message-ID: <MSGID_mimeanything_abcd1234@ftn.domain>
- *     Message-ID: <NOMSGID_mimeftnaddr_YYMMDD_HHMMSS_abcd1234@ftn.domain>
- * Old (undef'ed):
- *     Message-ID: <abcd1234%domain@p.f.n.z.fidonet.org>
- *     Message-ID: <NOMSGID-YYMMDD-HHMMSS-abcd1234@p.f.n.z.fidonet.org>
- */
-#define MSGID_NEW_FTNID
 
 
 
