@@ -6,6 +6,7 @@ T="../../src/gate/rfc2ftn -L../cf -vvvvvvv -i"
 
 echo "tc: running"
 
+##### NetMail #####
 $T test@f123.n2499.z2.fidonet.org <<EOF
 Subject: Test tc.gate7 / 00000001
 From: abc@fido.de
@@ -91,6 +92,37 @@ $T test_user@f123.n2499.z2.fidonet.org <<EOF
 Subject: Test tc.gate7 / 00000011
 From: abc@f678.n9999.z242.fido.de (Test User X)
 Reply-To: abc@f678.n9999.z242.fido.de
+
+TEST ;-)
+EOF
+
+
+##### EchoMail #####
+
+$T -n <<EOF
+Newsgroups: test
+Subject: Test tc.gate7 / 00000012
+From: abc@f678.n9999.z242.fido.de (Test User X)
+X-Comment-To: test_user@f123.n2499.z2.fidonet.org
+
+TEST ;-)
+EOF
+
+$T -n <<EOF
+Newsgroups: test
+Subject: Test tc.gate7 / 00000013
+From: abc@f678.n9999.z242.fido.de (Test User X)
+X-Comment-To: test_user
+
+TEST ;-)
+EOF
+
+$T -n <<EOF
+Newsgroups: test
+Subject: Test tc.gate7 / 00000014
+From: abc@f678.n9999.z242.fido.de (Test User X)
+Reply-To: abc@f678.n9999.z242.fido.de
+X-Comment-To: Hans Test User
 
 TEST ;-)
 EOF

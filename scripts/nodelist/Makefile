@@ -1,6 +1,6 @@
 #:ts=8
 #
-#    $Id: Makefile,v 4.0 1996/04/17 18:17:38 mj Exp $
+#    $Id: Makefile,v 4.1 1996/08/25 13:09:44 mj Exp $
 #
 #    Makefile for FIDOGATE scripts/filebase/
 #
@@ -17,7 +17,7 @@ include $(TOPDIR)/rules.make
 
 
 PROGS		= latest \
-		  nl-del nl-diff nl-html nl-isdn nl-print
+		  nl-del nl-diff nl-html nl-isdn nl-print nl-2hosts
 
 
 all:		$(PROGS)
@@ -38,7 +38,7 @@ clean:
 depend:
 
 depend-all:
-		
+
 ifeq (.depend,$(wildcard .depend))
 include .depend
 endif

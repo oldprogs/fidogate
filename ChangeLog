@@ -2,6 +2,23 @@ Sun Aug 25 10:59:36 1996  Martin Junius  <mj@fido.de>
 
 	------- CVS commit ---------------------------------------------------
 
+	* README: added OS/2 version info.
+
+	* scripts/nodelist/Makefile: added new nl-2hosts script
+	  contributed by the Physicist <huber@iamexwi.unibe.ch>.
+
+	* src/include/patchlevel.h (ALPHA): set to 4.
+
+	* sendmail/cf/morannon.mc: added define VERSION_NUMBER.
+
+	* sendmail/cf/orodruin.mc: added definitions/rules for routing FTN
+	  mail (class N -> Mftn, class I -> Mftni).
+
+	* sendmail/ostype/linux.m4: changed for RedHat 3.0.3, use procmail
+	  instead of deliver.
+
+	------- CVS commit ---------------------------------------------------
+
 	* config.h (RFC_LVL_1_HEADERS): added "Date". ^ARFC-Date should be
 	  added because the standard FTN date field doesn't transport any
 	  time zone information.

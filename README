@@ -1,6 +1,6 @@
 -*- Indented-Text -*-
 
-$Id: README,v 4.6 1996/06/16 16:06:15 mj Exp $
+$Id: README,v 4.7 1996/08/25 13:09:43 mj Exp $
 
 ----------------------------------------------------------------------
 				   
@@ -77,4 +77,13 @@ for subscription requests.
 
 ----------------------------------------------------------------------
 
-Martin Junius <mj@fido.de>, $Date: 1996/06/16 16:06:15 $
+OS/2 version:
+
+For an OS/2 version of FIDOGATE contact:
+
+    Florian Petri <flop@flop.swb.de>
+    Oliver Schwank <oli@flinx.nbg.sub.org>
+
+----------------------------------------------------------------------
+
+Martin Junius <mj@fido.de>, $Date: 1996/08/25 13:09:43 $
