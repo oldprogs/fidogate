@@ -1,13 +1,13 @@
 #:ts=8
 #
-# $Id: orodruin.mc,v 4.6 1997/10/03 12:25:41 mj Exp $
+# $Id: orodruin.mc,v 4.7 1997/10/03 12:26:33 mj Exp $
 #
 # orodruin.Fido.DE
 #
 
 include(`../m4/cf.m4')
 
-define(`confCF_VERSION', `orodruin-4.5')
+define(`confCF_VERSION', `orodruin-4.7')
 
 define(`confMIME_FORMAT_ERRORS', `False')
 define(`confUSE_ERRORS_TO', `True')
@@ -18,7 +18,7 @@ define(`confDEF_USER_ID',``8:12'')
 
 define(`ALIAS_FILE',`/etc/aliases,/usr/local/majordomo/majordomo.aliases')
 
-VERSIONID(`$Id: orodruin.mc,v 4.6 1997/10/03 12:25:41 mj Exp $')
+VERSIONID(`$Id: orodruin.mc,v 4.7 1997/10/03 12:26:33 mj Exp $')
 
 OSTYPE(linux)dnl
 
