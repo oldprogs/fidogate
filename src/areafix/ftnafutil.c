@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: ftnafutil.c,v 1.10 2001/01/07 15:29:44 mj Exp $
+ * $Id: ftnafutil.c,v 1.11 2001/01/28 15:53:16 mj Exp $
  *
  * Utility program for Areafix.
  *
@@ -36,7 +36,7 @@
 
 
 #define PROGRAM		"ftnafutil"
-#define VERSION		"$Revision: 1.10 $"
+#define VERSION		"$Revision: 1.11 $"
 #define CONFIG		DEFAULT_CONFIG_MAIN
 
 
@@ -60,6 +60,13 @@ int	do_areasbbs		(int);
 int	do_cmd			(char **);
 void	short_usage		(void);
 void	usage			(void);
+
+
+
+/*
+ * Global vars
+ */
+static int n_flag = FALSE;
 
 
 
@@ -136,11 +143,14 @@ int do_areasbbs(int cmd)
 	case DO_DELETE:
 	    if(!uplink)
 	    {
-		log("area %s: no uplink, deleted", p->area);
-		areasbbs_remove(p, pl);
-		areafix_set_changed();
-		p = p->next;
-		continue;
+		log("area %s: no uplink, deleting", p->area);
+		if(!n_flag) 
+		{
+		    areasbbs_remove(p, pl);
+		    areafix_set_changed();
+		    p = p->next;
+		    continue;
+		}
 	    }
 	    break;
 	    
@@ -151,7 +161,7 @@ int do_areasbbs(int cmd)
 		    break;
 		log("area %s: #dl=%d state=%s, subscribing at uplink %s",
 		      p->area, n, state, znfp1(uplink));
-		if(do_mail(uplink, p->area, "+", pwd) != ERROR)
+		if(!n_flag && do_mail(uplink, p->area, "+", pwd) != ERROR)
 		{
 		    /**FIXME: remove "U", add "S"**/
 		    p->state = strsave("S");
@@ -167,7 +177,7 @@ int do_areasbbs(int cmd)
 		    break;
 		log("area %s: #dl=%d state=%s, unsubscribing at uplink %s",
 		      p->area, n, state, znfp1(uplink));
-		if(do_mail(uplink, p->area, "-", pwd) != ERROR)
+		if(!n_flag && do_mail(uplink, p->area, "-", pwd) != ERROR)
 		{
 		    /**FIXME: add "U", remove "S"**/
 		    p->state = strsave("U");
@@ -256,7 +266,7 @@ void usage(void)
     
     fprintf(stderr, "usage:   %s [-options] command ...\n\n", PROGRAM);
     fprintf(stderr, "\
-options: -n --no-rewrite              don't rewrite AREAS.BBS\n\
+options: -n --noaction                don't really do anything ;-)\n\
          -b --areas-bbs NAME          use alternate AREAS.BBS\n\
          -F --filefix                 run as Filefix program (FAREAS.BBS)\n\
          -O --out-dir DIR             set output packet directory\n\
@@ -283,7 +293,6 @@ command: delete         delete dead areas (no uplink or downlink)\n\
 int main(int argc, char **argv)
 {
     int c;
-    int   n_flag=FALSE;
     char *c_flag=NULL;
     char *a_flag=NULL, *u_flag=NULL;
     char *O_flag=NULL;

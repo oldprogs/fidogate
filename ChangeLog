@@ -1,3 +1,29 @@
+2001-01-28  Martin Junius  <mj@m-j-s.net>
+
+	------- CVS ci -------------------------------------------------------
+
+	* scripts/outbound/outb-kill.sh: new script, remove node(s) from
+	  areas.bbs, kill all outbound files.
+
+	* scripts/outbound/outb.sh: new script, pager wrapper for out-ls.
+
+	* src/areafix/areafix.c: print "not active" message only for
+	  non-wildcard unsubscribe requests.
+
+2001-01-27  Martin Junius  <mj@m-j-s.net>
+
+	* src/areafix/runaftuil.sh: new script for running ftnafutil.
+
+2001-01-16  Martin Junius  <mj@m-j-s.net>
+
+	* scripts/areas/areassucksync.pl: new option -g, INN-style
+	  newsgroup selection with wildcards.
+
+2001-01-13  Martin Junius  <mj@m-j-s.net>
+
+	* src/areafix/ftnafutil.c (main): made n_flag global.
+	  (do_areasbbs): don't delete/mail/change if n_flag ist set.
+
 2001-01-07  Martin Junius  <mj@m-j-s.net>
 
 	------- CVS ci -------------------------------------------------------

@@ -1,13 +1,13 @@
 #!/usr/bin/perl -w
 #
-# $Id: areassucksync.pl,v 1.1 2001/01/07 15:29:44 mj Exp $
+# $Id: areassucksync.pl,v 1.2 2001/01/28 15:53:16 mj Exp $
 #
 # Syncronize groups between areas.bbs, active, sucknewsrc, NNTP list
 #
 
 use strict;
 
-my $VERSION = '$Revision: 1.1 $ ';
+my $VERSION = '$Revision: 1.2 $ ';
 my $PROGRAM = "areasbbssync";
 
 use Getopt::Std;
@@ -19,12 +19,13 @@ use IO::Socket;
 
 
 # command line options
-use vars qw($opt_v $opt_h $opt_c $opt_A $opt_B $opt_S $opt_N $opt_P $opt_n);
-getopts('vhc:A:B:S:N:P:n:');
+use vars qw($opt_v $opt_h $opt_c $opt_A $opt_B $opt_S $opt_N $opt_P
+	    $opt_n $opt_g);
+getopts('vhc:A:B:S:N:P:n:g:');
 die
   "usage:   areasbbssync [-v] [-c GATE.CONF]\n",
   "                      [-A ACTIVE] [-B AREAS.BBS] [-S SUCKNEWSRC]\n",
-  "                      [-N NEWSSERVER] [-P PATTERN]\n",
+  "                      [-N NEWSSERVER] [-P PATTERN] [-g WILDCARD]\n",
   "\n",
   "options: -v              verbose\n",
   "         -h              this help\n",
@@ -33,7 +34,8 @@ die
   "         -B AREAS.BBS    alternate areas.bbs file\n",
   "         -S SUCKNEWSRC   alternate sucknewsrc file\n",
   "         -N NEWSSERVER   alternate news (NNTP) server\n",
-  "         -P PATTERN      must match pattern\n",
+  "         -P PATTERN      must match pattern (regex)\n",
+  "         -g GROUP.*,...  INN-style wildcard newsgroup pattern\n",
   "         -n N            max. N articles from newly sucked groups\n"
   if($opt_h);
 
@@ -51,6 +53,17 @@ my $PATTERN      = $opt_P ? $opt_P : "^(de)\\.";
 my $MAX          = $opt_n ? $opt_n : 50;
 
 my $FTNAFUTIL    = CONFIG_get("BinDir") . "/ftnafutil -b$AREAS listgwlinks";
+
+
+if($opt_g) {
+    $PATTERN = $opt_g;
+    $PATTERN =~ s/\./\\./g;
+    $PATTERN =~ s/,/|/g;
+    $PATTERN =~ s/\*/.*/g;
+    $PATTERN = "^($PATTERN)";
+
+    print "PATTERN = $PATTERN\n" if($opt_v);
+}
 
 
 

@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: areafix.c,v 1.16 2000/10/17 21:04:35 mj Exp $
+ * $Id: areafix.c,v 1.17 2001/01/28 15:53:16 mj Exp $
  *
  * Common Areafix functions
  *
@@ -1057,7 +1057,8 @@ int cmd_unsub(Node *node, char *area)
     AreasBBS *p;
     LON *l;
     int match = FALSE;
-
+    int iswild = strchr(area, '*') || strchr(area, '?');
+					     
     if(!authorized)
     {
 	areafix_printf("Command UNSUBSCRIBE: not authorized.");
@@ -1075,7 +1076,8 @@ int cmd_unsub(Node *node, char *area)
 	    if(!lon_search(l, node))
 	    {
 		if(!areafix || p->zone==node->zone)
-		    areafix_printf("%-41s: not active", p->area);
+		    if(!iswild)
+			areafix_printf("%-41s: not active", p->area);
 	    }
 	    else 
 	    {

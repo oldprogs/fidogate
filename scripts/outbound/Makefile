@@ -1,8 +1,8 @@
 #:ts=8
 #
-#    $Id: Makefile,v 4.4 2000/10/17 21:04:35 mj Exp $
+#    $Id: Makefile,v 4.5 2001/01/28 15:53:16 mj Exp $
 #
-#    Makefile for FIDOGATE scripts/filebase/
+#    Makefile for FIDOGATE scripts/outbound/
 #
 
 #
@@ -16,7 +16,8 @@ include $(TOPDIR)/config.make
 include $(TOPDIR)/rules.make
 
 
-PROGS		= out-freq out-ls out-manip out-rm0 out-rmbsy
+PROGS		= out-freq out-ls out-manip out-rm0 out-rmbsy\
+		  outb outb-kill
 
 
 all:		$(PROGS)
@@ -25,10 +26,7 @@ $(PROGS):	$(TOPDIR)/config.make $(TOPDIR)/config.pl
 
 
 install:
-	$(INSTALL_PROG) out-manip $(PREFIX)$(BINDIR)
-	$(INSTALL_PROG) out-rm0 $(PREFIX)$(BINDIR)
-	$(INSTALL_PROG) out-rmbsy $(PREFIX)$(BINDIR)
-	$(INSTALL_PROG) out-ls $(PREFIX)$(BINDIR)
+	$(INSTALL_PROG) $(PROGS) $(PREFIX)$(BINDIR)
 
 
 clean:
