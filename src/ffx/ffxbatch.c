@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ffxbatch.c,v 4.6 1997/04/12 18:58:07 mj Exp $
+ * $Id: ffxbatch.c,v 4.7 1997/04/18 15:37:43 mj Exp $
  *
  * ffx FIDO-FIDO execution batcher, packs batched (-b) ffx jobs.
  *
@@ -38,7 +38,7 @@
 
 
 #define PROGRAM		"ffxbatch"
-#define VERSION		"$Revision: 4.6 $"
+#define VERSION		"$Revision: 4.7 $"
 #define CONFIG		CONFIG_FFX
 
 
@@ -115,7 +115,7 @@ int pack_batch(char *dir, char *arc)
     
     sprintf(buffer, verbose ? ARC_PROG_V : ARC_PROG, arc, dir);
     debug(2, "Command: %s", buffer);
-    ret = (system(buffer) >> 8) & 0xff;
+    ret = run_system(buffer);
     debug(2, "Exit code=%d", ret);
     if(ret)
     {
@@ -125,7 +125,7 @@ int pack_batch(char *dir, char *arc)
 
     sprintf(buffer, "rm -f %s/*", dir);
     debug(2, "Command: %s", buffer);
-    ret = (system(buffer) >> 8) & 0xff;
+    ret = run_system(buffer);
     debug(2, "Exit code=%d", ret);
     
     return ret ? ret : OK;

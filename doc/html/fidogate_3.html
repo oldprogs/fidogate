@@ -1,13 +1,13 @@
 <HTML>
 <HEAD>
 <!-- This HTML file has been created by texi2html 1.51
-     from ../fidogate.texi on 16 Febuary 1997 -->
+     from ../fidogate.texi on 18 April 1997 -->
 
 <TITLE>FIDOGATE
  - FIDOGATE Programs</TITLE>
 </HEAD>
 <BODY>
-Go to the <A HREF="fidogate_1.html">first</A>, <A HREF="fidogate_2.html">previous</A>, <A HREF="fidogate_4.html">next</A>, <A HREF="fidogate_6.html">last</A> section, <A HREF="fidogate_toc.html">table of contents</A>.
+Go to the <A HREF="fidogate_1.html">first</A>, <A HREF="fidogate_2.html">previous</A>, <A HREF="fidogate_4.html">next</A>, <A HREF="fidogate_7.html">last</A> section, <A HREF="fidogate_toc.html">table of contents</A>.
 <P><HR><P>
 
 
@@ -205,6 +205,42 @@ addresses, e.g. <CODE>p10.f110.n2452.z2</CODE>. If any of these options is
 specified, all addresses from the config file are disabled.
 
 </P>
+<P>
+All options and config statements which take file or directory names
+accept the following <CODE>%</CODE> abbreviations:
+
+</P>
+<DL COMPACT>
+
+<DT><CODE>%L</CODE>
+<DD>
+The value of <CODE>LibDir</CODE>
+
+<DT><CODE>%S</CODE>
+<DD>
+The value of <CODE>SpoolDir</CODE>
+
+<DT><CODE>%G</CODE>
+<DD>
+The value of <CODE>LogDir</CODE>
+
+<DT><CODE>%O</CODE>
+<DD>
+The value of <CODE>Outbound</CODE>
+
+<DT><CODE>%I</CODE>
+<DD>
+The value of <CODE>Inbound</CODE>
+
+<DT><CODE>%P</CODE>
+<DD>
+The value of <CODE>PInbound</CODE>
+
+<DT><CODE>%U</CODE>
+<DD>
+The value of <CODE>UUInbound</CODE>
+
+</DL>
 
 
 
@@ -1066,6 +1102,11 @@ Options:
 <DD>
 Set Binkley outbound directory.
 
+<DT><CODE>-f --ffx <I>Z:N/F.P</I></CODE>
+<DD>
+Pack ffx control and data files for FTN address <I>Z:N/F.P</I>. You must
+also set the appropiate input directory with the <CODE>-I</CODE> option.
+
 <DT><CODE>-F --file-dir <I>dir</I></CODE>
 <DD>
 Sets directory, where <CODE>ftnpack</CODE> looks for file attachments. Should
@@ -1752,6 +1793,6 @@ nodelist.
 </P>
 
 <P><HR><P>
-Go to the <A HREF="fidogate_1.html">first</A>, <A HREF="fidogate_2.html">previous</A>, <A HREF="fidogate_4.html">next</A>, <A HREF="fidogate_6.html">last</A> section, <A HREF="fidogate_toc.html">table of contents</A>.
+Go to the <A HREF="fidogate_1.html">first</A>, <A HREF="fidogate_2.html">previous</A>, <A HREF="fidogate_4.html">next</A>, <A HREF="fidogate_7.html">last</A> section, <A HREF="fidogate_toc.html">table of contents</A>.
 </BODY>
 </HTML>

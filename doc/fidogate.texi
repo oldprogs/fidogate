@@ -2,7 +2,7 @@
 @c
 @c FIDOGATE documentation
 @c
-@c $Id: fidogate.texi,v 4.22 1997/02/23 18:20:33 mj Exp $
+@c $Id: fidogate.texi,v 4.23 1997/04/18 15:36:02 mj Exp $
 @c
 
 @setfilename fidogate.info
@@ -87,6 +87,7 @@ somewhat tedious business, so this manual is far from complete.
 * Programs::    FIDOGATE programs and scripts
 * Config files::FIDOGATE config files
 * Basic::       Basic configuration
+* Usage::       FIDOGATE usage
 
 * Index::       Index
 
@@ -156,6 +157,11 @@ Basic Configuration
 * Example Point::      Example point configuration
 * Example Point 2::    Example configuration with 2 point addresses
 * Example Node::       Example leaf node configuration
+
+FIDOGATE Usage
+
+* RFC Headers:: RFC Headers in FTN Messages
+* X Headers::   X Headers in RFC Messages
 @end menu
 
 @c ***************************************************************************
@@ -439,6 +445,9 @@ Define, if the system has the gettimeofday() function.
 
 @item DO_HAVE_TM_GMTOFF
 Define, if the system has a tm_gmtoff field in struct tm.
+
+@item DO_HAVE_SYSEXITS_H
+Define, if the system support the @code{sysexits.h} header file.
 
 @item DO_HAVE_TM_ZONE
 Define, if the system has a tm_zone field in struct tm.
@@ -1113,6 +1122,34 @@ The option @code{-a} and @code{-u} also support Internet-style FTN
 addresses, e.g. @code{p10.f110.n2452.z2}. If any of these options is
 specified, all addresses from the config file are disabled.
 
+All options and config statements which take file or directory names
+accept the following @code{%} abbreviations:
+
+@table @code
+
+@item %L
+The value of @code{LibDir}
+
+@item %S
+The value of @code{SpoolDir}
+
+@item %G
+The value of @code{LogDir}
+
+@item %O
+The value of @code{Outbound}
+
+@item %I
+The value of @code{Inbound}
+
+@item %P
+The value of @code{PInbound}
+
+@item %U
+The value of @code{UUInbound}
+
+@end table
+
 
 
 @c ***************************************************************************
@@ -1776,6 +1813,10 @@ ftnpack  @r{[}@i{-options}@r{]}  @r{[}@i{packet} @r{... ]}
 @item -B --binkley @i{dir}
 Set Binkley outbound directory.
 
+@item -f --ffx @i{Z:N/F.P}
+Pack ffx control and data files for FTN address @i{Z:N/F.P}. You must
+also set the appropiate input directory with the @code{-I} option.
+
 @item -F --file-dir @i{dir}
 Sets directory, where @code{ftnpack} looks for file attachments. Should
 be the appropiate inbound directory, see also the @code{runtoss}
@@ -2364,6 +2405,34 @@ EchoMail / file echo distribution
 All config files use the @code{#} character for introducing a comment
 and ignore empty lines. Keywords and commands are not case-sensitive.
 
+All options and config statements which take file or directory names
+accept the following @code{%} abbreviations:
+
+@table @code
+
+@item %L
+The value of @code{LibDir}
+
+@item %S
+The value of @code{SpoolDir}
+
+@item %G
+The value of @code{LogDir}
+
+@item %O
+The value of @code{Outbound}
+
+@item %I
+The value of @code{Inbound}
+
+@item %P
+The value of @code{PInbound}
+
+@item %U
+The value of @code{UUInbound}
+
+@end table
+
 
 
 @c ***************************************************************************
@@ -2735,7 +2804,11 @@ Don't generate FSC-0047 @code{^ASPLIT}, use old @code{ * Large message
 split by } ... text line.
 
 @item MaxMsgSize @i{bytes}
-Maximum size of FTN messages (default value).
+Maximum size of FTN messages (default value), larger messages will be split.
+
+@item LimitMsgSize @i{bytes}
+Maximum limit for messages (default value), larger messages will be
+bounced (mail) and simply not gated (news).
 
 @item MausDomain @i{.do.main}
 @item MausGate @i{address}
@@ -3206,6 +3279,9 @@ All @code{^ARFC-}header.
 
 @item -m @i{bytes}
 Sets @code{MaxMsgSize} for this area (0 = no limit).
+
+@item -M @i{bytes}
+Sets @code{LimitMsgSize} for this area (0 = no limit).
 
 @item -X "@i{RFC-Header: text}"
 Add extra RFC header to output of @code{ftn2rfc}. Multiple @code{-X}
@@ -3851,7 +3927,7 @@ route    normal   2:2499/123 2:*
 
 
 @c ***************************************************************************
-@node Example Node, Index, Example Point 2, Basic
+@node Example Node, Usage, Example Point 2, Basic
 
 @section Example Leaf Node configuration
 @cindex Configuration
@@ -3966,9 +4042,124 @@ help to improve the FIDOGATE documentation.
 
 
 
+
 @c ***************************************************************************
 @page
-@node Index, , Example Node, Top
+@node Usage, RFC Headers, Example Node, Top
+@chapter FIDOGATE Usage
+
+@cindex Usage
+
+@menu
+* RFC Headers:: RFC Headers in FTN Messages
+* X Headers::   X Headers in RFC Messages
+@end menu
+
+
+@c ***************************************************************************
+@page
+@node RFC Headers, X Headers, Usage, Usage
+@section RFC Headers in FTN Messages
+
+@cindex RFC header
+@cindex Header
+
+@noindent
+FIDOGATE's @code{ftn2rfc} supports the following RFC headers at the
+start of an FTN message. RFC headers must be the first text lines,
+max. 3 empty lines before the RFC headers are allowed. Only one header
+line of each type is allowed.
+
+@table @code
+
+@item From: @i{address}
+Sets From header line. If set and the @code{areas} flag @code{-g} is on,
+messages will not be gated, because they are considered comming from
+another FTN-RFC gateway.
+
+@item Reply-To: @i{address}
+Sets Reply-To header line.
+
+@item To: @i{address}
+Sets To header line.
+
+@item Cc: @i{address}
+Sets Cc header line.
+
+@item Bcc: @i{address}
+Sets Bcc header line.
+
+@item Newsgroups: @i{groups}
+Sets Newsgroups header line. NOT YET IMPLEMENTED.
+
+@item Sender: @i{address}
+Sets Sender header line. NOT YET IMPLEMENTED.
+
+@item Content-Transfer-Encoding: 7bit @r{|} 8bit @r{|} quoted-printable
+Sets content encoding type, overriding the default configured in
+@code{config.gate} (@code{NetMail8bit}, @code{NetMailQuotedPrintable})
+or @code{areas} (@code{-8}, @code{-Q}).
+
+@end table
+
+@code{ftn2rfc} sends mail to all addresses listed in To, Cc, and Bcc. It
+support the RFC1036 standard address formats:
+
+@example
+user@@do.main
+user@@do.main (Real Name)
+Real Name <user@@do.main>
+@end example
+
+Multiple addresses can be separated by a @code{,}.
+
+
+
+@c ***************************************************************************
+@page
+@node X Headers, Index, RFC Headers, Usage
+@section X Headers in RFC Messages
+
+@cindex X header
+@cindex Header
+
+@noindent
+FIDOGATE's @code{rfc2ftn} supports the following X headers in RFC
+messages:
+
+@table @code
+
+@item X-Comment-To: @i{name}
+Use for the recipient's name in news articles.
+
+@item X-Flags: @i{flags}
+@table @code
+@item c
+Message is crash.
+@item p
+Message is private (default for mail).
+@item h
+Message is hold.
+@item f
+Subject contains file attachment name.
+@item r
+Sets return receipt request.
+@item m
+Generates a FTN style @code{^MSGID}, i.e. @code{^AMSGID: }@i{Z:N/F.P
+1234abcd}. In addition, no @code{^AREPLY} kludge is generated. THIS FLAG
+IS NOT RECOMMENDED FOR NORMAL OPERATION!!!
+@item n
+Do not generate a From line, and the @code{^AREPLYADDR}, @code{REPLYTO}
+kludges.
+@end table
+
+@end table
+
+
+
+@c ***************************************************************************
+@page
+@node Index, , X Headers, Top
 @unnumbered Index
 
 @printindex cp

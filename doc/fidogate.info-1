@@ -35,6 +35,7 @@ somewhat tedious business, so this manual is far from complete.
 * Programs::    FIDOGATE programs and scripts
 * Config files::FIDOGATE config files
 * Basic::       Basic configuration
+* Usage::       FIDOGATE usage
 
 * Index::       Index
 
@@ -104,6 +105,11 @@ Basic Configuration
 * Example Point::      Example point configuration
 * Example Point 2::    Example configuration with 2 point addresses
 * Example Node::       Example leaf node configuration
+
+FIDOGATE Usage
+
+* RFC Headers:: RFC Headers in FTN Messages
+* X Headers::   X Headers in RFC Messages
 
 
 File: fidogate.info,  Node: Introduction,  Next: Installation,  Prev: Top,  Up: Top
@@ -318,6 +324,9 @@ System dependent configuration:
 
 `DO_HAVE_TM_GMTOFF'
      Define, if the system has a tm_gmtoff field in struct tm.
+
+`DO_HAVE_SYSEXITS_H'
+     Define, if the system support the `sysexits.h' header file.
 
 `DO_HAVE_TM_ZONE'
      Define, if the system has a tm_zone field in struct tm.
@@ -838,6 +847,30 @@ listed in the following sections describing the individual programs:
 e.g. `p10.f110.n2452.z2'. If any of these options is specified, all
 addresses from the config file are disabled.
 
+   All options and config statements which take file or directory names
+accept the following `%' abbreviations:
+
+`%L'
+     The value of `LibDir'
+
+`%S'
+     The value of `SpoolDir'
+
+`%G'
+     The value of `LogDir'
+
+`%O'
+     The value of `Outbound'
+
+`%I'
+     The value of `Inbound'
+
+`%P'
+     The value of `PInbound'
+
+`%U'
+     The value of `UUInbound'
+
 
 File: fidogate.info,  Node: ffx,  Next: ffxbatch,  Prev: Programs,  Up: Programs
 
@@ -1343,6 +1376,10 @@ Options:
 `-B --binkley dir'
      Set Binkley outbound directory.
 
+`-f --ffx Z:N/F.P'
+     Pack ffx control and data files for FTN address Z:N/F.P. You must
+     also set the appropiate input directory with the `-I' option.
+
 `-F --file-dir dir'
      Sets directory, where `ftnpack' looks for file attachments. Should
      be the appropiate inbound directory, see also the `runtoss'
@@ -1778,4 +1815,28 @@ FIDOGATE uses the following config files:
 
    All config files use the `#' character for introducing a comment and
 ignore empty lines. Keywords and commands are not case-sensitive.
+
+   All options and config statements which take file or directory names
+accept the following `%' abbreviations:
+
+`%L'
+     The value of `LibDir'
+
+`%S'
+     The value of `SpoolDir'
+
+`%G'
+     The value of `LogDir'
+
+`%O'
+     The value of `Outbound'
+
+`%I'
+     The value of `Inbound'
+
+`%P'
+     The value of `PInbound'
+
+`%U'
+     The value of `UUInbound'
 

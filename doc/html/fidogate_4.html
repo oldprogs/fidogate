@@ -1,13 +1,13 @@
 <HTML>
 <HEAD>
 <!-- This HTML file has been created by texi2html 1.51
-     from ../fidogate.texi on 23 Febuary 1997 -->
+     from ../fidogate.texi on 18 April 1997 -->
 
 <TITLE>FIDOGATE
  - FIDOGATE Config Files</TITLE>
 </HEAD>
 <BODY>
-Go to the <A HREF="fidogate_1.html">first</A>, <A HREF="fidogate_3.html">previous</A>, <A HREF="fidogate_5.html">next</A>, <A HREF="fidogate_6.html">last</A> section, <A HREF="fidogate_toc.html">table of contents</A>.
+Go to the <A HREF="fidogate_1.html">first</A>, <A HREF="fidogate_3.html">previous</A>, <A HREF="fidogate_5.html">next</A>, <A HREF="fidogate_7.html">last</A> section, <A HREF="fidogate_toc.html">table of contents</A>.
 <P><HR><P>
 
 
@@ -81,6 +81,42 @@ All config files use the <CODE>#</CODE> character for introducing a comment
 and ignore empty lines. Keywords and commands are not case-sensitive.
 
 </P>
+<P>
+All options and config statements which take file or directory names
+accept the following <CODE>%</CODE> abbreviations:
+
+</P>
+<DL COMPACT>
+
+<DT><CODE>%L</CODE>
+<DD>
+The value of <CODE>LibDir</CODE>
+
+<DT><CODE>%S</CODE>
+<DD>
+The value of <CODE>SpoolDir</CODE>
+
+<DT><CODE>%G</CODE>
+<DD>
+The value of <CODE>LogDir</CODE>
+
+<DT><CODE>%O</CODE>
+<DD>
+The value of <CODE>Outbound</CODE>
+
+<DT><CODE>%I</CODE>
+<DD>
+The value of <CODE>Inbound</CODE>
+
+<DT><CODE>%P</CODE>
+<DD>
+The value of <CODE>PInbound</CODE>
+
+<DT><CODE>%U</CODE>
+<DD>
+The value of <CODE>UUInbound</CODE>
+
+</DL>
 
 
 
@@ -549,7 +585,12 @@ split by </CODE> ... text line.
 
 <DT><CODE>MaxMsgSize <I>bytes</I></CODE>
 <DD>
-Maximum size of FTN messages (default value).
+Maximum size of FTN messages (default value), larger messages will be split.
+
+<DT><CODE>LimitMsgSize <I>bytes</I></CODE>
+<DD>
+Maximum limit for messages (default value), larger messages will be
+bounced (mail) and simply not gated (news).
 
 <DT><CODE>MausDomain <I>.do.main</I></CODE>
 <DD>
@@ -1146,6 +1187,10 @@ All <CODE>^ARFC-</CODE>header.
 <DD>
 Sets <CODE>MaxMsgSize</CODE> for this area (0 = no limit).
 
+<DT><CODE>-M <I>bytes</I></CODE>
+<DD>
+Sets <CODE>LimitMsgSize</CODE> for this area (0 = no limit).
+
 <DT><CODE>-X "<I>RFC-Header: text</I>"</CODE>
 <DD>
 Add extra RFC header to output of <CODE>ftn2rfc</CODE>. Multiple <CODE>-X</CODE>
@@ -1620,6 +1665,6 @@ list.
 </DL>
 
 <P><HR><P>
-Go to the <A HREF="fidogate_1.html">first</A>, <A HREF="fidogate_3.html">previous</A>, <A HREF="fidogate_5.html">next</A>, <A HREF="fidogate_6.html">last</A> section, <A HREF="fidogate_toc.html">table of contents</A>.
+Go to the <A HREF="fidogate_1.html">first</A>, <A HREF="fidogate_3.html">previous</A>, <A HREF="fidogate_5.html">next</A>, <A HREF="fidogate_7.html">last</A> section, <A HREF="fidogate_toc.html">table of contents</A>.
 </BODY>
 </HTML>

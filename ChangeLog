@@ -2,6 +2,50 @@ Fri Apr 18 15:14:04 1997  Martin Junius  <mj@fido.de>
 
 	------- CVS ci -------------------------------------------------------
 
+	* doc/fidogate.texi (Programs): added %X.
+	  (Config files): added %X.
+	  (ftnpack): added -f --ffx.
+	  (Config): added LimitMsgSize.
+	  (Areas): added -L.
+	  (config.h): added DO_HAVE_SYSEXITS_H.
+	  (Usage): added new usage chapter.
+	  (RFC Headers in FTN Messages): added new section documenting the
+ 	  RFC header in FTN messages.
+	  (X Headers in RFC Messages): added new section documenting the
+	  X-Comment-To and X-Flags headers.
+
+	* src/util/ftnflo.c (do_flo): use new run_system().
+
+	* src/toss/ftnpack.c (do_arcmail): use new run_system().
+	  (do_prog): use new run_system().
+
+	* src/gate/ftn2rfc.c (main): use new run_system().
+
+	* src/ffx/ffxqt.c (exec_ffx): use new run_system().
+
+	* src/ffx/ffx.c (ffx): use new run_system().
+
+	* src/ffx/ffxbatch.c (pack_batch): use new run_system().
+
+	* src/gate/ftnin.c (do_packets): used new run_system().
+	  (exec_ftn2rfc): use new run_system().
+
+	* src/common/misc.c (run_system): new wrapper function for
+	  system(), runs DOSIFY_IF_NEEDED and extract exit code.
+
+	* src/include/prototypes.h (DOSIFY_IF_NEEDED): new macro
+	  translates to str_dosify() only if MSDOS or OS2 are defined.
+
+	* src/gate/ftnin.c (main): removed MSDOS/OS2 code for cmd[], will
+	  be handled by str_dosify() before running system().
+
+	------- CVS ci -------------------------------------------------------
+
+	* sendmail/README.FIDOGATE: updated.
+
+	* sendmail/: updated config files to sendmail-cf 8.8.5, rebuild
+	  sample .cf files.
+
 	* src/gate/ftn2rfc.c (check_valid_domain): new function checking
 	  for valid Internet domain name string, [a-zA-Z0-9.-]+.
 	  (unpack): if address in the FTN to field are allowed, check for

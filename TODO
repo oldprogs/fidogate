@@ -6,28 +6,7 @@ X = for next release
 	* rfc2ftn: save large mails to file, fattach on hold for
 	  recipient?
 
-DONE.	* rununpack: support other contents than *.pkt
-
-	* doc: add ftnpack -f --ffx
-
-	* doc: add %L/%S/%G/%O/%I/%P/%U
-
-EXISTS!	* ftnexpire: wait for lock file to be released!
-
 	* ftn2rfc/rfc2ftn: mail log + size / message date
-
-	* doc: add areas -L, LimitMsgSize, #define DO_HAVE_SYSEXITS_H
-
-DONE.	* ftnpack: special option to process ffx control and data
-	  files.
-
-	* doc: add RFC header in Fido message body
-	  (From, To, Cc, ..., Content-Transfer-Encoding)
-
-	* doc: add X-Flags
-
-DONE.	* ftn2rfc: improve processing of RFC address user%do.main and
-	  user@do.main in FTN to field. Avoid "" quotes.
 
 	* rfc2ftn: configuration option for mail RFC level *per*
 	  *host*, e.g. option in HOSTS.
@@ -35,9 +14,6 @@ DONE.	* ftn2rfc: improve processing of RFC address user%do.main and
 	* rfcaddr.c: using quotes for "som(e)thing%special"@host
 	  causes problems with news reading. Son-of-rfc1036 saiz that
 	  quotes are not allowed in addresses.
-
-STARTED.* DOS/OS2: use \ for path names when running commands via system()
-(ftnin)
 
 	* ftntick: call script for incoming TICs, passing file area,
 	  name, ...

@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ffxqt.c,v 4.5 1996/12/17 17:19:50 mj Exp $
+ * $Id: ffxqt.c,v 4.6 1997/04/18 15:37:44 mj Exp $
  *
  * Process incoming ffx control and data files
  *
@@ -38,7 +38,7 @@
 
 
 #define PROGRAM		"ffxqt"
-#define VERSION		"$Revision: 4.5 $"
+#define VERSION		"$Revision: 4.6 $"
 #define CONFIG		CONFIG_FFX
 
 
@@ -507,7 +507,7 @@ int exec_ffx(FFX *ffx)
      * problems.
      */
     debug(2, "Command: %s", buffer);
-    ret = (system(buffer) >> 8) & 0xff;
+    ret = run_system(buffer);
     debug(2, "Exit code=%d", ret);
 
     if(ret == 0)

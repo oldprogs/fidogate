@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftnin.c,v 4.3 1997/02/09 10:40:24 mj Exp $
+ * $Id: ftnin.c,v 4.4 1997/04/18 15:37:45 mj Exp $
  *
  * Search for mail packets destined to gateway's FTN addresses and feed
  * them to ftn2rfc.
@@ -39,7 +39,7 @@
 
 
 #define PROGRAM		"ftnin"
-#define VERSION		"$Revision: 4.3 $"
+#define VERSION		"$Revision: 4.4 $"
 #define CONFIG		CONFIG_GATE
 
 
@@ -125,7 +125,7 @@ int do_packets(void)
 	int ret;
 
 	debug(1, "Command: %s", script);
-	ret = (system(script) >> 8) & 0xff;
+	ret = run_system(script);
 	debug(1, "Exit code=%d", ret);
 	if(ret)
 	{
@@ -154,7 +154,7 @@ int exec_ftn2rfc(char *name)
     strncat0(buffer, name, BUFFERSIZE);
     debug(1, "Command: %s", buffer);
 
-    ret = (system(buffer) >> 8) & 0xff;
+    ret = run_system(buffer);
     debug(1, "Exit code=%d", ret);
     if(ret)
     {
@@ -305,11 +305,7 @@ int main(int argc, char **argv)
 
     cf_debug();
 
-#if defined(OS2) || defined(MSDOS)
-    BUF_COPY3(cmd, cf_libdir(), "\\", FTN2RFC);
-#else /**UNIX**/
     BUF_COPY3(cmd, cf_libdir(), "/", FTN2RFC);
-#endif
     if(exec)
 	str_expand_name(script, sizeof(script), exec);
     
