@@ -1,5 +1,8 @@
 Sun Sep 22 13:00:06 1996  Martin Junius  <mj@fido.de>
 
+	======= Release 4.0 beta 1 ===========================================
+	------- CVS tag R40b1 ------------------------------------------------
+
 	------- CVS ci -------------------------------------------------------
 
 	* sendmail/cf/Makefile (install-orodruin): added target for
