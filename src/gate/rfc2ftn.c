@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway software UNIX <-> FIDO
  *
- * $Id: rfc2ftn.c,v 4.13 1996/09/15 11:55:12 mj Exp $
+ * $Id: rfc2ftn.c,v 4.14 1996/09/16 20:13:23 mj Exp $
  *
  * Read mail or news from standard input and convert it to a FIDO packet.
  *
@@ -39,7 +39,7 @@
 
 
 #define PROGRAM 	"rfc2ftn"
-#define VERSION 	"$Revision: 4.13 $"
+#define VERSION 	"$Revision: 4.14 $"
 #define CONFIG		CONFIG_GATE
 
 
@@ -807,7 +807,9 @@ int snd_mail(RFCAddr rfc_to, long size)
      * X-Flags
      */
     flags = header_get("X-Flags");
-
+    if(flags)
+	str_lower(flags);
+    
     if(private)
     {
 	msg.attr |= MSG_PRIVATE;
@@ -834,19 +836,19 @@ int snd_mail(RFCAddr rfc_to, long size)
 	    while(*p)
 		switch(*p++)
 		{
-		case 'c': case 'C':
+		case 'c':
 		    msg.attr |= MSG_CRASH;
 		    break;
-		case 'p': case 'P':
+		case 'p':
 		    msg.attr |= MSG_PRIVATE;
 		    break;
-		case 'h': case 'H':
+		case 'h':
 		    msg.attr |= MSG_HOLD;
 		    break;
-		case 'f': case 'F':
+		case 'f':
 		    msg.attr |= MSG_FILE;
 		    break;
-		case 'r': case 'R':
+		case 'r':
 		    msg.attr |= MSG_RRREQ;
 		    break;
 		}
@@ -1069,7 +1071,7 @@ int snd_message(Message *msg, Area *parea,
     pkt_put_msg_hdr(sf, msg, TRUE);
 
 
-    if(!flags || !strchr(flags, 'M') || !strchr(flags, 'm'))/* X-Flags: M */
+    if(!flags || !strchr(flags, 'm'))		/* X-Flags: M */
     {
 	/*
 	 * Add kludges for MSGID / REPLY and ORIGID / ORIGREF
@@ -1107,7 +1109,7 @@ int snd_message(Message *msg, Area *parea,
 	print_local_msgid(sf);
 
     if(!no_fsc_0035)
-	if(!flags || !strchr(flags, 'N') || !strchr(flags, 'n'))
+	if(!flags || !strchr(flags, 'n'))
 	{
 	    /*
 	     * Generate FSC-0035 ^AREPLYADDR, ^AREPLYTO
@@ -1119,7 +1121,7 @@ int snd_message(Message *msg, Area *parea,
 		    msg->name_from);
 	}
 
-    if( flags && (strchr(flags, 'F') || strchr(flags, 'f')) )
+    if( flags && strchr(flags, 'f') )
     {
 	/*
 	 * Generate ^AFLAGS KFS
@@ -1156,7 +1158,7 @@ int snd_message(Message *msg, Area *parea,
 	add_empty = TRUE;
     }
 
-    if(!flags || !strchr(flags, 'N') || !strchr(flags, 'n'))
+    if(!flags || !strchr(flags, 'n'))
     {
 	if(!no_from_line)
 	{

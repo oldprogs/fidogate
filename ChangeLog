@@ -1,4 +1,22 @@
+Mon Sep 16 21:50:43 1996  Martin Junius  <mj@fido.de>
+
+	------- CVS ci -------------------------------------------------------
+
+	* test/tc.gate8/run: added Message-ID header to all tests.
+
+	* src/gate/rfc2ftn.c (snd_mail): use str_lower() to convert flags
+	  to lower case.
+	  (snd_message): make flags checking really case-insensitive. ;-)
+
 Sun Sep 15 12:11:05 1996  Martin Junius  <mj@fido.de>
+
+	* sendmail/cf/mailertable: added example mailertable.
+
+	* sendmail/cf/orodruin.mc: use mailertable feature.
+
+	* README: added FIDOGATE home page.
+
+	* test/tc.toss6/run: new test case for routing RemapFrom, RemapTo.
 
 	------- CVS ci -------------------------------------------------------
 

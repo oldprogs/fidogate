@@ -3,4 +3,5 @@
 # Update db maps in /etc/mail
 #
 
-makemap dbm /etc/mail/rewrite  < /etc/mail/rewrite
+makemap hash /etc/mail/rewrite     < /etc/mail/rewrite
+makemap hash /etc/mail/mailertable < /etc/mail/mailertable

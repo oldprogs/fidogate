@@ -1,12 +1,12 @@
 #:ts=8
 #
-# $Id: orodruin.mc,v 4.1 1996/08/25 12:11:15 mj Exp $
+# $Id: orodruin.mc,v 4.2 1996/09/16 20:13:22 mj Exp $
 #
 # orodruin.Fido.DE
 #
 
 include(`../m4/cf.m4')
-VERSIONID(`$Id: orodruin.mc,v 4.1 1996/08/25 12:11:15 mj Exp $')
+VERSIONID(`$Id: orodruin.mc,v 4.2 1996/09/16 20:13:22 mj Exp $')
 OSTYPE(linux)dnl
 
 define(`VERSION_NUMBER', `orodruin-4.1')
@@ -20,6 +20,7 @@ FEATURE(notsticky)dnl
 FEATURE(always_add_domain)dnl
 FEATURE(nodns)dnl
 FEATURE(nocanonify)dnl
+FEATURE(mailertable,hash /etc/mail/mailertable.db)dnl
 
 MAILER(local)dnl
 MAILER(smtp)dnl
@@ -29,15 +30,8 @@ MAILER(ffx)dnl
 # Smart host and mailer
 define(`SMART_HOST', ffx:morannon.fido.de)
 
-
-# Gateway for FIDO mail (warning: conflicts with FAX relay!)
-DForodruin-ftn.fido.de
-
-# FIDO domains via mailer ftni (no leading "."!)
-CIz2.fidonet.org
-
-# FIDO domains via mailer ftn (no leading "."!)
-CN
+# Map for `LOCAL_RULE_3' rewrite rules
+Krewrite hash -o /etc/mail/rewrite
 
 
 LOCAL_CONFIG
@@ -46,13 +40,8 @@ Tnews
 
 
 LOCAL_RULE_3
-# class I/N domains are canonical
-R$* < @ $* .$=I > $*		$: $1 < @ $2 .$3. > $4
-R$* < @ $* .$=N > $*		$: $1 < @ $2 .$3. > $4
+# Rewrite addresses according to rewrite.db map
+R$* < @ $* > $*			$: $1 < @ $(rewrite $2 $@ %1 $: $2 $) > $3
 
 
 LOCAL_NET_CONFIG
-# Fido mail to class I via ftni
-R$* <@ $* . $=I . > $*		$#ftni $@$F $:$1<@$2.$3.>$4
-# Fido mail to class N via ftn
-R$* <@ $* . $=N . > $*		$#ftn $@$F $:$1<@$2.$3.>$4
