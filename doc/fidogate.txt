@@ -1956,6 +1956,17 @@ Special configuration `ftn2rfc' (config file `config.gate'):
      Put the text from the * Origin line (excluding the (z:n/f.p)
      address) into the Organization header.
 
+`UseFTNToAddress'
+     Use FTN to address for mail addressed to the gateway without a To
+     line, e.g. mail to
+          Max Mueller  2:2452/110.2
+     with a HOSTS entry
+          2:2452/110.2  orodruin-ftn.fido.de
+     is converted to
+          To: Max_Mueller@orodruin-ftn.fido.de
+     Without this option the standard local HOST.DOMAIN is used, e.g.
+          To: Max_Mueller@orodruin.fido.de
+
 `HostsRestricted'
      Restrict usage of the gateway to FTN addresses listed in `hosts'.
 

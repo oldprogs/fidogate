@@ -1,6 +1,6 @@
 #:ts=8
 #
-#    $Id: Makefile,v 4.1 1996/08/25 13:09:44 mj Exp $
+#    $Id: Makefile,v 4.2 1997/02/09 10:04:25 mj Exp $
 #
 #    Makefile for FIDOGATE scripts/filebase/
 #
@@ -16,8 +16,9 @@ include $(TOPDIR)/config.make
 include $(TOPDIR)/rules.make
 
 
-PROGS		= latest \
-		  nl-del nl-diff nl-html nl-isdn nl-print nl-2hosts
+PROGS		= latest\
+		  nl-del nl-diff nl-html nl-isdn nl-print\
+		  nl-2hosts nl-2routing
 
 
 all:		$(PROGS)

@@ -18,9 +18,12 @@ Internet:
 =========
     http://www.fido.de/fidogate/
     ftp://ftp.fido.de/pub/fidogate/
+    http://www.fido.de/pub/fidogate/
 
     ftp://ftp.comnets.rwth-aachen.de/pub/mail+news/fidogate/
+
     ftp://sunsite.unc.edu/pub/Linux/system/Fido/
+    http://sunsite.unc.edu/pub/Linux/system/Fido/
     (maybe still in /pub/Linux/Incoming)
 
     fidogate-4.1.5.tar.gz	657 Kbyte
@@ -97,11 +100,14 @@ There is a mailing list for FIDOGATE discussions and announcements:
 
     mailto:fgate-users@gondor.gun.de
 
-Send mail to
+To SUBSCRIBE to this mailing list, simply send a message with the word
+"subscribe" in the Subject: field to
 
     mailto:fgate-users-request@gondor.gun.de
 
-to subscribe / de-subscribe.
+To UNSUBSCRIBE from this mailing list, simply send a message with the
+word (you guessed it :-) "unsubscribe" in the Subject: field to
+fgate-users-request@gondor.gun.de
 
 ===== fidogate.lsm ===================================================
 
@@ -130,6 +136,6 @@ End
 
 ======================================================================
 
-$Date: 1996/12/29 12:16:34 $
+$Date: 1997/02/09 10:04:11 $
 Martin Junius
 mailto:mj@fido.de

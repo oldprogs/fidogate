@@ -1,7 +1,7 @@
 <HTML>
 <HEAD>
 <!-- This HTML file has been created by texi2html 1.51
-     from ../fidogate.texi on 22 December 1996 -->
+     from ../fidogate.texi on 9 Febuary 1997 -->
 
 <TITLE>FIDOGATE
  - FIDOGATE Config Files</TITLE>
@@ -436,6 +436,33 @@ Kill messages that don't contain a <CODE>^AMSGID</CODE>.
 <DD>
 Put the text from the * Origin line (excluding the <I>(z:n/f.p)</I>
 address) into the Organization header.
+
+<DT><CODE>UseFTNToAddress</CODE>
+<DD>
+Use FTN to address for mail addressed to the gateway without a To line,
+e.g. mail to
+
+<PRE>
+Max Mueller  2:2452/110.2
+</PRE>
+
+with a HOSTS entry
+
+<PRE>
+2:2452/110.2  orodruin-ftn.fido.de
+</PRE>
+
+is converted to
+
+<PRE>
+To: Max_Mueller@orodruin-ftn.fido.de
+</PRE>
+
+Without this option the standard local HOST.DOMAIN is used, e.g.
+
+<PRE>
+To: Max_Mueller@orodruin.fido.de
+</PRE>
 
 <DT><CODE>HostsRestricted</CODE>
 <DD>

@@ -1,4 +1,57 @@
+Sun Feb  9 10:40:31 1997  Martin Junius  <mj@fido.de>
+
+	------- CVS ci -------------------------------------------------------
+
+	* version.h (PATCHLEVEL): set to 6.
+
+	* doc/fidogate.texi (Config): added UseFTNToAddress.
+
+	* examples/morannon/config.gate: same.
+
+	* examples/orodruin/config.gate: added UseFTNToAddress with some
+	  description. 
+
+	* src/gate/ftn2rfc.c (unpack): if use_ftn_to_address is TRUE
+	  append @addr_to.addr, else append @cf_fqdn().
+	  (main): process UseFTNToAddress config option.
+
+Sat Feb  8 10:29:35 1997  Martin Junius  <mj@fido.de>
+
+	* src/gate/rfc2ftn.c (snd_message): use header_getcomplete() for
+	  Message-ID / References to process continuation lines.
+
+Thu Feb  6 19:41:16 1997  Martin Junius  <mj@fido.de>
+
+	* README: added warning for using old release 3.9.7 configuration
+ 	  files and scripts.
+
+Sat Jan 18 18:27:27 1997  Martin Junius  <mj@fido.de>
+
+	* README, ANNOUNCE: updated mailing list subscribe/unsubscribe.
+
+	* examples/README: new README for examples directory.
+
+Sun Jan  5 11:16:09 1997  Martin Junius  <mj@fido.de>
+
+	* scripts/maintenance/newsyslog.sh: rewrite of script, now
+	  compressing old log files.
+
+Wed Jan  1 11:19:14 1997  Martin Junius  <mj@fido.de>
+
+	* ANNOUNCE, README: some changes.
+
+Tue Dec 31 13:42:37 1996  Martin Junius  <mj@fido.de>
+
+	* src/common/misc.c (str_last): return s[l].
+
+	* scripts/nodelist/Makefile (PROGS): added nl-2routing.
+
+	* scripts/nodelist/nl-2routing.pl: added new script contributed by
+	  Andreas Braukmann <andy@AbrA.DE>, converts nodelist to hub routing.
+
 Sun Dec 29 13:14:46 1996  Martin Junius  <mj@fido.de>
+
+	* scripts/misc/senduu.sh: fixed senduumail.
 
 	======= Release 4.1.5 ================================================
 	------- CVS ci, tag R415 ---------------------------------------------
@@ -43,6 +96,8 @@ Sun Dec 22 10:48:09 1996  Martin Junius  <mj@fido.de>
 	* ANNOUNCE: updated.
 
 	* fidogate.lsm: updated.
+
+	------- CVS ci -------------------------------------------------------
 
 	------- CVS ci -------------------------------------------------------
 

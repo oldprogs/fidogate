@@ -1,0 +1,15 @@
+-*- Indented-Text -*-
+
+$Id: README,v 1.1 1997/02/09 10:04:20 mj Exp $
+
+
+This directory contains example configurations, both using the
+FIDOGATE gateway and tosser:
+
+morannon/	morannon.fido.de, 2:2452/110, 242:1000/1
+		node configuration for main Fido.DE gateway
+
+orodruin/	orodruin.fido.de, 2:2452/110.2, 242:1000/5
+		point configuration
+
+See also the sendmail configuration files in ../sendmail/cf/.

@@ -49,6 +49,21 @@ Organization	"Fido.DE domain gateway (IN e.V.)"
 
 
 #
+# Use FTN to address for mail addressed to the gateway without a To
+# line, e.g. mail to
+#     Max Mueller @ 2:2452/110.2
+# with a HOSTS entry
+#     2:2452/110.2  orodruin-ftn.fido.de
+# is converted to
+#     To: Max_Mueller@orodruin-ftn.fido.de
+#
+# Without this option the standard local HOST.DOMAIN is used
+#     To: Max_Mueller@orodruin.fido.de
+#
+UseFTNToAddress
+
+
+#
 # Type of 4D EchoMail control lines.
 #
 # With this enabled FIDOGATE generates SEEN-BY and ^APATH like:

@@ -1,6 +1,6 @@
 #:ts=8
 #
-# $Id: config.gate,v 4.12 1996/11/25 19:51:53 mj Exp $
+# $Id: config.gate,v 4.13 1997/02/09 10:04:21 mj Exp $
 #
 # FIDOGATE config file gateway programs
 #
@@ -50,6 +50,21 @@ Organization	"Martin Junius' orodruin.fido.de"
 # Use text from Organization header for * Origin line
 #
 #UseOrganizationForOrigin
+
+
+#
+# Use FTN to address for mail addressed to the gateway without a To
+# line, e.g. mail to
+#     Max Mueller @ 2:2452/110.2
+# with a HOSTS entry
+#     2:2452/110.2  orodruin-ftn.fido.de
+# is converted to
+#     To: Max_Mueller@orodruin-ftn.fido.de
+#
+# Without this option the standard local HOST.DOMAIN is used
+#     To: Max_Mueller@orodruin.fido.de
+#
+UseFTNToAddress
 
 
 #

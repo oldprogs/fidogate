@@ -28,6 +28,8 @@ TEST                          test                          -z 2 -Q
 ABC                           abc                           -z 2 -Q
 DEF                           def                           -z 2 -Q
 
+FIDO.DE                       fido.de                       -z 242 -8
+
 # Fidonet *.GER
 LINUX.GER                     fido.ger.linux                -x -z 2 -Q
 TOLKIEN.GER                   fido.ger.tolkien              -x -z 2 -Q

@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# $Id: senduu.sh,v 4.1 1996/12/29 12:16:39 mj Exp $
+# $Id: senduu.sh,v 4.2 1997/02/09 10:04:22 mj Exp $
 #
 # Send stuff on hold as UUENCODEd mail
 #
@@ -17,4 +17,4 @@ fi
 node=$1
 user=$2
 
-$PRG/ftnflo -x "$PRG/senduumal $user %s" $node
+$PRG/ftnflo -x "$PRG/senduumail $user %s" $node

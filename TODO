@@ -2,6 +2,29 @@
 
 X = for next release
 
+	* rfcaddr.c: using quotes for "som(e)thing%special"@host
+	  causes problems with news reading. Son-of-rfc1036 saiz that
+	  quotes are not allowed in addresses.
+
+	* DOS/OS2: use \ for path names when running commands via system()
+
+	* ftntick: call script for incoming TICs, passing file area,
+	  name, ...
+
+	* ftn2rfc:702: config option, instead of @FQDN, add @addr_to.addr
+	  (domain part of recipient's FTN address).
+
+	* rfc2ftn: limit max. message size
+
+	* ftnaf: marker in areas.bbs to show if an area is subscribed
+	  at the uplink (option or using directory), regularly check
+	  if area is subscribed by any downlink and send add/del
+	  request to uplink.
+
+	* Replace calls to strncpy0/strncat0 with str_copy/str_append.
+
+	* "include" for reading routing/packing config file.
+
 	* Generic alias matching: name@Z:N/F.P <-> user@do.main (Name),
 	  recipient *and* sender
 

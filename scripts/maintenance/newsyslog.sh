@@ -1,47 +1,77 @@
 #!/bin/sh
 #
-# $Id: newsyslog.sh,v 4.1 1996/08/25 10:16:06 mj Exp $
+# $Id: newsyslog.sh,v 4.2 1997/02/09 10:04:22 mj Exp $
 #
-# Cycle syslog files, run sendmailstat
+# Cycle syslog files
 #
 
 # Permissions for new log files
 PERM=644
 # Directory with syslog files
 SYSLOGDIR=/var/log
+# Compression program
+COMPR="gzip -9"
+EXT=".gz"
 
+# Renamed and compress
+# usage: move FILE [N]
+move () {
+  if [ "$2" = "" ]; then
+    o=""
+    n=".0"
+  else
+    o=".$2"
+    n="."`expr $2 + 1`
+  fi
+  fo="$1$o"
+  fn="$1$n"
+  if [ -f "$fn" ]; then
+    rm -f $fn
+  fi
+  if [ -f "$fn$EXT" ]; then
+    rm -f $fn$EXT
+  fi
+  if [ -f "$fo" ]; then
+    mv $fo $fn
+    $COMPR $fn
+  fi
+  if [ -f "$fo$EXT" ]; then
+    mv $fo$EXT $fn$EXT
+  fi
+}
 
-# Cycle syslog files
+# Cycle log file
+# usage: cycl FILE N ... 3 2 1
+# Last log file kept will be FILE.N+1
 cycle () {
   if [ -f $1 ]; then 
-    test -f $1.5 && mv $1.5 $1.6
-    test -f $1.4 && mv $1.4 $1.5
-    test -f $1.3 && mv $1.3 $1.4
-    test -f $1.2 && mv $1.2 $1.3
-    test -f $1.1 && mv $1.1 $1.2
-    test -f $1.0 && mv $1.0 $1.1
-    test -f $1   && mv $1   $1.0
+    file=$1
+    shift
 
-    :> $1
-    chmod 644 $1
+    for n in $*; do
+      move $file $n
+    done
+    move $file
+
+    :> $file
+    chmod 644 $file
   fi
 }
 
 cycle $SYSLOGDIR/cron
-cycle $SYSLOGDIR/maillog
-cycle $SYSLOGDIR/messages
-cycle $SYSLOGDIR/syslog
+cycle $SYSLOGDIR/syslog   3 2 1 0
+cycle $SYSLOGDIR/messages 3 2 1 0
+cycle $SYSLOGDIR/maillog  5 4 3 2 1 0
 
-
-# Run sendmailstat
-PRG=/usr/local/bin/sendmailstat
-STATDIR=/var/log/sendmail
-LOG=/var/log/maillog
-
-if [ -x $PRG ]; then
-  test -d $STATDIR || mkdir $STATDIR
-  $PRG -l $LOG.0 -o $STATDIR/stat-%D
-fi
+# # Run sendmailstat
+# PRG=/usr/local/bin/sendmailstat
+# STATDIR=/var/log/sendmail
+# LOG=/var/log/maillog
+# 
+# if [ -x $PRG ]; then
+#   test -d $STATDIR || mkdir $STATDIR
+#   $PRG -l $LOG.0 -o $STATDIR/stat-%D
+# fi
 
 
 # Restart syslog, cron

@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway software UNIX <-> FIDO
  *
- * $Id: rfc2ftn.c,v 4.20 1996/12/17 17:19:52 mj Exp $
+ * $Id: rfc2ftn.c,v 4.21 1997/02/09 10:04:30 mj Exp $
  *
  * Read mail or news from standard input and convert it to a FIDO packet.
  *
@@ -39,7 +39,7 @@
 
 
 #define PROGRAM 	"rfc2ftn"
-#define VERSION 	"$Revision: 4.20 $"
+#define VERSION 	"$Revision: 4.21 $"
 #define CONFIG		CONFIG_GATE
 
 
@@ -1103,7 +1103,7 @@ int snd_message(Message *msg, Area *parea,
 	/*
 	 * Add kludges for MSGID / REPLY and ORIGID / ORIGREF
 	 */
-	if((header = header_get("Message-ID")))
+	if((header = header_getcomplete("Message-ID")))
 	{
 	    if((id = msgid_rfc_to_fido(&flag, header, part, split, msg->area)))
 	    {
@@ -1119,8 +1119,8 @@ int snd_message(Message *msg, Area *parea,
 	else
 	    print_local_msgid(sf);
 	
-	if((header = header_get("References")) ||
-	   (header = header_get("In-Reply-To")))
+	if((header = header_getcomplete("References")) ||
+	   (header = header_getcomplete("In-Reply-To")))
 	{
 	    if((id = msgid_rfc_to_fido(&flag, header, 0, 0, msg->area)))
 	    {

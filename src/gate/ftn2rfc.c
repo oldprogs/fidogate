@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftn2rfc.c,v 4.14 1996/12/17 17:19:51 mj Exp $
+ * $Id: ftn2rfc.c,v 4.15 1997/02/09 10:04:28 mj Exp $
  *
  * Convert FTN mail packets to RFC mail and news batches
  *
@@ -40,7 +40,7 @@
 
 
 #define PROGRAM 	"ftn2rfc"
-#define VERSION 	"$Revision: 4.14 $"
+#define VERSION 	"$Revision: 4.15 $"
 #define CONFIG		CONFIG_GATE
 
 
@@ -125,6 +125,9 @@ static int no_address_in_to_field = FALSE;
 /* Character conversion */
 static int netmail_8bit = FALSE;
 static int netmail_qp   = FALSE;
+
+/* Use FTN to address (cvt to Internet address) for mail_to */
+static int use_ftn_to_address = FALSE;
 
 
 
@@ -665,7 +668,7 @@ int unpack(FILE *pkt_file, Packet *pkt)
 	}	    
 
 	/*
-	 * Check for address in to mail_to
+	 * Check for address in mail_to
 	 */
 	if(area==NULL && no_address_in_to_field)
 	{
@@ -682,7 +685,7 @@ int unpack(FILE *pkt_file, Packet *pkt)
 	}
 	
 	/*
-	 * Check mail messages' user name
+	 * Check for UUCP / GATEWAY, add address to mail without To line
 	 */
 	if(area==NULL && !msgbody_rfc_to &&
 	   !strchr(mail_to, '@') && !strchr(mail_to, '%') &&
@@ -690,20 +693,21 @@ int unpack(FILE *pkt_file, Packet *pkt)
 	{
 	    if(uucp_flag) 
 	    {
-		/*
-		 * Addressed to `UUCP' or `GATEWAY', but no To: line
-		 */
+		/* Addressed to `UUCP' or `GATEWAY', but no To: line */
 		debug(1, "Message to `UUCP' or `GATEWAY' without To line");
 		log("BOUNCE: mail from %s without To line",
 		    rfcaddr_to_asc(&addr_from, TRUE));
 		bounce_mail("noto", &addr_from, &msg, msgbody_rfc_to, &tbody);
 		continue;
 	    }
-	    /*
-	     * Add `@host.domain' to local address
-	     */
-	    str_append(mail_to, sizeof(mail_to), "@");
-	    str_append(mail_to, sizeof(mail_to), cf_fqdn());
+
+	    BUF_APPEND(mail_to, "@");
+	    if(use_ftn_to_address)
+		/* Add @ftn-to-host */
+		BUF_APPEND(mail_to, addr_to.addr);
+	    else
+		/* Add @host.domain to local address */
+		BUF_APPEND(mail_to, cf_fqdn());
 	}
 
 	/*
@@ -1340,6 +1344,11 @@ int main(int argc, char **argv)
     {
 	debug(8, "config: NetMailQP");
 	netmail_qp = TRUE;
+    }
+    if(cf_get_string("UseFTNToAddress", TRUE))
+    {
+	debug(8, "config: UseFTNToAddress");
+	use_ftn_to_address = TRUE;
     }
     
     /*

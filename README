@@ -1,6 +1,6 @@
 -*- Indented-Text -*-
 
-$Id: README,v 4.15 1996/12/29 12:16:36 mj Exp $
+$Id: README,v 4.16 1997/02/09 10:04:13 mj Exp $
 
 ======================================================================
 				   
@@ -37,6 +37,12 @@ Major changes in FIDOGATE 4:
 * Tons of new config options! See examples/orodruin/... and
   examples/morannon/...
 
+Warning: configuration changed a lot since release 3.9.7, so using an
+old configuration without any changes for release 4 will cause
+problems.
+
+In particular, Roland's fgpack script (see doc/Fido-Point-HOWTO) does
+*NOT* work with the release 4 ftnpack!!!
 
 ======================================================================
 
@@ -72,13 +78,16 @@ description of the FIDOGATE installation.
 
 There is a mailing list for FIDOGATE discussions and announcements:
 
-    fgate-users@gondor.gun.de
+    mailto:fgate-users@gondor.gun.de
 
-Send mail to
+To SUBSCRIBE to this mailing list, simply send a message with the word
+"subscribe" in the Subject: field to
 
-    fgate-users-request@gondor.gun.de
+    mailto:fgate-users-request@gondor.gun.de
 
-for subscription requests.
+To UNSUBSCRIBE from this mailing list, simply send a message with the
+word (you guessed it :-) "unsubscribe" in the Subject: field to
+fgate-users-request@gondor.gun.de
 
 ======================================================================
 
@@ -105,9 +114,14 @@ OS/2 version:
 
 For an OS/2 version of FIDOGATE contact:
 
-    Florian Petri <flop@flop.swb.de>
-    Oliver Schwank <oli@flinx.nbg.sub.org>
+    Florian Petri     mailto:flop@flop.swb.de
+		      Fido 2:2464/80, FRequest FIDOGATE.ZIP
+
+[Oliver Schwank mailto:oli@flinx.nbg.sub.org did the first OS2 port,
+but is no longer maintaining it.]
 
 ======================================================================
 
-Martin Junius <mj@fido.de>, $Date: 1996/12/29 12:16:36 $
+$Date: 1997/02/09 10:04:13 $
+Martin Junius
+mailto:mj@fido.de

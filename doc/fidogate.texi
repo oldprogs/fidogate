@@ -2,7 +2,7 @@
 @c
 @c FIDOGATE documentation
 @c
-@c $Id: fidogate.texi,v 4.19 1996/12/22 10:39:29 mj Exp $
+@c $Id: fidogate.texi,v 4.20 1997/02/09 10:04:15 mj Exp $
 @c
 
 @setfilename fidogate.info
@@ -2648,6 +2648,25 @@ Kill messages that don't contain a @code{^AMSGID}.
 @item UseOriginForOrganization
 Put the text from the * Origin line (excluding the @i{(z:n/f.p)}
 address) into the Organization header.
+
+@item UseFTNToAddress
+Use FTN to address for mail addressed to the gateway without a To line,
+e.g. mail to
+@example
+Max Mueller @ 2:2452/110.2
+@end example
+with a HOSTS entry
+@example
+2:2452/110.2  orodruin-ftn.fido.de
+@end example
+is converted to
+@example
+To: Max_Mueller@@orodruin-ftn.fido.de
+@end example
+Without this option the standard local HOST.DOMAIN is used, e.g.
+@example
+To: Max_Mueller@@orodruin.fido.de
+@end example
 
 @item HostsRestricted
 Restrict usage of the gateway to FTN addresses listed in @code{hosts}.

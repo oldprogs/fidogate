@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: misc.c,v 4.1 1996/12/17 17:19:44 mj Exp $
+ * $Id: misc.c,v 4.2 1997/02/09 10:04:27 mj Exp $
  *
  * Miscellaneous functions
  *
@@ -45,7 +45,7 @@ int str_last(char *s, size_t len)
     if(l < 0)
 	l = 0;
 
-    return l;
+    return s[l];
 }
 
 
