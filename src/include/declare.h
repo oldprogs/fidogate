@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: declare.h,v 4.3 1999/01/02 16:35:04 mj Exp $
+ * $Id: declare.h,v 4.4 1999/05/29 17:59:54 mj Exp $
  *
  * Declaration header for not-so-ANSI systems
  *
@@ -38,7 +38,8 @@ extern int errno;
 
 
 
-#ifdef sun /******************************************************************/
+#ifdef __sun__ /**************************************************************/
+# ifndef __svr4__
 /*
  * SUNOS 4.1.x, GNU gcc 2.x
  */
@@ -94,4 +95,5 @@ size_t strftime (char *, size_t, const char *, const struct tm*);
 /* Looks like SUN's timelocal() is the same as Standard-C mktime() */
 #define mktime  timelocal
 
-#endif /**sun*****************************************************************/
+# endif /**svr4***************************************************************/
+#endif  /**sun****************************************************************/

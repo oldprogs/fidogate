@@ -1,3 +1,15 @@
+1999-05-29  Martin Junius  <mj@fido.de>
+
+	------- CVS ci -------------------------------------------------------
+
+	* ANNOUNCE: updated.
+
+	* config.h: fixed #ifdef __sun__ for Solaris 2.x, using #ifdef
+	  __svr4__. 
+
+	* src/include/declare.h: fixed for Solaris 2.x, using #ifndef
+	  __svr4__.
+
 1999-05-24  Martin Junius  <mj@fido.de>
 
 	------- CVS ci -------------------------------------------------------

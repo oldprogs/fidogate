@@ -75,6 +75,8 @@ Changes in 4.3.3:
 * Documentation: major update, chapters on config files and example
   configurations are now up-to-date for version 4.3.
 
+* Solaris 2.x: proper definitions in config.h and src/include/declare.h.
+
 
 
 Changes in 4.3.2:
@@ -211,6 +213,6 @@ Needed:
 
 ======================================================================
 
-$Date: 1999/05/22 17:30:22 $
+$Date: 1999/05/29 17:59:54 $
 Martin Junius
 mailto:mj@fido.de

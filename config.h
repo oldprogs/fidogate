@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway software UNIX <-> FIDO
  *
- * $Id: config.h,v 4.44 1999/05/24 12:05:58 mj Exp $
+ * $Id: config.h,v 4.45 1999/05/29 17:59:54 mj Exp $
  *
  * Configuration header file
  *
@@ -226,23 +226,42 @@
 # define HAS_HARDLINKS
 # undef  HAS_POSIX_REGEX
 
-#ifdef __sun__			/* SUNOS 4.1.x, GNU gcc */
-# define HAS_FCNTL_LOCK
-# define HAS_GETTIMEOFDAY
-# define HAS_TM_GMTOFF
-# define HAS_SYSEXITS_H
-# undef  HAS_TM_ZONE
-# define HAS_STRFTIME
-# undef  HAS_TZNAME
-# define HAS_STRCASECMP
-# undef  HAS_STRICMP
-# undef  HAS_STRERROR
-# undef  DO_BINARY
-# undef  DO_DOSIFY
-# define HAS_SYSLOG
-# undef  HAS_SNPRINTF
-# define HAS_HARDLINKS
-# undef  HAS_POSIX_REGEX
+#ifdef __sun__
+# ifdef __svr4__		/* Solaris 2.x aka SUNOS 5.x, GNU gcc */
+#  define HAS_FCNTL_LOCK
+#  define HAS_GETTIMEOFDAY
+#  undef  HAS_TM_GMTOFF
+#  define HAS_SYSEXITS_H
+#  undef  HAS_TM_ZONE
+#  define HAS_STRFTIME
+#  undef  HAS_TZNAME
+#  define HAS_STRCASECMP
+#  undef  HAS_STRICMP
+#  define HAS_STRERROR
+#  undef  DO_BINARY
+#  undef  DO_DOSIFY
+#  define HAS_SYSLOG
+#  define HAS_SNPRINTF
+#  define HAS_HARDLINKS
+#  define HAS_POSIX_REGEX
+# else				/* SUNOS 4.1.x, GNU gcc */
+#  define HAS_FCNTL_LOCK
+#  define HAS_GETTIMEOFDAY
+#  define HAS_TM_GMTOFF
+#  define HAS_SYSEXITS_H
+#  undef  HAS_TM_ZONE
+#  define HAS_STRFTIME
+#  undef  HAS_TZNAME
+#  define HAS_STRCASECMP
+#  undef  HAS_STRICMP
+#  undef  HAS_STRERROR
+#  undef  DO_BINARY
+#  undef  DO_DOSIFY
+#  define HAS_SYSLOG
+#  undef  HAS_SNPRINTF
+#  define HAS_HARDLINKS
+#  undef  HAS_POSIX_REGEX
+#  endif /**svr4**/
 #endif
 
 #ifdef __linux__		/* Linux */
