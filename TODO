@@ -2,6 +2,10 @@
 
 X = for next release
 
+	* rfc2ftn: different output dirs for mail and news.
+
+	* log.c: add alternate logging via openlog(), syslog().
+
 DONE	* doc: add new DO_HAVE config.h #defines.
 
 	* Direct mailing list support, gateway EchoMail <-> mailing

@@ -1,5 +1,9 @@
 Sat Oct 11 19:39:08 1997  Martin Junius  <mj@fido.de>
 
+	------- CVS ci, tag R427test -----------------------------------------
+
+	* ANNOUNCE: updated.
+
 	------- CVS ci -------------------------------------------------------
 
 	* doc/fidogate.texi (Config files): added include command for all
