@@ -1,3 +1,16 @@
+Tue Jul  1 21:28:35 1997  Martin Junius  <mj@fido.de>
+
+	------- CVS ci -------------------------------------------------------
+
+	* src/include/prototypes.h (DOSIFY_IF_NEEDED): fixed typo, define
+ 	  macro to str_dosify(s) for MSDOS/OS2. This shouldn't be needed
+	  for the GNU-WIN32 port, as the system() function should be happy
+	  with '/'s in program names.
+
+Sun Jun 29 12:30:27 1997  Martin Junius  <mj@fido.de>
+
+	* src/gate/ftn2rfc.c (unpack_file): changed log() message.
+
 Sat Jun 28 18:04:34 1997  Martin Junius  <mj@fido.de>
 
 	------- CVS ci -------------------------------------------------------

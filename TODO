@@ -2,6 +2,8 @@
 
 X = for next release
 
+	* ftnaf: option to sort areas.bbs, including zone/keys.
+
 	* rfc2ftn: filter function for SPAM.
 
 	* ftntoss: remove duplicate addresses from SEEN-BY
@@ -14,25 +16,16 @@ X = for next release
 	* rfcheader.c: rewrite all *header_get* functions using the
 	  new rfcheader_geth().
 
-DONE.	* rfc2ftn: BOUNCE log() with cause.
-
-DONE.	* ftntick: ignore case in TIC area names.
-
 	* config: run-time configuration for FTN_RFC_HEADERS,
 	  RFC_LVL_1_HEADERS, and text headers put into FTN message by
 	  rfc2ftn.
 
-DONE.	* ftn2rfc: don't gate messages with ^AMSGID: <NOMSGID_...>>
-
-	* areas.bbs: read-only/vacation flag for downlinks.
+	* areas.bbs: read-only/vacation flag for downlinks,
+	  e.g. Z:N/F.P=flags 
 	  ftnaf: commands for vacation flag.
-
-DONE.	* ffxqt: ignore case for data files.
 
 	* rfc2ftn: check for multiple entries of the same groups in
 	  the Newsgroups header.
-
-DONE.	* ftnexpire: some statistics.
 
 	* ftn2rfc: send bounce mails directly as FTN messages, not via
 	  the mail system.
@@ -52,7 +45,7 @@ DONE.	* ftnexpire: some statistics.
 	  quotes are not allowed in addresses.
 
 	* ftntick: call script for incoming TICs, passing file area,
-	  name, ...
+	  name, ... for announcements
 
 	* ftnaf: marker in areas.bbs to show if an area is subscribed
 	  at the uplink (option or using directory), regularly check

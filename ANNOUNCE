@@ -42,6 +42,8 @@ Changes in 4.2.5:
 
 * Port to GNU-WIN32.
 
+* MSDOS/OS2 port: fixed typo in prototypes.h.
+
 
 
 Changes in 4.2.4:
@@ -117,6 +119,6 @@ End
 
 ======================================================================
 
-$Date: 1997/06/28 16:26:20 $
+$Date: 1997/07/01 19:34:39 $
 Martin Junius
 mailto:mj@fido.de
