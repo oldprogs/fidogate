@@ -21,7 +21,7 @@ versions.
 
 Indirect:
 fidogate.info-1: 767
-fidogate.info-2: 50167
+fidogate.info-2: 50259
 
 Tag Table:
 (Indirect)
@@ -60,33 +60,33 @@ Node: ftnroute39714
 Node: ftnseq40437
 Node: ftntick40850
 Node: ftntoss41245
-Node: ftnfattach42591
-Node: pktdebug43122
-Node: rfc2ftn43770
-Node: rundf44741
-Node: runin45289
-Node: runout45937
-Node: runtoss46339
-Node: rununpack46952
-Node: sumcrc47977
-Node: Config files48839
-Node: Config50167
-Node: Hosts65954
-Node: Aliases68199
-Node: Areas68994
-Node: Bounce71982
-Node: Passwd73177
-Node: Routing74400
-Node: Packing78144
-Node: Areas.bbs79833
-Node: Basic81705
-Node: Sendmail82220
-Node: Example Point83534
-Node: Example Point 285611
-Node: Example Node88134
-Node: Usage90997
-Node: RFC Headers91212
-Node: X Headers92571
-Node: Index93416
+Node: ftnfattach42683
+Node: pktdebug43214
+Node: rfc2ftn43862
+Node: rundf44833
+Node: runin45381
+Node: runout46029
+Node: runtoss46431
+Node: rununpack47044
+Node: sumcrc48069
+Node: Config files48931
+Node: Config50259
+Node: Hosts66046
+Node: Aliases68291
+Node: Areas69086
+Node: Bounce72074
+Node: Passwd73269
+Node: Routing74492
+Node: Packing78236
+Node: Areas.bbs79925
+Node: Basic81797
+Node: Sendmail82312
+Node: Example Point83626
+Node: Example Point 285703
+Node: Example Node88226
+Node: Usage91089
+Node: RFC Headers91304
+Node: X Headers92663
+Node: Index93508
 
 End Tag Table

@@ -48,6 +48,8 @@ Changes in 4.2.9:
 
 * ftnaf: areas.bbs now supports an area description, option -d "DESC".
 
+* ftntoss: new option -d --no-dupecheck to disabled dupe check.
+
 * Some minor changes.
 
 ======================================================================
@@ -88,6 +90,6 @@ End
 
 ======================================================================
 
-$Date: 1997/11/16 17:26:32 $
+$Date: 1997/11/16 18:25:35 $
 Martin Junius
 mailto:mj@fido.de

@@ -1,5 +1,16 @@
 Sun Nov 16 15:20:41 1997  Martin Junius  <mj@fido.de>
 
+	------- CVS ci -------------------------------------------------------
+
+	* doc/fidogate.texi (ftntoss): documented -d --no-dupecheck option.
+
+	* src/toss/ftntoss.c (main): implemented no -d --no-dupecheck
+	  option, disabled dupe check from command line (if enabled in
+	  config.main).
+
+	* src/toss/runtoss.sh: if ftntoss returns busy, sleep to 1 min and
+	  try again.
+
 	* ANNOUNCE: update.
 
 	* doc/fidogate.texi (Areas.bbs): added new option -d DESC, -#, -r,

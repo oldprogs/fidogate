@@ -1535,6 +1535,9 @@ Usage:
 
 Options:
 
+`-d --no-dupecheck'
+     Disabled dupe check (if `DupeCheck' is enabled in `config.main').
+
 `-g --grade grade'
      Only process packets with grade (single letter).
 

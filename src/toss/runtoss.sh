@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# $Id: runtoss.sh,v 4.8 1997/11/16 15:53:28 mj Exp $
+# $Id: runtoss.sh,v 4.9 1997/11/16 18:25:45 mj Exp $
 #
 # Wrapper for ftntoss, ftnroute, ftnpack doing the toss process
 #
@@ -168,12 +168,15 @@ while [ "$flag" = "cont" ]; do
 	$PRG/ftntoss -x $INPUT $GRADE $FLAGS $ARGS
 	st=$?
 	if   [ $st -eq 0 ]; then
-	  flag="exit";
+	  # normal exit
+	  flag="exit"
 	elif [ $st -eq 2 ]; then
 	  # busy, MSGID history or lock file
-	  exit 0
+	  sleep 60
+	  flag="cont"
+	  continue
 	elif [ $st -eq 3 ]; then
-	  flag="cont";
+	  flag="cont"
 	else
 	  echo "ERROR: ftntoss exit $st"
 	  exit 1

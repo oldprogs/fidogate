@@ -2,7 +2,7 @@
 @c
 @c FIDOGATE documentation
 @c
-@c $Id: fidogate.texi,v 4.34 1997/11/16 17:26:36 mj Exp $
+@c $Id: fidogate.texi,v 4.35 1997/11/16 18:25:39 mj Exp $
 @c
 
 @setfilename fidogate.info
@@ -2011,6 +2011,10 @@ ftntoss  @r{[}@i{-options}@r{]}  @r{[}@i{packet} @r{... ]}
 @noindent Options:
 
 @table @code
+
+@item -d --no-dupecheck
+Disabled dupe check (if @code{DupeCheck} is enabled in
+@code{config.main}).
 
 @item -g --grade @i{grade}
 Only process packets with @i{grade} (single letter).

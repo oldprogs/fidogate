@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftntoss.c,v 4.20 1997/08/17 13:13:22 mj Exp $
+ * $Id: ftntoss.c,v 4.21 1997/11/16 18:25:44 mj Exp $
  *
  * Toss FTN NetMail/EchoMail
  *
@@ -39,7 +39,7 @@
 
 
 #define PROGRAM 	"ftntoss"
-#define VERSION 	"$Revision: 4.20 $"
+#define VERSION 	"$Revision: 4.21 $"
 #define CONFIG		CONFIG_MAIN
 
 
@@ -1383,7 +1383,8 @@ void usage(void)
     
     fprintf(stderr, "usage:   %s [-options] [packet ...]\n\n", PROGRAM);
     fprintf(stderr, "\
-options: -g --grade G                 processing grade\n\
+options: -d --no-dupecheck            disable dupe check\n\
+         -g --grade G                 processing grade\n\
          -I --in-dir name             set input packet directory\n\
          -O --out-dir name            set output packet directory\n\
          -l --lock-file               create lock file while processing\n\
@@ -1420,6 +1421,7 @@ int main(int argc, char **argv)
     char *c_flag=NULL;
     char *S_flag=NULL, *L_flag=NULL;
     char *a_flag=NULL, *u_flag=NULL;
+    int d_flag = FALSE;
     char *pkt_name;
     char *areas_bbs = NULL;
     time_t toss_start, toss_delta;
@@ -1427,6 +1429,7 @@ int main(int argc, char **argv)
     int option_index;
     static struct option long_options[] =
     {
+	{ "no-dupecheck", 1, 0, 'd'},	/* Disable dupe check */
 	{ "grade",        1, 0, 'g'},	/* grade */
 	{ "in-dir",       1, 0, 'I'},	/* Set inbound packets directory */
 	{ "lock-file",    0, 0, 'l'},	/* Create lock file while processing */
@@ -1458,10 +1461,13 @@ int main(int argc, char **argv)
     cf_initialize();
 
     /* Parse options */
-    while ((c = getopt_long(argc, argv, "g:O:I:ltnr:sm:xM:b:pvhc:S:L:a:u:",
+    while ((c = getopt_long(argc, argv, "dg:O:I:ltnr:sm:xM:b:pvhc:S:L:a:u:",
 			    long_options, &option_index     )) != EOF)
 	switch (c) {
 	/***** ftntoss options *****/
+	case 'd':
+	    d_flag = TRUE;
+	    break;
 	case 'g':
 	    g_flag = *optarg;
 	    break;
@@ -1592,8 +1598,15 @@ int main(int argc, char **argv)
     }
     if(cf_get_string("DupeCheck", TRUE))
     {
-	debug(8, "config: DupeCheck");
-	dupe_check = TRUE;
+	if(d_flag) {
+	    debug(8, "config: DupeCheck disabled from command line!");
+	    dupe_check = FALSE;
+	}
+	else
+	{
+	    debug(8, "config: DupeCheck");
+	    dupe_check = TRUE;
+	}
     }
     if(cf_get_string("KillNoMSGID", TRUE))
     {

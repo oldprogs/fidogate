@@ -2,6 +2,8 @@
 	************** TODO list for FIDOGATE development **************
 
 
+DONE	* ftntoss: option to disable dupe check for mail only tossing.
+
 	* new implementation of strtok(), xstrtok() function, using
 	  reentrant common routine.
 
@@ -13,7 +15,8 @@ DONE	* tests: ftntoss echomail problems and Kill* config.
 DONE	* ftn2rfc: option to *not* delete input packet for usage with
 	  ftnpack and the prog packing command.
 
-	* ^ACHRS default configurable per area.
+	* ^ACHRS default configurable per area + character translation
+	  for RFC -> Fido.
 
 4.3.x	* Different Message-ID and sender Internet domain
 	  configuration (extended Zone config).
