@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# $Id: rununpack.sh,v 4.9 1997/05/10 20:40:41 mj Exp $
+# $Id: rununpack.sh,v 4.10 1997/05/11 19:24:58 mj Exp $
 #
 # Unpack ArcMail archives
 #
@@ -121,8 +121,8 @@ if [ -f $arc ]; then
 		[ -x /bin/unzip           ] && cmd=/bin/unzip
 		[ -x /usr/bin/unzip       ] && cmd=/usr/bin/unzip
 		[ -x /usr/local/bin/unzip ] && cmd=/usr/local/bin/unzip
-		xcmd="$cmd -xj $arc"
-		lcmd="$cmd -l  $arc"
+		xcmd="$cmd -ojL $arc"
+		lcmd="$cmd -l   $arc"
                 ;;
         RAR | Rar | rar)
                 [ -x /bin/rar             ] && cmd=/bin/rar

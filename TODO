@@ -12,7 +12,7 @@ DONE.	* ftn2rfc: don't gate messages with ^AMSGID: <NOMSGID_...>>
 	* areas.bbs: read-only/vacation flag for downlinks.
 	  ftnaf: commands for vacation flag.
 
-	* ffxqt: ignore case for data files.
+DONE.	* ffxqt: ignore case for data files.
 
 	* rfc2ftn: check for multiple entries of the same groups in
 	  the Newsgroups header.

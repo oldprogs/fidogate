@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ffxqt.c,v 4.7 1997/05/10 20:40:37 mj Exp $
+ * $Id: ffxqt.c,v 4.8 1997/05/11 19:24:57 mj Exp $
  *
  * Process incoming ffx control and data files
  *
@@ -38,7 +38,7 @@
 
 
 #define PROGRAM		"ffxqt"
-#define VERSION		"$Revision: 4.7 $"
+#define VERSION		"$Revision: 4.8 $"
 #define CONFIG		CONFIG_FFX
 
 
@@ -470,7 +470,7 @@ int exec_ffx(FFX *ffx)
     cmd_c = find_ffxcmd('C', name);
     if(!cmd_c)
     {
-	log("no FFXCommand found for \"%s\"", name);
+	log("ERROR: no FFXCommand found for \"%s\"", name);
 	return ERROR;
     }
     if(ffx->decompr) 
@@ -478,7 +478,7 @@ int exec_ffx(FFX *ffx)
 	cmd_u = find_ffxcmd('U', ffx->decompr);
 	if(!cmd_u)
 	{
-	    log("no FFXUncompress found for \"%s\"", ffx->decompr);
+	    log("ERROR: no FFXUncompress found for \"%s\"", ffx->decompr);
 	    return ERROR;
 	}
     }
@@ -489,6 +489,12 @@ int exec_ffx(FFX *ffx)
      */
     if(ffx->in)
     {
+	/* Search for data file, ignoring case */
+	if(dir_search(".", ffx->in) == NULL)
+	{
+	    log("ERROR: can't find data file %s", ffx->in);
+	    return ERROR;
+	}
 	/* Feed data file as stdin to command, optionally decompressing */
 	if(ffx->decompr)		/* Data file with compression */
 	    sprintf(buffer, "%s %s | %s %s", cmd_u, ffx->in, cmd_c, args);

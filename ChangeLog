@@ -1,4 +1,16 @@
+Sun May 11 21:23:01 1997  Martin Junius  <mj@fido.de>
+
+	------- CVS ci -------------------------------------------------------
+
+	* examples/abis.abra.de, nambi.north.de: updated example
+	  configuration files from Andreas Braukmann <andy@Abra.DE>.
+
 Sat May 10 22:33:13 1997  Martin Junius  <mj@fido.de>
+
+	* src/toss/rununpack.sh: use unzip -ojL for unpacking ZIP archives.
+
+	* src/ffx/ffxqt.c (exec_ffx): use dir_search() to find data file,
+	  ignoring case.
 
 	------- CVS ci -------------------------------------------------------
 
