@@ -1,7 +1,7 @@
 <HTML>
 <HEAD>
 <!-- This HTML file has been created by texi2html 1.51
-     from ../fidogate.texi on 8 June 1997 -->
+     from ../fidogate.texi on 11 October 1997 -->
 
 <TITLE>FIDOGATE
  - Compiling and installing FIDOGATE</TITLE>
@@ -179,7 +179,27 @@ side of the gateway.
 System dependent configuration:
 
 </P>
+<P>
+This configuration contains several groups of #define/#undef. First, the
+definitions for a standard POSIX UNIX, followed by #ifdef'ed definitions
+for SunOS, Linux, FreeBSD, Interactive UNIX, MSDOS DJGPP, NextStep,
+GNU-WIN32.
+
+</P>
+<P>
+If you want to port FIDOGATE to a new system, please add a #ifdef'ed
+section similar to the already existing ones.
+
+</P>
+<P>
+The gory details:
+
+</P>
 <DL COMPACT>
+
+<DT><CODE>DO_HAVE_FCNTL_LOCK</CODE>
+<DD>
+Define, if the system support fcntl() file locking.
 
 <DT><CODE>DO_HAVE_GETTIMEOFDAY</CODE>
 <DD>
@@ -215,9 +235,17 @@ Define, if the system has the <CODE>strcasecmp()</CODE> and
 Define, if the system has the <CODE>stricmp()</CODE> and
 <CODE>strnicmp()</CODE> functions.
 
+<DT><CODE>DO_HAVE_STERROR</CODE>
+<DD>
+Define, if the system has the <CODE>strerror()</CODE> function.
+
 <DT><CODE>DO_BINARY</CODE>
 <DD>
 Define, if files must be opened in binary mode.
+
+<DT><CODE>DO_DOSIFY</CODE>
+<DD>
+Define, if filenames must be converted to DOS, OS2-style <CODE>\</CODE>.
 
 </DL>
 
@@ -225,11 +253,6 @@ Define, if files must be opened in binary mode.
 Define only one of <CODE>DO_HAVE_TM_ZONE</CODE>, <CODE>DO_HAVE_STRFTIME</CODE>,
 <CODE>DO_HAVE_TZNAME</CODE>, and also only one of <CODE>DO_HAVE_STRCASECMP</CODE>,
 <CODE>DO_HAVE_STRICMP</CODE>.
-
-</P>
-<P>
-The following systems are recognized automatically: SunOS 4.1.x, LINUX,
-Interactive UNIX, MSDOS with DJGPP gcc, OS/2 with EMX gcc.
 
 </P>
 

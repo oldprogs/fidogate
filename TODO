@@ -2,10 +2,12 @@
 
 X = for next release
 
+DONE	* doc: add new DO_HAVE config.h #defines.
+
 	* Direct mailing list support, gateway EchoMail <-> mailing
 	  list.
 
-	* doc: add changes for FTNInSendmail.
+DONE	* doc: add changes for FTNInSendmail.
 
 DONE	* ftnaf: check problem with WIN32.
 	
@@ -14,21 +16,23 @@ DONE	* ftnaf: create command.
 	* rfc2ftn: configuration option, use only From header for Fido
 	  from field, not Reply-To.
 
-	* doc: add include command for all config file.
+DONE	* doc: add include command for all config file.
 
-	* doc: add hints for setting up packing config files, in
+DONE	* doc: add hints for setting up packing config files, in
 	  particular for 2 points configuration.
 
 4.3.x	* config: different lib and sbin directory?
 
-	* Makefiles: prefix for make install.
+DONE	* Makefiles: prefix for make install.
 
-	* doc: config.gate SingleArticles.
+DONE	* doc: config.gate SingleArticles.
+
+DONE	* doc: ftn2rfc -1 --single-articles option.
 
 	* scripts: check that process which created lock file still
 	  exists.
 
-	* doc: FIDOGATE env var.
+DONE	* doc: FIDOGATE env var.
 
 	* lock.c:lock_lockfile_id(): implement safer variant, see man 2
 	  open, NFS related bug with O_EXCL.

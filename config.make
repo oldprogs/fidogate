@@ -1,6 +1,6 @@
 # -*- Makefile -*-
 #
-# $Id: config.make,v 4.9 1997/07/25 21:01:28 mj Exp $
+# $Id: config.make,v 4.10 1997/10/11 21:24:15 mj Exp $
 #
 # FIDOGATE Makefile configuration
 #
@@ -103,6 +103,8 @@ PERL		= /usr/bin/perl
  INSTALL_DATA	= $(INSTALL) -c -g $(GROUP) -o $(OWNER) -m $(PERM_DATA)
  INSTALL_SETUID	= $(INSTALL) -c -g $(GROUP) -o $(OWNER) -m $(PERM_SETUID)
  INSTALL_DIR	= $(INSTALL) -g $(GROUP) -o $(OWNER) -m $(PERM_DIR) -d
+# extra prefix for installation
+ PREFIX         =
 
 # library name
 # LIB		= fidogate.a			# OS2

@@ -1,6 +1,6 @@
 #:ts=8
 #
-#    $Id: Makefile,v 4.6 1997/08/20 21:05:05 mj Exp $
+#    $Id: Makefile,v 4.7 1997/10/11 21:24:30 mj Exp $
 #
 #    Makefile for FIDOGATE src/util/
 #
@@ -34,16 +34,16 @@ sumcrc:		$(TOPDIR)/src/common/$(LIB)
 
 
 install:
-	$(INSTALL_PROG) ftnbsy$(EXE) $(LIBDIR)
-	$(INSTALL_PROG) ftnconfig$(EXE) $(LIBDIR)
-	$(INSTALL_PROG) ftnseq$(EXE) $(LIBDIR)
-	$(INSTALL_PROG) ftnfattach$(EXE) $(LIBDIR)
-	$(INSTALL_PROG) ftnflo$(EXE) $(LIBDIR)
-	$(INSTALL_PROG) sumcrc$(EXE) $(BINDIR)
-	$(INSTALL_PROG) ftnlock$(EXE) $(LIBDIR)
-	$(INSTALL_PROG) ftnlog$(EXE) $(LIBDIR)
-	$(INSTALL_PROG) pktdebug$(EXE) $(BINDIR)
-	$(INSTALL_PROG) pktmore $(BINDIR)
+	$(INSTALL_PROG) ftnbsy$(EXE) $(PREFIX)$(LIBDIR)
+	$(INSTALL_PROG) ftnconfig$(EXE) $(PREFIX)$(LIBDIR)
+	$(INSTALL_PROG) ftnseq$(EXE) $(PREFIX)$(LIBDIR)
+	$(INSTALL_PROG) ftnfattach$(EXE) $(PREFIX)$(LIBDIR)
+	$(INSTALL_PROG) ftnflo$(EXE) $(PREFIX)$(LIBDIR)
+	$(INSTALL_PROG) sumcrc$(EXE) $(PREFIX)$(BINDIR)
+	$(INSTALL_PROG) ftnlock$(EXE) $(PREFIX)$(LIBDIR)
+	$(INSTALL_PROG) ftnlog$(EXE) $(PREFIX)$(LIBDIR)
+	$(INSTALL_PROG) pktdebug$(EXE) $(PREFIX)$(BINDIR)
+	$(INSTALL_PROG) pktmore $(PREFIX)$(BINDIR)
 
 
 clean veryclean:

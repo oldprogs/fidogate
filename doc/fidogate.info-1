@@ -1,5 +1,5 @@
-This is Info file fidogate.info, produced by Makeinfo-1.64 from the
-input file fidogate.texi.
+This is Info file fidogate.info, produced by Makeinfo version 1.67 from
+the input file fidogate.texi.
 
    This file documents the usage of FIDOGATE version 4
 
@@ -317,6 +317,19 @@ Common configuration:
 
 System dependent configuration:
 
+   This configuration contains several groups of #define/#undef. First,
+the definitions for a standard POSIX UNIX, followed by #ifdef'ed
+definitions for SunOS, Linux, FreeBSD, Interactive UNIX, MSDOS DJGPP,
+NextStep, GNU-WIN32.
+
+   If you want to port FIDOGATE to a new system, please add a #ifdef'ed
+section similar to the already existing ones.
+
+   The gory details:
+
+`DO_HAVE_FCNTL_LOCK'
+     Define, if the system support fcntl() file locking.
+
 `DO_HAVE_GETTIMEOFDAY'
      Define, if the system has the gettimeofday() function.
 
@@ -343,15 +356,18 @@ System dependent configuration:
      Define, if the system has the `stricmp()' and `strnicmp()'
      functions.
 
+`DO_HAVE_STERROR'
+     Define, if the system has the `strerror()' function.
+
 `DO_BINARY'
      Define, if files must be opened in binary mode.
+
+`DO_DOSIFY'
+     Define, if filenames must be converted to DOS, OS2-style `\'.
 
    Define only one of `DO_HAVE_TM_ZONE', `DO_HAVE_STRFTIME',
 `DO_HAVE_TZNAME', and also only one of `DO_HAVE_STRCASECMP',
 `DO_HAVE_STRICMP'.
-
-   The following systems are recognized automatically: SunOS 4.1.x,
-LINUX, Interactive UNIX, MSDOS with DJGPP gcc, OS/2 with EMX gcc.
 
 THE FOLLOWING DEFINES SHOULD NORMALLY LEFT AS IS!!!
 
@@ -1062,6 +1078,10 @@ Usage:
      ftn2rfc  [-options]  [packet ... ]
 
 Options:
+
+`-1 --single-articles'
+     Write single articles to output files (in `tmpnews'), not news
+     batches containing several articles (batch is default).
 
 `-t --insecure'
      Operate in insecure mode. All messages containing a To line for
@@ -1813,6 +1833,10 @@ FIDOGATE uses the following config files:
 
    All config files use the `#' character for introducing a comment and
 ignore empty lines. Keywords and commands are not case-sensitive.
+
+   All config files (with the execption of `areas.bbs' support an
+`include' command for reading in other config files. `include' must be
+the first keyword on the line, the filename is the next argument.
 
    All options and config statements which take file or directory names
 accept the following `%' abbreviations:

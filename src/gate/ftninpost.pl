@@ -1,6 +1,6 @@
 #!/usr/bin/perl
 #
-# $Id: ftninpost.pl,v 4.5 1997/08/17 13:13:19 mj Exp $
+# $Id: ftninpost.pl,v 4.6 1997/10/11 21:24:27 mj Exp $
 #
 # Postprocessor for ftnin, feeds output of ftn2rfc to rnews and sendmail.
 # Call via ftnin's -x option or run after ftn2rfc. Replaces old fidorun
@@ -17,18 +17,18 @@ $INDIR    = "<SPOOLDIR>/in";
 
 
 # options
-$options = "";
+undef @options;
 if($opt_L) {
     $LIBDIR   = $opt_L;
-    $options  = "$options -L$LIBDIR";
+    push(@options, "-L$LIBDIR");
 }
 if($opt_S) {
     $SPOOLDIR = $opt_S;
-    $options  = "$options -S$SPOOLDIR";
+    push(@options, "-S$SPOOLDIR");
 }
 $INDIR    = $opt_I if($opt_I);
 if($opt_v) {
-    $options  = "$options -v";
+    push(@options, "-v");
 }
 
 # get config.gate parameters
@@ -71,7 +71,10 @@ if($fidx > -1) {
 
 # do recombining of split messages
 if($RECOMB) {
-    &do_cmd("$LIBDIR/ftninrecomb $options");
+    @cmd = ("$LIBDIR/ftninrecomb");
+    push(@cmd, @options);
+    print "Running @cmd\n" if($opt_v);
+    system @cmd;
 }
 
 # mail

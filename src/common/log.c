@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: log.c,v 4.5 1997/06/28 16:26:35 mj Exp $
+ * $Id: log.c,v 4.6 1997/10/11 21:24:26 mj Exp $
  *
  * Log and debug functions
  *
@@ -67,6 +67,7 @@ static FILE *debugfile = NULL;
 
 
 
+#ifndef DO_HAVE_STRERROR
 /*
  * strerror()  ---  get string from sys_errlist[]
  */
@@ -83,6 +84,7 @@ char *strerror(int errnum)
 	return sys_errlist[errnum];
     return "unknown error";
 }
+#endif /**DO_HAVE_STRERROR**/
 
 
 

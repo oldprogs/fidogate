@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway software UNIX <-> FIDO
  *
- * $Id: config.h,v 4.25 1997/10/05 13:43:26 mj Exp $
+ * $Id: config.h,v 4.26 1997/10/11 21:24:14 mj Exp $
  *
  * Configuration header file
  *
@@ -139,13 +139,16 @@
  *   DO_HAVE_STRICMP		Do you have stricmp(), strnicmp()?
  *
  *
+ *   DO_HAVE_STRERROR           Do you have strerror()?
+ *
+ *
  *   DO_BINARY			Open files in binary mode
  *
  *   DO_DOSIFY			DOSify program names for execution
  *
  *
  *   RECEIVED_BY_MAILER "Received: by NeXT.Mailer"
- *				Define this if your mail system allways
+ *				Define this if your mail system always
  *				generates something like
  *				"Received: by NeXT.Mailer"
  */
@@ -160,6 +163,7 @@
 # undef  DO_HAVE_TZNAME
 # undef  DO_HAVE_STRCASECMP
 # undef  DO_HAVE_STRICMP
+# define DO_HAVE_STRERROR
 # undef  DO_BINARY
 # undef  DO_DOSIFY
 
@@ -174,6 +178,7 @@
 # undef  DO_HAVE_TZNAME
 # define DO_HAVE_STRCASECMP
 # undef  DO_HAVE_STRICMP
+# undef  DO_HAVE_STRERROR
 # undef  DO_BINARY
 # undef  DO_DOSIFY
 #endif
@@ -188,6 +193,7 @@
 # undef  DO_HAVE_TZNAME
 # define DO_HAVE_STRCASECMP
 # undef  DO_HAVE_STRICMP
+# define DO_HAVE_STRERROR
 # undef  DO_BINARY
 # undef  DO_DOSIFY
 #endif
@@ -202,6 +208,7 @@
 # undef  DO_HAVE_TZNAME
 # define DO_HAVE_STRCASECMP
 # undef  DO_HAVE_STRICMP
+# undef  DO_HAVE_STRERROR		/* ? */
 # undef  DO_BINARY
 # undef  DO_DOSIFY
 #endif
@@ -216,6 +223,7 @@
 # define DO_HAVE_TZNAME
 # undef  DO_HAVE_STRCASECMP		/* ? */
 # undef  DO_HAVE_STRICMP
+# undef  DO_HAVE_STRERROR		/* ? */
 # undef  DO_BINARY
 # undef  DO_DOSIFY
 #endif
@@ -229,6 +237,7 @@
 # define DO_HAVE_STRFTIME
 # undef  DO_HAVE_STRCASECMP
 # define DO_HAVE_STRICMP
+# undef  DO_HAVE_STRERROR		/* ? */
 # define DO_BINARY
 # define DO_DOSIFY
 #endif
@@ -245,6 +254,7 @@
 # define DO_HAVE_STRFTIME
 # undef  DO_HAVE_STRCASECMP
 # define DO_HAVE_STRICMP
+# undef  DO_HAVE_STRERROR		/* ? */
 # define DO_BINARY
 # define DO_DOSIFY
 #endif
@@ -258,6 +268,7 @@
 # define DO_HAVE_TZNAME
 # undef  DO_HAVE_STRCASECMP
 # undef  DO_HAVE_STRICMP
+# undef  DO_HAVE_STRERROR
 # undef  DO_BINARY
 # define RECEIVED_BY_MAILER "Received: by NeXT.Mailer"
 # undef  DO_DOSIFY
@@ -273,6 +284,7 @@
 # undef  DO_HAVE_TZNAME
 # define DO_HAVE_STRCASECMP
 # undef  DO_HAVE_STRICMP
+# define DO_HAVE_STRERROR
 # define DO_BINARY
 # undef  DO_DOSIFY
 #endif

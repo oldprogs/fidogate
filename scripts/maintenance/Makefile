@@ -1,6 +1,6 @@
 #:ts=8
 #
-#    $Id: Makefile,v 4.4 1997/06/28 16:26:30 mj Exp $
+#    $Id: Makefile,v 4.5 1997/10/11 21:24:24 mj Exp $
 #
 #    Makefile for FIDOGATE scripts/filebase/
 #
@@ -25,11 +25,11 @@ all:		$(PROGS)
 
 
 install:
-	$(INSTALL_PROG)   newsyslog       $(BINDIR)
-	$(INSTALL_PROG)   sendmailstat    $(BINDIR)
-	$(INSTALL_PROG)   logmaint        $(LIBDIR)
-	$(INSTALL_PROG)   logreport       $(LIBDIR)
-	$(INSTALL_PROG)   logstat         $(LIBDIR)
+	$(INSTALL_PROG)   newsyslog       $(PREFIX)$(BINDIR)
+	$(INSTALL_PROG)   sendmailstat    $(PREFIX)$(BINDIR)
+	$(INSTALL_PROG)   logmaint        $(PREFIX)$(LIBDIR)
+	$(INSTALL_PROG)   logreport       $(PREFIX)$(LIBDIR)
+	$(INSTALL_PROG)   logstat         $(PREFIX)$(LIBDIR)
 
 
 clean:

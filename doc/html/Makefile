@@ -1,5 +1,5 @@
 #
-# $Id: Makefile,v 1.4 1996/12/22 10:39:35 mj Exp $
+# $Id: Makefile,v 1.5 1997/10/11 21:24:19 mj Exp $
 #
 # Makefile FIDOGATE doc/html/
 #
@@ -27,6 +27,6 @@ veryclean:	clean
 check:
 
 install:
-	cp fidogate_*.html $(HTMLDIR)
+	cp fidogate_*.html $(PREFIX)$(HTMLDIR)
 
 depend:

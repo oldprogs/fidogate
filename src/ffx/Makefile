@@ -1,6 +1,6 @@
 #:ts=8
 #
-#    $Id: Makefile,v 4.3 1997/08/20 21:05:03 mj Exp $
+#    $Id: Makefile,v 4.4 1997/10/11 21:24:27 mj Exp $
 #
 #    Makefile for FIDOGATE src/ffx/
 #
@@ -27,12 +27,12 @@ ffxbatch:	$(TOPDIR)/src/common/$(LIB)
 
 
 install:
-	$(INSTALL_SETUID) ffx$(EXE) $(LIBDIR)
-	$(INSTALL_PROG) ffxqt$(EXE) $(LIBDIR)
-	$(INSTALL_PROG) ffxbatch$(EXE) $(LIBDIR)
-	$(INSTALL_PROG) ffxmail $(LIBDIR)
-	$(INSTALL_PROG) ffxrmail $(LIBDIR)
-	$(INSTALL_PROG) ffxrun $(LIBDIR)
+	$(INSTALL_SETUID) ffx$(EXE) $(PREFIX)$(LIBDIR)
+	$(INSTALL_PROG) ffxqt$(EXE) $(PREFIX)$(LIBDIR)
+	$(INSTALL_PROG) ffxbatch$(EXE) $(PREFIX)$(LIBDIR)
+	$(INSTALL_PROG) ffxmail $(PREFIX)$(LIBDIR)
+	$(INSTALL_PROG) ffxrmail $(PREFIX)$(LIBDIR)
+	$(INSTALL_PROG) ffxrun $(PREFIX)$(LIBDIR)
 
 
 clean veryclean:

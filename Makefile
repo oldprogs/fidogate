@@ -1,5 +1,5 @@
 #
-# $Id: Makefile,v 4.7 1997/08/20 21:04:57 mj Exp $
+# $Id: Makefile,v 4.8 1997/10/11 21:24:14 mj Exp $
 #
 # Makefile FIDOGATE TOPDIR
 #
@@ -33,8 +33,8 @@ clean veryclean::
 
 install-dirs:
 	for d in $(INSTALLDIRS); do if [ ! -d $$d ]; then \
-	    echo "Creating $$d ..."; $(INSTALL_DIR) $$d; \
+	    echo "Creating $$d ..."; $(INSTALL_DIR) $(PREFIX)$$d; \
 	fi; done
 
 install::
-	cp ANNOUNCE $(HTMLDIR)
+	cp ANNOUNCE $(PREFIX)$(HTMLDIR)

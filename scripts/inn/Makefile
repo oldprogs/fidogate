@@ -1,6 +1,6 @@
 #:ts=8
 #
-#    $Id: Makefile,v 1.1 1996/09/28 08:13:52 mj Exp $
+#    $Id: Makefile,v 1.2 1997/10/11 21:24:23 mj Exp $
 #
 #    Makefile for FIDOGATE scripts/filebase/
 #
@@ -24,9 +24,9 @@ all:		$(PROGS)
 
 
 install:
-	$(INSTALL_PROG) send-fidogate $(NEWSETCDIR)
-	$(INSTALL_PROG) send-ffx      $(NEWSETCDIR)
-	$(INSTALL_PROG) viaffx        $(NEWSETCDIR)
+	$(INSTALL_PROG) send-fidogate $(PREFIX)$(NEWSETCDIR)
+	$(INSTALL_PROG) send-ffx      $(PREFIX)$(NEWSETCDIR)
+	$(INSTALL_PROG) viaffx        $(PREFIX)$(NEWSETCDIR)
 
 
 clean:

@@ -1,12 +1,12 @@
 #:ts=8
 #
-# $Id: morannon-check.mc,v 4.1 1997/10/05 13:46:30 mj Exp $
+# $Id: morannon-check.mc,v 4.2 1997/10/11 21:24:25 mj Exp $
 #
 # Fido.DE domain gateway morannon.fido.de sendmail V8 configuration
 #
 
 include(`../m4/cf.m4')
-VERSIONID(`$Id: morannon-check.mc,v 4.1 1997/10/05 13:46:30 mj Exp $')
+VERSIONID(`$Id: morannon-check.mc,v 4.2 1997/10/11 21:24:25 mj Exp $')
 OSTYPE(linux)
 
 define(`confCF_VERSION', `morannon-check-4.1')
@@ -19,8 +19,8 @@ define(`confMESSAGE_TIMEOUT', `5d/2d')
 define(`ALIAS_FILE',`/etc/aliases,/usr/local/majordomo/majordomo.aliases')
 
 define(`_CHECK_FROM_')
-undefine(`_IP_LOOKUP_')
-undefine(`_DNSVALID_')
+define(`_IP_LOOKUP_')
+define(`_DNSVALID_')
 HACK(check_mail3,`hash -o -a@JUNK /etc/mail/junk')
 
 FEATURE(notsticky)

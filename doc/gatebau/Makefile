@@ -1,5 +1,5 @@
 #
-# $Id: Makefile,v 1.3 1997/05/01 17:49:49 mj Exp $
+# $Id: Makefile,v 1.4 1997/10/11 21:24:19 mj Exp $
 #
 # Makefile FIDOGATE doc/gatebau/
 #
@@ -34,6 +34,6 @@ veryclean:	clean
 check:
 
 install:
-	cp msgid*.html $(HTMLDIR)
+	cp msgid*.html $(PREFIX)$(HTMLDIR)
 
 depend:

@@ -1,7 +1,7 @@
 <HTML>
 <HEAD>
 <!-- This HTML file has been created by texi2html 1.51
-     from ../fidogate.texi on 8 June 1997 -->
+     from ../fidogate.texi on 11 October 1997 -->
 
 <TITLE>FIDOGATE
  - FIDOGATE Config Files</TITLE>
@@ -63,6 +63,15 @@ Packing file for <CODE>ftnpack</CODE>
 EchoMail / file echo distribution
 </DL>
 
+<P>
+FIDOGATE tries to find these config files in <CODE>LIBDIR</CODE> (compiled-in
+default), if no <CODE>-L</CODE> command line option is used. In addition,
+FIDOGATE 4.2.7 and newer supports the environment variable
+<CODE>FIDOGATE</CODE>, which tells the various programs where to look for
+their config files.
+
+</P>
+
 
 <UL>
 <LI><A HREF="fidogate_4.html#SEC51">Config</A>: <CODE>config.*</CODE> configuration files
@@ -79,6 +88,13 @@ EchoMail / file echo distribution
 <P>
 All config files use the <CODE>#</CODE> character for introducing a comment
 and ignore empty lines. Keywords and commands are not case-sensitive.
+
+</P>
+<P>
+All config files (with the execption of <CODE>areas.bbs</CODE> support an
+<CODE>include</CODE> command for reading in other config files. <CODE>include</CODE>
+must be the first keyword on the line, the filename is the next
+argument.
 
 </P>
 <P>
@@ -165,26 +181,6 @@ Keywords and arguments may be quoted in <CODE>""</CODE>, keywords are
 case-insensitive.
 
 </P>
-<P>
-Almost all file and program names may start with the following %X
-specials:
-
-</P>
-<DL COMPACT>
-
-<DT><CODE>%L</CODE>
-<DD>
-Replaced with LIBDIR.
-
-<DT><CODE>%S</CODE>
-<DD>
-Replaced with SPOOLDIR.
-
-<DT><CODE>%O</CODE>
-<DD>
-Replaced with LOGDIR.
-
-</DL>
 
 <P>
 Common configuration:
@@ -534,6 +530,11 @@ Use the ISO-8859-1 MIME QUOTED-PRINTABLE character set when gating Fido
 NetMail. <CODE>NetMailQuotedPrintable</CODE> overrides <CODE>NetMail8bit</CODE> if
 both are specified.
 
+<DT><CODE>SingleArticles</CODE>
+<DD>
+Write single articles to output files (in <CODE>tmpnews</CODE>), not news
+batches containing several articles (batch is default).
+
 </DL>
 
 <P>
@@ -544,8 +545,10 @@ Special configuration <CODE>ftninpost</CODE> (config file <CODE>config.gate</COD
 
 <DT><CODE>FTNInSendmail <I>command ...</I></CODE>
 <DD>
-Sendmail program to be run by <CODE>ftninpost</CODE> with options. <CODE>%s</CODE>
-is replaced with the envelope sender.
+Sendmail program to be run by <CODE>ftninpost</CODE> with options. The option
+<CODE>-fsender</CODE> will be automatically added by <CODE>ftninpost</CODE>. For
+compatibility with old FIDOGATE configurations, any <CODE>-f%s</CODE> option
+will be removed.
 
 <DT><CODE>FTNInRnews <I>command ...</I></CODE>
 <DD>

@@ -2,7 +2,7 @@
 @c
 @c FIDOGATE documentation
 @c
-@c $Id: fidogate.texi,v 4.25 1997/06/08 10:25:11 mj Exp $
+@c $Id: fidogate.texi,v 4.26 1997/10/11 21:24:16 mj Exp $
 @c
 
 @setfilename fidogate.info
@@ -437,7 +437,20 @@ side of the gateway.
 @noindent
 System dependent configuration:
 
+This configuration contains several groups of #define/#undef. First, the
+definitions for a standard POSIX UNIX, followed by #ifdef'ed definitions
+for SunOS, Linux, FreeBSD, Interactive UNIX, MSDOS DJGPP, NextStep,
+GNU-WIN32.
+
+If you want to port FIDOGATE to a new system, please add a #ifdef'ed
+section similar to the already existing ones.
+
+The gory details:
+
 @table @code
+
+@item DO_HAVE_FCNTL_LOCK
+Define, if the system support fcntl() file locking.
 
 @item DO_HAVE_GETTIMEOFDAY
 Define, if the system has the gettimeofday() function.
@@ -465,8 +478,14 @@ Define, if the system has the @code{strcasecmp()} and
 Define, if the system has the @code{stricmp()} and
 @code{strnicmp()} functions.
 
+@item DO_HAVE_STERROR
+Define, if the system has the @code{strerror()} function.
+
 @item DO_BINARY
 Define, if files must be opened in binary mode.
+
+@item DO_DOSIFY
+Define, if filenames must be converted to DOS, OS2-style @code{\}.
 
 @end table
 
@@ -474,8 +493,6 @@ Define only one of @code{DO_HAVE_TM_ZONE}, @code{DO_HAVE_STRFTIME},
 @code{DO_HAVE_TZNAME}, and also only one of @code{DO_HAVE_STRCASECMP},
 @code{DO_HAVE_STRICMP}.
 
-The following systems are recognized automatically: SunOS 4.1.x, LINUX,
-Interactive UNIX, MSDOS with DJGPP gcc, OS/2 with EMX gcc.
 
 
 @noindent
@@ -1397,6 +1414,10 @@ ftn2rfc  @r{[}@i{-options}@r{]}  @r{[}@i{packet} @r{... ]}
 @noindent Options:
 
 @table @code
+
+@item -1 --single-articles
+Write single articles to output files (in @code{tmpnews}), not news
+batches containing several articles (batch is default).
 
 @item -t --insecure
 Operate in insecure mode. All messages containing a To line for gateway
@@ -2387,6 +2408,12 @@ Packing file for @code{ftnpack}
 EchoMail / file echo distribution
 @end table
 
+FIDOGATE tries to find these config files in @code{LIBDIR} (compiled-in
+default), if no @code{-L} command line option is used. In addition,
+FIDOGATE 4.2.7 and newer supports the environment variable
+@code{FIDOGATE}, which tells the various programs where to look for
+their config files.
+
 @end iftex
 
 @menu
@@ -2403,6 +2430,11 @@ EchoMail / file echo distribution
 
 All config files use the @code{#} character for introducing a comment
 and ignore empty lines. Keywords and commands are not case-sensitive.
+
+All config files (with the execption of @code{areas.bbs} support an
+@code{include} command for reading in other config files. @code{include}
+must be the first keyword on the line, the filename is the next
+argument.
 
 All options and config statements which take file or directory names
 accept the following @code{%} abbreviations:
@@ -2468,22 +2500,6 @@ The format of these files is
 
 Keywords and arguments may be quoted in @code{""}, keywords are
 case-insensitive.
-
-Almost all file and program names may start with the following %X
-specials:
-
-@table @code
-
-@item %L
-Replaced with LIBDIR.
-
-@item %S
-Replaced with SPOOLDIR.
-
-@item %O
-Replaced with LOGDIR.
-
-@end table
 
 
 
@@ -2762,6 +2778,10 @@ Use the ISO-8859-1 MIME QUOTED-PRINTABLE character set when gating Fido
 NetMail. @code{NetMailQuotedPrintable} overrides @code{NetMail8bit} if
 both are specified.
 
+@item SingleArticles
+Write single articles to output files (in @code{tmpnews}), not news
+batches containing several articles (batch is default).
+
 @end table
 
 
@@ -2770,8 +2790,10 @@ both are specified.
 @table @code
 
 @item FTNInSendmail @i{command ...}
-Sendmail program to be run by @code{ftninpost} with options. @code{%s}
-is replaced with the envelope sender.
+Sendmail program to be run by @code{ftninpost} with options. The option
+@code{-fsender} will be automatically added by @code{ftninpost}. For
+compatibility with old FIDOGATE configurations, any @code{-f%s} option
+will be removed.
 
 @item FTNInRnews @i{command ...}
 Rnews program to be run by @code{ftninpost}.
@@ -3801,8 +3823,9 @@ sendmove normal *
 
 
 @noindent
-Packer configuration @code{packing}: no packing for own address,
-@code{zip} is the default archiver for everything else.
+Packer configuration @code{packing}: no packing (noarc, this is very
+important) for own address, @code{zip} is the default archiver for
+everything else.
 
 @example
 arc  zip    "/usr/bin/zip -9gkjq %s %s"
@@ -3912,6 +3935,19 @@ e.g. everything for net 2498:
 route    normal   2:2498/120 2:2498/*.*
 route    normal   2:2499/123 2:*
 @end example
+
+@item Packing
+Packer configuration @code{packing}: no packing (noarc, this is very
+important) for all of our own addressess, @code{zip} is the default
+archiver for everything else.
+
+@example
+arc  zip    "/usr/bin/zip -9gkjq %s %s"
+
+pack noarc  2:2499/123.10 120.2
+pack zip    *
+@end example
+
 
 @item Miscellaneous
 @itemize @bullet

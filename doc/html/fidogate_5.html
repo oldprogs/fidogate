@@ -1,7 +1,7 @@
 <HTML>
 <HEAD>
 <!-- This HTML file has been created by texi2html 1.51
-     from ../fidogate.texi on 8 June 1997 -->
+     from ../fidogate.texi on 11 October 1997 -->
 
 <TITLE>FIDOGATE
  - Basic Configuration</TITLE>
@@ -170,8 +170,9 @@ sendmove normal *
 </PRE>
 
 <P>
-Packer configuration <CODE>packing</CODE>: no packing for own address,
-<CODE>zip</CODE> is the default archiver for everything else.
+Packer configuration <CODE>packing</CODE>: no packing (noarc, this is very
+important) for own address, <CODE>zip</CODE> is the default archiver for
+everything else.
 
 </P>
 
@@ -311,6 +312,20 @@ e.g. everything for net 2498:
 <PRE>
 route    normal   2:2498/120 2:2498/*.*
 route    normal   2:2499/123 2:*
+</PRE>
+
+<DT><B>Packing</B>
+<DD>
+Packer configuration <CODE>packing</CODE>: no packing (noarc, this is very
+important) for all of our own addressess, <CODE>zip</CODE> is the default
+archiver for everything else.
+
+
+<PRE>
+arc  zip    "/usr/bin/zip -9gkjq %s %s"
+
+pack noarc  2:2499/123.10 120.2
+pack zip    *
 </PRE>
 
 <DT><B>Miscellaneous</B>

@@ -1,6 +1,6 @@
 #:ts=8
 #
-#    $Id: Makefile,v 4.3 1997/08/20 21:05:04 mj Exp $
+#    $Id: Makefile,v 4.4 1997/10/11 21:24:28 mj Exp $
 #
 #    Makefile for FIDOGATE src/tick/
 #
@@ -26,8 +26,8 @@ ftntick:	$(TOPDIR)/src/common/$(LIB)
 
 
 install:
-	$(INSTALL_PROG) ftntick$(EXE) $(LIBDIR)
-	$(INSTALL_PROG) ftnhatch$(EXE) $(LIBDIR)
+	$(INSTALL_PROG) ftntick$(EXE) $(PREFIX)$(LIBDIR)
+	$(INSTALL_PROG) ftnhatch$(EXE) $(PREFIX)$(LIBDIR)
 
 
 clean veryclean:

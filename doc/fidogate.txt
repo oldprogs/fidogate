@@ -1,5 +1,5 @@
-This is Info file fidogate.info, produced by Makeinfo-1.64 from the
-input file fidogate.texi.
+This is Info file fidogate.info, produced by Makeinfo version 1.67 from
+the input file fidogate.texi.
 
    This file documents the usage of FIDOGATE version 4
 
@@ -305,6 +305,19 @@ Common configuration:
 
 System dependent configuration:
 
+   This configuration contains several groups of #define/#undef. First,
+the definitions for a standard POSIX UNIX, followed by #ifdef'ed
+definitions for SunOS, Linux, FreeBSD, Interactive UNIX, MSDOS DJGPP,
+NextStep, GNU-WIN32.
+
+   If you want to port FIDOGATE to a new system, please add a #ifdef'ed
+section similar to the already existing ones.
+
+   The gory details:
+
+`DO_HAVE_FCNTL_LOCK'
+     Define, if the system support fcntl() file locking.
+
 `DO_HAVE_GETTIMEOFDAY'
      Define, if the system has the gettimeofday() function.
 
@@ -331,15 +344,18 @@ System dependent configuration:
      Define, if the system has the `stricmp()' and `strnicmp()'
      functions.
 
+`DO_HAVE_STERROR'
+     Define, if the system has the `strerror()' function.
+
 `DO_BINARY'
      Define, if files must be opened in binary mode.
+
+`DO_DOSIFY'
+     Define, if filenames must be converted to DOS, OS2-style `\'.
 
    Define only one of `DO_HAVE_TM_ZONE', `DO_HAVE_STRFTIME',
 `DO_HAVE_TZNAME', and also only one of `DO_HAVE_STRCASECMP',
 `DO_HAVE_STRICMP'.
-
-   The following systems are recognized automatically: SunOS 4.1.x,
-LINUX, Interactive UNIX, MSDOS with DJGPP gcc, OS/2 with EMX gcc.
 
 THE FOLLOWING DEFINES SHOULD NORMALLY LEFT AS IS!!!
 
@@ -1021,6 +1037,10 @@ Usage:
      ftn2rfc  [-options]  [packet ... ]
 
 Options:
+
+`-1 --single-articles'
+     Write single articles to output files (in `tmpnews'), not news
+     batches containing several articles (batch is default).
 
 `-t --insecure'
      Operate in insecure mode. All messages containing a To line for
@@ -1720,6 +1740,10 @@ FIDOGATE uses the following config files:
    All config files use the `#' character for introducing a comment and
 ignore empty lines. Keywords and commands are not case-sensitive.
 
+   All config files (with the execption of `areas.bbs' support an
+`include' command for reading in other config files. `include' must be
+the first keyword on the line, the filename is the next argument.
+
    All options and config statements which take file or directory names
 accept the following `%' abbreviations:
 
@@ -1744,8 +1768,8 @@ accept the following `%' abbreviations:
 `%U'
      The value of `UUInbound'
 
-This is Info file fidogate.info, produced by Makeinfo-1.64 from the
-input file fidogate.texi.
+This is Info file fidogate.info, produced by Makeinfo version 1.67 from
+the input file fidogate.texi.
 
    This file documents the usage of FIDOGATE version 4
 
@@ -1792,18 +1816,6 @@ FIDOGATE uses different config files:
 
    Keywords and arguments may be quoted in `""', keywords are
 case-insensitive.
-
-   Almost all file and program names may start with the following %X
-specials:
-
-`%L'
-     Replaced with LIBDIR.
-
-`%S'
-     Replaced with SPOOLDIR.
-
-`%O'
-     Replaced with LOGDIR.
 
 Common configuration:
 
@@ -2053,11 +2065,17 @@ Special configuration `ftn2rfc' (config file `config.gate'):
      Fido NetMail. `NetMailQuotedPrintable' overrides `NetMail8bit' if
      both are specified.
 
+`SingleArticles'
+     Write single articles to output files (in `tmpnews'), not news
+     batches containing several articles (batch is default).
+
 Special configuration `ftninpost' (config file `config.gate'):
 
 `FTNInSendmail command ...'
-     Sendmail program to be run by `ftninpost' with options. `%s' is
-     replaced with the envelope sender.
+     Sendmail program to be run by `ftninpost' with options. The option
+     `-fsender' will be automatically added by `ftninpost'. For
+     compatibility with old FIDOGATE configurations, any `-f%s' option
+     will be removed.
 
 `FTNInRnews command ...'
      Rnews program to be run by `ftninpost'.
@@ -2869,8 +2887,9 @@ everything else is send to the boss node.
      sendmove hold   2:2499/123.9
      sendmove normal *
 
-Packer configuration `packing': no packing for own address, `zip' is
-the default archiver for everything else.
+Packer configuration `packing': no packing (noarc, this is very
+important) for own address, `zip' is the default archiver for
+everything else.
 
      arc  zip    "/usr/bin/zip -9gkjq %s %s"
      
@@ -2951,6 +2970,16 @@ Routing
      boss, e.g. everything for net 2498:
           route    normal   2:2498/120 2:2498/*.*
           route    normal   2:2499/123 2:*
+
+Packing
+     Packer configuration `packing': no packing (noarc, this is very
+     important) for all of our own addressess, `zip' is the default
+     archiver for everything else.
+
+          arc  zip    "/usr/bin/zip -9gkjq %s %s"
+          
+          pack noarc  2:2499/123.10 120.2
+          pack zip    *
 
 Miscellaneous
         * Disable `CheckPath' in `config.main'.
@@ -3135,106 +3164,106 @@ Index
 *****
 
 
-* Aliases:                              Aliases.
-* ArcMail:                              ftnpack.
-* Areafix <1>:                          ftnafmail.
-* Areafix:                              ftnaf.
-* Areas:                                Areas.
-* areas.bbs:                            Areas.bbs.
-* Bounce:                               ftnbounce.
-* Bounce messages:                      Bounce.
-* Busy files:                           ftnbsy.
-* Checksum:                             sumcrc.
-* Compiling:                            Compiling.
-* Config <1>:                           Config.
-* Config:                               ftnconfig.
-* Config files:                         Config files.
-* Configuration <1>:                    Example Node.
-* Configuration <2>:                    Example Point 2.
-* Configuration <3>:                    Example Point.
-* Configuration <4>:                    Sendmail.
-* Configuration:                        Basic.
-* Connecting:                           Connecting.
-* CRC:                                  sumcrc.
-* EchoMail:                             Areas.bbs.
-* Example <1>:                          Example Node.
-* Example <2>:                          Example Point 2.
-* Example:                              Example Point.
-* ffx:                                  ffx.
-* ffxbatch:                             ffxbatch.
-* ffxmail:                              ffxmail.
-* ffxqt <1>:                            ffxrun.
-* ffxqt <2>:                            ffxrmail.
-* ffxqt:                                ffxqt.
-* ffxrmail:                             ffxrmail.
-* ffxrun:                               ffxrun.
-* FIDONET:                              Connecting.
-* File attach:                          ftnfattach.
-* ftn2ftn:                              ftn2ftn.
-* ftn2rfc <1>:                          ftnin.
-* ftn2rfc:                              ftn2rfc.
-* ftnaf <1>:                            ftnafmail.
-* ftnaf:                                ftnaf.
-* ftnbounce:                            ftnbounce.
-* ftnbsy:                               ftnbsy.
-* ftnconfig:                            ftnconfig.
-* ftnfattach:                           ftnfattach.
-* ftnhatch:                             ftnhatch.
-* ftnin:                                ftnin.
-* ftninpost:                            ftninpost.
-* ftninrecomb:                          ftninrecomb.
-* ftnlock:                              ftnlock.
-* ftnlog:                               ftnlog.
-* ftnpack:                              ftnpack.
-* ftnroute:                             ftnroute.
-* ftnseq:                               ftnseq.
-* ftntick:                              ftntick.
-* ftntoss:                              ftntoss.
-* Gateway <1>:                          rfc2ftn.
-* Gateway <2>:                          ftn2rfc.
-* Gateway:                              ftn2ftn.
-* Header <1>:                           X Headers.
-* Header:                               RFC Headers.
-* Hosts:                                Hosts.
-* Installation <1>:                     Compiling.
-* Installation:                         Installation.
-* Integration:                          Integration.
-* Introduction <1>:                     Introduction.
-* Introduction:                         Top.
-* Lock files:                           ftnlock.
-* Log file:                             ftnlog.
-* Logging:                              ftnlog.
-* Mail:                                 ffxmail.
-* Node:                                 Example Node.
-* Packing:                              Packing.
-* Password:                             Passwd.
-* pktdebug:                             pktdebug.
-* Point <1>:                            Example Point 2.
-* Point <2>:                            Example Point.
-* Point:                                Point.
-* Programs:                             Programs.
-* Remote Execution:                     ffxqt.
-* Remote execution <1>:                 ffxbatch.
-* Remote execution:                     ffx.
-* RFC header:                           RFC Headers.
-* rfc2ftn:                              rfc2ftn.
-* Routing <1>:                          Routing.
-* Routing:                              ftnroute.
-* rundf:                                rundf.
-* runin:                                runin.
-* runout:                               runout.
-* runtoss:                              runtoss.
-* rununpack:                            rununpack.
-* sendmail:                             Sendmail.
-* sumcrc:                               sumcrc.
-* Testing:                              Testing.
-* Tossing <1>:                          rununpack.
-* Tossing <2>:                          runtoss.
-* Tossing <3>:                          runout.
-* Tossing <4>:                          runin.
-* Tossing <5>:                          rundf.
-* Tossing:                              ftntoss.
-* Usage:                                Usage.
-* X header:                             X Headers.
+* Aliases:                               Aliases.
+* ArcMail:                               ftnpack.
+* Areafix <1>:                           ftnafmail.
+* Areafix:                               ftnaf.
+* Areas:                                 Areas.
+* areas.bbs:                             Areas.bbs.
+* Bounce:                                ftnbounce.
+* Bounce messages:                       Bounce.
+* Busy files:                            ftnbsy.
+* Checksum:                              sumcrc.
+* Compiling:                             Compiling.
+* Config <1>:                            Config.
+* Config:                                ftnconfig.
+* Config files:                          Config files.
+* Configuration <1>:                     Example Node.
+* Configuration <2>:                     Example Point 2.
+* Configuration <3>:                     Example Point.
+* Configuration <4>:                     Sendmail.
+* Configuration:                         Basic.
+* Connecting:                            Connecting.
+* CRC:                                   sumcrc.
+* EchoMail:                              Areas.bbs.
+* Example <1>:                           Example Node.
+* Example <2>:                           Example Point 2.
+* Example:                               Example Point.
+* ffx:                                   ffx.
+* ffxbatch:                              ffxbatch.
+* ffxmail:                               ffxmail.
+* ffxqt <1>:                             ffxrun.
+* ffxqt <2>:                             ffxrmail.
+* ffxqt:                                 ffxqt.
+* ffxrmail:                              ffxrmail.
+* ffxrun:                                ffxrun.
+* FIDONET:                               Connecting.
+* File attach:                           ftnfattach.
+* ftn2ftn:                               ftn2ftn.
+* ftn2rfc <1>:                           ftnin.
+* ftn2rfc:                               ftn2rfc.
+* ftnaf <1>:                             ftnafmail.
+* ftnaf:                                 ftnaf.
+* ftnbounce:                             ftnbounce.
+* ftnbsy:                                ftnbsy.
+* ftnconfig:                             ftnconfig.
+* ftnfattach:                            ftnfattach.
+* ftnhatch:                              ftnhatch.
+* ftnin:                                 ftnin.
+* ftninpost:                             ftninpost.
+* ftninrecomb:                           ftninrecomb.
+* ftnlock:                               ftnlock.
+* ftnlog:                                ftnlog.
+* ftnpack:                               ftnpack.
+* ftnroute:                              ftnroute.
+* ftnseq:                                ftnseq.
+* ftntick:                               ftntick.
+* ftntoss:                               ftntoss.
+* Gateway <1>:                           rfc2ftn.
+* Gateway <2>:                           ftn2rfc.
+* Gateway:                               ftn2ftn.
+* Header <1>:                            X Headers.
+* Header:                                RFC Headers.
+* Hosts:                                 Hosts.
+* Installation <1>:                      Compiling.
+* Installation:                          Installation.
+* Integration:                           Integration.
+* Introduction <1>:                      Introduction.
+* Introduction:                          Top.
+* Lock files:                            ftnlock.
+* Log file:                              ftnlog.
+* Logging:                               ftnlog.
+* Mail:                                  ffxmail.
+* Node:                                  Example Node.
+* Packing:                               Packing.
+* Password:                              Passwd.
+* pktdebug:                              pktdebug.
+* Point <1>:                             Example Point 2.
+* Point <2>:                             Example Point.
+* Point:                                 Point.
+* Programs:                              Programs.
+* Remote Execution:                      ffxqt.
+* Remote execution <1>:                  ffxbatch.
+* Remote execution:                      ffx.
+* RFC header:                            RFC Headers.
+* rfc2ftn:                               rfc2ftn.
+* Routing <1>:                           Routing.
+* Routing:                               ftnroute.
+* rundf:                                 rundf.
+* runin:                                 runin.
+* runout:                                runout.
+* runtoss:                               runtoss.
+* rununpack:                             rununpack.
+* sendmail:                              Sendmail.
+* sumcrc:                                sumcrc.
+* Testing:                               Testing.
+* Tossing <1>:                           rununpack.
+* Tossing <2>:                           runtoss.
+* Tossing <3>:                           runout.
+* Tossing <4>:                           runin.
+* Tossing <5>:                           rundf.
+* Tossing:                               ftntoss.
+* Usage:                                 Usage.
+* X header:                              X Headers.
 
 

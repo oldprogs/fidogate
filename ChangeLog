@@ -1,3 +1,57 @@
+Sat Oct 11 19:39:08 1997  Martin Junius  <mj@fido.de>
+
+	------- CVS ci -------------------------------------------------------
+
+	* doc/fidogate.texi (Config files): added include command for all
+	  config files.
+	  (Config): new FTNInSendmail configuration.
+
+	* src/common/log.c (strerror): #ifndef DO_HAVE_STRERROR around
+	  this function.
+
+	* config.h (DO_HAVE_STRERROR): added new configuration #define for
+	  Standard C function strerror() (not necessarily available on
+	  older Unix variants like SunOS).
+
+	* doc/qmail.txt: added comments from Frank Drolshagen
+	  <Frank_Drolshagen@p1.f6369.n244.z2.fidonet.org>.
+
+	* doc/fidogate.texi (Config files): added FIDOGATE env var.
+	  (ftn2rfc): added -1 --single-articles option.
+	  (Config): added SingleArticles.
+	  (Example Point 2): added packer configuration help.
+
+	* src/toss/Makefile (install): dito.
+
+	* src/tick/Makefile (install): dito.
+
+	* src/gate/Makefile (install): dito.
+
+	* src/ffx/Makefile (install): dito.
+
+	* scripts/run/Makefile (install): dito.
+
+	* scripts/nodelist/Makefile (install): dito.
+
+	* scripts/maintenance/Makefile (install): dito.
+
+	* scripts/inn/Makefile (install): dito.
+
+	* doc/html/Makefile (install): dito.
+
+	* doc/gatebau/Makefile (install): dito.
+
+	* doc/Makefile (install): dito.
+
+	* Makefile (install): added PREFIX to install destinations.
+
+	* config.make: added PREFIX macro.
+
+Fri Oct 10 20:39:54 1997  Martin Junius  <mj@fido.de>
+
+	* src/gate/ftninpost.pl: fixed run ftninrecomb, using system with
+	  @cmd list.
+
 Sun Oct  5 13:10:17 1997  Martin Junius  <mj@fido.de>
 
 	------- CVS ci -------------------------------------------------------
