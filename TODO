@@ -1,8 +1,16 @@
 						   -*- Indented-Text -*-
 	************** TODO list for FIDOGATE development **************
 
+	* rfc2ftn: mail split limit configurable per host.
 
-	* rfcparse.c: allow
+	* Allow config option on command line for all programs.
+
+	* rfc2ftn: command line option for enabling X-Flags.
+
+OK	* ftn2rfc: allow aliases containing complete Internet
+	  addressing, don't add local domain in this case.
+
+DONE	* rfcparse.c: allow
 	      Real Name <user@do.main>
 	  format for output, config option.
 

@@ -1,0 +1,27 @@
+#!/bin/sh
+
+../tr.init
+
+R="../../src/gate/rfc2ftn -L../cf -v"
+F="../../src/gate/ftn2rfc -L../cf -v"
+
+echo "tc: running"
+
+# Generate mail addressed to Test 1/Test 2
+$R -i test_1@p0.f0.n2.z2 <<EOF
+Subject: Mail -> Test 1
+From: Test User <test@blah.org>
+
+TEST
+EOF
+
+$R -i test_2@p0.f0.n2.z2 <<EOF
+Subject: Mail -> Test 2
+From: Test User <test@blah.org>
+
+TEST
+EOF
+
+# Move to SPOOLDIR/in and run ftn2rfc
+mv ./out/*.pkt ./in
+$F

@@ -1,4 +1,21 @@
+Wed Oct 22 21:14:20 1997  Martin Junius  <mj@fido.de>
+
+	------- CVS ci -------------------------------------------------------
+
+	* scripts/maintenance/logdaily.sh: new script for daily log
+	  maintenance, running logcheck for last rotated sendmail maillog.
+
+	* scripts/maintenance/logcheck.pl: added news postings and mail
+	  features like logreport.pl.
+
+Tue Oct 21 22:25:37 1997  Martin Junius  <mj@fido.de>
+
+	* scripts/maintenance/logcheck.pl: new scripts generating report
+	  of sendmail's check_mail reject activities.
+
 Sun Oct 19 18:16:34 1997  Martin Junius  <mj@fido.de>
+
+	* test/tc.aliases/run: new tests for aliases.
 
 	------- CVS ci -------------------------------------------------------
 

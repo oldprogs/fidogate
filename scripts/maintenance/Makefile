@@ -1,6 +1,6 @@
 #:ts=8
 #
-#    $Id: Makefile,v 4.5 1997/10/11 21:24:24 mj Exp $
+#    $Id: Makefile,v 4.6 1997/10/22 19:18:46 mj Exp $
 #
 #    Makefile for FIDOGATE scripts/filebase/
 #
@@ -16,7 +16,7 @@ include $(TOPDIR)/config.make
 include $(TOPDIR)/rules.make
 
 
-PROGS		= logmaint logreport logstat sendmailstat\
+PROGS		= logcheck logmaint logreport logstat logdaily sendmailstat\
 		  newsyslog rc.fidogate
 
 

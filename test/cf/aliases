@@ -1,6 +1,6 @@
 #:ts=8
 #
-#   $Id: aliases,v 4.0 1996/04/17 18:17:36 mj Exp $
+#   $Id: aliases,v 4.1 1997/10/22 19:18:48 mj Exp $
 #
 # User name aliases
 #
@@ -16,3 +16,7 @@ mj		2:2452/110.2		"Martin Junius"
 mj		2:2452/110.2		"Sysop"
 mj		242:1000/5		"Martin Junius"
 mj		242:1000/5		"Sysop"
+
+# Test aliases
+test1@abc.def.org	2:2452/110.2	"Test 1"
+test2			2:2452/110.2	"Test 2"
