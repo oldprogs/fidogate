@@ -1,4 +1,15 @@
+2002-12-16  Martin Junius  <mj@m-j-s.net>
+
+	------- CVS ci -------------------------------------------------------
+
+	* src/gate/rfc2ftn.c (snd_mail): added log() message for bounces
+	  from mail_receiver().
+
 2002-12-14  Martin Junius  <mj@m-j-s.net>
+
+	* sendmail/cf/Makefile (all): don't run m4 as the default, may
+	  cause errors with installed sendmail-cf package. New target
+	  redhat6, redhat7.
 
 	------- CVS ci -------------------------------------------------------
 
