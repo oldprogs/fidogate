@@ -2,9 +2,9 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: HEAD,v 4.4 2000/10/17 21:04:35 mj Exp $
+ * $Id: file.c,v 4.1 2000/10/17 21:04:35 mj Exp $
  *
- * 
+ * File-oriented functions
  *
  *****************************************************************************
  * Copyright (C) 1990-2000
@@ -29,3 +29,25 @@
  * along with FIDOGATE; see the file COPYING.  If not, write to the Free
  * Software Foundation, 675 Mass Ave, Cambridge, MA 02139, USA.
  *****************************************************************************/
+
+#include "fidogate.h"
+
+
+/*
+ * Rename file: NAME.pkt -> NAME.bad
+ */
+int rename_bad(char *name)
+{
+    char bad[MAXPATH];
+
+    str_change_ext(bad, sizeof(bad), name, ".bad");
+    
+    log("ERROR: bad packet renamed to %s", bad);
+    if(rename(name, bad) == ERROR)
+    {
+	log("$ERROR: can't rename %s -> %s", name, bad);
+	return ERROR;
+    }
+    
+    return OK;
+}

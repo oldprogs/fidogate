@@ -1,3 +1,60 @@
+2000-10-17  Martin Junius  <mj@fido.de>
+
+	------- CVS ci -------------------------------------------------------
+
+	* src/tick/ftntick.c (do_tic): dito.
+
+	* src/gate/rfc2ftn.c (rfc_parse): dito.
+	  (mail_sender): dito.
+
+	* src/gate/ftn2rfc.c (unpack): dito.
+
+	* src/ffx/ffxqt.c (do_ffx): get rid of strcpy().
+
+	* src/toss/ftnpack.c (new_arc): fixed format error.
+
+	* src/*/*.c: various old rename_bad() removed.
+
+	* src/common/file.c: new module containing file-oriented functions.
+	  (rename_bad): new function consolidating various rename_bad()
+	  scattered in the FIDOGATE source.
+
+	* src/common/misc.c (str_change_ext): new function, see below.
+
+	* src/areafix/areafix.c (change_ext): new, safer function for
+	  changing the file extension. The old strcpy() code *should* have 
+	  been ok, but one never knows ... ;-)
+	  (NEWEXT): macro as wrapper for change_ext(), assuming n=MAXPATH.
+	  (change_num): new function, changing extension to "oNN".
+	  (NEWNUM): macro as wrapper, n=MAXPATH.
+	  (rewrite_areas_bbs): change to use new NEWEXT(), NEWNUM(),
+	  avoids using strcpy(), sprintf().
+	  (change_ext): renamed to str_change_ext() and moved to misc.c
+
+2000-10-08  Martin Junius  <mj@fido.de>
+
+	* src/toss/ftnexpire.c (main): dito.
+
+	* src/toss/ftntoss.c (main): dito.
+
+	* src/tick/ftnhatch.c (hatch): dito.
+
+	* src/common/packet.c (pkt_get_hdr): fixed format warning.
+
+	* src/include/prototypes.h: supply all printf-style function with
+	  a GNU-C specific __attribute__(), __attribute__() defined to
+	  nothing for non-GNU-C.
+
+2000-08-27  Martin Junius  <mj@fido.de>
+
+	* scripts/outbound/out-ls.pl: some changes to get it running
+	  again, needs major rewrite.
+
+2000-06-28  Martin Junius  <mj@fido.de>
+
+	* src/common/misc.c (str_printf): make very sure that buf[] is 0
+	  terminated, see comment.
+
 2000-06-03  Martin Junius  <mj@fido.de>
 
 	------- CVS ci -------------------------------------------------------

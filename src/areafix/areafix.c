@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: areafix.c,v 1.15 2000/01/28 22:01:08 mj Exp $
+ * $Id: areafix.c,v 1.16 2000/10/17 21:04:35 mj Exp $
  *
  * Common Areafix functions
  *
@@ -372,10 +372,21 @@ int is_wildcard(char *s)
 /*
  * Rewrite AREAS.BBS if changed
  */
+static void change_num(char *new, size_t len, char *old, int num)
+{
+    char ext[4];
+    str_printf(ext, sizeof(ext), "o%02d", num);
+    str_change_ext(new, len, old, ext);
+}
+
+#define NEWEXT(new, old, ext)	str_change_ext(new, MAXPATH, old, ext)
+#define NEWNUM(new, old, n)	change_num(new, MAXPATH, old, n)
+
+
 int rewrite_areas_bbs(void)
 {
     char old[MAXPATH], new[MAXPATH];
-    int i, ovwr;
+    int i;
     FILE *fp;
     
     if(!areas_bbs_changed)
@@ -384,19 +395,11 @@ int rewrite_areas_bbs(void)
 	return OK;
     }
 
-    /*
-     * Base name
-     */
+    /* Base name */
     str_expand_name(buffer, MAXPATH, areas_bbs);
-    ovwr = strlen(buffer) - 3;		/* 3 = extension "bbs" */
-    if(ovwr < 0)			/* Just to be sure */
-	ovwr = 0;
 
-    /*
-     * Write new one as AREAS.NEW
-     */
-    strcpy(new, buffer);
-    strcpy(new+ovwr, "new");
+    /* Write new one as AREAS.NEW */
+    NEWEXT(new, buffer, "new");
     debug(4, "Writing %s", new);
 
     if( (fp = fopen(new, W_MODE)) == NULL )
@@ -418,40 +421,28 @@ int rewrite_areas_bbs(void)
 	return ERROR;
     }
 
-    /*
-     * Renumber saved AREAS.Onn
-     */
-    strcpy(old, buffer);
-    sprintf(old+ovwr, "o%02d", N_HISTORY);
+    /* Renumber saved AREAS.Onn */
+    NEWNUM(old, buffer, N_HISTORY);
     debug(4, "Removing %s", old);
     unlink(old);
+
     for(i=N_HISTORY-1; i>=1; i--)
     {
-	strcpy(old, buffer);
-	sprintf(old+ovwr, "o%02d", i);
-	strcpy(new, buffer);
-	sprintf(new+ovwr, "o%02d", i+1);
+	NEWNUM(old, buffer, i);
+	NEWNUM(new, buffer, i+1);
 	debug(4, "Renaming %s -> %s", old, new);
 	rename(old, new);
     }
     
-    /*
-     * Rename AREAS.BBS -> AREAS.O01
-     */
-    strcpy(old, buffer);
-    strcpy(old+ovwr, "bbs");
-    strcpy(new, buffer);
-    strcpy(new+ovwr, "o01");
+    /* Rename AREAS.BBS -> AREAS.O01 */
+    NEWEXT(old, buffer, "bbs");
+    NEWNUM(new, buffer, 1);
     debug(4, "Renaming %s -> %s", old, new);
     rename(old, new);
     
-    /*
-     * Rename AREAS.NEW -> AREAS.BBS
-     */
-    strcpy(old, buffer);
-    strcpy(old+ovwr, "new");
-    strcpy(new, buffer);
-    strcpy(new+ovwr, "bbs");
+    /* Rename AREAS.NEW -> AREAS.BBS */
+    NEWEXT(old, buffer, "new");
+    NEWEXT(new, buffer, "bbs");
     debug(4, "Renaming %s -> %s", old, new);
     rename(old, new);
 

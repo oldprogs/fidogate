@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftntoss.c,v 4.37 2000/01/28 22:01:15 mj Exp $
+ * $Id: ftntoss.c,v 4.38 2000/10/17 21:04:36 mj Exp $
  *
  * Toss FTN NetMail/EchoMail
  *
@@ -39,7 +39,7 @@
 
 
 #define PROGRAM 	"ftntoss"
-#define VERSION 	"$Revision: 4.37 $"
+#define VERSION 	"$Revision: 4.38 $"
 #define CONFIG		DEFAULT_CONFIG_MAIN
 
 
@@ -1426,32 +1426,6 @@ int unpack(FILE *pkt_file, Packet *pkt)
 
 
 /*
- * Rename .pkt -> .bad
- */
-int rename_bad(char *name)
-{
-    char bad[MAXPATH];
-    int len;
-    
-    BUF_COPY(bad, name);
-    len = strlen(bad) - 4;
-    if(len < 0)
-	len = 0;
-    strcpy(bad + len, ".bad");
-    
-    log("ERROR: bad packet renamed to %s", bad);
-    if(rename(name, bad) == ERROR)
-    {
-	log("$ERROR: can't rename %s -> %s", name, bad);
-	return ERROR;
-    }
-    
-    return OK;
-}
-
-
-
-/*
  * Unpack one packet file
  */
 int unpack_file(char *pkt_name)
@@ -1796,7 +1770,7 @@ int main(int argc, char **argv)
 	max_history = atof(p);
 	if(max_history < 0)
 	    max_history = 0;
-	debug(8, "config: MaxHistory %lg", max_history);
+	debug(8, "config: MaxHistory %g", max_history);
     }
     if( cf_get_string("TossEchoMail4D", TRUE) )
     {
@@ -1971,7 +1945,7 @@ int main(int argc, char **argv)
 	toss_delta = 1;
     
     if(pkts_in)
-	log("pkts processed: %ld, %ld Kbyte in %ld s, %.2lf Kbyte/s",
+	log("pkts processed: %ld, %ld Kbyte in %ld s, %.2f Kbyte/s",
 	    pkts_in, pkts_bytes/1024, toss_delta,
 	    (double)pkts_bytes/1024./toss_delta                      );
     
@@ -1979,7 +1953,7 @@ int main(int argc, char **argv)
     {
 	log("msgs processed: %ld in, %ld out (%ld mail, %ld echo)",
 	    msgs_in, msgs_netmail+msgs_echomail, msgs_netmail, msgs_echomail);
-	log("msgs processed: %ld in %ld s, %.2lf msgs/s",
+	log("msgs processed: %ld in %ld s, %.2f msgs/s",
 	    msgs_in, toss_delta, (double)msgs_in/toss_delta);
     }
     

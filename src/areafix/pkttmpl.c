@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: pkttmpl.c,v 1.8 2000/01/28 22:01:08 mj Exp $
+ * $Id: pkttmpl.c,v 1.9 2000/10/17 21:04:35 mj Exp $
  *
  * Template for utility processing FTN packets
  *
@@ -37,7 +37,7 @@
 
 
 #define PROGRAM 	"ftnxxx"
-#define VERSION 	"$Revision: 1.8 $"
+#define VERSION 	"$Revision: 1.9 $"
 #define CONFIG		DEFAULT_CONFIG_MAIN
 
 
@@ -177,32 +177,6 @@ int do_packet(FILE *pkt_file, Packet *pkt)
     } /**while(type == MSG_TYPE)**/
 
     TMPS_RETURN(OK);
-}
-
-
-
-/*
- * Rename .pkt -> .bad
- */
-int rename_bad(char *name)
-{
-    char bad[MAXPATH];
-    int len;
-    
-    BUF_COPY(bad, name);
-    len = strlen(bad) - 4;
-    if(len < 0)
-	len = 0;
-    strcpy(bad + len, ".bad");
-    
-    log("ERROR: bad packet renamed to %s", bad);
-    if(rename(name, bad) == ERROR)
-    {
-	log("$ERROR: can't rename %s -> %s", name, bad);
-	return ERROR;
-    }
-    
-    return OK;
 }
 
 

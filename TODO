@@ -1,6 +1,8 @@
 							 -*- Indented-Text -*-
 ===== TODO list for FIDOGATE development =====================================
 
+	* rfc2ftn: config option for setting RRQ for Return-Receipt-To.
+
         * rfc2ftn: log WARNINGs if article not found, disable option
 	  in config.
 

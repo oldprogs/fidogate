@@ -1,6 +1,6 @@
 #:ts=8
 #
-#    $Id: Makefile,v 4.19 1999/06/17 21:42:50 mj Exp $
+#    $Id: Makefile,v 4.20 2000/10/17 21:04:35 mj Exp $
 #
 #    Makefile for FIDOGATE src/common/
 #
@@ -30,6 +30,7 @@ OBJS		= acl.o \
 		  date.o \
 		  dir.o \
 		  exit.o \
+		  file.o \
 		  flo.o \
 		  fopen.o \
 		  ftnaddr.o \

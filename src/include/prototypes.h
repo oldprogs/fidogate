@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: prototypes.h,v 4.62 2000/01/28 22:01:13 mj Exp $
+ * $Id: prototypes.h,v 4.63 2000/10/17 21:04:36 mj Exp $
  *
  * Prototypes for functions in libfidogate.a
  *
@@ -29,6 +29,13 @@
  * along with FIDOGATE; see the file COPYING.  If not, write to the Free
  * Software Foundation, 675 Mass Ave, Cambridge, MA 02139, USA.
  *****************************************************************************/
+
+/* define __attribute__ to nothing for non GNU */
+#ifndef __GNUC__
+# define __attribute__(x)	/*nothing*/
+#endif
+
+
 
 #ifdef AI_8
 /* acl.c */
@@ -207,6 +214,9 @@ typedef int (*ExitHandlerF) (int);
 void	exit_handler		(ExitHandlerF);
 void	fidogate_exit		(int);
 
+/* file.c */
+int	rename_bad		(char *);
+
 /* flo.c */
 FILE   *flo_file		(void);
 int	flo_open		(Node *, int);
@@ -268,11 +278,14 @@ extern int verbose;
 extern int no_debug;
 
 char   *strerror		(int);
-void	log			(const char *, ...);
-void	debug			(int, const char *, ...);
+void	log			(const char *, ...)
+    __attribute__ ((format (printf, 1, 2)));
+void	debug			(int, const char *, ...)
+    __attribute__ ((format (printf, 2, 3)));
 void	log_file		(char *);
 void	log_program		(char *);
-void	logx			(char *, char *, char *, ...);
+void	logx			(char *, char *, char *, ...)
+    __attribute__ ((format (printf, 3, 4)));
 
 /* mail.c */
 extern char mail_dir[MAXPATH];
@@ -310,7 +323,9 @@ char   *mime_dequote		(char *, size_t, char *, int);
 char   *mime_deheader		(char *, size_t, char *, int);
 
 /* misc.c */
-int	str_printf		(char *, size_t, const char *, ...);
+char   *str_change_ext		(char *, size_t, char *, char *);
+int	str_printf		(char *, size_t, const char *, ...)
+    __attribute__ ((format (printf, 3, 4)));
 int	str_last		(char *, size_t);
 char   *str_lastp		(char *, size_t);
 char   *str_lower		(char *);
@@ -531,7 +546,8 @@ void	tl_remove		(Textlist *, Textline *);
 void	tl_delete		(Textlist *, Textline *);
 void	tl_init			(Textlist *);
 void	tl_append		(Textlist *, char *);
-void	tl_appendf		(Textlist *, char *, ...);
+void	tl_appendf		(Textlist *, char *, ...)
+    __attribute__ ((format (printf, 2, 3)));
 int	tl_print		(Textlist *, FILE *);
 int	tl_print_x		(Textlist *, FILE *, char *);
 void	tl_clear		(Textlist *);
@@ -554,14 +570,16 @@ TmpS   *tmps_realloc		(TmpS *, size_t);
 TmpS   *tmps_find		(char *);
 void    tmps_free		(TmpS *);
 void    tmps_freeall		(void);
-TmpS   *tmps_printf		(const char *, ...);
+TmpS   *tmps_printf		(const char *, ...)
+    __attribute__ ((format (printf, 1, 2)));
 TmpS   *tmps_copy		(char *);
 TmpS   *tmps_stripsize		(TmpS *);
 char   *s_alloc			(size_t);
 char   *s_realloc		(char *, size_t);
 void    s_free			(char *s);
 void    s_freeall		(void);
-char   *s_printf		(const char *, ...);
+char   *s_printf		(const char *, ...)
+    __attribute__ ((format (printf, 1, 2)));
 char   *s_copy			(char *);
 char   *s_stripsize		(char *);
 

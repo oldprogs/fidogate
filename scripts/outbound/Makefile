@@ -1,6 +1,6 @@
 #:ts=8
 #
-#    $Id: Makefile,v 4.3 1999/05/15 20:54:36 mj Exp $
+#    $Id: Makefile,v 4.4 2000/10/17 21:04:35 mj Exp $
 #
 #    Makefile for FIDOGATE scripts/filebase/
 #
@@ -28,6 +28,7 @@ install:
 	$(INSTALL_PROG) out-manip $(PREFIX)$(BINDIR)
 	$(INSTALL_PROG) out-rm0 $(PREFIX)$(BINDIR)
 	$(INSTALL_PROG) out-rmbsy $(PREFIX)$(BINDIR)
+	$(INSTALL_PROG) out-ls $(PREFIX)$(BINDIR)
 
 
 clean:

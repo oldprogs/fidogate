@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: ftnexpire.c,v 4.12 2000/01/28 22:01:15 mj Exp $
+ * $Id: ftnexpire.c,v 4.13 2000/10/17 21:04:36 mj Exp $
  *
  * Expire MSGID history database
  *
@@ -36,7 +36,7 @@
 
 
 #define PROGRAM 	"ftnexpire"
-#define VERSION 	"$Revision: 4.12 $"
+#define VERSION 	"$Revision: 4.13 $"
 #define CONFIG		DEFAULT_CONFIG_MAIN
 
 
@@ -365,7 +365,7 @@ int main(int argc, char **argv)
 	max_history = atof(p);
 	if(max_history < 0)
 	    max_history = 0;
-	debug(8, "config: MaxHistory %lg", max_history);
+	debug(8, "config: MaxHistory %g", max_history);
     }
 
     /*
@@ -388,7 +388,7 @@ int main(int argc, char **argv)
 	expire_delta = 1;
 
     /* Statistics */
-    log("ids processed: %ld total, %ld expired in %ld s, %.2lf ids/s",
+    log("ids processed: %ld total, %ld expired in %ld s, %.2f ids/s",
 	n_processed, n_expired,
 	expire_delta, (double)n_processed/expire_delta);
     

@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftnpack.c,v 4.26 2000/01/28 22:01:15 mj Exp $
+ * $Id: ftnpack.c,v 4.27 2000/10/17 21:04:36 mj Exp $
  *
  * Pack output packets of ftnroute for Binkley outbound (ArcMail)
  *
@@ -40,7 +40,7 @@
 
 
 #define PROGRAM 	"ftnpack"
-#define VERSION 	"$Revision: 4.26 $"
+#define VERSION 	"$Revision: 4.27 $"
 #define CONFIG		DEFAULT_CONFIG_MAIN
 
 
@@ -162,7 +162,7 @@ void new_arc(int cmd)
     prog = xstrtok(NULL, " \t");
     if(!name || !prog)
     {
-	log("packing: missing argument for arc/prog definition", name);
+	log("packing: missing argument for arc/prog definition");
 	return;
     }
     

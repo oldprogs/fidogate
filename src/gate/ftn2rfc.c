@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftn2rfc.c,v 4.56 2000/04/11 08:04:29 mj Exp $
+ * $Id: ftn2rfc.c,v 4.57 2000/10/17 21:04:35 mj Exp $
  *
  * Convert FTN mail packets to RFC mail and news batches
  *
@@ -40,7 +40,7 @@
 
 
 #define PROGRAM 	"ftn2rfc"
-#define VERSION 	"$Revision: 4.56 $"
+#define VERSION 	"$Revision: 4.57 $"
 #define CONFIG		DEFAULT_CONFIG_GATE
 
 
@@ -370,7 +370,7 @@ int unpack(FILE *pkt_file, Packet *pkt)
 
 	/* Replace empty subject */
 	if (!*msg.subject)
-	    strcpy(msg.subject, "(no subject)");
+	    BUF_COPY(msg.subject, "(no subject)");
 	
 	/*
 	 * Read message body
@@ -904,7 +904,7 @@ int unpack(FILE *pkt_file, Packet *pkt)
 	    
 	    rfc = rfcaddr_from_rfc(msgbody_rfc_from);
 	    if(!rfc.real[0])
-		strcpy(rfc.real, addr_from.real);
+		BUF_COPY(rfc.real, addr_from.real);
 	    
 	    addr_from = rfc;
 	}
@@ -1243,32 +1243,6 @@ int unpack(FILE *pkt_file, Packet *pkt)
 	mail_close('n');
 
     TMPS_RETURN(ret);
-}
-
-
-
-/*
- * Rename .pkt -> .bad
- */
-int rename_bad(char *name)
-{
-    char bad[MAXPATH];
-    int len;
-    
-    BUF_COPY(bad, name);
-    len = strlen(bad) - 4;
-    if(len < 0)
-	len = 0;
-    strcpy(bad + len, ".bad");
-    
-    log("ERROR: bad packet renamed to %s", bad);
-    if(rename(name, bad) == ERROR)
-    {
-	log("$ERROR: can't rename %s -> %s", name, bad);
-	return ERROR;
-    }
-    
-    return OK;
 }
 
 

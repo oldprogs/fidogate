@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: packet.c,v 4.15 2000/01/28 22:01:11 mj Exp $
+ * $Id: packet.c,v 4.16 2000/10/17 21:04:35 mj Exp $
  *
  * Functions to read/write packets and messages
  *
@@ -835,7 +835,7 @@ int pkt_get_hdr(FILE *fp, Packet *pkt)
     {
 	pkt->from.zone = val;
 	if(ozone != val)
-	    debug(9, "Packet: different zones %d (FTS-0001) / %d (FSC-0039)",
+	    debug(9, "Packet: different zones %d (FTS-0001) / %ld (FSC-0039)",
 		  ozone, val);
     }
     /* Dest zone (FSC-0039) */
@@ -844,7 +844,7 @@ int pkt_get_hdr(FILE *fp, Packet *pkt)
     {
 	pkt->to.zone = val;
 	if(dzone != val)
-	    debug(9, "Packet: different zones %d (FTS-0001) / %d (FSC-0039)",
+	    debug(9, "Packet: different zones %d (FTS-0001) / %ld (FSC-0039)",
 		  dzone, val);
     }
     /* Orig point (FSC-0039) */

@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway software UNIX <-> FIDO
  *
- * $Id: rfc2ftn.c,v 4.59 2000/04/10 20:00:57 mj Exp $
+ * $Id: rfc2ftn.c,v 4.60 2000/10/17 21:04:36 mj Exp $
  *
  * Read mail or news from standard input and convert it to a FIDO packet.
  *
@@ -39,7 +39,7 @@
 
 
 #define PROGRAM 	"rfc2ftn"
-#define VERSION 	"$Revision: 4.59 $"
+#define VERSION 	"$Revision: 4.60 $"
 #define CONFIG		DEFAULT_CONFIG_GATE
 
 
@@ -574,7 +574,7 @@ int rfc_parse(RFCAddr *rfc, char *name, Node *node, int gw)
 	 */
 	*node = cf_gateway();
 	if(name)
-	    strcpy(name, "UUCP");
+	    str_copy(name, MSG_MAXNAME, "UUCP");
 	
 	ret = OK;
     }
@@ -658,7 +658,7 @@ char *receiver(char *to, Node *node)
     {
 	debug(5, "Alias found: %s %s %s", alias->username,
 	      znfp1(&alias->node), alias->fullname);
-	strcpy(name, alias->fullname);
+	BUF_COPY(name, alias->fullname);
 	/* Store address from ALIASES into node, this will reroute the
 	 * message to the point specified in ALIASES, if the message
 	 * addressed to node without point address.  */
@@ -791,7 +791,7 @@ char *mail_sender(RFCAddr *rfc, Node *node)
     {
 	debug(5, "Alias found: %s %s %s", alias->username,
 	      znfp1(&alias->node), alias->fullname);
-	strcpy(name, alias->fullname);
+	BUF_COPY(name, alias->fullname);
 	*node = alias->node;
 	return name;
     }
@@ -803,7 +803,7 @@ char *mail_sender(RFCAddr *rfc, Node *node)
 	alias_extended = TRUE;
 	debug(5, "Alias found: %s@%s %s %s", alias->username, alias->userdom,
 	      znfp1(&alias->node), alias->fullname);
-	strcpy(name, alias->fullname);
+	BUF_COPY(name, alias->fullname);
 	*node = alias->node;
 	return name;
     }

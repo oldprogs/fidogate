@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: misc.c,v 4.18 2000/01/28 22:01:11 mj Exp $
+ * $Id: misc.c,v 4.19 2000/10/17 21:04:35 mj Exp $
  *
  * Miscellaneous functions
  *
@@ -35,6 +35,24 @@
 
 
 /*
+ * str_change_ext(): change extension of string buffer containing filename
+ */
+char *str_change_ext(char *new, size_t len, char *old, char *ext)
+{
+    int off;
+
+    str_copy(new, len, old);
+    off = strlen(new) - strlen(ext);
+    if(off < 0)
+	off = 0;
+    str_copy(new+off, len-off, ext);
+
+    return new;
+}
+
+
+
+/*
  * str_printf(): wrapper for sprintf()/snprintf()
  */
 int str_printf(char *buf, size_t len, const char *fmt, ...)
@@ -55,6 +73,11 @@ int str_printf(char *buf, size_t len, const char *fmt, ...)
         return ERROR;
     }
 #endif
+    /* Make sure that buf[] is terminated with a \0. vsnprintf()
+     * should do this automatically, but one never knows ... see also
+     * posting on BugTraq */
+    buf[len - 1] = 0;
+
     va_end(args);
 
     return n;

@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftntick.c,v 4.22 2000/01/28 22:01:14 mj Exp $
+ * $Id: ftntick.c,v 4.23 2000/10/17 21:04:36 mj Exp $
  *
  * Process incoming TIC files
  *
@@ -37,7 +37,7 @@
 
 
 #define PROGRAM		"ftntick"
-#define VERSION		"$Revision: 4.22 $"
+#define VERSION		"$Revision: 4.23 $"
 #define CONFIG		DEFAULT_CONFIG_MAIN
 
 
@@ -166,8 +166,7 @@ int do_tic(int t_flag)
 	    /*
 	     * Error: rename .tic -> .bad
 	     */
-	    strcpy(buf, name);
-	    strcpy(buf+strlen(buf)-3, "bad");
+	    str_change_ext(buf, sizeof(buf), name, "bad");
 	    rename(name, buf);
 	    log("%s: renamed to %s", name, buf);
 	}

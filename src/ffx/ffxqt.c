@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ffxqt.c,v 4.16 2000/01/28 22:01:12 mj Exp $
+ * $Id: ffxqt.c,v 4.17 2000/10/17 21:04:35 mj Exp $
  *
  * Process incoming ffx control and data files
  *
@@ -38,7 +38,7 @@
 
 
 #define PROGRAM		"ffxqt"
-#define VERSION		"$Revision: 4.16 $"
+#define VERSION		"$Revision: 4.17 $"
 #define CONFIG		DEFAULT_CONFIG_FFX
 
 
@@ -276,8 +276,7 @@ int do_ffx(int t_flag)
 	    /*
 	     * Error: rename .ffx -> .bad
 	     */
-	    strcpy(buf, name);
-	    strcpy(buf+strlen(buf)-3, "bad");
+	    str_change_ext(buf, sizeof(buf), name, "bad");
 	    rename(name, buf);
 	    log("%s: renamed to %s", name, buf);
 	}

@@ -1,23 +1,25 @@
 #!/usr/local/bin/perl
 #
-# $Id: out-ls.pl,v 4.1 1996/06/10 19:36:07 mj Exp $
+# $Id: out-ls.pl,v 4.2 2000/10/17 21:04:35 mj Exp $
 #
 # This script lists the outbound of BinkleyTerm. It is currently tailored
 # to a UNIX system serving a DOS NFS client. DOS filenames are translated
 # to the corresponding filename on the server if possible.
 #
 
-$OUTBOUND = "<OUTBOUND>";
+$OUTBOUND = "<BTBASEDIR>";
 
 
 require "getopts.pl";
 
-&Getopts('lsaptB:m');
+&Getopts('lsaptB:mx');
 
 if($opt_B) {
     $OUTBOUND = $opt_B;
 }
 
+
+my %dirs;
 
 %dirs = (
     'c:', 'c:',
@@ -27,9 +29,8 @@ if($opt_B) {
     'g:', 'g:',
     'h:', '/home',
     'i:', '/var/spool',
-    'j:', '/var/spool2',
-    'p:', '/u1',
-    'q:', '/u2',
+    'p:', '/pub',
+    'q:', '/pub',
 );
 
 
@@ -225,4 +226,3 @@ sub do_dir {
 
 &do_dir(2,   "$OUTBOUND/out");
 &do_dir(242, "$OUTBOUND/out.0f2");
-# &do_dir(254, "$OUTBOUND/out.0fe");
