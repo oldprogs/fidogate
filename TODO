@@ -9,7 +9,7 @@ X = for next release
 
 DONE.	* ftn2rfc: check for Z-Netz gateways.
 
-	* ftntoss/ftnroute: new RemapFrom, make Remap/RemapFrom send
+DONE.	* ftntoss/ftnroute: new RemapFrom, make Remap/RemapFrom send
 	  mail to /dev/null if destination is 0:0/0.0
 
 	* sendmailstat: update for new sendmail.

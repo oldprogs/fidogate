@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: routing.c,v 4.2 1996/05/11 15:05:36 mj Exp $
+ * $Id: routing.c,v 4.3 1996/09/15 15:09:44 mj Exp $
  *
  * Routing config file reading for ftntoss and ftnroute.
  *
@@ -67,6 +67,10 @@ int parse_cmd(char *s)
 	return CMD_HUBROUTE;
     if(!stricmp(s, "remap"))
 	return CMD_REMAP;
+    if(!stricmp(s, "remapto"))
+	return CMD_REMAP_TO;
+    if(!stricmp(s, "remapfrom"))
+	return CMD_REMAP_FROM;
     if(!stricmp(s, "rewrite"))
 	return CMD_REWRITE;
     if(!stricmp(s, "sendmove"))
@@ -97,10 +101,7 @@ int parse_flav(char *s)
 /*
  * Process "remap" and "rewrite" entries in ROUTING config file
  */
-void routing_remap		(void);
-void routing_rewrite		(void);
-
-void routing_remap(void)
+void routing_remap(int cmd)
 {
     char *p;
     Node old, src, dest;
@@ -153,6 +154,7 @@ void routing_remap(void)
      * Create new entry and put into list
      */
     r = (Remap *)xmalloc(sizeof(Remap));
+    r->type = cmd;
     r->from = src;
     r->to   = dest;
     r->name = strsave(p);
@@ -264,9 +266,9 @@ void routing_init(char *name)
 	    type = cmd;
 	    continue;
 	}
-	if(cmd == CMD_REMAP)
+	if(cmd==CMD_REMAP || cmd==CMD_REMAP_FROM || cmd==CMD_REMAP_TO)
 	{
-	    routing_remap();
+	    routing_remap(cmd);
 	    continue;
 	}
 	if(cmd == CMD_REWRITE)

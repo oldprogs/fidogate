@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftntoss.c,v 4.6 1996/09/15 11:55:13 mj Exp $
+ * $Id: ftntoss.c,v 4.7 1996/09/15 15:09:45 mj Exp $
  *
  * Toss FTN NetMail/EchoMail
  *
@@ -38,7 +38,7 @@
 
 
 #define PROGRAM 	"ftntoss"
-#define VERSION 	"$Revision: 4.6 $"
+#define VERSION 	"$Revision: 4.7 $"
 #define CONFIG		CONFIG_MAIN
 
 
@@ -62,7 +62,7 @@ int	do_echomail		(Packet *, Message *, MsgBody *);
 void	add_via			(Textlist *, Node *);
 void	change_addr		(Node *, Node *);
 void	do_rewrite		(Message *);
-void	do_remap		(Message *);
+int	do_remap		(Message *);
 int	check_empty		(MsgBody *);
 int	do_netmail		(Packet *, Message *, MsgBody *);
 int	unpack			(FILE *, Packet *);
@@ -856,24 +856,49 @@ void do_rewrite(Message *msg)
 
 /*
  * Perform REMAP commands
+ *
+ * Return == TRUE: remapped to 0:0/0.0, kill message
  */
-void do_remap(Message *msg)
+int do_remap(Message *msg)
 {
     Remap *r;
     Node node;
+    int kill = FALSE;
     
     for(r=remap_first; r; r=r->next)
-	if(node_match(&msg->node_to, &r->from) &&
-	   wildmatch(msg->name_to, r->name, TRUE) )
+	if(
+	   (r->type==CMD_REMAP_TO                    &&
+	    node_match(&msg->node_to, &r->from)      &&
+	    wildmatch(msg->name_to, r->name, TRUE)     )
+	   ||
+	   (r->type==CMD_REMAP_FROM                  &&
+	    node_match(&msg->node_from, &r->from)    &&
+	    wildmatch(msg->name_from, r->name, TRUE)   )
+	   )
 	{
 	    node = msg->node_to;
 	    change_addr(&msg->node_to, &r->to);
+
+	    if(msg->node_to.zone==0 && msg->node_to.net==0 &&
+	       msg->node_to.node==0 && msg->node_to.point==0)
+		kill = TRUE;
+	    
 	    if(! node_eq(&node, &msg->node_to))
-		log("remap: %s @ %s -> %s", msg->name_to,
-		    node_to_asc(&node, TRUE),
-		    node_to_asc(&msg->node_to, TRUE)     );
+	    {
+		if(r->type == CMD_REMAP_TO)
+		    log("remapto: %s @ %s -> %s", msg->name_to,
+			node_to_asc(&node, TRUE),
+			!kill ? node_to_asc(&msg->node_to, TRUE) : "KILLED");
+		else
+		    log("remapfrom: %s @ %s -> %s", msg->name_from,
+			node_to_asc(&msg->node_from, TRUE),
+			!kill ? node_to_asc(&msg->node_to, TRUE) : "KILLED");
+	    }
+	    
 	    break;
 	}
+
+    return kill;
 }
 
 
@@ -948,7 +973,12 @@ int do_netmail(Packet *pkt, Message *msg, MsgBody *body)
     /*
      * Remap to address according to ROUTING rules
      */
-    do_remap(msg);
+    if(do_remap(msg))
+    {
+	/* Kill this message, remapped to 0:0/0.0 */
+	return OK;
+    }
+    
     
     /*
      * Write to output packet

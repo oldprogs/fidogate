@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: structs.h,v 4.2 1996/06/16 08:41:25 mj Exp $
+ * $Id: structs.h,v 4.3 1996/09/15 15:09:44 mj Exp $
  *
  * An assortment of FIDOGATE data structure definitions
  *
@@ -169,8 +169,11 @@ Passwd;
 #define CMD_HOSTROUTE	'h'
 #define CMD_HUBROUTE	'u'
 #define CMD_REMAP	'm'
+#define CMD_REMAP_TO	'm'
+#define CMD_REMAP_FROM	'f'
 #define CMD_REWRITE	'w'
 #define CMD_SENDMOVE	'v'
+#define CMD_XROUTE	'x'
 
 #define FLAV_NONE	'-'
 #define FLAV_NORMAL	'n'
@@ -192,7 +195,8 @@ Routing;
 
 typedef struct st_remap
 {
-    Node from;				/* From pattern */
+    int  type;				/* 'f' = RemapFrom, 'm' = RemapTo */
+    Node from;				/* From/to pattern */
     Node to;				/* New dest. address */
     char *name;				/* Name pattern */
 

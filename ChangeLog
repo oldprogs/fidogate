@@ -1,5 +1,22 @@
 Sun Sep 15 12:11:05 1996  Martin Junius  <mj@fido.de>
 
+	------- CVS ci -------------------------------------------------------
+
+	* src/toss/ftntoss.c (do_remap): comparison changed to support
+	  CMD_REMAP_TO and CMD_REMAP_FROM, if remapped to 0:0/0.0 set kill
+	  flag to TRUE, return kill flag.
+	  (do_netmail): check return code of do_remap(), kill message if TRUE.
+
+	* src/common/routing.c (parse_cmd): added "RemapTo", "RemapFrom"
+	  commands. 
+	  (routing_remap): new argument cmd, put into new r->type field.
+	  (routing_init): call routing_remap() for CMD_REMAP,
+	  CMD_REMAP_FROM, CMD_REMAP_TO, pass cmd argument.
+
+	* src/include/structs.h (st_remap): added type field, 'f' =
+	  RemapFrom, 't' = RemapTo.
+	  (CMD_REMAP_FROM, _REMAP_TO, _XROUTE): new definitions.
+
 	======= Release 4.0 alpha 6 ==========================================
 	------- CVS tag R40a6 ------------------------------------------------
 
