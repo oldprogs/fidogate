@@ -1,6 +1,6 @@
 -*- Indented-Text -*-
 
-$Id: README,v 4.30 1999/10/04 08:18:11 mj Exp $
+$Id: README,v 4.31 2000/02/11 14:57:21 mj Exp $
 
 ======================================================================
 				   
@@ -26,12 +26,205 @@ note the following *MAJOR* changes:
      4.3.0+	In addition, FIDOGATE now uses a single config file
 		/etc/fidogate/fidogate.conf for *all* programs.
 
-Please subscribe to the FIDOGATE mailing list, if you want to use
-4.3.x!!! (see below)
+     4.4.0	The new stable release, even somewhat well documented.
+
+
+Please subscribe to the FIDOGATE mailing list!!!
 
 ======================================================================
 
 [See ANNOUNCE for more recent changes]
+
+
+Changes in 4.3.6:
+
+* Updates to various scripts.
+
+* Interface to INN and Sendmail updated for RedHat 6.x.
+
+* ftn2rfc: new config option MessageLineLength for formatting long
+  lines from Fido messages.
+
+* Examples updated.
+
+
+
+Changes in 4.3.5:
+
+* ftntick: new -x --exec-script option to run e.g. announcement script.
+  ftntickpost: skeleton for such a script.
+
+* ftnpack, ftnfattach, bink_attach() in general: search FLO file for
+  entry with file attachment, only attach if necessary. ftnpack now
+  avoids adding to orphan arcmail packets not listed in any FLO file.
+
+* sendmail configuration: no longer uses copy of m4 copy files, but
+  symlinks to /usr/lib/sendmail-cf. New redhat6-orodruin.mc config
+  file for RedHat 6.0 and sendmail 8.9.3.
+
+* rfc2ftn: bug fix for UseXHeaderforTearline.
+
+* Default configuration now supports INN 2.2 on RedHat 6.0.
+
+
+
+Changes in 4.3.4:
+
+* Removed out-dated examples.
+
+* New module strtok_r.c, re-implementing old strtok(), xstrtok()
+  functions. 
+
+* New module rematch.c, regular expression handling for 1st line.
+
+* rfc2ftn: new config option Regex1stLine, regular expressions for
+  finding addresses in the first (and second) line of the message body
+  for replies.
+
+* Documentation doc/fidogate.* now completely up-to-date for this
+  release. New examples for point configuration in examples/point/
+
+
+
+Changes in 4.3.3:
+
+* packet processing: yet another bugfix for Zone 0 packets.
+
+* Win32: added missing config.make to examples/win32/
+
+* rfc2ftn: major improvements to charset handling. Now parses MIME
+  headers and correctly outputs ^ACHRS and ^ARFC-MIME-Header. Charset
+  mapping Internet -> Fido is now implemented.
+
+* ftn2rfc, rfc2ftn: AI_2 and AI_7 patches are now fully integrated,
+  fixing some things along the way. New config option
+  UseXHeaderForTearline enables using X-FTN-Tearline, X-Mailer,
+  User-Agent, or X-Newsreader for the Fido --- tearline.
+
+* Documentation: major update, chapters on config files and example
+  configurations are now up-to-date for version 4.3.
+
+* Solaris 2.x: proper definitions in config.h and src/include/declare.h.
+
+
+
+Changes in 4.3.2:
+
+* parsedate() and date() tested for Y2k compliance, everything is (and 
+  was!) OK.
+
+* Major code clean-up for node-as-ascii-string output functions, using 
+  static buffers where possible and avoiding the usage of tmps
+  strings.
+
+* misc.c:run_system(): cmd[] buffer was too small, now BUFFERSIZE,
+  in particular fixes ffxqt problems with long command lines.
+
+* config files: inline comments are no longer supported, only lines
+  starting with (some white space and) '#' are treated as comments!
+
+* charsetc: some bug fixes.
+
+* Win32 port: some bug fixes and work-arounds, compiles with Cygwin
+  B20.1. New example config files in examples/win32/.
+
+* Areafix: %unlinked lists only areas with access rights (level, key).
+
+* Updated texinfo documentation: at least the sections on compilation
+  and installation are now up-to-date for version 4.3.x.
+
+* Packets with zone information (really *old* tosser programs) are
+  processed with the default zone (from 1st aka).
+
+* rfc2ftn: CheckAreasBBS should now work if gateway address and main
+  address are identical.
+
+* rfc2ftn: AI_9 patches obsoleted.
+
+* rfc2ftn: preparation for charset mapping support (will be finalized
+  in 4.3.3).
+
+
+
+Changes in 4.3.1:
+
+* logdaily: updated.
+
+* logsendmail: major changes to analysis and output format.
+
+* areasbbssync: -l creates diff listing for text output.
+
+* runpoll-binkd: poll script using BinkD.
+
+* out-rm*: updated.
+
+* version.h code changed as follows:
+    VERSION_MAJOR	major version number
+    VERSION_MINOR	minor version number
+    PATCHLEVEL		patchlevel
+    STATE		development ./. stable
+  Current version: 4.3.1 (development)
+
+* Removed the last remaining ultra-ugly code from the original ifmail
+  - shuffle.h and SHUFFLEBUFFERS! FIDOGATE now uses the new temporary
+  string code in tmps.c with memory management throughout the various
+  programs.
+  This *may* result in some memory leaks in version 4.3.1, the new
+  version is not yet thoroughly tested!
+
+* An sprintf() replacement str_printf() is now used throughout the
+  FIDOGATE code, avoiding potential buffer overflows. If your C
+  library support snprinft() it will be used, otherwise FIDOGATE
+  terminates with a fatal error if a buffer overflow occurs.
+
+* Gateway programs: fixed some bugs with the new configuration file,
+  GateAddr and the handling of the -a / -u command line options.
+
+* All test cases have been updated to the new single configuration
+  file fidogate.conf (that's internal for me, the test cases are not
+  included in the source distribution).
+
+* rfc2ftn: parsing of *.maus.de addresses removed, config options
+  MausGate, MausDomain are now obsolete.
+
+* ftn2rfc: bugfix memory allocation.
+
+
+
+Changes in 4.3.0:
+
+* New, and improved versions of the various runxxx scripts and the INN 
+  interface scripts.
+
+* General clean-up of scripts/ directory, obsolete ones removed.
+
+* gate.cgi: new FIDOGATE status CGI script.
+
+* Updated morannon example config files (NOT using the new single
+  fidogate.conf, but the old 4.3a5 config files).
+
+* runpoll: new generic version without the ffx programs (suitable for
+  most FIDOGATE points).
+
+* Allow configuration with only Address statements, Uplink or
+  GateAddress is not necessary, if main and gateway address are the
+  same. 
+
+* Started to get rid of some of the ugly shuffle.h stuff.
+
+* rfc2ftn: code to generate ^AORIGID removed (already disabled per
+  default).
+
+* config.make: NEW DEFAULT CONFIGURATION IS NOW A SINGLE CONFIG FILE
+  /etc/fidogate/fidogate.conf FOR ALL PROGRAMS!!! (The different 4.3a5 
+  config files can still be used by changing the corresponding
+  definitions in config.make, line 91-98.
+
+  Currently, there is only one example of the new single config file:
+  examples/orodruin/fidogate.conf
+
+* ftntoss: config option EchoMail4D renamed to TossEchoMail4D to avoid 
+  conflicts with rfc2ftn configuration.
 
 
 Changes in 4.3a5:
@@ -678,6 +871,6 @@ not integrate your patches.
 
 ======================================================================
 
-$Date: 1999/10/04 08:18:11 $
+$Date: 2000/02/11 14:57:21 $
 Martin Junius
 mailto:mj@fido.de

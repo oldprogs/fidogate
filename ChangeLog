@@ -1,3 +1,15 @@
+2000-02-11  Martin Junius  <mj@fido.de>
+
+	======= Release 4.4.0 ================================================
+	------- CVS tag R440 -------------------------------------------------
+	------- CVS ci -------------------------------------------------------
+
+	* README: updated.
+
+	* ANNOUNCE: updated, old changes moved to README.
+
+	* fidogate.lsm: updated.
+
 2000-01-30  Martin Junius  <mj@fido.de>
 
 	------- CVS ci -------------------------------------------------------
