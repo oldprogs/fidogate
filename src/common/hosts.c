@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: hosts.c,v 4.10 2000/01/28 22:01:10 mj Exp $
+ * $Id: hosts.c,v 4.11 2000/10/18 21:53:57 mj Exp $
  *
  * Process hostname <-> node aliases from hosts file
  *
@@ -99,11 +99,7 @@ static Host *hosts_parse_line(char *buf)
 	}
 	else			/* Add domain */
 	{
-	    char *dom = cf_hostsdomain();
-	    int l = strlen(n) + strlen(dom);
-	    p->name = xmalloc(l + 1);
-	    strcpy(p->name, n);
-	    strcat(p->name, dom);
+	    p->name = strsave2(n, cf_hostsdomain());
 	}
     }
 	

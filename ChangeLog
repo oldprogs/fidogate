@@ -1,3 +1,34 @@
+2000-10-18  Martin Junius  <mj@fido.de>
+
+	------- CVS ci -------------------------------------------------------
+
+	* src/toss/dbz.c: use #include "fidogate.h"
+
+	* src/*/*.c: got rid of all strcpy!!! Only the bison generated
+	  code in parsedate.c contains some strcpy(), strcat().
+
+	* src/toss/dbz.c (enstring): removed, replaced by strsave2().
+
+	* src/common/msgid.c (s_msgid_rfc_to_fido): use str_copy().
+
+	* src/common/hosts.c (hosts_parse_line): use new strsave2().
+
+	* src/common/xalloc.c (strsave): changed to use str_copy().
+	  (strsave2): new function like strsave(), saving concatenation of 
+	  2 strings.
+
+	* src/common/outpkt.c (outpkt_fopen): fixed format error.
+
+	* src/common/parsedate.y: removed old test main().
+
+	* src/common/date.c (date_buf): major changes to formatting code,
+	  avoiding unsafe strcpy() and sprintf().
+	  (date_buf): new argument len to check buffer length against
+	  overflows. 
+
+	* src/common/acl.c (acl_parse_line): use strsave().
+	  (Argify): dito.
+
 2000-10-17  Martin Junius  <mj@fido.de>
 
 	------- CVS ci -------------------------------------------------------

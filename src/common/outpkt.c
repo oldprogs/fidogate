@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: outpkt.c,v 4.10 2000/01/28 22:01:11 mj Exp $
+ * $Id: outpkt.c,v 4.11 2000/10/18 21:53:57 mj Exp $
  *
  * Output packet handling for ftntoss and ftroute.
  *
@@ -224,7 +224,7 @@ static FILE *outpkt_fopen(char *name, char *mode)
 	return fp;
     }
     else
-	debug(3, "Open %s failed");
+	debug(3, "Open %s failed", name);
 
     return NULL;
 }

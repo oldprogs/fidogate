@@ -3,7 +3,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: parsedate.y,v 4.1 1999/03/28 10:04:32 mj Exp $
+ * $Id: parsedate.y,v 4.2 2000/10/18 21:53:57 mj Exp $
  *
  * parsedate() date/time parser. Taken from ifmail 1.7 / inn 1.4 and
  * adopted for FIDOGATE. Added DST from old getdate.y.
@@ -842,50 +842,3 @@ int main(int argc, char *argv[])
 }
 
 #endif /**TEST**/
-
-
-/* Old test */
-#if 0
-#if	defined(TEST)
-
-#if	YYDEBUG
-extern int	yydebug;
-#endif	/* YYDEBUG */
-
-/* ARGSUSED */
-int
-main(int ac, char *av[])
-{
-    char	buff[128];
-    time_t	d;
-
-#if	YYDEBUG
-    yydebug = 1;
-#endif	/* YYDEBUG */
-
-/*    (void)printf("Enter date, or blank line to exit.\n\t> "); */
-    for ( ; ; ) {
-/*	(void)printf("\t> "); */
-/*	(void)fflush(stdout); */
-	if (gets(buff) == NULL || buff[0] == '\n')
-	    break;
-#if	YYDEBUG
-	if (strcmp(buff, "yydebug") == 0) {
-	    yydebug = !yydebug;
-	    printf("yydebug = %s\n", yydebug ? "on" : "off");
-	    continue;
-	}
-#endif	/* YYDEBUG */
-	d = parsedate(buff, NULL);
-	if (d == -1)
-	    (void)printf("Bad format - couldn't convert.\n");
-	else
-	    (void)printf("%s\n", date(NULL, &d));
-    }
-
-    exit(0);
-    /* NOTREACHED */
-}
-#endif	/* defined(TEST) */
-
-#endif /**0**/

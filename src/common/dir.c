@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: dir.c,v 4.6 2000/01/28 22:01:10 mj Exp $
+ * $Id: dir.c,v 4.7 2000/10/18 21:53:57 mj Exp $
  *
  * Reading/sorting directories
  *
@@ -252,7 +252,7 @@ char *dir_search(char *dirname, char *filename)
     while((dir = readdir(dp)))
 	if(!stricmp(dir->d_name, filename))
 	{
-	    strcpy(filename, dir->d_name);
+	    str_copy(filename, strlen(filename)+1, dir->d_name);
 	    closedir(dp);
 	    return filename;
 	}

@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: prototypes.h,v 4.63 2000/10/17 21:04:36 mj Exp $
+ * $Id: prototypes.h,v 4.64 2000/10/18 21:53:57 mj Exp $
  *
  * Prototypes for functions in libfidogate.a
  *
@@ -193,7 +193,7 @@ unsigned long crc32_file	(char *);
 
 /* date.c */
 char   *date			(char *, time_t *);
-char   *date_buf		(char *, char *, time_t *);
+char   *date_buf		(char *, size_t, char *, time_t *);
 
 /* dir.c */
 #define DIR_SORTNAME	'n'
@@ -603,4 +603,5 @@ void   *xmalloc			(int);
 void   *xrealloc		(void *, int);
 void	xfree			(void *);
 char   *strsave			(char *);
+char   *strsave2		(char *, char *);
 char   *strsaveline		(char *);

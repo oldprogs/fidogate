@@ -1,7 +1,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: acl.c,v 4.2 1999/03/07 16:11:47 mj Exp $
+ * $Id: acl.c,v 4.3 2000/10/18 21:53:57 mj Exp $
  *
  *****************************************************************************/
 
@@ -57,10 +57,8 @@ static Acl *acl_parse_line(char *buf)
     
     p = (Acl *)xmalloc(sizeof(Acl));
     p->next      = NULL;
-    p->email_pat = xmalloc(strlen(f) + 1);
-    p->ngrp_pat  = xmalloc(strlen(n) + 1);
-    strcpy(p->email_pat, f);
-    strcpy(p->ngrp_pat, n);
+    p->email_pat = strsave(f);
+    p->ngrp_pat  = strsave(n);
 	
     debug(15, "acl: %s       %s", p->email_pat, p->ngrp_pat);
 
@@ -127,7 +125,7 @@ void acl_ngrp(RFCAddr rfc_from)
 {
     char  email[MAXINETADDR];
 
-    strcpy(email, s_rfcaddr_to_asc(&rfc_from, FALSE));
+    BUF_COPY(email, s_rfcaddr_to_asc(&rfc_from, FALSE));
     list_init(&ngrp_pat_list, acl_lookup(email));
 }
 
@@ -198,8 +196,7 @@ Argify(line, argvp)
     while (ISWHITE(*line))
 	line++;
     i = strlen(line);
-    p = NEW(char, i + 1);
-    (void)strcpy(p, line);
+    p = strsave(line);
 
     /* Allocate worst-case amount of space. */
     for (*argvp = argv = NEW(char*, i + 2); *p; ) {

@@ -22,15 +22,9 @@ if the incore facility is used.
 
 */
 
-#include <stdio.h>
-#include <sys/types.h>
-#include <string.h>
-#include <ctype.h>
-#include <errno.h>
-#ifndef __STDC__
-extern int errno;
-#endif
-#include <dbz.h>
+#include "fidogate.h"
+
+#include "dbz.h"
 
 /*
  * #ifdef index.  "LIA" = "leave it alone unless you know what you're doing".
@@ -323,7 +317,6 @@ static FILE *latebase();
 /* file-naming stuff */
 static char dir[] = ".dir";
 static char pag[] = ".pag";
-static char *enstring();
 
 /* central data structures */
 static FILE *basef;		/* descriptor for base file */
@@ -414,7 +407,7 @@ of_t tagmask;			/* 0 default, 1 no tags */
 	}
 
 	/* write it out */
-	fn = enstring(name, dir);
+	fn = strsave2(name, dir);
 	if (fn == NULL)
 		return(-1);
 	f = fopen(fn, "w");
@@ -433,7 +426,7 @@ of_t tagmask;			/* 0 default, 1 no tags */
 	}
 
 	/* create/truncate .pag */
-	fn = enstring(name, pag);
+	fn = strsave2(name, pag);
 	if (fn == NULL)
 		return(-1);
 	f = fopen(fn, "w");
@@ -529,7 +522,7 @@ char *oldname;			/* base name; all must exist */
 	}
 
 	/* pick up the old configuration */
-	fn = enstring(oldname, dir);
+	fn = strsave2(oldname, dir);
 	if (fn == NULL)
 		return(-1);
 	f = fopen(fn, "r");
@@ -566,7 +559,7 @@ char *oldname;			/* base name; all must exist */
 		c.tsize = newsize;
 
 	/* write it out */
-	fn = enstring(name, dir);
+	fn = strsave2(name, dir);
 	if (fn == NULL)
 		return(-1);
 	f = fopen(fn, "w");
@@ -583,7 +576,7 @@ char *oldname;			/* base name; all must exist */
 	}
 
 	/* create/truncate .pag */
-	fn = enstring(name, pag);
+	fn = strsave2(name, pag);
 	if (fn == NULL)
 		return(-1);
 	f = fopen(fn, "w");
@@ -620,7 +613,7 @@ char *name;
 	}
 
 	/* open the .dir file */
-	dirfname = enstring(name, dir);
+	dirfname = strsave2(name, dir);
 	if (dirfname == NULL)
 		return(-1);
 	dirf = fopen(dirfname, "r+");
@@ -636,7 +629,7 @@ char *name;
 	}
 
 	/* open the .pag file */
-	pagfname = enstring(name, pag);
+	pagfname = strsave2(name, pag);
 	if (pagfname == NULL) {
 		(void) fclose(dirf);
 		return(-1);
@@ -675,7 +668,7 @@ char *name;
 	basef = fopen(name, "r");
 	if (basef == NULL) {
 		DEBUG(("dbminit: basefile open failed\n"));
-		basefname = enstring(name, "");
+		basefname = strsave2(name, "");
 		if (basefname == NULL) {
 			(void) fclose(pagf);
 			(void) fclose(dirf);
@@ -728,26 +721,6 @@ char *name;
 	prevp = FRESH;
 	DEBUG(("dbminit: succeeded\n"));
 	return(0);
-}
-
-/*
- - enstring - concatenate two strings into a malloced area
- */
-static char *			/* NULL if malloc fails */
-enstring(s1, s2)
-char *s1;
-char *s2;
-{
-	register char *p;
-
-	p = malloc((size_t)strlen(s1) + (size_t)strlen(s2) + 1);
-	if (p != NULL) {
-		(void) strcpy(p, s1);
-		(void) strcat(p, s2);
-	} else {
-		DEBUG(("enstring(%s, %s) out of memory\n", s1, s2));
-	}
-	return(p);
 }
 
 /*

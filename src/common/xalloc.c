@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: xalloc.c,v 4.4 2000/01/28 22:01:11 mj Exp $
+ * $Id: xalloc.c,v 4.5 2000/10/18 21:53:57 mj Exp $
  *
  * Safe memory allocation functions
  *
@@ -88,12 +88,29 @@ void xfree(void *p)
 char *strsave(char *s)
 {
     char *p;
+    size_t len;
 
     if(!s)
 	return NULL;
+
+    len = strlen(s) + 1;
+    p = xmalloc(len);
+    str_copy(p, len, s);
+
+    return p;
+}
+
+char *strsave2(char *s1, char *s2)
+{
+    char *p;
+    size_t len;
+
+    if(!s1 || !s2)
+	return NULL;
     
-    p = xmalloc(strlen(s) + 1);
-    strcpy(p, s);
+    len = strlen(s1) + strlen(s2) + 1;
+    p = xmalloc(len);
+    str_copy2(p, len, s1, s2);
 
     return p;
 }
@@ -111,5 +128,5 @@ char *strsaveline(char *s)
     r = strsave(s);
     strip_crlf(r);
 
-    return r ;
+    return r;
 }

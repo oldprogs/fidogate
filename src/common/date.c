@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: date.c,v 4.6 2000/01/28 22:01:10 mj Exp $
+ * $Id: date.c,v 4.7 2000/10/18 21:53:57 mj Exp $
  *
  * date() date/time print function
  *
@@ -70,14 +70,12 @@ char *date(char *fmt, time_t *t)
 {
     static char buf[128];
 
-    return date_buf(buf, fmt, t);
+    return date_buf(buf, sizeof(buf), fmt, t);
 }
 
 
-char *date_buf(char *buf, char *fmt, time_t *t)
+char *date_buf(char *buf, size_t len, char *fmt, time_t *t)
 {
-    /**FIXME: buf[] should be checked for overflow**/
-
     TIMEINFO ti;
     struct tm *tm;
 
@@ -91,6 +89,9 @@ char *date_buf(char *buf, char *fmt, time_t *t)
 	"Jul", "Aug", "Sep", "Oct", "Nov", "Dec",
     };
     char *p = buf;
+    char *s, sbuf[16];
+    int hour, min, off;
+    char cc;
 
     /* Check for invalid time (-1) */
     if(fmt==NULL && t && *t==-1)
@@ -125,77 +126,80 @@ char *date_buf(char *buf, char *fmt, time_t *t)
 	    switch (*fmt)
 	    {
 	    case 'a':					/* Abbr. weekday */
-		strcpy(p, weekdays[tm->tm_wday]); break;
+		s = weekdays[tm->tm_wday];	break;
 	    /* A not implemented */
 	    case 'b':					/* Abbr. month */
-		strcpy(p, months[tm->tm_mon]); break;
+		s = months[tm->tm_mon];		break;
 	    /* B not implemented */
 	    /* c not implemented */
 	    case 'd':					/* Day of month */
-		sprintf(p, "%02d", tm->tm_mday); break;
+		str_printf(sbuf, sizeof(sbuf), "%02d", tm->tm_mday);
+		s = sbuf;			break;
 	    case 'H':					/* Hour (24h) */
-		sprintf(p, "%02d", tm->tm_hour); break;
+		str_printf(sbuf, sizeof(sbuf), "%02d", tm->tm_hour);
+		s = sbuf;			break;
 	    /* I not implemented */
 	    case 'j':					/* Day of year */
-		sprintf(p, "%03d", tm->tm_yday); break;
+		str_printf(sbuf, sizeof(sbuf), "%03d", tm->tm_yday);
+		s = sbuf;			break;
 	    case 'm':					/* Month */
-		sprintf(p, "%02d", tm->tm_mon + 1); break;
+		str_printf(sbuf, sizeof(sbuf), "%02d", tm->tm_mon + 1);
+		s = sbuf;			break;
 	    case 'M':					/* Minutes */
-		sprintf(p, "%02d", tm->tm_min); break;
+		str_printf(sbuf, sizeof(sbuf), "%02d", tm->tm_min);
+		s = sbuf;			break;
 	    /* p not implemented */
 	    case 'S':					/* Seconds */
-		sprintf(p, "%02d", tm->tm_sec); break;
+		str_printf(sbuf, sizeof(sbuf), "%02d", tm->tm_sec);
+		s = sbuf;			break;
 	    /* U not implemented */
 	    case 'w':					/* Day of week */
-		sprintf(p, "%d", tm->tm_wday); break;
+		str_printf(sbuf, sizeof(sbuf), "%d", tm->tm_wday);
+		s = sbuf;			break;
 	    /* W not implemented */
 	    case 'x':					/* Date */
-		sprintf(p, "%s %2d %4d",
-			months[tm->tm_mon],
-			tm->tm_mday, tm->tm_year+1900); break;
+		str_printf(sbuf, sizeof(sbuf), "%s %2d %4d",
+			   months[tm->tm_mon],
+			   tm->tm_mday, tm->tm_year+1900);
+		s = sbuf;			break;
 	    case 'X':					/* Time */
-		sprintf(p, "%02d:%02d:%02d",
-			tm->tm_hour, tm->tm_min, tm->tm_sec); break;
+		str_printf(sbuf, sizeof(sbuf), "%02d:%02d:%02d",
+			   tm->tm_hour, tm->tm_min, tm->tm_sec);
+		s = sbuf;			break;
 	    case 'y':					/* Year 00-99 */
-		sprintf(p, "%02d", (tm->tm_year % 100) ); break;
+		str_printf(sbuf, sizeof(sbuf), "%02d", (tm->tm_year % 100) );
+		s = sbuf;			break;
 	    case 'Y':					/* Year 1900 ... */
-		sprintf(p, "%4d", 1900 + tm->tm_year); break;
+		str_printf(sbuf, sizeof(sbuf), "%4d", 1900 + tm->tm_year);
+		s = sbuf;			break;
 	    case 'Z':					/* Time zone */
-		strcpy(p, get_tz_name(tm)); break;
-		
+		s = get_tz_name(tm);		break;
 	    /***** Additional %O format *****/
 	    case 'O':					/* Time diff to UTC */
-	    {
-		int hour, min, off;
-		char cc;
-		
 		off  = - ti.tzone;
-		cc   = off>=0 ? '+' : '-';
-		off  = off<0 ? -off : off;
+		cc   = off >= 0 ? '+'  : '-';
+		off  = off <  0 ? -off : off;
 		hour = off / 60;
 		min  = off % 60;
-		
-		sprintf(p, "%c%02d%02d", cc, hour, min);
-	    }
+		str_printf(sbuf, sizeof(sbuf), "%c%02d%02d", cc, hour, min);
+		s    = sbuf;
 		break;
-		
-		
 	    default:
-		*p++ = *fmt;
-		*p   = 0;
+		sbuf[0] = *fmt;
+		sbuf[1] = 0;
+		s       = sbuf;
 		break;
 	    }
-
-	    fmt++;
-	    /* Advance buffer pointer */
-	    while(*p)
-		p++;
 	}
 	else 
 	{
-	    *p++ = *fmt++;
-	    *p   = 0;
+	    sbuf[0] = *fmt;
+	    sbuf[1] = 0;
+	    s       = sbuf;
 	}
+
+        str_append(buf, len, s);
+	fmt++;
     }
 
     return buf;

@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: msgid.c,v 4.10 2000/01/28 22:01:11 mj Exp $
+ * $Id: msgid.c,v 4.11 2000/10/18 21:53:57 mj Exp $
  *
  * MSGID <-> Message-ID conversion handling. See also ../doc/msgid.doc
  *
@@ -333,8 +333,8 @@ char *s_msgid_rfc_to_fido(int *origid_flag, char *message_id,
 	    hexflag = FALSE;
 	if(hexflag) {
 	    /* Pad with leading 0's */
-	    strcpy(hexid, "00000000");
-	    strcpy(hexid + 8 - strlen(id), id);
+	    str_copy(hexid, sizeof(hexid), "00000000");
+	    str_copy(hexid+8-strlen(id), sizeof(hexid)-8+strlen(id), id);
 	    
 	    /* host must be an FTN address */
 	    if( (n = inet_to_ftn(host)) )
