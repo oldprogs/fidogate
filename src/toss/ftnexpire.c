@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: ftnexpire.c,v 4.13 2000/10/17 21:04:36 mj Exp $
+ * $Id: ftnexpire.c,v 4.14 2000/11/17 21:18:08 mj Exp $
  *
  * Expire MSGID history database
  *
@@ -36,7 +36,7 @@
 
 
 #define PROGRAM 	"ftnexpire"
-#define VERSION 	"$Revision: 4.13 $"
+#define VERSION 	"$Revision: 4.14 $"
 #define CONFIG		DEFAULT_CONFIG_MAIN
 
 
@@ -396,7 +396,4 @@ int main(int argc, char **argv)
 
     
     exit(ret);
-
-    /**NOT REACHED**/
-    return 1;
 }

@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: ftnseq.c,v 4.5 2000/01/28 22:01:15 mj Exp $
+ * $Id: ftnseq.c,v 4.6 2000/11/17 21:18:09 mj Exp $
  *
  * Command line interface to sequencer files
  *****************************************************************************
@@ -34,7 +34,7 @@
 
 
 #define PROGRAM 	"ftnseq"
-#define VERSION 	"$Revision: 4.5 $"
+#define VERSION 	"$Revision: 4.6 $"
 #define CONFIG		DEFAULT_CONFIG_MAIN
 
 
@@ -131,7 +131,4 @@ int main(int argc, char **argv)
     n == -1L ? printf("ERROR\n") : printf("%ld\n", n) ;
     
     exit(EX_OK);
-
-    /**NOT REACHED**/
-    return 1;
 }

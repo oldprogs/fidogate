@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: history.c,v 4.8 2000/01/28 22:01:15 mj Exp $
+ * $Id: history.c,v 4.9 2000/11/17 21:18:08 mj Exp $
  *
  * MSGID history functions and dupe checking
  *
@@ -322,9 +322,6 @@ int main(int argc, char *argv[])
     hi_close();
     
     exit(0);
-
-    /**NOT REACHED**/
-    return 1;
 }
 #endif /**TEST**/
 /*****************************************************************************/

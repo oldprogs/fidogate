@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: prototypes.h,v 4.64 2000/10/18 21:53:57 mj Exp $
+ * $Id: prototypes.h,v 4.65 2000/11/17 21:18:08 mj Exp $
  *
  * Prototypes for functions in libfidogate.a
  *
@@ -207,12 +207,6 @@ void	dir_close		(void);
 void	dir_sortmode		(int);
 char   *dir_get			(int);
 char   *dir_search		(char *, char *);
-
-/* exit.c */
-typedef int (*ExitHandlerF) (int);
-
-void	exit_handler		(ExitHandlerF);
-void	fidogate_exit		(int);
 
 /* file.c */
 int	rename_bad		(char *);

@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftnconfig.c,v 4.9 2000/01/28 22:01:15 mj Exp $
+ * $Id: ftnconfig.c,v 4.10 2000/11/17 21:18:09 mj Exp $
  *
  * Fetch FIDOGATE config.* parameters
  *
@@ -36,7 +36,7 @@
 
 
 #define PROGRAM 	"ftnconfig"
-#define VERSION 	"$Revision: 4.9 $"
+#define VERSION 	"$Revision: 4.10 $"
 #define CONFIG		DEFAULT_CONFIG_MAIN
 
 
@@ -223,7 +223,4 @@ int main(int argc, char **argv)
     }
     
     exit( do_para(argv[optind]) ? 0 : 1 );
-    
-    /**NOT REACHED**/
-    return 1;
-}
+    }

@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ffxqt.c,v 4.17 2000/10/17 21:04:35 mj Exp $
+ * $Id: ffxqt.c,v 4.18 2000/11/17 21:18:07 mj Exp $
  *
  * Process incoming ffx control and data files
  *
@@ -38,7 +38,7 @@
 
 
 #define PROGRAM		"ffxqt"
-#define VERSION		"$Revision: 4.17 $"
+#define VERSION		"$Revision: 4.18 $"
 #define CONFIG		DEFAULT_CONFIG_FFX
 
 
@@ -657,7 +657,4 @@ int main(int argc, char **argv)
 
 
     exit(0);
-
-    /**NOT REACHED**/
-    return 1;
 }

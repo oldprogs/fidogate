@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: ftnhatch.c,v 4.10 2000/10/17 21:04:36 mj Exp $
+ * $Id: ftnhatch.c,v 4.11 2000/11/17 21:18:08 mj Exp $
  *
  * Hatch file into file area
  *
@@ -36,7 +36,7 @@
 
 
 #define PROGRAM		"ftnhatch"
-#define VERSION		"$Revision: 4.10 $"
+#define VERSION		"$Revision: 4.11 $"
 #define CONFIG		DEFAULT_CONFIG_MAIN
 
 
@@ -284,7 +284,4 @@ int main(int argc, char **argv)
     tmps_freeall();
 
     exit(ret);
-
-    /**NOT REACHED**/
-    return 1;
 }

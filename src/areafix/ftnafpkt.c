@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftnafpkt.c,v 1.11 2000/10/17 21:04:35 mj Exp $
+ * $Id: ftnafpkt.c,v 1.12 2000/11/17 21:18:06 mj Exp $
  *
  * Areafix processing FTN packets
  *
@@ -37,7 +37,7 @@
 
 
 #define PROGRAM 	"ftnafpkt"
-#define VERSION 	"$Revision: 1.11 $"
+#define VERSION 	"$Revision: 1.12 $"
 #define CONFIG		DEFAULT_CONFIG_MAIN
 
 
@@ -541,7 +541,4 @@ int main(int argc, char **argv)
     
 
     exit(ret);
-
-    /**NOT REACHED**/
-    return 1;
 }

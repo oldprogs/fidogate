@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway software UNIX <-> FIDO
  *
- * $Id: fidogate.h,v 4.9 2000/01/28 22:01:13 mj Exp $
+ * $Id: fidogate.h,v 4.10 2000/11/17 21:18:08 mj Exp $
  *
  * Common header file
  *
@@ -121,12 +121,6 @@
 #define _tolower(c) ((c)-'A'+'a')
 #define toupper(c)  (islower(c) ? _toupper(c) : (c))
 #define tolower(c)  (isupper(c) ? _tolower(c) : (c))
-
-
-/*
- * Replacement for exit() doing clean-up
- */
-#define exit(x) fidogate_exit(x)
 
 
 /*

@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: charset.c,v 1.7 2000/03/07 10:50:09 mj Exp $
+ * $Id: charset.c,v 1.8 2000/11/17 21:18:06 mj Exp $
  *
  * NEW charset.c code using charset.bin mapping file
  *
@@ -413,8 +413,5 @@ int main(int argc, char *argv[])
 	printf("qp=TRUE   : %s\n", charset_map_c(buffer[0], TRUE ));
     }
     
-    exit(EXIT_OK);
-    /**NOT REACHED**/
-    return 1;
-}
+    exit(EXIT_OK);}
 #endif /**TEST**/

@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: pktdebug.c,v 4.9 2000/01/28 22:01:15 mj Exp $
+ * $Id: pktdebug.c,v 4.10 2000/11/17 21:18:09 mj Exp $
  *
  * Debug contents of FTN packet
  *
@@ -37,7 +37,7 @@
 
 
 #define PROGRAM		"pktdebug"
-#define VERSION		"$Revision: 4.9 $"
+#define VERSION		"$Revision: 4.10 $"
 
 
 
@@ -248,8 +248,5 @@ int main(int argc, char **argv)
     }
     
     exit(0);
-
-    /**NOT REACHED**/
-    return 1;
 }
 

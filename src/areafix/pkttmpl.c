@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: pkttmpl.c,v 1.9 2000/10/17 21:04:35 mj Exp $
+ * $Id: pkttmpl.c,v 1.10 2000/11/17 21:18:06 mj Exp $
  *
  * Template for utility processing FTN packets
  *
@@ -37,7 +37,7 @@
 
 
 #define PROGRAM 	"ftnxxx"
-#define VERSION 	"$Revision: 1.9 $"
+#define VERSION 	"$Revision: 1.10 $"
 #define CONFIG		DEFAULT_CONFIG_MAIN
 
 
@@ -456,7 +456,4 @@ int main(int argc, char **argv)
     
 
     exit(ret);
-
-    /**NOT REACHED**/
-    return 1;
 }

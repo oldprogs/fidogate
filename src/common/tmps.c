@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: tmps.c,v 4.4 2000/01/28 22:01:11 mj Exp $
+ * $Id: tmps.c,v 4.5 2000/11/17 21:18:07 mj Exp $
  *
  * Function for handling temporary strings
  *
@@ -433,7 +433,7 @@ int main(int argc, char *argv[])
     for(i=1; i<=10; i++) 
     {
 	s = s_alloc(i*20);
-	sprintf(s, "temp: >%d<", i);
+	str_printf(s, i*20, "temp: >%d<", i);
 	if(i == 2)
 	    s2 = s;
 	if(i == 4)

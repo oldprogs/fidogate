@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ffx.c,v 4.12 2000/01/28 22:01:11 mj Exp $
+ * $Id: ffx.c,v 4.13 2000/11/17 21:18:07 mj Exp $
  *
  * ffx FIDO-FIDO execution
  *
@@ -38,31 +38,15 @@
 
 
 #define PROGRAM		"ffx"
-#define VERSION		"$Revision: 4.12 $"
+#define VERSION		"$Revision: 4.13 $"
 #define CONFIG		DEFAULT_CONFIG_FFX
 
 
 
 /*
- * Config parameters
+ * Configuration
  */
-/* Compressed */
-static char *data_compr,   *data_ext,   *data_decompr;
-/* Uncompressed */
-static char *data_compr_n, *data_ext_n, *data_decompr_n;
-/* Outbound flavor */
-static char *data_flav;
-
-
-#define DATA_COMPR	data_compr
-#define DATA_EXT	data_ext
-#define DATA_DECOMPR	data_decompr
-
-#define DATA_NOCOMPR	data_compr_n
-#define DATA_NOEXT	data_ext_n
-#define DATA_NODECOMPR	data_decompr_n
-
-#define DATA_FLAV	data_flav
+static char *data_flav = "Normal";
 
 
 
@@ -72,7 +56,6 @@ static char *data_flav;
 char   *get_user		(void);
 char   *new_job_id		(int);
 int	ffx			(Node *, int, char **,
-				 char *, char *, char *,
 				 char *, int, char *);
 
 void	short_usage		(void);
@@ -117,7 +100,6 @@ char *new_job_id(int f)
  * Do the remote execution
  */
 int ffx(Node *node, int cmdc, char **cmdv,
-	char *cmprprog, char *cmprext, char *cmprdecmpr,
 	char *flav, int grade, char *batch)
 {
     int i, ret;
@@ -162,15 +144,15 @@ int ffx(Node *node, int cmdc, char **cmdv,
 	str_printf(ctrlname, sizeof(ctrlname),
 		   "%s/%s/%s/%s.ffx", cf_p_btbasedir(), out, batch, seq);
 	str_printf(dataname, sizeof(dataname),
-		   "%s/%s/%s/%s%s",
-		   cf_p_btbasedir(), out, batch, seq, cmprext);
+		   "%s/%s/%s/%s",
+		   cf_p_btbasedir(), out, batch, seq);
     }
     else
     {
 	str_printf(ctrlname, sizeof(ctrlname),
 		   "%s/%s/%s.ffx", cf_p_btbasedir(), out, seq);
 	str_printf(dataname, sizeof(dataname),
-		   "%s/%s/%s%s" , cf_p_btbasedir(), out, seq, cmprext);
+		   "%s/%s/%s" , cf_p_btbasedir(), out, seq);
     }
     
     debug(2, "ffx: job=%s", seq);
@@ -179,9 +161,7 @@ int ffx(Node *node, int cmdc, char **cmdv,
     
     log("job %s: to %s / %s", seq, znfp1(node), buffer);
 
-    /*
-     * Get password for node
-     */
+    /* Get password for node */
     pwd = passwd_lookup("ffx", node);
     if(pwd)
     {
@@ -192,9 +172,7 @@ int ffx(Node *node, int cmdc, char **cmdv,
     else
 	password = NULL;
     
-    /*
-     * Create control file
-     */
+    /* Create control file */
     ctrl = fopen(ctrlname, W_MODE);
     if(!ctrl)
     {
@@ -204,12 +182,12 @@ int ffx(Node *node, int cmdc, char **cmdv,
     
     chmod(ctrlname, DATA_MODE);
     fprintf(ctrl, "# ffx %s\n", version_local(VERSION));
-    fprintf(ctrl, "U %s %s %s\n",
-	    get_user(), znfp1(cf_addr()), znfp2(node));
+    fprintf(ctrl, "U %s %s %s %s\n",
+	    get_user(), znfp1(cf_addr()), znfp2(node), cf_fqdn());
     fprintf(ctrl, "Z\n");
     fprintf(ctrl, "J %s\n", seq);
-    fprintf(ctrl, "F %s%s\n", seq, cmprext);
-    fprintf(ctrl, "I %s%s %s\n", seq, cmprext, cmprdecmpr);
+    fprintf(ctrl, "F %s\n", seq);
+    fprintf(ctrl, "I %s\n", seq);
     fprintf(ctrl, "C %s\n", buffer);
     if(password)
 	fprintf(ctrl, "P %s\n", password);
@@ -217,19 +195,33 @@ int ffx(Node *node, int cmdc, char **cmdv,
     
     fclose(ctrl);
 
-    /*
-     * Copy stdin to data file (w/ compression)
-     */
+    /* Copy stdin to data file */
     data = fopen(dataname, W_MODE);
     if(data)
     {
+	int nr, nw;
+
 	chmod(dataname, DATA_MODE);
-	fclose(data);
+
+	do 
+	{
+	    nr = fread(buffer, sizeof(char), sizeof(buffer), stdin);
+	    if(ferror(stdin))
+	    {
+		log("$ERROR: can't read from stdin");
+		ret =  ERROR;
+	    }
+	    
+	    nw = fwrite(buffer, sizeof(char), nr, data);
+	    if(ferror(data))
+	    {
+		log("$ERROR: can't write to %s", dataname);
+		ret =  ERROR;
+	    }
+	}
+	while(!feof(stdin));
 	
-	str_printf(buffer, sizeof(buffer), "%s >%s", cmprprog, dataname);
-	debug(2, "Command: %s", buffer);
-	ret = run_system(buffer);
-	debug(2, "Exit code=%d", ret);
+	fclose(data);
     }
     else
     {
@@ -297,7 +289,6 @@ options:  -b --batch-dir DIR           operate in batch mode, using DIR\n\
           -B --binkley DIR             set Binkley-style outbound directory\n\
           -F --flavor FLAV             Hold | Normal | Direct | Crash\n\
           -g --grade G                 Grade [a-z]\n\
-          -n --nocompression           don't compress data file\n\
 \n\
           -v --verbose                 more verbose\n\
 	  -h --help                    this help\n\
@@ -319,7 +310,6 @@ int main(int argc, char **argv)
     int c, ret;
     char *p;
     char *b_flag=NULL, *B_flag=NULL;
-    int   n_flag=FALSE;
     char *F_flag=NULL;
     int   g_flag=0;
     char *c_flag=NULL;
@@ -333,7 +323,6 @@ int main(int argc, char **argv)
 	{ "binkley",      1, 0, 'B'},	/* Binkley outbound base dir */
 	{ "flavor",       1, 0, 'F'},	/* Outbound flavor */
 	{ "grade",        1, 0, 'g'},	/* ffx grade (a-z) */
-	{ "nocompression",0, 0, 'n'},	/* Don't compress data */
 
 	{ "verbose",      0, 0, 'v'},	/* More verbose */
 	{ "help",         0, 0, 'h'},	/* Help */
@@ -355,12 +344,11 @@ int main(int argc, char **argv)
     cf_initialize();
 
 
-    while ((c = getopt_long(argc, argv, "b:B:F:g:nvhc:S:L:a:u:",
+    while ((c = getopt_long(argc, argv, "b:B:F:g:vhc:S:L:a:u:",
 			    long_options, &option_index     )) != EOF)
 	switch (c) {
 	case 'b':
 	    b_flag = optarg;
-	    n_flag = TRUE;
 	    break;
 	case 'B':
 	    B_flag = optarg;
@@ -372,9 +360,6 @@ int main(int argc, char **argv)
 	    g_flag = *optarg;
 	    if(g_flag<'a' || g_flag>'z')
 		g_flag = 0;
-	    break;
-	case 'n':
-	    n_flag = TRUE;
 	    break;
 	    
 	/***** Common options *****/
@@ -428,78 +413,14 @@ int main(int argc, char **argv)
     cf_debug();
 
     /*
-     * Process additional config statements
+     * Process optional config statements
      */
-    if((p = cf_get_string("FFXDataCompr", TRUE)))
-    {
-	debug(8, "config: FFXDataCompr %s", p);
-	data_compr = p;
-    }
-    else
-    {
-	log("ERROR: %s: FFXDataCompr definition missing", CONFIG);
-	exit(EXIT_ERROR);
-    }
-    if((p = cf_get_string("FFXDataExt", TRUE)))
-    {
-	debug(8, "config: FFXDataExt %s", p);
-	data_ext = p;
-    }
-    else
-    {
-	log("ERROR: %s: FFXDataExt definition missing", CONFIG);
-	exit(EXIT_ERROR);
-    }
-    if((p = cf_get_string("FFXDataDecompr", TRUE)))
-    {
-	debug(8, "config: FFXDataDecompr %s", p);
-	data_decompr = p;
-    }
-    else
-    {
-	log("ERROR: %s: FFXDataDecompr definition missing", CONFIG);
-	exit(EXIT_ERROR);
-    }
-    if((p = cf_get_string("FFXDataComprN", TRUE)))
-    {
-	debug(8, "config: FFXDataComprN %s", p);
-	data_compr_n = p;
-    }
-    else
-    {
-	log("ERROR: %s: FFXDataComprN definition missing", CONFIG);
-	exit(EXIT_ERROR);
-    }
-    if((p = cf_get_string("FFXDataExtN", TRUE)))
-    {
-	debug(8, "config: FFXDataExtN %s", p);
-	data_ext_n = p;
-    }
-    else
-    {
-	log("ERROR: %s: FFXDataExtN definition missing", CONFIG);
-	exit(EXIT_ERROR);
-    }
-    if((p = cf_get_string("FFXDataDecomprN", TRUE)))
-    {
-	debug(8, "config: FFXDataDecomprN %s", p);
-	data_decompr_n = p;
-    }
-    else
-    {
-	log("ERROR: %s: FFXDataDecomprN definition missing", CONFIG);
-	exit(EXIT_ERROR);
-    }
-    if((p = cf_get_string("FFXDataFlav", TRUE)))
+    if( (p = cf_get_string("FFXDataFlav", TRUE)) )
     {
 	debug(8, "config: FFXDataFlav %s", p);
 	data_flav = p;
     }
-    else
-    {
-	log("ERROR: %s: FFXDataFlav definition missing", CONFIG);
-	exit(EXIT_ERROR);
-    }
+
 
     /*
      * Node address from command line
@@ -532,19 +453,13 @@ int main(int argc, char **argv)
     if(b_flag  &&  bink_bsy_create(&node, WAIT) == ERROR)
 	exit(1);
     
-    ret = ffx(&node, cmdc, cmdv,
-	      n_flag ? DATA_NOCOMPR   : DATA_COMPR  ,
-	      n_flag ? DATA_NOEXT     : DATA_EXT    ,
-	      n_flag ? DATA_NODECOMPR : DATA_DECOMPR,
-	      F_flag ? F_flag         : DATA_FLAV   ,
-	      g_flag, b_flag                         );
+    ret = ffx(&node, cmdc, cmdv, 
+	      F_flag ? F_flag : data_flav,
+	      g_flag, b_flag              );
     tmps_freeall();
 
     if(b_flag)
 	bink_bsy_delete(&node);
     
     exit(ret);
-
-    /**NOT REACHED**/
-    return 1;
 }

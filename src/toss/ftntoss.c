@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftntoss.c,v 4.38 2000/10/17 21:04:36 mj Exp $
+ * $Id: ftntoss.c,v 4.39 2000/11/17 21:18:08 mj Exp $
  *
  * Toss FTN NetMail/EchoMail
  *
@@ -39,7 +39,7 @@
 
 
 #define PROGRAM 	"ftntoss"
-#define VERSION 	"$Revision: 4.38 $"
+#define VERSION 	"$Revision: 4.39 $"
 #define CONFIG		DEFAULT_CONFIG_MAIN
 
 
@@ -1966,7 +1966,4 @@ int main(int argc, char **argv)
 	log("msgs killed:    %ld circular path", msgs_path);
     
     exit(ret);
-
-    /**NOT REACHED**/
-    return 1;
 }

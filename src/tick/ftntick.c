@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftntick.c,v 4.23 2000/10/17 21:04:36 mj Exp $
+ * $Id: ftntick.c,v 4.24 2000/11/17 21:18:08 mj Exp $
  *
  * Process incoming TIC files
  *
@@ -37,7 +37,7 @@
 
 
 #define PROGRAM		"ftntick"
-#define VERSION		"$Revision: 4.23 $"
+#define VERSION		"$Revision: 4.24 $"
 #define CONFIG		DEFAULT_CONFIG_MAIN
 
 
@@ -728,7 +728,4 @@ int main(int argc, char **argv)
 
 
     exit(0);
-
-    /**NOT REACHED**/
-    return 1;
 }

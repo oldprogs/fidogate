@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftnflo.c,v 4.12 2000/01/28 22:01:15 mj Exp $
+ * $Id: ftnflo.c,v 4.13 2000/11/17 21:18:09 mj Exp $
  *
  * Run script for every entry in FLO file for node
  *
@@ -38,7 +38,7 @@
 
 
 #define PROGRAM		"ftnflo"
-#define VERSION		"$Revision: 4.12 $"
+#define VERSION		"$Revision: 4.13 $"
 #define CONFIG		DEFAULT_CONFIG_MAIN
 
 
@@ -278,7 +278,4 @@ int main(int argc, char **argv)
     }
     
     exit(0);
-
-    /**NOT REACHED**/
-    return 1;
 }

@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: parsenode.c,v 4.11 2000/01/28 22:01:11 mj Exp $
+ * $Id: parsenode.c,v 4.12 2000/11/17 21:18:06 mj Exp $
  *
  * Parse FTN address strings (Z:N/F.P)
  *
@@ -377,8 +377,5 @@ int main(int argc, char *argv[])
 	printf("             str1=%s str2=%s\n", znfp1(&o), znfp2(&n));
 	exit(0);
     }
-
-    /**NOT REACHED**/
-    return 1;
 }
 #endif /**TEST**/

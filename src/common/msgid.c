@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: msgid.c,v 4.11 2000/10/18 21:53:57 mj Exp $
+ * $Id: msgid.c,v 4.12 2000/11/17 21:18:06 mj Exp $
  *
  * MSGID <-> Message-ID conversion handling. See also ../doc/msgid.doc
  *
@@ -87,7 +87,7 @@ static void msgid_mime_quote(char *d, char *s, int n)
 	    d[i] = '_';
 	else if(strchr("()<>@,;:\\\"[]/=_", c) || c>=0x7f || c<0x20)
 	{
-	    sprintf(d+i, "=%02X", c);
+	    str_printf(d+i, 4, "=%02X", c);
 	    i += 2;
 	}
 	else
@@ -392,7 +392,8 @@ char *s_msgid_rfc_to_fido(int *origid_flag, char *message_id,
 
     tmps = tmps_alloc(strlen(id)+1+/**Extra**/20);
     msgid_fts9_quote(tmps->s, id, tmps->len);
-    sprintf(tmps->s + strlen(tmps->s), " %08lx", crc32);
+    str_printf(tmps->s + strlen(tmps->s), tmps->len - strlen(tmps->s),
+	       " %08lx", crc32);
     
     xfree(savep);
     if(origid_flag)

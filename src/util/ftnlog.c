@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftnlog.c,v 4.6 2000/01/28 22:01:15 mj Exp $
+ * $Id: ftnlog.c,v 4.7 2000/11/17 21:18:09 mj Exp $
  *
  * Write log message to FIDOGATE log file
  *
@@ -36,7 +36,7 @@
 
 
 #define PROGRAM 	"ftnlog"
-#define VERSION 	"$Revision: 4.6 $"
+#define VERSION 	"$Revision: 4.7 $"
 #define CONFIG		DEFAULT_CONFIG_MAIN
 
 
@@ -130,7 +130,4 @@ int main(int argc, char **argv)
 	log(argv[optind]);
     
     exit(EXIT_OK);
-
-    /**NOT REACHED**/
-    return 1;
 }

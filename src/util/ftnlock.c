@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftnlock.c,v 4.6 2000/01/28 22:01:15 mj Exp $
+ * $Id: ftnlock.c,v 4.7 2000/11/17 21:18:09 mj Exp $
  *
  * Command line interface to lock files in SPOOLDIR/locks
  *
@@ -36,7 +36,7 @@
 
 
 #define PROGRAM 	"ftnlock"
-#define VERSION 	"$Revision: 4.6 $"
+#define VERSION 	"$Revision: 4.7 $"
 #define CONFIG		DEFAULT_CONFIG_MAIN
 
 
@@ -158,7 +158,4 @@ int main(int argc, char **argv)
 	    ret = EXIT_ERROR;
     
     exit(ret);
-
-    /**NOT REACHED**/
-    return 1;
 }

@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: ftnafutil.c,v 1.8 2000/01/28 22:01:08 mj Exp $
+ * $Id: ftnafutil.c,v 1.9 2000/11/17 21:18:06 mj Exp $
  *
  * Utility program for Areafix.
  *
@@ -36,7 +36,7 @@
 
 
 #define PROGRAM		"ftnafutil"
-#define VERSION		"$Revision: 1.8 $"
+#define VERSION		"$Revision: 1.9 $"
 #define CONFIG		DEFAULT_CONFIG_MAIN
 
 
@@ -370,7 +370,4 @@ int main(int argc, char **argv)
 	    ret = EX_CANTCREAT;
 
     exit(ret);
-
-    /**NOT REACHED**/
-    return 1;
 }

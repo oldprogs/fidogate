@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: ftnmail.c,v 4.3 2000/01/28 22:01:12 mj Exp $
+ * $Id: ftnmail.c,v 4.4 2000/11/17 21:18:07 mj Exp $
  *
  * setuid frontend for rfc2ftn, limiting options for security reasons
  *
@@ -38,7 +38,7 @@
 
 
 #define PROGRAM		"ftnmail"
-#define VERSION		"$Revision: 4.3 $"
+#define VERSION		"$Revision: 4.4 $"
 #define CONFIG		DEFAULT_CONFIG_GATE
 
 #define RFC2FTN		"rfc2ftn"
@@ -208,7 +208,4 @@ int main(int argc, char **argv)
 	
     /* Only reached if error */
     exit(1);
-
-    /**NOT REACHED**/
-    return 1;
 }

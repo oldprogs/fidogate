@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: charsetc.c,v 1.8 2000/01/28 22:01:09 mj Exp $
+ * $Id: charsetc.c,v 1.9 2000/11/17 21:18:06 mj Exp $
  *
  * Charset mapping table compiler
  *
@@ -36,7 +36,7 @@
 
 
 #define PROGRAM		"charsetc"
-#define VERSION		"$Revision: 1.8 $"
+#define VERSION		"$Revision: 1.9 $"
 
 
 
@@ -388,7 +388,4 @@ int main(int argc, char **argv)
     ret = compile_map(name_in, name_out);
     
     exit(ret);
-
-    /**NOT REACHED**/
-    return 1;
 }

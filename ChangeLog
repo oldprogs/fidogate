@@ -1,3 +1,23 @@
+2000-11-17  Martin Junius  <mj@fido.de>
+
+	------- CVS ci -------------------------------------------------------
+
+	* src/*/*.c (main): removed extra return after exit().
+	
+	* src/common/exit.c: removed entirely.
+
+	* src/include/fidogate.h (exit): removed #define.
+
+	* src/ffx/ffx.c: removed data_*, DATA_* config stuff.
+	  (usage): removed -n.
+	  (main): removed -n.
+	  (main): removed reading FFXData* config stuff.
+	  (ffx): removed compr* args to function.
+	  (ffx): add FQDN to U line in control file.
+	  (ffx): no longer calls external command, directly copies stdin to
+	  data file.
+	  (main): ressurected FFXDataFlav / data_flav ;-)
+
 2000-10-18  Martin Junius  <mj@fido.de>
 
 	------- CVS ci -------------------------------------------------------
