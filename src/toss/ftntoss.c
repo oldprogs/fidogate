@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftntoss.c,v 4.26 1998/05/23 19:23:34 mj Exp $
+ * $Id: ftntoss.c,v 4.27 1998/07/11 21:04:41 mj Exp $
  *
  * Toss FTN NetMail/EchoMail
  *
@@ -39,7 +39,7 @@
 
 
 #define PROGRAM 	"ftntoss"
-#define VERSION 	"$Revision: 4.26 $"
+#define VERSION 	"$Revision: 4.27 $"
 #define CONFIG		DEFAULT_CONFIG_MAIN
 
 
@@ -49,6 +49,10 @@
  */
 void	addtoseenby_init	(void);
 void	zonegate_init		(void);
+#ifdef AI_3
+void	deleteseenby_init	(void);
+void	deletepath_init		(void);
+#endif
 int	lon_to_kludge		(Textlist *, char *, LON *);
 int	lon_to_kludge_sorted	(Textlist *, char *, LON *);
 int	toss_echomail		(Message *, MsgBody *, LON *, LON *, LON *);
@@ -197,7 +201,97 @@ void addtoseenby_init(void)
     }
 }
 
+
+
+#ifdef AI_3
+/*
+ * DeleteSeenBy list
+ */
+typedef struct st_deleteseenby
+{
+    LON deleteseenby;				/* Nodes to delete from SEEN-BY */
+    struct st_deleteseenby *next;
+}
+DeleteSeenBy;
+
+static DeleteSeenBy *deleteseenby_first = NULL;
+static DeleteSeenBy *deleteseenby_last  = NULL;
+
+
+
+/*
+ * Init DeleteSeenBy list from config file
+ */
+void deleteseenby_init(void)
+{
+    char *s;
+    DeleteSeenBy *p;
     
+    for(s = cf_get_string("DeleteSeenBy",TRUE);
+	s && *s;
+	s = cf_get_string("DeleteSeenBy",FALSE) )
+    {
+	debug(8, "config: deleteseenby %s", s);
+	
+	p = (DeleteSeenBy *)xmalloc(sizeof(DeleteSeenBy));
+	p->next = NULL;
+	lon_init(&p->deleteseenby);
+	lon_add_string(&p->deleteseenby, s);
+
+	if(deleteseenby_first)
+	    deleteseenby_last->next = p;
+	else
+	    deleteseenby_first = p;
+	deleteseenby_last = p;
+    }
+}
+    
+
+
+/*
+ * DeletePath list
+ */
+typedef struct st_deletepath
+{
+    LON deletepath;				/* Nodes to delete from PATH */
+    struct st_deletepath *next;
+}
+DeletePath;
+
+static DeletePath *deletepath_first = NULL;
+static DeletePath *deletepath_last  = NULL;
+
+
+
+/*
+ * Init DeletePath list from config file
+ */
+void deletepath_init(void)
+{
+    char *s;
+    DeletePath *p;
+    
+    for(s = cf_get_string("DeletePath",TRUE);
+	s && *s;
+	s = cf_get_string("DeletePath",FALSE) )
+    {
+	debug(8, "config: deletepath %s", s);
+	
+	p = (DeletePath *)xmalloc(sizeof(DeletePath));
+	p->next = NULL;
+	lon_init(&p->deletepath);
+	lon_add_string(&p->deletepath, s);
+
+	if(deletepath_first)
+	    deletepath_last->next = p;
+	else
+	    deletepath_first = p;
+	deletepath_last = p;
+    }
+}
+#endif
+
+
 
 /*
  * Zonegate list
@@ -642,6 +736,56 @@ int do_4dpoint(LON *seenby, LON *path, Node *from, Node *addr)
 
 
 
+#ifdef AI_3
+/*
+ * SEEN-BY remove processing
+ */
+void do_deleteseenby(LON *seenby)
+{
+    LNode *p;
+    LON *ln;
+
+    ln = &deleteseenby_first->deleteseenby;
+
+    lon_debug(9, "do_deleteseenby(): List of SEEN-BYs for removing: ", ln, FALSE);
+
+    for(p=ln->first; p; p=p->next)
+    {
+        if( lon_search(seenby, &p->node) )
+	{
+	    debug(7, "do_deleteseenby(): Found SEEN-BY for removing: %s", node_to_asc(&p->node, FALSE));
+	    lon_remove(seenby, &p->node);
+	}
+    }
+}
+
+
+
+/*
+ * PATH remove processing
+ */
+void do_deletepath(LON *path)
+{
+    LNode *p;
+    LON *ln;
+
+    ln = &deleteseenby_first->deleteseenby;
+    
+    lon_debug(9, "do_deletepath(): List of PATH for removing: ", ln, FALSE);
+
+    for(p=ln->first; p; p=p->next)
+    {
+        if( lon_search(path, &p->node) )
+	{
+	    debug(7, "do_deletepath(): Found PATH for removing: %s", node_to_asc(&p->node, FALSE));
+	    lon_remove(path, &p->node);
+	}
+    }
+}
+#endif
+
+
+
 /*
  * Process EchoMail message
  */
@@ -842,6 +986,12 @@ int do_echomail(Packet *pkt, Message *msg, MsgBody *body)
     if(addto)
 	do_seenby(&seenby, &addto->add, NULL);
 
+#ifdef AI_3
+    /* Delete nodes from SEEN-BY */
+    if(deleteseenby_first)
+	do_deleteseenby(&seenby);
+#endif
+
     /* If not passthru area and not from our own address (point gateway
      * setup with Address==Uplink), add our own address to new          */
     if(! p_flag                               &&
@@ -851,6 +1001,12 @@ int do_echomail(Packet *pkt, Message *msg, MsgBody *body)
 
     /* Add our address to end of ^APATH, if not already there */
     do_path(&path);
+
+#ifdef AI_3
+    /* Delete nodes from PATH */
+    if(deletepath_first)
+	do_deletepath(&path);
+#endif
 
     /* After */
     lon_debug(9, "SEEN-BY: ", &seenby, FALSE);
@@ -1638,6 +1794,10 @@ int main(int argc, char **argv)
 
     zonegate_init();
     addtoseenby_init();
+#ifdef AI_3
+    deleteseenby_init();
+    deletepath_init();
+#endif
 
     /*
      * Process local options

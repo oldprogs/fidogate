@@ -3,7 +3,7 @@
 /*
  * FIDOGATE
  *
- * $Id: cf_env.c,v 4.7 1998/05/01 15:16:44 mj Exp $
+ * $Id: cf_env.c,v 4.8 1998/07/11 21:04:36 mj Exp $
  */
 
     if( (p = getenv("FIDOGATE_LOGDIR")) )
@@ -36,6 +36,8 @@
         cf_s_charsetmap(p);
     if( (p = getenv("FIDOGATE_INBOUND")) )
         cf_s_inbound(p);
+    if( (p = getenv("FIDOGATE_ACL")) )
+        cf_s_acl(p);
     if( (p = getenv("FIDOGATE_BTBASEDIR")) )
         cf_s_btbasedir(p);
     if( (p = getenv("FIDOGATE_HOSTS")) )

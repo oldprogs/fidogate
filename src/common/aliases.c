@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: aliases.c,v 4.5 1998/01/18 17:49:09 mj Exp $
+ * $Id: aliases.c,v 4.6 1998/07/11 21:04:35 mj Exp $
  *
  * Read user name aliases from file. The alias.users format is as follows:
  *	username    Z:N/F.P    Full Name
@@ -62,6 +62,9 @@ static Alias *alias_parse_line(char *buf)
     Alias *p;
     char *u, *n, *f;
     Node node;
+#ifdef AI_2
+    char *un, *ud;
+#endif
     
     u = xstrtok(buf,  " \t");	/* User name */
     n = xstrtok(NULL, " \t");	/* FTN node */
@@ -85,11 +88,27 @@ static Alias *alias_parse_line(char *buf)
     p = (Alias *)xmalloc(sizeof(Alias));
     p->next     = NULL;
     p->node     = node;
+#ifndef AI_2
     p->username = strsave(u);
+#else
+    un = xstrtok(u,  "@");	/* User name */
+    ud = xstrtok(NULL, " \t");	/* User domain */
+    p->username = strsave(un);
+    p->userdom = ud ? strsave(ud) : NULL;
+#endif
     p->fullname = strsave(f);
     
+#ifndef AI_2
     debug(15, "aliases: %s %s %s", p->username, 
 	  node_to_asc(&p->node, TRUE), p->fullname);
+#else
+    if(p->userdom)
+	debug(15, "aliases: %s@%s %s %s", p->username, p->userdom,
+	      node_to_asc(&p->node, TRUE), p->fullname);
+    else
+	debug(15, "aliases: %s %s %s", p->username, 
+	      node_to_asc(&p->node, TRUE), p->fullname);
+#endif
 
     return p;
 }
@@ -167,6 +186,49 @@ Alias *alias_lookup(Node *node, char *username, char *fullname)
     return NULL;
 }
 
+#ifdef AI_2
+Alias *alias_lookup_strict(Node *node, char *username, char *fullname)
+{
+    Alias *a;
+
+    for(a=alias_list; a; a=a->next)
+    {
+	if(username)
+	    if(!stricmp(a->username, username) && node_eq(node, &a->node))
+		return a;
+	if(fullname)
+	    if(!stricmp(a->fullname, fullname) && node_eq(node, &a->node))
+		return a;
+    }
+    for(a=alias_list; a; a=a->next)
+    {
+	if(username)
+	    if(!stricmp(a->username, username) && node_np_eq(node, &a->node))
+		return a;
+	if(fullname)
+	    if(!stricmp(a->fullname, fullname) && node_np_eq(node, &a->node))
+		return a;
+    }
+
+    return NULL;
+}
+
+Alias *alias_lookup_userdom(Node *node, RFCAddr *rfc, char *fullname)
+{
+    Alias *a;
+
+    if(!rfc)
+	return NULL;
+
+    for(a=alias_list; a; a=a->next)
+    {
+	if( a->userdom && (!stricmp(a->username, rfc->user) && !stricmp(a->userdom, rfc->addr)) )
+	    return a;
+    }
+
+    return NULL;
+}
+#endif
 
 
 /*

@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: structs.h,v 4.15 1998/05/23 19:23:33 mj Exp $
+ * $Id: structs.h,v 4.16 1998/07/11 21:04:40 mj Exp $
  *
  * An assortment of FIDOGATE data structure definitions
  *
@@ -54,6 +54,9 @@ typedef struct st_alias {
     struct st_alias *next;
     Node node;
     char *username;
+#ifdef AI_2
+    char *userdom;
+#endif
     char *fullname;
 } Alias;
 
@@ -135,7 +138,21 @@ typedef struct st_host {	/* hosts entry */
 
 #define HOST_POINT	1	/* Addresses with pX point address */
 #define HOST_DOWN	2	/* Temporary down */
+#ifdef AI_1
+#define HOST_ADDR	4	/* Real Fidonet address in .pkt file. 
+                                   Like key '-a' in command line rfc2ftn    */
+#endif
 
+#ifdef AI_8
+/*
+ * Acl
+ */
+typedef struct st_acl {	        /* acl entry */
+    struct st_acl *next;	/*     for linked list */
+    char	  *email_pat;	/*     E-Mail address pattern */
+    char          *ngrp_pat;	/*     Newsgroup pattern */
+} Acl;
+#endif
 
 
 /*

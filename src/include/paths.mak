@@ -3,7 +3,7 @@
 /*
  * FIDOGATE
  *
- * $Id: paths.mak,v 4.9 1998/05/01 15:16:47 mj Exp $
+ * $Id: paths.mak,v 4.10 1998/07/11 21:04:40 mj Exp $
  */
 
 #define DEFAULT_LOGDIR                  "/var/log/fidogate"
@@ -42,6 +42,7 @@
 #define DEFAULT_NEWSSPOOLDIR            "/var/spool/news"
 #define DEFAULT_SEQ_MAIL                "%V/seq/mail"
 #define DEFAULT_INBOUND                 "/var/spool/bt/in"
+#define DEFAULT_ACL                     "%C/acl"
 #define DEFAULT_BTBASEDIR               "/var/spool/bt"
 #define DEFAULT_TICK_HOLD               "%B/tick"
 #define DEFAULT_SEQ_TOSS                "%V/seq/toss"

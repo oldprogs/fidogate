@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: prototypes.h,v 4.48 1998/05/03 12:56:07 mj Exp $
+ * $Id: prototypes.h,v 4.49 1998/07/11 21:04:40 mj Exp $
  *
  * Prototypes for functions in libfidogate.a
  *
@@ -30,6 +30,18 @@
  * Software Foundation, 675 Mass Ave, Cambridge, MA 02139, USA.
  *****************************************************************************/
 
+#ifdef AI_8
+/* acl.c */
+void	acl_init		(void);
+void	acl_ngrp		(RFCAddr);
+int	acl_ngrp_lookup		(char *);
+int	pna_notify		(char *);
+#endif
+#if defined(AI_6) || defined(AI_8)
+int	list_init		(char ***, char *);
+int	list_match		(register int, char **, char **);
+#endif
+
 /* address.c */
 extern int i_flag;
 extern char address_error[];
@@ -42,10 +54,21 @@ char   *s_ftn_to_inet_pfnz	(Node *);
 Node   *inet_to_ftn		(char *);
 int	addr_is_local		(char *);
 int	addr_is_domain		(char *);
+#ifdef AI_6
+int 	addr_is_local_xpost	(char *);
+void	addr_is_local_xpost_init(char *);
+#endif
+#ifdef AI_1
+int	verify_host_flag	(Node *, int);
+#endif
 
 /* aliases.c */
 void	alias_init		(void);
 Alias  *alias_lookup		(Node *, char *, char *);
+#ifdef AI_2
+Alias  *alias_lookup_strict	(Node *, char *, char *);
+Alias  *alias_lookup_userdom	(Node *, RFCAddr *, char *);
+#endif
 
 /* areas.c */
 void	areas_maxmsgsize	(long);
@@ -353,6 +376,7 @@ int	asc_to_node	        (char *, Node *, int);
 char   *node_to_asc	        (Node *, int);
 char   *node_to_pfnz	        (Node *, int);
 int	node_eq			(Node *, Node *);
+int	node_np_eq		(Node *, Node *);
 void	node_clear		(Node *);
 void	node_invalid		(Node *);
 int	asc_to_node_diff	(char *, Node *, Node *);
@@ -514,7 +538,7 @@ int	wildmat			(char *, char *);
 int	wildmatch		(char *, char *, int);
 
 /* xalloc.c */
-#define BUFFERSIZE		(16*1024)	/* Global buffer */
+#define BUFFERSIZE		(32*1024)	/* Global buffer */
 extern char buffer[BUFFERSIZE];
 
 void   *xmalloc			(int);

@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: packet.h,v 4.2 1998/01/18 09:48:04 mj Exp $
+ * $Id: packet.h,v 4.3 1998/07/11 21:04:39 mj Exp $
  *
  * Packet structure
  *
@@ -65,6 +65,7 @@ Packet;
 #define MSG_MAXDATE	20
 #define MSG_MAXNAME	36
 #define MSG_MAXSUBJ	72
+#define MSG_MAXORIG	72
 
 /* AttributeWord bits according to FTS-0001 */
 #define MSG_PRIVATE	0x0001			/* Private */

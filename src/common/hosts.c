@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: hosts.c,v 4.6 1998/01/18 17:49:09 mj Exp $
+ * $Id: hosts.c,v 4.7 1998/07/11 21:04:37 mj Exp $
  *
  * Process hostname <-> node aliases from hosts file
  *
@@ -126,6 +126,13 @@ static Host *hosts_parse_line(char *buf)
 	    /* -d */
 	    p->flags |= HOST_DOWN;
 	}
+#ifdef AI_1
+	if(!strcmp(o, "-a"))
+	{
+	    /* -a */
+	    p->flags |= HOST_ADDR;
+	}
+#endif
     }
 
     debug(15, "hosts: %s %s %02x", node_to_asc(&p->node, TRUE),

@@ -3,7 +3,7 @@
 /*
  * FIDOGATE
  *
- * $Id: cf_funcs.c,v 4.9 1998/05/01 15:16:44 mj Exp $
+ * $Id: cf_funcs.c,v 4.10 1998/07/11 21:04:36 mj Exp $
  */
 
 #include "fidogate.h"
@@ -351,6 +351,29 @@ char *cf_p_inbound(void)
 char *cf_s_inbound(char *s)
 {
     return cf_p_s_inbound(s);
+}
+
+/***** ACL *****/
+static char *cf_p_s_acl(char *s)
+{
+    static char *pval = NULL;
+    if(s)
+        pval = strsave(s);
+    if(! pval)
+    {
+	if( ! (pval = cf_get_string("ACL", TRUE)) )
+	    pval = DEFAULT_ACL;
+	debug(8, "config: ACL %s", pval);
+    }
+    return pval;
+}
+char *cf_p_acl(void)
+{
+    return cf_p_s_acl(NULL);
+}
+char *cf_s_acl(char *s)
+{
+    return cf_p_s_acl(s);
 }
 
 /***** BTBASEDIR *****/

@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftn2rfc.c,v 4.39 1998/07/06 21:32:05 mj Exp $
+ * $Id: ftn2rfc.c,v 4.40 1998/07/11 21:04:38 mj Exp $
  *
  * Convert FTN mail packets to RFC mail and news batches
  *
@@ -40,7 +40,7 @@
 
 
 #define PROGRAM 	"ftn2rfc"
-#define VERSION 	"$Revision: 4.39 $"
+#define VERSION 	"$Revision: 4.40 $"
 #define CONFIG		DEFAULT_CONFIG_GATE
 
 
@@ -239,6 +239,24 @@ int check_8bit(Textlist *tl)
     return FALSE;
 }
 
+#ifdef AI_5
+/*
+ * Check for 8bit characters in any string
+ */
+int check_8bit_s(char *s, int len)
+{
+    char *p;
+
+    if(!s)
+	return FALSE;
+
+    for(p=s; (int)(p-s)<len && *p!='\0'; p++)
+	if(*p & 0x80)
+	    return TRUE;
+
+    return FALSE;
+}
+#endif
 
 
 /*
@@ -466,7 +484,14 @@ int unpack(FILE *pkt_file, Packet *pkt)
 	 * Check for 8bit characters in message body. If none are
 	 * found, don't use the quoted-printable encoding or 8bit.
 	 */
+#ifndef AI_5
 	if(!check_8bit(&body.body))
+#else
+	if( !(check_8bit(&body.body)                         ||
+	      check_8bit_s(body.origin, sizeof(body.origin)) ||
+	      check_8bit_s(body.tear, sizeof(body.tear))     ||
+	      check_8bit_s(msg.subject, sizeof(msg.subject))) )
+#endif
 	    cvt8 &= ~(AREA_QP | AREA_8BIT);
 	
 	/*
@@ -632,11 +657,27 @@ int unpack(FILE *pkt_file, Packet *pkt)
 
 	    debug(7, "Checking for alias: %s",
 		  rfcaddr_to_asc(&addr_from, TRUE));
+#ifndef AI_2
 	    a = alias_lookup(&msg.node_orig, NULL, addr_from.real);
+#else
+	    a = alias_lookup_strict(&msg.node_orig, NULL, addr_from.real);
+#endif
 	    if(a)
 	    {
+#ifndef AI_2
 		debug(7, "Alias found: %s %s %s", a->username,
 		      node_to_asc(&a->node, FALSE), a->fullname);
+#else
+		if(a->userdom)
+		{
+		    debug(7, "Alias found: %s@%s %s %s", a->username, a->userdom,
+			  node_to_asc(&a->node, FALSE), a->fullname);
+		    BUF_COPY(addr_from.addr, a->userdom);
+		}
+		else
+		    debug(7, "Alias found: %s %s %s", a->username,
+		          node_to_asc(&a->node, FALSE), a->fullname);
+#endif
 		BUF_COPY(addr_from.user, a->username);
 #ifdef ALIASES_ARE_LOCAL
 		BUF_COPY(addr_from.addr, cf_fqdn());
@@ -649,11 +690,27 @@ int unpack(FILE *pkt_file, Packet *pkt)
 	    
 	    debug(7, "Checking for alias: %s",
 		  rfcaddr_to_asc(&addr_to, TRUE));
+#ifndef AI_2
 	    a = alias_lookup(cf_addr(), NULL, addr_to.real);
+#else
+	    a = alias_lookup_strict(&msg.node_to, NULL, addr_to.real);
+#endif
 	    if(a)
 	    {
+#ifndef AI_2
 		debug(7, "Alias found: %s %s %s", a->username,
 		      node_to_asc(&a->node, FALSE), a->fullname);
+#else
+		if(a->userdom)
+		{
+		    debug(7, "Alias found: %s@%s %s %s", a->username, a->userdom,
+			  node_to_asc(&a->node, FALSE), a->fullname);
+		    BUF_COPY(addr_to.addr, a->userdom);
+		}
+		else
+		    debug(7, "Alias found: %s %s %s", a->username,
+		          node_to_asc(&a->node, FALSE), a->fullname);
+#endif
 		BUF_COPY(mail_to, a->username);
 	    }
 	    else
@@ -913,7 +970,11 @@ int unpack(FILE *pkt_file, Packet *pkt)
 	tl_appendf(&theader, "From: %s\n", from_line);
 	if(reply_to_line)
 	    tl_appendf(&theader, "Reply-To: %s\n", reply_to_line);
+#ifndef AI_5
 	msg_xlate_line(buffer, sizeof(buffer), msg.subject, 0);
+#else
+	msg_xlate_line(buffer, sizeof(buffer), msg.subject, cvt8);
+#endif
 	tl_appendf(&theader, "Subject: %s\n", buffer);
 	tl_appendf(&theader, "Message-ID: %s\n", id_line);
 	
@@ -954,7 +1015,11 @@ int unpack(FILE *pkt_file, Packet *pkt)
 	if(use_origin_for_organization && body.origin)
 	{
 	    strip_crlf(body.origin);
+#ifndef AI_5
 	    msg_xlate_line(buffer, sizeof(buffer), body.origin, 0);
+#else
+	    msg_xlate_line(buffer, sizeof(buffer), body.origin, cvt8);
+#endif
 	    if((p = strrchr(buffer, '(')))
 		*p = 0;
 	    strip_space(buffer);
@@ -988,13 +1053,21 @@ int unpack(FILE *pkt_file, Packet *pkt)
 	if(x_ftn_T  &&  body.tear && !strncmp(body.tear, "--- ", 4))
 	{
 	    strip_crlf(body.tear);
+#ifndef AI_5
 	    msg_xlate_line(buffer, sizeof(buffer), body.tear, 0);
+#else
+	    msg_xlate_line(buffer, sizeof(buffer), body.tear, cvt8);
+#endif
 	    tl_appendf(&theader, "X-FTN-Tearline: %s\n", buffer+4);
 	}
 	if(!use_origin_for_organization  &&  x_ftn_O  &&  body.origin)
 	{
 	    strip_crlf(body.origin);
+#ifndef AI_5
 	    msg_xlate_line(buffer, sizeof(buffer), body.origin, 0);
+#else
+	    msg_xlate_line(buffer, sizeof(buffer), body.origin, cvt8);
+#endif
 	    p = buffer + strlen(" * Origin: ");
 	    while(is_blank(*p))
 		p++;

@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: mime.c,v 4.6 1998/01/18 09:47:51 mj Exp $
+ * $Id: mime.c,v 4.7 1998/07/11 21:04:37 mj Exp $
  *
  * MIME stuff
  *
@@ -59,6 +59,11 @@ static int x2toi(char *s)
 
 
 
+#ifdef AI_9
+int	mime_qp_soft_endline;	/* flag for decoding soft endlines in QP */
+				/* (Rule#5 in RFC1521)                   */
+#endif
+
 /*
  * Dequote string with MIME-style quoted-printable =XX
  */
@@ -77,11 +82,27 @@ char *mime_dequote(char *d, size_t n, char *s, int flags)
 		    s += 2;
 		    continue;
 		}
+#ifndef AI_9
 		if(s[1]=='\n'                ||		/* =<LF> */
 		   (s[1]=='\r' && s[2]=='\n')  )	/* this as well */
+#else
+		else if(s[1]=='\n')			/* =<LF> */
+#endif
 		{
+#ifndef AI_9
 		    d[i] = 0;
 		    break;
+#else
+		    mime_qp_soft_endline = i;
+		    s++;
+		    return d;		    
+		}
+		else if(s[1]=='\r' && s[2]=='\n')	/* this as well */
+		{
+		    mime_qp_soft_endline = i;
+		    s += 2;
+		    return d;		    
+#endif
 		}
 	    }
 

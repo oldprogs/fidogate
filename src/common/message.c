@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: message.c,v 4.10 1998/05/03 12:46:37 mj Exp $
+ * $Id: message.c,v 4.11 1998/07/11 21:04:37 mj Exp $
  *
  * Reading and processing FTN text body
  *
@@ -42,7 +42,7 @@ static void debug_line(FILE *out, char *line, int crlf)
     int c;
     
     while( (c = *line++) )
-	if( !(c & 0x60) )
+	if( !(c & 0xe0) )
 	{
 	    if(crlf || (c!='\r' && c!='\n'))
 		fprintf(out, "^%c", '@' + c);

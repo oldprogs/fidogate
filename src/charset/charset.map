@@ -1,5 +1,5 @@
 #
-# $Id: charset.map,v 1.3 1998/04/07 12:21:54 mj Exp $
+# $Id: charset.map,v 1.4 1998/07/11 21:04:33 mj Exp $
 #
 # Character set mapping table (to be compiled by charsetc)
 #
@@ -54,7 +54,6 @@ alias	amiga		iso-8859-1
 alias	ibmpc		x-ibmpc
 alias	pc-8		x-ibmpc
 alias	mac		x-mac
-alias	alt		x-alt
 
 
 # ----------------------------------------------------------------------------

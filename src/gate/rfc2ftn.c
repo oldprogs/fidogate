@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway software UNIX <-> FIDO
  *
- * $Id: rfc2ftn.c,v 4.39 1998/04/07 12:21:58 mj Exp $
+ * $Id: rfc2ftn.c,v 4.40 1998/07/11 21:04:39 mj Exp $
  *
  * Read mail or news from standard input and convert it to a FIDO packet.
  *
@@ -39,7 +39,7 @@
 
 
 #define PROGRAM 	"rfc2ftn"
-#define VERSION 	"$Revision: 4.39 $"
+#define VERSION 	"$Revision: 4.40 $"
 #define CONFIG		DEFAULT_CONFIG_GATE
 
 
@@ -61,6 +61,12 @@ typedef struct st_mimeinfo
     char *encoding;		/* Content-Transfer-Encoding */
 }
 MIMEInfo;
+
+
+
+#ifdef AI_9
+extern int	mime_qp_soft_endline;
+#endif
 
 
 
@@ -86,8 +92,13 @@ int	snd_mail		(RFCAddr, long);
 int	snd_message		(Message *, Area *, RFCAddr, RFCAddr, char *,
 				 long, char *, int, MIMEInfo *);
 int	print_tear_line		(FILE *);
+#if defined(AI_1) || defined(AI_2)
+int	print_origin		(FILE *, char *, Node);
+int	print_local_msgid	(FILE *, Node);
+#else
 int	print_origin		(FILE *, char *);
 int	print_local_msgid	(FILE *);
+#endif
 int	print_via		(FILE *);
 int	sendmail_t		(long);
 void	short_usage		(void);
@@ -102,6 +113,10 @@ static int   i_flag = FALSE;		/* -i --ignore-hosts   		    */
 
 static int maxmsg = 0;			/* Process maxmsg messages */
 
+#if defined(AI_1) || defined(AI_2)
+static int alias_extended = FALSE;
+#endif
+
 static int default_rfc_level = 0;	/* Default ^ARFC level for areas    */
 
 static int no_from_line	= FALSE;	/* NoFromLine          */
@@ -112,6 +127,11 @@ static int x_flags_policy = 0;		/* XFlagsPolicy        */
 static int dont_use_reply_to = FALSE;	/* DontUseReplyTo      */
 static int replyaddr_ifmail_tx = FALSE;	/* ReplyAddrIfmailTX   */
 static int check_areas_bbs = FALSE;	/* CheckAreasBBS       */
+#ifdef AI_7
+static int use_xmailer_for_tearline     = FALSE; /* config.gate: UseXMailerForTearline       */
+static int use_useragent_for_tearline   = FALSE; /* config.gate: UseUseragentForTearline     */
+static int use_xnewsreader_for_tearline = FALSE; /* config.gate: UseXNewsreaderForTearline   */
+#endif
 
 
 
@@ -390,6 +410,12 @@ int rfc_is_local(void)
     return addr_is_local( header_getcomplete("From") );
 }
 
+#ifdef AI_6
+int rfc_is_local_xpost(char *email)
+{
+    return addr_is_local_xpost(email);
+}
+#endif
 
 
 /*
@@ -619,7 +645,11 @@ char *receiver(char *to, Node *node)
      */
     debug(5, "Name for alias checking: %s", to);
 
+#ifndef AI_2
     if((alias = alias_lookup(node, to, NULL)))
+#else
+    if( (alias = alias_lookup(node, to, NULL)) && !alias->userdom )
+#endif
     {
 	debug(5, "Alias found: %s %s %s", alias->username,
 	      node_to_asc(&alias->node, TRUE), alias->fullname);
@@ -734,6 +764,9 @@ char *mail_sender(RFCAddr *rfc, Node *node)
     static char name[MSG_MAXNAME];
     Node n;
     int ret;
+#ifdef AI_2
+    Alias *alias;
+#endif
 
     *name = 0;
     *node = cf_n_addr();
@@ -748,6 +781,41 @@ char *mail_sender(RFCAddr *rfc, Node *node)
     if(ret==OK && rfc_isfido())
 	*node = n;
 #endif /**PASSTHRU_NETMAIL**/
+
+#ifdef AI_2
+    /*
+     * Check for email alias
+     */
+    debug(5, "Name for alias checking: %s", rfc->user);
+
+    if( (alias = alias_lookup(node, rfc->user, NULL)) && !alias->userdom )
+    {
+	debug(5, "Alias found: %s %s %s", alias->username,
+	      node_to_asc(&alias->node, TRUE), alias->fullname);
+	strcpy(name, alias->fullname);
+
+	*node = alias->node;
+	
+	return name;
+    }
+
+    alias_extended = FALSE;
+
+    debug(5, "E-mail for alias checking: %s", rfcaddr_to_asc(rfc, FALSE));
+
+    if((alias = alias_lookup_userdom(NULL, rfc, NULL)))
+    {
+	alias_extended = TRUE;
+
+	debug(5, "Alias found: %s@%s %s %s", alias->username, alias->userdom,
+	      node_to_asc(&alias->node, TRUE), alias->fullname);
+	strcpy(name, alias->fullname);
+
+	*node = alias->node;
+	
+	return name;
+    }
+#endif
 
     /*
      * If no real name, apply name conversion
@@ -948,6 +1016,12 @@ int snd_mail(RFCAddr rfc_to, long size)
 	Area *pa;
 	int xpost_flag;
 
+#ifdef AI_8
+	acl_ngrp(rfc_from);
+#endif
+#ifdef AI_6
+	from_is_local = rfc_is_local_xpost(rfcaddr_to_asc(&rfc_from, FALSE));
+#endif
 #ifdef NO_CONTROL
 	/*
 	 * Check for news control message
@@ -1006,6 +1080,26 @@ int snd_mail(RFCAddr rfc_to, long size)
 		    }
 		}
 
+#ifdef AI_8
+		if(acl_ngrp_lookup(pa->group))
+		{
+		    debug(5, "Posting from address `%s' to group `%s' - o.k.",
+			    rfcaddr_to_asc(&rfc_from, FALSE), pa->group);
+		}
+		else
+		{
+		    if(pna_notify(rfcaddr_to_asc(&rfc_from, FALSE)))
+		    {
+			log("BOUNCE: Postings from address `%s' to group `%s' not allowed - skipped, sent notify",
+			    rfcaddr_to_asc(&rfc_from, FALSE), pa->group);
+			bounce_mail("acl", &rfc_from, &msg, pa->group, &body);
+		    }
+		    else
+			log("BOUNCE: Postings from address `%s' to group `%s' not allowed - skipped",
+			    rfcaddr_to_asc(&rfc_from, FALSE), pa->group);
+		    continue;
+		}
+#endif
 		/* Check message size limit */
 		limitsize = pa->limitsize;
 		if(limitsize>0 && size>limitsize)
@@ -1079,6 +1173,11 @@ int snd_message(Message *msg, Area *parea,
     int mime_qp = 0;			/* quoted-printable flag */
     int rfc_level = default_rfc_level;
     int x_flags_n=FALSE, x_flags_m=FALSE, x_flags_f=FALSE;
+#if defined(AI_1) || defined(AI_2)
+    Node ftn_from;
+
+    mail_sender(&rfc_from, &ftn_from);
+#endif
 
     /*
      * X-Flags settings
@@ -1168,7 +1267,20 @@ int snd_message(Message *msg, Area *parea,
 	while(p)
 	{
 	    /* Decode all MIME-style quoted printables */
+#ifndef AI_9
 	    mime_dequote(buffer, sizeof(buffer), p->line, mime_qp);
+#else
+	    int line_offset = 0;
+	    do
+	    {
+		mime_dequote(buffer+line_offset, sizeof(buffer)-line_offset, p->line, mime_qp);
+		if(mime_qp_soft_endline)
+		{
+		    line_offset += mime_qp_soft_endline;
+		    p = p->next;
+		}
+	    } while (mime_qp_soft_endline);
+#endif
 	    lsize += strlen(buffer) + 1 /* additional CR */;
 	    if(lsize > maxsize) {
 		split++;
@@ -1226,7 +1338,11 @@ int snd_message(Message *msg, Area *parea,
 	    }
 	}	
 	else
+#if defined(AI_1) || defined(AI_2)
+	    print_local_msgid(sf, ftn_from);
+#else
 	    print_local_msgid(sf);
+#endif
 	
 	if((header = header_getcomplete("References")) ||
 	   (header = header_getcomplete("In-Reply-To")))
@@ -1242,7 +1358,11 @@ int snd_message(Message *msg, Area *parea,
 	}
     }
     else
+#if defined(AI_1) || defined(AI_2)
+	print_local_msgid(sf, ftn_from);
+#else
 	print_local_msgid(sf);
+#endif
 
     if(!no_fsc_0035)
 	if(!x_flags_n)
@@ -1254,9 +1374,27 @@ int snd_message(Message *msg, Area *parea,
 	    else
 		fprintf(sf, "\001REPLYADDR %s\r\n",
 			rfcaddr_to_asc(&rfc_from, TRUE));
+#if defined(AI_1) || defined(AI_2)
+	    if(
+#ifdef AI_1
+	       verify_host_flag(&ftn_from,HOST_ADDR) ||
+#endif
+#ifdef AI_2
+	       alias_extended
+#endif
+	       )
+		fprintf(sf, "\001REPLYTO %s %s\r\n",
+			node_to_asc(&ftn_from, FALSE),
+			msg->name_from);
+	    else
+		fprintf(sf, "\001REPLYTO %s %s\r\n",
+		        node_to_asc(cf_addr(), FALSE),
+		        msg->name_from);
+#else
 	    fprintf(sf, "\001REPLYTO %s %s\r\n",
 		    node_to_asc(cf_addr(), FALSE),
 		    msg->name_from);
+#endif
 	}
 
     if(x_flags_f)
@@ -1385,7 +1523,20 @@ int snd_message(Message *msg, Area *parea,
     while(p)
     {
 	/* Decode all MIME-style quoted printables */
+#ifndef AI_9
 	mime_dequote(buffer, sizeof(buffer), p->line, mime_qp);
+#else
+	int line_offset = 0;
+	do
+	{
+	    mime_dequote(buffer+line_offset, sizeof(buffer)-line_offset, p->line, mime_qp);
+	    if(mime_qp_soft_endline)
+	    {
+		line_offset += mime_qp_soft_endline;
+		p = p->next;
+	    }
+	} while (mime_qp_soft_endline);
+#endif
 	pkt_put_line(sf, buffer);
 	lsize += strlen(buffer) + 1 /* additional CR */;
 	if(split && lsize > maxsize) {
@@ -1400,7 +1551,11 @@ int snd_message(Message *msg, Area *parea,
 		    origin = organization;
 		else
 		    origin = cf_p_origin();
+#if defined(AI_1) || defined(AI_2)
+		print_origin(sf, origin, ftn_from);
+#else
 		print_origin(sf, origin);
+#endif
 	    }
 	    /* End of message */
 	    putc(0, sf);
@@ -1427,7 +1582,11 @@ int snd_message(Message *msg, Area *parea,
 	    origin = organization;
 	else
 	    origin = cf_p_origin();
+#if defined(AI_1) || defined(AI_2)
+	print_origin(sf, origin, ftn_from);
+#else
 	print_origin(sf, origin);
+#endif
     }
     else
 	print_via(sf);
@@ -1447,8 +1606,16 @@ int print_tear_line(FILE *fp)
 #ifdef PASSTHRU_ECHOMAIL
     char *p;
 
+#ifndef AI_7
     if( (p = header_get("X-FTN-Tearline")) )
 	fprintf(fp, "\r\n--- %s\r\n", p);
+#else
+    if( (p = header_get("X-FTN-Tearline")) ||
+      ( use_xmailer_for_tearline     && (p = header_get("X-Mailer"))   ) ||
+      ( use_useragent_for_tearline   && (p = header_get("User-Agent"))   ) ||
+      ( use_xnewsreader_for_tearline && (p = header_get("X-Newsreader")) ) )
+    	fprintf(fp, "\r\n--- %s\r\n", p);
+#endif
     else
 #endif
 	fprintf(fp, "\r\n--- FIDOGATE %s\r\n", version_global());
@@ -1461,7 +1628,11 @@ int print_tear_line(FILE *fp)
 /*
  * Generate origin, seen-by and path line
  */
+#if defined(AI_1) || defined(AI_2)
+int print_origin(FILE *fp, char *origin, Node ftn_from)
+#else
 int print_origin(FILE *fp, char *origin)
+#endif
 {
     char buf[80];
     char bufa[30];
@@ -1474,7 +1645,21 @@ int print_origin(FILE *fp, char *origin)
      * Origin line
      */
     BUF_COPY(buf , " * Origin: ");
+#if defined(AI_1) || defined(AI_2)
+    if(
+#ifdef AI_1
+       verify_host_flag(&ftn_from,HOST_ADDR) ||
+#endif
+#ifdef AI_2
+       alias_extended
+#endif
+       )
+	BUF_COPY(bufa, node_to_asc(&ftn_from, TRUE));
+    else
+	BUF_COPY(bufa, node_to_asc(cf_addr(), TRUE));
+#else
     BUF_COPY(bufa, node_to_asc(cf_addr(), TRUE));
+#endif
 
 #ifdef PASSTHRU_ECHOMAIL
     if( (p = header_get("X-FTN-Origin")) )
@@ -1561,13 +1746,34 @@ int print_origin(FILE *fp, char *origin)
 /*
  * Generate local `^AMSGID:' if none is found in message header
  */
+#if defined(AI_1) || defined(AI_2)
+int print_local_msgid(FILE *fp, Node ftn_from)
+#else
 int print_local_msgid(FILE *fp)
+#endif
 {
     long msgid;
 
     msgid = sequencer(DEFAULT_SEQ_MSGID);
-    fprintf(fp, "\001MSGID: %s %08ld\r\n",
-	    node_to_asc(cf_addr(), FALSE), msgid);
+
+#if defined(AI_1) || defined(AI_2)
+    if(
+#ifdef AI_1
+	verify_host_flag(&ftn_from,HOST_ADDR) ||
+#endif
+#ifdef AI_2
+	alias_extended
+#endif
+    )
+	fprintf(fp, "\001MSGID: %s %08ld\r\n",
+		node_to_asc(&ftn_from, FALSE), msgid);
+ else
+	fprintf(fp, "\001MSGID: %s %08ld\r\n",
+		node_to_asc(cf_addr(), FALSE), msgid);
+#else
+	fprintf(fp, "\001MSGID: %s %08ld\r\n",
+		node_to_asc(cf_addr(), FALSE), msgid);
+#endif
 
     return ferror(fp);
 }
@@ -1699,6 +1905,7 @@ int main(int argc, char **argv)
     static struct option long_options[] =
     {
 	{ "news-batch",   0, 0, 'b'},	/* Process news batch */
+	{ "in-dir",       1, 0, 'I'},	/* Set inbound packets directory */
 	{ "binkley",      1, 0, 'B'},	/* Binkley outbound base dir */
 	{ "batch-file",   1, 0, 'f'},	/* Batch file with news articles */
 	{ "out-packet-file",1,0,'o'},	/* Set packet file name */
@@ -1817,6 +2024,10 @@ int main(int argc, char **argv)
 	cf_set_uplink(u_flag);
 
     cf_debug();
+
+    /* Initialize mail_dir[], news_dir[] output directories */
+    BUF_EXPAND(mail_dir, DEFAULT_OUTRFC_MAIL);
+    BUF_EXPAND(news_dir, DEFAULT_OUTRFC_NEWS);
 
     /*
      * Process optional config statements
@@ -1942,7 +2153,30 @@ int main(int argc, char **argv)
 	    exit(EX_USAGE);
 	}
     }
-    
+#ifdef AI_7
+    if(cf_get_string("UseXMailerForTearline", TRUE))
+    {
+	debug(8, "config: UseXMailerForTearline");
+	use_xmailer_for_tearline = TRUE;
+    }
+    if(cf_get_string("UseUseragentForTearline", TRUE))
+    {
+	debug(8, "config: UseUseragentForTearline");
+	use_useragent_for_tearline = TRUE;
+    }
+    if(cf_get_string("UseXNewsreaderForTearline", TRUE))
+    {
+	debug(8, "config: UseXNewsreaderForTearline");
+	use_xnewsreader_for_tearline = TRUE;
+    }
+#endif
+#ifdef AI_6
+    if( (p = cf_get_string("AddressIsLocalForXPost", TRUE)) )
+    {
+	debug(8, "config: AddressIsLocalForXPost %s", p);
+	addr_is_local_xpost_init(p);
+    }
+#endif    
 
     /*
      * Process local options
@@ -1964,6 +2198,9 @@ int main(int argc, char **argv)
     passwd_init();
     if(check_areas_bbs)
 	areasbbs_init(areas_bbs);
+#ifdef AI_8
+    acl_init();
+#endif
 
     /* Switch stdin to binary for reading news batches */
 #ifdef OS2

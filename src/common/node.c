@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: node.c,v 4.5 1998/01/18 09:47:52 mj Exp $
+ * $Id: node.c,v 4.6 1998/07/11 21:04:38 mj Exp $
  *
  * Conversion Node structure <-> Z:N/F.P / pP.fF.nN.zZ
  *
@@ -180,6 +180,12 @@ int node_eq(Node *a, Node *b)
     return
 	a->zone == b->zone && a->net   ==b->net   &&
 	a->node == b->node && a->point ==b->point   ;
+}
+
+int node_np_eq(Node *a, Node *b)
+{
+    return
+	a->zone == b->zone && a->net ==b->net && a->node == b->node;
 }
 
 

@@ -1,6 +1,6 @@
 # -*- Makefile -*-
 #
-# $Id: config.make,v 4.19 1998/05/01 15:16:41 mj Exp $
+# $Id: config.make,v 4.20 1998/07/11 21:04:21 mj Exp $
 #
 # FIDOGATE main configuration
 #
@@ -69,6 +69,7 @@ DEFAULT_V_PINBOUND	= $(DEFAULT_V_BTBASEDIR)/pin
 DEFAULT_V_UUINBOUND	= $(DEFAULT_V_BTBASEDIR)/uuin
 DEFAULT_V_FTPINBOUND	= $(DEFAULT_V_BTBASEDIR)/ftpin
 
+DEFAULT_V_ACL		= %C/acl
 DEFAULT_V_ALIASES	= %C/aliases
 DEFAULT_V_AREAS		= %C/areas
 DEFAULT_V_HOSTS		= %C/hosts

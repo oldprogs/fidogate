@@ -2,9 +2,7 @@
 #
 # Automatically search and apply FIDO nodediffs to nodelist
 #
-# Requires perl scripts
-#     latest
-#     nl-diff
+# Requires perl script nl-diff
 #
 
 $LIBDIR="<LIBDIR>";
@@ -28,7 +26,30 @@ $dir  = $DIFFDIR;
 $name = $NAME;
 
 
-##### Run program, exit if it fails #####
+
+##### Find latest nodediff ###################################################
+
+sub latest {
+    local($lc,$uc) = @_;
+    local($f,$nodelist,$t,$x,$mtime);
+
+    $t        = -1;
+    $nodelist = "";
+
+    for $f (<$lc.??? $uc.???>) {
+	if(-f $f) {
+	    ($x,$x,$x,$x,$x,$x,$x,$x,$x, $mtime, $x,$x,$x) = stat($f);
+	    if($mtime > $t) {
+		$t        = $mtime;
+		$nodelist = $f;
+	    }
+	}
+    }
+
+    return $nodelist;
+}
+
+##### Run program, exit if it fails ##########################################
 sub run {
     print "Running @_\n" if($opt_v);
     $st = (system @_) >> 8;
@@ -40,12 +61,13 @@ sub run {
 
 
 
+##### Main ###################################################################
 
 # Search for current nodelist
 $uc = $name;
 $uc =~ tr/a-z/A-Z/;
-$nodelist = `$LATEST $name.??? $uc.???`;
-chop $nodelist;
+$nodelist = &latest($name,$uc);
+
 die "nl-autoupd: can't find current nodelist\n" if(!$nodelist);
 
 print "Current nodelist: $nodelist\n" if($opt_v);

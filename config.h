@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway software UNIX <-> FIDO
  *
- * $Id: config.h,v 4.36 1998/05/03 14:30:30 mj Exp $
+ * $Id: config.h,v 4.37 1998/07/11 21:04:20 mj Exp $
  *
  * Configuration header file
  *
@@ -122,6 +122,67 @@
 
 
 
+/***** AI patches configuration (see README.ai) *****************************/
+/*
+ * Add -a option to HOSTS entries, useful only with PASSTHRU_NET/ECHOMAIL
+ */
+/* #define AI_1 */
+
+/*
+ * Improved ALIASES (see README.ai.aliases)
+ */
+#define AI_2
+
+/*
+ * New `DeleteSeenBy' and `DeletePath' options for ftntoss
+ */
+/* #define AI_3 */
+
+/*
+ * Fixed quoted-printable bug (added processing of Soft Line Breaks
+ * (Rule #5 of RFC1521) - `=' at the end of QP-line) in rfc2ftn.c, mime.c,
+ * unicode.c (Andy Igoshin <ai@vsu.ru>).
+ */
+/* #define AI_9 */
+
+/*
+ * Check on 8bit in subject, origin and tearline
+ */
+#define AI_5
+
+/* 
+ * New `AddressIsLocalForXPost' option in config.common file (see
+ * example). In this variable one can specify wildcards to determine
+ * which users are allowed to crosspost to areas marked with `-l' flag
+ * in `areas' file.
+ */
+/* #define AI_6 */
+
+/*
+ * New `UseXMailerForTearline', `UseUseragentForTearline' and
+ * `UseXNewsreaderForTearline' options to config.gate file (see
+ * example).  This allows generation of `Tearline' field in .pkt
+ * files from field `User-Agent:' or `X-Newsreader:' contained in RFC
+ * message (like `X-FTN-Tearline:' header). Priority is:
+ * `X-FTN-Tearline:', `User-Agent:', `X-Newsreader:' for news
+ * messages and `X-FTN-Tearline:', `X-Mailer:' for mail messages. If
+ * these variables are not present in config.gate, we do not process
+ * the corresponding fields in RFC message.
+ */
+#define AI_7
+
+/*
+ * Added ACL support. This feature allows one to describe the
+ * correspondence between sender's email address and newsgroups to
+ * which this sender is allowed to write. One can use wildcards as
+ * email and newsgroups. The newsgroups list is in INN like style. See
+ * the comments in `acl' file in the `examples' directory for further
+ * information.
+ */
+/* #define AI_8 */
+
+
+
 /***** System dependend configuration ***************************************
  *
  *   HAS_FCNTL_LOCK		Do you have file locking with fcntl()
@@ -164,9 +225,12 @@
  *
  *   HAS_SYSLOG		        syslogd, syslog(), vsyslog() supported
  *
- *   HAS_SNPRINTF		snprintf(), vsnprintf() supported
+ *   HAS_SNPRINTF               snprintf(), vsnprintf() supported
+ *
+ *   HAS_HARDLINKS		hardlinks supported by link() and filesystem
  */
 
+/***** Unix and derivates ***************************************************/
 /* Standard config: POSIX UNIX */
 # define HAS_FCNTL_LOCK
 # undef  HAS_GETTIMEOFDAY
@@ -182,6 +246,7 @@
 # undef  DO_DOSIFY
 # undef  HAS_SYSLOG		/* syslog(), vsyslog() not supported */
 # undef  HAS_SNPRINTF		/* snprintf(), vsnprintf() not supported */
+# define HAS_HARDLINKS
 
 #ifdef __sun__			/* SUNOS 4.1.x, GNU gcc */
 # define HAS_FCNTL_LOCK
@@ -198,9 +263,10 @@
 # undef  DO_DOSIFY
 # define HAS_SYSLOG
 # undef  HAS_SNPRINTF
+# define HAS_HARDLINKS
 #endif
 
-#ifdef __linux__		/* LINUX LIBC 5.x.x, GNU gcc */
+#ifdef __linux__		/* Linux */
 # define HAS_FCNTL_LOCK
 # define HAS_GETTIMEOFDAY
 # undef  HAS_TM_GMTOFF
@@ -215,6 +281,7 @@
 # undef  DO_DOSIFY
 # define HAS_SYSLOG
 # define HAS_SNPRINTF
+# define HAS_HARDLINKS
 #endif
 
 #ifdef __FreeBSD__		/* FreeBSD 2.1.6., GNU gcc */
@@ -232,6 +299,7 @@
 # undef  DO_DOSIFY
 # define HAS_SYSLOG
 # define HAS_SNPRINTF		/* ? */
+# define HAS_HARDLINKS
 #endif
 
 #ifdef ISC			/* ISC 3.x, GNU gcc, -DISC necessary */
@@ -249,8 +317,29 @@
 # undef  DO_DOSIFY
 # define HAS_SYSLOG
 # undef  HAS_SNPRINTF
+# define HAS_HARDLINKS
 #endif
 
+#ifdef __NeXT__                 /* NEXTSTEP 3.3 (Intel only?) */
+# define HAS_GETTIMEOFDAY
+# define HAS_TM_GMTOFF
+# define HAS_SYSEXITS_H
+# define HAS_TM_ZONE
+# define HAS_STRFTIME
+# define HAS_TZNAME
+# undef  HAS_STRCASECMP
+# undef  HAS_STRICMP
+# undef  HAS_STRERROR
+# undef  DO_BINARY
+# define RECEIVED_BY_MAILER "Received: by NeXT.Mailer"
+# undef  DO_DOSIFY
+# define HAS_SYSLOG
+# undef  HAS_SNPRINTF
+# define HAS_HARDLINKS
+#endif /* __NeXT__ */
+
+
+/***** Other (MSDOS, OS/2, Windows) *****************************************/
 #ifdef MSDOS			/* MSDOS, DJGPP GNU gcc */
 # undef  HAS_FCNTL_LOCK
 # define HAS_TM_GMTOFF
@@ -265,6 +354,7 @@
 # define DO_DOSIFY
 # undef  HAS_SYSLOG		/* syslog(), vsyslog() not supported */
 # undef  HAS_SNPRINTF
+# undef  HAS_HARDLINKS
 #endif
 
 #ifdef __EMX__			/* OS/2, EMX GNU gcc */
@@ -284,24 +374,8 @@
 # define DO_DOSIFY
 # undef  HAS_SYSLOG		/* syslog(), vsyslog() not supported */
 # undef  HAS_SNPRINTF
+# undef  HAS_HARDLINKS
 #endif
-
-#ifdef __NeXT__                 /* NEXTSTEP 3.3 (Intel only?) */
-# define HAS_GETTIMEOFDAY
-# define HAS_TM_GMTOFF
-# define HAS_SYSEXITS_H
-# define HAS_TM_ZONE
-# define HAS_STRFTIME
-# define HAS_TZNAME
-# undef  HAS_STRCASECMP
-# undef  HAS_STRICMP
-# undef  HAS_STRERROR
-# undef  DO_BINARY
-# define RECEIVED_BY_MAILER "Received: by NeXT.Mailer"
-# undef  DO_DOSIFY
-# define HAS_SYSLOG
-# undef  HAS_SNPRINTF
-#endif /* __NeXT__ */
 
 #ifdef __CYGWIN32__		/* GNU-Win32 Beta 18 */
 # undef  HAS_FCNTL_LOCK
@@ -318,6 +392,7 @@
 # undef  DO_DOSIFY
 # undef  HAS_SYSLOG		/* syslog(), vsyslog() not supported */
 # undef  HAS_SNPRINTF		/* ? */
+# undef  HAS_HARDLINKS
 #endif
 
 /***** End of configuration *************************************************/

@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway software UNIX <-> FIDO
  *
- * $Id: address.c,v 4.9 1998/02/01 18:51:19 mj Exp $
+ * $Id: address.c,v 4.10 1998/07/11 21:04:35 mj Exp $
  *
  * Parsing and conversion for FIDO and RFC addresses
  *
@@ -56,6 +56,9 @@ static int hosts_restricted = FALSE;
 char address_error[256];
 
 
+#ifdef AI_6
+static char **addr_is_local_pats = NULL;
+#endif
 
 /*
  * Set/get HostsRestricted mode
@@ -127,6 +130,26 @@ char *s_ftn_to_inet_pfnz(Node *node)
 }
 
 
+#ifdef AI_1
+/*
+ * verify_host_flag(): Verify FTN host flag
+ *
+ */
+int verify_host_flag(Node *node, int flag)
+{
+    Host *h;
+
+    SHUFFLEBUFFERS;
+
+    h = hosts_lookup(node, NULL);
+
+    if(h)				/* Address found in HOSTS */
+    {
+	return h->flags & flag ? TRUE : FALSE;
+    }
+    return FALSE;
+}
+#endif
 
 /*
  * inet_to_ftn(): convert Internet address to FTN address
@@ -281,6 +304,34 @@ int addr_is_local(char *addr)
     return  rfc.addr[0] == '\0'  ||  stricmp(rfc.addr, cf_fqdn()) == 0;
 }
 
+#ifdef AI_6
+void addr_is_local_xpost_init(char *addr)
+{
+    list_init(&addr_is_local_pats, addr);
+}
+
+
+int addr_is_local_xpost(char *addr)
+{
+    RFCAddr rfc;
+    int ailx;
+    static char **addr_list = NULL;
+    
+    if(!addr)
+	return FALSE;
+
+    rfc = rfcaddr_from_rfc(addr);
+    
+    debug(7, "addr_is_local_xpost(): From=%s FQDN=%s",
+	  rfcaddr_to_asc(&rfc, TRUE), cf_fqdn());
+    ailx = rfc.addr[0] == '\0'  ||  stricmp(rfc.addr, cf_fqdn()) == 0;
+    if (!ailx) {
+	list_init(&addr_list, addr);
+	ailx = list_match(FALSE, addr_is_local_pats, addr_list);
+    }
+    return ailx;
+}
+#endif
 
 
 /*

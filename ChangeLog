@@ -1,3 +1,27 @@
+Sat Jul 11 21:58:34 1998  Martin Junius  <mj@fido.de>
+
+	------- CVS ci -------------------------------------------------------
+
+	* src/common/acl.c: added #ifdef AI_8 wrapper for complete module.
+
+	* src/gate/rfc2ftn.c: fixed some of the patches, removed -I,
+	  in_dir code.
+
+	* config.h (HAS_HARDLINKS): new #define, controls support of
+	  hardlinks by the file system and the operating
+	  system. Rearranged system-specific config.
+	  (AI_*): #define's controlling AI patches.
+
+	* contrib/fidogate-4.3a3-ai-pl9.1/: new dir with the complete
+	  patch and documentation from Andy Igoshin.
+
+	* all: applied patches contributed by Andy Igoshin <ai@vsu.ru>.
+
+Fri Jul 10 19:39:29 1998  Martin Junius  <mj@fido.de>
+
+	* scripts/nodelist/nl-autoupd.pl (latest): new function replaces
+	  running external program "latest".
+
 Mon Jul  6 22:20:00 1998  Martin Junius  <mj@fido.de>
 
 	------- CVS ci -------------------------------------------------------

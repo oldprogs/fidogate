@@ -1,6 +1,6 @@
 #:ts=8
 #
-#    $Id: Makefile,v 4.13 1998/05/03 12:46:36 mj Exp $
+#    $Id: Makefile,v 4.14 1998/07/11 21:04:34 mj Exp $
 #
 #    Makefile for FIDOGATE src/common/
 #
@@ -16,7 +16,8 @@ include $(TOPDIR)/config.make
 include $(TOPDIR)/rules.make
 
 
-OBJS		= address.o \
+OBJS		= acl.o \
+		  address.o \
 		  aliases.o \
 		  areas.o \
 		  areasbbs.o \
