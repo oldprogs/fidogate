@@ -1,13 +1,13 @@
 #:ts=8
 #
-# $Id: orodruin.mc,v 4.4 1996/12/20 10:12:18 mj Exp $
+# $Id: orodruin.mc,v 4.5 1997/10/03 12:11:27 mj Exp $
 #
 # orodruin.Fido.DE
 #
 
 include(`../m4/cf.m4')
 
-define(`confCF_VERSION', `orodruin-4.4')
+define(`confCF_VERSION', `orodruin-4.5')
 
 define(`confMIME_FORMAT_ERRORS', `False')
 define(`confUSE_ERRORS_TO', `True')
@@ -16,7 +16,9 @@ define(`confMESSAGE_TIMEOUT', `5d/2d')
 # RedHat 4.0 specific
 define(`confDEF_USER_ID',``8:12'')
 
-VERSIONID(`$Id: orodruin.mc,v 4.4 1996/12/20 10:12:18 mj Exp $')
+define(`ALIAS_FILE',`/etc/aliases,/usr/local/majordomo/majordomo.aliases')
+
+VERSIONID(`$Id: orodruin.mc,v 4.5 1997/10/03 12:11:27 mj Exp $')
 
 OSTYPE(linux)dnl
 
