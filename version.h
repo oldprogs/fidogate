@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway software UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: version.h,v 4.25 1998/01/02 14:37:00 mj Exp $
+ * $Id: version.h,v 4.26 1998/02/24 17:26:31 mj Exp $
  *
  * Global version number, patch level
  *****************************************************************************/
@@ -16,7 +16,7 @@
 /*
  * If uncommented, put "ALPHAn" after version id
  */
-#define ALPHA		1
+#define ALPHA		2
 
 /*
  * If uncommented, put "BETAn" after version id

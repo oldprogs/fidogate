@@ -1,3 +1,17 @@
+Tue Feb 24 18:24:11 1998  Martin Junius  <mj@fido.de>
+
+	------- CVS ci -------------------------------------------------------
+
+	* version.h (ALPHA): set to 2 (4.3a2).
+
+	* examples/abis.abra.de,namib.north.de: deleted.
+	
+	* cvsdeldir: new utility, delete directory tree from CVS repository.
+
+Mon Feb 23 18:10:44 1998  Martin Junius  <mj@fido.de>
+
+	* src/toss/Makefile (install): added runout.
+
 Sun Feb 22 15:59:19 1998  Martin Junius  <mj@fido.de>
 
 	======= Release 4.3a1 ================================================
