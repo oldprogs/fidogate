@@ -1,7 +1,7 @@
 <HTML>
 <HEAD>
 <!-- This HTML file has been created by texi2html 1.51
-     from ../fidogate.texi on 18 October 1996 -->
+     from ../fidogate.texi on 20 October 1996 -->
 
 <TITLE>FIDOGATE
  - FIDOGATE Programs</TITLE>
@@ -1007,19 +1007,26 @@ Options:
 </P>
 <DL COMPACT>
 
-<DT><CODE>-B --binkley <I>name</I></CODE>
+<DT><CODE>-B --binkley <I>dir</I></CODE>
 <DD>
 Set Binkley outbound directory.
+
+<DT><CODE>-F --file-dir <I>dir</I></CODE>
+<DD>
+Sets directory, where <CODE>ftnpack</CODE> looks for file attachments. Should
+be the appropiate inbound directory, see also the <CODE>runtoss</CODE>
+script. If this option is not specified, no file attachments are
+processed.
 
 <DT><CODE>-g --grade <I>grade</I></CODE>
 <DD>
 Only process packets with <I>grade</I> (single letter).
 
-<DT><CODE>-I --in-dir <I>name</I></CODE>
+<DT><CODE>-I --in-dir <I>dir</I></CODE>
 <DD>
 Set input directory. Default: SPOOLDIR/toss/out
 
-<DT><CODE>-O --out-dir <I>name</I></CODE>
+<DT><CODE>-O --out-dir <I>dir</I></CODE>
 <DD>
 Set directory for temporary packets. Default: SPOOLDIR/toss/pack. This
 is the directory, where packets to be put into arcmail archives will be

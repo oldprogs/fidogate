@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway software UNIX <-> FIDO
  *
- * $Id: address.c,v 4.3 1996/09/03 19:17:50 mj Exp $
+ * $Id: address.c,v 4.4 1996/10/20 19:15:20 mj Exp $
  *
  * Parsing and conversion for FIDO and RFC addresses
  *
@@ -281,12 +281,12 @@ int addr_is_domain(char *addr)
 
     rfc = rfcaddr_from_rfc(addr);
     
-    debug(7, "addr_is_domain(): From=%s domain=%s",
-	  rfcaddr_to_asc(&rfc, TRUE), d           );
-
     d  = cf_domainname();
     ld = strlen(d);
     l  = strlen(rfc.addr);
+
+    debug(7, "addr_is_domain(): From=%s domain=%s",
+	  rfcaddr_to_asc(&rfc, TRUE), d           );
 
     if(rfc.addr[0] == '\0')
 	return TRUE;

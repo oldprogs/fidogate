@@ -77,7 +77,29 @@ for subscription requests.
 
 ----- fidogate.lsm -------------------------------------------------
 
+Begin3
+Title:          FIDOGATE
+Version:        4.1.0
+Entered-date:   18OCT96
+Description:    FIDOGATE Version 4:
+                * Fido-Internet Gateway
+		* Fido FTN-FTN Gateway
+		* Fido Mail Processor
+		* Fido File Processor
+		* Fido Areafix/Filefix
+Keywords:       fido ftn netmail echomail tosser areafix mail news gateway
+Author:         mj@fido.de (Martin Junius)
+Maintained-by:  mj@fido.de (Martin Junius)
+Primary-site:   ftp.fido.de /pub/fidogate
+		651kB fidogate-4.1.0.tar.gz
+Alternate-site: sunsite.unc.edu /pub/Linux/system/Fido
+		651kB fidogate-4.1.0.tar.gz
+Platforms:      Linux, SunOS, but should be easily portable to most
+		UNIX systems. Supports OS/2 (EMX gcc port) and MSDOS
+		(DJGPP gcc port), too. perl is required.
+Copying-policy: GPL
+End
 
 ----------------------------------------------------------------------
 
-Martin Junius <mj@fido.de>, $Date: 1996/10/18 19:48:35 $
+Martin Junius <mj@fido.de>, $Date: 1996/10/20 19:15:09 $

@@ -2,7 +2,7 @@
 @c
 @c FIDOGATE documentation
 @c
-@c $Id: fidogate.texi,v 4.9 1996/10/18 19:48:39 mj Exp $
+@c $Id: fidogate.texi,v 4.10 1996/10/20 19:15:13 mj Exp $
 @c
 
 @setfilename fidogate.info
@@ -1734,16 +1734,22 @@ ftnpack  @r{[}@i{-options}@r{]}  @r{[}@i{packet} @r{... ]}
 
 @table @code
 
-@item -B --binkley @i{name}
+@item -B --binkley @i{dir}
 Set Binkley outbound directory.
+
+@item -F --file-dir @i{dir}
+Sets directory, where @code{ftnpack} looks for file attachments. Should
+be the appropiate inbound directory, see also the @code{runtoss}
+script. If this option is not specified, no file attachments are
+processed.
 
 @item -g --grade @i{grade}
 Only process packets with @i{grade} (single letter).
 
-@item -I --in-dir @i{name}
+@item -I --in-dir @i{dir}
 Set input directory. Default: SPOOLDIR/toss/out
 
-@item -O --out-dir @i{name}
+@item -O --out-dir @i{dir}
 Set directory for temporary packets. Default: SPOOLDIR/toss/pack. This
 is the directory, where packets to be put into arcmail archives will be
 created.
@@ -3639,7 +3645,7 @@ remap 2:2499/123.0 2:2499/123.11 "Sabine Meier"
 remap 2:2499/123.0 2:2499/123.1  "*"
 
 NetMail
-send  hold   2:2499/1232:2499/123.*
+send  hold   2:2499/123 2:2499/123.*
 route normal 2:2499/100 1:* 2:* 3:* 4:* 5:* 6:*
 
 EchoMail

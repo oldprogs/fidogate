@@ -14,3 +14,10 @@ for f in ../ti.news-l/[0-9]*; do
   $T -n <$f
   $T -c./config -n <$f
 done
+
+for f in ../ti.mail-l/[0-9]*; do
+  echo "Mail message file $f"
+  $T test@hippo.fido.de <$f
+  $T -c./config test@hippo.fido.de <$f
+done
+

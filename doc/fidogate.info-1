@@ -1313,16 +1313,22 @@ Usage:
 
 Options:
 
-`-B --binkley name'
+`-B --binkley dir'
      Set Binkley outbound directory.
+
+`-F --file-dir dir'
+     Sets directory, where `ftnpack' looks for file attachments. Should
+     be the appropiate inbound directory, see also the `runtoss'
+     script. If this option is not specified, no file attachments are
+     processed.
 
 `-g --grade grade'
      Only process packets with grade (single letter).
 
-`-I --in-dir name'
+`-I --in-dir dir'
      Set input directory. Default: SPOOLDIR/toss/out
 
-`-O --out-dir name'
+`-O --out-dir dir'
      Set directory for temporary packets. Default: SPOOLDIR/toss/pack.
      This is the directory, where packets to be put into arcmail
      archives will be created.

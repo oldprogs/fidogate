@@ -1,6 +1,6 @@
 #!/usr/local/bin/perl
 #
-# $Id: ffxrmail.pl,v 4.0 1996/04/17 18:17:40 mj Exp $
+# $Id: ffxrmail.pl,v 4.1 1996/10/20 19:15:21 mj Exp $
 #
 # sendmail frontend for processing ffx rmail commands
 #
@@ -18,8 +18,9 @@ $SIG{"PIPE"} = "IGNORE";
 
 # read From_ line from <STDIN>
 $_ = <STDIN>;
-if( /^From ([^ ]+) / ) {
+if( /^From ([^ ]*) / ) {
     $from = $1;
+    $from = "news\@localhost" if($from eq "");
 }
 else {
     die "ffxrmail: no From_ line at start of message\n";

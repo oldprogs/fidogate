@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway software UNIX <-> FIDO
  *
- * $Id: rfc2ftn.c,v 4.14 1996/09/16 20:13:23 mj Exp $
+ * $Id: rfc2ftn.c,v 4.15 1996/10/20 19:15:21 mj Exp $
  *
  * Read mail or news from standard input and convert it to a FIDO packet.
  *
@@ -39,7 +39,7 @@
 
 
 #define PROGRAM 	"rfc2ftn"
-#define VERSION 	"$Revision: 4.14 $"
+#define VERSION 	"$Revision: 4.15 $"
 #define CONFIG		CONFIG_GATE
 
 
@@ -747,7 +747,7 @@ int snd_mail(RFCAddr rfc_to, long size)
     Message msg;
     char *flags = NULL;
     MIMEInfo *mime;
-    int from_is_local;
+    int from_is_local = FALSE;
     node_from.domain[0] = 0;
     node_to  .domain[0] = 0;
     
@@ -996,11 +996,6 @@ int snd_message(Message *msg, Area *parea,
 	mime_qp = MIME_QP;
     
     /*
-     * Set pointer to first line in message body
-     */
-    p = body.first;
-    
-    /*
      * Open output packet
      */
     if(!o_flag && cf_zone()!=last_zone)
@@ -1040,6 +1035,7 @@ int snd_message(Message *msg, Area *parea,
     
     last_zone = cf_zone();
 
+    
     /*
      * Compute number of split messages if any
      */
@@ -1047,7 +1043,24 @@ int snd_message(Message *msg, Area *parea,
 
     if(maxsize > 0)
     {
-	split = size > maxsize ? size / maxsize + 1 : 0;
+	split = 1;
+	lsize = 0;
+	p     = body.first;
+	while(p)
+	{
+	    /* Decode all MIME-style quoted printables */
+	    mime_dequote(buffer, sizeof(buffer), p->line, mime_qp);
+	    lsize += strlen(buffer) + 1 /* additional CR */;
+	    if(lsize > maxsize) {
+		split++;
+		lsize = 0;
+	    }
+	    p = p->next;
+	}
+
+	if(split == 1)
+	    split = 0;
+	
 	if(split)
 	    debug(5, "Must split message: size=%ld max=%ld parts=%d",
 		  size, maxsize, split);
@@ -1056,6 +1069,11 @@ int snd_message(Message *msg, Area *parea,
 	split = 0;
     
 
+    /*
+     * Set pointer to first line in message body
+     */
+    p = body.first;
+    
  again:
 
     /* Subject with split part indication */
