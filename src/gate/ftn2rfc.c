@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftn2rfc.c,v 4.45 1999/01/02 16:35:02 mj Exp $
+ * $Id: ftn2rfc.c,v 4.46 1999/03/06 17:51:29 mj Exp $
  *
  * Convert FTN mail packets to RFC mail and news batches
  *
@@ -40,7 +40,7 @@
 
 
 #define PROGRAM 	"ftn2rfc"
-#define VERSION 	"$Revision: 4.45 $"
+#define VERSION 	"$Revision: 4.46 $"
 #define CONFIG		DEFAULT_CONFIG_GATE
 
 
@@ -346,8 +346,6 @@ int unpack(FILE *pkt_file, Packet *pkt)
 
     while(type == MSG_TYPE)
     {
-	s_freeall();
-
 	x_orig_to[0] = 0;
 	tl_clear(&theader);
 	tl_clear(&tbody);
@@ -1184,15 +1182,13 @@ int unpack(FILE *pkt_file, Packet *pkt)
 	    mail_close('m');
 	}
 
-	s_freeall();
+	tmps_freeall();
     } /**while(type == MSG_TYPE)**/
 
     if(mail_file('n')) 
 	mail_close('n');
 
-    s_freeall();
-
-    return ret;
+    TMPS_RETURN(ret);
 }
 
 
@@ -1601,8 +1597,11 @@ int main(int argc, char **argv)
 	}
 
 	for(pkt_name=dir_get(TRUE); pkt_name; pkt_name=dir_get(FALSE))
+	{
 	    if(unpack_file(pkt_name) != OK)
 		ret = EXIT_ERROR;
+	    tmps_freeall();
+	}
 
 	dir_close();
     }
@@ -1610,8 +1609,11 @@ int main(int argc, char **argv)
     {
 	/* Process packet files on command line */
 	for(; optind<argc; optind++)
+	{
 	    if(unpack_file(argv[optind]) != OK)
 		ret = EXIT_ERROR;
+	    tmps_freeall();
+	}
     }
     
 

@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: tmps.c,v 4.2 1999/01/02 16:35:01 mj Exp $
+ * $Id: tmps.c,v 4.3 1999/03/06 17:51:28 mj Exp $
  *
  * Function for handling temporary strings
  *
@@ -176,7 +176,10 @@ void tmps_freeall(void)
     {
 	pp = p;
 	p  = p->next;
-
+#ifdef TEST
+	printf("tmps_freeall(): tmps=%08x s=%08x len=%d\n",
+	       (unsigned)pp, (unsigned)pp->s, pp->len              );
+#endif
 	pp->next = NULL;
 	pp->len  = 0;
 	xfree(pp->s);
@@ -404,11 +407,28 @@ char *s_stripsize(char *s)
 
 #ifdef TEST /****************************************************************/
 
+int testf()
+{
+    s_copy("testf string 1");
+    s_copy("testf string 2");
+    
+    if(1)
+	TMPS_RETURN(255);
+    
+    TMPS_RETURN(0);
+    
+    return 1;
+}
+
 int main(int argc, char *argv[])
 {
     int i;
     TmpS *p;
     char *s, *s2, *s4;
+
+    printf("Calling testf()\n");
+    i = testf();
+    printf("Returned from testf(), ret=%d\n", i);
     
     for(i=1; i<=10; i++) 
     {

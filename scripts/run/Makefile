@@ -1,6 +1,6 @@
 #:ts=8
 #
-#    $Id: Makefile,v 4.6 1999/02/07 11:05:22 mj Exp $
+#    $Id: Makefile,v 4.7 1999/03/06 17:51:24 mj Exp $
 #
 #    Makefile for FIDOGATE scripts/run/
 #
@@ -24,7 +24,7 @@ all:		$(PROGS)
 
 
 install:
-	$(INSTALL_PROG) $(PROGS) $(PREFIX)$(BINDIR)
+	$(INSTALL_PROG) runpoll          $(PREFIX)$(BINDIR)
 
 install-orodruin:
 	$(INSTALL_PROG) runpoll-orodruin $(PREFIX)$(BINDIR)/runpoll

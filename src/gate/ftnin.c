@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftnin.c,v 4.10 1999/01/02 16:35:02 mj Exp $
+ * $Id: ftnin.c,v 4.11 1999/03/06 17:51:30 mj Exp $
  *
  * Search for mail packets destined to gateway's FTN addresses and feed
  * them to ftn2rfc.
@@ -39,7 +39,7 @@
 
 
 #define PROGRAM		"ftnin"
-#define VERSION		"$Revision: 4.10 $"
+#define VERSION		"$Revision: 4.11 $"
 #define CONFIG		DEFAULT_CONFIG_GATE
 
 
@@ -175,6 +175,8 @@ int do_packets(void)
 	    }
 	    
 	    bink_bsy_delete(node);
+
+	    tmps_freeall();
 	}
     
     /*
@@ -192,6 +194,7 @@ int do_packets(void)
 	    log("ERROR: can't exec command %s", script);
 	    return ERROR;
 	}
+	tmps_freeall();
     }
 	
     return OK;

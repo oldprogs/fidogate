@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway software UNIX <-> FIDO
  *
- * $Id: rfc2ftn.c,v 4.42 1999/01/02 16:35:03 mj Exp $
+ * $Id: rfc2ftn.c,v 4.43 1999/03/06 17:51:30 mj Exp $
  *
  * Read mail or news from standard input and convert it to a FIDO packet.
  *
@@ -39,7 +39,7 @@
 
 
 #define PROGRAM 	"rfc2ftn"
-#define VERSION 	"$Revision: 4.42 $"
+#define VERSION 	"$Revision: 4.43 $"
 #define CONFIG		DEFAULT_CONFIG_GATE
 
 
@@ -1121,8 +1121,7 @@ int snd_mail(RFCAddr rfc_to, long size)
 		msg.node_to   = cf_n_uplink();
 		status = snd_message(&msg, pa, rfc_from, rfc_to,
 				     subj, size, flags, fido, mime);
-		if(status)
-		    return status;
+		TMPS_RETURN(status);
 	    }
 	}
     }
@@ -1135,11 +1134,13 @@ int snd_mail(RFCAddr rfc_to, long size)
 	msg.area      = NULL;
 	msg.node_from = node_from;
 	msg.node_to   = node_to;
-	return snd_message(&msg, NULL, rfc_from, rfc_to,
-			   subj, size, flags, fido, mime);
+	status = snd_message(&msg, NULL, rfc_from, rfc_to,
+			     subj, size, flags, fido, mime);
+	TMPS_RETURN(status);
     }
-    
-    return EX_OK;
+
+    /** NOT REACHED**/
+    return 0;
 }
 
 
@@ -2305,13 +2306,17 @@ int main(int argc, char **argv)
 	rfcaddr_init(&rfc_to);
 	
 	if(newsmode)
+	{
 	    /* Send mail to echo feed for news messages */
 	    status = snd_mail(rfc_to, size);
+	    tmps_freeall();
+	}
 	else
 	    if(t_flag)
 	    {
 		/* Send mail to addresses from headers */
 		status = sendmail_t(size);
+		tmps_freeall();
 	    }
 	    else
 	    {
@@ -2321,6 +2326,7 @@ int main(int argc, char **argv)
 		    rfc_to = rfcaddr_from_rfc(argv[i]);
 		    if( (st = snd_mail(rfc_to, size)) != EX_OK )
 			status = st;
+		    tmps_freeall();
 		}
 	    }
 	

@@ -1,3 +1,60 @@
+1999-03-06  Martin Junius  <mj@fido.de>
+
+	------- CVS ci -------------------------------------------------------
+
+	* src/gate/ftn2rfc.c (main): added call to tmps_freeall().
+	  (unpack): use tmps_freeall(), TMPS_RETURN().
+
+	* src/gate/rfc2ftn.c (main): added call to tmps_freeall().
+	  (snd_mail): use TMPS_RETURN().
+
+	* src/gate/ftnin.c (do_packets): dito.
+
+	* src/ffx/ffxqt.c (do_ffx): added call to tmps_freeall() in for loop.
+
+	* src/ffx/ffx.c (main): added call to tmps_freeall().
+
+	* src/common/tmps.c (testf): added test function for TMPS_RETURN() 
+	  macro.
+
+1999-03-03  Martin Junius  <mj@fido.de>
+
+	* src/common/address.c (str_printf): moved to misc.c.
+
+	* src/areafix/pkttmpl.c (do_file): use TMPS_RETURN().
+
+	* src/areafix/ftnafpkt.c (do_packet): use TMPS_RETURN().
+
+	* src/areafix/pkttmpl.c (do_packet): use TMPS_RETURN().
+
+	* src/areafix/ftnafutil.c (do_areasbbs): call tmps_freeall().
+
+	* src/areafix/ftnafpkt.c (do_file): use TMPS_RETURN().
+
+	* src/areafix/ftnaf.c (do_mail): use TMPS_RETURN().
+
+	* src/include/prototypes.h (TMPS_RETURN): new macro, calls
+	  tmps_freeall() and returns from function.
+
+1999-02-28  Martin Junius  <mj@fido.de>
+
+	* scripts/outbound/out-rm*.sh: updated.
+
+	* scripts/outbound/out-manip.pl: removed RCS log, use <BTBASEDIR>.
+
+	* scripts/run/runpoll-binkd.sh: add out-manip poll $BOSSNODE to
+	  force binkd poll.
+
+	* scripts/run/runpoll-orodruin.sh: must use full path for xterm,
+	  setuid wrapper resets PATH.
+
+	* scripts/run/runpoll*.sh: use $0 for exec xterm.
+
+1999-02-21  Martin Junius  <mj@fido.de>
+
+	* scripts/misc/areasbbssync.pl: changed -l output to be suitable
+	  for text listing.
+
 1999-02-07  Martin Junius  <mj@fido.de>
 
 	------- CVS ci -------------------------------------------------------

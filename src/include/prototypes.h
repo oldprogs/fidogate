@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: prototypes.h,v 4.51 1999/01/02 16:35:04 mj Exp $
+ * $Id: prototypes.h,v 4.52 1999/03/06 17:51:31 mj Exp $
  *
  * Prototypes for functions in libfidogate.a
  *
@@ -49,7 +49,6 @@ extern char address_error[];
 void	addr_restricted		(int);
 int	addr_is_restricted	(void);
 void	addr_ignore		(int);
-int	str_printf		(char *, size_t, const char *, ...);
 char   *str_ftn_to_inet		(char *, size_t, Node *, int);
 char   *s_ftn_to_inet		(Node *, int);
 char   *s_ftn_to_inet_pfnz	(Node *);
@@ -307,6 +306,7 @@ char   *mime_dequote		(char *, size_t, char *, int);
 char   *mime_deheader		(char *, size_t, char *, int);
 
 /* misc.c */
+int	str_printf		(char *, size_t, const char *, ...);
 int	str_last		(char *, size_t);
 char   *str_lastp		(char *, size_t);
 char   *str_lower		(char *);
@@ -528,6 +528,8 @@ void    s_freeall		(void);
 char   *s_printf		(const char *, ...);
 char   *s_copy			(char *);
 char   *s_stripsize		(char *);
+
+#define TMPS_RETURN(x)		do { tmps_freeall(); return x; } while(0)
 
 /* version.c */
 char   *version_global		(void);

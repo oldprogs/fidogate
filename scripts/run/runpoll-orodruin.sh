@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# $Id: runpoll-orodruin.sh,v 4.1 1999/01/02 16:34:53 mj Exp $
+# $Id: runpoll-orodruin.sh,v 4.2 1999/03/06 17:51:24 mj Exp $
 #
 # Poll uplink
 #
@@ -12,9 +12,12 @@ NEWS=<NEWSETCDIR>
 
 UPLINK=f2.n1000.z242
 
+XTERM=/usr/X11/bin/xterm
+
+
 # -xterm: run in XTerm window
 if [ "$1" = "-xterm" ]; then
-  exec /usr/bin/X11/xterm -display :0 -g 80x20 -title "FIDOGATE runpoll" -e $BINDIR/runpoll
+  exec $XTERM -display :0 -g 80x20 -title "FIDOGATE runpoll" -e $0
   exit 0
 fi
 

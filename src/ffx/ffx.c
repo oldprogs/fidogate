@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ffx.c,v 4.8 1999/01/02 16:35:02 mj Exp $
+ * $Id: ffx.c,v 4.9 1999/03/06 17:51:28 mj Exp $
  *
  * ffx FIDO-FIDO execution
  *
@@ -38,7 +38,7 @@
 
 
 #define PROGRAM		"ffx"
-#define VERSION		"$Revision: 4.8 $"
+#define VERSION		"$Revision: 4.9 $"
 #define CONFIG		DEFAULT_CONFIG_FFX
 
 
@@ -532,6 +532,7 @@ int main(int argc, char **argv)
 	      n_flag ? DATA_NODECOMPR : DATA_DECOMPR,
 	      F_flag ? F_flag         : DATA_FLAV   ,
 	      g_flag, b_flag                         );
+    tmps_freeall();
 
     if(b_flag)
 	bink_bsy_delete(&node);

@@ -1,37 +1,13 @@
-#!/usr/local/bin/perl
+#!/usr/bin/perl
 #
-# $Id: out-manip.pl,v 4.0 1996/04/17 18:17:38 mj Exp $
+# $Id: out-manip.pl,v 4.1 1999/03/06 17:51:22 mj Exp $
 #
 # This script can change the flavor of outbound files and create empty
 # FLO files.
 #
-# $Log: out-manip.pl,v $
-# Revision 4.0  1996/04/17 18:17:38  mj
-# Initial revision
-#
-# Revision 3.9.2.6  1995/09/08  07:48:56  mj
-# See ChangeLog
-#
-# Revision 3.9.2.0  1995/06/12  17:14:33  mj
-# See ChangeLog
-#
-# Revision 3.9.2.0  1995/06/12  17:14:33  mj
-# See ChangeLog
-#
-# Revision 3.9.0.3  1995/03/01  20:16:13  mj
-# See ChangeLog
-#
-# Revision 3.9  1995/01/23  09:24:28  mj
-# See ChangeLog
-#
-# Revision 1.1  1994/01/18  07:56:09  mj
-# Changed log comment.
-#
-# Revision 1.0  1994/01/18  07:55:13  mj
-# Initial revision
 
 # Configuration
-$outdir  = "<OUTBOUND>/out";
+$outdir  = "<BTBASEDIR>/out";
 $outzone = 2;
 $defzone = 2;
 

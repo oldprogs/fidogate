@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway software UNIX <-> FIDO
  *
- * $Id: address.c,v 4.11 1999/01/02 16:34:57 mj Exp $
+ * $Id: address.c,v 4.12 1999/03/06 17:51:28 mj Exp $
  *
  * Parsing and conversion for FIDO and RFC addresses
  *
@@ -70,34 +70,6 @@ void addr_restricted(int f)
 int addr_is_restricted(void)
 {
     return hosts_restricted;
-}
-
-
-
-/*
- * str_printf(): wrapper for sprintf()/snprintf()
- */
-int str_printf(char *buf, size_t len, const char *fmt, ...)
-{
-    va_list args;
-    int n;
-    
-    va_start(args, fmt);
-    
-#ifdef HAS_SNPRINTF    
-    n = vsnprintf(buf, len, fmt, args);
-#else
-    n = vsprintf(buf, fmt, args);
-    if(n >= len)
-    {
-        fatal("Internal error - str_printf() buf overflow", EX_SOFTWARE);
-        /**NOT REACHED**/
-        return ERROR;
-    }
-#endif
-    va_end(args);
-
-    return n;
 }
 
 

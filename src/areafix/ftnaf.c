@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: ftnaf.c,v 1.5 1999/01/02 16:34:54 mj Exp $
+ * $Id: ftnaf.c,v 1.6 1999/03/06 17:51:26 mj Exp $
  *
  * Areafix-like AREAS.BBS EchoMail distribution manager. Commands somewhat
  * conforming to FSC-0057.
@@ -39,7 +39,7 @@
 
 
 #define PROGRAM		"ftnaf"
-#define VERSION		"$Revision: 1.5 $"
+#define VERSION		"$Revision: 1.6 $"
 #define CONFIG		DEFAULT_CONFIG_MAIN
 
 
@@ -167,7 +167,7 @@ int do_mail(void)
 
     pfrom = header_get("From");
     if(!pfrom)
-	return EX_UNAVAILABLE;
+	TMPS_RETURN(EX_UNAVAILABLE);
     debug(3, "From: %s", pfrom);
 
     /* Check From / X-FTN-From for FTN address */
@@ -211,14 +211,12 @@ int do_mail(void)
     {
 	output = mailer_open(pfrom);
 	if(!output)
-	    return EX_OSERR;
+	    TMPS_RETURN(EX_OSERR);
 	tl_print_x(&out, output, "\n");
-	return mailer_close(output);
+	TMPS_RETURN(mailer_close(output));
     }
 
-    s_freeall();
-    
-    return EX_OK;
+    TMPS_RETURN(EX_OK);
 }
 
 

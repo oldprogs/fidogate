@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ffxqt.c,v 4.12 1999/01/02 16:35:02 mj Exp $
+ * $Id: ffxqt.c,v 4.13 1999/03/06 17:51:29 mj Exp $
  *
  * Process incoming ffx control and data files
  *
@@ -38,7 +38,7 @@
 
 
 #define PROGRAM		"ffxqt"
-#define VERSION		"$Revision: 4.12 $"
+#define VERSION		"$Revision: 4.13 $"
 #define CONFIG		DEFAULT_CONFIG_FFX
 
 
@@ -284,6 +284,7 @@ int do_ffx(int t_flag)
 	    log("%s: renamed to %s", name, buf);
 	}
 	
+	tmps_freeall();
     }
     
     dir_close();

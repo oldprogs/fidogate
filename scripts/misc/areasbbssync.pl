@@ -1,11 +1,11 @@
 #!/usr/bin/perl
 #
-# $Id: areasbbssync.pl,v 4.1 1998/05/23 19:23:29 mj Exp $
+# $Id: areasbbssync.pl,v 4.2 1999/03/06 17:51:22 mj Exp $
 #
 # Syncronize groups in active (INN) and areas.bbs (FIDOGATE)
 #
 
-$VERSION = '$Revision: 4.1 $ ';
+$VERSION = '$Revision: 4.2 $ ';
 $PROGRAM = "areasbbssync";
 
 
@@ -17,17 +17,17 @@ if($#ARGV < 0) {
 	"                      [-x] [-l] [-n] [-r] [-w]\n",
 	"\n",
 	"options: -v              verbose\n",
-	"         -c GATE.CONF    alternate config file\n",
+	"         -c CONF         alternate config file\n",
 	"         -a Z:N/F.P      gateway address\n",
 	"         -A ACTIVE       alternate active file\n",
 	"         -B AREAS.BBS    alternate areas.bbs file\n",
 	"         -P PATTERN      must match pattern\n",
 	"         -N PATTERN      must not match pattern\n",
-	"         -x              write ftnaf command to stdout\n",
-	"         -l              write new areas.bbs to stdout\n",
+	"         -x              write ftnaf commands\n",
+	"         -l              list new/deleted areas\n",
 	"         -n              new areas only\n",
 	"         -r              removed areas only\n",
-	"         -w              write complete new areas.bbs to stdout\n";
+	"         -w              complete new areas.bbs\n";
 }
 
 
@@ -84,6 +84,7 @@ close(A);
 
 # find new groups (only in active, not in areas.bbs)
 if(!$opt_r) {
+    print "NEW areas:\n" if($opt_l);
     for $area (sort keys %areas_active) {
 	if($areas_bbs{$area}) {
 #	print "checking active: area $area OK\n" if($opt_v);
@@ -92,7 +93,7 @@ if(!$opt_r) {
 	    print "checking active: area $area MISSING\n" if($opt_v);
 	    ##FIXME: use NEW command for FIDOGATE 4.3##
 	    print "ftnaf $ADDRESS create $area\n" if($opt_x);
-	    print "#+ $area $ADDRESS\n" if($opt_l);
+	    print "  + $area\n" if($opt_l);
 	    $areas_new{$area} = 1 if($opt_w);
 	}
     }
@@ -101,6 +102,7 @@ if(!$opt_r) {
 
 # find removed groups (not in active, only in areas.bbs)
 if(!$opt_n) {
+    print "DELETED areas:\n" if($opt_l);
     for $area (sort keys %areas_bbs) {
 	if($areas_active{$area}) {
 #	print "checking areas.bbs: area $area OK\n" if($opt_v);
@@ -109,7 +111,7 @@ if(!$opt_n) {
 	    print "checking areas.bbs: area $area REMOVED\n" if($opt_v);
 	    # Works only with FIDOGATE 4.3 ftnaf
 	    print "ftnaf $ADDRESS delete $area\n" if($opt_x);
-	    print "#- $area\n" if($opt_l);
+	    print "  - $area\n" if($opt_l);
 	    $areas_delete{$area} = 1 if($opt_w);
 	}
     }
