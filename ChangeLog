@@ -2,6 +2,18 @@
 
 	------- CVS ci -------------------------------------------------------
 
+	* ANNOUNCE (WARNING): updated.
+
+	* doc/fidogate.texi (config.make): updated.
+	  (Integration): updated.
+	  (Compiling): updated.
+	  (Testing): removed old stuff.
+	  (Connecting): updated.
+
+	* config.make: removed SHELL = /bin/sh
+
+	------- CVS ci -------------------------------------------------------
+
 	* src/common/dir.c (dir_compare): if size or mtime are the same,
 	  compare name, yielding a deterministic order in which files with 
 	  the same mtime are processed.

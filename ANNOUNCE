@@ -63,6 +63,15 @@ Changes in 4.3.2:
 * config files: inline comments are no longer supported, only lines
   starting with (some white space and) '#' are treated as comments!
 
+* charsetc: some bug fixes.
+
+* Win32 port: some bug fixes, compiles with Cygwin B20.1.
+
+* Areafix: %unlinked lists only areas with access rights (level, key).
+
+* Updated texinfo documentation: at least the sections on compilation
+  and installation are now up-to-date for version 4.3.x.
+
 
 
 Changes in 4.3.1:
@@ -161,6 +170,6 @@ Needed:
 
 ======================================================================
 
-$Date: 1999/05/15 20:54:28 $
+$Date: 1999/05/15 21:50:55 $
 Martin Junius
 mailto:mj@fido.de

@@ -3,7 +3,7 @@
 /*
  * FIDOGATE
  *
- * $Id: cf_funcs.c,v 4.13 1999/05/15 20:54:40 mj Exp $
+ * $Id: cf_funcs.c,v 4.14 1999/05/15 21:51:00 mj Exp $
  */
 
 #include "fidogate.h"

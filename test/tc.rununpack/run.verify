@@ -63,29 +63,29 @@ Adding file:   01186013.PKT   analyzing, crunched, done. (44%)
 ../ti.pkt-z2/01186013.PKT	- Frozen
 New archive file is "abcd1234.lzh"
 rununpack archive /home/mj/src/fidogate/test/tc.rununpack/pin/abcd1234.fr9 (ZIP)
-Run arc: { /usr/bin/unzip } unzip -l /home/mj/src/fidogate/test/tc.rununpack/pin/abcd1234.fr9
+Run arc: /usr/bin/unzip -l /home/mj/src/fidogate/test/tc.rununpack/pin/abcd1234.fr9
 Status 9
 rununpack WARNING: skipping archive /home/mj/src/fidogate/test/tc.rununpack/pin/abcd1234.fr9
 rununpack archive /home/mj/src/fidogate/test/tc.rununpack/pin/abcd1234.mo0 (ZIP)
-Run arc: { /usr/bin/unzip } unzip -l /home/mj/src/fidogate/test/tc.rununpack/pin/abcd1234.mo0
+Run arc: /usr/bin/unzip -l /home/mj/src/fidogate/test/tc.rununpack/pin/abcd1234.mo0
 Status 0
 List arc returned OK
-Run arc: { /usr/bin/unzip } unzip -ojL /home/mj/src/fidogate/test/tc.rununpack/pin/abcd1234.mo0
+Run arc: /usr/bin/unzip -ojL /home/mj/src/fidogate/test/tc.rununpack/pin/abcd1234.mo0
 Status 0
 Extract arc returned OK
 rununpack unknown archive /home/mj/src/fidogate/test/tc.rununpack/pin/abcd1234.th9, moving archive to /home/mj/src/fidogate/test/tc.rununpack/pin/bad
 rununpack archive /home/mj/src/fidogate/test/tc.rununpack/pin/abcd1234.tu1 (ARC)
-Run arc: { /usr/local/bin/arc } arc l /home/mj/src/fidogate/test/tc.rununpack/pin/abcd1234.tu1
+Run arc: /usr/local/bin/arc l /home/mj/src/fidogate/test/tc.rununpack/pin/abcd1234.tu1
 Status 0
 List arc returned OK
-Run arc: { /usr/local/bin/arc } arc eo /home/mj/src/fidogate/test/tc.rununpack/pin/abcd1234.tu1
+Run arc: /usr/local/bin/arc eo /home/mj/src/fidogate/test/tc.rununpack/pin/abcd1234.tu1
 Status 0
 Extract arc returned OK
 rununpack archive /home/mj/src/fidogate/test/tc.rununpack/pin/abcd1234.we2 (LHA)
-Run arc: { /usr/bin/lha } lha l /home/mj/src/fidogate/test/tc.rununpack/pin/abcd1234.we2
+Run arc: /usr/bin/lha l /home/mj/src/fidogate/test/tc.rununpack/pin/abcd1234.we2
 Status 0
 List arc returned OK
-Run arc: { /usr/bin/lha } lha eif /home/mj/src/fidogate/test/tc.rununpack/pin/abcd1234.we2
+Run arc: /usr/bin/lha eif /home/mj/src/fidogate/test/tc.rununpack/pin/abcd1234.we2
 Status 0
 Extract arc returned OK
 rununpack packet 01165017.PKT renamed to 1.01165017.PKT
@@ -816,23 +816,23 @@ ftnroute packet for 2:2452/110.2 (Hold)
 ftnpack packet (7930b) for 2:2452/110.2 (noarc)
 Running df -P .
 Running df -P ./bt
-Running ftntoss -x -I /home/mj/src/fidogate/test/tc.rununpack/pin -s -c ../cf/fidogate.conf -v
+Running ../lib/ftntoss -x -I /home/mj/src/fidogate/test/tc.rununpack/pin -s -c ../cf/fidogate.conf -v
 Status 3
-Running ftnroute -c ../cf/fidogate.conf -v
+Running ../lib/ftnroute -c ../cf/fidogate.conf -v
 Status 0
-Running ftnpack -F/home/mj/src/fidogate/test/tc.rununpack/pin -c ../cf/fidogate.conf -v
+Running ../lib/ftnpack -F/home/mj/src/fidogate/test/tc.rununpack/pin -c ../cf/fidogate.conf -v
 Status 0
 Running df -P ./bt
-Running ftntoss -x -I /home/mj/src/fidogate/test/tc.rununpack/pin -s -c ../cf/fidogate.conf -v
+Running ../lib/ftntoss -x -I /home/mj/src/fidogate/test/tc.rununpack/pin -s -c ../cf/fidogate.conf -v
 Status 3
-Running ftnroute -c ../cf/fidogate.conf -v
+Running ../lib/ftnroute -c ../cf/fidogate.conf -v
 Status 0
-Running ftnpack -F/home/mj/src/fidogate/test/tc.rununpack/pin -c ../cf/fidogate.conf -v
+Running ../lib/ftnpack -F/home/mj/src/fidogate/test/tc.rununpack/pin -c ../cf/fidogate.conf -v
 Status 0
 Running df -P ./bt
-Running ftntoss -x -I /home/mj/src/fidogate/test/tc.rununpack/pin -s -c ../cf/fidogate.conf -v
+Running ../lib/ftntoss -x -I /home/mj/src/fidogate/test/tc.rununpack/pin -s -c ../cf/fidogate.conf -v
 Status 0
-Running ftnroute -c ../cf/fidogate.conf -v
+Running ../lib/ftnroute -c ../cf/fidogate.conf -v
 Status 0
-Running ftnpack -F/home/mj/src/fidogate/test/tc.rununpack/pin -c ../cf/fidogate.conf -v
+Running ../lib/ftnpack -F/home/mj/src/fidogate/test/tc.rununpack/pin -c ../cf/fidogate.conf -v
 Status 0

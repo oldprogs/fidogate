@@ -1,5 +1,5 @@
 #
-# $Id: Makefile,v 4.14 1999/04/03 13:28:56 mj Exp $
+# $Id: Makefile,v 4.15 1999/05/15 21:50:57 mj Exp $
 #
 # Makefile FIDOGATE TOPDIR
 #
@@ -34,7 +34,8 @@ INSTALLDIRS	= $(DEFAULT_V_CONFIGDIR) \
 		  $(DEFAULT_V_INBOUND) \
 		  $(DEFAULT_V_PINBOUND) \
 		  $(DEFAULT_V_UUINBOUND) \
-		  $(DEFAULT_V_FTPINBOUND)
+		  $(DEFAULT_V_FTPINBOUND) \
+		  $(INFODIR) $(HTMLDIR)
 
 
 

@@ -1,6 +1,6 @@
 # -*- Makefile -*-
 #
-# $Id: config.make,v 4.24 1999/05/15 20:54:31 mj Exp $
+# $Id: config.make,v 4.25 1999/05/15 21:50:57 mj Exp $
 #
 # FIDOGATE main configuration
 #
@@ -11,7 +11,7 @@
 #
 # DEFAULT_* macros used by subst.pl:
 #
-#	DEFAULT_P_XXX	variable config parameter
+#	DEFAULT_V_XXX	variable config parameter
 #			- default value define here
 #			- substitutes <XXX> in scripts
 #			- config file parameter XXX
@@ -171,9 +171,6 @@ IFMAILDIR       = $(DEFAULT_F_IFMAILDIR)
 ##############################################################################
 #           S Y S T E M   S P E C I F I C   D E F I N I T I O N S            #
 ##############################################################################
-# OS2: comment out
-SHELL		= /bin/sh
-
 # GNU m4
 M4		= m4
 
