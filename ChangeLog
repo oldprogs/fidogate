@@ -1,4 +1,15 @@
+Sun Feb 23 11:53:39 1997  Martin Junius  <mj@fido.de>
+
+	------- CVS ci -------------------------------------------------------
+
+	* src/toss/ftntoss.c (pkts_in, pkts_bytes): new global statistics.
+	  (main): addded more statistics output: number of packets, time,
+	  Kbyte/s, msgs/s.
+	  (unpack_file): update pkts_in, pkts_bytes for each file.
+
 Sun Feb 16 11:27:47 1997  Martin Junius  <mj@fido.de>
+
+	* doc/fidogate.texi (Config): added KillSplit, KillOld.
 
 	------- CVS ci -------------------------------------------------------
 

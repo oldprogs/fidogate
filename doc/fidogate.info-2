@@ -265,7 +265,10 @@ Special configuration `ftn2rfc' (config file `config.gate'):
      listed in `Zone' statements).
 
 `KillNoMSGID'
-     Kill messages that don't contain a `^AMSGID'.
+     Kill messages that don't contain a `^AMSGID' kludge.
+
+`KillSplit'
+     Kill messages that contain a `^ASPLIT' kludge.
 
 `UseOriginForOrganization'
      Put the text from the * Origin line (excluding the (z:n/f.p)
@@ -447,11 +450,14 @@ Special configuration `ftntoss' (config file `config.main'):
      Enable dupe check (using SPOOLDIR`/history' database).
 
 `KillNoMSGID'
-     Kill EchoMail messages without a `^AMSGID'.
+     Kill EchoMail messages without a `^AMSGID', i.e. treat as dupes.
 
 `KillDupe'
 `KillDupes'
      Kill duplicate EchoMail messages if `DupeCheck' is enabled.
+
+`KillOld'
+     Kill messages with date < now - `MaxHistory', i.e. treat as dupes.
 
 `MaxMsg n'
      Set maximum number of messages in output files to n, restricting
@@ -464,6 +470,10 @@ Special configuration `ftntoss' (config file `config.main'):
 `AreasBBS name'
      Specifies the `areas.bbs' EchoMail distribution file used by
      `ftnaf' and `ftntoss'.
+
+`MaxHistory days'
+     Maximum length of history database. Keep entries for days days.
+     Messages with date < now - `MaxHistory' are considered old.
 
 Special configuration `runtoss' (config file `config.main'):
 

@@ -2,7 +2,7 @@
 @c
 @c FIDOGATE documentation
 @c
-@c $Id: fidogate.texi,v 4.20 1997/02/09 10:04:15 mj Exp $
+@c $Id: fidogate.texi,v 4.21 1997/02/23 11:11:04 mj Exp $
 @c
 
 @setfilename fidogate.info
@@ -2643,7 +2643,10 @@ Kill messages that contain a @code{^AMSGID} from an unknown zone (not
 listed in @code{Zone} statements).
 
 @item KillNoMSGID
-Kill messages that don't contain a @code{^AMSGID}.
+Kill messages that don't contain a @code{^AMSGID} kludge.
+
+@item KillSplit
+Kill messages that contain a @code{^ASPLIT} kludge.
 
 @item UseOriginForOrganization
 Put the text from the * Origin line (excluding the @i{(z:n/f.p)}
@@ -2881,11 +2884,15 @@ Enable EchoMail circular path check (see @code{KillCircular}).
 Enable dupe check (using SPOOLDIR@code{/history} database).
 
 @item KillNoMSGID
-Kill EchoMail messages without a @code{^AMSGID}.
+Kill EchoMail messages without a @code{^AMSGID}, i.e. treat as dupes.
 
 @item KillDupe
 @item KillDupes
 Kill duplicate EchoMail messages if @code{DupeCheck} is enabled.
+
+@item KillOld
+Kill messages with @i{date} < @i{now} - @code{MaxHistory}, i.e. treat as
+dupes.
 
 @item MaxMsg @i{n}
 Set maximum number of messages in output files to @i{n}, restricting the
@@ -2898,6 +2905,11 @@ Set maximum number of concurrently open packet files to @i{n}. Default: 10
 @item AreasBBS @i{name}
 Specifies the @code{areas.bbs} EchoMail distribution file used by
 @code{ftnaf} and @code{ftntoss}.
+
+@item MaxHistory @i{days}
+Maximum length of history database. Keep entries for @i{days}
+days. Messages with @i{date} < @i{now} - @code{MaxHistory} are
+considered old.
 
 @end table
 

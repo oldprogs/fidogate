@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftntoss.c,v 4.13 1997/02/16 13:57:30 mj Exp $
+ * $Id: ftntoss.c,v 4.14 1997/02/23 11:11:13 mj Exp $
  *
  * Toss FTN NetMail/EchoMail
  *
@@ -39,7 +39,7 @@
 
 
 #define PROGRAM 	"ftntoss"
-#define VERSION 	"$Revision: 4.13 $"
+#define VERSION 	"$Revision: 4.14 $"
 #define CONFIG		CONFIG_MAIN
 
 
@@ -135,6 +135,9 @@ static long msgs_unknown  = 0;		/* Unknown EchoMail area messages */
 static long msgs_empty    = 0;		/* Empty NetMail messages */
 static long msgs_path     = 0;		/* Circular path */
 static long msgs_dupe     = 0;		/* Dupe */
+
+static long pkts_in       = 0;		/* Input packets */
+static long pkts_bytes    = 0;		/* Input bytes */
 
 
 
@@ -1204,7 +1207,8 @@ int unpack_file(char *pkt_name)
     Packet pkt;
     FILE *pkt_file;
     TIMEINFO ti;
-
+    long pkt_size;
+    
     /* Update time info for old messages */
     GetTimeInfo(&ti);
     now_sec = ti.time;
@@ -1230,8 +1234,11 @@ int unpack_file(char *pkt_name)
     }
     
     /* Unpack it */
-    log("packet %s (%ldb) from %s for %s", pkt_name, check_size(pkt_name),
+    pkt_size = check_size(pkt_name);
+    log("packet %s (%ldb) from %s for %s", pkt_name, pkt_size,
 	node_to_asc(&pkt.from, TRUE), node_to_asc(&pkt.to, TRUE) );
+    pkts_in++;
+    pkts_bytes += pkt_size;
     
     if(unpack(pkt_file, &pkt) == ERROR) 
     {
@@ -1336,6 +1343,7 @@ int main(int argc, char **argv)
     char *a_flag=NULL, *u_flag=NULL;
     char *pkt_name;
     char *areas_bbs = NULL;
+    time_t toss_start, toss_stop;
     
     int option_index;
     static struct option long_options[] =
@@ -1364,6 +1372,10 @@ int main(int argc, char **argv)
 	{ 0,              0, 0, 0  }
     };
 
+    /* Start time */
+    toss_start = time(NULL);
+
+    /* Log name */
     log_program(PROGRAM);
     
     /* Init configuration */
@@ -1696,9 +1708,23 @@ int main(int argc, char **argv)
     
     outpkt_close();
 
+    /* Stop time */
+    toss_stop = time(NULL);
+
+    if(pkts_in)
+	log("pkts processed: %ld, %ld Kbyte in %ld s, %.2lf Kbyte/s",
+	    pkts_in, pkts_bytes/1024, (toss_stop - toss_start),
+	    (double)pkts_bytes/1024./(toss_stop - toss_start)          );
+    
     if(msgs_in)
+    {
 	log("msgs processed: %ld in, %ld out (%ld mail, %ld echo)",
 	    msgs_in, msgs_netmail+msgs_echomail, msgs_netmail, msgs_echomail);
+	log("msgs processed: %ld in %ld s, %.2lf msgs/s",
+	    msgs_in, (toss_stop - toss_start),
+	    (double)msgs_in/(toss_stop - toss_start)           );
+    }
+    
     if(msgs_unknown || msgs_routed || msgs_insecure || msgs_empty)
 	log("msgs killed:    %ld empty, %ld unknown, %ld routed, %ld insecure",
 	    msgs_empty, msgs_unknown, msgs_routed, msgs_insecure             );

@@ -2,13 +2,13 @@
 
 ../tr.init
 
-#echo "tc: copying input packets"
-#cp ../ti.pkt-z2/* toss/in
-#
-#echo "tc: running"
-#../../src/toss/ftntoss  -L../cf -S. -bareas.bbs -vv
-#../../src/toss/ftnroute -L../cf -S. -vv
-#../../src/toss/ftnpack  -L../cf -S. -B./bt -vv
+echo "tc: copying input packets"
+cp ../ti.pkt-z2/* toss/in
+
+echo "tc: running"
+../../src/toss/ftntoss  -L../cf -S. -bareas.bbs -vv
+../../src/toss/ftnroute -L../cf -S. -vv
+../../src/toss/ftnpack  -L../cf -S. -B./bt -vv
 
 echo "tc: copying input packets"
 cp ../ti.pkt-z2/* toss/in

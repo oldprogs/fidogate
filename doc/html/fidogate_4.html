@@ -1,7 +1,7 @@
 <HTML>
 <HEAD>
 <!-- This HTML file has been created by texi2html 1.51
-     from ../fidogate.texi on 9 Febuary 1997 -->
+     from ../fidogate.texi on 23 Febuary 1997 -->
 
 <TITLE>FIDOGATE
  - FIDOGATE Config Files</TITLE>
@@ -430,7 +430,11 @@ listed in <CODE>Zone</CODE> statements).
 
 <DT><CODE>KillNoMSGID</CODE>
 <DD>
-Kill messages that don't contain a <CODE>^AMSGID</CODE>.
+Kill messages that don't contain a <CODE>^AMSGID</CODE> kludge.
+
+<DT><CODE>KillSplit</CODE>
+<DD>
+Kill messages that contain a <CODE>^ASPLIT</CODE> kludge.
 
 <DT><CODE>UseOriginForOrganization</CODE>
 <DD>
@@ -730,13 +734,18 @@ Enable dupe check (using SPOOLDIR<CODE>/history</CODE> database).
 
 <DT><CODE>KillNoMSGID</CODE>
 <DD>
-Kill EchoMail messages without a <CODE>^AMSGID</CODE>.
+Kill EchoMail messages without a <CODE>^AMSGID</CODE>, i.e. treat as dupes.
 
 <DT><CODE>KillDupe</CODE>
 <DD>
 <DT><CODE>KillDupes</CODE>
 <DD>
 Kill duplicate EchoMail messages if <CODE>DupeCheck</CODE> is enabled.
+
+<DT><CODE>KillOld</CODE>
+<DD>
+Kill messages with <I>date</I> &#60; <I>now</I> - <CODE>MaxHistory</CODE>, i.e. treat as
+dupes.
 
 <DT><CODE>MaxMsg <I>n</I></CODE>
 <DD>
@@ -752,6 +761,12 @@ Set maximum number of concurrently open packet files to <I>n</I>. Default: 10
 <DD>
 Specifies the <CODE>areas.bbs</CODE> EchoMail distribution file used by
 <CODE>ftnaf</CODE> and <CODE>ftntoss</CODE>.
+
+<DT><CODE>MaxHistory <I>days</I></CODE>
+<DD>
+Maximum length of history database. Keep entries for <I>days</I>
+days. Messages with <I>date</I> &#60; <I>now</I> - <CODE>MaxHistory</CODE> are
+considered old.
 
 </DL>
 
