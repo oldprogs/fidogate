@@ -1,6 +1,11 @@
 Sun Feb 22 15:59:19 1998  Martin Junius  <mj@fido.de>
 
 	======= Release 4.3a1 ================================================
+
+	------- CVS ci, tag R43a1a -------------------------------------------
+
+	* src/common/tmps.c: added to CVS repository, was missing.
+	
 	------- CVS ci, tag R43a1 --------------------------------------------
 
 	* ANNOUNCE: updated.
