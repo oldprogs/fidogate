@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ffxqt.c,v 4.23 2002/07/15 20:21:58 n0ll Exp $
+ * $Id: ffxqt.c,v 4.24 2002/09/16 20:19:35 n0ll Exp $
  *
  * Process incoming ffx control and data files
  *
@@ -40,7 +40,7 @@
 
 
 #define PROGRAM		"ffxqt"
-#define VERSION		"$Revision: 4.23 $"
+#define VERSION		"$Revision: 4.24 $"
 #define CONFIG		DEFAULT_CONFIG_FFX
 
 
@@ -480,7 +480,7 @@ int exec_ffx(FFX *ffx)
 /*
  * Run ffx cmd using fork() and exec()
  */
-#define MAXARGS		32
+#define MAXARGS		256
 
 int run_ffx_cmd(char *cmd,
 		char *cmd_name, char *cmd_fqdn, char *cmd_args, char *data)

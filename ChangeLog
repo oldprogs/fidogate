@@ -1,3 +1,23 @@
+2002-09-16  Martin Junius  <mj@m-j-s.net>
+
+	======= Release 4.4.6 ================================================
+	------- CVS tag R446 -------------------------------------------------
+	------- CVS ci -------------------------------------------------------
+
+	* fidogate.spec: updated.
+
+	* fidogate.lsm: updated.
+
+	* README: updated.
+
+	* ANNOUNCE.OLD: moved old changes annoucements to new file.
+
+	* ANNOUNCE: updated.
+
+2002-09-15  Martin Junius  <mj@m-j-s.net>
+
+	* src/ffx/ffxqt.c (MAXARGS): increased to 256.
+
 2002-07-28  Martin Junius  <mj@m-j-s.net>
 
 	------- CVS ci -------------------------------------------------------

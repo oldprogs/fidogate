@@ -1,10 +1,10 @@
 X-Emacs-Mode: -*- indented-text -*-
-Subject: FIDOGATE 4.4.5 - Fido-Internet Gateway and Tosser
+Subject: FIDOGATE 4.4.6 - Fido-Internet Gateway and Tosser
 Keywords: fido ftn netmail echomail tosser areafix mail news gateway
 Followup-To: comp.os.linux.misc
 
   =================================================================
-    FIDOGATE 4.4.5, a stable version of the new FIDOGATE release
+    FIDOGATE 4.4.6, a stable version of the new FIDOGATE release
   =================================================================
 
 			   FIDOGATE Version 4
@@ -20,6 +20,12 @@ Followup-To: comp.os.linux.misc
   Internet:
   =========
     http://www.fidogate.org/
+
+
+  Download:
+  =========
+    http://sourceforge.net/project/showfiles.php?group_id=10739
+
     ftp://ftp.fidogate.org/pub/fidogate/
     http://www.fidogate.org/pub/fidogate/
 
@@ -27,25 +33,31 @@ Followup-To: comp.os.linux.misc
     http://metalab.unc.edu/pub/Linux/system/fido/
     (maybe still in .../pub/Linux/Incoming)
 
-    fidogate-4.4.5.tar.gz		1148 Kbyte
-    fidogate-4.4.5-1.7x.src.rpm		1148 Kbyte
-    fidogate-4.4.5-1.7x.i386.rpm	 900 Kbyte
-    
+    fidogate-4.4.6.lsm			   1 Kbyte
+    fidogate-4.4.6.tar.gz		1148 Kbyte
+    fidogate-4.4.6-1.7x.src.rpm		1148 Kbyte
+    fidogate-4.4.6-1.7x.i386.rpm	 900 Kbyte
 
-  Fido File Request:
-  ==================
-    2:2452/110, 111  +49-241-876604  (V.34, ISDN V.110/X.75)
-    
-    Magic FIDOGATE or
-    fgate445.tgz		1148 Kbyte
 
 
 ======================================================================
+
+Changes in 4.4.6:
+
+* ftn2rfc: new DontIgnore0x8d aka DontIgnoreSoftCR config option.
+
+* ftnhatch: new -r --replaces FILE command line option.
+
+* ffxqt: increased number of possible command args to 256.
+
+
 
 Changes in 4.4.5:
 
 * sendmail related scripts and sendmail config files updated for
   version 8.11
+
+* first version at sourceforge.net
 
 
 
@@ -135,6 +147,6 @@ Needed:
 
 ======================================================================
 
-$Date: 2001/12/27 19:51:19 $
+$Date: 2002/09/16 20:19:34 $
 Martin Junius
 mailto:mj@fido.de
