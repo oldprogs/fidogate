@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway software UNIX <-> FIDO
  *
- * $Id: config.h,v 4.14 1997/02/16 13:57:21 mj Exp $
+ * $Id: config.h,v 4.15 1997/03/26 20:46:40 mj Exp $
  *
  * Configuration header file
  *
@@ -301,7 +301,7 @@
  */
 #define FTN_RFC_HEADERS \
     "From:", "Reply-To:", "UUCPFROM:", "To:", "Cc:", "Bcc:", \
-    "Newsgroups:", "Sender"
+    "Newsgroups:", "Sender", "Content-Transfer-Encoding"
 
 /*
  * RFC headers output for ^ARFC level 1 (partial RFC headers)

@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftntick.c,v 4.6 1996/12/17 17:19:55 mj Exp $
+ * $Id: ftntick.c,v 4.7 1997/03/26 20:46:45 mj Exp $
  *
  * Process incoming TIC files
  *
@@ -37,7 +37,7 @@
 
 
 #define PROGRAM		"ftntick"
-#define VERSION		"$Revision: 4.6 $"
+#define VERSION		"$Revision: 4.7 $"
 #define CONFIG		CONFIG_MAIN
 
 
@@ -217,17 +217,7 @@ int process_tic(Tick *tic)
     }
 
     /*
-     * Move file from inbound to file area, add description to FILES.BBS
-     */
-    BUF_COPY3(old_name, cf_inbound(), "/", tic->file);
-    BUF_COPY3(new_name, bbs->dir    , "/", tic->file);
-    debug(1, "%s -> %s", old_name, new_name);
-    if(move(tic, old_name, new_name) == ERROR)
-	return ERROR;
-    add_files_bbs(tic, bbs->dir);
-
-    /*
-     * Replaces old file
+     * Replaces: move or delete old file
      */
     if(tic->replaces)
     {
@@ -239,15 +229,39 @@ int process_tic(Tick *tic)
 	    /* Copy to ReplacedFilesDir */
 	    BUF_COPY3(new_name, rdir, "/", tic->replaces);
 	    debug(1, "%s -> %s", old_name, new_name);
-	    copy_file(old_name, new_name);
+	    if(copy_file(old_name, new_name) == ERROR)
+	    {
+		log("$ERROR: can't copy %s -> %s", old_name, new_name);
+		return ERROR;
+	    }
+	    log("area %s file %s replaces %s, moved to %s",
+		tic->area, tic->file, tic->replaces, rdir);
 	}
+	else
+	    log("area %s file %s replaces %s, removed",
+		tic->area, tic->file, tic->replaces);
+	    
 	/* Remove old file */
-	unlink(old_name);
+	if(unlink(old_name) == ERROR)
+	{
+	    log("$ERROR: can't remove %s", old_name);
+	    return ERROR;
+	}
 
 	/* Remove old file from FILES.BBS */
 	/**FIXME**/
     }
     
+    /*
+     * Move file from inbound to file area, add description to FILES.BBS
+     */
+    BUF_COPY3(old_name, cf_inbound(), "/", tic->file);
+    BUF_COPY3(new_name, bbs->dir    , "/", tic->file);
+    debug(1, "%s -> %s", old_name, new_name);
+    if(move(tic, old_name, new_name) == ERROR)
+	return ERROR;
+    add_files_bbs(tic, bbs->dir);
+
     /*
      * Add us to Path list
      */
@@ -296,7 +310,10 @@ int move(Tick *tic, char *old, char *new)
 
     /* Copy */
     if(copy_file(old, new) == ERROR)
+    {
+	log("$ERROR: can't copy %s -> %s", old, new);
 	return ERROR;
+    }
     
     /* Compute CRC again to be sure */
     crc = crc32_file(new);
@@ -310,7 +327,7 @@ int move(Tick *tic, char *old, char *new)
     /* o.k., now unlink file in inbound */
     if(unlink(old) == ERROR)
     {
-	log("ERROR: can't remove %s", old);
+	log("$ERROR: can't remove %s", old);
 	return ERROR;
     }
 

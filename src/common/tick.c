@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: tick.c,v 4.4 1996/12/17 17:19:48 mj Exp $
+ * $Id: tick.c,v 4.5 1997/03/26 20:46:44 mj Exp $
  *
  * TIC file processing
  *
@@ -216,8 +216,7 @@ int tick_get(Tick *tic, char *name)
 	
 	if(! stricmp(key, "Seenby"))
 	{
-	    if(asc_to_node(arg, &node, FALSE) == OK)
-		lon_add(&tic->seenby, &node);
+	    lon_add_string(&tic->seenby, arg);
 	}
 	
 	if(! stricmp(key, "Pw"))

@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftn2rfc.c,v 4.16 1997/02/16 13:57:27 mj Exp $
+ * $Id: ftn2rfc.c,v 4.17 1997/03/26 20:46:45 mj Exp $
  *
  * Convert FTN mail packets to RFC mail and news batches
  *
@@ -40,7 +40,7 @@
 
 
 #define PROGRAM 	"ftn2rfc"
-#define VERSION 	"$Revision: 4.16 $"
+#define VERSION 	"$Revision: 4.17 $"
 #define CONFIG		CONFIG_GATE
 
 
@@ -460,6 +460,21 @@ int unpack(FILE *pkt_file, Packet *pkt)
 			: msg.node_from.zone  );
 	}
 
+	/*
+	 * Check for Content-Transfer-Encoding in RFC headers or ^ARFC kludges
+	 */
+	if( (p = rfcheader_get(&body.rfc, "Content-Transfer-Encoding"))  ||
+	    (p = kludge_get(&body.kludge,
+			    "RFC-Content-Transfer-Encoding", NULL))        )
+	{
+	    strip_space(p);
+	    if(strieq(p, "7bit")) 
+		cvt8 = 0;
+	    if(strieq(p, "8bit")) 
+		cvt8 = AREA_8BIT;
+	    if(strieq(p, "quoted-printable")) 
+		cvt8 = AREA_QP;
+	}
 	
 	/*
 	 * Convert message body

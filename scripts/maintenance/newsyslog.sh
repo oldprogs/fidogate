@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# $Id: newsyslog.sh,v 4.2 1997/02/09 10:04:22 mj Exp $
+# $Id: newsyslog.sh,v 4.3 1997/03/26 20:46:42 mj Exp $
 #
 # Cycle syslog files
 #
@@ -33,7 +33,6 @@ move () {
   fi
   if [ -f "$fo" ]; then
     mv $fo $fn
-    $COMPR $fn
   fi
   if [ -f "$fo$EXT" ]; then
     mv $fo$EXT $fn$EXT
@@ -58,10 +57,21 @@ cycle () {
   fi
 }
 
+# Compress log file
+# usage: compr FILE
+compr () {
+  for f in $1.[0-9]; do
+    if [ -f $f ]; then
+      $COMPR $f
+    fi
+  done
+}
+
+# Cycle files
 cycle $SYSLOGDIR/cron
-cycle $SYSLOGDIR/syslog   3 2 1 0
-cycle $SYSLOGDIR/messages 3 2 1 0
-cycle $SYSLOGDIR/maillog  5 4 3 2 1 0
+cycle $SYSLOGDIR/syslog         3 2 1 0
+cycle $SYSLOGDIR/messages       3 2 1 0
+cycle $SYSLOGDIR/maillog  6 5 4 3 2 1 0
 
 # # Run sendmailstat
 # PRG=/usr/local/bin/sendmailstat
@@ -79,3 +89,9 @@ test -f /etc/syslog.pid     && kill -HUP `cat /etc/syslog.pid`
 test -f /var/run/syslog.pid && kill -HUP `cat /var/run/syslog.pid`
 test -f /etc/crond.pid      && kill -HUP `cat /etc/crond.pid`
 test -f /var/run/crond.pid  && kill -HUP `cat /var/run/crond.pid`
+
+# Compress old log files
+compr $SYSLOGDIR/cron
+compr $SYSLOGDIR/syslog
+compr $SYSLOGDIR/messages
+compr $SYSLOGDIR/maillog

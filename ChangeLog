@@ -1,3 +1,29 @@
+Wed Mar 26 21:26:18 1997  Martin Junius  <mj@fido.de>
+
+	------- CVS ci -------------------------------------------------------
+
+	* src/gate/ftn2rfc.c (unpack): check for Content-Transfer-Encoding
+	  in RFC headers or ^ARFC kludges and set cvt8 flag accordingly.
+
+	* config.h (FTN_RFC_HEADERS): added Content-Transfer-Encoding.
+
+	* scripts/maintenance/newsyslog.sh: rewrite, first rename log
+	  files, then restart the daemons, then compress the old log
+	  files. In particular crond doesn't like its log file being
+	  compressed while still opened by crond.
+
+Sun Mar 23 10:24:56 1997  Martin Junius  <mj@fido.de>
+
+	* src/tick/ftntick.c (process_tic): Replaces handling done before
+	  moving new file from inbound to file area. Avoids deleting the
+	  new file, if the file name and Replaces name are the same.
+	  (move): added log() for copy_file() errors.
+	  (process_tic): added log() for Replaces handling errors.
+	  (process_tic): added log() for Replaces operation.
+
+	* src/common/tick.c (tick_get): use lon_add_string(), SeenBy may
+	  contain more than one FTN address.
+
 Sun Feb 23 11:53:39 1997  Martin Junius  <mj@fido.de>
 
 	------- CVS ci -------------------------------------------------------

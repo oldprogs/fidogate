@@ -2,6 +2,16 @@
 
 X = for next release
 
+	* doc: add X-Flags documentation.
+
+	* ftn2rfc: improve processing of RFC address user%do.main and
+	  user@do.main in FTN to field.
+
+	* ftn2rfc: if 7bit text, do not use MIME quoted-printable.
+
+	* ftn2rfc: process MIME Content-Transfer-Encoding header in
+	  FTN message.
+
 	* rfc2ftn: configuration option for mail RFC level *per*
 	  *host*, e.g. option in HOSTS.
 
@@ -21,6 +31,7 @@ DONE.	* ftn2rfc:702: config option, instead of @FQDN, add @addr_to.addr
 	  (domain part of recipient's FTN address).
 
 	* rfc2ftn: limit max. message size
+
 	* areas: option -M MAXSIZE, limit maximum RFC message size to
 	  MAXSIZE bytes, larger messages won't be gated.
 
