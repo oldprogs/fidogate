@@ -7,11 +7,13 @@
     
     Features
 
-	
+DONE	* logcheck: fix list for output without relay (addresses only
+	  once).
+
 DONE	* ftnafutil: only process areas with uplink entry in passwd?
 
-	* log.c/config.h: get syslog facility from LogFacility, parse
-	  at run-time.
+	* log.c/config.h: get syslog facility/level from
+	  LogFacility/LogLevel, parse at run-time.
 
 	* rfc2ftn: add config option ForceFMPT0 (pkt_set_forcefmpt0(TRUE))
 
@@ -23,8 +25,10 @@ DONE	* packet.c:pkt_put_msg_hdr(): add run-time configuration for
 	* ftn2rfc/rfc2ftn: integrate new charset mapping
 
 	* charset.c: use new mapping tables
-	* ^ACHRS default configurable per area + character translation
-	  for RFC -> Fido.
+
+	* ^ACHRS default configurable per area
+
+	* charset translation for RFC -> Fido.
 
 	* Different Message-ID and sender Internet domain
 	  configuration (extended Zone config).

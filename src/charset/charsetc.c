@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: charsetc.c,v 1.4 1998/05/01 15:16:43 mj Exp $
+ * $Id: charsetc.c,v 1.5 1998/05/03 12:46:30 mj Exp $
  *
  * Charset mapping table compiler
  *
@@ -36,7 +36,7 @@
 
 
 #define PROGRAM		"charsetc"
-#define VERSION		"$Revision: 1.4 $"
+#define VERSION		"$Revision: 1.5 $"
 
 
 
@@ -267,7 +267,7 @@ int charset_do_file(char *name)
     char *p;
     long oldn;
     
-    debug(14, "Reading charset.map file %s", name);
+    debug(1, "Reading charset.map file %s", name);
     
     oldn = cf_lineno_set(0);
     fp = fopen_expand_name(name, R_MODE_T, FALSE);

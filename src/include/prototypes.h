@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: prototypes.h,v 4.46 1998/05/01 15:20:59 mj Exp $
+ * $Id: prototypes.h,v 4.47 1998/05/03 12:46:38 mj Exp $
  *
  * Prototypes for functions in libfidogate.a
  *
@@ -94,9 +94,14 @@ int	bounce_mail		(char *, RFCAddr *, Message *,
 				 char *, Textlist *);
 
 /* charset.c */
-void	charset_reset		(void);
-void	charset_set		(char *);
-char   *charset_xlate		(int, int);
+CharsetTable *charset_table_new	(void);
+CharsetAlias *charset_alias_new	(void);
+int	charset_write_bin	(char *);
+int	charset_read_bin	(char *);
+char   *charset_qpen		(int c, int qp);
+char   *charset_map_c		(int, int);
+int	charset_set_in_out	(char *in, char *out);
+void	charset_init		(void);
 
 /* config.c */
 void	cf_check_gate		(void);

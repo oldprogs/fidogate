@@ -1,3 +1,28 @@
+Sun May  3 10:27:29 1998  Martin Junius  <mj@fido.de>
+
+	------- CVS ci -------------------------------------------------------
+
+	* src/gate/ftn2rfc.c (check_chrs): removed.
+	  (unpack): started using new charset code.
+
+	* src/common/rfcaddr.c (rfcaddr_from_ftn): use new charset_map_c().
+
+	* src/common/message.c (msg_xlate_line): use new charset_map_c().
+
+	* src/charset/charset.c: renamed new.c.
+
+	* src/charset/Makefile (CHARSETMAP): added compilation of charset.bin.
+
+	* src/common/Makefile (OBJS): removed charset.o, now in src/charset/.
+
+	* src/charset/new.c (charset_init): new function initializing
+	  charset mapping tables.
+	  (charset_chrs_name): new function retrieving charset name from
+	  FSC-0054 ^ACHRS/CHARSET.
+
+	* scripts/maintenance/logcheck.pl: include relay on if -r is set,
+	  avoids duplicate entries for report without relay.
+
 Fri May  1 14:17:28 1998  Martin Junius  <mj@fido.de>
 
 	------- CVS ci -------------------------------------------------------

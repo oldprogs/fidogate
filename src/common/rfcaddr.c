@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: rfcaddr.c,v 4.4 1998/01/18 09:47:54 mj Exp $
+ * $Id: rfcaddr.c,v 4.5 1998/05/03 12:46:37 mj Exp $
  *
  * RFCAddr struct handling
  *
@@ -100,7 +100,7 @@ RFCAddr rfcaddr_from_ftn(char *name, Node *node)
 	c = (unsigned char)(*name++);
 	if(c >= 0x80)			/* Must translate */
 	{
-	    p = charset_xlate(c, 0);
+	    p = charset_map_c(c, FALSE);
 	    if(p)
 		while(*p && i<MAXUSERNAME-1)
 		    buf[i++] = *p++;

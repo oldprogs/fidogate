@@ -1,6 +1,6 @@
 #!/usr/local/bin/perl
 #
-# $Id: logcheck.pl,v 4.5 1998/03/22 17:57:34 mj Exp $
+# $Id: logcheck.pl,v 4.6 1998/05/03 12:46:28 mj Exp $
 #
 # Create report for sendmail check_mail rules
 #
@@ -51,7 +51,7 @@ while(<>) {
        /check_mail, arg1=(.*), relay=(.*), reject=551.*/ ) {
 	$a = $1;
 	$a = "<$a>" if(! $a =~ /^<.*>$/);
-	$r = $2;
+	$r = $opt_r ? $2 : "";
 	$reject{"$a /// $r"}++;
 	print "reject: $a\n" if($opt_v);
     }
@@ -60,7 +60,7 @@ while(<>) {
        /check_mail, arg1=(.*), relay=(.*), reject=451.*/ ) {
 	$a = $1;
 	$a = "<$a>" if(! $a =~ /^<.*>$/);
-	$r = $2;
+	$r = $opt_r ? $2 : "";
 	$nodns{"$a /// $r"}++;
 	print "no DNS: $a\n" if($opt_v);
     }
@@ -69,7 +69,7 @@ while(<>) {
        /check_mail, arg1=(.*), relay=(.*), reject=551.*we do not relay/ ) {
 	$a = $1;
 	$a = "<$a>" if(! $a =~ /^<.*>$/);
-	$r = $2;
+	$r = $opt_r ? $2 : "";
 	$relay{"$a /// $r"}++;
 	print "relay : $a\n" if($opt_v);
     }

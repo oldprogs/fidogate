@@ -35,11 +35,6 @@ cf_funcs.o: cf_funcs.c ../../src/include/fidogate.h ../../config.h \
  ../../src/include/node.h ../../src/include/packet.h \
  ../../src/include/structs.h ../../src/include/prototypes.h \
  ../../src/include/cf_funcs.h
-charset.o: charset.c ../../src/include/fidogate.h ../../config.h \
- ../../src/include/paths.h ../../src/include/declare.h \
- ../../src/include/node.h ../../src/include/packet.h \
- ../../src/include/structs.h ../../src/include/prototypes.h \
- ../../src/include/cf_funcs.h
 config.o: config.c ../../src/include/fidogate.h ../../config.h \
  ../../src/include/paths.h ../../src/include/declare.h \
  ../../src/include/node.h ../../src/include/packet.h \

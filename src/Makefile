@@ -1,6 +1,6 @@
 #:ts=8
 #
-#    $Id: Makefile,v 4.10 1998/03/22 17:57:36 mj Exp $
+#    $Id: Makefile,v 4.11 1998/05/03 12:46:29 mj Exp $
 #
 #    Makefile for FIDOGATE src/
 #
@@ -16,7 +16,7 @@ include $(TOPDIR)/config.make
 include $(TOPDIR)/rules.make
 
 
-SUBDIRS		= include common areafix ffx gate tick toss util charset
+SUBDIRS		= include common charset areafix ffx gate tick toss util
 
 
 all::

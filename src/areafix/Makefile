@@ -1,6 +1,6 @@
 #:ts=8
 #
-#    $Id: Makefile,v 1.5 1998/04/28 19:02:24 mj Exp $
+#    $Id: Makefile,v 1.6 1998/05/03 12:46:29 mj Exp $
 #
 #    Makefile for FIDOGATE src/areafix/
 #
@@ -51,7 +51,7 @@ install:
 
 
 clean veryclean:
-	rm -f $(PROGS)
+	rm -f $(PROGS) $(TESTS)
 	rm -f *~ *.bak *.o tags TAGS core paths.tmp
 
 

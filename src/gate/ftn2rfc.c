@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftn2rfc.c,v 4.34 1998/01/31 20:22:35 mj Exp $
+ * $Id: ftn2rfc.c,v 4.35 1998/05/03 12:46:38 mj Exp $
  *
  * Convert FTN mail packets to RFC mail and news batches
  *
@@ -40,7 +40,7 @@
 
 
 #define PROGRAM 	"ftn2rfc"
-#define VERSION 	"$Revision: 4.34 $"
+#define VERSION 	"$Revision: 4.35 $"
 #define CONFIG		DEFAULT_CONFIG_GATE
 
 
@@ -48,7 +48,6 @@
 /*
  * Prototypes
  */
-void	check_chrs		(char *);
 char   *get_from		(Textlist *, Textlist *);
 char   *get_reply_to		(Textlist *);
 char   *get_to			(Textlist *);
@@ -131,22 +130,6 @@ static int kill_split = FALSE;
 
 /* Write single news article files, not one big news batch */
 static int single_articles = FALSE;
-
-
-
-/*
- * check_chrs() --- Check for ^ACHARSET / ^ACHRS
- */
-void check_chrs(char *buf)
-{
-    /*
-     * Look for `^ACHARSET ...' or `^ACHRS ...'
-     */
-    if(!strncmp(buf+1, "CHARSET: ", 9))
-	charset_set(buf + 9);
-    else if(!strncmp(buf+1, "CHRS: ", 6))
-	charset_set(buf + 6);
-}
 
 
 
@@ -314,7 +297,9 @@ int unpack(FILE *pkt_file, Packet *pkt)
     int rfc_lvl, rfc_lines;
     char *split_line;
     int cvt8 = 0;			/* AREA_8BIT | AREA_QP */
-    
+    char *cs_in, *cs_out;		/* Charset in (=FTN), out (=RFC) */
+    int cs_qp;				/* Flag for MIME qp encoding */
+
 
     /*
      * Initialize
@@ -529,11 +514,17 @@ int unpack(FILE *pkt_file, Packet *pkt)
 		rfc_lines = TRUE;
 	}
 	    
+	/**FIXME: set in/out charset**/
 	for(pl=body.body.first; pl; pl=pl->next)
 	{
 	    p = pl->line;
 	    if(*p == '\001')			/* Kludge in message body */
-		check_chrs(p);			/* ^ACHRS / ^ACHARSET */
+	    {
+		if(strnieq(p+1, "CHRS: ", 6))
+		    cs_in = charset_chrs_name(buf + 6);
+		if(strnieq(p+1, "CHARSET: ", 9))
+		    cs_in = charset_chrs_name(buf + 9);
+	    }
 	    else				/* Normal line */
 	    {
 		msg_xlate_line(buffer, sizeof(buffer), p, cvt8);
@@ -551,6 +542,7 @@ int unpack(FILE *pkt_file, Packet *pkt)
 	/*
 	 * Convert FTN from/to addresses to RFCAddr struct
 	 */
+	/**FIXME: set out charset to us-ascii**/
 	addr_from = rfcaddr_from_ftn(msg.name_from, &msg.node_orig);
 	addr_to   = rfcaddr_from_ftn(msg.name_to,   &msg.node_to  );
 

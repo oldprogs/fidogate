@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: new.c,v 1.1 1998/05/01 15:16:43 mj Exp $
+ * $Id: charset.c,v 1.1 1998/05/03 12:46:29 mj Exp $
  *
  * NEW charset.c code using charset.bin mapping file
  *
@@ -32,16 +32,6 @@
 
 #include "fidogate.h"
 
-
-
-/*prototypes.h*/
-CharsetTable *charset_table_new	(void);
-CharsetAlias *charset_alias_new	(void);
-int	charset_write_bin	(char *);
-int	charset_read_bin	(char *);
-int	charset_set_in_out	(char *in, char *out);
-char   *charset_qpen		(int c, int qp);
-/**************/
 
 
 /*
@@ -286,6 +276,60 @@ int charset_set_in_out(char *in, char *out)
 
 
 
+/*
+ * Initialize charset mapping
+ */
+void charset_init(void)
+{
+    if(charset_read_bin( cf_p_charsetmap() ) == ERROR) 
+    {
+	log("ERROR: reading from %s", cf_p_charsetmap());
+	exit(EX_SOFTWARE);
+    }
+
+    charset_table_used = NULL;
+}
+
+
+
+/*
+ * Get charset name from ^ACHRS kludge line
+ */
+char *charset_chrs_name(char *s)
+{
+    static char name[MAXPATH];
+    char *p;
+    int level;
+    
+    while(is_space(*s))
+	s++;
+    debug(5, "FSC-0054 ^ACHRS/CHARSET: %s", s);
+
+    BUF_COPY(name, s);
+    p = strtok(s, " \t");
+    if(!p)
+	return NULL;
+
+    p = strtok(NULL, " \t");
+    if(!p)
+	/* In this case it's an FSC-0050 kludge without the class code.
+	 * Treat it like FSC-0054 level 2. */
+	level = 2;
+    else
+	level = atoi(p);
+    
+    if(level == 2)
+    {
+	debug(5, "FSC-0054 level 2 charset=%s", name);
+	return name;
+    }
+
+    return NULL;
+}
+
+
+
+
 #ifdef TEST
 /*
  * Charset mapping test
@@ -302,6 +346,8 @@ int main(int argc, char *argv[])
     }
     
     verbose = 15;
+
+/*    charset_init(); */
     
     if(charset_read_bin(argv[1]) == ERROR) 
     {
