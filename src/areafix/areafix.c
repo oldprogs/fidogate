@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: areafix.c,v 1.6 1998/04/10 17:49:14 mj Exp $
+ * $Id: areafix.c,v 1.7 1998/04/11 16:31:03 mj Exp $
  *
  * Common Areafix functions
  *
@@ -468,6 +468,7 @@ int rewrite_areas_bbs(void)
 #define CMD_NEW		9
 #define CMD_VACATION	10
 #define CMD_DELETE	11
+#define CMD_COMMENT	12
 
 int areafix_do_cmd(Node *node, char *line, Textlist *out)
 {
@@ -556,6 +557,8 @@ int areafix_do_cmd(Node *node, char *line, Textlist *out)
 	    cmd = CMD_VACATION;
 	else if(!stricmp(buf, "delete"))
 	    cmd = CMD_DELETE;
+	else if(!stricmp(buf, "comment"))
+	    cmd = CMD_COMMENT;
 	else
 	{
 	    if(percent)
@@ -612,6 +615,9 @@ int areafix_do_cmd(Node *node, char *line, Textlist *out)
 	break;
     case CMD_DELETE:
 	ret = cmd_delete(node, arg);
+	break;
+    case CMD_COMMENT:
+	/* ignore */
 	break;
     }	
     
@@ -990,11 +996,27 @@ int cmd_sub(Node *node, char *area)
 		areafix_printf("%-41s: already active", p->area);
 	    else 
 	    {
-		lon_add(l, node);
-		areas_bbs_changed = TRUE;
-		areafix_printf("%-41s: subscribed", p->area);
-
-		log("%s: +%s", node_to_asc(node, TRUE), p->area);
+		if(l->first)
+		{
+		    lon_add(l, node);
+		    areas_bbs_changed = TRUE;
+		    areafix_printf("%-41s: subscribed", p->area);
+		    
+		    if(p->state && strchr(p->state, 'U'))
+		    {
+			/* Not subscribed at uplink, print note */
+			areafix_printf("        (this area is currently not subscribed at uplink %s)", znfp(&l->first->node));
+			log("%s: +%s (not subscribed at uplink)",
+			    znfp(node), p->area);
+		    }
+		    else
+			log("%s: +%s", znfp(node), p->area);
+		}
+		else
+		{
+		    areafix_printf("%s: no uplink, dead area", p->area);
+		    log("%s: dead area %s", znfp(node), p->area);
+		}
 	    }
 	}
     }

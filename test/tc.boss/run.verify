@@ -23,7 +23,6 @@ config: MaxOpenFiles 40
 config: MaxHistory 14
 config: PINBOUND ./pin
 config: SPOOLDIR .
-config: areasbbs ./areas.bbs
 config: ROUTING %C/routing
 config: CONFIGDIR ../cf
 config: PASSWD %C/passwd
@@ -527,9 +526,7 @@ Close ./toss/toss/nen00006.tmp
 Rename ./toss/toss/nen00006.tmp -> ./toss/toss/nen00006.pkt
 Close ./toss/toss/nen00007.tmp
 Rename ./toss/toss/nen00007.tmp -> ./toss/toss/nen00007.pkt
-ftntoss pkts processed: 7, 2 Kbyte in 1 s, 2.71 Kbyte/s
 ftntoss msgs processed: 7 in, 42 out (0 mail, 42 echo)
-ftntoss msgs processed: 7 in 1 s, 7.00 msgs/s
 config: fqdn=orodruin.fido.de
 config: address Z2   : 2:2452/123.0  Uplink: 0:0/0.0
 config: zone 0   : .Fido.DE  fidode  -

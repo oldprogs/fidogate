@@ -1,9 +1,9 @@
-Subject: FIDOGATE 4.3a1 --- Fido-Internet Gateway and Tosser
+Subject: FIDOGATE 4.3a2 --- Fido-Internet Gateway and Tosser
 Keywords: fido ftn netmail echomail tosser areafix mail news gateway
 Followup-To: comp.os.linux.misc
 
 =========================================================================
-FIDOGATE 4.3a1, a major new version of the FIDOGATE package is available.
+FIDOGATE 4.3a2, a major new version of the FIDOGATE package is available.
 =========================================================================
 
 			   FIDOGATE Version 4
@@ -26,7 +26,7 @@ Internet:
     http://sunsite.unc.edu/pub/Linux/system/fido/
     (probably still in .../pub/Linux/Incoming)
 
-    fidogate-4.3a1.tar.gz	1160 Kbyte
+    fidogate-4.3a2.tar.gz	1160 Kbyte
 
 Fido File Request:
 ==================
@@ -37,6 +37,88 @@ Fido File Request:
 
 
 ======================================================================
+
+Changes in 4.3a2:
+
+* New config examples for 4.3
+
+* Perl scripts: config.pl now compiled into all perl scripts, -L/-S
+  options removed from all perl scripts.
+
+* rununpack: complete rewrite using perl.
+
+* runtoss: complete rewrite using perl,
+  new config (toss.conf) options: DiskFreeMin, DiskFreeMethod, DiskFreeProgram
+
+* ftnaf/ftnafpkt: major changes to commands, external help file:
+
+      Help for Areafix/Filefix, FIDOGATE 4.3
+      
+      Send mail
+      
+	To:      AreaFix @ Z:N/F.P
+	     or  AreaMgr @ Z:N/F.P
+	     or  FileFix @ Z:N/F.P
+	     or  FileMgr @ Z:N/F.P
+	Subject: PASSWORD [-l] [-q]
+				^^-- same as QUERY command
+			   ^^------- same as LIST command
+      
+      Commands in message body, optional prefix %% allowed:
+      
+	listall                      list all available areas
+	list                         list areas available to node
+	query                        list subscribed areas
+	unlinked                     list unsubscribed areas
+	from Z:N/F.P PASSWORD        set address and password
+	passwd Z:N/F.P PASSWORD
+	password Z:N/F.P PASSWORD
+	+AREA                        subscribe to AREA
+	AREA    
+	subscribe AREA
+	sub AREA
+	-AREA                        unsubscribe from AREA
+	unsubscribe AREA
+	unsub AREA
+	vacation AREA                set vacation flag for AREA
+	&AREA [-options]             create new AREA
+	new AREA [-options]
+	~AREA                        delete AREA
+	delete AREA
+	comment TEXT                 arbitrary comment (ignored)
+	help                         this help
+      
+      AREA names are not case-sensitive and support shell-style wildcards
+	* ? [a-z] [abc], e.g. COMP.OS.*, [A-D]*.GER
+
+  Now supports remote deletion and creation of areas (area key ~ and &
+  for authorization).
+
+* charsetc: new compiler for charset mapping tables. New mapping
+  tables not yet implemented, though.
+
+* logcheck/logsendmail: updated to sendmail 8.8.7
+
+* out-rmbsy: updated.
+
+* rfc2ftn: new option CheckAreasBBS, checking areas.bbs for downlinks
+  when gating. Areas won't be gated if no downlink.
+
+* rfc2ftn: new command line option -f / --batch-file BATCH, allows
+  direct processing of INN's batch files in /var/spool/news/out.going
+  without using the batcher, a major performance improvement.
+
+* send-fidogate: adapted to new rfc2ftn -f BATCH.
+
+* Busy files: use NFS-safe locking code.
+
+* areas.bbs: new option -s STATE for storing state information of
+  area. If set to 'U', the area is marked as not subscribed at the
+  uplink, an appropiate note will be printed by ftnaf. An improved
+  ftnaf will use this feature to automatically subscribe/unsubscribe
+  to areas at the uplink when downlink subscribe/unsubscribe to areas.
+
+
 
 Changes in 4.3a1:
 
@@ -91,7 +173,7 @@ Needed:
 * GNU CC or ANSI C compiler
 * GNU make
 * GNU flex/bison or lex/yacc
-* Perl4 or Perl5
+* Perl5
 * GNU m4 for the sendmail m4 configuration
 
 ===== fidogate.lsm ===================================================
@@ -99,6 +181,6 @@ Needed:
 
 ======================================================================
 
-$Date: 1998/02/22 16:47:57 $
+$Date: 1998/04/11 16:30:56 $
 Martin Junius
 mailto:mj@fido.de

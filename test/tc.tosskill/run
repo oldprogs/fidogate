@@ -1,22 +1,24 @@
 #!/bin/sh
 
-T1="../../src/toss/ftntoss -vv -L../cf -c./config1"
-T2="../../src/toss/ftntoss -vv -L../cf -c./config2"
+T1="../../src/toss/ftntoss -vv -c./config1"
+T2="../../src/toss/ftntoss -vv -c./config2"
 
 ../tr.init
 
 echo "tc: copying input packets"
-cp ../ti.pkt-toss/*.pkt toss/in
+cp ../ti.pkt-toss/*.pkt pin
 
 echo "tc: running (killing bad)"
 $T2
 
-../../src/util/pktdebug -s toss/bad/*.pkt
+[ -f toss/bad/bad00001.pkt ] && \
+    ../../src/util/pktdebug -s toss/bad/*.pkt
 
 echo "tc: copying input packets"
-cp ../ti.pkt-toss/*.pkt toss/in
+cp ../ti.pkt-toss/*.pkt pin
 
 echo "tc: running (saving bad)"
 $T1
 
-../../src/util/pktdebug -s toss/bad/*.pkt
+[ -f toss/bad/bad00001.pkt ] && \
+    ../../src/util/pktdebug -s toss/bad/*.pkt

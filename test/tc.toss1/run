@@ -3,28 +3,28 @@
 ../tr.init
 
 echo "tc: copying input packets"
-cp ../ti.pkt-z2/*.[pP][kK][tT] toss/in
+cp ../ti.pkt-z2/*.[pP][kK][tT] pin
 
 echo "tc: running"
-../../src/toss/ftntoss  -L../cf -S. -bareas.bbs -v
-../../src/toss/ftnroute -L../cf -S. -v
-../../src/toss/ftnpack  -L../cf -S. -B./bt -v
+../../src/toss/ftntoss  -c../cf/toss.conf -bareas.bbs -v
+../../src/toss/ftnroute -c../cf/toss.conf -v
+../../src/toss/ftnpack  -c../cf/toss.conf -v
 
 echo "tc: removing history"
 rm -f history*
 
 echo "tc: copying input packets"
-cp ../ti.pkt-z2/*.[pP][kK][tT] toss/in
+cp ../ti.pkt-z2/*.[pP][kK][tT] pin
 
 echo "tc: running with EchoMail4D"
-../../src/toss/ftntoss  -L../cf -S. -cconfig1 -bareas.bbs -v
-../../src/toss/ftnroute -L../cf -S. -cconfig1 -v
-../../src/toss/ftnpack  -L../cf -S. -cconfig1 -B./bt -v
+../../src/toss/ftntoss  -cconfig1 -bareas.bbs -v
+../../src/toss/ftnroute -cconfig1 -v
+../../src/toss/ftnpack  -cconfig1 -B./bt -v
 
 echo "tc: copying input packets"
-cp ../ti.pkt-z2/*.[pP][kK][tT] toss/in
+cp ../ti.pkt-z2/*.[pP][kK][tT] pin
 
 echo "tc: running with KillOld"
-../../src/toss/ftntoss  -L../cf -S. -cconfig2 -bareas.bbs -v
-../../src/toss/ftnroute -L../cf -S. -cconfig2 -v
-../../src/toss/ftnpack  -L../cf -S. -cconfig2 -B./bt -v
+../../src/toss/ftntoss  -cconfig2 -bareas.bbs -v
+../../src/toss/ftnroute -cconfig2 -v
+../../src/toss/ftnpack  -cconfig2 -B./bt -v

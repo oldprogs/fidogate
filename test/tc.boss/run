@@ -5,7 +5,7 @@
 #V="-v"
 V="-vvvvvvvvv"
 
-T="../../src/toss/ftntoss  -cconfig.main"
+T="../../src/toss/ftntoss  -cconfig.main -bareas.bbs"
 R="../../src/toss/ftnroute -cconfig.main"
 
 G="../../src/gate/rfc2ftn  -cconfig.gate"

@@ -4,9 +4,9 @@
 mkdir tmp_pack
 
 echo "tc: copying input packets"
-cp ../ti.pkt-z2/* toss/in
+cp ../ti.pkt-z2/* pin
 
 echo "tc: running"
-../../src/toss/ftntoss  -L../cf -S. -v
-../../src/toss/ftnroute -L../cf -S. -v
-../../src/toss/ftnpack  -L../cf -S. -v -B./bt -ppacking
+../../src/toss/ftntoss  -c../cf/toss.conf -v
+../../src/toss/ftnroute -c../cf/toss.conf -v
+../../src/toss/ftnpack  -c../cf/toss.conf -v -ppacking

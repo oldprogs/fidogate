@@ -19,8 +19,8 @@ Commands in message body, optional prefix %% allowed:
   from Z:N/F.P PASSWORD        set address and password
   passwd Z:N/F.P PASSWORD
   password Z:N/F.P PASSWORD
-  +AREA	                       subscribe to AREA
-  AREA	  
+  +AREA                        subscribe to AREA
+  AREA    
   subscribe AREA
   sub AREA
   -AREA                        unsubscribe from AREA

@@ -1,4 +1,38 @@
+Sat Apr 11 16:19:20 1998  Martin Junius  <mj@fido.de>
+
+	------- CVS ci -------------------------------------------------------
+
+	* test/tc.*: updated run, run.verify.
+	
+	* ANNOUNCE: updated.
+
+	* src/areafix/areafix.c (areafix_do_cmd): implemented "comment"
+	  command, noop.
+	  (cmd_sub): if p->state is 'U', add note saying that area is not
+	  subscribed at our uplink.
+	  (cmd_sub): if area has no uplink, don't allow subscription.
+
+	* test/tc.af2/areas.bbs: added area BLAH.GER with state -s U
+
+	* test/tc.tosskill/run: dito.
+
+	* test/tc.toss6/run: dito.
+
+	* test/tc.toss5/run: dito.
+
+	* test/tc.toss4/run: dito.
+
+	* test/tc.toss3/run: dito.
+
+	* test/tc.toss2/run: dito.
+
+	* test/tc.toss1/run: adapted to new configuration.
+
+	* src/common/misc.c (run_system): run BUF_EXPAND() on command.
+
 Fri Apr 10 19:23:46 1998  Martin Junius  <mj@fido.de>
+
+	* src/common/areasbbs.c (areasbbs_print): added output of state field.
 
 	------- CVS ci -------------------------------------------------------
 

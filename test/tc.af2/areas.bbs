@@ -1,4 +1,6 @@
 !-IGNORED-
+- BLAH.GER -d "Fido Laber Area" -s U 2:2499/99
+- AAAA.GER -d "Fido Laber Area" -s U -z 2
 - LINUX.GER -d "Fido Linux" 2:2452/110.90 .99
 - TOLKIEN.GER -d "Fido Fantasy Literatur" 2:2452/110.90 .91 .92 .93
 - XX -k ax -l 2 242:1000/1.90 .91 .99

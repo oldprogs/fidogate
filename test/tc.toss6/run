@@ -2,8 +2,8 @@
 
 ../tr.init
 
-T="../../src/toss/ftntoss -L../cf"
-R="../../src/gate/rfc2ftn -L../cf"
+T="../../src/toss/ftntoss -c../cf/toss.conf"
+R="../../src/gate/rfc2ftn -c../cf/gate.conf"
 
 # Create input message
 $R -i -v Test_User_1@2:2452/110 -a 2:2499/123 -u 2:2452/110 <<EOF
@@ -39,6 +39,6 @@ Test
 EOF
 
 # Run tosser
-cp out/*.pkt toss/in
+cp outpkt/mail/*.pkt pin
 
 $T -v -r routing

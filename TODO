@@ -16,7 +16,7 @@ DONE	* rfc2ftn: check areas.bbs in news mode, only gate if area has
 DONE	* ftnin: process address by address, don't try to create bsy
 	  files for all addresses at once.
 
-	* ftnpack: allow %X in programs (pack, prog, progn)
+DONE	* ftnpack: allow %X in programs (pack, prog, progn)
 
 	* ftnafpkt: automatically recognize Areafix/Filefix as name_to
 

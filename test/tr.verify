@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# $Id: tr.verify,v 4.4 1998/02/04 19:17:41 mj Exp $
+# $Id: tr.verify,v 4.5 1998/04/11 16:31:05 mj Exp $
 #
 # FIDOGATE test check script, compares run output against run.verify
 #
@@ -22,6 +22,9 @@ if [ -f $VERIFY ]; then
 	| grep -v '^ *Date:' \
 	| grep -v '^now=' \
 	| grep -v '^\^AVia ' \
+	| grep -v 'msgs/s' \
+	| grep -v 'Kbyte/s' \
+	| grep -v 'Internet -> FIDO gateway / FIDOGATE' \
 	> $OUT
     diff -u $VERIFY $OUT >$DIFF 2>&1
     status=$?

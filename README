@@ -1,6 +1,6 @@
 -*- Indented-Text -*-
 
-$Id: README,v 4.26 1998/02/22 16:48:00 mj Exp $
+$Id: README,v 4.27 1998/04/11 16:30:59 mj Exp $
 
 ======================================================================
 				   
@@ -345,7 +345,7 @@ Needed:
 * GNU CC or ANSI C compiler
 * GNU make
 * GNU flex/bison or lex/yacc
-* Perl4 or Perl5
+* Perl5
 
 Compiling:
 
@@ -463,6 +463,6 @@ not integrate your patches.
 
 ======================================================================
 
-$Date: 1998/02/22 16:48:00 $
+$Date: 1998/04/11 16:30:59 $
 Martin Junius
 mailto:mj@fido.de

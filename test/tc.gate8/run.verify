@@ -2,7 +2,6 @@ tc: clean-up
 tc: init
 tc: running
 rfc2ftn BOUNCE: <test@yftn.fido.de>, FTN address 242:2000/4.0: currently down, unreachable
-Internet -> FIDO gateway / FIDOGATE 4.3a1 @ orodruin.fido.de
    ----- ERROR -----
 Address test@yftn.fido.de:
   FTN address 242:2000/4.0: currently down, unreachable

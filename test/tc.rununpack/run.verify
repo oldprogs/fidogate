@@ -311,9 +311,7 @@ ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:240/5068.5@fidonet c28107ea
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:241/250.7 00082efe
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:240/5068.5@fidonet c28907f9
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2453/30.191 c289805c
-ftntoss pkts processed: 24, 723 Kbyte in 15 s, 48.20 Kbyte/s
 ftntoss msgs processed: 402 in, 225 out (0 mail, 225 echo)
-ftntoss msgs processed: 402 in 15 s, 26.80 msgs/s
 ftntoss msgs killed:    177 dupe
 ftnroute packet for 2:2452/110.2 (Hold)
 ftnpack packet (415277b) for 2:2452/110.2 (noarc)
@@ -654,9 +652,7 @@ ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:240/5068.5@fidonet c28107ea
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:241/250.7 00082efe
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:240/5068.5@fidonet c28907f9
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: 2:2453/30.191 c289805c
-ftntoss pkts processed: 24, 725 Kbyte in 9 s, 80.63 Kbyte/s
 ftntoss msgs processed: 401 in, 88 out (0 mail, 88 echo)
-ftntoss msgs processed: 401 in 9 s, 44.56 msgs/s
 ftntoss msgs killed:    313 dupe
 ftnroute packet for 2:2452/110.2 (Hold)
 ftnpack packet (163273b) for 2:2452/110.2 (noarc)
@@ -814,33 +810,31 @@ ftntoss packet /home/mj/src/fidogate/test/tc.rununpack/pin/01165017.PKT (7930b) 
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: <4i9vav$6mf@spinnaker.rhein.de> da5ed49f
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: <4iaeig$89f@spinnaker.rhein.de> 09369426
 ftntoss dupe from 2:2452/110.0: LINUX.GER MSGID: <4iaetp$8af@spinnaker.rhein.de> 87ed6879
-ftntoss pkts processed: 12, 272 Kbyte in 2 s, 136.25 Kbyte/s
 ftntoss msgs processed: 145 in, 3 out (0 mail, 3 echo)
-ftntoss msgs processed: 145 in 2 s, 72.50 msgs/s
 ftntoss msgs killed:    142 dupe
 ftnroute packet for 2:2452/110.2 (Hold)
 ftnpack packet (7930b) for 2:2452/110.2 (noarc)
 Running df -P .
-Free disk space in . is 302274 K
+Free disk space in . is 250936 K
 Running df -P ./bt
-Free disk space in ./bt is 302274 K
-Running ftntoss -x -I/home/mj/src/fidogate/test/tc.rununpack/pin -s -c ../cf/toss.conf -v
+Free disk space in ./bt is 250936 K
+Running ftntoss -x -I /home/mj/src/fidogate/test/tc.rununpack/pin -s -c ../cf/toss.conf -v
 Status 3
 Running ftnroute -c ../cf/toss.conf -v
 Status 0
 Running ftnpack -F/home/mj/src/fidogate/test/tc.rununpack/pin -c ../cf/toss.conf -v
 Status 0
 Running df -P ./bt
-Free disk space in ./bt is 301769 K
-Running ftntoss -x -I/home/mj/src/fidogate/test/tc.rununpack/pin -s -c ../cf/toss.conf -v
+Free disk space in ./bt is 250447 K
+Running ftntoss -x -I /home/mj/src/fidogate/test/tc.rununpack/pin -s -c ../cf/toss.conf -v
 Status 3
 Running ftnroute -c ../cf/toss.conf -v
 Status 0
 Running ftnpack -F/home/mj/src/fidogate/test/tc.rununpack/pin -c ../cf/toss.conf -v
 Status 0
 Running df -P ./bt
-Free disk space in ./bt is 301723 K
-Running ftntoss -x -I/home/mj/src/fidogate/test/tc.rununpack/pin -s -c ../cf/toss.conf -v
+Free disk space in ./bt is 250401 K
+Running ftntoss -x -I /home/mj/src/fidogate/test/tc.rununpack/pin -s -c ../cf/toss.conf -v
 Status 0
 Running ftnroute -c ../cf/toss.conf -v
 Status 0

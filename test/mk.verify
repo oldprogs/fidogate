@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# $Id: mk.verify,v 4.3 1998/02/04 19:17:41 mj Exp $
+# $Id: mk.verify,v 4.4 1998/04/11 16:31:05 mj Exp $
 #
 # Create run.verify
 #
@@ -11,4 +11,7 @@ VERIFY=run.verify
     | grep -v '^ *Date:' \
     | grep -v '^now=' \
     | grep -v '^\^AVia ' \
+    | grep -v 'msgs/s' \
+    | grep -v 'Kbyte/s' \
+    | grep -v 'Internet -> FIDO gateway / FIDOGATE' \
     > $VERIFY

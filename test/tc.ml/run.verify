@@ -116,7 +116,7 @@ FTN message header:
 ^ARFC-Cc: isdn4linux@hub-wue.franken.de
 ^ARFC-Newsgroups: de.alt.comm.isdn4linux
 ^ARFC-Sender: owner-isdn4linux@hub-wue.franken.de
-^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE 4.3a1]
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE 4.3a2]
 ------------------------------------------------------------------------------
 From: Karsten Keil <keil@temic-ech.spacenet.de>
 Sender: owner-isdn4linux@hub-wue.franken.de
@@ -190,7 +190,7 @@ the message body [-vg]
 
 
 ------------------------------------------------------------------------------
---- FIDOGATE 4.3a1
+--- FIDOGATE 4.3a2
 ==============================================================================
 ==============================================================================
 FTN packet header:
@@ -222,7 +222,7 @@ FTN message header:
 ^ARFC-To: isdn4linux@hub-wue.franken.de
 ^ARFC-Mime-Version: 1.0
 ^ARFC-Sender: owner-isdn4linux@hub-wue.franken.de
-^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE 4.3a1]
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE 4.3a2]
 ------------------------------------------------------------------------------
 From: Karsten Keil <isdn4@temic-ech.spacenet.de>
 Reply-To: isdn4linux@hub-wue.franken.de
@@ -260,7 +260,7 @@ the message body [-vg]
 
 
 ------------------------------------------------------------------------------
---- FIDOGATE 4.3a1
+--- FIDOGATE 4.3a2
 ==============================================================================
 ==============================================================================
 FTN packet header:
@@ -292,7 +292,7 @@ FTN message header:
 ^ARFC-To: rollo@artvark.com
 ^ARFC-CC: tetex@informatik.uni-hannover.de
 ^ARFC-Sender: owner-tetex@informatik.uni-hannover.de
-^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE 4.3a1]
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE 4.3a2]
 ------------------------------------------------------------------------------
 From: Reinhard Kotucha <reinhard@kammer.uni-hannover.de>
 Sender: owner-tetex@informatik.uni-hannover.de
@@ -329,7 +329,7 @@ Microsoft isn't the answer. Microsoft is the question, and the answer is NO.
 
 
 ------------------------------------------------------------------------------
---- FIDOGATE 4.3a1
+--- FIDOGATE 4.3a2
 ==============================================================================
 ==============================================================================
 FTN packet header:
@@ -360,7 +360,7 @@ FTN message header:
 ^ARFC-From: Bernd Raichle <raichle@Informatik.Uni-Stuttgart.DE>
 ^ARFC-To: tetex@informatik.uni-hannover.de
 ^ARFC-Sender: owner-tetex@informatik.uni-hannover.de
-^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE 4.3a1]
+^AGATEWAY: RFC1036/822 orodruin.fido.de [FIDOGATE 4.3a2]
 ------------------------------------------------------------------------------
 From: Bernd Raichle <raichle@Informatik.Uni-Stuttgart.DE>
 Sender: owner-tetex@informatik.uni-hannover.de
@@ -377,5 +377,5 @@ source code of the TeX executable, and described in the TeXbook.
 
 
 ------------------------------------------------------------------------------
---- FIDOGATE 4.3a1
+--- FIDOGATE 4.3a2
 ==============================================================================

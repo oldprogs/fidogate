@@ -1,5 +1,5 @@
 #
-# $Id: config1,v 4.1 1997/02/23 18:20:46 mj Exp $
+# $Id: config1,v 4.2 1998/04/11 16:31:15 mj Exp $
 #
 # Test config with KillOld
 #
@@ -7,4 +7,5 @@
 EchoMail4D
 NoEmptyPath
 
-include %L/config.main
+include ../cf/toss.conf
+

@@ -1,0 +1,50 @@
+tc: clean-up
+tc: init
+tc: copying input packets
+tc: running
+ftntoss creating MSGID history ./history.dir
+ftntoss creating MSGID history ./history.pag
+ftntoss packet ./pin/t-fattach.pkt (360b) from 2:2452/999.0 for 2:2452/110.2
+ftntoss MAIL: Martin Junius @ 2:2452/999.0 -> Test User @ 2:2452/110.2
+ftntoss file attach testfile.zip
+New packet ./toss/toss/nnn00001.pkt (./toss/toss/nnn00001.tmp): 2:2452/110.2 -> 2:2452/110.2
+ftntoss msgs processed: 1 in, 1 out (1 mail, 0 echo)
+Source packet: from=2:2452/110.2 to=2:2452/110.2 grade=n type=n flav=n
+Target packet: from=2:2452/110.2 to=2:2452/110.2 grade=n type=n flav=h
+ftnroute packet for 2:2452/110.2 (Hold)
+New packet ./toss/route/nnh00002.pkt (./toss/route/nnh00002.tmp): 2:2452/110.2 -> 2:2452/110.2
+Packet: from=2:2452/110.2 to=2:2452/110.2 grade=n type=n flav=h
+ftnpack packet (430b) for 2:2452/110.2 (noarc)
+ftnpack file attach testfile.zip (2447b) for 2:2452/110.2
+tc: copying input packets
+tc: running
+ftntoss packet ./pin/t-fattach.pkt (360b) from 2:2452/999.0 for 2:2452/110.2
+ftntoss MAIL: Martin Junius @ 2:2452/999.0 -> Test User @ 2:2452/110.2
+ftntoss file attach testfile.zip
+New packet ./toss/toss/nnn00003.pkt (./toss/toss/nnn00003.tmp): 2:2452/110.2 -> 2:2452/110.2
+ftntoss msgs processed: 1 in, 1 out (1 mail, 0 echo)
+Source packet: from=2:2452/110.2 to=2:2452/110.2 grade=n type=n flav=n
+Target packet: from=2:2452/110.2 to=2:2452/110.2 grade=n type=n flav=h
+ftnroute packet for 2:2452/110.2 (Hold)
+New packet ./toss/route/nnh00004.pkt (./toss/route/nnh00004.tmp): 2:2452/110.2 -> 2:2452/110.2
+Reading FTN packet header:
+    From: 2:2452/110.2
+    To  : 2:2452/110.2
+    Baud: 0
+    Prod: 00 fe
+    Rev : 4.3
+    Pass: ""
+    Capw: 0001
+Packet: from=2:2452/110.2 to=2:2452/110.2 grade=n type=n flav=h
+packing: pack=n dir= arc=noarc
+ftnpack packet (430b) for 2:2452/110.2 (noarc)
+Open OUT file in append mode
+Reopen OUT file in read/write mode
+Locking OUT file
+./bt/out/0994006e.pnt/00000002.hut already exists, seek to EOF-2
+attach mode=^ (^=delete, #=trunc)
+attach name=pin/TestFile.ZIP
+Open FLO file in append mode
+Locking FLO file
+FLO file open and locking succeeded
+ftnpack file attach TestFile.ZIP (2447b) for 2:2452/110.2

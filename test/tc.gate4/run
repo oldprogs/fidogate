@@ -4,26 +4,26 @@
 
 T="../../src/gate/rfc2ftn -v"
 
-# echo "tc: running"
-# for f in ../ti.news-b/[0-9]*; do
-#   echo "News batch file $f"
-#   $T -c ../cf/gate.conf -vvvv -b <$f
-# done
-
-# echo "tc: running"
-# for f in ../ti.news-b/[0-9]*; do
-#   echo "News batch file $f"
-#   $T -cconfig.2 -vvvv -b <$f
-# done
-
-# echo "tc: running"
-# for f in ../ti.news-b/[0-9]*; do
-#   echo "News batch file $f"
-#   $T -cconfig.0 -vvvv -b <$f
-# done
+echo "tc: running"
+for f in ../ti.news-b/[0-9]*; do
+  echo "-- 1 -- News batch file $f --"
+  $T -c ../cf/gate.conf -vvvv -b <$f
+done
 
 echo "tc: running"
 for f in ../ti.news-b/[0-9]*; do
-  echo "News batch file $f"
+  echo "-- 2 -- News batch file $f --"
+  $T -cconfig.2 -vvvv -b <$f
+done
+
+echo "tc: running"
+for f in ../ti.news-b/[0-9]*; do
+  echo "-- 3 -- News batch file $f --"
+  $T -cconfig.0 -vvvv -b <$f
+done
+
+echo "tc: running"
+for f in ../ti.news-b/[0-9]*; do
+  echo "-- 4 -- News batch file $f --"
   $T -ccheck.conf -vvvvv -b <$f
 done

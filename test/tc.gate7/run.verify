@@ -101,7 +101,6 @@ RFC Sender:   abc@fido.de
     Name:     test_user
     Address:  abc.def.org
 rfc2ftn BOUNCE: <test_user@abc.def.org>, unknown
-Internet -> FIDO gateway / FIDOGATE 4.3a1 @ orodruin.fido.de
    ----- ERROR -----
 Address test_user@abc.def.org:
   address/host is unknown

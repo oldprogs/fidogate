@@ -3,20 +3,20 @@
 ../tr.init
 
 echo "tc: copying input packets"
-cp ../ti.pkt-misc/t-fattach.pkt toss/in
-cp ../ti.pkt-misc/testfile.zip  toss/in
+cp ../ti.pkt-misc/t-fattach.pkt pin
+cp ../ti.pkt-misc/testfile.zip  pin
 
 echo "tc: running"
-../../src/toss/ftntoss  -L../cf -S. -vv
-../../src/toss/ftnroute -L../cf -S. -vv
-../../src/toss/ftnpack  -L../cf -S. -B./bt -vv -Ftoss/in
+../../src/toss/ftntoss  -c../cf/toss.conf -vv
+../../src/toss/ftnroute -c../cf/toss.conf -vv
+../../src/toss/ftnpack  -c../cf/toss.conf -vv -Fpin
 
 echo "tc: copying input packets"
-rm toss/in/*
-cp ../ti.pkt-misc/t-fattach.pkt toss/in
-cp ../ti.pkt-misc/testfile.zip  toss/in/TestFile.ZIP
+rm pin/*
+cp ../ti.pkt-misc/t-fattach.pkt pin
+cp ../ti.pkt-misc/testfile.zip  pin/TestFile.ZIP
 
 echo "tc: running"
-../../src/toss/ftntoss  -L../cf -S. -vv
-../../src/toss/ftnroute -L../cf -S. -vv
-../../src/toss/ftnpack  -L../cf -S. -B./bt -vvvv -Ftoss/in
+../../src/toss/ftntoss  -c../cf/toss.conf -vv
+../../src/toss/ftnroute -c../cf/toss.conf -vv
+../../src/toss/ftnpack  -c../cf/toss.conf -vvvv -Fpin

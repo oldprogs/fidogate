@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: areasbbs.c,v 4.12 1998/04/10 17:49:15 mj Exp $
+ * $Id: areasbbs.c,v 4.13 1998/04/11 16:31:03 mj Exp $
  *
  * Function for processing AREAS.BBS EchoMail distribution file.
  *
@@ -276,6 +276,8 @@ int areasbbs_print(FILE *fp)
 	    fprintf(fp, "-k %s ", p->key);
 	if(p->desc)
 	    fprintf(fp, "-d \"%s\" ", p->desc);
+	if(p->state)
+	    fprintf(fp, "-s %s ", p->state);
 	lon_print_sorted(&p->nodes, fp, 1);
 	fprintf(fp, "\r\n");
     }
