@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway software UNIX <-> FIDO
  *
- * $Id: address.c,v 4.0 1996/04/17 18:17:38 mj Exp $
+ * $Id: address.c,v 4.1 1996/04/22 14:31:10 mj Exp $
  *
  * Parsing and conversion for FIDO and RFC addresses
  *
@@ -43,14 +43,46 @@ static int try_pfnz		(Node *, char *, char *, char *);
 
 
 /*
+ * HostsRestricted mode: bounce mails to/from unknown FTN addresses
+ * (not registered in HOSTS)
+ */
+static int hosts_restricted = FALSE;
+
+/*
  * -i flag: don't bounce mails to unknown FTN addresses (not in HOSTS)
  */
-int i_flag = FALSE;
+static int i_flag = FALSE;
+
+
 
 /*
  * Address parsing error message
  */
 char address_error[256];
+
+
+
+/*
+ * Set/get HostsRestricted mode
+ */
+void addr_restricted(int f)
+{
+    hosts_restricted = f;
+}
+
+int addr_is_restricted(void)
+{
+    return hosts_restricted;
+}
+
+
+/*
+ * Set HostsRestricted ignore flag (option -i)
+ */
+void addr_ignore(int f)
+{
+    i_flag = f;
+}
 
 
 
@@ -183,11 +215,10 @@ int parse_address(char *address, char *name, Node *node)
 		ret = ERROR;
 	    }
 	}
-#ifdef HOSTS_RESTRICTED
 	/*
 	 * Bounce mail to nodes not registered in HOSTS
 	 */
-	else if(!i_flag)
+	else if(addr_is_restricted() && !i_flag)
 	{
 	    if(!hosts_lookup(node, NULL))
 	    {
@@ -197,7 +228,6 @@ int parse_address(char *address, char *name, Node *node)
 		ret = ERROR;
 	    }
 	}
-#endif /**HOSTS_RESTRICTED**/
 
 	/*
 	 * Check for supported zones (zone statement in CONFIG)

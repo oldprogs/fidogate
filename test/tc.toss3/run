@@ -1,11 +1,6 @@
 #!/bin/sh
 
-echo "tc: clean-up"
-./clean
-
-echo "tc: init"
-mkdir toss toss/in toss/tmp toss/out toss/pack toss/bad bt
-mkdir seq
+../tr.init
 
 echo "tc: copying input packets"
 cp ../ti.pkt-misc/t-bad.pkt toss/in

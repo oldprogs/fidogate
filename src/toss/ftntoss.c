@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftntoss.c,v 4.1 1996/04/18 09:58:38 mj Exp $
+ * $Id: ftntoss.c,v 4.2 1996/04/22 14:31:15 mj Exp $
  *
  * Toss FTN NetMail/EchoMail
  *
@@ -38,12 +38,8 @@
 
 
 #define PROGRAM 	"ftntoss"
-#define VERSION 	"$Revision: 4.1 $"
+#define VERSION 	"$Revision: 4.2 $"
 #define CONFIG		CONFIG_MAIN
-
-
-
-#define ROUTING   "%L/routing"
 
 
 

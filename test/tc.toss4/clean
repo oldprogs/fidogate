@@ -1,5 +1,0 @@
-#!/bin/sh
-
-rm -rf *.bak *~ core
-rm -rf toss seq log bt
-rm -rf history*

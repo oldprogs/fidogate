@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: areas.c,v 4.0 1996/04/17 18:17:38 mj Exp $
+ * $Id: areas.c,v 4.1 1996/04/22 14:31:11 mj Exp $
  *
  * Area <-> newsgroups conversion
  *
@@ -93,7 +93,7 @@ void areas_init(void)
 
     debug(14, "Reading areas file");
     
-    fp = libfopen(AREAS, R_MODE);
+    fp = xfopen(AREAS, R_MODE_T);
 
     while(cf_getline(buffer, BUFFERSIZE, fp))
     {

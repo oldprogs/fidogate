@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: routing.c,v 4.0 1996/04/17 18:17:40 mj Exp $
+ * $Id: routing.c,v 4.1 1996/04/22 14:31:13 mj Exp $
  *
  * Routing config file reading for ftntoss and ftnroute.
  *
@@ -390,15 +390,7 @@ void routing_init(char *name)
     Node old, node;
     LON lon;
     
-
-    if(!strncmp(name, "%L/", 3))	/* File in LIBDIR */
-    {
-	name += 3;
-	fp = libfopen(name, R_MODE);
-    }
-    else				/* Full path name */
-	fp = xfopen(name, R_MODE);
-
+    fp = xfopen(name, R_MODE);
 
     while(cf_getline(buffer, BUFFERSIZE, fp))
     {

@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: config.c,v 4.0 1996/04/17 18:17:39 mj Exp $
+ * $Id: config.c,v 4.1 1996/04/22 14:31:11 mj Exp $
  *
  * Configuration data and functions
  *
@@ -652,7 +652,7 @@ void cf_read_config_file(char *name)
     if(!name || !*name)			/* Empty string -> no config file */
 	return;
 
-    cf = xfopen(name, R_MODE);
+    cf = xfopen(name, R_MODE_T);
     
     while((line = cf_getline(buffer, BUFFERSIZE, cf)))
 	cf_do_line(line);
@@ -866,7 +866,7 @@ char *cf_zones_inet_domain(int zone)
 	if(scf_zones[i].zone == 0)
 	    return scf_zones[i].inet_domain;
 
-    return FIDODOMAIN;
+    return FTN_INVALID_DOMAIN;
 }
 
 

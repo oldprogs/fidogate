@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: prototypes.h,v 4.0 1996/04/17 18:17:41 mj Exp $
+ * $Id: prototypes.h,v 4.1 1996/04/22 14:31:14 mj Exp $
  *
  * Prototypes for functions in libfidogate.a
  *
@@ -34,6 +34,9 @@
 extern int i_flag;
 extern char address_error[];
 
+void	addr_restricted		(int);
+int	addr_is_restricted	(void);
+void	addr_ignore		(int);
 void	addr_set_mausdomain	(char *);
 void	addr_set_mausgate	(char *);
 int	parse_address		(char *, char *, Node *);
@@ -179,6 +182,7 @@ char   *dir_search		(char *, char *);
 void	fidogate_exit		(int);
 
 /* fopen.c */
+FILE   *fopen_expand_name	(char *, char *);
 FILE   *xfopen			(char *, char *);
 FILE   *libfopen		(char *, char *);
 FILE   *spoolfopen		(char *, char *);

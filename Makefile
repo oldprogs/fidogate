@@ -1,5 +1,5 @@
 #
-# $Id: Makefile,v 4.0 1996/04/17 18:17:32 mj Exp $
+# $Id: Makefile,v 4.1 1996/04/22 14:32:06 mj Exp $
 #
 # Makefile FIDOGATE TOPDIR
 #
@@ -12,9 +12,9 @@ include $(TOPDIR)/rules.make
 SUBDIRS		= src scripts test doc sendmail
 
 
-all clean veryclean::
+all clean veryclean check::
 	for d in $(SUBDIRS); do \
-	  if [ -f $$d/Makefile ]; then (cd $$d; make $@); fi; \
+	  if [ -f $$d/Makefile ]; then $(MAKE) -C $$d $@ || exit 1; fi; \
 	done
 
 clean veryclean::

@@ -1,13 +1,30 @@
 -*- Indented-Text -*- :ts=8
 
+X = for release 4.0alpha1
+
+
+	* ftnaf: forward requests to uplink(s). -x option for
+	  executing a script for unknown areas.
+
+DONE.	* ftnaf: no zone check for FileFix
+
+X	* config.h: ALIASES, AREAS, HOSTS, PASSWD, PACKING, ROUTING
+	  configurable in config.common
+
+DONE.	* Don't abort, if HOSTS/PASSWD/ALIASES don't exist.
+
+X	* ftntoss/ftnexpire: lock access to MSGID history database
+
+X	* Default flavor "Hold" configurable.
+
 DONE.	* ftnexpire utility for handling MSGID history.
 
-	* areas.c: change automatic name conversion for -H to be
+X	* areas.c: change automatic name conversion for -H to be
 	  configurable for -/_
 
 DONE.	* ftn2rfc: -i option like rfc2ftn.
 
-	* config.h: move most compile-time options to config files.
+DONE.	* config.h: move most compile-time options to config files.
 
 	* kludge.c: handling traversing multiple kludges of the same
 	  type.
@@ -21,14 +38,14 @@ DONE.	* ftn2rfc: -i option like rfc2ftn.
 	* ArcMail extensions: mo[0-9], plus mo[a-f], maybe mo[a-z]?
 	  runtime configuration of arcmail extensions usage.
 
-	* toss: MAXMSG, MAXFILES, MAXARC should be specified in
+X	* toss: MAXMSG, MAXFILES, MAXARC should be specified in
 	  config.main.
 
-	* ftnaf: don't show error messages for wildcard add/del area.
+DONE.	* ftnaf: don't show error messages for wildcard add/del area.
 
-	* config.ffx: runtime configuration of compression programs.
+X	* config.ffx: runtime configuration of compression programs.
 
-	* ftnroute:do_move(): set file mtime after renaming.
+X	* ftnroute:do_move(): set file mtime after renaming.
 
 DONE.	* dir.c: function dir_openic(), ignoring case when matching
 	  files.
@@ -51,8 +68,6 @@ DONE.	* * Origin -> Organization, config option.
 
 	* areas.bbs: area descriptions, -d "Text ...".
 
-	* ftnaf: forward requests to uplink(s).
-
 	* ftn2rfc: restrict gateway to certain *Internet* addresses.
 
 	* ftntick: announce new files via mail or news posting.
@@ -71,7 +86,7 @@ DONE.	* ftntoss/ftnroute/ftnpack: make -a Z:N/F.P option in
 	  AREAS.BBS work. outpkt_open() should take into account
 	  packet from addresses as well.
 
-STARTED.* Support for new FIDO-Gatebau '94 ^ARFC kludges.
+X	* Support for new FIDO-Gatebau '94 ^ARFC kludges.
 
 	* Check packet passwords of incoming packets.
 

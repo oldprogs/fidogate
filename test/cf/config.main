@@ -24,13 +24,13 @@ Address		242:1000/5
 #
 # AREAS.BBS EchoMail distribution list
 #
-AreasBBS	/usr/local/lib/fidogate/areas.bbs
+AreasBBS	%L/areas.bbs
 
 
 #
 # FAREAS.BBS file distribution list
 #
-FAreasBBS	/usr/local/lib/fidogate/fareas.bbs
+FAreasBBS	%L/fareas.bbs
 
 
 #

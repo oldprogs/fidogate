@@ -1,6 +1,6 @@
 #:ts=8
 #
-#    $Id: Makefile,v 4.0 1996/04/17 18:17:36 mj Exp $
+#    $Id: Makefile,v 4.1 1996/04/22 14:28:48 mj Exp $
 #
 #    Makefile for FIDOGATE test/
 #
@@ -16,14 +16,14 @@ include $(TOPDIR)/config.make
 include $(TOPDIR)/rules.make
 
 
-SUBDIRS		= tc.gate1 tc.gate2\
-		  tc.toss1 tc.toss2 tc.toss3 tc.toss4
-
-
 all depend install::
 
+check run::
+	for d in tc.*; do (echo "$$d"; cd $$d; ./run) || exit 1; done 
+
+
 clean::
-	for d in $(SUBDIRS); do (echo "$$d"; cd $$d; ./clean); done 
+	for d in tc.*; do (echo "$$d"; cd $$d; ../tr.clean); done 
 
 clean::
 	rm -f *~ *.bak *.o tags TAGS core paths.tmp

@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftnpack.c,v 4.0 1996/04/17 18:17:42 mj Exp $
+ * $Id: ftnpack.c,v 4.1 1996/04/22 14:31:15 mj Exp $
  *
  * Pack output packets of ftnroute for Binkley outbound (ArcMail)
  *
@@ -39,12 +39,8 @@
 
 
 #define PROGRAM 	"ftnpack"
-#define VERSION 	"$Revision: 4.0 $"
+#define VERSION 	"$Revision: 4.1 $"
 #define CONFIG		CONFIG_MAIN
-
-
-
-#define PACKING		"%L/packing"
 
 
 
@@ -220,14 +216,7 @@ void packing_init(char *name)
     LON lon;
     int cmd;
 
-    if(!strncmp(name, "%L/", 3))	/* File in LIBDIR */
-    {
-	name += 3;
-	fp = libfopen(name, R_MODE);
-    }
-    else				/* Full path name */
-	fp = xfopen(name, R_MODE);
-
+    fp = xfopen(name, R_MODE);
 
     while(cf_getline(buffer, BUFFERSIZE, fp))
     {

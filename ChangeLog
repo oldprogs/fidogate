@@ -1,4 +1,96 @@
+Mon Apr 22 15:02:58 1996  Martin Junius  <mj@fido.de>
+
+	* ----- CVS commit ---------------------------------------------------
+
+	* test/Makefile (check, clean): for loop over all tc.* directories.
+
+	* Makefile: use GNU make -C for chdir, exit 1 if subdir make fails.
+
+	* src/Makefile: exit 1 if subdir make fails.
+
+	* src/toss/ftnaf.c (is_wildcard): new function checks for
+	  wildcards in area name (*?[]).
+	  (areafix): new flag indicating Areafix (TRUE) or Filefix (FALSE)
+	  mode.
+	  (cmd_list): only check zones in Areafix mode.
+	  (cmd_unlinked): only check zones in Areafix mode.
+	  (cmd_add): only check zones in Areafix mode, "access denied"
+	  messages only if area name is not a wildcard string.
+	  (cmd_remove): "not active" message only if Filefix mode or node
+	  and area zone address are the same.
+	  (main): set areafix flag to FALSE for Filefix (-F) mode.
+
+	* src/common/areasbbs.c (areasbbs_init): use fopen_expand_name().
+
+	* src/common/routing.c (routing_init): xfopen() already expands name.
+
+	* src/toss/ftnroute.c (ROUTING): moved to config.h.
+
+	* src/toss/ftntoss.c (ROUTING): moved to config.h.
+
+	* src/toss/ftnpack.c (PACKING): moved to config.h.
+	  (packing_init): xfopen() already expands name.
+
+	* src/common/passwd.c (passwd_init): use fopen_expand_name(),
+	  R_MODE_T, silently return if PASSWD file can't be opened.
+
+	* src/common/hosts.c (hosts_init): use fopen_expand_name(),
+	  R_MODE_T, silently return if HOSTS file can't be opened.
+
+	* src/common/areas.c (areas_init): use R_MODE_T.
+
+	* src/common/aliases.c (alias_init): use fopen_expand_name(),
+	  R_MODE_T, silently return if ALIASES file can't be opened.
+
+	* src/common/config.c (cf_read_config_file): use R_MODE_T.
+
+	* config.h (MAUS): removed.
+	  (ALIASES, AREAS, HOSTS, PASSWD, PACKING, ROUTING): changed to
+	  "%L/...". 
+	  (*_MODE_T): added modes for opening *text* config files.
+
+	* src/common/fopen.c (fopen_expand_name): new function expanding
+	  filename (%L, %S, %O) and opening file. No error check.
+	  (xfopen): use fopen_expand_name().
+
+Sun Apr 21 10:31:10 1996  Martin Junius  <mj@fido.de>
+
+	* config.h (FIDODOMAIN): renamed to MSGID_FIDONET_DOMAIN.
+
+	* src/common/msgid.c: FIDODOMAIN replaced with MSGID_FIDONET_DOMAIN.
+
+	* src/common/config.c (cf_zones_inet_domain): replace FIDODOMAIN
+	  with FTN_INVALID_DOMAIN.
+
+	* config.h (FTN_JUNK): removed.
+	  (ERRORS_TO): removed.
+
+	* src/gate/ftn2rfc.c (main): new config options "FTNJunkArea" and
+	  "ErrorsTo". 
+	  (unpack): skip message in unknown area, if FTNJunkGroup is not set.
+	  (unpack): replace FTN_JUNK with ftn_junk_area.
+	  (unpack): replace ERRORS_TO with errors_to.
+
+	* config.h (HOSTS_RESTRICTED): removed.
+
+	* src/gate/rfc2ftn.c (main): new config option "HostsRestricted".
+
+	* src/gate/ftn2rfc.c (unpack): use addr_is_restricted().
+	  (main): new config option "HostsRestricted".
+
+	* src/common/address.c (parse_address): use hosts_is_restricted().
+	  (addr_is_restricted): return hosts_restricted setting.
+
+	* src/gate/rfc2ftn.c (main): use addr_ignore() to set i_flag.
+
+	* src/common/address.c (hosts_restricted): new flag replacing
+	  #ifdef HOSTS_RESTRICTED.
+	  (addr_restricted): new function setting hosts_restricted flag.
+	  (addr_ignore): new function setting i_flag.
+
 Thu Apr 18 10:07:42 1996  Martin Junius  <mj@fido.de>
+
+	* ----- CVS commit ---------------------------------------------------
 
 	* src/gate/ftn2rfc.c (main): option "NoUnknownMSGIDZones" renamed
 	  to "KillUnknownMSGIDZone", "NoMessagesWithoutMSGID" to
@@ -23,7 +115,7 @@ Wed Apr 17 12:12:08 1996  Martin Junius  <mj@fido.de>
 	  substitution.
 
 	* CVS: due to problems with old version imported again
-	  ----- FIDOGATE 4.0.0 (alpha0) -----
+	  ----- FIDOGATE 4.0.0 (alpha0) --------------------------------------
 
 	* src/util/Makefile: added pktmore script.
 

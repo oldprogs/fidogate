@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftnroute.c,v 4.0 1996/04/17 18:17:42 mj Exp $
+ * $Id: ftnroute.c,v 4.1 1996/04/22 14:31:15 mj Exp $
  *
  * Route FTN NetMail/EchoMail
  *
@@ -39,12 +39,8 @@
 
 
 #define PROGRAM 	"ftnroute"
-#define VERSION 	"$Revision: 4.0 $"
+#define VERSION 	"$Revision: 4.1 $"
 #define CONFIG		CONFIG_MAIN
-
-
-
-#define ROUTING		"%L/routing"
 
 
 

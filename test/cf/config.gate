@@ -135,3 +135,21 @@ BounceCCMail		postmaster@orodruin.fido.de
 # Send mail from message trackers to
 #
 TrackerMail		postmaster@orodruin.fido.de
+
+
+#
+# Restrict gateway usage to FTN nodes registered in HOSTS
+#
+HostsRestricted
+
+
+#
+# Newsgroup for unknown FTN areas
+#
+FTNJunkGroup		fido.junk
+
+
+#
+# Errors-To header
+#
+#Errors-To		postmaster@orodruin.fido.de

@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: ftn2rfc.c,v 4.1 1996/04/18 09:58:37 mj Exp $
+ * $Id: ftn2rfc.c,v 4.2 1996/04/22 14:31:13 mj Exp $
  *
  * Convert FTN mail packet to RFC messages (mail and news batches)
  *
@@ -40,7 +40,7 @@
 
 
 #define PROGRAM 	"ftn2rfc"
-#define VERSION 	"$Revision: 4.1 $"
+#define VERSION 	"$Revision: 4.2 $"
 #define CONFIG		CONFIG_GATE
 
 
@@ -69,10 +69,10 @@ void	usage			(void);
  */
 int t_flag = FALSE;
 
-char in_dir[MAXPATH];
-char news_dir[MAXPATH];
+char in_dir   [MAXPATH];
+char news_dir [MAXPATH];
 char news_name[MAXPATH];
-char news_tmp[MAXPATH];
+char news_tmp [MAXPATH];
 FILE *news_file;
 
 
@@ -120,6 +120,18 @@ static int use_origin_for_organization = FALSE;
  * Don't bounce message from FTN address not listed in HOSTS
  */
 static int ignore_hosts = FALSE;
+
+
+/*
+ * Newsgroup name for unknown FTN areas (NULL = don't gate)
+ */
+static char *ftn_junk_group = NULL;
+
+
+/*
+ * Address for Errors-To header (NULL = none)
+ */
+static char *errors_to = NULL;
 
 
 
@@ -431,11 +443,17 @@ int unpack(FILE *pkt_file, Packet *pkt)
 	 */
 	if( (area = news_msg(body.area)) )
 	{
-	    /*
-	     * Set AKA according to area's zone
-	     */
+	    /* Set AKA according to area's zone */
 	    cf_set_zone(area->zone);
-	    
+
+	    /* Skip, if unknown and FTNJunkGroup not set */
+	    if(!area->group && !ftn_junk_group)
+	    {
+		log("unknown area %s", area->area);
+		continue;
+	    }
+
+	    /* Open new news batch if needed */
 	    if(!news_file)
 	    {
 		long n = sequencer(SEQ_NEWS);
@@ -584,12 +602,11 @@ int unpack(FILE *pkt_file, Packet *pkt)
 	origindomain = msg.node_orig.zone != -1
 	    ? ftn_to_inet(&msg.node_orig, TRUE) : FTN_INVALID_DOMAIN;
 
-#ifdef HOSTS_RESTRICTED
 	/*
 	 * Bounce mail from nodes not registered in HOSTS,
 	 * but allow mail to local users.
 	 */
-	if(!ignore_hosts &&
+	if(addr_is_restricted() && !ignore_hosts &&
 	   area==NULL && msgbody_rfc_to && !addr_is_domain(msgbody_rfc_to))
 	{
 	    Host *h;
@@ -619,7 +636,6 @@ int unpack(FILE *pkt_file, Packet *pkt)
 		continue;
 	    }
 	}	    
-#endif /**HOSTS_RESTRICTED**/
 
 	/*
 	 * Check mail messages' user name
@@ -804,9 +820,8 @@ int unpack(FILE *pkt_file, Packet *pkt)
 		tl_appendf(&theader, "Bcc: %s\n", bcc_line);
 	    if(*x_orig_to)
 		tl_appendf(&theader, "X-Orig-To: %s\n", x_orig_to);
-#ifdef ERRORS_TO
-	    tl_appendf(&theader, "Errors-To: %s\n", ERRORS_TO);
-#endif
+	    if(errors_to)
+		tl_appendf(&theader, "Errors-To: %s\n", errors_to);
 	    /* FTN ReturnReceiptRequest -> Return-Receipt-To */
 	    if(msg.attr & MSG_RRREQ)
 		tl_appendf(&theader, "Return-Receipt-To: %s\n",
@@ -817,7 +832,7 @@ int unpack(FILE *pkt_file, Packet *pkt)
 	    if(ref_line)
 		tl_appendf(&theader, "References: %s\n", ref_line);
 	    tl_appendf(&theader, "Newsgroups: %s\n",
-			     area->group ? area->group : FTN_JUNK);
+			     area->group ? area->group : ftn_junk_group);
 	    if(!area->group)
 		tl_appendf(&theader, "X-FTN-Area: %s\n", area->area);
 	    if(area->distribution)
@@ -1239,6 +1254,21 @@ int main(int argc, char **argv)
     {
 	debug(8, "config: UseOriginForOrganzation");
 	use_origin_for_organization = TRUE;
+    }
+    if(cf_get_string("HostsRestricted", TRUE))
+    {
+	debug(8, "config: HostsRestricted");
+	addr_restricted(TRUE);
+    }
+    if( (p = cf_get_string("FTNJunkGroup", TRUE)) )
+    {
+	debug(8, "config: FTNJunkGroup %s", p);
+	ftn_junk_group = p;
+    }
+    if( (p = cf_get_string("ErrorsTo", TRUE)) )
+    {
+	debug(8, "config: ErrorsTo %s", p);
+	ftn_junk_group = p;
     }
     
     /*

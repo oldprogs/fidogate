@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway software UNIX <-> FIDO
  *
- * $Id: rfc2ftn.c,v 4.0 1996/04/17 18:17:41 mj Exp $
+ * $Id: rfc2ftn.c,v 4.1 1996/04/22 14:31:14 mj Exp $
  *
  * Read mail or news from standard input and convert it to a FIDO packet.
  *
@@ -39,7 +39,7 @@
 
 
 #define PROGRAM 	"rfc2ftn"
-#define VERSION 	"$Revision: 4.0 $"
+#define VERSION 	"$Revision: 4.1 $"
 #define CONFIG		CONFIG_GATE
 
 
@@ -1358,7 +1358,7 @@ int main(int argc, char **argv)
 	    break;
 	case 'i':
 	    /* Don't bounce unknown hosts */
-	    i_flag = TRUE;
+	    addr_ignore(TRUE);
 	    break;
 	case 'O':
 	    /* Set packet dir */
@@ -1461,6 +1461,11 @@ int main(int argc, char **argv)
     {
 	debug(8, "config: EchoMail4D");
 	echomail4d = TRUE;
+    }
+    if(cf_get_string("HostsRestricted", TRUE))
+    {
+	debug(8, "config: HostsRestricted");
+	addr_restricted(TRUE);
     }
     
 

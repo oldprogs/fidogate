@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: msgid.c,v 4.0 1996/04/17 18:17:39 mj Exp $
+ * $Id: msgid.c,v 4.1 1996/04/22 14:31:12 mj Exp $
  *
  * MSGID <-> Message-ID conversion handling. See also ../doc/msgid.doc
  *
@@ -109,7 +109,7 @@ static void msgid_mime_quote(char *d, char *s, int n)
 static char *msgid_domain(int zone)
 {
     if(zone>=1 && zone<=6)		/* FIDONET */
-	return FIDODOMAIN + 1;		/* +1 = skip leading `.' */
+	return MSGID_FIDONET_DOMAIN + 1;		/* +1 = skip leading `.' */
     else
 	return cf_zones_inet_domain(zone) + 1;
 }
@@ -241,10 +241,11 @@ char *msgid_fido_to_rfc(char *msgid, int *pzone)
 	if(idnode.domain[0])		    /* With DOMAIN part */
 	    sprintf(tcharp, "<%s%%%s@%s%s>",
 		    serialno, idnode.domain, node_to_pfnz(&idnode, TRUE),
-		    FIDODOMAIN);
+		    MSGID_FIDONET_DOMAIN);
 	else
 	    sprintf(tcharp, "<%s@%s%s>",
-		    serialno, node_to_pfnz(&idnode, TRUE), FIDODOMAIN);
+		    serialno, node_to_pfnz(&idnode, TRUE),
+		    MSGID_FIDONET_DOMAIN);
     }
     else
     {
@@ -286,7 +287,7 @@ char *msgid_default(Node *node, char *msg_from, char *msg_to, char *msg_subj, ti
 
     sprintf(tcharp, "<NOMSGID-%s-%08lx@%s%s>",
 	    date("%y%m%d-%H%M%S", &msg_date),
-	    crc32_value(), node_to_pfnz(node, TRUE), FIDODOMAIN);
+	    crc32_value(), node_to_pfnz(node, TRUE), MSGID_FIDONET_DOMAIN);
 
 #endif
     

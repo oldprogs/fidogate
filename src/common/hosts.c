@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: hosts.c,v 4.0 1996/04/17 18:17:39 mj Exp $
+ * $Id: hosts.c,v 4.1 1996/04/22 14:31:12 mj Exp $
  *
  * Process hostname <-> node aliases from hosts file
  *
@@ -60,8 +60,10 @@ void hosts_init(void)
 
     debug(14, "Reading hosts file");
     
-    fp = libfopen(HOSTS, R_MODE);
-
+    fp = fopen_expand_name(HOSTS, R_MODE_T);
+    if(!fp)
+	return;
+    
     while(cf_getline(buffer, BUFFERSIZE, fp))
     {
 	char *f, *n, *o;

@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: ftnaf.c,v 4.0 1996/04/17 18:17:42 mj Exp $
+ * $Id: ftnaf.c,v 4.1 1996/04/22 14:31:15 mj Exp $
  *
  * Areafix-like AREAS.BBS EchoMail distribution manager. Commands somewhat
  * conforming to FSC-0057.
@@ -39,7 +39,7 @@
 
 
 #define PROGRAM		"ftnaf"
-#define VERSION		"$Revision: 4.0 $"
+#define VERSION		"$Revision: 4.1 $"
 #define CONFIG		CONFIG_MAIN
 
 
@@ -69,6 +69,7 @@
 /*
  * Prototypes
  */
+int	is_wildcard		(char *);
 FILE   *mailer_open		(char *);
 int     mailer_close		(FILE *);
 int	rewrite_areas_bbs	(void);
@@ -86,6 +87,12 @@ int	cmd_passwd		(Node *, char *);
 void	short_usage		(void);
 void	usage			(void);
 
+
+
+/*
+ * Areafix (TRUE) / Filefix (FALSE) flag
+ */
+static int   areafix = TRUE;
 
 
 /*
@@ -117,6 +124,19 @@ static char *my_areasbbs= MY_AREASBBS_AF;
  * Name of areas.bbs file
  */
 static char *areas_bbs = NULL;
+
+
+
+/*
+ * Check for wildcard char in area name
+ */
+int is_wildcard(char *s)
+{
+    return
+	strchr(s, '*') ||
+	strchr(s, '?') ||
+	strchr(s, '[')    ;
+}
 
 
 
@@ -538,7 +558,7 @@ int cmd_listall(Node *node)
     
     if(!authorized)
     {
-	fprintf(output, "Command LIST: not authorized.\n");
+	fprintf(output, "Command LISTALL: not authorized.\n");
 	return OK;
     }
     
@@ -598,7 +618,7 @@ int cmd_list(Node *node)
 	}
 
 	/* Check zone */
-	if(p->zone != node->zone)
+	if(areafix && p->zone!=node->zone)
 	    continue;
 	
 	fprintf(output, lon_search(l, node) ? "* " : "  ");
@@ -668,7 +688,7 @@ int cmd_unlinked(Node *node)
 	/* Check permissions */
 
 	/* Check zone */
-	if(p->zone != node->zone)
+	if(areafix && p->zone!=node->zone)
 	    continue;
 	
 	if(! lon_search(l, node))
@@ -692,6 +712,7 @@ int cmd_add(Node *node, char *area)
     int match = FALSE;
     char *s;
     int key_ok;
+    int iswc;
     
     if(!authorized)
     {
@@ -699,6 +720,8 @@ int cmd_add(Node *node, char *area)
 	return OK;
     }
 
+    iswc = is_wildcard(area);
+    
     for(p=areasbbs_first(); p; p=p->next)
     {
 	l = &p->nodes;
@@ -711,7 +734,8 @@ int cmd_add(Node *node, char *area)
 	    /* Check permissions */
 	    if(p->lvl > authorized_lvl)
 	    {
-		fprintf(output, "access denied (level)\n");
+		if(!iswc)
+		    fprintf(output, "access denied (level)\n");
 		continue;
 	    }
 	    if(p->key)
@@ -725,15 +749,18 @@ int cmd_add(Node *node, char *area)
 		    }
 		if(!key_ok)
 		{
-		    fprintf(output, "access denied (key)\n");
+		    if(!iswc)
+			fprintf(output, "access denied (key)\n");
 		    continue;
 		}
 	    }
 
 	    /* Check zone */
-	    if(p->zone != node->zone)
+	    if(areafix && p->zone!=node->zone)
 	    {
-		fprintf(output, "different zone (Z%d), not added\n", p->zone);
+		if(!iswc)
+		    fprintf(output, "different zone (Z%d), not added\n",
+			    p->zone);
 		continue;
 	    }
 	    
@@ -784,7 +811,10 @@ int cmd_remove(Node *node, char *area)
 	    fprintf(output, "%-39s: ", p->area);
 
 	    if(!lon_search(l, node))
-		fprintf(output, "not active\n");
+	    {
+		if(!areafix || p->zone==node->zone)
+		    fprintf(output, "not active\n");
+	    }
 	    else 
 	    {
 		lon_remove(l, node);
@@ -1005,6 +1035,7 @@ int main(int argc, char **argv)
 	    my_name     = MY_NAME_FF;
 	    my_context  = MY_CONTEXT_FF;
 	    my_areasbbs = MY_AREASBBS_FF;
+	    areafix     = FALSE;
 	    break;
 	    
 	/***** Common options *****/

@@ -1,13 +1,6 @@
 #!/bin/sh
 
-echo "tc: clean-up"
-./clean
-
-echo "tc: init"
-mkdir in
-mkdir in/mail
-mkdir in/news
-mkdir seq
+../tr.init
 
 echo "tc: copying input packets"
 cp ../ti.pkt-z2/* in

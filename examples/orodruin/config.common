@@ -22,6 +22,18 @@ LogDir          /var/log/fido
 Outbound	/var/spool/bt
 Inbound		/var/spool/bt/pin
 
+#
+# Configuration files
+#
+# defaults are defined in config.h
+#
+Aliases		%L/aliases
+Areas		%L/areas
+Hosts		%L/hosts
+Packing		%L/packing
+Passwd		%L/passwd
+Routing		%L/routing
+
 
 #
 # Internet address

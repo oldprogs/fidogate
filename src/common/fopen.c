@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FIDO NetMail/EchoMail
  *
- * $Id: fopen.c,v 4.0 1996/04/17 18:17:39 mj Exp $
+ * $Id: fopen.c,v 4.1 1996/04/22 14:31:12 mj Exp $
  *
  * Specialized fopen()-like functions
  *
@@ -35,24 +35,37 @@
 
 
 /*
- * xfopen() --- expand file name, open file, check for error
+ * fopen_expand_name() --- expand file name and open file
  */
-
-FILE *xfopen(char *name, char *mode)
+FILE *fopen_expand_name(char *name, char *mode)
 {
-    FILE *fp;
     char xname[MAXPATH];
-    
+
     if(!name)
 	return NULL;
     
     str_expand_name(xname, sizeof(xname), name);
     
-    if((fp = fopen(xname, mode)) == NULL) {
-	log("$ERROR: can't open %s", xname);
+    return fopen(xname, mode);
+}
+
+
+
+/*
+ * xfopen() --- expand file name, open file, check for error
+ */
+FILE *xfopen(char *name, char *mode)
+{
+    FILE *fp;
+    
+    if(!name)
+	return NULL;
+    
+    if((fp = fopen_expand_name(name, mode)) == NULL) {
+	log("$ERROR: can't open %s", name);
 	exit(EX_OSFILE);
     }
-    return(fp);
+    return fp;
 }
 
 
@@ -60,7 +73,6 @@ FILE *xfopen(char *name, char *mode)
 /*
  * libfopen() --- open file in LIBDIR, check for error
  */
-
 FILE *libfopen(char *name, char *mode)
 {
     char filename[MAXPATH];
@@ -75,7 +87,6 @@ FILE *libfopen(char *name, char *mode)
 /*
  * spoolfopen() --- open file in SPOOLDIR, check for error
  */
-
 FILE *spoolfopen(char *name, char *mode)
 {
     char filename[MAXPATH];

@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway software UNIX <-> FIDO
  *
- * $Id: config.h,v 4.0 1996/04/17 18:17:32 mj Exp $
+ * $Id: config.h,v 4.1 1996/04/22 14:32:06 mj Exp $
  *
  * Configuration header file
  *
@@ -31,11 +31,6 @@
  *****************************************************************************/
 
 /***** General configuration *************************************************/
-
-/*
- * Only allow mail from/to nodes registered in HOSTS
- */
-#define HOSTS_RESTRICTED
 
 /*
  * Generate local FTN addresses, e.g.
@@ -74,12 +69,6 @@
 
 
 /***** ftn2rfc configuration ************************************************/
-
-/** Junk newsgroup for areas with unknown area<->newsgroup conversion **/
-#define FTN_JUNK	"fido.junk"
-
-/** Errors-To: return address for bounced mail **/
-/* #define ERRORS_TO	    "postmaster@fido.de" */
 
 /*
  * Rewrite addresses found in ALIASES so that the sender's address is the
@@ -123,12 +112,6 @@
 #define NO_CONTROL
 
 
-
-/***** ftn2ftn configuration ************************************************/
-
-/*
- * None yet.
- */
 
 /***** System dependend configuration ***************************************
  *
@@ -225,9 +208,9 @@
  */
 
 /*
- * Standard FIDO domain
+ * Standard FIDONET domain for Z1-6 Message-IDs
  */
-#define FIDODOMAIN	".fidonet.org"
+#define MSGID_FIDONET_DOMAIN	".fidonet.org"
 
 /*
  * Create Gatebau '93 ^AORIGID and ^AORIGREF:
@@ -263,17 +246,18 @@
  ****************************************************************************/
 
 /*
- * Files in LIBDIR
+ * Config files
  */
 #define CONFIG_GATE	"%L/config.gate"/* FIDOGATE gateway config file */
 #define CONFIG_MAIN	"%L/config.main"/* FIDOGATE main AKA config file */
 #define CONFIG_FFX	"%L/config.ffx"	/* FIDOGATE ffx progs config file */
 
-#define HOSTS		"hosts"		/* Host file (Fido.DE) */
-#define ALIASES		"aliases"	/* User aliases file */
-#define AREAS		"areas"		/* Areas <-> Newsgroups */
-#define MAUS		"maus"		/* MAUSNET domain list */
-#define PASSWD		"passwd"	/* Password file */
+#define ALIASES		"%L/aliases"	/* Gateway user aliases config file */
+#define AREAS		"%L/areas"	/* Gateway Areas <-> Newsgroups */
+#define HOSTS		"%L/hosts"	/* Gateway registered host file */
+#define PASSWD		"%L/passwd"	/* Password config file */
+#define PACKING		"%L/packing"	/* Tosser packing config file */
+#define ROUTING		"%L/routing"	/* Tosser routing config file */
 
 #define HISTORY		"history"	/* MSGID history in SPOOLDIR */
 
@@ -361,6 +345,12 @@
 # define WP_MODE	"w+"
 # define AP_MODE	"a+"
 #endif /**DO_BINARY**/
+#define R_MODE_T	"r"
+#define W_MODE_T	"w"
+#define A_MODE_T	"a"
+#define RP_MODE_T	"r+"
+#define WP_MODE_T	"w+"
+#define AP_MODE_T	"a+"
 
 /*
  * Format strings for RFC dates
