@@ -1,4 +1,15 @@
+Wed May  8 20:22:12 1996  Martin Junius  <mj@fido.de>
+
+	------- CVS commit ---------------------------------------------------
+
+	* src/common/tick.c (tick_get): ignore empty or incomplete
+	  lines. Fixes core dump with such .TIC files.
+
+	* src/tick/ftntick.c (check_file): fixed spelling of error message.
+
 Tue May  7 20:21:58 1996  Martin Junius  <mj@fido.de>
+
+	------- CVS commit ---------------------------------------------------
 
 	* test/tc.toss5/run: new test case for ftnpack's "dirpack" command.
 
