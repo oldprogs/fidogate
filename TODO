@@ -2,14 +2,16 @@
 	************** TODO list for FIDOGATE development **************
 
 
-	* rfc2ftn: different output dirs for mail and news.
+DONE	* rfc2ftn: config.gate command to control X-Flags security.
 
-	* log.c: add alternate logging via openlog(), syslog().
+4.3.x	* rfc2ftn: different output dirs for mail and news.
+
+4.3.x	* log.c: add alternate logging via openlog(), syslog().
 
 	* Direct mailing list support, gateway EchoMail <-> mailing
 	  list.
 
-	* rfc2ftn: configuration option, use only From header for Fido
+DONEx	* rfc2ftn: configuration option, use only From header for Fido
 	  from field, not Reply-To.
 
 4.3.x	* config: different lib and sbin directory?
@@ -20,13 +22,13 @@
 	* lock.c:lock_lockfile_id(): implement safer variant, see man 2
 	  open, NFS related bug with O_EXCL.
 
-	* ftn2rfc: ^ARFC-<mime> import.
+4.3.x	* ftn2rfc: ^ARFC-<mime> import.
 
-	* ftn2rfc/rfc2ftn: MAIL-log messages configurable.
+4.3.x	* ftn2rfc/rfc2ftn: MAIL-log messages configurable.
 
 4.3.x	* config: move config files to /etc/fidogate, %C for config dir.
 
-	* ftntick: junk file area for unknown file echo areas.
+x	* ftntick: junk file area for unknown file echo areas.
 
 	* ftnaf: option to sort areas.bbs, including zone/keys.
 
@@ -53,7 +55,7 @@ STARTED	* areas.bbs: read-only/vacation flag for downlinks,
 
 	* ftn2rfc: send bounce mails directly as FTN messages, not via
 	  the mail system.
- 	* ftn2rfc: bounce messages should include the complete FTN
+ 	  ftn2rfc: bounce messages should include the complete FTN
 	  message with all kludges etc. to ease debugging.
 
 	* rfc2ftn: save large mails to file, fattach on hold for

@@ -1,0 +1,27 @@
+-*- Indented-Text -*-
+
+This is a quick'n'dirty binary release of FIDOGATE for the GNU-WIN32
+environment. You'll need both the GNU-WIN32 development and Perl for
+WIN32 installed under c:/usr, e.g. c:/usr/bin/perl.exe must be
+available for the scripts.
+
+======================================================================
+
+GNU-WIN32 information can be found at
+    http://www.cygnus.com/misc/gnu-win32/
+
+Perl for WIN32 information can be found at
+    http://www.activeware.com/
+
+======================================================================
+
+Please use this as test software, it is not (yet) ready for production
+use!!!
+
+For more information see the files in the doc/ subdirectory and the
+FIDOGATE source distribution.
+
+
+$Date: 1997/10/12 18:16:57 $
+Martin Junius
+mailto:mj@fido.de

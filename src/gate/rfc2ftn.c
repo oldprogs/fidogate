@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway software UNIX <-> FIDO
  *
- * $Id: rfc2ftn.c,v 4.28 1997/08/17 13:13:20 mj Exp $
+ * $Id: rfc2ftn.c,v 4.29 1997/10/12 18:17:02 mj Exp $
  *
  * Read mail or news from standard input and convert it to a FIDO packet.
  *
@@ -39,7 +39,7 @@
 
 
 #define PROGRAM 	"rfc2ftn"
-#define VERSION 	"$Revision: 4.28 $"
+#define VERSION 	"$Revision: 4.29 $"
 #define CONFIG		CONFIG_GATE
 
 
@@ -95,11 +95,13 @@ static int   i_flag = FALSE;		/* -i --ignore-hosts    option */
 
 static int default_rfc_level = 0;	/* Default ^ARFC level for areas */
 
-static int no_from_line	= FALSE;	/* config: NoFromLine */
-static int no_fsc_0035 = FALSE;		/* config: NoFSC0035 */
-static int no_fsc_0047 = FALSE;		/* config: NoFSC0047 */
+static int no_from_line	= FALSE;	/* config.gate: NoFromLine */
+static int no_fsc_0035 = FALSE;		/* config.gate: NoFSC0035 */
+static int no_fsc_0047 = FALSE;		/* config.gate: NoFSC0047 */
 static int echomail4d = FALSE;		/* config.gate: EchoMail4d */ 
- 
+static int x_flags_policy = 0;		/* config.gate: XFlagsPolicy */
+static int dont_use_reply_to = FALSE;	/* config.gate: DontUseReplyTo */
+
 
 
 /*
@@ -326,12 +328,15 @@ RFCAddr rfc_sender(void)
 	    /* No From, use Reply-To */
 	    if(!from)
 		rfc = rfc1;
-	    /* If Reply-To contains only an address which is the same as
-	     * the one in From, don't replace From RFCAddr */
-	    else if( ! ( rfc1.real[0]==0               &&
+	    else if(!dont_use_reply_to)
+	    {
+		/* If Reply-To contains only an address which is the same as
+		 * the one in From, don't replace From RFCAddr */
+		if( ! ( rfc1.real[0]==0               &&
 			 !stricmp(rfc.user, rfc1.user) &&
 			 !stricmp(rfc.addr, rfc1.addr)    ) )
-		rfc = rfc1;
+		    rfc = rfc1;
+	    }
 	}
     }
     /*
@@ -843,46 +848,64 @@ int snd_mail(RFCAddr rfc_to, long size)
 	}
 	
 	msg.attr |= MSG_PRIVATE;
-	p = flags;
-	
-	/*
-	 * Allow only true local users to use the X-Flags header
-	 */
+
 	from_is_local = rfc_is_local();
-	if(from_is_local && header_hops() <= 1)
-	    debug(5, "true local address - o.k.");
+
+	if(x_flags_policy > 0) 
+	{
+	    if(x_flags_policy == 1) 
+	    {
+		/* Allow only local users to use the X-Flags header */
+		if(from_is_local && header_hops() <= 1)
+		    debug(5, "true local address - o.k.");
+		else
+		{
+		    if(flags)
+			log("NON-LOCAL From: %s, Reply-To: %s, X-Flags: %s",
+			    header_getcomplete("From"),
+			    header_getcomplete("Reply-To"), flags           );
+		    flags = p = NULL;
+		}
+	    }
+	    /* Let's at least log what's going on ... */
+	    if(flags)
+		log("X-Flags: %s, From: %s", flags,
+		    header_getcomplete("From"));
+	    
+	    p = flags;
+	    if(p)
+	    {
+		while(*p)
+		    switch(*p++)
+		    {
+		    case 'c':
+			msg.attr |= MSG_CRASH;
+			break;
+		    case 'p':
+			msg.attr |= MSG_PRIVATE;
+			break;
+		    case 'h':
+			msg.attr |= MSG_HOLD;
+			break;
+		    case 'f':
+			msg.attr |= MSG_FILE;
+			break;
+		    case 'r':
+			msg.attr |= MSG_RRREQ;
+			break;
+		    }
+	    }	
+	}
 	else
 	{
+	    /* Log what's going on ... */
 	    if(flags)
-		log("NON-LOCAL From: %s, Reply-To: %s, X-Flags: %s",
-		    header_getcomplete("From"),
-		    header_getcomplete("Reply-To"), flags           );
-	    flags = p = NULL;
+		log("FORBIDDEN X-Flags: %s, From: %s", flags,
+		    header_getcomplete("From"));
+	    flags = NULL;
 	}
-	    
-	if(p)
-	{
-	    while(*p)
-		switch(*p++)
-		{
-		case 'c':
-		    msg.attr |= MSG_CRASH;
-		    break;
-		case 'p':
-		    msg.attr |= MSG_PRIVATE;
-		    break;
-		case 'h':
-		    msg.attr |= MSG_HOLD;
-		    break;
-		case 'f':
-		    msg.attr |= MSG_FILE;
-		    break;
-		case 'r':
-		    msg.attr |= MSG_RRREQ;
-		    break;
-		}
-	}	
-
+	
+	
 	/*
 	 * Return-Receipt-To -> RRREQ flag
 	 */
@@ -1017,7 +1040,14 @@ int snd_message(Message *msg, Area *parea,
     long seq          = 0;
     int mime_qp = 0;			/* quoted-printable flag */
     int rfc_level = default_rfc_level;
+    int x_flags_n=FALSE, x_flags_m=FALSE, x_flags_f=FALSE;
 
+    /*
+     * X-Flags settings
+     */
+    x_flags_f = flags && strchr(flags, 'f');
+    x_flags_m = flags && strchr(flags, 'm');
+    x_flags_n = flags && strchr(flags, 'n');
 
     /*
      * ^ARFC level
@@ -1139,7 +1169,7 @@ int snd_message(Message *msg, Area *parea,
     /***** ^A kludges *******************************************************/
 
     /* Add kludges for MSGID / REPLY and ORIGID / ORIGREF */
-    if(!flags || !strchr(flags, 'm'))		/* X-Flags: M */
+    if(!x_flags_m)				/* ! X-Flags: m */
     {
 	if((header = header_getcomplete("Message-ID")))
 	{
@@ -1172,7 +1202,7 @@ int snd_message(Message *msg, Area *parea,
 	print_local_msgid(sf);
 
     if(!no_fsc_0035)
-	if(!flags || !strchr(flags, 'n'))
+	if(!x_flags_n)
 	{
 	    /* Generate FSC-0035 ^AREPLYADDR, ^AREPLYTO */
 	    fprintf(sf, "\001REPLYADDR %s\r\n",
@@ -1182,7 +1212,7 @@ int snd_message(Message *msg, Area *parea,
 		    msg->name_from);
 	}
 
-    if( flags && strchr(flags, 'f') )
+    if(x_flags_f)
     {
 	/*
 	 * Generate ^AFLAGS KFS
@@ -1201,10 +1231,13 @@ int snd_message(Message *msg, Area *parea,
      */
     fprintf(sf, "\001CHRS: LATIN-1 2\r\n");
 
-    /* Add ^ARFC header lines according to FIDO-Gatebau '94 specs */
-    fprintf(sf, "\001RFC: %d 0\r\n", rfc_level);
-    header_ca_rfc(sf, rfc_level);
-
+    if(!x_flags_n)
+    {
+	/* Add ^ARFC header lines according to FIDO-Gatebau '94 specs */
+	fprintf(sf, "\001RFC: %d 0\r\n", rfc_level);
+	header_ca_rfc(sf, rfc_level);
+    }
+    
     add_empty = FALSE;
 
     
@@ -1220,7 +1253,7 @@ int snd_message(Message *msg, Area *parea,
 	add_empty = TRUE;
     }
 
-    if(!flags || !strchr(flags, 'n'))
+    if(!x_flags_n)
     {
 	if(!no_from_line)
 	{
@@ -1797,6 +1830,27 @@ int main(int argc, char **argv)
     {
 	debug(8, "config: UseOrganizationForOrigin");
 	use_organization_for_origin = TRUE;
+    }
+    if( (p = cf_get_string("XFlagsPolicy", TRUE)) )
+    {
+	switch(*p) 
+	{
+	case 'n': case 'N': case '0':
+	    x_flags_policy = 0;			/* No X-Flags */
+	    break;
+	case 's': case 'S': case '1':
+	    x_flags_policy = 1;			/* "Secure" X-Flags (local) */
+	    break;
+	case 'a': case 'A': case '2':
+	    x_flags_policy = 2;			/* Open X-Flags (all!!!) */
+	    break;
+	}
+	debug(8, "config: XFlagsPolicy %d", x_flags_policy);
+    }
+    if(cf_get_string("DontUseReplyTo", TRUE))
+    {
+	debug(8, "config: DontUseReplyTo");
+	dont_use_reply_to = TRUE;
     }
     
 

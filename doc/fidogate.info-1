@@ -169,11 +169,26 @@ Requirements for FIDOGATE:
 FIDOGATE Mailing List
 =====================
 
-There is a mailing list for FIDOGATE discussions and announcements:
-     fgate-users@gondor.gun.de
+There is a NEW mailing list for FIDOGATE discussions and announcements:
 
-   For subscription send mail to
-     fgate-users-request@gondor.gun.de
+     fidogate@fido.de
+
+   To subscribe to this mailing list, send a message to
+
+     majordomo@fido.de
+
+with the command
+
+     subscribe fidogate
+
+in the message body (not subject!). This will not immediately put your
+email address into the mailing list. A confirmation mail with an
+authentication code will be send to you, which must be returned to
+majordomo to finally enable your subscription.
+
+   To unsubscribe from this mailing list, send the command
+
+     unsubscribe fidogate
 
 Credits
 =======

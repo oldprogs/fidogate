@@ -2,7 +2,7 @@
 @c
 @c FIDOGATE documentation
 @c
-@c $Id: fidogate.texi,v 4.26 1997/10/11 21:24:16 mj Exp $
+@c $Id: fidogate.texi,v 4.27 1997/10/12 18:16:52 mj Exp $
 @c
 
 @setfilename fidogate.info
@@ -244,15 +244,38 @@ M4 for compiling the sendmail config files.
 @section FIDOGATE Mailing List
 
 @noindent
-There is a mailing list for FIDOGATE discussions and announcements:
+There is a @i{NEW} mailing list for FIDOGATE discussions and
+announcements:
+
 @example
-fgate-users@@gondor.gun.de
+fidogate@@fido.de
 @end example
 
-For subscription send mail to
+To @i{subscribe} to this mailing list, send a message to
+
 @example
-fgate-users-request@@gondor.gun.de
+majordomo@@fido.de
 @end example
+
+@noindent
+with the command 
+
+@example
+subscribe fidogate
+@end example
+
+@noindent
+in the message @i{body} (not subject!). This will not immediately put
+your email address into the mailing list. A confirmation mail with an
+authentication code will be send to you, which must be returned to
+majordomo to finally enable your subscription.
+
+To @i{unsubscribe} from this mailing list, send the command
+
+@example
+unsubscribe fidogate
+@end example
+
 
 
 @section Credits
@@ -2854,6 +2877,20 @@ Set the default RFC level. See also @code{-R} option in @code{areas}.
 
 @item UseOrganizationForOrigin
 Put the text from the Organization header into the * Origin line.
+
+@item XFlagsPolicy
+Controls policy for X-Flags processing (default is 0, no processing):
+@table @code
+@item n   N   0
+No X-Flags processing at all.
+@item s   S   1
+X-Flags processing for local sender (check From and Received
+headers). This is not really secure!!! If your system is directly
+connected to the Internet and runs an SMTP daemon such as sendmail, mail
+can easily be faked to look like local!!!
+@item a   A   2
+X-Flags processing for all. Totally open, totally insecure!!!
+@end table
 
 @end table
 

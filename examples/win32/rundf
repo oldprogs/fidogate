@@ -1,0 +1,27 @@
+#!/bin/sh
+#
+# $Id: rundf,v 1.1 1997/10/12 18:16:59 mj Exp $
+#
+# Check free disk space for runtoss script
+#
+# Needs GNU fileutils df! (configure PATH if necessary)
+#
+# Usage: rundf dir ...
+#
+
+# Currently there is no df for WIN32, returning arbitrary large number
+echo "1000000"
+exit 0
+
+
+
+PATH=/fidogate/bin:$PATH
+
+free=`df -P $* 2>/dev/null  | \
+      awk '/^\/dev/ || /^[a-zA-Z0-9-]*:\// { print $4; }'`
+
+if [ -z "$free" ]; then
+	echo "ERROR"
+else
+	echo $free
+fi

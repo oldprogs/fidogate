@@ -1,10 +1,10 @@
 #:ts=8
 #
-# $Id: config.gate,v 4.10 1997/10/12 18:17:04 mj Exp $
+# $Id: config.gate,v 1.1 1997/10/12 18:16:58 mj Exp $
 #
 # FIDOGATE config file gateway programs
 #
-# orodruin.fido.de
+# WIN32 test
 #
 # Format:  keyword arg ...
 #          keyword and args may be put in double quotes "..."
@@ -22,23 +22,23 @@ include		%L/config.common
 #
 #               real
 #               ----
-Address		2:2452/110.2
-Address		242:1000/5
+Address		2:2499/111.2
+Address		242:1111/2
 
-Uplink		2:2452/110.2
-Uplink		242:1000/5
+Uplink		2:2499/111.2
+Uplink		242:1111/2
 
 
 #
 # Default origin line for EchoMail messages
 #
-Origin		Martin Junius' orodruin.fido.de
+Origin		"WIN32 test.unknown.org"
 
 
 #
 # Organization header for News
 #
-Organization	Martin Junius' orodruin.fido.de
+Organization	"WIN32 test.unknown.org"
 
 
 #
@@ -100,12 +100,17 @@ EchoMail4D
 # Don't gate messages with unknown zone in ^AMSGID (known zones are defined
 # in config.common).
 #
-#KillUnknownMSGIDZone
+KillUnknownMSGIDZone
 
 #
 # Don't gate messages without a valid ^AMSGID (or similar)
 #
 #KillNoMSGID
+
+#
+# Don't gate split messages with a ^ASPLIT kludge
+#
+#KillSplit
 
 
 #
@@ -125,10 +130,15 @@ X-FTN		ftTOVD
 
 
 #
-# Maximum size of FTN messages (default value)
+# Maximum size of FTN messages (default value) for splitting
 #
 MaxMsgSize		15000
 #MaxMsgSize		32000
+
+#
+# Limit message size for gateway, bigger messages will be bounced/not gated
+#
+#LimitMsgSize		256000
 
 
 #
@@ -142,21 +152,27 @@ MAUSGate		2:2452/101.6
 
 
 #
+# Do not allow RFC addresses (chars !, %, @) in FTN to field
+#
+#NoAddressInToField
+
+
+#
 # CC of bounced messages
 #
-BounceCCMail		postmaster@orodruin.fido.de
+BounceCCMail		postmaster@test.unknown.org
 
 
 #
 # Send mail from message trackers to
 #
-TrackerMail		postmaster@orodruin.fido.de
+TrackerMail		postmaster@test.unknown.org
 
 
 #
 # Restrict gateway usage to FTN nodes registered in HOSTS
 #
-HostsRestricted
+#HostsRestricted
 
 
 #
@@ -177,7 +193,7 @@ FTNJunkGroup		fido.junk
 #
 #                       area chars	newsgroup chars
 #			----------	---------------
-AreasXlate		_		-
+#AreasXlate		_		-
 
 
 #
@@ -202,7 +218,7 @@ RFCLevel		1
 #
 # Don't generate From: line at beginning of text body.
 #
-#NoFromLine
+NoFromLine
 
 #
 # Don't generate FSC-0035 kludges (^AREPLYADDR, ^AREPLYTO)
@@ -222,7 +238,7 @@ RFCLevel		1
 #
 #    %s is replaced with the envelope sender
 #
-FTNInSendmail	/usr/lib/sendmail -odb -oee -oi -f%s -oMrFTN -t
+FTNInSendmail	/usr/sbin/sendmail -odb -oee -oi -f%s -pFIDOGATE -t
 
 #
 # rnews program path
@@ -244,17 +260,3 @@ FTNInRnews	/usr/bin/rnews
 # Use MIME quoted-printable ISO-8859-1 characters when gating from FTN to RFC
 #
 NetMailQuotedPrintable
-
-#
-# X-Flags policy
-#
-#    n, N, 0    -    No X-Flags processing at all
-#    s, S, 1    -    X-Flags processing for local sender
-#    a, A, 2    -    X-Flags processing for all
-#
-XFlagsPolicy n
-
-#
-# Don't try to get sender real name from Reply-To header
-#
-#DontUseReplyTo

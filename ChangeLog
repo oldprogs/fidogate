@@ -2,6 +2,33 @@ Sun Oct 12 00:02:28 1997  Martin Junius  <mj@fido.de>
 
 	------- CVS ci -------------------------------------------------------
 
+	* src/gate/rfc2ftn.c (snd_mail): check x_flags_policy for
+	  processing X-Flags, log all X-Flags going thru rfc2ftn.
+	  (main): added DontUseReplyTo config.gate command.
+	  (rfc_sender): don't try to get real name from Reply-To header,
+	  if DontUseReplyTo is set.
+
+	* doc/fidogate.texi (Config): documented XFlagsPolicy.
+
+	* src/gate/rfc2ftn.c (snd_message): new vars x_flags_f, x_flags_m,
+	  x_flags_n for corresponding X-Flags settings.
+	  (snd_message): don't output ^ARFC headers, if x_flags_n is set.
+	  (main): new config.gate command XFlagsPolicy,
+	      n, N, 0    -    No X-Flags processing at all,
+	      s, S, 1    -    X-Flags processing for local sender,
+	      a, A, 2    -    X-Flags processing for all.
+
+	* src/toss/history.c: added #include "getopt.h" for test program.
+
+	* examples/win32/: added various example configuration files and
+	  README.WIN32 for WIN32 binary test distribution.
+
+	* examples/win32/config.make: use -O2.
+
+	* doc/fidogate.texi (Introduction): new mailing list.
+
+	------- CVS ci -------------------------------------------------------
+
 	* doc/howto/: added Fido-Node-HOWTO contributed by
 	  Matthias Schniedermeyer <ms@citd.owl.de> (not yet complete).
 

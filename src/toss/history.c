@@ -2,7 +2,7 @@
 /*****************************************************************************
  * FIDOGATE --- Gateway UNIX Mail/News <-> FTN NetMail/EchoMail
  *
- * $Id: history.c,v 4.3 1996/12/17 17:19:59 mj Exp $
+ * $Id: history.c,v 4.4 1997/10/12 18:17:03 mj Exp $
  *
  * MSGID history functions and dupe checking
  *
@@ -203,8 +203,12 @@ int hi_test(char *msgid)
 
 
 
-
+/*****TEST********************************************************************/
 #ifdef TEST
+#include "getopt.h"
+
+
+
 /*
  * history test
  */
@@ -323,3 +327,4 @@ int main(int argc, char *argv[])
     return 1;
 }
 #endif /**TEST**/
+/*****************************************************************************/

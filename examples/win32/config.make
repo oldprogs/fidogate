@@ -1,6 +1,6 @@
 # -*- Makefile -*-
 #
-# $Id: config.make,v 1.1 1997/08/20 21:05:00 mj Exp $
+# $Id: config.make,v 1.2 1997/10/12 18:16:59 mj Exp $
 #
 # FIDOGATE Makefile configuration for GNU-WIN32 / Perl for WIN32
 #
@@ -71,8 +71,8 @@ PERL		= /usr/bin/perl
  RANLIB		= ranlib
 # RANLIB	= ar s					# OS2
 
-# DEBUG		= -O2
- DEBUG		= -g
+ DEBUG		= -O2
+# DEBUG		= -g
 
  INCLUDE	= -I$(TOPDIR) -I$(TOPDIR)/src/include
 
@@ -105,6 +105,8 @@ PERL		= /usr/bin/perl
  INSTALL_DATA	= install -c -g $(GROUP) -o $(OWNER) -m $(PERM_DATA)
  INSTALL_SETUID	= install -c -g $(GROUP) -o $(OWNER) -m $(PERM_SETUID)
  INSTALL_DIR	= install -g $(GROUP) -o $(OWNER) -m $(PERM_DIR) -d
+# extra prefix for installation
+ PREFIX         =
 
 # library name
 # LIB		= fidogate.a			# OS2
