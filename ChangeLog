@@ -1,5 +1,9 @@
 2007-01-08  Martin Junius  <mj.at.n0ll.dot.net>
 
+	* : created branch for future bug fix releases of FIDOGATE 4.4
+
+	------- CVS tag BRANCH_4_4 -------------------------------------------
+
 	* cvsexp: fixed to work with new sf.net CVS repository.
 
 2004-08-27  Martin Junius  <mj.at.n0ll.dot.net>
