@@ -2,7 +2,7 @@
 
 	* : created branch for future bug fix releases of FIDOGATE 4.4
 
-	------- CVS tag BRANCH_4_4 -------------------------------------------
+	------- CVS tag -b BRANCH_4_4 ----------------------------------------
 
 	* cvsexp: fixed to work with new sf.net CVS repository.
 
