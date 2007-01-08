@@ -10,7 +10,7 @@ rm -rf /var/tmp/fidogate-*$REL.tar*
 
 cd /var/tmp
 
-cvs -d :ext:n0ll@cvs.fidogate.sourceforge.net:/cvsroot/fidogate \
+cvs -d :ext:n0ll@fidogate.cvs.sourceforge.net:/cvsroot/fidogate \
     export -r $TAG -d fidogate-$REL fidogate || exit 1;
 
 tar cvf fidogate-test-$REL.tar fidogate-$REL/test/

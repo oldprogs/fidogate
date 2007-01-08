@@ -1,3 +1,7 @@
+2007-01-08  Martin Junius  <mj.at.n0ll.dot.net>
+
+	* cvsexp: fixed to work with new sf.net CVS repository.
+
 2004-08-27  Martin Junius  <mj.at.n0ll.dot.net>
 
 	======= Release 4.4.10 ===============================================
